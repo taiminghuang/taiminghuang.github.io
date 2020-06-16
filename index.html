@@ -3,230 +3,100 @@
 
 <html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1.0, maximum-scale=1.0 , minimum-scale=1.0,use-scalable = no " >
-    <meta name="apple-mobile-web-app-capable " content="yes" >
-    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent">
-    <meta name="format-detection" content="telephone=no">
-    <meta name="Keywords" content="calculator,sin,cos,tan,asin,acos,atan,sinh,cosh,tanh,asinh,acosh,atanh,log,ln,n!,^ power,addition,substraction,multiplication,division" > 
-    <meta name="Description" content="calculator for real number(test) " >
-    <meta name="Author" content="huang t.m.">
-    <meta http-equiv="Pragma" content="no_cache">
-
-   
- 
-<title>calculator for real number </title>
-
-
-<style>
-
-.block_1 {
-    width:100%;
-    height:100%;
-    
-    margin: 0px;
-    max-width: 100%;
-    position:fixed;
-    top:2px;
-    left:2px;
-    z-index:2147483647;
-} 
- 
-
-@media only screen and (orientation: portrait) {     
-    
-    .hidden_1 { display:none;}
-    .hidden_2 { display:none;}
-    .textarea_1{width:98%;height:30%;font-size:24px;overflow:auto;border:0px;wrap:physical;zoom:normal;}
-    .table_1  {width:98%;height:60%;overflow:auto;position:fixed;left:2px;zoom:normal;}
-    
-    .button_1  {width:100%;height:100%;font-size:30px;border:0px;resize:none;border-radius:initial;background-size:100% ;zoom:normal;box-shadow:1px 1px 1px  1px #999;
-                -moz-user-select:none;
-                -webkit-user-select:none;
-                -ms-user-select:none;
-                user-select :none;}
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8">
    
 
-
-        }
-
-@media only screen and (orientation: landscape) {     
-    
-    .hidden_1 { visibility: visible ;}
-    .hidden_2 { display:none;}
-    .textarea_1{width:98%;height:19%;font-size:20px;overflow:auto;wrap:physical;zoom:normal;}
-    .table_1  {width:98%;height:50%;overflow:auto;position:fixed;left:2px;resize:none;zoom:normal;}
-    .button_1  {width:100%;height:100%;font-size:20px;border:0px;resize:none;border-radius:initial;background-size:100% 100%;zoom:normal;
-                -moz-user-select:none;
-                -webkit-user-select:none;
-                -ms-user-select:none;
-                user-select :none;}
-    .button_2  {width:100%;height:100%;font-size:20px;border:0px;resize:none;border-radius:initial;background-size:100% 100%;zoom:normal;}
-    
-     }
-
-
-
-</style>
-
-
-
-<script src="calculator_mobile.js" ></script>
-
-<script type="text/javascript">
-
-  var data_setout ;
+    <title>calculator</title>
  
-  function dblclick_a() {   //還原 dblclick 縮\放
 
-      // alert("single");
+  <script type="text/javascript">
+  
+    function calculate(it){
+      var this_it = it ;
+       //  alert(this_it );
 
-        data_setout = setTimeout(dblclick_inv,200);   //延後0.4s   ..執行
+         
+     
+          this_it = this_it.replace(/asin/g , "as");  //第 1 次取代(與 sin 沖)
+          this_it = this_it.replace(/acos/g , "ac");  //第 1 次取代(與 cos 沖) 
+          this_it = this_it.replace(/atan/g , "aa");  //第 1 次取代(與 tan 沖 at 與 Math 沖)
+          this_it = this_it.replace(/Tdeg/g , "(180/3.141592653589793*");  //轉 度數 asin acos atan
+          this_it = this_it.replace(/sin/g , "Math.sin");  //取代
+          this_it = this_it.replace(/cos/g , "Math.cos");  //取代 
+          this_it = this_it.replace(/tan/g , "Math.tan");  //取代 
+          this_it = this_it.replace(/sqrt/g , "Math.sqrt");  //取代
+          this_it = this_it.replace(/exp/g , "Math.exp");  //取代 
+          this_it = this_it.replace(/ln/g , "Math.log");  //取代   ???/ln log
+          this_it = this_it.replace(/deg\(/g , "((3.141592653589793/180) *");   //取代 replace
 
-        
+          this_it = this_it.replace(/as/g , "Math.asin");  //第 2 次取代(與 sin 沖)
+          this_it = this_it.replace(/ac/g , "Math.acos");  //第 2 次取代(與 cos 沖) 
+          this_it = this_it.replace(/aa/g , "Math.atan");  //第 2 次取代(與 tan 沖 at 與 Math 沖)
 
-             }  
+     //   document.getElementById('input').value = eval(this_it);
 
+ 
+        var power_n = document.getElementById('input2').value;
 
- function dblclick_inv() {   //還原 dblclick 縮\放
+        var data_n=Math.pow(10,power_n);
 
-    
-      //preventDefault();  //eav.
+        document.getElementById('input').value = Math.round(eval(this_it)*data_n)/data_n;
+ 
+          //初值:計算到小數點第6位
+       
 
-      document.getElementById('block_1').style.position="fixed";
-      document.getElementById('block_1').style.top="2px";
-      document.getElementById('block_1').style.left="2px";
-      document.getElementById('table_a').style.left="2px";
-      document.getElementById('block_1').style.zoom="normal";
-
-      //s_chang_no_visible_all();   //所有不顯示 不能key  ....避免系統 doubleclicl 放大及位移
-
-        // alert("Hello!");
-       // clearTimeout(data_setout);
-
-   }
-    
-function click_init() {   //還原 dblclick 縮\放
-
-     // alert("dblsingle");
-
-      document.getElementById('block_1').style.position="fixed";
-      document.getElementById('block_1').style.top="2px";
-      document.getElementById('block_1').style.left="2px";
-      document.getElementById('table_a').style.left="2px";
-      document.getElementById('block_1').style.zoom="normal";
-        
-   }
-
- function init(){
-
-  document.getElementById('calc').addEventListener( 'dblclick', dblclick_a, true );  //false true
-
-                }
-
-
-
+                          }
 
 </script>
 
-
 </head>
-<body onload="document.getElementById('input').focus();init();s_chang_sum_ini()">   //;init()
+<body onload="document.getElementById('input').focus()">
 <form id="calc">
-
-<div class="block_1" align="center" id="block_1">
-      
-    <textarea class="textarea_1" id="input"   rows=3 required  readonly="readonly"   onclick="cursor_coords(event);blur(this);document.getElementById('input').focus();" ></textarea>
-     
-
-
- <table class="table_1" id="table_a" border="1px" cellspacing="0" cellpadding="0"  align="center" required readonly="readonly"  >
-       
-     <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
-
-           <td class="hidden_1"><button  type="button" class="button_2" id="1_0"   style="background-color:white;color:blue;" OnClick="key_1('°');" ><strong>°</strong></button></td>
-           <td class="hidden_1"><button  type="button" class="button_2" id="1_1"   style="background-color:Lime;color:blue;" OnClick="key_1('a');" ><strong>arc &nbsp</strong></button></td>
-           <td class="hidden_1"><button  type="button" class="button_2" id="1_2"   style="background-color:cyan;color:blue;" OnClick="key_1('!');" ><strong>&nbsp n! &nbsp</strong></button></td>
-           <td><button type="button" class="button_1" id="1_3"  style="background-color:pink;color:#000000;" OnClick="backspace();"  ><strong><=x </strong></button></td>
-           <td><button type="button" class="button_1" id="1_4"  style="background-color:white;color:blue;" OnClick="key_1('(');"    ><strong>&nbsp ( &nbsp&nbsp </strong></button></td>
-           <td><button type="button" class="button_1" id="1_5"  style="background-color:white;color:blue;" OnClick="key_1(')');"   ><strong>&nbsp ) &nbsp&nbsp</strong></button></strong></td>  
-           <td><button type="button" class="button_1" id="1_6"   style="background-color:yellow;color:blue;" OnClick="key_1('/');" ><strong>&nbsp / &nbsp&nbsp</strong></button></td></tr>
-      
-      <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
-           <td class="hidden_1"><button type="button" class="button_2" id="2_0"  style="background-color:white;color:blue;" OnClick="key_1('π');" ><strong>π</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="2_1"  style="background-color:Lime;color:blue;" OnClick="key_1('sin');" ><strong>sin</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="2_2"  style="background-color:cyan;color:blue;" OnClick="key_1('exp');" ><strong>exp</strong></button></td>
-           <td><button type="button" class="button_1" id="2_3"  style="background-color:white ;color:blue;" OnClick="key_1('7');"   ><strong>7</strong></button></td>
-           <td><button type="button" class="button_1" id="2_4"  style="background-color:white;color:blue;" OnClick="key_1('8');"   ><strong>8</strong></button></td>
-           <td><button type="button" class="button_1" id="2_5"  style="background-color:white;color:blue;" OnClick="key_1('9');"   ><strong>9</strong></button></td>
-           <td><button type="button" class="button_1" id="2_6"  style="background-color:yellow;color:blue;" OnClick="key_1('*');"  ><strong>*</strong></button></td></tr> 
-
-     
-        <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
-           <td class="hidden_1"><button  type="button"    class="button_2" id="3_0"  style="background-color:silver;color:blue;" OnClick="window.location='calculator_help.html'; "  ><strong>help</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="3_1"  style="background-color:Lime;color:blue; " OnClick="key_1('cos');"  ><strong>cos</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="3_2"  style="background-color:cyan;color:blue;" OnClick="key_1('ln');"   ><strong>ln</strong></button></td>
-           <td><button type="button" class="button_1"  id="3_3"  style="background-color:white;color:blue;" OnClick="key_1('4');"   ><strong>4</strong></button></td>
-           <td><button type="button" class="button_1"  id="3_4"  style="background-color:white;color:blue;" OnClick="key_1('5');"   ><strong>5</strong></button></td>
-           <td><button type="button" class="button_1"  id="3_5"  style="background-color:white;color:blue;" OnClick="key_1('6');"   ><strong>6</strong></button></td>
-           <td><button type="button" class="button_1"  id="3_6"  style="background-color:yellow;color:blue;" OnClick="key_1('-');"  ><strong>－</strong></button></td></tr>
-           
-      
-       <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
-           <td class="hidden_1"><select style="width:100%; height:100%; font-size:20px;color:red ;background-color:yellow;text-align-last:center;"  id="4_0"  name="4_0" size="1" > 
-                                          <option value="4">.4</option>
-                                          <option value="8">.8</option>
-                                          <option selected="selected" value="16">.16</option>
-                                          <option value="25">.25</option>
-                                          <option value="50">.50</option>
-                                          <option value="100">.100</option>
-                                          <option value="150">.150</option>
-                                          <option value="200">.200</option>
-                                          <option value="250">.250</option>
-                                          <option value="300">.300</option>
-                                          <option value="350">.350</option>
-                                          <option value="400">.400</option>
-                                          <option value="450">.450</option>
-                                          <option value="500">.500</option>
-                                          <option value="600">.600</option>
-                                          <option value="700">.700</option>
-                                          <option value="800">.800</option>
-                                          <option value="900">.900</option>
-                                          <option value="1000">.1000</option>
-                                          <option value="1100">.1100</option>
-
-
-                                 </select></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="4_1"  style="background-color:Lime;color:blue;" OnClick="key_1('tan');"  ><strong>tan</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="4_2"  style="background-color:cyan;color:blue;" OnClick="key_1('log');"  ><strong>log</strong></button></td>
-           <td><button type="button" class="button_1"  id="4_3"  style="background-color:white;color:blue;" OnClick="key_1('1');"   ><strong>1</strong></button></td>
-           <td><button type="button" class="button_1"  id="4_4"  style="background-color:white;color:blue;" OnClick="key_1('2');"   ><strong>2</strong></button></td>
-           <td><button type="button" class="button_1"  id="4_5"  style="background-color:white;color:blue;" OnClick="key_1('3');"   ><strong>3</strong></button></td>
-           <td><button type="button" class="button_1"  id="4_6"  style="background-color:yellow;color:blue;" OnClick="key_1('+');"  ><strong>＋</strong></button></td></tr>
-                
-     
-       <tr border="1px" cellspacing="0" cellpadding="0"  align="center"> 
-           <td class="hidden_1"><button type="button" class="button_2"  id="5_0"  style="background-color:pink;color:#000000;" OnClick="clear_all_1('ac');"   ><strong>ac</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="5_1"  style="background-color:Lime;color:blue;" OnClick="key_1('h');"   ><strong>hpy</strong></button></td>
-           <td class="hidden_1"><button type="button" class="button_2" id="5_2" style="background-color:cyan;color:blue;" OnClick="key_1('^');"   ><strong>^</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_3"  style="background-color:white;color:blue;" OnClick="key_1('0');"   ><strong>0</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_4"  style="background-color:white;color:blue;" OnClick="key_1('.');" ><strong>.</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_5"  style="background-color:white;color:blue;" OnClick="key_1('e');" ><strong>e</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_6"  style="background-color:#FF3333;color:#000000;" OnClick="calculate('=');"   ><strong>=</strong></button></td></tr>  
- </table>
-
-</div>
-
-  <div class="hidden_2" >
-  <td  ><input type="text"    id="input2" size="2" maxlength="2" value=15>dgt</td>
-   
-  </div>
-   
+<table id="mytable" border="1" marginheight="0" marginwidth="0" >
+       <tr><td colspan="8" rowspan="5" align="center" height="50" >A Javacsript calculator 
+       <textarea id="input" rows="5" cols="42" ></textarea></td></tr>
+       <tr></tr>
+       <tr></tr>
+       <tr></tr>
+       <tr></tr>
+       <tr><td><input type="button" id="one" value="1" OnClick="calc.input.value +='1'" ></td>
+           <td><input type="button" id="two" value="2" OnClick="calc.input.value +='2'" ></td>
+           <td><input type="button" id="three" value="3" OnClick="calc.input.value +='3'" ></td>
+           <td><input type="button" id="plus" value="+" OnClick="calc.input.value +='+'" ></td>
+           <td><input type="button" id="sin" value="sin" OnClick="calc.input.value +='sin('" ></td>
+           <td><input type="button" id="cos" value="cos" OnClick="calc.input.value +='cos('" ></td>
+           <td><input type="button" id="tan" value="tan" OnClick="calc.input.value +='tan('" ></td>
+           <td><input type="button" id="deg" value="deg" OnClick="calc.input.value +='deg('" ></td></tr>
+       <tr><td><input type="button" id="four" value="4" OnClick="calc.input.value +='4'" ></td>
+           <td><input type="button" id="five" value="5" OnClick="calc.input.value +='5'" ></td>
+           <td><input type="button" id="six" value="6" OnClick="calc.input.value +='6'" ></td>
+           <td><input type="button" id="minus" value="-" OnClick="calc.input.value +='-'" ></td>
+           <td><input type="button" id="tdeg" value="Tdeg" OnClick="calc.input.value +='Tdeg('" ></td></tr>
+           <td><input type="button" id="asin" value="asin" OnClick="calc.input.value +='asin('" ></td>
+           <td><input type="button" id="acos" value="acos" OnClick="calc.input.value +='acos('" ></td>
+           <td><input type="button" id="atan" value="atan" OnClick="calc.input.value +='atan('" ></td></tr>
+       <tr><td><input type="button" id="sever" value="7" OnClick="calc.input.value +='7'" ></td>
+           <td><input type="button" id="eight" value="8" OnClick="calc.input.value +='8'" ></td>
+           <td><input type="button" id="nine" value="9" OnClick="calc.input.value +='9'" ></td>
+           <td><input type="button" id="multiply" value="*" OnClick="calc.input.value +='*'" ></td>
+           <td><input type="button" id="ln" value="ln" OnClick="calc.input.value +='ln('" ></td>
+           <td><input type="button" id="exp" value="exp" OnClick="calc.input.value +='exp('" ></td>
+           <td><input type="button" id="right" value="(" OnClick="calc.input.value +='('" ></td>
+           <td><input type="button" id="left" value=")" OnClick="calc.input.value +=')'" ></td></tr>
+        <tr><td><input type="button" id="dot" value="." OnClick="calc.input.value +='.'" ></td>
+            <td><input type="button" id="zero" value="0" OnClick="calc.input.value +='0'" ></td>
+            <td><input type="button" id="clear" value="c" OnClick="calc.input.value =''" ></td>
+            <td><input type="button" id="pilus" value="/" OnClick="calc.input.value +='/'" ></td>
+            <td><input type="button" id="pow" value="pow(b,e)" OnClick="calc.input.value +='pow('" ></td>
+            <td><input type="button" id="sdot" value="," OnClick="calc.input.value +=','" ></td>
+            <td><input type="button" id="allclear" value="ac" OnClick="calc.input.value =''" ></td>
+            <td colspan="1" align="center"><input type="button" width="100"  id="equit" value = "="  OnClick="calculate(calc.input.value)" ></td></tr>
+</table>
+ 
+<br>計算小數點後位數:
+  <input type="text" id="input2" size="2" maxlength="2" value=6></td></tr>
 
 
 </form>
-
-
-
 </body>
 </html>
