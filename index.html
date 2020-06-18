@@ -79,7 +79,7 @@
  
   function dblclick_a() {   //還原 dblclick 縮\放
 
-      // alert("single");
+      
 
         data_setout = setTimeout(dblclick_inv,200);   //延後0.4s   ..執行
 
@@ -91,25 +91,20 @@
  function dblclick_inv() {   //還原 dblclick 縮\放
 
     
-      //preventDefault();  //eav.
-
+      
       document.getElementById('block_1').style.position="fixed";
       document.getElementById('block_1').style.top="2px";
       document.getElementById('block_1').style.left="2px";
       document.getElementById('table_a').style.left="2px";
       document.getElementById('block_1').style.zoom="normal";
 
-      //s_chang_no_visible_all();   //所有不顯示 不能key  ....避免系統 doubleclicl 放大及位移
-
-        // alert("Hello!");
-       // clearTimeout(data_setout);
-
+     
+        
    }
     
 function click_init() {   //還原 dblclick 縮\放
 
-     // alert("dblsingle");
-
+    
       document.getElementById('block_1').style.position="fixed";
       document.getElementById('block_1').style.top="2px";
       document.getElementById('block_1').style.left="2px";
@@ -131,7 +126,7 @@ function click_init() {   //還原 dblclick 縮\放
 
 
 </head>
-<body onload="document.getElementById('input').focus();init();s_chang_sum_ini()">   //;init()
+<body onload="document.getElementById('input').focus();init();s_chang_sum_ini()">   
 <form id="calc">
 
 <div class="block_1" align="center" id="block_1">
@@ -163,7 +158,7 @@ function click_init() {   //還原 dblclick 縮\放
 
      
         <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
-           <td class="hidden_1"><button  type="button"    class="button_2" id="3_0"  style="background-color:silver;color:blue;" OnClick="window.location='calculator_help.html'; "  ><strong>help</strong></button></td>
+           <td><button type="button" class="button_1"  id="3_0"  style="background-color:white;color:blue;" OnClick="key_1('e');" ><strong>e</strong></button></td>
            <td class="hidden_1"><button type="button" class="button_2" id="3_1"  style="background-color:Lime;color:blue; " OnClick="key_1('cos');"  ><strong>cos</strong></button></td>
            <td class="hidden_1"><button type="button" class="button_2" id="3_2"  style="background-color:cyan;color:blue;" OnClick="key_1('ln');"   ><strong>ln</strong></button></td>
            <td><button type="button" class="button_1"  id="3_3"  style="background-color:white;color:blue;" OnClick="key_1('4');"   ><strong>4</strong></button></td>
@@ -182,19 +177,7 @@ function click_init() {   //還原 dblclick 縮\放
                                           <option value="100">.100</option>
                                           <option value="150">.150</option>
                                           <option value="200">.200</option>
-                                          <option value="250">.250</option>
-                                          <option value="300">.300</option>
-                                          <option value="350">.350</option>
-                                          <option value="400">.400</option>
-                                          <option value="450">.450</option>
-                                          <option value="500">.500</option>
-                                          <option value="600">.600</option>
-                                          <option value="700">.700</option>
-                                          <option value="800">.800</option>
-                                          <option value="900">.900</option>
-                                          <option value="1000">.1000</option>
-                                          <option value="1100">.1100</option>
-
+                                          
 
                                  </select></td>
            <td class="hidden_1"><button type="button" class="button_2" id="4_1"  style="background-color:Lime;color:blue;" OnClick="key_1('tan');"  ><strong>tan</strong></button></td>
@@ -206,12 +189,12 @@ function click_init() {   //還原 dblclick 縮\放
                 
      
        <tr border="1px" cellspacing="0" cellpadding="0"  align="center"> 
-           <td class="hidden_1"><button type="button" class="button_2"  id="5_0"  style="background-color:pink;color:#000000;" OnClick="clear_all_1('ac');"   ><strong>ac</strong></button></td>
+           <td class="hidden_1"><button type="button" class="button_2" id="5_0"  style="background-color:silver;color:blue;" OnClick="window.location='calculator_help.html'; "  ><strong>menu</strong></button></td>
            <td class="hidden_1"><button type="button" class="button_2" id="5_1"  style="background-color:Lime;color:blue;" OnClick="key_1('h');"   ><strong>hpy</strong></button></td>
            <td class="hidden_1"><button type="button" class="button_2" id="5_2" style="background-color:cyan;color:blue;" OnClick="key_1('^');"   ><strong>^</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_3"  style="background-color:white;color:blue;" OnClick="key_1('0');"   ><strong>0</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_4"  style="background-color:white;color:blue;" OnClick="key_1('.');" ><strong>.</strong></button></td>
-           <td><button type="button" class="button_1"  id="5_5"  style="background-color:white;color:blue;" OnClick="key_1('e');" ><strong>e</strong></button></td>
+           <td class="hidden_1"><button type="button" class="button_2" id="5_3"  style="background-color:pink;color:#000000;" OnClick="clear_all_1('ac');"   ><strong>ac</strong></button></td>
+           <td><button type="button" class="button_1"  id="5_4"  style="background-color:white;color:blue;" OnClick="key_1('0');"   ><strong>0</strong></button></td>
+           <td><button type="button" class="button_1"  id="5_5"  style="background-color:white;color:blue;" OnClick="key_1('.');" ><strong>.</strong></button></td>
            <td><button type="button" class="button_1"  id="5_6"  style="background-color:#FF3333;color:#000000;" OnClick="calculate('=');"   ><strong>=</strong></button></td></tr>  
  </table>
 
