@@ -13648,7 +13648,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
 
      if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){    
           
-               var deci_dgt= parseInt(document.getElementById('4_0').value); 
+               var deci_dgt= parseInt(document.getElementById('5_0').value); 
 
             document.getElementById('input').value = this_s.toString().trim()+" = "+m_fix(this_data.toString(),deci_dgt).toString() +";"  ;  
 
