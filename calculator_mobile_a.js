@@ -26,7 +26,7 @@ var M ="0.4342944819032518276511289189166050822943970058036665661144537831658646
                                 
 var MTX_COL =0;  
 function m_deci_dgt(){     
-  var deci_dgt= parseInt(document.getElementById('4_0').value); 
+  var deci_dgt= parseInt(document.getElementById('5_0').value); 
     if( deci_dgt <= 50){
         var data_row = 60; }   
     else if( deci_dgt > 50 && deci_dgt <= 150){
