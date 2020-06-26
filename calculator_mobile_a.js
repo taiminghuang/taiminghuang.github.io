@@ -13640,10 +13640,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
              
         var this_data_abs=m_abs(this_data);   
    
-      var power_n = document.getElementById('input2').value;
-
-      var power_a = Number(power_n);  
-   
+        
        var this_data_str = m_mtx_e_str(this_data ,1);    
 
      if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){    
