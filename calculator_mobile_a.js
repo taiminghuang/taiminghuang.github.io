@@ -3842,13 +3842,24 @@ function m_str_div_continous(str){
 
     var data_x = m_str_div_2part(str_1,2);    
     var data_x_lg = data_x.length;
+    
 
+ var nub_y_pi = m_str_spc_count(data_y,"π");   
+     var nub_x_pi = m_str_spc_count(data_x,"π");   
+     var nub_y_0 = m_str_spc_count(data_y,"°");    
+     var nub_x_0 = m_str_spc_count(data_x,"°");  
 
-        
+     
+        var nub_yy = nub_y_pi+ nub_y_0;
+        var nub_xx = nub_x_pi+ nub_x_0;
+  
+    if( nub_yy >= 1 &&  nub_xx >=1){      
 
-    var data_z = m_str_div_shrink(data_y,data_x);         
-
-
+     var data_z = m_str_div_shrink(data_y,data_x);                       
+                                      }
+  else{
+    var data_z =str_1;   
+       } 
     
 
     var data_z = data_z.toString().replace(/\//g , "D");   
