@@ -3763,167 +3763,90 @@ function m_pi_dg_bf_and_1(str){
  }
 
 function m_pi_dg_bf_del_1(str){       
-     var str_1 = str;
-
+  var str_1 = str;
      var nub_pi = m_str_spc_count(str_1,"π");    
      var nub_dg = m_str_spc_count(str_1,"°");   
- 
    if(nub_pi !=0){
      str_1 = str_1.replace(/\(1π/g , "\(π");       
      str_1 = str_1.replace(/\+1π/g , "\+π");    
      str_1 = str_1.replace(/\-1π/g , "\-π");    
      str_1 = str_1.replace(/\*1π/g , "\*π");    
      str_1 = str_1.replace(/\/1π/g , "\\π");    
-
            var data_fst=str_1.substr(0,1);    
            var data_sec=str_1.substr(1,1);    
-
                if(data_fst=="1" && data_sec=="π"){  var str_1="1"+str_1;}
-
-
                  }
-
-
       if(nub_dg !=0){
      str_1 = str_1.replace(/\(1°/g , "\(°");       
      str_1 = str_1.replace(/\+1°/g , "\+°");    
      str_1 = str_1.replace(/\-1°/g , "\-°");    
      str_1 = str_1.replace(/\*1°/g , "\*°");    
      str_1 = str_1.replace(/\/1°/g , "\/°");    
-
            var data_fst=str_1.substr(0,1);    
            var data_sec=str_1.substr(1,1);    
-
                if(data_fst=="1" && data_sec=="°"){  var str_1="1"+str_1; }
-
-
                  }
-
-
-
      return  str_1;
-
  }
 
-
-
-
-
  function m_str_div_continous(str){            
-    var str_1=str;
+   var str_1=str;
     var str_1_lg=str_1.length;
-  
     var ans_1="";
-
     var nub_div = m_str_spc_count(str_1,"/");   
-
     if(nub_div ==0){ var ans_1= str_1; return ans_1 ; } 
-
-
-   
    for(var i=0; i<nub_div; i++){
-
     var fst_index = str_1.indexOf("/");        
-
     var data_y = m_str_div_2part(str_1,1);     
     var data_y_lg = data_y.length;
-
     var data_x = m_str_div_2part(str_1,2);    
     var data_x_lg = data_x.length;
-
-
-
-
-
-        
-
     var nub_y_pi = m_str_spc_count(data_y,"π");   
-     var nub_x_pi = m_str_spc_count(data_x,"π");   
-     var nub_y_0 = m_str_spc_count(data_y,"°");    
-     var nub_x_0 = m_str_spc_count(data_x,"°");  
-
-     
-        var nub_yy = nub_y_pi+ nub_y_0;
-        var nub_xx = nub_x_pi+ nub_x_0;
-  
+    var nub_x_pi = m_str_spc_count(data_x,"π");   
+    var nub_y_0 = m_str_spc_count(data_y,"°");    
+    var nub_x_0 = m_str_spc_count(data_x,"°");  
+     var nub_yy = nub_y_pi+ nub_y_0;
+     var nub_xx = nub_x_pi+ nub_x_0;
     if( nub_yy >= 1 &&  nub_xx >=1){      
-
      var data_z = m_str_div_shrink(data_y,data_x);                       
-                                      }
+                                 }
   else{
-    var data_z =str_1;   
+    var data_z =str_1; 
+      return data_z ;   
        } 
-
-        
-
-
-    
-
-    var data_z = data_z.toString().replace(/\//g , "D");   
- 
-       
-
-       
-
-         
-       var str_1 = str_1.substring(0,fst_index-data_y_lg)+data_z+str_1.substring(fst_index+data_x_lg+1 ,str_1_lg); 
-  
-
-
-        
-                               }  
-
-
+      var fst_index = data_z.indexOf("/");         
+      var str_1_bf = data_z.substring(0,fst_index+1) ;               
+      var str_1_bf = str_1_bf.toString().replace(/\//g , "D");   
+      var str_1_af = data_z.substring(fst_index+1,str_1_lg) ;       
+      var str_1 = str_1_bf+str_1_af ;  
+                             }  
     var str_1 = str_1.replace(/D/g , "\/");   
-
     var ans_1 = str_1 ;
-
-  
-       
        return ans_1 ;
 
  }
 
 
 
-
-
-
 function m_str_div_2part(str,nub){         
-   var str_1=str;
+  var str_1=str;
    var nub_1=nub;
    var ans_1="";
-
    var nub_div = m_str_spc_count(str_1,"/");   
-
     if(nub_div ==0){ var ans_1= str_1; return ans_1 ; } 
-
-
-   var fst_index = str_1.indexOf("/");  
-
+    var fst_index = str_1.indexOf("/");  
     var div_bf = m_str_spec_part_bf(str_1 ,"/"); 
     var div_af = m_str_spec_part_af(str_1 ,"/"); 
-
       var bf_lg = div_bf.length;
       var af_lg = div_af.length;
-
-        
-
-
       var bf_data = str_1.substr( fst_index-bf_lg-1,1); 
       var af_data = str_1.substr( fst_index+af_lg+1,1); 
-
-    if( bf_data =="^" || af_data =="^"){var ans_1= str_1; return ans_1 ; } 
-
-
+   if( bf_data =="^" || af_data =="^"){var ans_1= str_1; return ans_1 ; } 
    if(nub==1){ var ans_1=div_bf ;return ans_1 ; } 
    if(nub==2){ var ans_1=div_af ;return ans_1 ; } 
-
  return ans_1 ;
 
 }
-
-
 
 function m_str_div_shrink(y,x){          
   
