@@ -3791,6 +3791,7 @@ function m_pi_dg_bf_del_1(str){
 
  function m_str_div_continous(str){            
    var str_1=str;
+    return str_1 ;   
     var str_1_lg=str_1.length;
     var ans_1="";
     var nub_div = m_str_spc_count(str_1,"/");   
