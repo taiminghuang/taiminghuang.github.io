@@ -9671,7 +9671,7 @@ function m_pow_ib(base,p){
 
 
 
-                                           }   r
+                                           }  
 
                      
                     
