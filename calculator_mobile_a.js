@@ -2234,7 +2234,7 @@ function message_1(n){
           message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
           break;
          case 7:
-          message_1 = "<--  Msg : n! ,  n ∈ N  at n > 25000000 no supply  -->" ;
+          message_1 = "<--  Msg : n! ,  n ∈ N  at n > 25000000 no support  -->" ;
           break; 
 
          case 8:
@@ -2276,49 +2276,49 @@ function message_1(n){
           break;
 
           case 17:
-          message_1 = "<--  Msg : sin(x)  if |x| > 1,000,000,000,000,000 no supply -->" ;
+          message_1 = "<--  Msg : sin(x)  if |x| > 1,000,000,000,000,000 no support -->" ;
           break;
 
           case 18:
-          message_1 = "<--  Msg : cos(x)  if  |x| > 1,000,000,000,000,000 no supply -->" ;
+          message_1 = "<--  Msg : cos(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
           break;
 
           case 19:
-          message_1 = "<--  Msg : tan(x)  if  |x| > 1,000,000,000,000,000 no supply -->" ;
+          message_1 = "<--  Msg : tan(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
           break;
 
 
           case 20:
-          message_1 = "<--  Msg : sin(x)  if |x|.length > 16  no supply -->" ;
+          message_1 = "<--  Msg : sin(x)  if |x|.length > 16  no support -->" ;
           break;
 
           case 21:
-          message_1 = "<--  Msg : cos(x)  if |x|.length > 16  no supply -->" ;
+          message_1 = "<--  Msg : cos(x)  if |x|.length > 16  no support -->" ;
           break;
 
            case 22:
-          message_1 = "<--  Msg : tan(x)  if |x|.length > 16  no supply -->" ;
+          message_1 = "<--  Msg : tan(x)  if |x|.length > 16  no support -->" ;
           break;
 
            case 23:
-          message_1 = "<--  Msg : exp(x)  if x > 200 digit number  no supply -->" ;
+          message_1 = "<--  Msg : exp(x)  if x > 200 digit number  no support -->" ;
           break;
 
           case 24:
-          message_1 = "<--  Msg : sinh(x)  if |x| > 1000000000000000000  no supply -->" ;
+          message_1 = "<--  Msg : sinh(x)  if |x| > 1000000000000000000  no support -->" ;
           break;
 
            case 25:
-          message_1 = "<--  Msg : cosh(x)  if |x| > 1000000000000000000  no supply -->" ;
+          message_1 = "<--  Msg : cosh(x)  if |x| > 1000000000000000000  no support -->" ;
           break;
 
           case 26:
-          message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no supply  : tanh(x)  value  approaching 1 -->" ;
+          message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching 1 -->" ;
           break;
 
 
           case 27:
-           message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no supply  : tanh(x)  value  approaching -1 -->" ;
+           message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching -1 -->" ;
            break;
 
           case 28:
@@ -2346,7 +2346,7 @@ function message_1(n){
 
             case 32:
 
-            message_1 = "<--  Msg :  sorry : (xe+y || xe-y)  y>225 || this e type no supply     -->" ;
+            message_1 = "<--  Msg :  sorry : (xe+y || xe-y)  y>225 || this e type no support     -->" ;
             break;
 
        default:
@@ -12301,7 +12301,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
 
                  if(data_equal > 0){
 
-                  document.getElementById('input').value += "     "+"<- sorry  '= ' no supply  ->" + ";"  ;
+                  document.getElementById('input').value += "     "+"<- sorry  '= ' no support  ->" + ";"  ;
                   
                     newline_1(); 
                     scroll_cursor();
@@ -12314,7 +12314,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                
                   if(data_equation !="" || data_equation ==null){
 
-                      document.getElementById('input').value += "     "+"<- sorry  'equation ' no supply  ->" + ";"  ;
+                      document.getElementById('input').value += "     "+"<- sorry  'equation ' no support  ->" + ";"  ;
                       
                           newline_1(); 
                           scroll_cursor(); 
