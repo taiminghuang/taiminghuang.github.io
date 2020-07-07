@@ -2640,7 +2640,7 @@ function m_str_spec_part_af(str ,spec){
 
       if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
 
-
+      var  str_1= m_str_sub_ngt_bf(str_1);
 
 
      var pos = str_1.indexOf(spec_1) ;  
@@ -3789,41 +3789,240 @@ function m_pi_dg_bf_del_1(str){
      return  str_1;
  }
 
+function m_str_div_continous_b(y,x){            //20200707   
+  var data_y_str=y;
+  var data_x_str=x;
+  var data_y=y;
+  var data_x=x;
+  var flag_y="";
+  var flag_x="";
+  var flag_y_pi_zo="";
+  var flag_x_pi_zo="";
+  var ans_1="";
+  var y_nub=0;
+  var x_nub=0;
+   var data_y_lg=data_y.length;
+   var data_x_lg=data_x.length;
+      var nub_pi_1 = m_str_spc_count(data_y,"π");    
+      var nub_zero_1 = m_str_spc_count(data_y,"°");    
+      var nub_pi_2 = m_str_spc_count(data_x,"π");    
+      var nub_zero_2 = m_str_spc_count(data_x,"°");     
+         if(nub_pi_1 >=2 || nub_zero_1>=2 || nub_pi_2 >=2 || nub_zero_2>=2  ){        
+              var ans_1=data_y_str+"/"+data_x_str;
+     
+            return ans_1 ;}
+    for(var i=0; i<1; i++){    
+        var data_y_fist= data_y.substr(0,1) ;     
+        var data_y_last= data_y.substr(data_y_lg,1) ; 
+               if((data_y_fist=="\(")&&(data_y_last=="\)")){
+                  data_y=data_y.substr(1,data_y_lg-2);     
+         
+                                 }
+
+               if(data_y_fist=="\-"){  
+                   data_y=data_y.substr(1,data_y_lg-1);   
+                   flag_y="-";  
+                                    }
+            var data_x_fist= data_x.substr(0,1) ;    
+            var data_x_last= data_y.substr(data_x_lg,1) ;
+              if((data_x_fist=="\(")&&(data_x_last=="\)")){
+                      data_x=data_x.substr(1,data_x_lg-2);
+                                 }
+
+                if(data_x_fist=="\-"){  
+                   data_x=data_x.substr(1,data_x_lg-1);   
+                   flag_x="-";  
+                                    }
+ 
+                  }
+          var data_y_last= data_y.substr(data_y.length-1,1) ; 
+          var data_x_last= data_x.substr(data_x.length-1,1) ;
+             if(data_y_last=="π" && data_x_last=="π"){
+                   data_y=data_y.substr(0,data_y.length-1);   
+                   data_x=data_x.substr(0,data_x.length-1);   
+                                                        }
+              else if(data_y_last=="°" && data_x_last=="°"){
+                    data_y=data_y.substr(0,data_y.length-1);   
+                    data_x=data_x.substr(0,data_x.length-1);   
+                                                        }
+              else if(data_y_last=="π" && data_x_last=="°"){
+                   data_y=data_y.substr(0,data_y.length-1);   
+                   data_x=data_x.substr(0,data_x.length-1);   
+                      
+                       if(data_y==""|| data_y==1){ var data_y =180 ;}
+                      else{ data_y= m_mtx_real_mul(data_y,180);}
+                                                           }
+          
+              else if(data_y_last=="°" && data_x_last=="π"){
+                   data_y=data_y.substr(0,data_y.length-1);   
+                  data_x=data_x.substr(0,data_x.length-1);   
+                       if(data_x==""|| data_x==1){ var data_x =180 ;}
+                       else{ data_x= m_mtx_real_mul(data_x,180);}
+                                                        }
+              else if(data_y_last=="π" && data_x_last!="π" && data_x_last!="°"){                
+                   data_y=data_y.substr(0,data_y.length-1);   //去掉最後π
+                        var flag_y_pi_zo="π";
+                                                           }
+              else if(data_y_last=="°" && data_x_last!="π" && data_x_last!="°"){
+                   data_y=data_y.substr(0,data_y.length-1);   //去掉最後°
+                    if(data_x==""|| data_x==1){ var data_x =180 ;}
+                       else{ data_x= m_mtx_real_mul(data_x,180);}
+                         var flag_y_pi_zo="π";
+                                                           }
+
+               else if(data_y_last!="π" && data_y_last!="°" && data_x_last=="π"){
+                   data_x=data_x.substr(0,data_x.length-1);   //去掉最後π
+                         var flag_x_pi_zo="π";
+                                                           }
+              else if(data_y_last!="π" && data_y_last!="°"  && data_x_last=="°"){
+                   data_x=data_x.substr(0,data_x.length-1);   //去掉最後°
+                             var flag_x_pi_zo="°";
+                                                           }
+                  if( data_y ==""){ var data_y=1 ;}       
+                  if( data_x ==""){ var data_x=1 ;}       
+   var nub_add_1 = m_str_spc_count(data_y,"+");    
+   var nub_sub_1 = m_str_spc_count(data_y,"-");    
+   var nub_mul_1 = m_str_spc_count(data_y,"*");     
+   var nub_div_1 = m_str_spc_count(data_y,"/");    
+   var nub_pow_1 = m_str_spc_count(data_y,"^");    
+   var nub_e_1 = m_str_spc_count(data_y,"e");       
+   var nub_n_1 = m_str_spc_count(data_y,"!");      
+   var nub_exp_1 = m_str_spc_count(data_y,"exp");   
+   var nub_ln_1 = m_str_spc_count(data_y,"ln");    
+   var nub_log_1 = m_str_spc_count(data_y,"log");   
+   var nub_a_1 = m_str_spc_count(data_y,"a");       
+   var nub_sin_1 = m_str_spc_count(data_y,"sin");  
+   var nub_cos_1 = m_str_spc_count(data_y,"cos");   
+   var nub_tan_1 = m_str_spc_count(data_y,"tan");   
+   var nub_h_1 = m_str_spc_count(data_y,"h");       
+   var nub_l_1 = m_str_spc_count(data_y,"(");      
+   var nub_j_1 = m_str_spc_count(data_y,")");      
+   var nub_poin_1 = m_str_spc_count(data_y,".");       
+  var y_nub=nub_add_1+nub_sub_1+nub_mul_1+nub_div_1+nub_pow_1+nub_e_1+nub_n_1+nub_exp_1+nub_ln_1+nub_log_1+nub_a_1+nub_sin_1+nub_cos_1+nub_tan_1+nub_h_1+nub_l_1+nub_j_1+nub_poin_1;
+   var nub_add_2 = m_str_spc_count(data_x,"+");    
+   var nub_sub_2 = m_str_spc_count(data_x,"-");     
+   var nub_mul_2 = m_str_spc_count(data_x,"*");     
+   var nub_div_2 = m_str_spc_count(data_x,"/");     
+   var nub_pow_2 = m_str_spc_count(data_x,"^");    
+   var nub_e_2 = m_str_spc_count(data_x,"e");       
+   var nub_n_2 = m_str_spc_count(data_x,"!");       
+   var nub_exp_2 = m_str_spc_count(data_x,"exp");  
+   var nub_ln_2 = m_str_spc_count(data_x,"ln");     
+   var nub_log_2 = m_str_spc_count(data_x,"log");   
+   var nub_a_2 = m_str_spc_count(data_x,"a");       
+   var nub_sin_2 = m_str_spc_count(data_x,"sin");   
+   var nub_cos_2 = m_str_spc_count(data_x,"cos");   
+   var nub_tan_2 = m_str_spc_count(data_x,"tan");   
+   var nub_h_2 = m_str_spc_count(data_x,"h");     
+   var nub_l_2 = m_str_spc_count(data_x,"(");      
+   var nub_j_2 = m_str_spc_count(data_x,")");     
+   var nub_poin_2 = m_str_spc_count(data_x,".");    
+    var x_nub=nub_add_2+nub_sub_2+nub_mul_2+nub_div_2+nub_pow_2+nub_e_2+nub_n_2+nub_exp_2+nub_ln_2+nub_log_2+nub_a_2+nub_sin_2+nub_cos_2+nub_tan_2+nub_h_2+nub_l_2+nub_j_2+nub_poin_2;
+    if(y_nub!=0 || x_nub!=0){              
+               var ans_1=data_y_str+"/"+data_x_str;
+      
+            return ans_1 ;}
+        var AA= m_mtx_prime_table();       
+   var data_c="";
+    if( data_y.length<=14 && data_x.length<=14 && data_y>1 && data_x >1 && data_y!=""&& data_x!=""){   
+       for (var i=0;i<AA[0].length ;i++){
+         var data_c = parseInt(AA[0][i]) ;   
+               for (var j=0;j<2 ;j++){   
+                var y_remainder = data_y % data_c ;
+                var x_remainder = data_x % data_c ;
+                    if(y_remainder==0 && x_remainder==0  ){    
+                      var  data_y = data_y / data_c;
+                       var  data_x = data_x / data_c;
+                     var   j=0;                        }
+                                                   
+                     else{ var j=2 ;}  
+                                        }  
+           if(data_c > data_y || data_c > data_x || data_y==1 || data_x==1){   
+               var i = AA[0].length+1;
+              }
+                                               } 
+
+                                                                          }     
+                 var ans_b = flag_y+data_y+flag_y_pi_zo;
+                 var ans_a = flag_x+data_x+flag_x_pi_zo;
+                   if(data_y==1 && flag_y_pi_zo !=""){   
+                     var ans_b = flag_y+flag_y_pi_zo; }         
+                    if(data_x==1 && flag_x_pi_zo !=""){   
+                     var ans_a = flag_x+flag_x_pi_zo; }         
+                 if( ans_b ==""){ var ans_b=1 ;}       
+                 if( ans_a ==""){ var ans_a=1 ;}       
+                 if( ans_a ==1){                         
+                      var ans_1=ans_b;}
+                 else{ var ans_1=ans_b+"/"+ans_a;}
+                      return ans_1 ;
+
+}
+
+
+
+
+
+
  function m_str_div_continous(str){            
-   var str_1=str;
-    return str_1 ;   
-    var str_1_lg=str_1.length;
-    var ans_1="";
-    var nub_div = m_str_spc_count(str_1,"/");   
+    var str_1=str;
+     var ans_1="";
+     var nub_div = m_str_spc_count(str_1,"/");   
     if(nub_div ==0){ var ans_1= str_1; return ans_1 ; } 
+    var nub_str_e = m_str_spc_count(str_1,"e");    
+             if(nub_str_e!=0 ){               
+            var ans_1= str_1; return ans_1 ; }
    for(var i=0; i<nub_div; i++){
     var fst_index = str_1.indexOf("/");        
     var data_y = m_str_div_2part(str_1,1);     
     var data_y_lg = data_y.length;
-    var data_x = m_str_div_2part(str_1,2);    
+    var data_x = m_str_div_2part(str_1,2);     
     var data_x_lg = data_x.length;
-    var nub_y_pi = m_str_spc_count(data_y,"π");   
-    var nub_x_pi = m_str_spc_count(data_x,"π");   
-    var nub_y_0 = m_str_spc_count(data_y,"°");    
-    var nub_x_0 = m_str_spc_count(data_x,"°");  
-     var nub_yy = nub_y_pi+ nub_y_0;
-     var nub_xx = nub_x_pi+ nub_x_0;
-    if( nub_yy >= 1 &&  nub_xx >=1){      
-     var data_z = m_str_div_shrink(data_y,data_x);                       
+    var str_1_lg=str_1.length;
+       var data_y_fist= data_y.substr(0,1) ;   
+               if(data_y_fist=="\("){
+                 data_y=data_y.substr(1,data_y_lg-2);     
+                                }
+            var data_x_fist= data_x.substr(0,1) ;    
+              if(data_x_fist=="\("){
+                      data_x=data_x.substr(1,data_x_lg-2);
                                  }
-  else{
-    var data_z =str_1; 
-      return data_z ;   
-       } 
-      var fst_index = data_z.indexOf("/");         
-      var str_1_bf = data_z.substring(0,fst_index+1) ;               
-      var str_1_bf = str_1_bf.toString().replace(/\//g , "D");   
-      var str_1_af = data_z.substring(fst_index+1,str_1_lg) ;       
-      var str_1 = str_1_bf+str_1_af ;  
-                             }  
-    var str_1 = str_1.replace(/D/g , "\/");   
+             var str_1_bf = str_1.substring(0,fst_index-data_y_lg) ;               
+             var str_1_bf_last= str_1_bf.substr(str_1_bf.length-1,1) ;    
+        if( str_1_bf_last=="" || str_1_bf_last=="+"  || str_1_bf_last=="-" || str_1_bf_last=="*" ||str_1_bf_last=="/" ||str_1_bf_last=="(") {   
+           var data_z = m_str_div_continous_b(data_y,data_x)      
+                                                  }     
+ 
+        else{
+             var data_z = str_1;    
+            return data_z ;}
+     var str_1_bf = str_1.substring(0,fst_index-data_y_lg) ;               
+      var data_z = data_z.toString().replace(/\//g , "D");    
+      var str_1_af = str_1.substring(str_1_bf.length + data_x_lg+1+data_y_lg,str_1_lg) ;        
+       var str_1 = str_1_bf+data_z+str_1_af ;  
+                                 }  //for
+    var str_1 = str_1.replace(/D/g , "\/");    
+    var str_1 = str_1.replace(/Q/g , "\-");    
     var ans_1 = str_1 ;
-       return ans_1 ;
+    return ans_1 ;
+ }
+
+function m_str_div_2part(str,nub){     //20200707       
+var str_1=str;
+   var nub_1=nub;
+   var ans_1="";
+   var nub_div = m_str_spc_count(str_1,"/");    
+    if(nub_div ==0){ var ans_1= str_1; return ans_1 ; } 
+   var fst_index = str_1.indexOf("/");   
+    var div_bf = m_str_spec_part_bf(str_1 ,"/");
+    var div_af = m_str_spec_part_af(str_1 ,"/"); 
+      var bf_lg = div_bf.length;
+      var af_lg = div_af.length;
+      var bf_data = str_1.substr( fst_index-bf_lg-1,1); 
+      var af_data = str_1.substr( fst_index+af_lg+1,1); 
+    if( bf_data =="^" || af_data =="^"){var ans_1= str_1; return ans_1 ; } 
+   if(nub==1){ var ans_1=div_bf ;return ans_1 ; } 
+   if(nub==2){ var ans_1=div_af ;return ans_1 ; } 
+ return ans_1 ;    
 
  }
 
@@ -3848,92 +4047,6 @@ function m_str_div_2part(str,nub){
  return ans_1 ;
 
 }
-
-function m_str_div_shrink(y,x){          
-  
-   var yy = y;
-   var xx = x;
-   var ans_1="";
-
-    if(yy == 0 && xx != 0){ var  ans_1=0 ; return  ans_1;}  
-    if(xx == 0){ var  ans_1= error  ;  return  ans_1;}      
-    if(yy == xx){ var  ans_1=1 ; return  ans_1;}           
-
-  var yy_lg=yy.length;
-  var xx_lg=xx.length;
-
-         yy_lst = yy.substr(yy_lg-1,1);  
-         xx_lst = xx.substr(xx_lg-1,1);  
-   
-      if((yy_lst =="π" &&  xx_lst =="π")||(yy_lst =="°" &&  xx_lst =="°")) {
-             var  yy = yy.substr(0,yy_lg-1);   
-             var  xx = xx.substr(0,xx_lg-1);   
-               if( yy==""){ var yy=1 ;}
-               if( xx==""){ var xx=1 ;}
-                                                                              }
-
-      if(yy_lst =="π" &&  xx_lst =="°") {         
-
-              
-              if(yy_lg==1){
-                 var  yy = yy.substr(0,yy_lg-1)+"180";      
-                           }
-              else{ var  yy = yy.substr(0,yy_lg-1)+"*180";}
-
-              if(xx_lg==1){
-                 var  xx = xx.substr(0,xx_lg-1)+"1";   
-                           }
-              else{var  xx = xx.substr(0,xx_lg-1);}   
-                                       }
-
-  
-         
-       if(yy_lst =="°" &&  xx_lst =="π") {         
-
-              
-              if(yy_lg==1){
-                 var  yy = yy.substr(0,yy_lg-1)+"1";     
-                           }
-              else{ var  yy = yy.substr(0,yy_lg-1);}
-
-             if(xx_lg==1){
-                var  xx = xx.substr(0,xx_lg-1)+"180";   
-                           }
-              else{var  xx = xx.substr(0,xx_lg-1)+"*180";}   
-                                       }
-
-  
-          if(yy_lst =="°" ) {                              
-
-                 var  yy = yy.substr(0,yy_lg-1)+"π";   
-                 var  xx = xx+"*180";                    
-                              }
-          if(xx_lst =="°" ) {                              
-
-                 var  yy = yy+"*180";                   
-                 var  xx = xx.substr(0,xx_lg-1)+"π";   
-                              }
-
-           var ans_1 = yy+"/"+xx;
-    
-
-             var nub_pi = m_str_spc_count(ans_1,"π");    
-
-               if(nub_pi ==0){                      
-
-                 var data_ans = eval( ans_1 );  
-
-                 var data_ans_lg = data_ans.toString().length; 
-                  
-                   if( data_ans_lg <= 12){ var  ans_1 = data_ans ;}  
-
-
-                             }
-     
-  return  ans_1;
-
- }
-
 
 
 function m_pi_dg_ot(str,nub){   
