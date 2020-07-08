@@ -2559,31 +2559,15 @@ function m_str_spec_part_bf(str ,spec){
 
 
 function m_str_spec_part_bf_mul(str ,spec){          
-                                                     
-     var str_1 = str.toString().trim();
+  var str_1 = str.toString().trim();
      var spec_1= spec;
-
-
-
-    
-                
-                 
           str_1 =  m_str_sub_ngt_bf(str_1) ;      
-
-
         var pos = str_1.indexOf(spec_1) ; 
-                                                   
-
-     var mark_1 =str_1[pos - 1];        
+      var mark_1 =str_1[pos - 1];        
      var count_1 = 1 ;
      var count_mark = pos ;
-
-     
-
-          if(mark_1 ==")"){
-            
-
-           for(var i= pos-2;0 <= i  ; i=i-1){
+        if(mark_1 ==")"){
+          for(var i= pos-2;0 <= i  ; i=i-1){
               var mark_ref = str_1[i];
 
                  if(mark_ref ==")"){
@@ -2597,111 +2581,68 @@ function m_str_spec_part_bf_mul(str ,spec){
                                           }
                                            }
                            }
-
-            
+           
           if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°"|| mark_1=="*"|| mark_1=="/") {  
-
              var count_mark = pos-1;   
-
            for(var i = pos - 2; 0 <= i   ; i=i-1){
               var mark_ref = str_1[i];
-                                    
-                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'|| mark_ref=='*'|| mark_ref=='/'){     
-
+                  if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'|| mark_ref=='*'|| mark_ref=='/'){     
                         var count_mark = i ;
                                                        }
                    else{  
-
-                     
-                           i=-1 ;                                
+                          i=-1 ;                                
                                              }     
-                                                    
-                                                  }
+                                                }
                                   }
-   
-         var str_part_b= str_1.substring(count_mark,pos);
-
-
-       
-     return str_part_b;
+        var str_part_b= str_1.substring(count_mark,pos);
+     return str_part_b; 
 
 }
 
 
 
 function m_str_spec_part_af(str ,spec){          
-                                                  
-    
-
-     var str_1 = str.toString().trim();
+var str_1 = str.toString().trim();
+     var str_0 =str_1 ;                    
      var str_a_lg = str_1.length;
      var spec_1= spec;
      var spec_a_lg = spec_1.length;
-
       if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
-
-      var  str_1= m_str_sub_ngt_bf(str_1);
-
-
+         var  str_1= m_str_sub_ngt_bf(str_1);   
      var pos = str_1.indexOf(spec_1) ;  
      var mark_1 =str_1[pos +spec_a_lg];           
-
-   
      var count_a = 1 ;
-
      var count_mark=2500;  
-
           if(mark_1 =="("){
-            
-
            for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
               var mark_ref = str_1[i];
-
                  if(mark_ref =="("){
                      count_a = count_a +1 ;}
                  if(mark_ref ==")"){
                      count_a = count_a-1 ;}
-                                            
-                  if(count_a==0){
+                 if(count_a==0){
                      var count_mark = i+1 ;
                        i = str_a_lg ;                                     
                                  }
                                                    }
                            }
-
-       
-
-     
-         
-          if(mark_1 >=0 && mark_1<=9) {
-           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+        if(mark_1 >=0 && mark_1<=9) {
+           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   //str_a_lg+1
               var mark_ref = str_1[i];
-
-                
-
                    if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
                                                        }
                    else{  
-
                      var count_mark = i ;
-
-                         i= str_a_lg;                      }       
+                         i= str_a_lg;                      }      
                                                     
                                                   }
-                                  }
-
-           
+                                 }
+        
            if(mark_1 =='.') {                                     
            for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
               var mark_ref = str_1[i];
-
-
-              
-
-               
-
                    if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {      
-                                                       }
+                                                      }
                    else{  
 
                      var count_mark = i ;
@@ -2711,115 +2652,58 @@ function m_str_spec_part_af(str ,spec){
                                                   }
                                   }
 
-
-
-                  
-
-          if(mark_1 =='π') {  var count_mark = pos+spec_a_lg+1 } ;   
-
-
-            
-
-             
-
-              if(mark_1 =="-") {
-
+         if(mark_1 =='π') {  var count_mark = pos+spec_a_lg+1 } ;   
+                 if(mark_1 =="-") {
             for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
               var mark_ref = str_1[i];
-
-                 
-
-                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {     
+                 if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {      
                                                        }
                    else{  
-
                      var count_mark = i ;
-                  
-                      
-
-                         i= str_a_lg;                      }       
+                       i= str_a_lg;                      }       
                                                     
                                                   }
                                   }
-
-     
-            
-
-
            if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
-            
-            
-
-
-         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
-
-           
-
+         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
+         var nub_ep = m_str_spc_count(str_0,"e\+");   //count "e\+" 
+           if(nub_ep !=0 ){               //e+與初態同步
+             var str_part_b = str_part_b.replace(/e\-/g , "EN");    
+             var str_part_b = str_part_b.replace(/eQ/g , "EN");    
+             var str_part_b = str_part_b.replace(/e/g , "EP");    
+             var str_part_b = str_part_b.replace(/EP/g , "e\+");    
+             var str_part_b = str_part_b.replace(/EN/g , "e\-");    
+                     }
      return str_part_b;
-
   
 }
 
 
 function m_str_spec_part_af_mul(str ,spec){          
-   
-
-     var str_1 = str.toString().trim();
+    var str_1 = str.toString().trim();
      var str_a_lg = str_1.length;
      var spec_1= spec;
      var spec_a_lg = spec_1.length;
-
      if( spec_1!="π" && spec_1!="°"){ var ans_1=""; return ans_1 ;}   
-
-
-
-
      var pos = str_1.indexOf(spec_1) ;  
      var mark_1 =str_1[pos +spec_a_lg];         
-
-
-   
      var count_a = 1 ;
-
      var count_mark=pos+spec_a_lg;  
-
-       
-         
-          if((mark_1 =="*" || mark_1=="/")) {     　　
+        if((mark_1 =="*" || mark_1=="/")) {     　　
            for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){     
-              var mark_ref = str_1[i];
-
-
-                      
-
-                                  
+             var mark_ref = str_1[i];
                        if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='＊'|| mark_ref=='/' ) {      
-
-                      
-
                                                        }
                    else{  
-
                      var count_mark = i ;    
-
                          i= str_a_lg;                      }      
                                                     
                                                   }  
 
                                   } 
-
             else{ var ans_1=""; return ans_1 ;}   
-
-
-
-
-         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
-
-         
-
-
+        var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
      return str_part_b;
-
   
 }
 
