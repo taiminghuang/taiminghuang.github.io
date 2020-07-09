@@ -2666,14 +2666,7 @@ var str_1 = str.toString().trim();
                                   }
            if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
-         var nub_ep = m_str_spc_count(str_0,"e\+");   //count "e\+" 
-           if(nub_ep !=0 ){               //e+與初態同步
-             var str_part_b = str_part_b.replace(/e\-/g , "EN");    
-             var str_part_b = str_part_b.replace(/eQ/g , "EN");    
-             var str_part_b = str_part_b.replace(/e/g , "EP");    
-             var str_part_b = str_part_b.replace(/EP/g , "e\+");    
-             var str_part_b = str_part_b.replace(/EN/g , "e\-");    
-                     }
+         
      return str_part_b;
   
 }
@@ -4956,6 +4949,7 @@ function m_str_math_replacec(this_it){
 
     
             this_it_a = this_it_a.toLowerCase(); 
+            this_it_a = this_it_a.replace(/q/g , "Q");
             this_it_a = m_fun_aft_many(this_it_a ,' ','');   
              this_it_a = this_it_a.replace(/e-/g , "eQ");      
              this_it_a = this_it_a.replace(/e\+/g , "e");      
