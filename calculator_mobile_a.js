@@ -12261,7 +12261,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
 
                 this_it = m_str_div_continous(this_it);
 
-                    
+           this_it = m_str_sub_ngt_bf(this_it);         
            
           this_it = m_str_math_replacec(this_it);           
 
