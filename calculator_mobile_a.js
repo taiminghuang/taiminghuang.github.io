@@ -1684,91 +1684,43 @@ var xx = x.toString().trim();
    return ans_1; 
 
 }
-
-
-
-
-
-  
+ 
 
 function m_n(n){             
-       var nn = n.toString().trim();
-
+    var nn = n.toString().trim();
      nn = m_str_e_to_str(nn);      
-        
-
-      
       var nub_point= m_str_char(nn,".") ;  
           var ans_1 ="";
           if( nub_point >2){
-
               var ans_1 = message_1(30);
-
                            return  ans_1  }
-
          else{ nn=nn;}
-
- 
    var nn =m_mtx_trim(nn) ;          
-
-        
-
-
-
        var test_point = m_nub_p(nn);        
-
        var test_fst=nn.toString().substr(0,1);
-
-     
-
-        if(test_point > 0 || test_fst=="-"){
+       if(test_point > 0 || test_fst=="-"){
            return message_1(7);        
                          }       
-         if(nn < 0  || nn >= 25000001 ){       
-  
+         if(nn < 0  || nn >= 20000001 ){       
             return message_1(7);}    
-
-       
-
-      
        var sum_total=1;
-     
           if(nn == 0 || nn==1 ){  
               sum_total=1; return sum_total;}
-
-
-     
-      
-
       var AA= m_new_zero_mtx(1,MTX_COL);             
       var BB= m_new_zero_mtx(1,MTX_COL);            
       var CC= m_new_zero_mtx(1,MTX_COL);            
       var DD= m_new_zero_mtx(1,MTX_COL);            
-
       var data_row = AA.length;   
-     
          AA[0][0]=100000;      
-
          DD[0][0]=100000;      
-         
              var  value_nub=0;
              var MM = m_mtx_n_100_table();  
-           
-      
-               var nn=parseFloat(nn);   
-
-           
-             TB = m_mtx_n_100_bf_table();  
-
-
+             var nn=parseFloat(nn);   
+            TB = m_mtx_n_100_bf_table();  
               var data_flg =0 ;
               var data_i_end =0;
-
              for(var m=0; m < (TB.length) ;m++){
-
                if(nn >=TB[m][0] && nn < TB[m+1][0] ){       
-
-
                   if( nn <= (parseInt(TB[m][0]) + parseInt(TB[m+1][0]))/2){  
                        var data_i_star = TB[m][1];
                        var value_nub = TB[m][2];
@@ -1780,155 +1732,77 @@ function m_n(n){
                         var data_i_end = TB[m+1][1];
                         var value_nub = TB[m+1][2];
                         var data_e_al = TB[m+1][3]; 
-
-                          var data_flg =1 ;                  
+                         var data_flg =1 ;                  
                         }
-
-
-
-                             
-
                      var m =  TB.length; 
-
-
                      }
                                               }    
 
-
-    
-       
-
              if(value_nub >= 0 ){
-
-        
                MM_part = m_mtx_row_table(MM,value_nub);
-
                AA= MM_part; 
-
-   
                     }
-
-
              else{ AA=AA;}
-
-
-
-           
           var nn=parseFloat(nn);   
-
-           
-         
                var data_e_a = 0;  
-
          if(data_flg ==0){
-
             for(var i = data_i_star ; i < (nn+1) ; i++){               
               var data_str = m_mtx_str_to_e_nez(i,0);    
               var data_e = m_mtx_str_to_e_nez(i,1);   
-     
               BB=m_mtx_point_in(BB,data_str);         
-
-
               DD =  m_mtx_point_mul(DD,BB);        
                var data_e_a =data_e_a+data_e;  
                 DD = m_mtx_cell_five(DD);          
-
                 var data_test = parseInt(DD[0][0]);
-
                     if(  data_test ==0){
-
-                          
                            var  C = m_mtx_copy_col_mtx(CC,DD);   
-
                              var  DD = C;
-
                                      var data_e_a =data_e_a-5;   
-
-                                        }
-                  
-                                         }   
-
-                                  
-
-                               var data_e_al =parseInt(data_e_al)+parseInt(data_e_a);   
-
-                               AA =  m_mtx_point_mul(AA,DD);        
+                                       }
               
-
+                                         }   
+                               var data_e_al =parseInt(data_e_al)+parseInt(data_e_a);   
+                               AA =  m_mtx_point_mul(AA,DD);        
                                AA = m_mtx_cell_five(AA);          
                           }  
                else{
-
-                 var data_e_a =0;
-
-
-
-                   
-
-                  for(var i = (parseInt(nn)+1) ; i < parseInt(data_i_end) ; i++){            
+                var data_e_a =0;
+                 for(var i = (parseInt(nn)+1) ; i < parseInt(data_i_end) ; i++){            
                      var data_str = m_mtx_str_to_e_nez(i,0);    
                      var data_e = m_mtx_str_to_e_nez(i,1);   
-     
-                       BB=m_mtx_point_in(BB,data_str);         
-
-                    
+                      BB=m_mtx_point_in(BB,data_str);         
+               
                     DD =  m_mtx_point_mul(DD,BB);        
                      var data_e_a =data_e_a+data_e;  
- 
                     DD = m_mtx_cell_five(DD);          
-
                   var data_test = parseInt(DD[0][0]);    
                     if(  data_test ==0){     
-                           
-                           var  C = m_mtx_copy_col_mtx(CC,DD);   
-
+                        var  C = m_mtx_copy_col_mtx(CC,DD);   
                              var  DD = C;
-
                                      var data_e_a =data_e_a-5;   
-                                        }
-                  
+                                       }
+
                                          }   
-
-      
-                                 
-
                                             var data_test_d0 = parseInt(DD[0][0]);
                                             var data_test_nub = 0;
-
                                      while( data_test_d0 < 100000){
-
                                       var DD = m_mtx_element_shift(DD,1);  
-                                         
-                                               var data_e_a = data_e_a-1;   
+                                             var data_e_a = data_e_a-1;   
                                                   var data_test_d0 = parseInt(DD[0][0]);  
-                                                         data_test_nub = data_test_nub+1;
-
+                                                        data_test_nub = data_test_nub+1;
                                                                if( data_test_nub ==10){  var data_test_d0 = 200000 ;}  
-
                                                                 }
-                                  
-
                                    var data_e_al =parseInt(data_e_al)-parseInt(data_e_a);   
-
-
-                                   
+                              
                                  DDI = m_mtx_any_inv(DD ,1);          
                                AA =  m_mtx_point_mul(AA,DDI);        
-                                    
                                AA = m_mtx_cell_five(AA);          
-           
-
                     }
-          
-    
+
              var sum_total= m_mtx_cell_five_show(AA);     
-       
                sum_total = sum_total.toString();
-
                sum_total_lg = sum_total.length;
-
-                
-                     sum_total = sum_total+"e+"+data_e_al;  
+               sum_total = sum_total+"e+"+data_e_al;  
      return sum_total; 
 
    }
@@ -2207,12 +2081,9 @@ function m_lg_str_to_e(x){
     return xx_t;
 }
 
-
-
 function message_1(n){
-  var nn = n;
+ var nn = n;
   var message_1;
-
      switch(nn){
        case 1:
           message_1 = "<--  Msg : asin(x) , |x|<= 1 -->" ;
@@ -2229,133 +2100,90 @@ function message_1(n){
         case 5:
           message_1 = "<--  Msg : ln(x) , x > 0 -->" ;
           break;
-
         case 6:
           message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
           break;
          case 7:
-          message_1 = "<--  Msg : n! ,  n ∈ N  at n > 25000000 no support  -->" ;
+          message_1 = "<--  Msg : n! ,  n ∈ N  at n > 20000000 no support ,need a lot of calculation -->" ;
           break; 
-
          case 8:
           message_1 = "<--  Msg : () ,  no data -->" ;
-
           break;
-
           case 9:
           message_1 = "<--  Msg : log(x) , x > 0 -->" ;
           break;
-
           case 10:
           message_1 = "<--  Msg : exp(x) value approximation to  0 -->" ;
           break;
-
           case 11:
           message_1 = "<--  Msg : tan(x)  x ≠ kπ+π/2  k∈Z -->" ;   
           break;
-
           case 12:
           message_1 = "<--  Msg : tan(x) value  to  ± infinity -->" ;
           break;
-        
           case 13:
           message_1 = "<--  Msg : ln(0) value  to  -infinity -->" ;
           break;
-
           case 14:
           message_1 = "<--  Msg : log(0) value  to  -infinity -->" ;
           break;
-
-
           case 15:
           message_1 = "<--  Msg : cot(x) value  to  ± infinity -->" ;
           break;
-
           case 16:
           message_1 = "<--  Msg : cot(x) value  to  ± infinity -->" ;
           break;
-
           case 17:
           message_1 = "<--  Msg : sin(x)  if |x| > 1,000,000,000,000,000 no support -->" ;
           break;
-
           case 18:
           message_1 = "<--  Msg : cos(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
           break;
-
           case 19:
           message_1 = "<--  Msg : tan(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
           break;
-
-
           case 20:
           message_1 = "<--  Msg : sin(x)  if |x|.length > 16  no support -->" ;
           break;
-
           case 21:
           message_1 = "<--  Msg : cos(x)  if |x|.length > 16  no support -->" ;
           break;
-
            case 22:
           message_1 = "<--  Msg : tan(x)  if |x|.length > 16  no support -->" ;
           break;
-
            case 23:
           message_1 = "<--  Msg : exp(x)  if x > 200 digit number  no support -->" ;
           break;
-
           case 24:
           message_1 = "<--  Msg : sinh(x)  if |x| > 1000000000000000000  no support -->" ;
           break;
-
            case 25:
           message_1 = "<--  Msg : cosh(x)  if |x| > 1000000000000000000  no support -->" ;
           break;
-
           case 26:
           message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching 1 -->" ;
           break;
-
-
           case 27:
            message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching -1 -->" ;
            break;
-
           case 28:
-
             message_1 = "<--  Msg :  undefined  : x^p  when x=0   p<=0  -->" ;
             break;
-            
-           case 29:
-
+          case 29:
             message_1 = "<--  Msg :  error  : y/x   when x=0    -->" ;
             break;
-
-
             case 30:
-
             message_1 = "<--  Msg :  error  :  .  >=2    -->" ;
-
-
             break;
-
             case 31:
-
             message_1 = "<--  Msg :  error  :  A[0][0] < 100000 ||  A[0][0] > 999999    -->" ;
             break;
-
             case 32:
-
             message_1 = "<--  Msg :  sorry : (xe+y || xe-y)  y>225 || this e type no support     -->" ;
             break;
-
        default:
-         
-
-                }
-
+               }
  return message_1; 
-
  }
 
 
@@ -2464,32 +2292,22 @@ function m_replace_star(str_s ){
 
 
 function m_str_sub_ngt_bf(str){   
-
-    var str_1 = str.toString().trim();
+var str_1 = str.toString().trim();
     var str_1_lg = str_1.length;
     var str_fst = str_1.substr(0,1);
     var str_sec = str_1.substr(1,1);
-
             if(str_fst=="-"){
                    var  str_1="0"+str_1;  }              
-      
-              str_1 = str_1.replace(/\(-/g , "\(0-");    
+             str_1 = str_1.replace(/\(-/g , "\(0-");    
              str_1 = str_1.replace(/n-/g , "nQ");      
              str_1 = str_1.replace(/s-/g , "sQ");      
              str_1 = str_1.replace(/y-/g , "yQ");      
              str_1 = str_1.replace(/p-/g , "pQ");     
-             str_1 = str_1.replace(/g-/g , "gQ");      
              str_1 = str_1.replace(/,-/g , ",Q");      
-
              str_1 = str_1.replace(/\^-/g , "\^Q");      
              str_1 = str_1.replace(/e-/g , "eQ");      
-
              str_1 = str_1.replace(/e\+/g , "e");      
-
-        
-    return str_1;
-
-
+   return str_1;
  }
 
 
