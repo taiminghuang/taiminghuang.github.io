@@ -4764,51 +4764,46 @@ function m_str_b_sec(str,spec){
 
 function m_str_math_replacec(this_it){         
  var this_it_a = this_it;
-
-    
-            this_it_a = this_it_a.toLowerCase(); 
-            this_it_a = this_it_a.replace(/q/g , "Q");
-            this_it_a = m_fun_aft_many(this_it_a ,' ','');   
-             this_it_a = this_it_a.replace(/e-/g , "eQ");      
-             this_it_a = this_it_a.replace(/e\+/g , "e");      
-            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
-            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
-            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
-            this_it_a = m_fun_aft_many(this_it_a ,'sin','zzz');   
-            this_it_a = m_fun_aft_many(this_it_a ,'acosh','ayh');   
-            this_it_a = m_fun_aft_many(this_it_a ,'acos','ayy');   
-            this_it_a = m_fun_aft_many(this_it_a ,'cosh','yyh');   
-            this_it_a = m_fun_aft_many(this_it_a ,'cos','yyy');   
-            this_it_a = m_fun_aft_many(this_it_a ,'atanh','axh');   
-            this_it_a = m_fun_aft_many(this_it_a ,'atan','axx');   
-            this_it_a = m_fun_aft_many(this_it_a ,'tanh','xxh');   
-            this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx');   
-             this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
-             this_it_a = this_it_a.replace(/azz/g , "m_asin");     
-             this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
-             this_it_a = this_it_a.replace(/zzz/g , "m_sin");                
-             this_it_a = this_it_a.replace(/ayh/g , "m_acosh");     
-             this_it_a = this_it_a.replace(/ayy/g , "m_acos");     
-             this_it_a = this_it_a.replace(/yyh/g , "m_cosh");     
-             this_it_a = this_it_a.replace(/yyy/g , "m_cos");     
-             this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
-             this_it_a = this_it_a.replace(/axx/g , "m_atan");     
-             this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
-             this_it_a = this_it_a.replace(/xxx/g , "m_tan");     
-             this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');    
-             this_it_a = this_it_a.replace(/eee/g , "m_exp");   
-             this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn');   
-             this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
-             this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');    
-             this_it_a = this_it_a.replace(/ggg/g , "m_log");   
-             this_it_a = m_fact_many(this_it_a);                 
-             this_it_a = m_star_many(this_it_a);                
-      
-            this_it_a = this_it_a.replace( "31415926535897932.3846/10000000000000000","3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586");       
-            this_it_a = this_it_a.replace(/π/g ,"(3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586)");       
-           
-           this_it_a = this_it_a.replace(/1π/g ,"(3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586)");       
-        
+           this_it_a = this_it_a.toLowerCase(); 
+           this_it_a = this_it_a.replace(/q/g , "Q");
+           this_it_a = m_fun_aft_many(this_it_a ,' ','');   
+           this_it_a = this_it_a.replace(/e-/g , "eQ");      
+           this_it_a = this_it_a.replace(/e\+/g , "e");      
+           this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
+           this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
+           this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
+           this_it_a = m_fun_aft_many(this_it_a ,'sin','zzz');   
+           this_it_a = m_fun_aft_many(this_it_a ,'acosh','ayh');   
+           this_it_a = m_fun_aft_many(this_it_a ,'acos','ayy');   
+           this_it_a = m_fun_aft_many(this_it_a ,'cosh','yyh');   
+           this_it_a = m_fun_aft_many(this_it_a ,'cos','yyy');   
+           this_it_a = m_fun_aft_many(this_it_a ,'atanh','axh');   
+           this_it_a = m_fun_aft_many(this_it_a ,'atan','axx');   
+           this_it_a = m_fun_aft_many(this_it_a ,'tanh','xxh');   
+           this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx');   
+           this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
+           this_it_a = this_it_a.replace(/azz/g , "m_asin");     
+           this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
+           this_it_a = this_it_a.replace(/zzz/g , "m_sin");                
+           this_it_a = this_it_a.replace(/ayh/g , "m_acosh");     
+           this_it_a = this_it_a.replace(/ayy/g , "m_acos");     
+           this_it_a = this_it_a.replace(/yyh/g , "m_cosh");     
+           this_it_a = this_it_a.replace(/yyy/g , "m_cos");     
+           this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
+           this_it_a = this_it_a.replace(/axx/g , "m_atan");     
+           this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
+           this_it_a = this_it_a.replace(/xxx/g , "m_tan");     
+           this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');    
+           this_it_a = this_it_a.replace(/eee/g , "m_exp");   
+           this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn');   
+           this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
+           this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');    
+           this_it_a = this_it_a.replace(/ggg/g , "m_log");   
+           this_it_a = m_fact_many(this_it_a);                 
+           this_it_a = m_star_many(this_it_a);                
+            var AA =m_mtx_pi_100_table();               
+            var PI = m_mtx_row_table(AA,3);          
+            this_it_a = this_it_a.replace(/π/g ,"("+PI+")");
             this_it_a = this_it_a.replace(/\/1°/g , "\/(0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477)");    
             this_it_a = this_it_a.replace(/\/°/g , "\/(0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477)");   
              this_it_a =  m_star_deg_many(this_it_a);           
@@ -4822,7 +4817,6 @@ function m_str_math_replacec(this_it){
              this_it_a = m_replace_star(this_it_a) ;         
       
 return  this_it_a;
-
 }
   
  function cursor_sec_recal_t( ){                
@@ -4875,15 +4869,15 @@ return  this_it_a;
 
 
  function m_oct_nb(str_a) {             
-                                                               
-  var stra=str_a;
+ var stra=str_a;
   var lg=stra.length;
- 
-   for(var i=0;i<(lg-1);i++){
-
+  var test_nub1=1;
+  var test_nub2=1;
+  if(lg>=200){ var test_nub1=100 ;}
+    else { var test_nub1 = lg-1 ;}
+   for(var i=0;i<test_nub1;i++){
      var char_1= stra.toString().substr(0,1);  
      var char_2= stra.toString().substr(1,1);  
-   
      var index_1= m_str_spc_index(stra,"1") ; 
      var index_2= m_str_spc_index(stra,"2") ; 
      var index_3= m_str_spc_index(stra,"3") ; 
@@ -4893,28 +4887,38 @@ return  this_it_a;
      var index_7= m_str_spc_index(stra,"7") ; 
      var index_8= m_str_spc_index(stra,"8") ; 
      var index_9= m_str_spc_index(stra,"9") ; 
-   
-         if(char_1=="0" && (index_1==1 || index_2==1 ||index_3==1 || index_4==1 ||index_5==1 || index_6==1 ||index_7==1 || index_8==1 ||index_9==1 || char_2=="0" )){ 
-             var  stra=stra.substring(1,lg);}   
-       
-          
+         if((char_1=="0" && (index_1==1 || index_2==1 ||index_3==1 || index_4==1 ||index_5==1 || index_6==1 ||index_7==1 || index_8==1 ||index_9==1 || char_2=="0" ))||char_1==""){ 
+             var  stra=stra.substring(1,lg);
+             var  lg=stra.length;    }   
                           }
-      
-      var lg=stra.length;  
-   
-       for(var i=0;i<(lg-1);i++){
-
-        var stra =m_replace(stra ,"+00" ,"+0" ) ;           
+    var lg=stra.length;  
+      if(lg>=200){ var test_nub2=100 ;}
+      else { var test_nub2 = lg-1 ;}
+    for(var i=0;i<test_nub2 ;i++){       
+        var stra =m_replace(stra ,"+00" ,"+0" ) ;         
+        var stra =m_replace(stra ,"-00" ,"-0" ) ;         
+        var stra =m_replace(stra ,"*00" ,"*0" ) ;           
+        var stra =m_replace(stra ,"/00" ,"/0" ) ;         
+        var stra =m_replace(stra ,"^00" ,"^0" ) ;          
+        var stra =m_replace(stra ,"(00" ,"(0" ) ;        
+        var stra =m_replace(stra ,"(-00" ,"(-0" );        
+        var stra =m_replace(stra ,"+0000" ,"+0" ) ;        
+        var stra =m_replace(stra ,"-0000" ,"-0" ) ;         
+        var stra =m_replace(stra ,"*0000" ,"*0" ) ;           
+        var stra =m_replace(stra ,"/0000" ,"/0" ) ;         
+        var stra =m_replace(stra ,"^0000" ,"^0" ) ;         
+        var stra =m_replace(stra ,"(0000" ,"(0" ) ;          
+        var stra =m_replace(stra ,"(-0000" ,"(-0" );        
+                                      }
         var stra =m_replace(stra ,"+01" ,"+1" ) ;         
-        var stra =m_replace(stra ,"+02" ,"+2" ) ;         
-        var stra =m_replace(stra ,"+03" ,"+3" ) ;           
+        var stra =m_replace(stra ,"+02" ,"+2" ) ;        
+        var stra =m_replace(stra ,"+03" ,"+3" ) ;          
         var stra =m_replace(stra ,"+04" ,"+4" )  ;        
         var stra =m_replace(stra ,"+05" ,"+5" ) ;         
-        var stra =m_replace(stra ,"+06" ,"+6" ) ;           
+        var stra =m_replace(stra ,"+06" ,"+6" ) ;          
         var stra =m_replace(stra ,"+07" ,"+7" ) ;         
         var stra =m_replace(stra ,"+08" ,"+8" ) ;         
         var stra =m_replace(stra ,"+09" ,"+9" );            
-        var stra =m_replace(stra ,"-00" ,"-0" ) ;           
         var stra =m_replace(stra ,"-01" ,"-1" ) ;         
         var stra =m_replace(stra ,"-02" ,"-2" ) ;         
         var stra =m_replace(stra ,"-03" ,"-3" ) ;           
@@ -4924,7 +4928,6 @@ return  this_it_a;
         var stra =m_replace(stra ,"-07" ,"-7" ) ;         
         var stra =m_replace(stra ,"-08" ,"-8" ) ;         
         var stra =m_replace(stra ,"-09" ,"-9" ) ;           
-        var stra =m_replace(stra ,"*00" ,"*0" ) ;           
         var stra =m_replace(stra ,"*01" ,"*1" ) ;         
         var stra =m_replace(stra ,"*02" ,"*2" ) ;         
         var stra =m_replace(stra ,"*03" ,"*3" ) ;           
@@ -4934,7 +4937,6 @@ return  this_it_a;
         var stra =m_replace(stra ,"*07" ,"*7" ) ;         
         var stra =m_replace(stra ,"*08" ,"*8" );          
         var stra =m_replace(stra ,"*09" ,"*9" ) ;           
-        var stra =m_replace(stra ,"/00" ,"/0" ) ;           
         var stra =m_replace(stra ,"/01" ,"/1" );          
         var stra =m_replace(stra ,"/02" ,"/2" ) ;         
         var stra =m_replace(stra ,"/03" ,"/3" ) ;           
@@ -4944,7 +4946,6 @@ return  this_it_a;
         var stra =m_replace(stra ,"/07" ,"/7" ) ;         
         var stra =m_replace(stra ,"/08" ,"/8" ) ;         
         var stra =m_replace(stra ,"/09" ,"/9" ) ;         
-        var stra =m_replace(stra ,"^00" ,"^0" );            
         var stra =m_replace(stra ,"^01" ,"^1" );          
         var stra =m_replace(stra ,"^02" ,"^2" );          
         var stra =m_replace(stra ,"^03" ,"^3" );            
@@ -4954,7 +4955,6 @@ return  this_it_a;
         var stra =m_replace(stra ,"^07" ,"^7" ) ;         
         var stra =m_replace(stra ,"^08" ,"^8" );          
         var stra =m_replace(stra ,"^09" ,"^9" );            
-        var stra =m_replace(stra ,"(00" ,"(0" ) ;           
         var stra =m_replace(stra ,"(01" ,"(1" ) ;         
         var stra =m_replace(stra ,"(02" ,"(2" );          
         var stra =m_replace(stra ,"(03" ,"(3" );            
@@ -4964,7 +4964,6 @@ return  this_it_a;
         var stra =m_replace(stra ,"(07" ,"(7" ) ;         
         var stra =m_replace(stra ,"(08" ,"(8" ) ;         
         var stra =m_replace(stra ,"(09" ,"(9" );            
-        var stra =m_replace(stra ,"(-00" ,"(-0" );            
         var stra =m_replace(stra ,"(-01" ,"(-1" );          
         var stra =m_replace(stra ,"(-02" ,"(-2" ) ;         
         var stra =m_replace(stra ,"(-03" ,"(-3" );            
@@ -4974,14 +4973,17 @@ return  this_it_a;
         var stra =m_replace(stra ,"(-07" ,"(-7" );          
         var stra =m_replace(stra ,"(-08" ,"(-8" ) ;         
         var stra =m_replace(stra ,"(-09" ,"(-9" ) ;         
-   
-
-                                }
-
-    
    return stra ;
+  }
 
-   
+   function m_abs(x){         
+
+    var xx = x.toString().trim() ;
+    var xx_fst=xx.substr(0,1);
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}
+
+       return xx; 
+
   }
 
 
