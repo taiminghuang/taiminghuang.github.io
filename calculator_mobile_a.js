@@ -2948,8 +2948,9 @@ function m_star_deg_rem(str){
                       else {var bf_op = str_1.substr(dg_index-part_bf_lg-1,1); } 
  
                     var af_op = str_1.substr(dg_index+1,1);  
-
-              if( bf_op =="*" || bf_op =="/" || bf_op =="^" ||af_op =="*" || af_op =="/" || af_op =="^"){
+                    var af2_str_bf = str_bf.substr(str_bf.length-2,2);  
+                    var bf2_str_af = str_af.substr(0,2);
+              if( bf_op =="*" || bf_op =="/" || bf_op =="^"  ||af_op =="*" || af_op =="/" || af_op =="^" || af2_str_bf =="((" || af2_str_bf =="/("|| af2_str_bf =="*("|| af2_str_bf =="^(" || bf2_str_af =="))" || bf2_str_af ==")*" ||bf2_str_af ==")/" ||bf2_str_af ==")^" ){
 
                   part_bf = part_bf.replace("°" , "D");      
                   str_1 = str_bf + part_bf +"°"+ str_af;
