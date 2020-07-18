@@ -2821,8 +2821,9 @@ function m_star_rem(str,nub){
                       else {var bf_op = str_1.substr(pi_index-part_bf_lg-1,1); } 
 
                     var af_op = str_1.substr(pi_index+1,1);  
-
-              if( bf_op =="*" || bf_op =="/" || bf_op =="^" ||af_op =="*" || af_op =="/" || af_op =="^"){
+                    var af2_str_bf = str_bf.substr(str_bf.length-2,2);  
+                    var bf2_str_af = str_af.substr(0,2);
+              if( bf_op =="*" || bf_op =="/" || bf_op =="^"  ||af_op =="*" || af_op =="/" || af_op =="^" || af2_str_bf =="((" || af2_str_bf =="/("|| af2_str_bf =="*("|| af2_str_bf =="^(" || bf2_str_af =="))" || bf2_str_af ==")*" ||bf2_str_af ==")/" ||bf2_str_af ==")^" ){
               
                   str_1 = str_bf + part_bf +"π"+ str_af;
            
@@ -3833,178 +3834,8 @@ function m_str_div_2part(str,nub){
 
 
 function m_pi_dg_ot(str,nub){   
-   var str_1 = str;
-   var nub_1 = nub;
-   var ans_1="";
-     
-      var str_1 = m_tri_ang_2pi_replace(str_1);        
-
-      var str_1 = m_pi_dg_bf_and_1(str_1);       
-  
-     var l_index = str_1.indexOf("(");  
-     var j_index = str_1.indexOf(")");  
-     var str_1_lg = str_1.length ;
-    
-      if(l_index ==0 && j_index==(str_1_lg-1)){
-           var str_1=str_1.substr(1,str_1_lg-2);    
-           var str_1_lg = str_1.length ;
-
-           }
-
-     
-       if(l_index >0 ){ var ans_1= str ; return ans_1 ;}  
-
-     var nub_dg = m_str_spc_count(str_1,"°");    
-
-      if(nub_dg !=0){ 
-         str_1 = str_1.replace(/°/g , "π/180");    
-                     }
- 
-
-      var nub_pi = m_str_spc_count(str_1,"π");   
-      var nub_mul = m_str_spc_count(str_1,"*");   
-     var nub_div = m_str_spc_count(str_1,"/");   
-     var nub_pow = m_str_spc_count(str_1,"^");   
-
-
-         if( nub_mul != 0 || nub_div !=0 || nub_pow !=0 ){ var ans_1= str ;    
-                                    return ans_1 ;}  
-
-     var str_new ="";  
-     var str_1_new ="";   
-     var pi_bf_1 =""; 
-
-     var pi_data_sum=0;
    
-
-     if(nub_pi >= 1 ){      
-    
-       for(var i=0;i<nub_pi;i++){
-
-           var pi_bf ="";
-           var pi_af ="";
-
-
-      var pi_index = str_1.indexOf("π");  
-
-      var pi_bf = m_str_spec_part_bf_mul(str_1 ,"π"); 
-      var pi_af = m_str_spec_part_af_mul(str_1 ,"π"); 
-        var flag_pn = str_1.substr((pi_index - pi_bf.length -1),1);   
-        
-            var lst_pi = pi_bf.substr(pi_bf.length-1 ,1); 
-
-              if(pi_bf ==""){ var pi_bf_1 = 1;}   
-            
-             if(pi_af !=""){
-
-               var pi_bf_1 = pi_bf_1+ pi_af;   
-                          }
-
-
-                 var pi_bf_1_point = m_str_spc_count(pi_bf_1,".");   
-       
-
-             if(pi_af =="" && pi_bf_1_point !=0){ var pi_bf_1 = pi_bf_1 + "0" ;}  
-
-       
-               if(pi_bf_1 !="" && pi_bf_1 !=0){
-                 var  pi_bf_1 = m_ext_in_funct(pi_bf_1);   
-
-                 var  pi_bf_1 = eval(pi_bf_1);            
-                                                  }
-
-              var  pi_bf_1 =m_fix(pi_bf_1,250);   
-
-        if(flag_pn=="-"){
-    
-          var pi_data_sum = m_mtx_real_sub(pi_data_sum , pi_bf_1); 
-
-                         }
-        else{
-         var pi_data_sum = m_mtx_real_add(pi_data_sum , pi_bf_1); 
-            }
- 
-          var  pi_data_sum = m_str_e_to_str(pi_data_sum);      
-      
-      var str_1_bf = str_1.substr(0,pi_index-pi_bf.length-1);  
- 
-      var str_1_af = str_1.substr((pi_index+1+pi_af.length) ,(str_1.length-pi_index -1 - pi_af.length)); 
-    
-      var str_1_new = str_1_bf+str_1_af;
-
-
-      var str_1 = str_1_new ;
-   
-                               } 
-         
-        }  
-
-           var fst_str_1 = str_1.substr(0,1);
-  
-           if(fst_str_1 =="+"){ var str_1 = str_1.substr(1,str_1.length-1);}   
-
-              var ot_data_sum = ""; 
-         
-                fst_fg = str_1.substr(0,1);     
-
-                 if(fst_fg=="+"){ var str_1_new = str_1.substr(1,str_1.length-1);}  
-                 if(fst_fg=="-"){ var str_1_new = "0"+str_1;}  
-                 else {var str_1_new = str_1;}   
-
-
-               if(str_1_new !="" && str_1_new !=0){
-                 var  str_1_new = m_ext_in_funct(str_1_new);   
-                 var  ot_data_sum =eval(str_1_new);            
-                                                  }
-
-              var  ot_data_sum =m_fix(ot_data_sum,250);  
-
-
-              var  ot_data_sum = m_str_e_to_str(ot_data_sum);     
-       
-
-           var str_a="";
-          
-
-           if(pi_data_sum !=0 && pi_data_sum !=""){
-              var str_a= str_a + pi_data_sum + "π";
-                              }
-
-           if(ot_data_sum !=0 && ot_data_sum !=""){
-
-               fst_ot = ot_data_sum.toString().substr(0,1);
-
-                     if(fst_ot =="+" ||fst_ot =="-"){ 
-
-                      var str_a= str_a + ot_data_sum.toString() ;
-                                                     }
-
-                       else{
-                              if(str_a !=""){
-                                  var str_a= str_a +"+"+ ot_data_sum.toString() ;}
-                              else{var str_a=  ot_data_sum.toString() ;}
-                           }
-
-                                                     }
-
-            if(nub_1==1){str_a= pi_data_sum ; }
-            
-             else if(nub_1==3){str_a=ot_data_sum ; }
-             else{ var str_a=str_a;
-                 
-                   if(str_a=="" && pi_data_sum==0){ var str_a = 0;}     
-                   if(str_a=="" && ot_data_sum==0){ var str_a = 0;}
-
-                   if(l_index ==0){ var str_a="("+str_a+")" ;}  
- 
-
-                  }
-
-         var str_a = m_tri_ang_2pi_replace(str_a);        
-
-         var str_a =  m_pi_dg_bf_del_1(str_a);      
-  
-     return  str_a;
+     return  str;
  
 }
 
@@ -4345,11 +4176,7 @@ function m_tri_ang_2pi_rem(str){
                   var ang_af_rem =  m_star_rem_many(ang_af,2);      
                         
                    var ang_af = ang_af_rem ;
-                   var ang_af_rem = m_pi_dg_ot(ang_af,5);          
-                   
-                      var ang_af = ang_af_rem ;
-
-                    
+                 
                                              }
                                                
 
@@ -4407,11 +4234,7 @@ if( nub_cos !=0 && str_pi !=0){
                   var ang_af_rem =  m_star_rem_many(ang_af,2);      
                    var ang_af = ang_af_rem ;
                  
-                   var ang_af_rem = m_pi_dg_ot(ang_af,5);         
-                      
-                      var ang_af = ang_af_rem ;
-
-                    
+                  
                                              }
 
                                                   
@@ -4474,12 +4297,6 @@ if( nub_tan !=0 && str_pi !=0){
                    var ang_af = ang_af_rem ;
 
                   
-                   var ang_af_rem = m_pi_dg_ot(ang_af,5);          
-                 
-                      
-                      var ang_af = ang_af_rem ;
-
-                      
                                              }
 
                                                   
@@ -4570,8 +4387,7 @@ function m_tri_ang_360deg_rem(str){
                for(var m=0 ; m< 2 ;m++){
                  var ang_af_rem =  m_star_deg_rem_many(ang_af);      
                  var ang_af = ang_af_rem ;
-                 var ang_af_rem = m_pi_dg_ot(ang_af,5);          
-                  var ang_af = ang_af_rem ;
+                
  
                                              }
                                              
@@ -4634,12 +4450,7 @@ if( nub_cos !=0 && str_nub_deg !=0){
                          
                    var ang_af = ang_af_rem ;
 
-                   
-                   var ang_af_rem = m_pi_dg_ot(ang_af,5);          
-                 
-                      
-                      var ang_af = ang_af_rem ;
-
+                  
                     
                                              }
 
@@ -4710,24 +4521,12 @@ if( nub_tan !=0 && str_nub_deg !=0){
                          
                    var ang_af = ang_af_rem ;
 
-                   var ang_af_rem = m_pi_dg_ot(ang_af,5);          
-                 
-                      
-                      var ang_af = ang_af_rem ;
-
                 
                                              }
-
-                                                  
+                                                 
 
                            }
-
-
-                
-                              
-
-             
-             
+            
         var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
         var str_1 = str_1_new;     
                           }   
@@ -4755,10 +4554,6 @@ if( nub_tan !=0 && str_nub_deg !=0){
      return  str_1_new;
 
   }
-
-
-
-
 
 
  function m_star_deg_many(str){                                
@@ -11500,6 +11295,7 @@ function m_mtx_real_div(y,x){
      var y_msg = m_mtx_test_msg(y);
         if(x_msg !=-1 ){ return x;}     
         if(y_msg !=-1 ){ return y;}
+        if(x==0 || x=="0"){  alert("xx="+x);  return message_1(29); }
       var y_data = m_mtx_trim(y) ; 
       var x_data = m_mtx_trim(x) ; 
       var ans_1 =0;
