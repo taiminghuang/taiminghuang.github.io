@@ -4343,8 +4343,7 @@ if( nub_tan !=0 && str_pi !=0){
   
 
 function m_tri_ang_360deg_rem(str){                                 
- 
-    var str_1 = str;
+  var str_1 = str;
       var str_nub_deg = m_str_spc_count(str_1,"°");   
        if(str_nub_deg == 0){ var ans_1=str;  return ans_1 ;} 
         str_1 = str_1.replace(/asinh/g , "EB");    
@@ -4388,7 +4387,7 @@ function m_tri_ang_360deg_rem(str){
                for(var m=0 ; m< 2 ;m++){
                  var ang_af_rem =  m_star_deg_rem_many(ang_af);      
                  var ang_af = ang_af_rem ;
-                
+                 
  
                                              }
                                              
@@ -4451,8 +4450,7 @@ if( nub_cos !=0 && str_nub_deg !=0){
                          
                    var ang_af = ang_af_rem ;
 
-                  
-                    
+     
                                              }
 
                                                   
@@ -4522,12 +4520,16 @@ if( nub_tan !=0 && str_nub_deg !=0){
                          
                    var ang_af = ang_af_rem ;
 
+                  
                 
                                              }
-                                                 
+
+                                                  
 
                            }
-            
+
+    
+             
         var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
         var str_1 = str_1_new;     
                           }   
@@ -4553,6 +4555,7 @@ if( nub_tan !=0 && str_nub_deg !=0){
       var  str_1_new = str_1_new.replace(/s\+/g , "(");     
  
      return  str_1_new;
+
 
   }
 
