@@ -1701,8 +1701,7 @@ function m_n(n){
        if(test_point > 0 || test_fst=="-"){
            return message_1(7);        
                          }       
-         if(nn < 0  || nn >= 20000001 ){       
-            return message_1(7);} 
+    
         var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
            if(( nn >= 20000001 )||(data_comp_nn_20000001 !=2)){       
               return message_1(33);} 
