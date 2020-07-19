@@ -2977,10 +2977,10 @@ function m_star_deg_rem(str){
                    var part_bf_b1 = m_nub_m(part_bf);      
                    var part_bf_a1 = m_nub_p(part_bf);       
                    var part_bf_a1 = part_bf_a1.toString().substr(1,part_bf_a1.length-1); 
-
+                    
+                  if(part_bf_b1==""){ var part_bf_b1 =1 ;}                                 
                    var part_bf_b = m_mtx_real_div(part_bf_b1 ,360 );      
-                   var part_bf_b  = m_str_e_to_str(part_bf_b);      
-
+                   var part_bf_b  = m_str_e_to_str(part_bf_b);       
                    var part_bf_bb = m_nub_p(part_bf_b);               
                    var part_bf_bbb = m_mtx_real_mul(part_bf_bb ,360 ); 
                        
