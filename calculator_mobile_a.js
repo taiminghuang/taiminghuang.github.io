@@ -1702,8 +1702,11 @@ function m_n(n){
            return message_1(7);        
                          }       
          if(nn < 0  || nn >= 20000001 ){       
-            return message_1(7);}    
-       var sum_total=1;
+            return message_1(7);} 
+        var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
+           if(( nn >= 20000001 )||(data_comp_nn_20000001 !=2)){       
+              return message_1(33);} 
+         var sum_total=1;
           if(nn == 0 || nn==1 ){  
               sum_total=1; return sum_total;}
       var AA= m_new_zero_mtx(1,MTX_COL);             
@@ -2104,7 +2107,7 @@ function message_1(n){
           message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
           break;
          case 7:
-          message_1 = "<--  Msg : n! ,  n ∈ N  at n > 20000000 no support ,need a lot of calculation -->" ;
+          message_1 = "<--  Msg : n! ,  n ∈ N  -->" ;
           break; 
          case 8:
           message_1 = "<--  Msg : () ,  no data -->" ;
@@ -2181,6 +2184,10 @@ function message_1(n){
             case 32:
             message_1 = "<--  Msg :  sorry : (xe+y || xe-y)  y>225 || this e type no support     -->" ;
             break;
+           case 33:
+            message_1 = "<--  Msg : n! ,  n > 20000000 no support ,need a lot of calculation  -->" ;    
+            break;
+           
        default:
                }
  return message_1; 
