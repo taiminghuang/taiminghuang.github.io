@@ -4109,7 +4109,9 @@ function m_tri_ang_2pi_replace(str){
 
 
                   }
-
+       var negate_d ="";
+       var negate_d = str_1.substr(0,2);
+       if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);}   //20200720  -cosπ=--1
 
       return  str_1;
  
