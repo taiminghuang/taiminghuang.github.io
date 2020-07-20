@@ -2106,7 +2106,7 @@ function message_1(n){
           message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
           break;
          case 7:
-          message_1 = "<--  Msg : n! ,  n ∈ N  -->" ;
+          message_1 = "<--  Msg : n! , n >=0 , n ∈ N   -->" ;
           break; 
          case 8:
           message_1 = "<--  Msg : () ,  no data -->" ;
