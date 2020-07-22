@@ -2186,7 +2186,9 @@ function message_1(n){
            case 33:
             message_1 = "<--  Msg : n! ,  n > 20000000 no support ,need a lot of calculation  -->" ;    
             break;
-           
+           case 34:  
+            message_1 = "<--  Msg : -1e-200<= answer <=1e-200 , inside of calculator error range -->" ;    
+            break;
        default:
                }
  return message_1; 
@@ -4111,8 +4113,9 @@ function m_tri_ang_2pi_replace(str){
                   }
        var negate_d ="";
        var negate_d = str_1.substr(0,2);
-       if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);}   //20200720  -cosπ=--1
-
+       if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);}   
+        str_1 = str_1.replace(/\-\-/g , "\+");    
+        str_1 = str_1.replace(/\+\-/g , "\-"); 
       return  str_1;
  
 
@@ -6620,9 +6623,14 @@ function m_mtx_real_str_comp(x,y){
  
             var data_e_cpl = m_mtx_int_str_comp(xx_e,yy_e);
            
-               if(data_e_cpl==1){ var ant=1 ; return ant; }            
-               if(data_e_cpl==2){ var ant=2 ; return ant; }            
-
+               if(xx_fst !="-" && yy_fst !="-"){                    
+                  if(data_e_cpl==1){ var ant=1 ; return ant; }            
+                  if(data_e_cpl==2){ var ant=2 ; return ant; }            
+                                            }
+             if(xx_fst =="-" && yy_fst =="-"){                       
+                 if(data_e_cpl==1){ var ant=2 ; return ant; }            
+                  if(data_e_cpl==2){ var ant=1 ; return ant; }            
+                                             }
 
              if((data_e_cpl == 3) && (xx_fst >  yy_fst)){ var ant=1 ; return ant; }   
              if((data_e_cpl == 3) && (xx_fst <  yy_fst)){ var ant=2 ; return ant; }   
@@ -7033,6 +7041,39 @@ function m_mtx_real_add_bf_1(x,y){
          
 }
 
+function m_sub_error_rg(str_1){      
+  var str_a=str_1;
+  var data_rang_str_up =-1;
+  var data_rang_str_down =-1;
+  var ng_nb =0;
+  var n_nb =0;
+  var p_nb =0;
+  var g_nb =0;
+  var s_nb =0;
+  var h_nb =0;
+  var sum_nb=0;
+  var it = "";
+  var ans ="";
+  var data_rang_str_up = m_mtx_real_str_comp(str_a,1e-285);     
+  var data_rang_str_down = m_mtx_real_str_comp(str_a,-1e-285);   
+      var it = calc.input.value;
+      var this_s = it.toString().trim();           
+      var this_it = m_del4_2f_char(this_s,';').toString().trim();        
+      var this_it_s = this_it;   
+      var this_it_t = m_str_sub_ngt_bf(this_it_s);   
+      var ng_nb = m_str_spc_count(this_it_t,"-");  
+      var n_nb = m_str_spc_count(this_it_t,"n");  
+      var p_nb = m_str_spc_count(this_it_t,"p");  
+      var g_nb = m_str_spc_count(this_it_t,"g");  
+      var s_nb = m_str_spc_count(this_it_t,"s");  
+      var h_nb = m_str_spc_count(this_it_t,"h");  
+         var sum_nb = n_nb + p_nb + g_nb+s_nb+h_nb ;
+    if(data_rang_str_up =2 && data_rang_str_down ==1 && ng_nb >=1 && sum_nb >=2 ){    
+        var ans = "0  "+message_1(34);
+      }
+    else {ans = str_1;}
+    return ans;  
+}
 
 function m_mtx_real_sub(x,y){       
   
@@ -12084,17 +12125,20 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
 
    
        var this_data_str = m_mtx_e_str(this_data ,1);  
-
+        var data_er_rg ="";
+        var data_er_rg = m_sub_error_rg(this_data);
   
 
      if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
+             if(data_er_rg != this_data.toString()){   
+                  document.getElementById('input').value = this_s.toString().trim()+" = "+data_er_rg +";"  ;  
+                                            }
 
-              
-          
-               var deci_dgt= parseInt(document.getElementById('5_0').value); 
+               else{  
+                var deci_dgt= parseInt(document.getElementById('5_0').value); 
 
-            document.getElementById('input').value = this_s.toString().trim()+" = "+m_fix(this_data.toString(),deci_dgt).toString() +";"  ;  
-
+                 document.getElementById('input').value = this_s.toString().trim()+" = "+m_fix(this_data.toString(),deci_dgt).toString() +";"  ;  
+                   }
 
                                            }
 
