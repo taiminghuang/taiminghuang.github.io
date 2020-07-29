@@ -2106,7 +2106,7 @@ function message_1(n){
           message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
           break;
          case 7:
-          message_1 = "<--  Msg : n! , n >=0 , n ∈ N   -->" ;
+          message_1 = "<--  Msg : n! , n >=0 ,  n=0 or n ∈ N   -->" ;
           break; 
          case 8:
           message_1 = "<--  Msg : () ,  no data -->" ;
@@ -2188,6 +2188,9 @@ function message_1(n){
             break;
            case 34:  
             message_1 = "<--  Msg : -1e-200<= answer <=1e-200 , inside of calculator error range -->" ;    
+            break;
+            case 35:
+            message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
             break;
        default:
                }
@@ -2383,6 +2386,54 @@ function m_str_spec_part_bf(str ,spec){
 
 }
 
+function m_str_spec_part_bf_mn(str ,spec){            
+     var str_1 = str.toString().trim();
+     var spec_1= spec;
+     var str_bf_1_bit ="";    //20200728
+     var str_bf_2_bit ="";
+     var ans_1="";
+       var str_1 = str_1.replace(/eQ/g , "eN");    
+           str_1 =  m_str_sub_ngt_bf(str_1) ;     
+       var pos = str_1.indexOf(spec_1) ; 
+     var mark_1 =str_1[pos - 1];        
+     var count_1 = 1 ;
+     var count_mark = pos ;
+
+          if(mark_1 ==")"){
+            for(var i= pos-2;0 <= i  ; i=i-1){
+              var mark_ref = str_1[i];
+
+                 if(mark_ref ==")"){
+                     count_1 = count_1 +1 ;}
+                 if(mark_ref =="("){
+                     count_1 = count_1-1 ;}
+                                            
+                  if(count_1==0){
+                     var count_mark = i ;
+                       i=-1;                                     
+                                          }
+                                           }
+                           }
+        if((mark_1 >=0 && mark_1<=9)) {  
+            var count_mark = pos-1;   
+           for(var i = pos - 2; 0 <= i   ; i=i-1){
+              var mark_ref = str_1[i];
+                if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='e'||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='N'){     
+                        var count_mark = i ;
+                                                       }
+                   else{  
+                    
+                           i=-1 ;                                
+                                             }     
+                                                    
+                                                  }
+                                 }
+ 
+         var str_part_b= str_1.substring(count_mark,pos);
+         var str_part_b = str_part_b.replace(/eN/g , "eQ");    
+      
+     return str_part_b;
+}
 
 function m_str_spec_part_bf_mul(str ,spec){          
   var str_1 = str.toString().trim();
@@ -2496,6 +2547,7 @@ var str_1 = str.toString().trim();
      return str_part_b;
   
 }
+
 
 
 function m_str_spec_part_af_mul(str ,spec){          
@@ -2772,7 +2824,7 @@ function m_str_spec_part_af_inv(str ,spec){
 
   function m_fact(str){                                  
     var str_1=str;
-    var part_bf = m_str_spec_part_bf(str_1 ,'!');
+    var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');
     var part_bf_lg = part_bf.length;
 
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
@@ -4666,7 +4718,10 @@ var this_it_a = this_it;
            this_it_a = this_it_a.replace(/q/g , "Q");
            this_it_a = m_fun_aft_many(this_it_a ,' ','');   
            this_it_a = this_it_a.replace(/e-/g , "eQ");      
-           this_it_a = this_it_a.replace(/e\+/g , "e");      
+           this_it_a = this_it_a.replace(/e\+/g , "e");   
+           this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
+           this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
+           this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
@@ -4698,9 +4753,6 @@ var this_it_a = this_it;
            this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');    
            this_it_a = this_it_a.replace(/ggg/g , "m_log");   
            this_it_a = m_fact_many(this_it_a); 
-           this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
-           this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
-           this_it_a = this_it_a.replace(/hhh/g , "m_pow");        
            this_it_a = m_hat_bf_aft_many(this_it_a ,'/','DDD');           
            this_it_a = this_it_a.replace(/DDD/g ,'m_mtx_real_div');    
            this_it_a = this_it_a.replace(/\/1°/g , "\/(0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477)");    
