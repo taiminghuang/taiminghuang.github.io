@@ -7047,7 +7047,7 @@ function m_sub_error_rg(str_1){
       var s_nb = m_str_spc_count(this_it_t,"s");  
       var h_nb = m_str_spc_count(this_it_t,"h");  
          var sum_nb = n_nb + p_nb + g_nb+s_nb+h_nb ;
-    if(data_rang_str_up =2 && data_rang_str_down ==1 && ng_nb >=1 && sum_nb >=2 ){    
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 && ng_nb >=1 && sum_nb >=2 ){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
