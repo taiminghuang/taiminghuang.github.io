@@ -2321,6 +2321,22 @@ var str_1 = str.toString().trim();
    return str_1;
  }
 
+function m_str_sub_ngt_bf_minus(str){   
+    var str_1 = str.toString().trim();
+    var str_1_lg = str_1.length;
+    var str_fst = str_1.substr(0,1);
+    var str_sec = str_1.substr(1,1);
+             str_1 = str_1.replace(/n-/g , "nQ");      
+             str_1 = str_1.replace(/s-/g , "sQ");      
+             str_1 = str_1.replace(/y-/g , "yQ");      
+             str_1 = str_1.replace(/p-/g , "pQ");      
+             str_1 = str_1.replace(/,-/g , ",Q");      
+             str_1 = str_1.replace(/\^-/g , "\^Q");      
+             str_1 = str_1.replace(/e-/g , "eQ");      
+             str_1 = str_1.replace(/e\+/g , "e");      
+    return str_1;
+ }
+
 
 
 function m_str_spec_part_bf(str ,spec){           
@@ -2892,6 +2908,123 @@ function m_star_deg(str){
 
    }
 
+function m_str_spec_part_af_minus(str ,spec){         
+     var str_1 = str.toString().trim();
+     var str_0 =str_1 ;                    
+     var str_a_lg = str_1.length;
+     var spec_1= spec;                      
+     var spec_a_lg = spec_1.length;
+      if( spec_1=="π" || spec_1=="°"){ var ans_1=str_1 ; return ans_1 ;}   
+         var  str_1= m_str_sub_ngt_bf_minus(str_1);   
+         var nn_end = m_str_spc_count(str_1,spec_1);
+    var nn = 0;
+    var nn_end = 0;
+        var nn_end = m_str_spc_count(str_1,spec_1);   
+     for(var nn=0; nn < nn_end ;nn++){            
+     var str_a_lg = str_1.length;
+     var spec_1= spec;                      
+     var spec_a_lg = spec_1.length;
+     var pos = str_1.indexOf(spec_1) ;  
+     var mark_1 =str_1[pos +spec_a_lg];          
+     var count_a = 1 ;
+     var count_mark=2500;  
+          if(mark_1 =="("){
+              var ans_1=str_1 ; return ans_1 ;}   
+         if((mark_1 >=0 && mark_1<=9)||(mark_1=="Q")) {          
+           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+              var mark_ref = str_1[i];
+                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
+                                                     }
+                   else{  
+                     var count_mark = i ;
+                         i= str_a_lg;                      }      
+                                                    
+                                                  }
+                                  }
+         
+           if(mark_1 =='.') {                                     
+           for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
+              var mark_ref = str_1[i];
+                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {      
+                                                       }
+                   else{  
+                     var count_mark = i ;
+                         i= str_a_lg;                      }       
+                                                    
+                                                  }
+                                  }
+          if(mark_1 =='π'|| mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
+         var str_part_fst= str_1.substring(0 ,pos+spec_a_lg);              
+         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
+         var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);     
+         var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );     
+         var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
+                  } 
+            var str_2 = str_1.replace(/Q/g , "-");        
+            var str_3 = str_2.replace(/TTT/g ,spec_1);     
+             var str_1 = str_3 ;    
+          return str_3 ;
+}
+
+function m_str_spec_part_af_minus_sum(str){       
+     var str_1 = str.toString().trim();
+     var str_1_lg = str_1.length;
+     var str_2 =""
+     var str_3 =""
+     var spec ="";
+     var i=0
+   for(var i=0 ; i < 15 ;i ++){    
+      if(i==0){ var spec = "asinh" ;}
+      if(i==1){ var spec = "acosh" ;}
+      if(i==2){ var spec = "atanh" ;}
+      if(i==3){ var spec = "sinh" ;}
+      if(i==4){ var spec = "cosh" ;}
+      if(i==5){ var spec = "tanh" ;}
+      if(i==6){ var spec = "asin" ;}
+      if(i==7){ var spec = "acos" ;}
+      if(i==8){ var spec = "atan" ;}
+      if(i==9){ var spec = "sin" ;}
+      if(i==10){ var spec = "cos" ;}
+      if(i==11){ var spec = "tan" ;}
+      if(i==12){ var spec = "exp" ;}
+      if(i==13){ var spec = "ln" ;}
+      if(i==14){ var spec = "log" ;}
+    var spec_lg = spec.length;
+     var str_2 =  m_str_spec_part_af_minus(str_1 ,spec);
+      if(i==0){ var str_3 = str_2.replace(/spec/g ,"aaaaa"); }   
+      if(i==1){ var str_3 = str_2.replace(/spec/g ,"bbbbb"); }   
+      if(i==2){ var str_3 = str_2.replace(/spec/g ,"ccccc"); }   
+      if(i==3){ var str_3 = str_2.replace(/spec/g ,"dddd"); }    
+      if(i==4){ var str_3 = str_2.replace(/spec/g ,"eeee"); }    
+      if(i==5){ var str_3 = str_2.replace(/spec/g ,"ffff"); }    
+      if(i==6){ var str_3 = str_2.replace(/spec/g ,"gggg"); }    
+      if(i==7){ var str_3 = str_2.replace(/spec/g ,"hhhh"); }    
+      if(i==8){ var str_3 = str_2.replace(/spec/g ,"iiii"); }    
+      if(i==9){ var str_3 = str_2.replace(/spec/g ,"jjj"); }     
+      if(i==10){ var str_3 = str_2.replace(/spec/g ,"kkk"); }    
+      if(i==11){ var str_3 = str_2.replace(/spec/g ,"lll"); }    
+      if(i==12){ var str_3 = str_2.replace(/spec/g ,"mmm"); }     
+      if(i==13){ var str_3 = str_2.replace(/spec/g ,"nn"); }    
+      if(i==14){ var str_3 = str_2.replace(/spec/g ,"ppp"); }    
+     var str_1 = str_3 ;
+                              } 
+      var str_1 =  str_3.replace(/"aaaaa"/g ,"asinh");    
+      var str_1 =  str_3.replace(/"bbbbb"/g ,"acosh");
+      var str_1 =  str_3.replace(/"ccccc"/g ,"atanh");
+      var str_1 =  str_3.replace(/"dddd"/g ,"sinh");
+      var str_1 =  str_3.replace(/"eeee"/g ,"cosh");
+      var str_1 =  str_3.replace(/"ffff"/g ,"tanh");
+      var str_1 =  str_3.replace(/"gggg"/g ,"asin");
+      var str_1 =  str_3.replace(/"hhhh"/g ,"acos");
+      var str_1 =  str_3.replace(/"iiii"/g ,"atan");
+      var str_1 =  str_3.replace(/"jjj"/g ,"sin");
+      var str_1 =  str_3.replace(/"kkk"/g ,"cos");
+      var str_1 =  str_3.replace(/"lll"/g ,"tan");
+      var str_1 =  str_3.replace(/"mmm"/g ,"exp");
+      var str_1 =  str_3.replace(/"nn"/g ,"ln");
+      var str_1 =  str_3.replace(/"ppp"/g ,"log");
+  return str_1 ;
+}
 
 function m_fun_aft(str,spec1,spec2){                   
    var str_1=str;                                               
@@ -11977,7 +12110,8 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
              
 
                this_it =mtx_str_e_chk(this_it);                     
-      
+              
+               this_it =  m_str_spec_part_af_minus_sum(this_it);
                this_it = m_tri_ang_2pi_rem(this_it);
 
 
