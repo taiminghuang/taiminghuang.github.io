@@ -12185,7 +12185,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                else{  
                 var deci_dgt= parseInt(document.getElementById('5_0').value); 
 
-                 document.getElementById('input').value = this_s.toString().trim()+" = "+m_fix(this_data.toString(),deci_dgt).toString() +";"  ;  
+                 document.getElementById('input').value = this_s.toString().trim()+function_data +" = "+m_fix(this_data.toString(),deci_dgt).toString() +";"  ;  
                    }
 
                                            }
