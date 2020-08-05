@@ -2662,10 +2662,10 @@ function m_str_spec_part_af_div(str ,spec){
 }
 
 
-function m_str_spec_part_bf_inv(str ,spec){   //20200730   
+function m_str_spec_part_bf_inv(str ,spec){      
      var str_1 = str.toString().trim();
      var spec_1= spec;
-         str_1 =  m_str_sub_ngt_bf(str_1) ;     
+         str_1 =  m_str_sub_ngt_bf_minus(str_1) ;     
      var pos = str_1.lastIndexOf(spec_1) ; 
      var mark_1 =str_1[pos - 1];        
      var count_1 = 1 ;
@@ -2783,7 +2783,19 @@ function m_str_spec_part_af_inv(str ,spec){
      return str_1;
 
    }
-
+function m_fact_minus(str){          
+    var str_1=str;
+    var ans_1="";
+    var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');   
+    var part_bf_lg = part_bf.length;
+     if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
+        str_1 = str_1.replace(part_bf+'!' , "("+part_bf +"T)" );  }           
+    if(part_bf_lg > 0 &&  part_bf[0] !='(' ){
+        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+"T)");             
+                           }
+         if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "("+1+"T)"); }   
+      return str_1;
+   }
 
  function m_star(str){                                 
   
@@ -3195,38 +3207,25 @@ function m_hat_bf_aft_inv(str,spec1,spec2){
   var str_1=str;                                              
    var spec_1=spec1;
    var spec_2=spec2;
-
    var part_aft ="";
-  
    var part_bf = m_str_spec_part_bf_inv(str_1 ,spec1);   
-  
    var part_bf_lg = part_bf.length;
-
    var part_aft =  m_str_spec_part_af_inv(str_1 ,spec_1);   
    var part_aft_lg = part_aft.length;
-
    var part_aft_1=part_aft;
    var part_bf_1=part_bf;
- 
-    var part_aft_1= part_aft;
-    var part_bf_1= part_bf ;
- 
+   var part_aft_1= part_aft;
+   var part_bf_1= part_bf ;
+   var pos = str_1.lastIndexOf(spec_1) ;  //20200805
+   var str_part_b= str_1.substring(0 ,pos);    
+   var str_part_a= str_1.substring(pos+spec_1.length ,str_1.length);    
+   var str_1 = str_part_b+"T"+str_part_a;            //20200805   
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
-
-         
-        str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+part_bf_1 +","+part_aft_1+")" ) ;   
-
-         
-                                                        }        
- 
-
-     if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
+        str_1 = str_1.replace(part_bf+"T"+part_aft , "("+part_bf_1 +","+part_aft_1+")" ) ;  }  
+      if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
 
      return str_1;
-
 }
-
-
 
   function m_str_spc_count(str,spec){            
    var str_1 = str;
@@ -3527,144 +3526,92 @@ function m_str_spc_end(str,spec){
    }
 
 
-
-
-
-
-
-
   function m_fact_many(str){                         
-
       var str_1 = str;
       var nub_1 = m_str_spc_count(str_1,'!');   
-
           for(var i=0; i< nub_1 ; i++){
             str_1 =  m_fact(str_1);   
              }
-
       return  str_1;
-
   }
 
+function m_fact_many_minus(str){                         
+      var str_1 = str;
+      var nub_1 = m_str_spc_count(str_1,'!');   
+          for(var i=0; i< nub_1 ; i++){
+            str_1 =  m_fact_minus(str_1);    
+             }
+      str_1 = str_1.replace( /T/g, "!") ;  
+      return  str_1;
+  }
 
  function m_star_many(str){                                 
-   
-    var str_1 = str;
-    
+   var str_1 = str;
     var nub_1 = m_str_spc_count(str_1,"π");   
-
     for(var i=0; i< nub_1 ; i++){
             str_1 =  m_star(str_1);   
                }
-
       str_1 = str_1.replace( /pi/g, "π") ;  
-     return  str_1;
-
+     return  str_1;  
   }
 
 function m_star_rem_many(str,nub){                                 
-   
-    var str_1 = str;
+   var str_1 = str;
     var nubb = nub;
-      
     var nub_1 = m_str_spc_count(str_1,"π");   
-
-     var  str_2 ="" ; 
-
+    var  str_2 ="" ; 
     for(var i=0; i< nub_1 ; i++){
-           
         var str_2 =  m_star_rem(str_1 ,nubb);   
-   
-
-           var str_1 = str_2 ;  
-
+         var str_1 = str_2 ;  
                }
-
-
             str_1 = str_1.toString().replace( /P/g, "π") ;  
-
      return  str_1;
-  
-
   }
 
 
 
 function m_lj_str(str){   
-
-   var str_1 = str;
-
-    
+     var str_1 = str;
      var nub_l = m_str_spc_count(str_1,"(");   
      var nub_j = m_str_spc_count(str_1,")");    
-
       if( nub_l != nub_j){ var ans_1="error" ; return ans_1 ;}
       if( nub_l == 0){ var ans_1=str ; return ans_1 ;}
- 
      var str_new ="";  
-
      if(nub_l > 0 ){
-
       var str_1_lg=str_1.length;
-
       var l_index = str_1.lastIndexOf("(");  
       var str_1_af = str_1.substr(l_index+1,str_1_lg-l_index-1);  
-
       var j_index = str_1_af.indexOf(")");  
-
       var str_1_m = str_1_af.substr(0,j_index);  
-     
-          var str_1= str_1_m;
-
-
+      var str_1= str_1_m;
         }
-
-
-  
      return  str_1;
-
 }
 
 
 function m_pi_dg_bf_and_1(str){       
-     var str_1 = str;
-
+   var str_1 = str;
      var nub_pi = m_str_spc_count(str_1,"π");    
      var nub_dg = m_str_spc_count(str_1,"°");   
- 
    if(nub_pi !=0){
      str_1 = str_1.replace(/\(π/g , "\(1π");      
      str_1 = str_1.replace(/\+π/g , "\+1π");    
      str_1 = str_1.replace(/\-π/g , "\-1π");    
      str_1 = str_1.replace(/\*π/g , "\*1π");    
      str_1 = str_1.replace(/\/π/g , "\/1π");    
-
            var data_fst=str_1.substr(0,1);    
-
                if(data_fst=="π"){  var str_1="1"+str_1;}
-
-
                  }
-
-
-      if(nub_dg !=0){
+     if(nub_dg !=0){
      str_1 = str_1.replace(/\(°/g , "\(1°");       
      str_1 = str_1.replace(/\+°/g , "\+1°");    
      str_1 = str_1.replace(/\-°/g , "\-1°");    
      str_1 = str_1.replace(/\*°/g , "\*1°");    
      str_1 = str_1.replace(/\/°/g , "\/1°");    
-
            var data_fst=str_1.substr(0,1);    
-
                if(data_fst=="°"){  var str_1="1"+str_1; }
-
-
                  }
-
-
-
-     return  str_1;
-
+     return  str_1; 
  }
 
 function m_pi_dg_bf_del_1(str){       
@@ -4734,26 +4681,15 @@ function m_hat_bf_aft_many(str,spec1,spec2){
 
 
 function m_hat_bf_aft_many_inv(str,spec1,spec2){        
-
    var str_1=str.toString().trim();
    var spec_1=spec1;
    var spec_2=spec2;
    var data_fst = str_1.substr(0,1);
-
-     if(data_fst =="-"){ var str_1="0"+str_1;}    
-
    var nub_1 = m_str_spc_count(str_1,spec_1);   
-         
- 
-      for(var i = nub_1; i>0 ; i--){
-
+       for(var i = nub_1; i>0 ; i--){
             str_1 =  m_hat_bf_aft_inv(str_1,spec_1,spec_2);     
-            
-                   }
-
-         
+                }
          str_1 = str_1.replace( /\,/g, "\^") ;  
-
   return  str_1;
     
 }
@@ -12110,13 +12046,12 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
              
 
                this_it =mtx_str_e_chk(this_it);                     
-              
-               this_it =  m_str_spec_part_af_minus_sum(this_it);
+              var this_function = this_it;                                                    
+               var this_it =  m_str_spec_part_af_minus_sum(this_it);                          
+               if(this_function.length!=this_it.length){ var function_data = " = "+this_it ;}   
+                      else { var function_data ="";} 
                this_it = m_tri_ang_2pi_rem(this_it);
 
-
-               
-        
                 this_it = m_tri_ang_360deg_rem(this_it);
 
 
