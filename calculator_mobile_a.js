@@ -2328,7 +2328,7 @@ function m_str_sub_ngt_bf_minus(str){
     var str_sec = str_1.substr(1,1);
              str_1 = str_1.replace(/n-/g , "nQ");      
              str_1 = str_1.replace(/s-/g , "sQ");      
-             str_1 = str_1.replace(/y-/g , "yQ");      
+             str_1 = str_1.replace(/h-/g , "hQ");      
              str_1 = str_1.replace(/p-/g , "pQ");      
              str_1 = str_1.replace(/,-/g , ",Q");      
              str_1 = str_1.replace(/\^-/g , "\^Q");      
@@ -2969,8 +2969,8 @@ function m_str_spec_part_af_minus(str ,spec){
          var str_part_fst= str_1.substring(0 ,pos+spec_a_lg);              
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
          var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);     
-         var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );     
-         var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
+         var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );     
+         var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
                   } 
             var str_2 = str_1.replace(/Q/g , "-");        
             var str_3 = str_2.replace(/TTT/g ,spec_1);     
@@ -2984,7 +2984,14 @@ function m_str_spec_part_af_minus_sum(str){
      var str_2 =""
      var str_3 =""
      var spec ="";
-     var i=0
+     var nn_end =0;          
+     var i=0;
+     var j=0;
+     var k=0;
+     var m=0;
+     var n=0;
+     var p=0;
+     
    for(var i=0 ; i < 15 ;i ++){    
       if(i==0){ var spec = "asinh" ;}
       if(i==1){ var spec = "acosh" ;}
@@ -3003,39 +3010,52 @@ function m_str_spec_part_af_minus_sum(str){
       if(i==14){ var spec = "log" ;}
     var spec_lg = spec.length;
      var str_2 =  m_str_spec_part_af_minus(str_1 ,spec);
-      if(i==0){ var str_3 = str_2.replace(/spec/g ,"aaaaa"); }   
-      if(i==1){ var str_3 = str_2.replace(/spec/g ,"bbbbb"); }   
-      if(i==2){ var str_3 = str_2.replace(/spec/g ,"ccccc"); }   
-      if(i==3){ var str_3 = str_2.replace(/spec/g ,"dddd"); }    
-      if(i==4){ var str_3 = str_2.replace(/spec/g ,"eeee"); }    
-      if(i==5){ var str_3 = str_2.replace(/spec/g ,"ffff"); }    
-      if(i==6){ var str_3 = str_2.replace(/spec/g ,"gggg"); }    
-      if(i==7){ var str_3 = str_2.replace(/spec/g ,"hhhh"); }    
-      if(i==8){ var str_3 = str_2.replace(/spec/g ,"iiii"); }    
-      if(i==9){ var str_3 = str_2.replace(/spec/g ,"jjj"); }     
-      if(i==10){ var str_3 = str_2.replace(/spec/g ,"kkk"); }    
-      if(i==11){ var str_3 = str_2.replace(/spec/g ,"lll"); }    
-      if(i==12){ var str_3 = str_2.replace(/spec/g ,"mmm"); }     
-      if(i==13){ var str_3 = str_2.replace(/spec/g ,"nn"); }    
-      if(i==14){ var str_3 = str_2.replace(/spec/g ,"ppp"); }    
-     var str_1 = str_3 ;
+      var nn_end = m_str_spc_count(str_2,spec);                //20200808
+      for(var j=0 ; j <  nn_end ;j ++){    
+      if(i==0){ var str_2 = str_2.replace(spec ,"AAA"); }   
+      if(i==1){ var str_2 = str_2.replace(spec ,"BBB"); }   
+      if(i==2){ var str_2 = str_2.replace(spec ,"CCC"); }   
+       }  
+     for(var k=0 ; k < nn_end ;k ++){    
+      if(i==3){ var str_2 = str_2.replace(spec ,"DDD"); }    
+      if(i==4){ var str_2 = str_2.replace(spec ,"EEE"); }    
+      if(i==5){ var str_2 = str_2.replace(spec ,"FFF"); }    
+             } 
+     for(var m=0 ; m < nn_end ;m ++){   
+      if(i==6){var str_2 = str_2.replace(spec ,"GGG"); }    
+      if(i==7){var str_2 = str_2.replace(spec,"HHH"); }    
+      if(i==8){var str_2 = str_2.replace(spec ,"III"); }    
+     } 
+   for(var n=0 ; n < nn_end ;n ++){    
+       if(i==9){var str_2 = str_2.replace(spec ,"JJJ"); }    
+      if(i==10){ var str_2 = str_2.replace(spec,"KKK"); }   
+      if(i==11){ var str_2 = str_2.replace(spec ,"LLL"); }   
+      } 
+    for(var p=0 ; p < nn_end ;p ++){    
+      if(i==12){ var str_2 = str_2.replace(spec ,"MMM"); }     
+      if(i==13){ var str_2 = str_2.replace(spec ,"NNN"); }    
+      if(i==14){ var str_2 = str_2.replace(spec ,"PPP"); }    
+      } 
+     var str_1 = str_2 ;
                               } 
-      var str_1 =  str_3.replace(/"aaaaa"/g ,"asinh");    
-      var str_1 =  str_3.replace(/"bbbbb"/g ,"acosh");
-      var str_1 =  str_3.replace(/"ccccc"/g ,"atanh");
-      var str_1 =  str_3.replace(/"dddd"/g ,"sinh");
-      var str_1 =  str_3.replace(/"eeee"/g ,"cosh");
-      var str_1 =  str_3.replace(/"ffff"/g ,"tanh");
-      var str_1 =  str_3.replace(/"gggg"/g ,"asin");
-      var str_1 =  str_3.replace(/"hhhh"/g ,"acos");
-      var str_1 =  str_3.replace(/"iiii"/g ,"atan");
-      var str_1 =  str_3.replace(/"jjj"/g ,"sin");
-      var str_1 =  str_3.replace(/"kkk"/g ,"cos");
-      var str_1 =  str_3.replace(/"lll"/g ,"tan");
-      var str_1 =  str_3.replace(/"mmm"/g ,"exp");
-      var str_1 =  str_3.replace(/"nn"/g ,"ln");
-      var str_1 =  str_3.replace(/"ppp"/g ,"log");
-  return str_1 ;
+      var str_2 =  str_2.replace(/AAA/g ,"asinh");   
+      var str_2 =  str_2.replace(/BBB/g ,"acosh");
+      var str_2 =  str_2.replace(/CCC/g ,"atanh");
+      var str_2 =  str_2.replace(/DDD/g ,"sinh");
+      var str_2 =  str_2.replace(/EEE/g ,"cosh");
+      var str_2 =  str_2.replace(/FFF/g ,"tanh");
+      var str_2 =  str_2.replace(/GGG/g ,"asin");
+      var str_2 =  str_2.replace(/HHH/g ,"acos");
+      var str_2 =  str_2.replace(/III/g ,"atan");
+      var str_2 =  str_2.replace(/JJJ/g ,"sin");
+      var str_2 =  str_2.replace(/KKK/g ,"cos");
+      var str_2 =  str_2.replace(/LLL/g ,"tan");
+      var str_2 =  str_2.replace(/MMM/g ,"exp");
+      var str_2 =  str_2.replace(/NNN/g ,"ln");
+      var str_2 =  str_2.replace(/PPP/g ,"log");
+      var str_2 = m_fact_many_minus(str_2);               
+      var str_2 = m_hat_bf_aft_many_inv(str_2 ,'^','');   //20200808
+  return str_2 ;
 }
 
 function m_fun_aft(str,spec1,spec2){                   
