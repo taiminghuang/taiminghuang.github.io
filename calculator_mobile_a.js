@@ -2969,8 +2969,15 @@ function m_str_spec_part_af_minus(str ,spec){
          var str_part_fst= str_1.substring(0 ,pos+spec_a_lg);              
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
          var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);     
-         var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );     
-         var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
+         var nn_hat = m_str_spc_count(str_1,"^");        
+          if(nn_hat >=1 ){
+             var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );    
+             var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
+                          }
+           else{
+              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );    
+              var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
+                }
                   } 
             var str_2 = str_1.replace(/Q/g , "-");        
             var str_3 = str_2.replace(/TTT/g ,spec_1);     
