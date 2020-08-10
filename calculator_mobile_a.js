@@ -2192,6 +2192,9 @@ function message_1(n){
             case 35:
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
             break;
+           case 36:
+            message_1 = "<--  Msg : b ^p , when b>200 digit number or p> 200   digit number  no support -->" ;    //20200810
+            break;
        default:
                }
  return message_1; 
@@ -2929,10 +2932,10 @@ function m_str_spec_part_af_minus(str ,spec){
       if( spec_1=="π" || spec_1=="°"){ var ans_1=str_1 ; return ans_1 ;}   
          var  str_1= m_str_sub_ngt_bf_minus(str_1);   
          var nn_end = m_str_spc_count(str_1,spec_1);
-    var nn = 0;
+    var n = 0;
     var nn_end = 0;
         var nn_end = m_str_spc_count(str_1,spec_1);   
-     for(var nn=0; nn < nn_end ;nn++){            
+     for(var n=0; n < nn_end ;n++){            
      var str_a_lg = str_1.length;
      var spec_1= spec;                      
      var spec_a_lg = spec_1.length;
@@ -2940,8 +2943,6 @@ function m_str_spec_part_af_minus(str ,spec){
      var mark_1 =str_1[pos +spec_a_lg];          
      var count_a = 1 ;
      var count_mark=2500;  
-          if(mark_1 =="("){
-              var ans_1=str_1 ; return ans_1 ;}   
          if((mark_1 >=0 && mark_1<=9)||(mark_1=="Q")) {          
            for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
               var mark_ref = str_1[i];
@@ -2974,7 +2975,11 @@ function m_str_spec_part_af_minus(str ,spec){
              var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );    
              var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
                           }
-           else{
+         else if( mark_1 =="("){
+              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );        
+              var str_1=str_part_fst+str_part_b+str_part_lst;             //20200810 
+                }
+          else{
               var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );    
               var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
                 }
@@ -3972,19 +3977,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/sin\(\-3π\/2\)/g , "1");         
      str_1 = str_1.replace(/sin\(\-11π\/6\)/g , "0.5");       
      str_1 = str_1.replace(/sin\(\-2π\)/g , "0");        
-     str_1 = str_1.replace(/sin0π/g , "0");         
-     str_1 = str_1.replace(/sin0.5π/g , "1");          
-     str_1 = str_1.replace(/sinπ/g , "0");             
-     str_1 = str_1.replace(/sin1π/g , "0");           
-     str_1 = str_1.replace(/sin1.5π/g , "-1");         
-     str_1 = str_1.replace(/sin2π/g , "0");            
-     str_1 = str_1.replace(/sin\-0π/g , "0");       
-     str_1 = str_1.replace(/sin\-0.5π/g , "-1");       
-     str_1 = str_1.replace(/sin\-π/g , "0");          
-     str_1 = str_1.replace(/sin\-1π/g , "0");          
-     str_1 = str_1.replace(/sin\-1.5π/g , "1");        
-     str_1 = str_1.replace(/sin\-2π/g , "0");          
-
+   
                                  }
 
    if(str_pi != 0 && str_cos !=0){
@@ -4013,19 +4006,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/cos\(\-3π\/2\)/g , "0");          
      str_1 = str_1.replace(/cos\(\-5π\/3\)/g , "0.5");        
      str_1 = str_1.replace(/cos\(\-2π\)/g , "1");          
-     str_1 = str_1.replace(/cos0π/g , "1");         
-     str_1 = str_1.replace(/cos0.5π/g , "0");         
-     str_1 = str_1.replace(/cosπ/g , "-1");            
-     str_1 = str_1.replace(/cos1π/g , "-1");           
-     str_1 = str_1.replace(/cos1.5π/g , "0");          
-     str_1 = str_1.replace(/cos2π/g , "1");            
-     str_1 = str_1.replace(/cos\-0π/g , "1");       
-     str_1 = str_1.replace(/cos\-0.5π/g , "0");       
-     str_1 = str_1.replace(/cos\-π/g , "-1");          
-     str_1 = str_1.replace(/cos\-1π/g , "-1");         
-     str_1 = str_1.replace(/cos\-1.5π/g , "0");        
-     str_1 = str_1.replace(/cos\-2π/g , "1");          
-
+    
                                 }
 
 
@@ -4055,23 +4036,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/tan\(\-1.75π\)/g , "1");      
      str_1 = str_1.replace(/tan\(\-7π\/4\)/g , "1");       
      str_1 = str_1.replace(/tan\(\-2π\)/g , "0");        
-     str_1 = str_1.replace(/tan0π/g , "0");       
-     str_1 = str_1.replace(/tan0.25π/g , "1");         
-     str_1 = str_1.replace(/tan0.75π/g , "-1");    
-     str_1 = str_1.replace(/tanπ/g , "0");           
-     str_1 = str_1.replace(/tan1π/g , "0");          
-     str_1 = str_1.replace(/tan1.25π/g , "1");       
-     str_1 = str_1.replace(/tan1.75π/g , "-1");      
-     str_1 = str_1.replace(/tan2π/g , "0");          
-     str_1 = str_1.replace(/tan\-0π/g , "0");        
-     str_1 = str_1.replace(/tan\-0.25π/g , "-1");         
-     str_1 = str_1.replace(/tan\-0.75π/g , "1");      
-     str_1 = str_1.replace(/tan\-π/g , "0");          
-     str_1 = str_1.replace(/tan\-1π/g , "0");           
-     str_1 = str_1.replace(/tan\-1.25π/g , "-1");       
-     str_1 = str_1.replace(/tan\-1.75π/g , "1");        
-     str_1 = str_1.replace(/tan\-2π/g , "0");           
-
+    
 
                                  }
 
@@ -4096,26 +4061,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/sin\(\-270°\)/g , "1");        
      str_1 = str_1.replace(/sin\(\-330°\)/g , "0.5");       
      str_1 = str_1.replace(/sin\(\-360°\)/g , "0");         
-     str_1 = str_1.replace(/sin0°/g , "0");        
-     str_1 = str_1.replace(/sin30°/g , "0.5");       
-     str_1 = str_1.replace(/sin90°/g , "1");         
-     str_1 = str_1.replace(/sin150°/g , "0.5");       
-     str_1 = str_1.replace(/sin180°/g , "0");         
-     str_1 = str_1.replace(/sin210°/g , "-0.5");      
-     str_1 = str_1.replace(/sin270°/g , "-1");     
-     str_1 = str_1.replace(/sin330°/g , "-0.5");     
-     str_1 = str_1.replace(/sin360°/g , "0");        
-     str_1 = str_1.replace(/sin\-0°/g , "0");         
-     str_1 = str_1.replace(/sin\-30°/g , "-0.5");        
-     str_1 = str_1.replace(/sin\-90°/g , "-1");          
-     str_1 = str_1.replace(/sin\-150°/g , "-0.5");      
-     str_1 = str_1.replace(/sin\-180°/g , "0");          
-     str_1 = str_1.replace(/sin\-210°/g , "0.5");      
-     str_1 = str_1.replace(/sin\-270°/g , "1");         
-     str_1 = str_1.replace(/sin\-330°/g , "0.5");      
-     str_1 = str_1.replace(/sin\-360°/g , "0");         
-
-
+    
 
                                     }
 
@@ -4144,25 +4090,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/cos\(\-270°\)/g , "0");        
      str_1 = str_1.replace(/cos\(\-300°\)/g , "0.5");       
      str_1 = str_1.replace(/cos\(\-360°\)/g , "1");        
-     str_1 = str_1.replace(/cos0°/g , "1");        
-     str_1 = str_1.replace(/cos60°/g , "0.5");       
-     str_1 = str_1.replace(/cos90°/g , "0");       
-     str_1 = str_1.replace(/cos120°/g , "-0.5");     
-     str_1 = str_1.replace(/cos180°/g , "-1");     
-     str_1 = str_1.replace(/cos240°/g , "-0.5");     
-     str_1 = str_1.replace(/cos270°/g , "0");      
-     str_1 = str_1.replace(/cos300°/g , "0.5");     
-     str_1 = str_1.replace(/cos360°/g , "1");         
-     str_1 = str_1.replace(/cos\-0°/g , "1");        
-     str_1 = str_1.replace(/cos\-60°/g , "0.5");      
-     str_1 = str_1.replace(/cos\-90°/g , "0");        
-     str_1 = str_1.replace(/cos\-120°/g , "-0.5");    
-     str_1 = str_1.replace(/cos\-180°/g , "-1");       
-     str_1 = str_1.replace(/cos\-240°/g , "-0.5");     
-     str_1 = str_1.replace(/cos\-270°/g , "0");        
-     str_1 = str_1.replace(/cos\-300°/g , "0.5");      
-     str_1 = str_1.replace(/cos\-360°/g , "1");       
-
+   
                                        }
 
    if(str_degree != 0 && str_tan !=0){
@@ -4180,21 +4108,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/tan\(\-225°\)/g , "-1");    
      str_1 = str_1.replace(/tan\(\-315°\)/g , "1");     
      str_1 = str_1.replace(/tan\(\-360°\)/g , "0");  
-     str_1 = str_1.replace(/tan0°/g , "0");         
-     str_1 = str_1.replace(/tan45°/g , "1");                   
-     str_1 = str_1.replace(/tan135°/g , "-1");                  
-     str_1 = str_1.replace(/tan180°/g , "0");         
-     str_1 = str_1.replace(/tan225°/g , "1");         
-     str_1 = str_1.replace(/tan315°/g , "-1");         
-     str_1 = str_1.replace(/tan360°/g , "0");        
-     str_1 = str_1.replace(/tan\-0°/g , "0");       
-     str_1 = str_1.replace(/tan\-45°/g , "-1");               
-     str_1 = str_1.replace(/tan\-135°/g , "1");            
-     str_1 = str_1.replace(/tan\-180°/g , "0");        
-     str_1 = str_1.replace(/tan\-225°/g , "-1");     
-     str_1 = str_1.replace(/tan\-315°/g , "1");      
-     str_1 = str_1.replace(/tan\-360°/g , "0");      
-
+    
 
                   }
        var negate_d ="";
