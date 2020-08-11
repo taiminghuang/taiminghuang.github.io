@@ -7057,7 +7057,7 @@ function m_sub_error_rg(str_1){
       var s_nb = m_str_spc_count(this_it_t,"s");  
       var h_nb = m_str_spc_count(this_it_t,"h");  
          var sum_nb = n_nb + p_nb + g_nb+s_nb+h_nb ;
-    if(data_rang_str_up ==2 && data_rang_str_down ==1 && ng_nb >=1 && sum_nb >=2 ){    
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 && ng_nb >=1 && sum_nb >=2 && str_a !=0){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
@@ -12120,7 +12120,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
 
      if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
              if(data_er_rg != this_data.toString()){   
-                  document.getElementById('input').value = this_s.toString().trim()+" = "+data_er_rg +";"  ;  
+                  document.getElementById('input').value = this_s.toString().trim()+function_data+" = "+data_er_rg +";"  ;  
                                             }
 
                else{  
