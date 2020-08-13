@@ -7639,7 +7639,10 @@ function m_sin(x){
                 var   zz_cp = m_fix(zz,250);      
                 var  PIMUL2_cp = m_fix(PIMUL2,250);
                               }
-            
+            else{
+                 var   zz_cp = zz;            
+                 var  PIMUL2_cp = PIMUL2;
+                    }
            if( zz_m >= 6 && zz_m != 0){          
            var data_comp_zz_PIMUL2 = m_mtx_real_str_comp(zz_cp,PIMUL2_cp);   
 
@@ -7666,10 +7669,16 @@ function m_sin(x){
     var ans_1=0;
     var x_flag=0;
    if(zz.length > 250){
-                  var   zz_cp = m_fix(zz,250);      //20200813   
+                  var   zz_cp = m_fix(zz,250);         
                   var PIDIV2_cp = m_fix(PIDIV2,250);
                   var      PI_cp=m_fix(PI,250);
                   var PIDIV2MUL3_cp=m_fix(PIDIV2MUL3,250);
+                              }
+    else{
+                  var   zz_cp = zz;      
+                  var PIDIV2_cp = PIDIV2;
+                  var      PI_cp=PI;
+                  var PIDIV2MUL3_cp=PIDIV2MUL3;
                               }
      var data_comp_zz_0   =  m_mtx_real_str_comp(zz,0); 
      var data_comp_zz_PIDIV2   =  m_mtx_real_str_comp(zz_cp,PIDIV2_cp);     
@@ -8206,6 +8215,10 @@ function m_cos(x){
               var   zz_cp = m_fix(zz,250);      
               var PIMUL2_cp = m_fix(PIMUL2,250);
                               }
+        else{
+                 var   zz_cp = zz;           
+                 var  PIMUL2_cp = PIMUL2;
+                    }  
        var data_comp_zz_PIMUL2 = m_mtx_real_str_comp(zz_cp,PIMUL2_cp);   
          if( data_comp_zz_PIMUL2 ==1){
                  var zz_r =  m_2pi_rem(zz);  
@@ -8221,6 +8234,12 @@ function m_cos(x){
                   var      PI_cp=m_fix(PI,250);
                   var PIDIV2MUL3_cp=m_fix(PIDIV2MUL3,250);
                               } 
+                else{
+                  var   zz_cp = zz;      
+                  var PIDIV2_cp = PIDIV2;
+                  var      PI_cp=PI;
+                  var PIDIV2MUL3_cp=PIDIV2MUL3;
+                              }
              var data_comp_zz_r_PIDIV2   =  m_mtx_real_str_comp(zz_r_cp,PIDIV2_cp);        
              var data_comp_zz_r_PI = m_mtx_real_str_comp(zz_r_cp,PI_cp);
              var data_comp_zz_r_PIDIV2MUL3  =  m_mtx_real_str_comp(zz_r_cp,PIDIV2MUL3_cp);  
@@ -8266,6 +8285,10 @@ function m_tan(x){
                var   zz_cp = m_fix(zz,250);      
                var  PIMUL2_cp = m_fix(PIMUL2,250);
                               } 
+          else{
+                 var   zz_cp = zz;            
+                 var  PIMUL2_cp = PIMUL2;
+                    }
          var data_comp_zz_PIMUL2 = m_mtx_real_str_comp(zz_cp,PIMUL2_cp);   
           if( data_comp_zz_PIMUL2 ==1){
                   var zz_r =  m_2pi_rem(zz);  
@@ -8277,6 +8300,12 @@ function m_tan(x){
                   var      PI_cp=m_fix(PI,250);
                   var PIDIV2MUL3_cp=m_fix(PIDIV2MUL3,250);
                               }
+            else{
+                  var   zz_cp = zz;                    
+                  var PIDIV2_cp = PIDIV2;
+                  var      PI_cp=PI;
+                  var PIDIV2MUL3_cp=PIDIV2MUL3;
+                              }     
              var data_comp_zz_r_PIDIV2   =  m_mtx_real_str_comp(zz_r_cp,PIDIV2_cp);        
              var data_comp_zz_r_PI = m_mtx_real_str_comp(zz_r_cp,PI_cp);
              var data_comp_zz_r_PIDIV2MUL3  =  m_mtx_real_str_comp(zz_r_cp,PIDIV2MUL3_cp);  
