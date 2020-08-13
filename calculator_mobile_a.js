@@ -2985,7 +2985,10 @@ function m_str_spec_part_af_minus(str ,spec){
                 }
                   } 
             var str_2 = str_1.replace(/Q/g , "-");        
-            var str_3 = str_2.replace(/TTT/g ,spec_1);     
+            var str_3 = str_2.replace(/TTT/g ,spec_1);
+            var str_3 = str_3.replace(/e\-/g ,"EN");     
+             var str_3 = str_3.replace(/e/g ,"e+");    
+             var str_3 = str_3.replace(/EN/g ,"e-"); 
              var str_1 = str_3 ;    
           return str_3 ;
 }
@@ -3079,7 +3082,7 @@ function m_fun_aft(str,spec1,spec2){
  
       if(part_aft_lg > 0 ){
 
-        str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +"("+part_aft+')'+")" );              
+        str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");             
  
                         }
     
