@@ -3006,7 +3006,7 @@ function m_str_spec_part_af_minus_sum(str){
      var m=0;
      var n=0;
      var p=0;
-     
+     var str_1 = m_fact_many_minus(str_1);
    for(var i=0 ; i < 15 ;i ++){    
       if(i==0){ var spec = "asinh" ;}
       if(i==1){ var spec = "acosh" ;}
@@ -3068,8 +3068,8 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 =  str_2.replace(/MMM/g ,"exp");
       var str_2 =  str_2.replace(/NNN/g ,"ln");
       var str_2 =  str_2.replace(/PPP/g ,"log");
-      var str_2 = m_fact_many_minus(str_2);               
-      var str_2 = m_hat_bf_aft_many_inv(str_2 ,'^','');   //20200808
+      var str_2 = m_hat_bf_aft_many_inv(str_2 ,'^','');
+      var str_2 = str_2.replace(/T/g , "^");
   return str_2 ;
 }
 
@@ -8238,7 +8238,7 @@ function m_cos(x){
                   var PIDIV2MUL3_cp=m_fix(PIDIV2MUL3,250);
                               } 
                 else{
-                  var   zz_cp = zz;      
+                  var   zz_r_cp = zz_r;      
                   var PIDIV2_cp = PIDIV2;
                   var      PI_cp=PI;
                   var PIDIV2MUL3_cp=PIDIV2MUL3;
@@ -8304,7 +8304,7 @@ function m_tan(x){
                   var PIDIV2MUL3_cp=m_fix(PIDIV2MUL3,250);
                               }
             else{
-                  var   zz_cp = zz;                    
+                  var   zz_r_cp = zz_r;                    
                   var PIDIV2_cp = PIDIV2;
                   var      PI_cp=PI;
                   var PIDIV2MUL3_cp=PIDIV2MUL3;
