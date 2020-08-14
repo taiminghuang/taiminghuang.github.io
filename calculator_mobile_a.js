@@ -2947,16 +2947,22 @@ function m_str_spec_part_af_minus(str ,spec){
      var mark_2 =str_1[pos +spec_a_lg+1];  
      var count_a = 1 ;
      var count_mark=2500;  
-         if((mark_1=="Q")&&(mark_2=="(")) {    
-                for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+         if(mark_1=="Q" && mark_2=="(" ){      
+                   var nub_a=0;
+                   var nub_j=0; 
+                   var nub_t =0;
+                  for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
                    var mark_ref = str_1[i];
-                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='(' || mark_ref=='!') {      //反述//20200814  exp-3!  to exp-(3!)   to exp(-(3!)) 特例
-                                                       }
-                   else{  
-                     var count_mark = i ;
-                        i= str_a_lg+1;                      }      
-                                                }
-                                            }
+                   if( mark_ref=='(' ) {                        
+                      var nub_a=nub_a+1;}
+                   if( mark_ref==')' ) {                        
+                      var nub_j=nub_j+1;}
+                      var nub_t = nub_j - nub_a ; 
+                    if( nub_t ==0 && nub_a >= 1){        
+                      var count_mark = i ;
+                         i= str_a_lg+1;             }     
+                                                }    
+                                           }
          if((mark_1 >=0 && mark_1<=9)||(mark_1=="Q" && mark_2!="(")) {          
            for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
               var mark_ref = str_1[i];
