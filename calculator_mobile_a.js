@@ -2939,11 +2939,25 @@ function m_str_spec_part_af_minus(str ,spec){
      var str_a_lg = str_1.length;
      var spec_1= spec;                      
      var spec_a_lg = spec_1.length;
-     var pos = str_1.indexOf(spec_1) ;  
-     var mark_1 =str_1[pos +spec_a_lg];          
+     var pos =0;   
+     var pos = str_1.indexOf(spec_1) ; 
+     var mark_1 ="";   
+     var mark_1 =str_1[pos +spec_a_lg];
+     var mark_2 ="";
+     var mark_2 =str_1[pos +spec_a_lg+1];  
      var count_a = 1 ;
      var count_mark=2500;  
-         if((mark_1 >=0 && mark_1<=9)||(mark_1=="Q")) {          
+         if((mark_1=="Q")&&(mark_2=="(")) {    
+                for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+                   var mark_ref = str_1[i];
+                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='(' || mark_ref=='!') {      //反述//20200814  exp-3!  to exp-(3!)   to exp(-(3!)) 特例
+                                                       }
+                   else{  
+                     var count_mark = i ;
+                        i= str_a_lg+1;                      }      
+                                                }
+                                            }
+         if((mark_1 >=0 && mark_1<=9)||(mark_1=="Q" && mark_2!="(")) {          
            for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
               var mark_ref = str_1[i];
                    if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
@@ -2986,9 +3000,11 @@ function m_str_spec_part_af_minus(str ,spec){
                   } 
             var str_2 = str_1.replace(/Q/g , "-");        
             var str_3 = str_2.replace(/TTT/g ,spec_1);
+            var str_3 = str_3.replace(/exp/g ,"EXP");
             var str_3 = str_3.replace(/e\-/g ,"EN");     
              var str_3 = str_3.replace(/e/g ,"e+");    
              var str_3 = str_3.replace(/EN/g ,"e-"); 
+             var str_3 = str_3.replace(/EXP/g ,"exp");
              var str_1 = str_3 ;    
           return str_3 ;
 }
