@@ -3102,7 +3102,7 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 =  str_2.replace(/MMM/g ,"exp");
       var str_2 =  str_2.replace(/NNN/g ,"ln");
       var str_2 =  str_2.replace(/PPP/g ,"log");
-      var str_2 = m_hat_bf_aft_many_inv(str_2 ,'^','');
+      var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
       var str_2 = str_2.replace(/T/g , "^");
       var str_2 = str_2.replace(/Q/g , "-");
   return str_2 ;
