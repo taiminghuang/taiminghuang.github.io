@@ -2193,7 +2193,7 @@ function message_1(n){
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
             break;
            case 36:
-            message_1 = "<--  Msg : b ^p , when b>200 digit number or p> 200   digit number  no support -->" ;    //20200810
+            message_1 = "<--  Msg : b ^p , when |b| or |p| >1e+200  , |b| or |p| <1e-200   no support -->" ;   
             break;
        default:
                }
@@ -2411,7 +2411,8 @@ function m_str_spec_part_bf_mn(str ,spec){
      var str_bf_1_bit ="";    //20200728
      var str_bf_2_bit ="";
      var ans_1="";
-       var str_1 = str_1.replace(/eQ/g , "eN");    
+       var str_1 = str_1.replace(/eQ/g , "eN");
+       var str_1 = str_1.replace(/e\-/g , "eN"); 
            str_1 =  m_str_sub_ngt_bf(str_1) ;     
        var pos = str_1.indexOf(spec_1) ; 
      var mark_1 =str_1[pos - 1];        
@@ -2801,14 +2802,19 @@ function m_str_spec_part_af_inv(str ,spec){
 function m_fact_minus(str){          
     var str_1=str;
     var ans_1="";
+    var nub_e=0;                                 
+    var str_1 = str_1.replace(/e\-/g ,"eQ");     
+    var str_1 = str_1.replace(/e\+/g ,"e"); 
     var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');   
     var part_bf_lg = part_bf.length;
+    var nub_e= m_str_char(part_bf,"e") ;
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
-        str_1 = str_1.replace(part_bf+'!' , "("+part_bf +"T)" );  }           
-    if(part_bf_lg > 0 &&  part_bf[0] !='(' ){
-        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+"T)");             
-                           }
-         if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "("+1+"T)"); }   
+        str_1 = str_1.replace(part_bf+'!' , part_bf +"T" );  }           
+    if(part_bf_lg > 0 &&  part_bf[0] !='('&&  nub_e==0 ){
+        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+"T)"); }            
+     if(part_bf_lg > 0 &&  part_bf[0] !='(' &&  nub_e > 0) {                     
+        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+")T"); }                      
+     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "("+1+"T)"); }   
       return str_1;
    }
 
@@ -9783,6 +9789,21 @@ function m_pow(base,p){
          else{ base=base;}
         var base =m_mtx_trim(base) ;         
         var  p= p.toString().trim();
+        var datalg = 1e+200;                
+        var datalg_n = -1e+200;
+        var datasml = 1e-200;
+        var datasml_n = -1e-200;
+        var base_comp_datalg  =  m_mtx_real_str_comp(base,datalg);      
+        var base_comp_datalg_n  =  m_mtx_real_str_comp(base,datalg_n);  
+        var base_comp_datasml  =  m_mtx_real_str_comp(base,datasml);    
+        var base_comp_datasml_n  =  m_mtx_real_str_comp(base,datasml_n); 
+        var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
+        var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
+        var p_comp_datasml  =  m_mtx_real_str_comp(p,datasml);      
+        var p_comp_datasml_n  =  m_mtx_real_str_comp(p,datasml_n);      
+     if( base_comp_datalg ==1 || base_comp_datalg_n ==2 || (base_comp_datasml==2 && base_comp_datasml_n  ==1 )||p_comp_datalg ==1 || p_comp_datalg_n ==2 || (p_comp_datasml==2 && p_comp_datasml_n  ==1 )){
+       var ans_1 = message_1(36);
+                           return  ans_1  } 
         var nub_point_p=0;  
         var nub_point_p= m_str_char(p,".") ;  
         var ans_1 ="";
