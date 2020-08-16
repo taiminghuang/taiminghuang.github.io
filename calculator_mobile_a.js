@@ -3111,7 +3111,15 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
       var str_2 = str_2.replace(/T/g , "^");
       var str_2 = str_2.replace(/Q/g , "-");
-  return str_2 ;
+      var data_fst_str_2 = str_2.substr(0,2);
+  if(data_fst_str_2 =="0-"){
+      var str_2 = str_2.substr(1,str_2.length-1); }      
+   if(data_fst_str_2 =="0+"){
+      var str_2 = str_2.substr(2,str_2.length-2); }       
+      var data_lst_str_2 = str_2.substr(str_2.length-2,2);     
+    if(data_lst_str_2 =="-0"||data_lst_str_2 =="+0" ){
+      var str_2 = str_2.substr(0,str_2.length-2); } 
+   return str_2 ;
 }
 
 function m_fun_aft(str,spec1,spec2){                   
@@ -12177,8 +12185,8 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                this_it =mtx_str_e_chk(this_it);                     
               var this_function = this_it;                                                    
                var this_it =  m_str_spec_part_af_minus_sum(this_it);                          
-               if(this_function.length!=this_it.length){ var function_data = " = "+this_it ;}   
-                      else { var function_data ="";} 
+               if(this_function!=this_it && this_it !=""){ var function_data = " = "+this_it ;}   
+                     else { var function_data ="";} 
                this_it = m_tri_ang_2pi_rem(this_it);
 
                 this_it = m_tri_ang_360deg_rem(this_it);
