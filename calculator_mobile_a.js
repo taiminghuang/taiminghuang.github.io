@@ -2905,7 +2905,7 @@ function m_str_spec_part_af_minus_sum(str){
      var p=0;
      var str_1 = m_fact_many_minus(str_1);
    for(var t=0 ; t < str_1.length ;t ++){ 
-          var str_1 =  str_1.replace(/\(0\-/g ,"\(\Q");
+          var str_1 =  str_1.replace(/\(0\-/g ,"\(\Q");}
    for(var i=0 ; i < 15 ;i ++){    
       if(i==0){ var spec = "asinh" ;}
       if(i==1){ var spec = "acosh" ;}
