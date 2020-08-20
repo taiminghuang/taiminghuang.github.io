@@ -2805,7 +2805,23 @@ function m_str_spec_part_af_minus(str ,spec){
      var mark_2 ="";
      var mark_2 =str_1[pos +spec_a_lg+1];  
      var count_a = 1 ;
-     var count_mark=2500;  
+     var count_mark=2500; 
+         if(mark_1 =="("){        
+            var nub_a=0;
+            var nub_j=0; 
+            var nub_t =0;
+               for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+                   var mark_ref = str_1[i];
+                   if( mark_ref=='(' ) {                       
+                      var nub_a=nub_a+1;}
+                   if( mark_ref==')' ) {                        
+                      var nub_j=nub_j+1;}
+                      var nub_t = nub_j - nub_a ; 
+                    if( nub_t ==0 && nub_a >= 1){        
+                     var count_mark = i ;
+                         i= str_a_lg+1;             }    
+                                                  }    
+                                           } 
          if(mark_1=="Q" && mark_2=="(" ){      
                    var nub_a=0;
                    var nub_j=0; 
@@ -2850,15 +2866,15 @@ function m_str_spec_part_af_minus(str ,spec){
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
          var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);     
          var nn_hat = m_str_spc_count(str_1,"^");        
-          if(nn_hat >=1 ){
+          if(nn_hat >=1  && mark_1 !="("){
              var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );    
              var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
                           }
-         else if( mark_1 =="("){
-              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );        
-              var str_1=str_part_fst+str_part_b+str_part_lst;             //20200810 
-                }
-          else{
+         else if( nn_hat >=1 && mark_1 =="("){       
+              var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );        
+              var str_1=str_part_fst+str_part_b+")"+str_part_lst;             
+                  }
+         else{
               var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );    
               var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
                 }
@@ -2888,6 +2904,8 @@ function m_str_spec_part_af_minus_sum(str){
      var n=0;
      var p=0;
      var str_1 = m_fact_many_minus(str_1);
+   for(var t=0 ; t < str_1.length ;t ++){ 
+          var str_1 =  str_1.replace(/\(0\-/g ,"\(\Q");
    for(var i=0 ; i < 15 ;i ++){    
       if(i==0){ var spec = "asinh" ;}
       if(i==1){ var spec = "acosh" ;}
@@ -2949,6 +2967,7 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 =  str_2.replace(/MMM/g ,"exp");
       var str_2 =  str_2.replace(/NNN/g ,"ln");
       var str_2 =  str_2.replace(/PPP/g ,"log");
+      var str_2 =  str_2.replace(/\(Q/g ,"\(\-"); 
       var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
       var str_2 = str_2.replace(/T/g , "^");
       var str_2 = str_2.replace(/Q/g , "-");
