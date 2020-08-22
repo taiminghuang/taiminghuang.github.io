@@ -9349,8 +9349,8 @@ function m_pow(base,p){
          else{ base=base;}
         var base =m_mtx_trim(base) ;         
         var  p= p.toString().trim();
-        var datalg = 1e+201;                
-        var datalg_n = -1e+201;
+        var datalg = "1e+201";                
+        var datalg_n = "-1e+201";
         var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
         var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
          if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
