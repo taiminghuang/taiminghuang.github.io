@@ -2034,7 +2034,7 @@ function message_1(n){
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
             break;
            case 36:
-            message_1 = "<--  Msg : b ^p , when |b| or |p| >1e+200  , |b| or |p| <1e-200   no support -->" ;   
+            message_1 = "<--  Msg : b ^p , when   p >1e+200  or  p <-1e+200   no support -->" ;
             break;
        default:
                }
@@ -2924,7 +2924,7 @@ function m_str_spec_part_af_minus_sum(str){
       if(i==14){ var spec = "log" ;}
     var spec_lg = spec.length;
      var str_2 =  m_str_spec_part_af_minus(str_1 ,spec);
-      var nn_end = m_str_spc_count(str_2,spec);                //20200808
+      var nn_end = m_str_spc_count(str_2,spec);                
       for(var j=0 ; j <  nn_end ;j ++){    
       if(i==0){ var str_2 = str_2.replace(spec ,"AAA"); }   
       if(i==1){ var str_2 = str_2.replace(spec ,"BBB"); }   
@@ -2974,17 +2974,40 @@ function m_str_spec_part_af_minus_sum(str){
       for(var r=0 ; r < str_2.length ;r ++){ 
       var data_lst_str_2 = str_2.substr(str_2.length-2,2);              
      if((data_lst_str_2 =="-0"||data_lst_str_2 =="+0" )&&(str_2.length>2)){
-      var str_2 = str_2.substr(0,str_2.length-2); }                      
+      var str_2 = str_2.substr(0,str_2.length-2); }
+      else{ var r = str_2.length;}   
                              }
    for(var s=0 ; s < str_2.length ;s ++){ 
     var data_fst_str_2 = str_2.substr(0,2);
     if(data_fst_str_2 =="0-"){
       var str_2 = str_2.substr(1,str_2.length-1); }      
-    if(data_fst_str_2 =="0+"){
-      var str_2 = str_2.substr(2,str_2.length-2); }  
+    else if(data_fst_str_2 =="0+"){
+      var str_2 = str_2.substr(2,str_2.length-2); } 
+      else{ var s = str_2.length;}
                                  }
- return str_2 ;
+    var str_2 = m_fun_det_bracket(str_2);
+   return str_2 ;
 }
+
+function m_fun_det_bracket(str){     //  20200822
+   var str = str.toString().trim(); 
+   var str_1 = str;
+   var str_1 = m_str_sub_ngt_bf_minus(str_1);     
+   var str_1 =  str_1.replace(/\(\-/g ,"(Q");      
+   var data_fst_ng = str_1.substr(0,1);
+   if(data_fst_ng=="-" ){
+       var str_1 = "Q"+str_1.substr(1,str.length-1); }  
+   var data_add = m_str_spc_count(str_1,"+");   
+   var data_sub = m_str_spc_count(str_1,"-");   
+   var data_mul = m_str_spc_count(str_1,"*");   
+   var data_div = m_str_spc_count(str_1,"/");   
+   var data_sum = data_add+data_sub+data_mul+data_div;
+   var data_fst = str_1.substr(0,1);
+   var data_lst = str_1.substr(str_1.length-1,1);
+     if(data_fst=="(" && data_lst==")" && data_sum==0){
+       var str = str.substr(1,str.length-2); }             
+     return str ;      
+  }
 
 function m_fun_aft(str,spec1,spec2){                   
    var str_1=str;                                               
@@ -9328,18 +9351,10 @@ function m_pow(base,p){
         var  p= p.toString().trim();
         var datalg = 1e+201;                
         var datalg_n = -1e+201;
-        var datasml = 1e-201;
-        var datasml_n = -1e-201;
-        var base_comp_datalg  =  m_mtx_real_str_comp(base,datalg);      
-        var base_comp_datalg_n  =  m_mtx_real_str_comp(base,datalg_n);  
-        var base_comp_datasml  =  m_mtx_real_str_comp(base,datasml);    
-        var base_comp_datasml_n  =  m_mtx_real_str_comp(base,datasml_n); 
         var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
         var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
-        var p_comp_datasml  =  m_mtx_real_str_comp(p,datasml);      
-        var p_comp_datasml_n  =  m_mtx_real_str_comp(p,datasml_n);      
-     if( base_comp_datalg ==1 || base_comp_datalg_n ==2 || (base_comp_datasml==2 && base_comp_datasml_n  ==1 )||p_comp_datalg ==1 || p_comp_datalg_n ==2 || (p_comp_datasml==2 && p_comp_datasml_n  ==1 )){
-       var ans_1 = message_1(36);
+         if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
+           var ans_1 = message_1(36);
                            return  ans_1  } 
         var nub_point_p=0;  
         var nub_point_p= m_str_char(p,".") ;  
