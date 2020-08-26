@@ -8368,10 +8368,81 @@ function m_mtx_dele_zero(x){
    return xx_st;
 }
 
+function m_ln(x){           //20200826 
+ var xx = x.toString().trim();
+ var xx =m_mtx_trim(xx) ;        
+ var nub_e=0;
+ var sum_ta=0;
+ var sum_tb=0;
+ var sum_tt=0;
+ var sum_ta_0=0 ;
+   if(pos_fst =="0" && pos_sec  !="."){    
+                 var flag=1;
+                  while(flag >0){
+                    xx=xx.substr(1,xx.length-1);   
+                     var pos_fst  = xx.substr(0,1);      
+                     var pos_sec  = xx.substr(1,0); 
+                            if(pos_fst =="0" && pos_sec  !="."){
+                                var flag=1;}
+                            else{ var flag=0;}
+                                }  
+                      }
+     var xx_fst=xx.substr(0,1);
+     var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);      
+     var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
+    if ( data_comp_xx_1 == 3){ var sum_tt = 0 ; return sum_tt; }   
+    if ( data_comp_xx_0 ==3 ){ var sum_tt = message_1(13); return sum_tt; }
+    if ( xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
+    var pos_e  = xx.indexOf("e");    
+    var pos_fst  = xx.substr(0,1);   
+    var pos_sec  = xx.substr(1,1); 
+     if(  pos_e != -1){ 
+        var nub_e =  xx.substr(pos_e+1,xx.length - pos_e); 
+        var nub_e =  m_mtx_trim(nub_e) ;         
+        var     xx = xx.substr(0,pos_e);       
+                     }
+        var pos_pot  = xx.indexOf(".");  
+        var xx_m_bf ="";
+        var xx_p_bf ="";
+       if( pos_pot  !=-1){
+        var xx_m_bf = xx.substr(0,pos_pot);       
+        var xx_m_bf_lg = xx_m_bf.length;          
+        var xx_p_bf = xx.substr(pos_pot+1,xx.length-pos_pot);   
+        var xx_p_bf_lg = xx_p_bf.length;                     
+                   }
+       if(xx_m_bf !=0 && xx_m_bf !="" ){              
+       xx = "0"+"."+xx_m_bf.substr(0,xx_m_bf_lg)+xx.substr(xx_m_bf_lg+1,xx.length-xx_m_bf_lg-1);    
+       var nub_e= m_mtx_real_add(nub_e , xx_m_bf_lg);  
+                         }
+        if(st_fst =="0" && st_sec =="." && st_tri =="0" && parseFloat(xx_p_bf) >0 ){      
+               var flag_a=1;
+               while(flag_a > 0){
+                xx_st = "0."+ xx.substr(3,xx.length-3);
+                  var nub_e=m_mtx_real_sub(nub_e,1);    
+                  var st_fst = xx.substr(0,1);       
+                  var st_sec = xx.substr(1,1);       
+                  var st_tri = xx.substr(2,1);         
+                        if(st_fst ==0 && st_sec =="." && st_tri ==0 ){
+                            var flag_a=1;}
+                         else{ var flag_a=0;}
+                               }  
+
+                }
+          xx = xx.toString().trim();
+          var data_trans = MTX_COL;
+           if( MTX_COL >=100){       
+                MTX_COL=100 ;}
+       var sum_ta = m_ln_sum(xx);
+       var  nub_e = m_str_e_to_str(nub_e);      
+       var sum_tb = m_mtx_real_mul(nub_e , LN10); 
+       var data_comp_nub_e_0   =  m_mtx_real_str_comp(nub_e,0); 
+       var sum_tt = m_mtx_real_add(sum_ta ,sum_tb); 
+          MTX_COL = data_trans ;   
+ return sum_tt;
+}
 
 
-
-function m_ln(x){       
+function m_ln_sum(x){       
   var xx = x.toString().trim();
   var xx = m_str_e_to_str(xx);         
           var nub_point= m_str_char(xx,".") ;  
@@ -8393,11 +8464,7 @@ function m_ln(x){
     if ( data_comp_xx_st_1 == 3){ var sum_tt = 0 ; return sum_tt; }   
     if ( data_comp_xx_0 ==3 ){ var sum_tt = message_1(13); return sum_tt; }
     if ( xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
-         var pos_pot  = xx_st.indexOf(".");    
-         var pos_e  = xx_st.indexOf("e");     
-         var pos_fst  = xx_st.substr(0,1);   
-         var pos_sec  = xx_st.substr(1,1);   
-           if(pos_fst =="0" && pos_sec  !="."){    
+          if(pos_fst =="0" && pos_sec  !="."){    
                  var flag=1;
                   while(flag >0){
                     xx_st=xx_st.substr(1,xx_st.length-1);   
@@ -8410,6 +8477,11 @@ function m_ln(x){
 
                                 }  
                       }
+        
+      var pos_pot  = xx_st.indexOf(".");   //20200826 
+      var pos_e  = xx_st.indexOf("e");     
+      var pos_fst  = xx_st.substr(0,1);   
+      var pos_sec  = xx_st.substr(1,1);
          if(  pos_e != -1){ 
           var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
                var nub_e =m_mtx_trim(nub_e) ;         
