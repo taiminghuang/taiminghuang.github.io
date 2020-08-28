@@ -1310,7 +1310,6 @@ var xx = x.toString().trim();
     var xx = xx.replace(/EZ/g , "exp");    
     var ans_1=xx;  return  ans_1 ; }       
     var xx =  m_str_sub_ngt_bf(xx);   
-        xx = xx.replace(/exp/g , "EZ");   // 20200827
         xx = xx.replace(/e\+/g , "EE");   
         xx = xx.replace(/eQ/g , "EQ");    
         xx = xx.replace(/e/g , "EE");    
@@ -8851,6 +8850,9 @@ function m_s_e_ln(x,nub){
       var nub_e =  m_mtx_trim(nub_e) ;         
       var    xx = xx.substr(0,pos_e);       
                      }
+      var data_point_nb = 1; 
+      var data_point_nb = m_str_char(xx,".");              
+      if( data_point_nb ==0){  var     xx = xx+".0" ;}      
       var pos_pot  = xx.indexOf(".");   
       var xx_m_bf ="";
       var xx_p_bf ="";
