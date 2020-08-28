@@ -11211,11 +11211,13 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                    scroll_cursor();
                       return;
                                           }
-           var this_function = this_it;                                                      //20200805 
-           var this_it =  m_str_spec_part_af_minus_sum(this_it);                              //20200802
-               if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   //20200816b
+               if( MTX_COL >=2000){      
+                     MTX_COL=2000 ;} 
+           var this_function = this_it;                                                      
+           var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
+               if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   
                             else { var function_data ="";} 
-               this_it =mtx_str_e_chk(this_it);              //20200827
+               this_it =mtx_str_e_chk(this_it);              
                this_it = m_tri_ang_2pi_rem(this_it);
                this_it = m_tri_ang_360deg_rem(this_it);
                this_it = m_str_sub_ngt_bf(this_it); 
