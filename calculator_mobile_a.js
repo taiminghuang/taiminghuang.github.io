@@ -10474,19 +10474,31 @@ function m_mtx_real_mul(y,x){
            var data_chk = m_mtx_trim(data_chk) ;   
            var nub_e_t1 =0;
            var nub_e_t =0;
-           var nub_e_t1 = m_mtx_int_add(nub_e_y,nub_e_x) ;           
+           var nub_e_y_point =0;   
+           var nub_e_x_point =0; 
+           var nub_e_y_point =  m_str_char(nub_e_y.toString(),".");   
+           var nub_e_x_point =  m_str_char(nub_e_x.toString(),".");   
+            if( nub_e_y_point ==0 &&  nub_e_x_point ==0){ 
+              var nub_e_t1 = m_mtx_int_add(nub_e_y,nub_e_x) ;}           
+            else{
+              var nub_e_t1 = m_mtx_real_add(nub_e_y,nub_e_x) ;}           
            var nub_e_t1 = m_fix(nub_e_t1,200);                          
-           var nub_e_t = m_mtx_int_add(nub_e_t1,data_chk);
+
+           if( nub_e_y_point ==0 &&  nub_e_x_point ==0){      
+              var nub_e_t = m_mtx_int_add(nub_e_t1,data_chk);}    
+           else{
+            var nub_e_t = m_mtx_real_add(nub_e_t1,data_chk);}      
            var nub_e_t = m_fix(nub_e_t,200);                          
-               nub_e_t = m_str_e_to_str(nub_e_t);      
+           var nub_e_t = m_str_e_to_str(nub_e_t); 
          var sum_ttt = 0 ;  
           if(parseFloat(nub_e_t) > 0 ){ sum_ttt = sum_tt+"e+"+nub_e_t;}   
           if(parseFloat(nub_e_t) < 0 ){ sum_ttt = sum_tt+"e"+nub_e_t;}
           if(parseFloat(nub_e_t) == 0 ){ sum_ttt = sum_tt;}
-          if(sum_tt == 0 || sum_tt == "0"){ var sum_ttt = 0 ;}    
+          if(sum_tt == 0 || sum_tt == "0"){ var sum_ttt = 0 ;} 
+          if( nub_e_y_point ==0 &&  nub_e_x_point ==0){
           if( nub_e_t <=10 && nub_e_t >= 0){                            
                sum_ttt = m_str_e_to_str(sum_ttt) ;            
-                                }
+                                }}
    return sum_ttt;
  }
 
@@ -10504,13 +10516,19 @@ function m_str_e_to_str_point(str){
             nub_e_y =m_str_power(yy_st,0);         
             yy_st = m_str_power(yy_st,1);          
                            }
+      var nub_e_y_fst = nub_e_y.substr(0,1);
       var pos = nub_e_y.indexOf(".");    
       var nub_e_y_bf=nub_e_y.substr(0,pos); 
-      var nub_e_y_af=nub_e_y.substr(pos+1,nub_e_y.length-1-pos); 
+      var nub_e_y_af=nub_e_y.substr(pos+1,nub_e_y.length-1-pos);
+      if(  pos == -1  ){   return str; }               
+      var nub_e_y_af="0."+nub_e_y_af.toString();
+      if(nub_e_y_fst =="-"){ 
+                     var nub_e_y_af = m_mtx_real_sub(1,nub_e_y_af);     
+                     var yy_st = m_mtx_real_div(yy_st,10); } 
       var yy_st_a=m_pow(10,nub_e_y_af);
       var yy_st_b= m_mtx_real_mul(yy_st,yy_st_a);
       var yy_st_c= yy_st_b +"e"+nub_e_y_bf;
- return yy_st_b;
+ return yy_st_c;
 
 }
 
@@ -11174,7 +11192,6 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
           var this_s = it.toString().trim();           
           var this_it = m_del4_2f_char(it,';').toString().trim();        
           var this_it_s = this_it;   
-              this_it = mtx_str_inpt_chk_bf(this_it);             
                    var nub_Msg = m_str_char(this_it,"Msg") ;      
                 if(nub_Msg !=0){
                          document.getElementById('input').value += "     "+ this_it  +";";
@@ -11182,8 +11199,9 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                    scroll_cursor();
                       return;
                                           }
-               if( MTX_COL >=2000){      
-                     MTX_COL=2000 ;} 
+                     
+                     MTX_COL=2000 ;
+    
            var this_function = this_it;                                                      
            var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
                if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   
@@ -11236,9 +11254,10 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                      if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst=="-" && this_data !=0){         
                           this_data= this_data.substr(1,this_data.length-1) ;}  
                        if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst!="-"  && this_data !=0){
-                         this_data= "-"+this_data ;}                      
+                         this_data= "-"+this_data ;} 
+                   MTX_COL=200 ;
+             var  this_data = m_str_e_to_str_point(this_data );
              var  this_data = m_mtx_str_to_e_a(this_data);
-             var  this_data = m_str_e_to_str_point(this_data ); 
              var  nub_x = m_str_power(this_data,0);   
                   if(m_abs(nub_x)<11  && m_abs(nub_x)>0 ){
                        this_data = m_str_e_to_str(this_data);             
