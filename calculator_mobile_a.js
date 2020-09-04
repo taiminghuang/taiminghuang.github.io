@@ -23,7 +23,7 @@ var ln10 = LN10;
 var ln2 = LN2 ;
 var M ="0.43429448190325182765112891891660508229439700580366656611445378316586464920887077472922494933843174831870610674476630373364167928715896390656922106466281226585212708656867032959337086965882668833116360773849051428443486667686465860851355614821234876534354343573172538356222813956030486466523660955393773561763234319167109889719410143411237767964982194700611043912650947152577077168836701769579112578473658004821547772110361918217841806037719438510604511372932165542929988279211304575651288263270190879";  
                                 
-var MTX_COL =0;  
+var MTX_COL =60;  
 function m_deci_dgt(){     
   var deci_dgt= parseInt(document.getElementById('5_0').value); 
     if( deci_dgt <= 50){
@@ -1090,7 +1090,7 @@ function mtx_str_inpt_chk_bf(x){
         return  ans_1 ; }                         
    var xx =  m_str_sub_ngt_bf(xx);   
 
-        xx = xx.replace(/e\+/g , "EE");   
+        xx = xx.replace(/e\+/g , "ET");   
         xx = xx.replace(/eQ/g , "EQ");    
         xx = xx.replace(/\+/g , "EA");    
         xx = xx.replace(/\-/g , "ES");    
@@ -1099,7 +1099,7 @@ function mtx_str_inpt_chk_bf(x){
         xx = xx.replace(/\^/g , "EP");    
         xx = xx.replace(/\(/g , "EL");    
         xx = xx.replace(/\)/g , "ER");    
-        xx = xx.replace(/e/g , "EE");     
+        xx = xx.replace(/e/g , "ET");     
         xx = xx.replace(/\!/g , "EJ");     
         
        
@@ -1119,25 +1119,18 @@ function mtx_str_inpt_chk_bf(x){
 
 
               
-               if(((str_mf=="EE"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){         
+               if(((str_mf=="ET"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){         
 
                      var col_nub = Math.floor(m_mtx_real_div(str_bf,5));
-
-                             
-
-                         if( col_nub <=60 ){ var col_nub =60+20;}
-                        
- 
-                              
-                        if( col_nub >60 &&  col_nub <=400){
-
-                          var  MTX_COL_bf = m_mtx_real_add(col_nub,100);                     
-                                                           }
-                       else{
-                          var  MTX_COL_bf = m_mtx_real_add(col_nub,200);}
-
-
-
+                        if( col_nub < 60 ){  var  MTX_COL_bf = 60 ;}    
+                        else if( col_nub >60 &&  col_nub <=400){
+                          var  MTX_COL_bf = m_mtx_real_add(col_nub,100);}                    
+                        else if( col_nub >400 &&  col_nub <=1000){
+                          var  MTX_COL_bf = m_mtx_real_add(col_nub,100); }                    
+                        else if( col_nub >1000 &&  col_nub <=1500){
+                          var  MTX_COL_bf = m_mtx_real_add(col_nub,200);}                   
+                        else{
+                          var  MTX_COL_bf = 2000;} 
                                  var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);             
     
        
@@ -8089,8 +8082,24 @@ function m_mtx_point_add_sub_e(a,b,nub){
    var deci_dgt_inpt=16;
    var deci_dgt_nub =0;
    var aa_e = m_mtx_e_str(aa ,0);   
+   var ans_a ="";                  
+   var nub_point_a = m_str_char(aa_e,".") ;  
+      if(nub_point_a ==1){
+       var aa = m_str_e_to_str_point(aa );     
+        var aa_e = m_mtx_e_str(aa ,0); }  
+       else if(nub_point_a > 1){ 
+        var ans_a = message_1(30);
+              return  ans_a  ;} 
    var aa_str = m_mtx_e_str(aa ,1);   
-   var bb_e = m_mtx_e_str(bb ,0);   
+   var bb_e = m_mtx_e_str(bb ,0); 
+   var ans_b ="";                             
+   var nub_point_b = m_str_char(bb_e,".") ;  
+      if(nub_point_b ==1){
+        var bb = m_str_e_to_str_point(bb );      
+        var bb_e = m_mtx_e_str(bb ,0);}   
+       else if(nub_point_b > 1){ 
+          var ans_b = message_1(30);
+               return  ans_b  ;   }  
    var bb_str = m_mtx_e_str(bb ,1);   
    var sum_st ="";
    var e_nub =0;
