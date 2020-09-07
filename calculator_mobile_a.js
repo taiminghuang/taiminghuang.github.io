@@ -2034,11 +2034,11 @@ function m_str_sub_ngt_bf_1_bk(str){
     var str_fst = str_1.substr(0,1);
     var str_sec = str_1.substr(1,1);
      if(str_fst=="-"){
-          var  str_1=str_1.substr(1,str_1.length-1);  }  
+    var  str_1=str_1.substr(1,str_1.length-1);  }  
     var  str_1 = str_1.replace(/Q/g , "\-");       
     var  str_1 = str_1.replace(/eP/g , "e\+"); 
       if(str_fst=="-"){
-           var  str_1 ="-"+str_1 ;}
+    var  str_1 ="-"+str_1 ;}
 return str_1;
  
 }
@@ -2049,15 +2049,15 @@ function m_str_sub_ngt_bf_1(str){
     var str_1_lg = str_1.length;
     var str_fst = str_1.substr(0,1);
     var str_sec = str_1.substr(1,1);
-             str_1 = str_1.replace(/\(-/g , "\(0-");    
-             str_1 = str_1.replace(/n-/g , "nQ");      
-             str_1 = str_1.replace(/s-/g , "sQ");      
-             str_1 = str_1.replace(/y-/g , "yQ");      
-             str_1 = str_1.replace(/p-/g , "pQ");      
-             str_1 = str_1.replace(/,-/g , ",Q");      
-             str_1 = str_1.replace(/\^-/g , "\^Q");      
-             str_1 = str_1.replace(/e-/g , "eQ");      
-             str_1 = str_1.replace(/e\+/g , "eP");      
+        str_1 = str_1.replace(/\(-/g , "\(0-");    
+        str_1 = str_1.replace(/n-/g , "nQ");      
+        str_1 = str_1.replace(/s-/g , "sQ");      
+        str_1 = str_1.replace(/y-/g , "yQ");      
+        str_1 = str_1.replace(/p-/g , "pQ");      
+        str_1 = str_1.replace(/,-/g , ",Q");      
+        str_1 = str_1.replace(/\^-/g , "\^Q");      
+        str_1 = str_1.replace(/e-/g , "eQ");      
+        str_1 = str_1.replace(/e\+/g , "eP");      
     return str_1;
  }
 
@@ -2890,7 +2890,7 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
       var str_2 = str_2.replace(/T/g , "^");
       var str_2 = str_2.replace(/Q/g , "-");
-      var var str_2 =  m_str_sub_ngt_bf_1(str_2) ;        
+      var str_2 =  m_str_sub_ngt_bf_1(str_2) ;        
       var str_2 = m_e_bf_aft_many(str_2,"eP","");          
       var str_2 = m_e_bf_aft_many(str_2,"eQ","");          
       var str_2 =  m_str_sub_ngt_bf_1_bk(str_2) ;     
@@ -11401,8 +11401,8 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                          document.getElementById('input').value += "     "+ this_it  +";";
                    newline_1(); 
                    scroll_cursor();
-                      return;
-                                          }
+                      return;}
+                                          
               
            var this_function = this_it;                                                      
            var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
