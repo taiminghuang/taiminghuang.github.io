@@ -1098,7 +1098,8 @@ function mtx_str_inpt_chk_bf(x){
         xx = xx.replace(/\*/g , "EM");    
         xx = xx.replace(/\^/g , "EP");    
         xx = xx.replace(/\(/g , "EL");    
-        xx = xx.replace(/\)/g , "ER");    
+        xx = xx.replace(/\)/g , "ER"); 
+        xx = xx.replace(/exp/g , "AXP");
         xx = xx.replace(/e/g , "ET");     
         xx = xx.replace(/\!/g , "EJ");     
         
@@ -1184,26 +1185,17 @@ function mtx_str_inpt_chk_bf(x){
 
 
 function mtx_str_hat_chk(x){             
-
-  var xx = x.toString().trim();
-
+var xx = x.toString().trim();
   var nub_hat= m_str_char(xx,"^") ;   
   var ans_0="";  
   var ans_1="";  
-
   var xx_fst = xx.substr(0,1); 
-
   if((nub_hat==0)||(nub_hat==1 && xx_fst !="-")){      
         var ans_1=xx;  return  ans_1 ; }               
-
-   
    if(nub_hat==1 && xx_fst =="-"){
         var ans_1="0"+xx;  return  ans_1 ; }            
-
-                                 
-
-    var xx =  m_str_sub_ngt_bf(xx);   
-
+    var xx =  m_str_sub_ngt_bf(xx);  
+        xx = xx.replace(/exp/g , "EZ"); 
         xx = xx.replace(/e\+/g , "EE");   
         xx = xx.replace(/eQ/g , "EQ");    
         xx = xx.replace(/\+/g , "EA");    
@@ -1213,82 +1205,48 @@ function mtx_str_hat_chk(x){
         xx = xx.replace(/\^/g , "EP");    
         xx = xx.replace(/\(/g , "EL");    
         xx = xx.replace(/\)/g , "ER");    
-
-        xx = xx.replace(/EP/g , "\^");      
-
+       xx = xx.replace(/EP/g , "\^");      
      xx=xx+"E"; 
-
      var nub_E= m_str_char(xx,"E") ;  
-
        for(var i=0; i<nub_E ;i++){
-
         var index_E = xx.indexOf("E");  
-
         var str_bf = xx.substr(0,index_E);  
-
-       
         var str_mf = xx.substr(index_E,2);  
-
-         
         var str_af = xx.substr(index_E+2,xx.length-index_E-2);  
-            
-            
-         var nub_hat_bf= m_str_char(str_bf,"^") ;   
- 
+        var nub_hat_bf= m_str_char(str_bf,"^") ;   
            if(nub_hat_bf >1){          
-
                   var str_bf = mtx_str_e(str_bf);  
-
                   for(var j=0; j< nub_hat_bf ;j++){
                     var index_hat_p = str_bf.indexOf("^");         
                     var str_bf_bf = str_bf.substr(0,index_hat_p);  
                     var str_bf_mf = str_bf.substr(index_hat_p,1);  
                     var str_bf_af = str_bf.substr(index_hat_p+1,str_bf.length-index_hat_p-1);   
-            
                     var ans_0 = ans_0+"("+ str_bf_bf + str_bf_mf;
-
                       var str_bf = str_bf_af ;     
                                  }
-
                     var ans_0 = ans_0+ str_bf_af;       
-
                       for(var k=0; k< nub_hat_bf ;k++){
                             var ans_0 = ans_0+")";       
-
                              }
-
                       var str_bf = ans_0;   
                       var ans_0="" ;        
-
                }
-
-
-
           var ans_1 = ans_1+ str_bf+ str_mf;  
-             
-
-
-             var xx = str_af ;     
- 
-                                      }
-   
-
+           var xx = str_af ;     
+                                       }
       var  ans_1 = ans_1.replace(/EA/g , "\+");    
       var  ans_1 = ans_1.replace(/ES/g , "\-");    
       var  ans_1 = ans_1.replace(/EM/g , "\*");    
       var  ans_1 = ans_1.replace(/ED/g , "\/");    
       var  ans_1 = ans_1.replace(/EP/g , "\^");    
-
       var  ans_1 = ans_1.replace(/EE/g , "e\+");   
       var  ans_1 = ans_1.replace(/EQ/g , "eQ");    
       var  ans_1 = ans_1.replace(/EL/g , "\(");    
       var  ans_1 = ans_1.replace(/ER/g , "\)");    
-
-
       var  ans_1 = ans_1.replace(/Q/g , "\-");    
-      var  ans_1 = ans_1.replace(/E/g , "");     
- 
-     return  ans_1 ;
+      var  ans_1 = ans_1.replace(/E/g , ""); 
+      var  ans_1 = ans_1.replace(/EZ/g , "exp");  
+    return  ans_1 ;
 
  }
 
@@ -2070,7 +2028,38 @@ function m_replace_star(str_s ){
    return str_new;
 }
 
+function m_str_sub_ngt_bf_1_bk(str){    
+    var str_1 = str.toString().trim();
+    var str_1_lg = str_1.length;
+    var str_fst = str_1.substr(0,1);
+    var str_sec = str_1.substr(1,1);
+     if(str_fst=="-"){
+          var  str_1=str_1.substr(1,str_1.length-1);  }  
+    var  str_1 = str_1.replace(/Q/g , "\-");       
+    var  str_1 = str_1.replace(/eP/g , "e\+"); 
+      if(str_fst=="-"){
+           var  str_1 ="-"+str_1 ;}
+return str_1;
+ 
+}
 
+
+function m_str_sub_ngt_bf_1(str){     
+    var str_1 = str.toString().trim();
+    var str_1_lg = str_1.length;
+    var str_fst = str_1.substr(0,1);
+    var str_sec = str_1.substr(1,1);
+             str_1 = str_1.replace(/\(-/g , "\(0-");    
+             str_1 = str_1.replace(/n-/g , "nQ");      
+             str_1 = str_1.replace(/s-/g , "sQ");      
+             str_1 = str_1.replace(/y-/g , "yQ");      
+             str_1 = str_1.replace(/p-/g , "pQ");      
+             str_1 = str_1.replace(/,-/g , ",Q");      
+             str_1 = str_1.replace(/\^-/g , "\^Q");      
+             str_1 = str_1.replace(/e-/g , "eQ");      
+             str_1 = str_1.replace(/e\+/g , "eP");      
+    return str_1;
+ }
 
 function m_str_sub_ngt_bf(str){   
 var str_1 = str.toString().trim();
@@ -2790,7 +2779,9 @@ function m_str_spec_part_af_minus(str ,spec){
           if(mark_1 =='π'|| mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
          var str_part_fst= str_1.substring(0 ,pos+spec_a_lg);              
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
-         var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);     
+         var str_part_lst= str_1.substring((pos+spec_a_lg+str_part_b.length) ,str_1.length);
+         var str_part_b_fst = str_part_b.substr(0,1);    
+         var str_part_lst_fst = str_part_lst.substr(0,1);
          var nn_hat = m_str_spc_count(str_1,"^");        
           if(nn_hat >=1  && mark_1 !="("){
              var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );    
@@ -2800,6 +2791,9 @@ function m_str_spec_part_af_minus(str ,spec){
               var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );        
               var str_1=str_part_fst+str_part_b+")"+str_part_lst;             
                   }
+        else if( str_part_b_fst =="(" && str_part_lst_fst ==")"){
+              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );       
+              var str_1=str_part_fst+str_part_b+str_part_lst;   }
          else{
               var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );    
               var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
@@ -2890,13 +2884,17 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 =  str_2.replace(/JJJ/g ,"sin");
       var str_2 =  str_2.replace(/KKK/g ,"cos");
       var str_2 =  str_2.replace(/LLL/g ,"tan");
-      var str_2 =  str_2.replace(/MMM/g ,"exp");
       var str_2 =  str_2.replace(/NNN/g ,"ln");
       var str_2 =  str_2.replace(/PPP/g ,"log");
       var str_2 =  str_2.replace(/\(Q/g ,"\(\-"); 
       var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
       var str_2 = str_2.replace(/T/g , "^");
       var str_2 = str_2.replace(/Q/g , "-");
+      var var str_2 =  m_str_sub_ngt_bf_1(str_2) ;        
+      var str_2 = m_e_bf_aft_many(str_2,"eP","");          
+      var str_2 = m_e_bf_aft_many(str_2,"eQ","");          
+      var str_2 =  m_str_sub_ngt_bf_1_bk(str_2) ;     
+      var str_2 =  str_2.replace(/MMM/g ,"exp");
       var str_2 = m_fun_det_bracket(str_2);
    return str_2 ;
 }
@@ -3050,7 +3048,188 @@ function m_star_deg_rem_many(str){
 
   }
 
+function m_str_spec_part_af_e(str ,spec){     
+     var str_1 = str.toString().trim();
+     var str_0 =str_1 ;                    
+     var str_a_lg = str_1.length;
+     var spec_1= spec;
+     var spec_a_lg = spec_1.length;
+      if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}  
+     var nub_ep = m_str_spc_count(str_1,"exp");   //count "exp" 
+        if(nub_ep !=0){
+           var str_1 = str_1.replace(/exp/g , "EXP");        
+                       }   
+     var pos = str_1.indexOf(spec_1) ;  
+     var mark_1 =str_1[pos +spec_a_lg];          
+     var count_a = 1 ;
+     var count_mark=2500;  //增加 長運算
+        if(mark_1 =="("){
+           for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){    
+              var mark_ref = str_1[i];
+                 if(mark_ref =="("){
+                     count_a = count_a +1 ;}
+                 if(mark_ref ==")"){
+                     count_a = count_a-1 ;}
+                  if(count_a==0){
+                     var count_mark = i+1 ;
+                       i = str_a_lg ;                                     
+                                 }
+                                                   }
+                           }
+        if(mark_1 >=0 && mark_1<=9) {
+           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+              var mark_ref = str_1[i];
+                 if((mark_ref <= 9 && mark_ref >= 0 ) || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='P'|| mark_ref=='e' ) {      
+                                                       }
+                   else{  
+                     var count_mark = i ;
+                         i= str_a_lg;                      }       
+                                                    
+                                                  }
+                                  }
+         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
+            if(nub_ep !=0){
+           var str_1 = str_1.replace(/EXP/g , "exp");      
+                       }  
+       return str_part_b;
+}
 
+
+function m_str_spec_part_bf_e(str ,spec){          
+     var str_1 = str.toString().trim();
+     var spec_1= spec;
+     var nub_ep =0;     
+         var nub_ep = m_str_spc_count(str_1,"exp");    
+       if(nub_ep !=0){
+           var str_1 = str_1.replace(/exp/g , "EXP");         
+                       }   
+     var pos = str_1.indexOf(spec_1) ; 
+     var mark_1 =str_1[pos - 1];        
+     var count_1 = 1 ;
+     var count_mark = pos ;
+       if(mark_1 >=0 && mark_1<=9) {  
+            var count_mark = pos-1;   
+          for(var i = pos - 2; 0 <= i   ; i=i-1){
+              var mark_ref = str_1[i];
+                   if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='.'|| mark_ref=='Q' || mark_ref=='P'){      
+                        var count_mark = i ;
+                                                       }
+                   else{  
+                          i=-1 ;                                
+                                             }     
+                                                  }
+                                  }
+         var str_part_b= str_1.substring(count_mark,pos);
+           if(nub_ep !=0){
+           var str_1 = str_1.replace(/EXP/g , "exp");         
+                       } 
+   return str_part_b;
+}
+
+
+
+function m_e_bf_aft(str,spec1,spec2){                 
+  var str_1=str;                                              
+   var spec_1=spec1;
+   var spec_2=spec2;
+   var part_aft ="";//初值
+   var part_bf = m_str_spec_part_bf_e(str_1 ,spec1);    
+   var part_bf_lg = part_bf.length;
+   var part_aft =  m_str_spec_part_af_e(str_1 ,spec_1);   
+   var part_aft_lg = part_aft.length;
+   var part_aft_1=part_aft;
+   var part_bf_1=part_bf;
+   if(part_aft[0] =='(' && part_aft[part_aft_lg-1] ==')'){    
+        part_aft_1= part_aft.substr(1,part_aft_lg-2);
+    }
+    else{  part_aft_1= part_aft;}
+   if(part_bf[0] =='(' && part_bf[part_bf_lg-1] ==')'){    
+          part_bf_1= part_bf.substr(1,part_bf_lg-2);
+    }
+    else{part_bf_1= part_bf;}
+  if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
+            var spec_tt = -1;
+            var spec_tt_idx =-1;
+            var spec_tt_bf ="";
+            var spec_tt_af ="";
+            var spec_tt = part_bf_1 +spec_1+part_aft_1 ;  
+            var spec_tt_idx =  m_str_spc_index(str_1,spec_tt);                 
+            var spec_tt_bf = str_1.substr(spec_tt_idx-1,1);             
+            var spec_tt_af = str_1.substr(spec_tt_idx+spec_tt.length,1);           
+        if((spec_tt_bf =="(" && spec_tt_af ==")")||(spec_tt_bf =="" && spec_tt_af =="")){   
+             str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; } 
+           else{  str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
+                                                   }        
+    if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
+     return str_1;
+}
+ 
+
+function m_e_bf_aft_many(str,spec1,spec2){                  
+   var str_1=str;
+   var spec_1=spec1;
+   var spec_2=spec2;
+   var nub_1 = m_str_spc_count(str_1,spec_1);   
+    for(var i=0; i< nub_1 ; i++){
+          var  str_1 =  m_e_bf_aft(str_1,spec_1,spec_2);     
+                 }
+          var  str_1 =  str_1.replace(/TT/g , spec_1 )  ;  
+  return  str_1;
+  
+}
+
+
+function m_e_p_pow(bf,af){         
+   var  bf_1= bf.toString().trim();
+   var  bf_1= m_mtx_trim(bf_1) ;         
+   var  af_1= af.toString().trim();
+   var  af_1= m_mtx_trim(af_1) ;         
+   var ans_1 ="";
+   var ans_2 ="";
+          var nub_point=0;  
+          var nub_point_bf= m_str_char(bf_1,".") ;  
+          var nub_e_bf= m_str_char(bf_1,"e") ;      
+          var nub_point_af= m_str_char(af_1,".") ;  
+          var nub_e_af= m_str_char(af_1,"e") ;      
+          if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
+             var ans_1 = message_1(30);
+                           return  ans_1  }
+      if(nub_point_af==1){
+         var ans_1 =m_pow(10,af_1);            
+         var ans_2 =m_mtx_real_mul(bf_1, ans_1); 
+         var  ans_2 =m_mtx_str_to_e_ne(ans_2) ;            
+                         }
+     else{ var ans_2 = bf_1+"e+"+af_1;}
+    return  ans_2;
+}
+
+
+
+
+function m_e_n_pow(bf,af){        
+   var  bf_1= bf.toString().trim();
+   var  bf_1= m_mtx_trim(bf_1) ;         
+   var  af_1= af.toString().trim();
+   var  af_1= m_mtx_trim(af_1) ;         
+   var ans_1 ="";
+   var ans_2 ="";
+         var nub_point=0;  //init
+          var nub_point_bf= m_str_char(bf_1,".") ;  
+          var nub_e_bf= m_str_char(bf_1,"e") ;      
+          var nub_point_af= m_str_char(af_1,".") ;  
+          var nub_e_af= m_str_char(af_1,"e") ;      
+         if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
+             var ans_1 = message_1(30);
+                          return  ans_1  }
+           var af_1="-"+af_1 ; //變號
+      if(nub_point_af==1){
+         var ans_1 =m_pow(10,af_1); //power
+         var ans_2 =m_mtx_real_mul(bf_1, ans_1); 
+         var  ans_2 =m_mtx_str_to_e_ne(ans_2) ;            
+                       }
+     else{ var ans_2 = bf_1+"e-"+af_1; }     
+    return  ans_2;
+} 
 
 
 function m_hat_bf_aft(str,spec1,spec2){                   
@@ -11224,7 +11403,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                    scroll_cursor();
                       return;
                                           }
-                if( MTX_COL >=2000){ MTX_COL=2000 ;} 
+              
            var this_function = this_it;                                                      
            var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
                if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   
