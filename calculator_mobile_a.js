@@ -8495,50 +8495,25 @@ function m_ln_05_15(x,nub){
 
 
 
-
-
-
-
-
-
-
 function m_s_e(x,nub){       
   var xx=x.toString().trim();
-
-   
-   var xx_st= m_mtx_str_to_e(xx); 
-
-      
-   var xx_st= m_mtx_str_to_e_a(xx);             
-         var pos_pot  = xx_st.indexOf(".");    
-         var pos_e  = xx_st.indexOf("e");       
-         var pos_fst  = xx_st.substr(0,1);   
-         var pos_sec  = xx_st.substr(1,1);   
-         var sum_tt =0;
-         var nub_e=0;
-
-
-      
-         
-         if(  pos_e != -1){      
+    var xx_st= m_mtx_str_to_e(xx); 
+    var xx_st= m_mtx_str_to_e_a(xx);             
+    var pos_pot  = xx_st.indexOf(".");    
+    var pos_e  = xx_st.indexOf("e");       
+    var pos_fst  = xx_st.substr(0,1);   
+    var pos_sec  = xx_st.substr(1,1);   
+    var sum_tt =0;
+    var nub_e=0;
+        if(  pos_e != -1){      
           var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
-                 
-                var nub_e_fst  = nub_e.substr(0,1);
-
-
-                    if(nub_e_fst=="+"){ var nub_e = nub_e.substr(1,nub_e.length-1);}
-                    else{  var nub_e = nub_e ;}
-
-                   
-                xx_st = xx_st.substr(0,pos_e);       
+          var nub_e_fst  = nub_e.substr(0,1);
+            if(nub_e_fst=="+"){ var nub_e = nub_e.substr(1,nub_e.length-1);}
+            else{  var nub_e = nub_e ;}
+               xx_st = xx_st.substr(0,pos_e);       
                        }
-
-
         if(nub==0){ var sum_tt=xx_st;}
         else {var sum_tt = nub_e;} 
-
-             
-
  return sum_tt ;
 
 }
@@ -8694,242 +8669,99 @@ var xx=x.toString().trim();
 
 function m_pow_ia(base,p){    
    var bb=base;
-
-    bb = m_str_e_to_str(bb);      
-
-    var pp= p;
-
-    pp = m_str_e_to_str(pp).trim();      
-
-    var pp_fst = pp.substr(0,1); 
-
- 
+      bb = m_str_e_to_str(bb);      
+   var pp= p;
+      pp = m_str_e_to_str(pp).trim();      
+   var pp_fst = pp.substr(0,1); 
     if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}     
-
-
     var ans_1=""; 
     var data_a = 1;
-   
-      
-
-                    for(var i=0; i<pp ;i++){
+          for(var i=0; i<pp ;i++){
                       var data_a = m_mtx_real_mul(data_a ,bb); 
                                            }
-                     
-     var ans_1= data_a ;   
-
+    var ans_1= data_a ;   
     if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
- 
-
-return ans_1;
-
+ return ans_1;
 }
 
 
 function m_pow_ib(base,p){     
-  
-
-    var bb=base;
-
-    bb = m_str_e_to_str(bb);      
-
-
-       
-
+   var bb=base;
+        bb = m_str_e_to_str(bb);      
     var pp= p;
-
-
-
-    pp = m_str_e_to_str(pp).trim();     
-
+        pp = m_str_e_to_str(pp).trim();     
     var pp_fst = pp.substr(0,1); 
-
- 
     if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}      
-
-
     var pp_r = 0;  
     var ans_1="";
- 
     var pp_lg = pp.length;
     var row_nub_t = m_mtx_real_mul(pp_lg,3.5) ; 
     var row_nub_t = m_nub_m(row_nub_t) ;       
-
     var row_nub_t =parseInt(row_nub_t)+2;   
-
-
     var AA = m_pow_ib_bf(row_nub_t);  
-  
-
     var data_a = 1;
     var data_p_b=0;   
     var data_p_a=0;   
-
-        
     var data_pp = pp;
-
-
-                   
-
-                    for(var i=0; i< data_pp ;i++){
-                         
-
-                       var data_a = m_mtx_real_mul(data_a ,data_a);    
-
+               for(var i=0; i< data_pp ;i++){
+                     var data_a = m_mtx_real_mul(data_a ,data_a);    
                           if(i==0){ var data_a = bb ;}
-
-
-                             
-                               data_a = m_mtx_str_to_e_a(data_a);         
-                               data_a = m_fix(data_a ,499);            
-
-                              
-                           AA[i][1] = data_a ;                        
-
+                            data_a = m_mtx_str_to_e_a(data_a);         
+                            data_a = m_fix(data_a ,499);            
+                         AA[i][1] = data_a ;                        
                            var data_p_a= AA[i][0];                    
-
-                                
-                                var data_p_b= AA[i+1][0];                   
-
-
-                                  var data_cp =  m_mtx_real_str_comp(data_p_b,pp);      
-     
-
+                           var data_p_b= AA[i+1][0];                   
+                           var data_cp =  m_mtx_real_str_comp(data_p_b,pp);      
                                if(data_cp ==1 ){     
-                                 
-
-                                 var data_pp = -1 ;
-
+                                   var data_pp = -1 ;
                                              }   
-
-
-
-                                           }  
-
-                     
-                    
-                    var pp_r = m_mtx_real_sub(pp ,data_p_a);    
-                        
-                        
-
-                        var pp_r =m_fix(pp_r,499);     
-
-                        pp_r = m_str_e_to_str(pp_r);      
-                       
-                 
-          
-       var data_b=1;
-
-                     
-                      var aa_lga = AA.length;
-
-            
-                      var aa_lg = m_mtx_real_sub(aa_lga,1) ;
-
-                        var  aa_lg =m_fix(aa_lg,499);               
-                        var  aa_lg = m_str_e_to_str(aa_lg);      
+                                           }   
+                   var pp_r = m_mtx_real_sub(pp ,data_p_a);    
+                   var pp_r =m_fix(pp_r,499);     
+                       pp_r = m_str_e_to_str(pp_r);      
+                   var data_b=1;
+                   var aa_lga = AA.length;
+                   var aa_lg = m_mtx_real_sub(aa_lga,1) ;
+                   var  aa_lg =m_fix(aa_lg,499);               
+                   var  aa_lg = m_str_e_to_str(aa_lg);      
                  while( pp_r >0 ){
-
-                          
-                  for(var i= aa_lg ;i >= 0 ;i--){
-
-
+                   for(var i= aa_lg ;i >= 0 ;i--){
                         var data_aa_0 = AA[i][0];           
-                            
-
                         var data_cp_0 =  m_mtx_real_str_comp(pp_r,data_aa_0);     
-                           
- 
-     
                         var data_aa_1 = AA[i][1];
-
-
                         var data_cp_1 =  m_mtx_real_str_comp(data_aa_1,0);      
-
-                              
-                  
-                       if( data_cp_0!=2  && data_cp_1!=3){    
-                              
-
-                           var data_b= m_mtx_real_mul(data_b,AA[i][1]) ;
-
-                            
-
-                           var pp_r = m_mtx_real_sub(pp_r,AA[i][0]);
-
-                                  
-
-                                    var pp_r =m_fix(pp_r,499);     
-                                   
+                      if( data_cp_0!=2  && data_cp_1!=3){    
+                        var data_b= m_mtx_real_mul(data_b,AA[i][1]) ;
+                         var pp_r = m_mtx_real_sub(pp_r,AA[i][0]);
+                                 var pp_r =m_fix(pp_r,499);     
                                  pp_r = m_str_e_to_str(pp_r);      
-
-                                      if( pp_r == 0){ var i=-1 ;} 
-                                       
+                                    if( pp_r == 0){ var i=-1 ;} 
                                                       } 
-
-
-
                                                   }     
-
-
                                       }   
-
-               
      var ans_1= m_mtx_real_mul(data_a ,data_b );
-
-       var ans_1 = ans_1.toString();  
-
-
-       
-
+     var ans_1 = ans_1.toString();  
      if(pp_fst=="-") { 
-
-               var ans_1 =m_fix(ans_1,499);   
-               
+          var ans_1 =m_fix(ans_1,499);   
           var ans_1 = m_mtx_real_div(1 ,ans_1 );}
-       
-              
-
-return ans_1;
-
-
-
+ return ans_1;
 }
 
 function m_pow_ib_bf(n){        
-
- var nn=n;
- 
+var nn=n;
    A = m_new_zero_mtx(nn,2);      
-
- 
          A[0][1] = 0;  
          A[1][1] = 1;  
-
    for(var i=0;i<nn ;i++){
-
-     
-     
     if(i==0){ var data_a = 1;
               A[i][0] = data_a;  }
-
     else{
      var data_a = m_mtx_real_mul(data_a,2 );   
-
-           
-          data_a = m_str_e_to_str(data_a);      
-
+        data_a = m_str_e_to_str(data_a);      
         A[i][0] = data_a;
         A[i][1] = 0;
-
-        
         }
-        
-      
-   
-       
-                            }  
-
+                           }  
    return A;
 
 }
