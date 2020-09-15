@@ -8639,10 +8639,8 @@ function m_log(x){
    var  xx = xx_str;   
     var xx = m_str_e_to_str(xx);      
     var xx_fst=xx.substr(0,1);
-  if(xx_fst=="-"){
-      var xxabs = xx.substr(1,xx.length-1);}  
-  else{ var xxabs = xx;}
-  var ans_t = 0;
+    var xxabs = xx;
+    var ans_t = 0;
       if ( xxabs == 0){ var ans_t = message_1(14) ;  return ans_t;} 
       if (xx_fst == "-") {  var ans_t = message_1(9); return ans_t;} 
       if (xxabs == 1 && xxabs.length==1 && nub_e_str==0) {  var ans_t = 0 ; return ans_t;}
@@ -8656,11 +8654,7 @@ function m_log(x){
      var data_x = LN10_INV; 
      var ans_t =  m_mtx_real_mul(data_y,data_x);
      var ans_t =  m_mtx_real_add(ans_t,nub_e);
-     var ans_fst=ans_t.substr(0,1);
-     var data_comp_xxabs_1   =  m_mtx_real_str_comp(xxabs,1);      
-          if( data_comp_xxabs_1==2 && ans_fst !="-"){   var ans_t ="-"+ans_t;}             
-          if( data_comp_xxabs_1==1 && ans_fst =="-"){   var ans_t =ans_t.substr(1,ans_t.length-1);}             
-      var ans_t = ans_t.toString().trim();
+     var ans_t = ans_t.toString().trim();
   return ans_t;
 }
 
