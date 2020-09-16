@@ -7147,174 +7147,96 @@ function m_str_to_mtx(str){
 
 
 function m_mtx_element_shift(A,nub){     
-
-
-                                         
 var nubb = nub;
-
-
-
-var AA=A;
-
-  
-var mtx_lg =AA[0].length;  
-
- 
-var BB = m_new_zero_mtx(1,mtx_lg);            
-var CC = m_new_zero_mtx(1,mtx_lg);            
-   
-
- 
-  while(nubb>0){                      
+  var AA=A;
+  var mtx_lg =AA[0].length;  
+  var BB = m_new_zero_mtx(1,mtx_lg);            
+  var CC = m_new_zero_mtx(1,mtx_lg);            
+   while(nubb>0){                      
     for(var i=0;i<(mtx_lg);i++){
-
         if(i==0){
           BB[0][i]=(AA[0][i]).toString()+(AA[0][i+1]).toString().substr(0,1);}
-
-                             
         if(i >0 && i != (mtx_lg-1)){
           BB[0][i]=(AA[0][i]).toString().substr(1,4)+(AA[0][i+1]).toString().substr(0,1);} 
-
          if(i== (mtx_lg-1)){
           BB[0][i]=(AA[0][i]).toString().substr(1,4)+"0";}  
-               
-
                                }  
                AA = m_mtx_copy_mtx(AA,BB);      
               var  nubb = nubb-1;
-
              }
-
-
-        
- 
  while(nubb<0){ 
   for(var i=0;i<mtx_lg;i++){
         if(i==0){
           BB[0][i]="0"+(AA[0][i]).toString().substr(0,4);}    
-           
         if(i>0 ){
           BB[0][i]=(AA[0][i-1]).toString().substr(4,1)+(AA[0][i]).toString().substr(0,4);} 
-
-                
-                               }   
+                              }   
                 AA = m_mtx_copy_mtx(AA,BB);      
                  var  nubb = nubb+1;
-
-                 
-
                              }  
-
-               
-
-           
-    return BB ;
-
+  return BB ;
 }
 
 
 
 
 function m_mtx_str_element_shift(x,nub){    
-    var nubb=nub;
-   
+   var nubb=nub;
     var zz_str= x.toString();
-
-    
-
-
     var data_zo = zz_str.substr(0,1);
        if(data_zo=="-"){ zz_str = zz_str.substr(1,zz_str.length-1); }   
     var ans_1="";
-
     var pos_pot = zz_str.indexOf(".");   
-    
       if(  nubb==0 ){return x;} 
+
     if(nubb > 0 ) {      
-
             var nubc = nubb;
-
             while( nubc > 0){ var zz_str=zz_str+"0";   
                                   nubc=nubc-1; }
                    }
-
       if(nubb > 0 ) {  
               var nubd = nubb;
-
             while( nubd > 0){
          var zz_str= zz_str.substr(0,pos_pot)+ zz_str.substr(pos_pot+1,1)+"."+zz_str.substr(pos_pot+2 ,zz_str.length-pos_pot-1);
          var pos_pot = zz_str.indexOf("."); 
                       nubd=nubd-1;                                           
                             }
             ans_1= zz_str ;   
-
                       }
-         
-         
-          
         if(nubb < 0 ) {      
-         
             var  zz_str=zz_str.toString();
-
             var nubc = parseInt(nubb); 
             while( nubc < 0){ 
                         var zz_str="0"+zz_str;   
                             zz_str=zz_str.toString().trim();
                                   nubc=nubc+1; }
-
-           
+         
                    }
-
-
-
       if(nubb < 0 ) {                               
               var nubd = m_abs(nubb);
-
               var pos_pot = zz_str.indexOf(".");   
               var zz_str_lg = zz_str.length;  
-          
               if(pos_pot !=-1){   
                        var zz_str = zz_str.substr(0,pos_pot-nubd)+"."+ zz_str.substr(pos_pot-nubd,nubd)+ zz_str.substr(pos_pot+1,zz_str_lg-pos_pot);
                                }
-              
-                 else{
-                
+                else{
                       var zz_str = zz_str.substr(0,zz_str_lg-nubd )+"."+ zz_str.substr(zz_str_lg-nubd,nubd);}     
-            
-       
              var pos_pot = zz_str.indexOf("."); 
-                    
-                     
-            ans_1= zz_str ; 
-
+             ans_1= zz_str ; 
                       }
-
-       
-
                nube=m_abs(nub);
 
-
-      
-          while( nube > 0){ 
+         while( nube > 0){ 
                var pos_pot_a = ans_1.indexOf("."); 
-
                if( pos_pot_a >1 && ans_1.substr(0,1)=="0"){
-
-                           ans_1=ans_1.substr(1,ans_1.length-1);   
-                                                           }
-
-
-
+                           ans_1=ans_1.substr(1,ans_1.length-1);}   
                if(ans_1.substr(ans_1.length-1,1)=="0"){
                          ans_1=ans_1.substr(0,ans_1.length-1);   
                                                       }
                   nube=nube-1;
-
                           }
-
-
          if(data_zo=="-"){var ans_1="-"+ans_1; }
-
+  
      return ans_1;
 
  }
@@ -7357,39 +7279,30 @@ function m_mtx_any_inv(A ,nub){
                for(var m=1;m<col_nub; m++){     
                     if(SS[0][m] == "00000"){
                        var data_chk=1;  }
-
                     else{  data_chk=-1;
                             m=col_nub;       }   
-                                      
-                                     }  
-
+                                  }  
               if(parseInt(SS[0][0]) == 100000 && data_chk==1){    
                   k=-1;
                   j=-1;
                   i=col_nub; 
                 }
-          
-              if((parseInt(SS[0][0]) > 100000)||(parseInt(SS[0][0]) == 100000 && data_chk==-1)) {    
+            if((parseInt(SS[0][0]) > 100000)||(parseInt(SS[0][0]) == 100000 && data_chk==-1)) {    
                 X[0][i]=parseInt(X[0][i]) - Math.pow(10,j) ;      
                      k = -1; } 
-
                                } 
-
                                } 
                         } 
- 
           X = m_mtx_cell_five_brow(X);   
           X = m_mtx_cell_five(X);        
          var sum_tt = m_mtx_cell_five_show(X);   
              sum_tt =sum_tt.toString(); 
-         
      if(nub==1){         
          return  X ;
                }   
-     
     else{
         return  sum_tt;}
-
+   
 }
 
 
@@ -7402,14 +7315,11 @@ function m_mtx_pi_inv(){
      for( var j=4;j >=0 ;j--){    
        for(var k=9 ;k > 0 ;k--){    
            X[0][i]=parseInt(X[0][i])+Math.pow(10,j) ;     
-        
               SS = m_mtx_point_mul(PI,X);       
-  
               SS = m_mtx_cell_five_brow(SS);   
               SS = m_mtx_cell_five(SS);        
               if(parseInt(SS[0][0]) >= 100000){
                 X[0][i]=parseInt(X[0][i]) - Math.pow(10,j) ;     
-             
                       k = -1; }                        
                                 } 
                                } 
@@ -7653,122 +7563,86 @@ function m_tan(x){
 
 
 function m_sinh(x){
-   
   var xx = x.toString().trim();
-          var nub_point= m_str_char(xx,".") ;  
-       
-          var ans_1 ="";
-          if( nub_point >2){
-
-              var ans_1 = message_1(30);
-
+  var nub_point= m_str_char(xx,".") ;  
+  var ans_1 ="";
+      if( nub_point >2){
+         var ans_1 = message_1(30);
                            return  ans_1  }
-
-         else{ xx=xx;}
-
-         var xx =m_mtx_trim(xx) ;          
+      else{ xx=xx;}
+  var xx =m_mtx_trim(xx) ;          
   var xx_str =xx;
   var xx_fst =xx_str.substr(0,1);
-
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
-
        xx_str = m_str_e_to_str(xx_str);      
-
      if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }      
-
-      var pexp = m_exp(xx_abs);
-       var nexp = m_exp("-"+xx_abs);
-       var sutt ="";
-       var sum_total ="";
-           var sutt = m_mtx_real_sub(pexp,nexp);
-       
-               var sutt_1= m_mtx_real_div(sutt,2); 
-                 
-                  sum_total = sutt_1;
-           
-          if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
-
-         var sum_total = sum_total.toString().trim();
+  var pexp = m_exp(xx_abs);
+  var nexp = m_exp("-"+xx_abs);
+  var sutt ="";
+  var sum_total ="";
+  var sutt = m_mtx_real_sub(pexp,nexp);
+  var sutt_1= m_mtx_real_div(sutt,2); 
+          sum_total = sutt_1;
+      if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
+  var sum_total = sum_total.toString().trim();
      return sum_total;
-  
 }
 
 
 function m_cosh(x){       
-  var xx = x.toString().trim();
-          var nub_point= m_str_char(xx,".") ;  
-        
-          var ans_1 ="";
+ var xx = x.toString().trim();
+  var nub_point= m_str_char(xx,".") ;  
+  var ans_1 ="";
           if( nub_point >2){
-
               var ans_1 = message_1(30);
-
                            return  ans_1  }
-
          else{ xx=xx;}
-
          var xx =m_mtx_trim(xx) ;         
   var xx_str =xx;
   var xx_fst =xx_str.substr(0,1);
   var sutt ="";
   var sutt_1="";
   var sum_total ="";
-
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
      else { var xx_abs = xx_str;}
        xx_str = m_str_e_to_str(xx_str);      
- 
-     if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;}       
+      if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;}       
        var pexp = m_exp(xx_abs);
        var nexp = m_exp("-"+xx_abs);
         var sutt = m_mtx_real_add(pexp,nexp); 
          var sutt_1= m_mtx_real_div(sutt,2); 
-
                 sum_total = sutt_1;
-  
      var sum_total = sum_total.toString().trim();
      return sum_total;
-  
 }
 
 
 
 function m_tanh(x){
-  var xx = x.toString().trim();
-        var nub_point= m_str_char(xx,".") ;  
-       
-          var ans_1 ="";
+   var xx = x.toString().trim();
+  var nub_point= m_str_char(xx,".") ;  
+  var ans_1 ="";
           if( nub_point >2){
-
-              var ans_1 = message_1(30);
-
+             var ans_1 = message_1(30);
                            return  ans_1  }
-
          else{ xx=xx;}
          var xx =m_mtx_trim(xx) ;         
   var xx_str =xx;
   var xx_fst =xx_str.substr(0,1);
-
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
      xx_str = m_str_e_to_str(xx_str);      
        if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }  
   var yy=0;    
   var zz=0;
-  sum_t="";
- 
-    var yy=m_sinh(xx_abs); 
-    var zz=m_cosh(xx_abs); 
-   
-       var sum_t= m_mtx_real_div(yy,zz);   
+      sum_t="";
+  var yy=m_sinh(xx_abs); 
+  var zz=m_cosh(xx_abs); 
+  var sum_t= m_mtx_real_div(yy,zz);   
      if(xx_fst=="-"){ var sum_t="-"+sum_t; }
-   
-     var sum_t = sum_t.toString().trim();
-
+   var sum_t = sum_t.toString().trim();
 return sum_t;
-
-
 }
 
 function m_ext_in_funct(x){   
@@ -7816,56 +7690,29 @@ function m_ext_in_funct(x){
 
 function m_mtx_e_str(x,nub){   
    var xx_st=x.toString();
-   
-         var pos_pot  = xx_st.indexOf(".");    
-         var pos_e  = xx_st.indexOf("e");    
-         var pos_pls  = xx_st.indexOf("+");   
-
-         var st_lg = xx_st.length;
-        
-         var nub_e=0; 
-         
-         
-         if(  pos_e != -1){
-
-            if(pos_pls ==-1){
+   var pos_pot  = xx_st.indexOf(".");    
+   var pos_e  = xx_st.indexOf("e");    
+   var pos_pls  = xx_st.indexOf("+");   
+   var st_lg = xx_st.length;
+   var nub_e=0; 
+        if(  pos_e != -1){
+        if(pos_pls ==-1){
                var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
                              }
-            else{var nub_e =  xx_st.substr(pos_e+2,xx_st.length - pos_e-1);} 
-                      
-          
-                var nub_e=nub_e.toString().trim();
-  
-              
+         else{var nub_e =  xx_st.substr(pos_e+2,xx_st.length - pos_e-1);} 
+               var nub_e=nub_e.toString().trim();
                 xx_st = xx_st.substr(0,pos_e);       
-            
                        }
-
-
             var nub_e =m_mtx_trim(nub_e) ;          
             var xx_st =m_mtx_trim(xx_st) ;          
-
-
         if(nub==0){
                var nub_e=nub_e.toString().trim();
-
                 return nub_e;}
         else{
-
                var xx_st=xx_st.toString().trim();
-
                var xx_st=m_mtx_del_point(xx_st);    
-  
-
-               return xx_st;}
-
-
+              return xx_st;}          
    }
-
-
-
-
-
 
 
 function m_mtx_point_add_sub_e(a,b,nub){    
@@ -7987,20 +7834,14 @@ function m_mtx_point_add_sub_e(a,b,nub){
 function m_str_char(str,char){   
    var str_a = str.toString().trim();
    var char_a = char.toString().trim();
-
    var str_lg = str_a.length;
    var char_lg = char_a.length;
    var count_a=0;
-
       if(str_lg < char_lg){ count_a=0 ; return count_a;}
-
          for(var i=0;i< (str_lg-char_lg+1) ;i++){
             var str_part = str_a.substr(i,char_lg);
-
                 if(str_part ==char_a){ var count_a=count_a+1;}
-
                                                 }
-  
         return  count_a;
 }
 
@@ -8580,12 +8421,12 @@ function m_s_e_ln(x,nub){
              var pos_nub_e  = nub_ee.indexOf("."); 
              var nub_e = nub_ee.substr(0,pos_nub_e); 
              var nub_e_af =nub_ee.substr(pos_nub_e+1,nub_ee.length-pos_nub_e-1);   
-             var nub_e_af_fst = nub_e_af.substr(0,1);
+             var nub_e_af_fst = nub_ee.toString().substr(0,1);
                   if( nub_e_af_fst =="-"){
-                     var nub_e_af ="-0."+nub_e_af.substr(1,nub_e_af.length-1);}      
-                   else{  var nub_e_af ="0."+ nub_e_af; }  //前補0.
+                     var nub_e_af ="-0."+nub_e_af.toString();}     
+                   else{  var nub_e_af ="0."+ nub_e_af.toString(); } 
              var nub_e_af_val = m_pow(10,nub_e_af);
-             var xx = m_mtx_real_mul(xx,nub_e_af_val);   //123e+12.3  =123*(e+12 * e+0.3) =(123* e+0.3)*e+12   
+             var xx = m_mtx_real_mul(xx,nub_e_af_val);      
                }     
       var pos_pot  = xx.indexOf(".");   
       var xx_m_bf ="";
@@ -8623,7 +8464,7 @@ function m_s_e_ln(x,nub){
       else{
           if(nub_e <0 ){
                 var ans_a= xx.toString() +"e"+ nub_e.toString();}
-          else{ var ans_a= xx.toString() +"e+"+ nub_e.toString();}    //20200901
+          else{ var ans_a= xx.toString() +"e+"+ nub_e.toString();}    
         return ans_a ;}
   
   }
