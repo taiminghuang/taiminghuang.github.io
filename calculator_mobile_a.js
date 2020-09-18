@@ -7018,7 +7018,7 @@ function m_sin(x){
               if(zz_m==0 && zz_m.length ==1){ var zz =  zz_p;}
               else if(zz_p==0 && zz_p.length ==1 ){ var zz =  zz_m;}
               else {var zz = m_mtx_real_add(zz_m, zz_p);}
-              if(zz.length > 250){
+              if(zz.length > 500){
                var   zz_cp = m_fix(zz,250);      
                var  PIMUL2_cp = m_fix(PIMUL2,250);
                               }
@@ -7030,7 +7030,7 @@ function m_sin(x){
                           }
     var ans_1=0;
     var x_flag=0;
-    if(zz.length > 250){
+    if(zz.length > 500){
                   var   zz_cp = m_fix(zz,500);        
                   var PIDIV2_cp = m_fix(PIDIV2,500);
                   var      PI_cp=m_fix(PI,500);
