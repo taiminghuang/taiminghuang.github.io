@@ -2530,128 +2530,94 @@ function m_fun_aft(str,spec1,spec2){
    var spec_1=spec1;
    var spec_2=spec2;
    var part_aft =  m_str_spec_part_af(str_1 ,spec_1);
-    var part_aft_lg = part_aft.length;
- 
+   var part_aft_lg = part_aft.length;
       if(part_aft_lg > 0 ){
-
-        str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");             
- 
+         str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");     //20200813a         
                         }
-    
-      if(part_aft_lg == 0 && spec2 =="eee" ){  str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +"("+1+')'+")" );  }   
+     if(part_aft_lg == 0 && spec2 =="eee" ){  str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +"("+1+')'+")" );  }   
       if(part_aft_lg == 0 && spec2 !="eee" ){  str_1 = "error,  not data" ; }
-       
-     return str_1;
+   return str_1;
 }
 
 
-
 function m_star_deg_rem(str){                     
- 
-    var str_1 = str;
-     var dg_index = str_1.indexOf("°");   
+ var str_1 = str;
+    var dg_index = str_1.indexOf("°");   
        if(dg_index ==-1){ var ans_1 = str_1; return ans_1;}  
     var str_1 = str_1.replace("*°","°");  
     var str_1 = str_1.replace("e+","e");  
   
     var part_bf = m_str_spec_part_bf(str_1 ,"°"); 
-        var star_str_lg = str_1.length 
-        var part_bf_lg = part_bf.length ; 
-        var dg_index = str_1.indexOf("°");               
-        var str_bf = str_1.substr(0,dg_index -part_bf_lg);  
-        var str_af = str_1.substr(dg_index+1 ,star_str_lg-dg_index-1);  
- 
+    var star_str_lg = str_1.length 
+    var part_bf_lg = part_bf.length ; 
+    var dg_index = str_1.indexOf("°");               
+    var str_bf = str_1.substr(0,dg_index -part_bf_lg);  
+    var str_af = str_1.substr(dg_index+1 ,star_str_lg-dg_index-1);  
                 if(dg_index ==-1){  return str; } ;  
                   var bf_op_data = dg_index-part_bf_lg-1 ;
                      if(bf_op_data ==-1){ var bf_op ="";}
                       else {var bf_op = str_1.substr(dg_index-part_bf_lg-1,1); } 
  
-                    var af_op = str_1.substr(dg_index+1,1);  
+                    var af_op = str_1.substr(dg_index+1,1); 
                     var af2_str_bf = str_bf.substr(str_bf.length-2,2);  
-                    var bf2_str_af = str_af.substr(0,2);
-              if( bf_op =="*" || bf_op =="/" || bf_op =="^"  ||af_op =="*" || af_op =="/" || af_op =="^" || af2_str_bf =="((" || af2_str_bf =="/("|| af2_str_bf =="*("|| af2_str_bf =="^(" || bf2_str_af =="))" || bf2_str_af ==")*" ||bf2_str_af ==")/" ||bf2_str_af ==")^" ){
-
+                    var bf2_str_af = str_af.substr(0,2);                
+               if( bf_op =="*" || bf_op =="/" || bf_op =="^"  ||af_op =="*" || af_op =="/" || af_op =="^" || af2_str_bf =="((" || af2_str_bf =="/("|| af2_str_bf =="*("|| af2_str_bf =="^(" || bf2_str_af =="))" || bf2_str_af ==")*" ||bf2_str_af ==")/" ||bf2_str_af ==")^" ){
                   part_bf = part_bf.replace("°" , "D");      
                   str_1 = str_bf + part_bf +"°"+ str_af;
-
                         return str_1; 
-                    
-                   }
-               
-    var part_af = m_str_spec_part_af(str_1 ,"°");
-
+                 }
+      var part_af = m_str_spec_part_af(str_1 ,"°");
       var part_bf = part_bf.replace("Q","-");  
-           var nub_point= m_str_char(part_bf,".") ;  
-
-           if(nub_point >2){        
+      var nub_point= m_str_char(part_bf,".") ;  
+          if(nub_point >2){        
               var ans_1 = message_1(30);   
-
-                           return  ans_1  }
-
-           var part_bf  = m_str_e_to_str(part_bf);     
-
-    var bf_pos_pot = part_bf.indexOf(".");   
-    var part_bf_lg = part_bf.length;
-         
+                         return  ans_1  }
+       var part_bf  = m_str_e_to_str(part_bf);     
+       var bf_pos_pot = part_bf.indexOf(".");   
+       var part_bf_lg = part_bf.length;
                    var part_bf_b1 = m_nub_m(part_bf);      
                    var part_bf_a1 = m_nub_p(part_bf);       
                    var part_bf_a1 = part_bf_a1.toString().substr(1,part_bf_a1.length-1); 
-                    
-                  if(part_bf_b1==""){ var part_bf_b1 =1 ;}                                 
+                   if(part_bf_b1==""){ var part_bf_b1 =1 ;}                                 //20200718
                    var part_bf_b = m_mtx_real_div(part_bf_b1 ,360 );      
-                   var part_bf_b  = m_str_e_to_str(part_bf_b); 
-                   if(part_bf_b.length >250 ){
-                   var part_bf_b  =   m_fix(part_bf_b,250);       
-                                            }
+                   var part_bf_b  = m_str_e_to_str(part_bf_b);      
+                 if(part_bf_b.length >250 ){
+                   var part_bf_b  =   m_fix(part_bf_b,250);       //20200813  
+                                           }
                    var part_bf_bb = m_nub_p(part_bf_b);               
                    var part_bf_bbb = m_mtx_real_mul(part_bf_bb ,360 ); 
-                       
                    var part_bf_bbbb = m_fix( part_bf_bbb,0) ; 
-
                    var fst_part_bf = part_bf.substr(0,1);
-
                      if(fst_part_bf =="-"){
                            var part_bf = "-"+part_bf_bbbb.toString()+part_bf_a1.toString();}     
                      else{ var part_bf = part_bf_bbbb.toString()+part_bf_a1.toString();}
-
-      if(part_bf_lg ==0){ var part_bf= "D" ; }                  
+     if(part_bf_lg ==0){ var part_bf= "D" ; }                  
      if(part_bf_lg !=0 && part_bf != 0 && part_bf != 1 ){ var part_bf= part_bf+"D" ; }   
      if(part_bf_lg !=0 && part_bf == 0){ var part_bf= "0";}
      if(part_bf_lg !=0 && part_bf == 1){ var part_bf= "D" ; }   
-
               var str_new ="";
               var str_new = str_bf + part_bf + str_af;
-
                 if(str_new=="0-0" || str_new=="-0" ){ var str_new="0";}
                      var str_new_lg = str_new.length;
                      var str_new_fst_sec = str_new.substr(0,2); 
                      var str_new_lst_sec = str_new.substr(str_new_lg-2,2);   
-
                      if(str_new_fst_sec =="0-" ){ str_new = str_new.substr(1,str_new_lg-1);}    
                      if(str_new_lst_sec =="-0" ){ str_new = str_new.substr(0,str_new_lg-2);}    
-
-     return str_new;
+     return str_new;w;
 
    }
 
 
 function m_star_deg_rem_many(str){                                 
-   
-    var str_1 = str;
-    
-    var nub_1 = m_str_spc_count(str_1,"°");   
-
-     var  str_2 ="" ; 
-
-    for(var i=0; i< nub_1 ; i++){
-
+   var str_1 = str;
+   var nub_1 = m_str_spc_count(str_1,"°");   
+   var  str_2 ="" ; 
+      for(var i=0; i< nub_1 ; i++){
          var str_2 =  m_star_deg_rem(str_1);   
-            var str_1 = str_2 ;  
-
+          var str_1 = str_2 ;  
                }
-            str_1 = str_1.toString().replace( /D/g, "°") ;  
+        str_1 = str_1.toString().replace( /D/g, "°") ;  
      return  str_1;
-
   }
 
 function m_str_spec_part_af_e(str ,spec){     
@@ -2912,38 +2878,29 @@ function m_e_n_pow(bf,af){
 
 
 function m_hat_bf_aft(str,spec1,spec2){                   
-  var str_1=str;                                              
+   var str_1=str;                                              
    var spec_1=spec1;
    var spec_2=spec2;
    var part_aft ="";
-  
    var part_bf = m_str_spec_part_bf(str_1 ,spec1);
    var part_bf_lg = part_bf.length;
    var part_aft =  m_str_spec_part_af(str_1 ,spec_1);
    var part_aft_lg = part_aft.length;
-
    var part_aft_1=part_aft;
    var part_bf_1=part_bf;
-
    if(part_aft[0] =='(' && part_aft[part_aft_lg-1] ==')'){    
           part_aft_1= part_aft.substr(1,part_aft_lg-2);
     }
     else{  part_aft_1= part_aft;}
- 
    if(part_bf[0] =='(' && part_bf[part_bf_lg-1] ==')'){    
           part_bf_1= part_bf.substr(1,part_bf_lg-2);
     }
     else{part_bf_1= part_bf;}
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
-       
-        str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2+"("+part_bf_1 +','+part_aft_1+")"+")" ) ;
-
-           
-                                                        }        
- 
-     if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
+      str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2+"("+part_bf_1 +','+part_aft_1+")"+")" ) ;
+                                                       }        
+      if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
     return str_1;
-
 }
 
 function m_hat_bf_aft_inv_minus(str,spec1,spec2){         
@@ -2960,26 +2917,26 @@ function m_hat_bf_aft_inv_minus(str,spec1,spec2){
    var part_aft_lg = part_aft.length;
    var part_aft_1=part_aft;
    var part_bf_1=part_bf;
-         var pos = str_1.lastIndexOf(spec_1) ;  
-         var str_part_b= str_1.substring(0 ,pos);    
-         var str_part_a= str_1.substring(pos+spec_1.length ,str_1.length);    
-         var nn_e_bf =0;
-         var nn_e_aft = 0;
-         var nn_e_bf_lst ="";
-         var nn_e_aft_fst =""; 
-          var nn_e_bf = m_str_spc_count(part_bf_1,"e");              
-          var nn_e_bf_lst = part_bf_1.substr(part_bf_1.length-1,1);    
-          var nn_e_aft = m_str_spc_count(part_aft_1,"e");           
-          var nn_e_aft_fst = part_aft_1.substr(0,1);                
-            if(nn_e_bf>=1 && nn_e_bf_lst !=")" ) { var part_bf_1= "("+part_bf_1+")";}
-            if(nn_e_aft>=1 && nn_e_aft_fst !="(") { var part_aft_1= "("+part_aft_1+")";}
-
-   if((part_bf_lg > 0)  && (part_aft_lg > 0 )){                  
+   var pos = str_1.lastIndexOf(spec_1) ;  
+   var str_part_b= str_1.substring(0 ,pos);    
+   var str_part_a= str_1.substring(pos+spec_1.length ,str_1.length);    
+   var nn_e_bf =0;
+   var nn_e_aft = 0;
+   var nn_e_bf_lst ="";
+   var nn_e_aft_fst =""; 
+   var nn_e_bf = m_str_spc_count(part_bf_1,"e");              
+   var nn_e_bf_lst = part_bf_1.substr(part_bf_1.length-1,1);    
+   var nn_e_aft = m_str_spc_count(part_aft_1,"e");           
+   var nn_e_aft_fst = part_aft_1.substr(0,1);                
+       if(nn_e_bf>=1 && nn_e_bf_lst !=")" ) { var part_bf_1= "("+part_bf_1+")";}
+       if(nn_e_aft>=1 && nn_e_aft_fst !="(") { var part_aft_1= "("+part_aft_1+")";}
+       if((part_bf_lg > 0)  && (part_aft_lg > 0 )&& (nn_e_aft_fst !="-")){                  
              str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T"+ part_aft_1 +")"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
-             
-                                                        }        
- 
-     if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
+                                                      }
+       if((part_bf_lg > 0)  && (part_aft_lg > 0 ) && (nn_e_aft_fst =="-")){                  
+             str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T("+ part_aft_1 +"))"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
+                                                        } 
+       if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
              var str_1 = str_1.replace(/EXP/g ,"exp");    
              var str_1 = str_1.replace(/eQ/g ,"e\-");     
              var str_1 = str_1.replace(/eP/g ,"e\+");      
@@ -3016,15 +2973,12 @@ function m_hat_bf_aft_inv(str,spec1,spec2){
    var str_1_lg = str_1.length;
    var spec_1_lg = spec_1.length;
    var count_1 = 0;
-
      for(var i=0;i<str_1_lg;i++){
-   
-       var str_ref= str_1.substr(i,spec_1_lg) ;
+      var str_ref= str_1.substr(i,spec_1_lg) ;
             if(str_ref == spec_1){
                count_1=count_1+1;
                  i= i+ spec_1_lg -1 ;}  
                                 }
-
      return count_1;
 
    }
@@ -3037,48 +2991,33 @@ function m_str_spc_index(str,spec){
    var spec_1_lg = spec_1.length;
    var index_1 = 0;                      
      for(var i=0;i<(str_1_lg-spec_1_lg+1);i++){
-   
        var str_ref= str_1.substr(i,spec_1_lg) ;
             if(str_ref == spec_1){
                index_1=i;
              return index_1;       
-     
                                  }  
                                 }
-
-    
-     return index_1;
-
+    return index_1;
    }
 
 
 function m_str_spc_index_m(str,spec){            
-   var str_1 = str;
+  var str_1 = str;
    var spec_1 = spec;
    var str_1_lg = str_1.length;
    var spec_1_lg = spec_1.length;
-  
    var nub_count =  m_str_spc_count(str_1,spec_1);            
-
-      var A=m_new_mtx(nub_count,2); 
-      var k=0 ;   
-      
-
+   var A=m_new_mtx(nub_count,2); 
+   var k=0 ;   
      for(var i=0;i<(str_1_lg-spec_1_lg+1);i++){
-   
        var str_ref= str_1.substr(i,spec_1_lg) ;
             if(str_ref == spec_1){
                 A[k][0]=i;
                 A[k][1]= spec_1;
                 k=k+1;                
- 
-     
                                  }  
-
                                 }
-   
      return A;
-
    }
 
 
@@ -3089,38 +3028,27 @@ function m_str_spc_index_m_2(str,spec_1,spec_2){
    var str_a_lg = str_a.length;
    var spec_a_lg = spec_a.length;
    var spec_b_lg = spec_b.length;
-
- 
    var nub_count_a =  m_str_spc_count(str_a,spec_a);            
    var nub_count_b =  m_str_spc_count(str_a,spec_b);            
-      var A=m_new_mtx((nub_count_a+nub_count_b),2); 
-      var k=0 ;   
-      var m=0 ;   
-
+   var A=m_new_mtx((nub_count_a+nub_count_b),2); 
+   var k=0 ;   
+   var m=0 ;   
      for(var i=0;i < str_a_lg;i++){
-   
        var str_ref_a= str_a.substr(i,spec_a_lg) ;
             if(str_ref_a == spec_a){
                 A[k][0]=i;
                 A[k][1]= spec_a;
                 k=k+1;                
-    
                                  }  
-
          var str_ref_b= str_a.substr(i,spec_b_lg) ;
             if(str_ref_b == spec_b){
                 A[k][0]=i;
                 A[k][1]= spec_b;
                 k=k+1;               
-    
-                                 }     
-
-
-
+                                  }     
                                 }
-   
+  
      return A;
-
    }
 
 
@@ -3131,42 +3059,29 @@ function m_str_spc_index_m_2_sp(str,spec_1,spec_2){
    var str_a_lg = str_a.length;
    var spec_a_lg = spec_a.length;
    var spec_b_lg = spec_b.length;
-
    var nub_count_a =  m_str_spc_count(str_a,spec_a);            
    var nub_count_b =  m_str_spc_count(str_a,spec_b);            
-      var A=m_new_mtx((nub_count_a+nub_count_b),2); 
-      var k=0 ;   
-      var m=0 ;   
-
+   var A=m_new_mtx((nub_count_a+nub_count_b),2); 
+   var k=0 ;   
+   var m=0 ;   
      for(var i=0;i < str_a_lg;i++){
-
        var str_bf_a = str_a.substr(i-1,1) ;
        var str_af_h = str_a.substr(i+3,1) ;
        var str_af_a = str_a.substr(i+3,1) ;  
-    
-
        var str_af_b = str_a.substr(i+1,1) ;  
-     
-   
        var str_ref_a= str_a.substr(i,spec_a_lg) ;
             if(str_ref_a == spec_a && str_bf_a !="a" && str_af_h !="h" && str_af_a !="(" ){
                 A[k][0]=i;
                 A[k][1]= spec_a;
                 k=k+1;                
-    
                                  }  
-
-         var str_ref_b= str_a.substr(i,spec_b_lg) ;
+        var str_ref_b= str_a.substr(i,spec_b_lg) ;
             if(str_ref_b == spec_b && str_af_b !=")"  ){
                 A[k][0]=i;
                 A[k][1]= spec_b;
                 k=k+1;                
-    
                                  }     
-
-
-
-                                }
+                              }
    
      return A;
 
@@ -3180,40 +3095,28 @@ function m_str_spc_index_m_2_st(str,spec_1,spec_2){
    var str_a_lg = str_a.length;
    var spec_a_lg = spec_a.length;
    var spec_b_lg = spec_b.length;
-
    var nub_count_a =  m_str_spc_count(str_a,spec_a);            
    var nub_count_b =  m_str_spc_count(str_a,spec_b);            
-      var A=m_new_mtx((nub_count_a+nub_count_b),2); 
-      var k=0 ;   
-      var m=0 ;   
-
+   var A=m_new_mtx((nub_count_a+nub_count_b),2); 
+   var k=0 ;   
+   var m=0 ;   
      for(var i=0;i < str_a_lg;i++){
-
        var str_bf_a = str_a.substr(i-1,1) ;
-    
-        
        var str_ref_a= str_a.substr(i,spec_a_lg) ;
             if(str_ref_a == spec_a && str_bf_a !="a" ){
                 A[k][0]=i;
                 A[k][1]= spec_a;
                 k=k+1;               
-    
-                                 }  
-
+                                }  
          var str_ref_b= str_a.substr(i,spec_b_lg) ;
             if(str_ref_b == spec_b  ){
                 A[k][0]=i;
                 A[k][1]= spec_b;
                 k=k+1;                
-    
                                  }     
-
-
-
                                 }
+    return A;
    
-     return A;
-
    }
 
 
@@ -3225,19 +3128,13 @@ function m_str_spc_inter(str,spec_1,spec_2){
    var str_1 = str;
    var spec_a = spec_1;
    var spe2_2 = spec_2;
-
    var str_1_lg = str_1.length;
-   
    var index_1 = 0; 
    var index_2 = 0; 
-                    
        index_1 = m_str_spc_index(str,spec_a);
        index_2 = m_str_spc_index(str,spe2_2);
-
    var new_str =str_1.substring(index_1,index_2+1);   
-
        return new_str;
-
    }
 
 
@@ -3246,19 +3143,13 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
    var str_1 = str;
    var spec_a = spec_1;
    var spe2_2 = spec_2;
-
    var str_1_lg = str_1.length;
-   
    var index_1 = 0; 
    var index_2 = 0; 
-                    
        index_1 = m_str_spc_index(str,spec_a);
        index_2 = m_str_spc_index(str,spe2_2);
-
    var new_str =str_1.substring(index_1,index_2+2);   
-
        return new_str;
-
    }
 
 
@@ -3266,17 +3157,12 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
    var str_1 = str;                                             
    var spec_a = spec_1;  
    var spec_b = spec_2;  
-
    var str_1_lg = str_1.length;
-   
    var index_1 = 0; 
    var index_2 = 0; 
-                    
        index_1 = m_str_spc_index(str,spec_a);
        index_2 = m_str_spc_index(str,spec_b);
-
    var new_str =str_1.substring((index_1+spec_a.length) ,(index_2+spec_b.length-1));   
-
        return new_str;
 
    }
@@ -3289,23 +3175,15 @@ function m_str_spc_end(str,spec){
    var str_1_lg = str_1.length;
    var spec_1_lg = spec_1.length;
    var str_ref="";
-
      for(var i=(str_1_lg-spec_1_lg);i<str_1_lg;i=(i+spec_1_lg)){
-   
-       var str_ref= str_1.substr(i,spec_1_lg) ;
+      var str_ref= str_1.substr(i,spec_1_lg) ;
             if(str_ref == spec_1){
-
-              
                return 1;         
-
                 }  
            else{ 
-              
                  return 0 ;}     
-        
-                                }
-
-     
+                               }
+    
    }
 
 
