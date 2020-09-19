@@ -428,7 +428,7 @@ function key_1(char_1){
  var insert_flag="not";   
 
 function rept_1(char_1, nb){
-   var char_1 = char_1;
+  var char_1 = char_1;
    var nb = nb;
    var char_t="";
      for(var n =0; n < nb+1 ;n++){
@@ -479,12 +479,11 @@ s_chang_visible_all();
 
 
 function scroll_cursor(){       
-var text_area = document.getElementById('input');
+      var text_area = document.getElementById('input');
       var y_t=text_area.scrollTop;
       var y_h=text_area.scrollHeight ;
       var n_cur = cursor_position_row();  
-        text_area.scrollTop = 9999 ;     
- 
+        text_area.scrollTop = 9999 ;
  };
 
 
@@ -10266,7 +10265,8 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                     if( (nb_new <=9 && nb_new>=0)||( nb_new =".") ||( nb_new ="π")){
                              nb=nb+1;                                               }
                                            }
-            return nb ;
+           
+         return nb ;
  
        }
 
