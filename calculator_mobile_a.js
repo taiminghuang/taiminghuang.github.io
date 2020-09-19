@@ -1174,7 +1174,7 @@ function message_1(n){
   }
 
 function m_count_semicolon(){     
-    vvar lg = string_lg_1();
+   var lg = string_lg_1();
     var input_str = calc.input.value ;
     var rten = "";  
     var arr  =[];
