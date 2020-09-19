@@ -1743,7 +1743,7 @@ function m_str_spec_part_af_inv(str ,spec){
 
 
   function m_fact(str){                                  
-    ar str_1=str;
+    var str_1=str;
     var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');  //20200729
     var part_bf_lg = part_bf.length;
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
