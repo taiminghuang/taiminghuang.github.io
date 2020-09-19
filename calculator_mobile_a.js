@@ -32,26 +32,18 @@ function m_deci_dgt(){
         var data_row = 65; }   
     else if( deci_dgt > 150 && deci_dgt <= 200){
         var data_row = 80; }   
-      
     else if ( deci_dgt > 200 && deci_dgt<=300 ) { 
          var data_row = 90 ; }  
-
     else if ( deci_dgt > 300 && deci_dgt<=400 ) { 
          var data_row = 110 ; }  
-
     else if ( deci_dgt > 400 && deci_dgt<=450 ) { 
          var data_row = 120 ; }  
-
     else if ( deci_dgt > 450 && deci_dgt<=500 ) { 
          var data_row = 150 ; }  
-
     else if ( deci_dgt > 500 && deci_dgt<=1000 ) { 
          var data_row = 210 ; }  
-
     else { var data_row =  510 ;}    
-       
-    return  data_row; 
- 
+   return  data_row; 
 }
 
   function m_add_sub_fix_cols(){       
@@ -65,21 +57,16 @@ function m_deci_dgt(){
     	if (document.selection) {
    		ctrl.focus ();
     		var Sel = document.selection.createRange ();
-    
-    		Sel.moveStart ('character', -ctrl.value.length);
-     
-    		CaretPos = Sel.text.length;
+   		Sel.moveStart ('character', -ctrl.value.length);
+   		CaretPos = Sel.text.length;
     	}
      	else if (ctrl.selectionStart || ctrl.selectionStart == '0')
     		CaretPos = ctrl.selectionStart;
-     
     	return (CaretPos);
-     
     }
 
     function setCaretPosition(ctrl, pos)
-    {
-     
+   {
     	if(ctrl.setSelectionRange)
     	{
     		ctrl.focus();
@@ -96,122 +83,82 @@ function m_deci_dgt(){
 
  function string_lg(it){        
         var this_it = it ;    
-
         var str_lg = this_it.length;
-
         return (str_lg);
       }
 
  function string_lg_1(){        
-
-        var str_lg = string_lg(calc.input.value);
-
+   var str_lg = string_lg(calc.input.value);
         return (str_lg);
       }
 
- function cursor_position()    
-     {
-       var nub = doGetCaretPosition(document.getElementById('input'));
-       
-       return (nub);
+ function cursor_position(){   
+     var nub = doGetCaretPosition(document.getElementById('input'));
+        return (nub);
+    }
 
-     }
-
-   function cursor_position_set(n)     
-     {
-
-       var string_s = document.getElementById('input');
+   function cursor_position_set(n){     
+     var string_s = document.getElementById('input');
        var nub_set = setCaretPosition(string_s , n) ;
      }
 
-     function cursor_left_1()         
-    {
-        s_chang_visible_all();     
-
+     function cursor_left_1(){         
+       s_chang_visible_all();     
         var no = cursor_position();
-          
         var lg = string_lg_1();
-
         var input_str = calc.input.value.trim();
-          
         var new_str = input_str.substr(0,no) + input_str.substr(no,lg-1);
           document.getElementById('input').value = new_str;
-
          cursor_position_set(no-1) ;    
-                
          if(no==0){cursor_position_set(0); }    
-         click_init() ;   
-         
+         click_init() ;
       }
 
-    function cursor_right_1()          
-    {
-        s_chang_visible_all();     
-       
-        var no = cursor_position();
-        var lg = string_lg_1();
-          
+    function cursor_right_1(){          
+    s_chang_visible_all();     
+       var no = cursor_position();
+       var lg = string_lg_1();
         if(no <= lg){
     	 setCaretPosition(document.getElementById('input'),no+1);
                     }
-
     }
 
  function cursor_up_1(){               
      s_chang_visible_all();     
-
     var arry = m_count_newline();
     var arry_lg =arry.length;
     var arry_ref=[];                 
-
         arry_ref.push(0);
-
       for(i=0; i<arry_lg ;i++){
-                           
                    arry_ref.push(arry[i]+1);
-                               
                                }
-
     var no = cursor_position();
     var arry_ref_lg=arry_ref.length; 
-
-     var arry_small=[];
+    var arry_small=[];
             for(i=0; i<arry_ref_lg ;i++){
                 if(arry_ref[i] <= no){             
                    arry_small.push(arry_ref[i]);
                                  }
                                      }   
         arry_small_lg = arry_small.length;
-
       var arry_small_2=[];   
-           arry_small_2=arry_small.reverse(); 
-
+          arry_small_2=arry_small.reverse(); 
       var  test_lg = arry_small_2.length;
-          
             if(test_lg >=2){
-                
                var ref_down = arry_small_2[0];    
                var ref_up = arry_small_2[1];      
-             
                  if(((ref_down-ref_up)>(no-ref_down))&&((no-ref_down)< display_width)) {    
                     var new_no = ref_up+no-ref_down;}
-
                  if(((ref_down-ref_up)<=(no-ref_down))&&((no-ref_down)< display_width)){   
                     var new_no = ref_down-1;}
-
                   if((no-ref_down) > display_width){     
                     var new_no = no-display_width;}
-  
                                                   } 
-
                if((test_lg ==1)&&(no > display_width)){ 
                   var new_no = no-display_width;}
-
                 if((test_lg ==1)&&(no <= display_width)){ 
                   var new_no = no;}      
-                  
-              
-         setCaretPosition(document.getElementById('input'),new_no);
+       setCaretPosition(document.getElementById('input'),new_no);
           scroll_cursor();
    }
  
@@ -219,30 +166,23 @@ function m_deci_dgt(){
       s_chang_visible_all();     
       var arry = m_count_newline();
       var arry_lg =arry.length;
-         var no = cursor_position();
-         var lg = string_lg_1();
+      var no = cursor_position();
+      var lg = string_lg_1();
          if(lg <= no) { no = lg;}    
-          var arry_small=[];
-
+           var arry_small=[];
            for(i=0; i<arry_lg ;i++){
                 if(arry[i] <=no){             
                    arry_small.push(arry[i]);
                                  }
                                      }  
-
             var arry_small_lg = arry_small.length; 
-
-       
             var arry_lager=[];
-
             for(i=0; i< arry_lg ;i++){
                 if(arry[i] > no){             
                    arry_lager.push(arry[i]);
                                  }
                                      }  
-  
-             var arry_lager_lg = arry_lager.length;
-
+              var arry_lager_lg = arry_lager.length;
             if(arry_small_lg >=1){
               var ref_1 = arry_small[arry_small_lg -1 ];}  
              else{  var ref_1=0;}
@@ -256,7 +196,6 @@ function m_deci_dgt(){
                                                     }
                     else{ var new_no = ref_2+trans_1;}
                                                   }
-
           if(arry_small_lg ==0 && arry_lager_lg >=1){
                var trans_1=(no-ref_1) % display_width;
                     if((ref_2-no) >= display_width){   
@@ -264,45 +203,30 @@ function m_deci_dgt(){
                                                     }
                     else{ var new_no = ref_2+trans_1+1;}  
                                                   }
-
         if(arry_small_lg >= 1 && arry_lager_lg ==0){
                var trans_1=(no-ref_1) % display_width;
                     if((lg-no) >= display_width){   
                        var new_no = no + display_width;}
-                                                   
-                    else{ var new_no = no ;}
+                   else{ var new_no = no ;}
                                                   }
-
        if(arry_small_lg == 0 && arry_lager_lg ==0){
-              
                     if((lg-no) >= display_width){   
                        var new_no = no + display_width;}
-                                                   
-                    else{ var new_no = no ;}
+                   else{ var new_no = no ;}
                                                   }
-
      	setCaretPosition(document.getElementById('input'),new_no);
         scroll_cursor();
-          
     }
 
 function cursor_position_row(){                
     var arry = m_count_newline();
-     
     var arry_lg =arry.length;
-  
     var no = cursor_position();
-   
     var lg = string_lg_1();          
-    
-         if(lg <= no) { no = lg;}    
-
+       if(lg <= no) { no = lg;}    
    var row_nub=0;
-
     for(i=0; i< arry_lg ;i++){
-
     var nub_1=arry[i];
- 
        if(i==0 && nub_1<no ){
           var nub_1=arry[i];
           var row_nub = row_nub+ m_abs(m_nub_m((nub_1-0)/display_width))+2;   
@@ -310,17 +234,11 @@ function cursor_position_row(){
        if(i > 0 && nub_1 < no ){
          var nub_1=arry[i];
          var nub_2=arry[i+1];
-
         var row_nub = row_nub + m_abs(m_nub_m((nub_2-nub_1)/display_width))+1;  
         }
-
-        
                             }
-
   arry =[];
-
   return row_nub; 
-
 }
 
 
@@ -333,60 +251,46 @@ function cursor_position_row(){
          var lg = string_lg_1();
          if(lg <= no) { no = lg;}    
            var arry_small=[];
- 
-            for(i=0; i<arry_lg ;i++){
+             for(i=0; i<arry_lg ;i++){
                 if(arry[i] <=no){             
                    arry_small.push(arry[i]);
                                  }
                                      }  
-
             var arry_small_lg = arry_small.length; 
-
-      
             var arry_lager=[];
-
             for(i=0; i< arry_lg ;i++){
                 if(arry[i] > no){              
                    arry_lager.push(arry[i]);
                                  }
-                                     }  
-  
+                                    }  
              var arry_lager_lg = arry_lager.length;
-
             input_str_1="";
             input_str_2="";
             input_str_3="";
-  
-        if(arry_small_lg >0 && arry_lager_lg >0){
+         if(arry_small_lg >0 && arry_lager_lg >0){
            var input_str_1 = input_str_a.substr(0 ,arry_small[arry_small_lg-1]+1);                         
            var input_str_2 = input_str_a.substring(arry_small[arry_small_lg-1]+1,arry_lager[0]+1);         
            var input_str_3 = input_str_a.substr(arry_lager[0]+1,lg-arry_lager[0]);                          
                                               }
-
          if(arry_small_lg ==0 && arry_lager_lg>0){
-                  
            var input_str_1 = "";                                                    
            var input_str_2 = input_str_a.substring(0 ,arry_lager[0]+1);             
            var input_str_3 = input_str_a.substr(arry_lager[0]+1 ,lg-arry_lager[0]);  
                                                              }
          if(arry_small_lg >0 && arry_lager_lg==0){
-      
-           var input_str_1 = input_str_a.substring(0 ,lg);      
+          var input_str_1 = input_str_a.substring(0 ,lg);      
            var input_str_2 = "";                                             
            var input_str_3 = "";                                             
                                                              }
           
-  
       if(nub_a==1){ return input_str_1; }
       if(nub_a==2){ return input_str_2; }
       if(nub_a==3){ return input_str_3; } 
- 
 
    }
 
 function cursor_coords(event){      
- 
-  var x=event.clientX;
+ var x=event.clientX;
   var y=event.clientY;
   var ys=event.screenY;
    s_chang_visible_all(); 
@@ -406,10 +310,8 @@ function m_repeat_fu(nub){
   var nub_a=nub;
     if(nub_a==0){
         repeat_bs = setInterval("backspace()" , 1);  }    
-    
     if(nub_a==1){
         repeat_del = setInterval("delete_a()" , 100);  }   
-
     if(nub_a==2){
         repeat_sp = setInterval("space_1()" , 100);  }   
     if(nub_a==3){
@@ -420,13 +322,11 @@ function m_repeat_fu(nub){
         repeat_up = setInterval("cursor_up_1()" , 100);  }   
       if(nub_a==6){
         repeat_down = setInterval("cursor_down_1()" , 100);  }   
-   
-      
+  
   }
 
 
  function m_stop_repeat_fu(nub){
-
   var nub_a=nub;
     if(nub_a==0){
       clearInterval(repeat_bs); }    
@@ -442,62 +342,46 @@ function m_repeat_fu(nub){
       clearInterval(repeat_up); }     
     if(nub_a==6){
       clearInterval(repeat_down); }     
-   
  }
 
 function backspace(){
       s_chang_visible_all();     
         var no = cursor_position();
-        
         var lg = string_lg_1();
         var input_str = calc.input.value.trim();
-         
         var new_str = input_str.substr(0,no-1) + input_str.substr(no,lg-1);
-          document.getElementById('input').value = new_str;
-
+         document.getElementById('input').value = new_str;
          document.getElementById('input').blur();  
-
          cursor_position_set(no-1) ;    
-
             scroll_cursor();    
-
-              click_init() ;   
-     
+              click_init() ; 
              }
 
 function delete_a(){
-      
-      s_chang_visible_all();     
+    s_chang_visible_all();     
         var no = cursor_position();
-          
         var lg = string_lg_1();
         var input_str = calc.input.value;
-       
         var new_str = input_str.substr(0,no) + input_str.substr(no+1,lg);
         document.getElementById('input').value = new_str;
          cursor_position_set(no) ;    
-         
+      
              }
 
 function clear_all_1(item_1){
- 
-  s_chang_visible_all();    
-      
+ s_chang_visible_all();    
    var item_a=item_1;
       s_chang_sum(item_a);     
     var input_str = calc.input.value;
     var new_str ="";
       document.getElementById('input').value = new_str;
-       cursor_position_set(0) ;    
-
+       cursor_position_set(0) ;  
  }
 
 
 function space_1(){
       s_chang_visible_all();     
-   
         var no = cursor_position();
-        
         var lg = string_lg_1();
         var input_str = calc.input.value;
        if(insert_flag=="yes"){
@@ -506,24 +390,18 @@ function space_1(){
         else{
          var new_str = input_str.substr(0,no) +" "+ input_str.substr(no+1,lg);
             }         
-
         document.getElementById('input').value = new_str;
-         cursor_position_set(no+1) ;    
-         
+         cursor_position_set(no+1) ;
              }
 
 function key_1(char_1){
       var char_1=char_1;
-
          s_chang_sum(char_1);      
-       
       var char_lg = char_1.length;  
       var no = cursor_position();  
       var lg = string_lg_1();
       var input_str = calc.input.value;
-       
-      if(char_1== "h("){
-
+     if(char_1== "h("){
          if(insert_flag=="yes"){
               var new_str = input_str.substr(0,no-1) +char_1+ input_str.substr(no,lg);
                              }
@@ -539,14 +417,11 @@ function key_1(char_1){
                 }
                       }
       document.getElementById('input').value = new_str;
-
         cursor_position_set(no+char_lg) ;    
-     
             s_check_nb(new_str);         
-
            s_check_end(new_str);        
             scroll_cursor();    
-           click_init() ;   
+           click_init() ;  
   }
 
 
@@ -557,139 +432,103 @@ function rept_1(char_1, nb){
    var nb = nb;
    var char_t="";
      for(var n =0; n < nb+1 ;n++){
-
          char_t = char_t +char_1;
      }
      return (char_t);
-
 }
 
 
 function enter_1(){      
-
-     s_chang_visible_all();     
-        
-   var no = cursor_position();
+s_chang_visible_all();     
+  var no = cursor_position();
    var lg = string_lg_1();             
    var input_str = calc.input.value;
    var rten = input_str.charCodeAt(no);   
-
     if(rten !=13 && rten !=10){
         var new_str = input_str.substring(0,no) +'\r'+ input_str.substring(no,lg);        
                   }
- 
-     if(rten ==13 ){
+      if(rten ==13 ){
        var new_str = input_str.substr(0,no) +'\r'+'\r'+ input_str.substr(no,lg);         
        }   
-       
-     if(rten ==10){
+    if(rten ==10){
        var new_str = input_str.substr(0,no) +'\r'+'\n'+ input_str.substr(no,lg);         
        }
-
      document.getElementById('input').value = new_str;
          cursor_position_set(no+1) ;     
-
    scroll_cursor();
-     
 }
 
 
 function newline_1(){                 
-
-    s_chang_visible_all();     
+s_chang_visible_all();     
    var no = cursor_position();
    var s_lg = string_lg_1();             
    var input_str = calc.input.value;
-  
    var new_str = input_str+'\n' ;     
     document.getElementById('input').value = new_str;
- 
-       var new_ln_w = string_lg_1();  
-
-    cursor_position_set(new_ln_w) ;    
-
+        var new_ln_w = string_lg_1();  
+    cursor_position_set(new_ln_w) ; 
       }
 
  function scroll_x_y(){
        var elem = document.getElementById('input');
        var x_1=elem.scrollLeft;
        var y_1=elem.scrollTop;
-
       elem.scrollTop = elem.scrollHeight ; 
-          
    }
 
 
 function scroll_cursor(){       
-
-      var text_area = document.getElementById('input');
-       var y_t=text_area.scrollTop;
-       var y_h=text_area.scrollHeight ;
+var text_area = document.getElementById('input');
+      var y_t=text_area.scrollTop;
+      var y_h=text_area.scrollHeight ;
       var n_cur = cursor_position_row();  
-
         text_area.scrollTop = 9999 ;     
-
-  
+ 
  };
 
 
 
 
 function mtx_str_inpt_chk_bf(x){               
-
-  var xx = x.toString().trim();
-
+var xx = x.toString().trim();
   var nub_e=0;   
   var nub_j=0;
-
   var nub_e= m_str_char(xx,"e") ;   
   var nub_j= m_str_char(xx,"!") ;   
   var nub_point_xx = m_str_char(xx,".") ;  
-          
   var ans_0="";   
   var ans_1="";  
-
   var xx_fst = xx.substr(0,1); 
-
   if(nub_e==0 && nub_j==0 && nub_point_xx <=1 ){      
         var ans_1=xx; 
         return  ans_1 ; }                         
    var xx =  m_str_sub_ngt_bf(xx);   
-
-        xx = xx.replace(/e\+/g , "ET");   
-        xx = xx.replace(/eQ/g , "EQ");    
-        xx = xx.replace(/\+/g , "EA");    
-        xx = xx.replace(/\-/g , "ES");    
-        xx = xx.replace(/\//g , "ED");    
-        xx = xx.replace(/\*/g , "EM");    
-        xx = xx.replace(/\^/g , "EP");    
-        xx = xx.replace(/\(/g , "EL");    
-        xx = xx.replace(/\)/g , "ER"); 
-        xx = xx.replace(/exp/g , "AXP");
-        xx = xx.replace(/e/g , "ET");     
-        xx = xx.replace(/\!/g , "EJ");     
-        
-       
-     xx=xx+"E"; 
-
+       xx = xx.replace(/e\+/g , "ET");   //20200904
+       xx = xx.replace(/eQ/g , "EQ");    
+       xx = xx.replace(/\+/g , "EA");    
+       xx = xx.replace(/\-/g , "ES");    
+       xx = xx.replace(/\//g , "ED");    
+       xx = xx.replace(/\*/g , "EM");    
+       xx = xx.replace(/\^/g , "EP");    
+       xx = xx.replace(/\(/g , "EL");    
+       xx = xx.replace(/\)/g , "ER");  
+       xx = xx.replace(/exp/g , "AXP"); //20200907
+       xx = xx.replace(/e/g , "ET");  //20200904   
+       xx = xx.replace(/\!/g , "EJ");     
+    xx=xx+"E"; 
      var nub_E= m_str_char(xx,"E") ;  
      var str_bf="";  
      var str_mf="";
      var str_af="";
      var ans_0 = xx; 
      var MTX_COL_bf =0;
-
        for(var i=0; i<nub_E ;i++){         
-
         var index_E = ans_0.indexOf("E");     
         var str_bf = ans_0.substr(0,index_E);  
-
-
-              
-               if(((str_mf=="ET"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){         
-
-                     var col_nub = Math.floor(m_mtx_real_div(str_bf,5));
-                        if( col_nub < 60 ){  var  MTX_COL_bf = 60 ;}    
+            if(((str_mf=="ET"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){       //20200904  
+                 var col_nub = Math.floor(m_mtx_real_div(str_bf,5));
+                        if( col_nub < 60 ){  var  MTX_COL_bf = 60 ;}    //20200904   //最大
                         else if( col_nub >60 &&  col_nub <=400){
                           var  MTX_COL_bf = m_mtx_real_add(col_nub,100);}                    
                         else if( col_nub >400 &&  col_nub <=1000){
@@ -697,54 +536,28 @@ function mtx_str_inpt_chk_bf(x){
                         else if( col_nub >1000 &&  col_nub <=1500){
                           var  MTX_COL_bf = m_mtx_real_add(col_nub,200);}                   
                         else{
-                          var  MTX_COL_bf = 2000;} 
+                          var  MTX_COL_bf = 2000;}    //20200904 
                                  var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);             
-    
-       
                               if(str_mf=="EQ"){  var MTX_COL_bf = m_mtx_real_add(MTX_COL_bf,m_mtx_real_div(str_bf,2)) ;    
                                                     var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);            
                                                                                       }   
-
-                                      
+                                     
                                                                }
-
-
-
-
                           if( parseInt(MTX_COL_bf) > parseInt(MTX_COL)){      
-
                                 MTX_COL = parseInt(MTX_COL_bf);
-
                                     }
-                    
-
-                  
                  var nub_point = m_str_char(str_bf,".") ;   
-          
                         if(nub_point>=2 ){   
-
-                             var ans_1 = message_1(30);
-
+                            var ans_1 = message_1(30);
                            return  ans_1  ;
                                                } 
-            
-       
-        var str_mf = ans_0.substr(index_E,2);  
- 
-        var str_af = ans_0.substr(index_E+2,xx.length-index_E-2);   
-           
+       var str_mf = ans_0.substr(index_E,2);  
+         var str_af = ans_0.substr(index_E+2,xx.length-index_E-2);   
              var ans_0="";
              var ans_0=str_af;   
-             
-
-         
                                       }
-     
-
-              
    
    return  x ;  
-    
 
    }
 
@@ -909,111 +722,58 @@ var xx = x.toString().trim();
 
 
 function mtx_str_e_bf(x){             
-
  var xx = x.toString().trim();
-
  var xx_lg = xx.length;
-
-  
-
  var xx_fst =  xx.substr(0,1);
  var xx_lst =  xx.substr(xx_lg-1,1);
  var xx_lst_2 =  xx.substr(xx_lg-2,2);
  var ans_1="";
  var ans_bf="";
  var ans_af="";
-
-   var nub_e= m_str_char(xx,"e") ;  
-     
-  
+ var nub_e= m_str_char(xx,"e") ;  
    if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
-
               var ans_1 = message_1(32);   
-
                            return  ans_1 ; }
-
-
-    
-
     var pos_e = xx.indexOf("e");  
-
-
      if(pos_e ==-1 ) { var ans_1=xx; return ans_1; }       
      if(pos_e !=-1 ) { 
                        var ans_bf=xx.substr(0,pos_e);                     
-
-                          
-
                        var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);     
-
-                            
                        var ans_af = m_mtx_trim(ans_af);       
-
-                            
                        var ans_af = m_str_e_to_str(ans_af);   
-                             
                       } 
-
-              
           var pos_point = ans_af.indexOf(".");  
           var ans_af_lg = ans_af.length;        
-
-                 
-            if(pos_point ==-1 ) {                            
-                   
-
-                var ans_af_fst = ans_af.substr(0,1);
-
-
-                if(ans_af_fst =="-"){
+           if(pos_point ==-1 ) {                            
+               var ans_af_fst = ans_af.substr(0,1);
+               if(ans_af_fst =="-"){
                   var ans_1= ans_bf+"e"+ ans_af;
                                     }
                  else{
                       var ans_1= ans_bf+"e+"+ ans_af;
                        }
                                  }
-
-
             else{                   
-
                   var ans_af_bf= ans_af.substr(0,pos_point);                         
-
-                  
                   var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
-
-                     var ans_af_af = m_mtx_trim(ans_af_af);       
-
-
-                 var ans_af_bf_fst = ans_af_bf.substr(0,1); 
-
-                  if(ans_af_bf_fst =="-"){
-
-                    var ans_af_af="-0."+ ans_af_af;  
-                                          } 
+                  var ans_af_af = m_mtx_trim(ans_af_af);       
+                  var ans_af_bf_fst = ans_af_bf.substr(0,1); 
+                if(ans_af_bf_fst =="-"){
+                   var ans_af_af="-0."+ ans_af_af;  
+                                         } 
                   else{
                     var ans_af_af="0."+ ans_af_af;  
                        }
-
-                     
-
-                  var data_a = Math.pow(10,ans_af_af);  
-
-                     
-                  var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
-
-                  var ans_af_bf_fst = ans_af_bf.substr(0,1);     
-
-                   if(ans_af_bf_fst =="-"){   
+                 var data_a = Math.pow(10,ans_af_af);  
+                 var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
+                 var ans_af_bf_fst = ans_af_bf.substr(0,1);     
+                  if(ans_af_bf_fst =="-"){   
                      var ans_1 = data_b+"e"+ans_af_bf ;
                                           }
                    else{
-
-                     var ans_1 = data_b+"e+"+ans_af_bf ; 
+                    var ans_1 = data_b+"e+"+ans_af_bf ; 
                        }
                 }
-
-               
-
    return ans_1; 
 
 }
@@ -1022,63 +782,31 @@ function mtx_str_e_bf(x){
 
 function mtx_str_e(x){        
 var xx = x.toString().trim();
-
  var xx_lg = xx.length;
-
-  
-
  var xx_fst =  xx.substr(0,1);
  var xx_lst =  xx.substr(xx_lg-1,1);
  var xx_lst_2 =  xx.substr(xx_lg-2,2);
  var ans_1="";
  var ans_bf="";
  var ans_af="";
-
-   var nub_e= m_str_char(xx,"e") ;  
-     
-  
+ var nub_e= m_str_char(xx,"e") ;  
    if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
-
               var ans_1 = message_1(32);   
-
                            return  ans_1  }
-
-
-    
-
     var pos_e = xx.indexOf("e");  
-
-  
      if(pos_e ==-1 ) { var ans_1=xx; return ans_1; }       
      if(pos_e !=-1 ) { 
                        var ans_bf=xx.substr(0,pos_e);                     
-
-                        
-
                        var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);    
-
-                          
                        var ans_af = m_mtx_trim(ans_af);       
-
-                          
-                        var ans_af = mtx_str_e_bf(ans_af); 
-                            
-                       var ans_af = m_str_e_to_str(ans_af);   
-                             
-                      } 
-
-             
-          var pos_point = ans_af.indexOf(".");  
+                       var ans_af = mtx_str_e_bf(ans_af); 
+                      var ans_af = m_str_e_to_str(ans_af);   
+                     } 
+         var pos_point = ans_af.indexOf(".");  
           var ans_af_lg = ans_af.length;        
-
-                 
             if(pos_point ==-1 ) {                            
-                 
-
                 var ans_af_fst = ans_af.substr(0,1);
-
-
-                if(ans_af_fst =="-"){
+              if(ans_af_fst =="-"){
                   var ans_1= ans_bf+"e"+ ans_af;
                                     }
                  else{
@@ -1086,39 +814,21 @@ var xx = x.toString().trim();
                       var ans_1= ans_bf+"e+"+ ans_af;
                        }
                                  }
-
-
             else{                  
-
                   var ans_af_bf= ans_af.substr(0,pos_point);                         
                   var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
-
-                    var ans_af_af = m_mtx_trim(ans_af_af);       
-    
- 
-                   var ans_af_bf_fst = ans_af_bf.substr(0,1); 
-
-
+                  var ans_af_af = m_mtx_trim(ans_af_af);       
+                  var ans_af_bf_fst = ans_af_bf.substr(0,1); 
                   if(ans_af_bf_fst =="-"){
-
                     var ans_af_af="-0."+ ans_af_af;  
                                           } 
                   else{
                     var ans_af_af="0."+ ans_af_af;  
                        }
-
-                  
-
-
                   var data_a = m_pow(10,ans_af_af);  
                   var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
-                  data_b = m_str_e_to_str(data_b);      0
-
-
-                        
-
+                  data_b = m_str_e_to_str(data_b);      
                   var ans_af_bf_fst = ans_af_bf.substr(0,1);     
-
                    if(ans_af_bf_fst =="-"){   
                      var ans_1 = data_b+"e"+ans_af_bf ;
                                           }
@@ -1127,10 +837,6 @@ var xx = x.toString().trim();
                      var ans_1 = data_b+"e+"+ans_af_bf ; 
                        }
                 }
-
-                     
-             
-
    return ans_1; 
 
 }
@@ -1262,102 +968,55 @@ function m_n(n){
 
 
  function m_str_power(x,nub){          
-   
-    var xx=x.toString().trim();
-                                                  
-    var xx_fst=xx.substr(0,1);
-
+   var xx=x.toString().trim();
+   var xx_fst=xx.substr(0,1);
        if( xx_fst=="-"){ xx =xx.substr(1,xx.length-1);}  
-
           var xx_p = xx.indexOf(".");
           var xx_e = xx.indexOf("e");
-  
-       if( xx_e != -1 &&  xx_p != -1){                             
-
+     if( xx_e != -1 &&  xx_p != -1){                             
           var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
                 if(nub_p ==""){var nub_p =0;}
-
                     nub_p = nub_p.toString().trim();
-
                    var flag_1 = nub_p.substr(0,1);  
-                   
-                   if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
- 
-                  xx = xx.substr(0,xx_e);       
-
-                 
+                 if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
+                   xx = xx.substr(0,xx_e);       
                           }
-
-
          if( xx_e != -1 &&  xx_p == -1){                               
-
           var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
-
                if(nub_p ==""){var nub_p =0;}
-
-               
-                   nub_p = nub_p.toString().trim();
-
+                  nub_p = nub_p.toString().trim();
                    var flag_1 = nub_p.substr(0,1);  
-                   
-                   if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
-            
-               xx = xx.substr(0,xx_e);       
-
-            
+                  if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
+              xx = xx.substr(0,xx_e);       
                           }
-
-
             if( xx_e == -1 &&  xx_p == -1){         
           var  nub_p =  0 ;  
-             
           var   xx = xx;       
-
-                                }
-
-
-             if( xx_e == -1 &&  xx_p != -1){         
+                               }
+         if( xx_e == -1 &&  xx_p != -1){         
           var  nub_p =  0 ;  
-             
           var   xx = xx;       
-
                                 }
-
-
-           if( xx_fst=="-"){ xx ="-"+xx;}     
-        
-   if(nub==0){
-               
-
+         if( xx_fst=="-"){ xx ="-"+xx;}     
+         if(nub==0){
                    return nub_p;}    
-       else{
-
-             
+         else{
             xx = m_mtx_trim(xx) ;   
-
-
-         return xx ;}            
+         return xx ;}              
 
   }
 
 
 function m_lg_str_to_e(x){     
-  var xx=x.toString().trim(); 
-
+   var xx=x.toString().trim(); 
   var xx_fst=xx.substr(0,1);  
-
       if(xx_fst=="-"){ xx=xx.substr(1,xx.length-1); } 
-
   var xx_e =0;
   var xx_e = m_str_power(xx,0);          
   var xx_str = m_str_power(xx,1);          
-
-
   var xx_str_bf = m_nub_m(xx_str);      
   var xx_str_af = m_nub_p(xx_str);       
-   
   var xx_str_bf_lg = xx_str_bf.length;
-
           if((xx_e + sum_total_lg-1) >0){
              xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1)+"e+"+(xx_e + sum_total_lg-1);     
                                }
@@ -1366,11 +1025,8 @@ function m_lg_str_to_e(x){
                                }
            else{
                xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1);
-
                           }
-
            if(xx_fst=="-"){ xx_t = "-"+xx_t; }  
-
     return xx_t;
 }
 
@@ -1493,25 +1149,19 @@ function message_1(n){
 
 
   function m_del4_2f_char(s,c){     
-    
-     var ss=s;
+    var ss=s;
      var cc=c;
      var ss_lg=ss.length; 
      var cc_lg=cc.length;
- 
      var pos=ss.lastIndexOf(cc);
      var partstring = ss.substr((pos+cc_lg),ss_lg);
-
-   return partstring ; 
+   return partstring ;
     }
 
 
  function m_count_newline(){     
-    var lg = string_lg_1();
-    
+   var lg = string_lg_1();
     var input_str = calc.input.value ;
-
-
     var rten = "";  
     var arr  =[];
       for(var i=1 ; i<=lg ;i++){
@@ -1519,39 +1169,29 @@ function message_1(n){
              if(rten ==10 || rten ==13){
                    arr.push(i);
                                        }
-
                                 }
-    
      return arr;
-
   }
 
 function m_count_semicolon(){     
-    var lg = string_lg_1();
-    
+    vvar lg = string_lg_1();
     var input_str = calc.input.value ;
-
-
     var rten = "";  
     var arr  =[];
       for(var i=1 ; i<=lg ;i++){
          var rten = input_str.charCodeAt(i);  
              if(rten ==59 ){
                    arr.push(i);
-                                       }
-
+                                      }
                                 }
-   
      return arr;
-
   }
 
 
 
 
 function m_replace(str_s ,old_s ,new_s ){          
-
-    var ss = str_s.toString().trim();
+var ss = str_s.toString().trim();
     var oo = old_s.toString().trim();  
     var nn = new_s.toString().trim();  
     var ss_lg = ss.length;
@@ -1559,38 +1199,23 @@ function m_replace(str_s ,old_s ,new_s ){
     var nn_lg = nn.length;  
     var new_ss = ss ;       
     var fg =0 ;            
-
       for(var i=0 ; i < ss_lg ; i++){
-  
-       var oo_part = ss.substr(i,oo_lg);
-
+        var oo_part = ss.substr(i,oo_lg);
            if(oo_part == oo){
- 
-               var new_ss = new_ss.substr(0, i+fg) + nn  +new_ss.substr(i+oo_lg + fg , ss_lg-1+fg);
-
-               
-                 var fg = fg+(nn_lg-oo_lg);    
-
+                var new_ss = new_ss.substr(0, i+fg) + nn  +new_ss.substr(i+oo_lg + fg , ss_lg-1+fg);
+                var fg = fg+(nn_lg-oo_lg);    
                             }
-
                                      }
-       
      return new_ss;
-
 }
 
 
 function m_replace_star(str_s ){          
     var str_1=str_s;
-
- 
     var str_new = m_replace(str_1 ,')m',')*m');
-
         for(var i=0;i<=9;i++){
-
           str_new = m_replace(str_new ,i+'m',i+'*m');
             }
-  
    return str_new;
 }
 
@@ -1705,66 +1330,40 @@ function m_str_sub_ngt_bf_minus(str){
 
 
 function m_str_spec_part_bf(str ,spec){           
-                                                   
-     var str_1 = str.toString().trim();
+   var str_1 = str.toString().trim();
      var spec_1= spec;
-
-                
           str_1 =  m_str_sub_ngt_bf(str_1) ;     
-    
-        var pos = str_1.indexOf(spec_1) ; 
-                                                   
-
+     var pos = str_1.indexOf(spec_1) ; 
      var mark_1 =str_1[pos - 1];        
      var count_1 = 1 ;
      var count_mark = pos ;
-
-     
-
-
-          if(mark_1 ==")"){
-            
-
-           for(var i= pos-2;0 <= i  ; i=i-1){
+        if(mark_1 ==")"){
+             for(var i= pos-2;0 <= i  ; i=i-1){
               var mark_ref = str_1[i];
-
                  if(mark_ref ==")"){
                      count_1 = count_1 +1 ;}
                  if(mark_ref =="("){
                      count_1 = count_1-1 ;}
-                                            
                   if(count_1==0){
                      var count_mark = i ;
                        i=-1;                                     
                                           }
                                            }
                            }
-
-            
           if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°") {  
              var count_mark = pos-1;   
            for(var i = pos - 2; 0 <= i   ; i=i-1){
               var mark_ref = str_1[i];
-                                    
                    if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'){     
                         var count_mark = i ;
                                                        }
                    else{  
-
-                     
                            i=-1 ;                                
                                              }     
-                                                    
                                                   }
                                   }
-   
-         var str_part_b= str_1.substring(count_mark,pos);
-
-
-      
-       
-     return str_part_b;
-
+        var str_part_b= str_1.substring(count_mark,pos);
+    return str_part_b;
 }
 
 function m_str_spec_part_bf_mn(str ,spec){            
@@ -2144,22 +1743,16 @@ function m_str_spec_part_af_inv(str ,spec){
 
 
   function m_fact(str){                                  
-    var str_1=str;
-    var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');
+    ar str_1=str;
+    var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');  //20200729
     var part_bf_lg = part_bf.length;
-
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
         str_1 = str_1.replace(part_bf+'!' , "m_n"+part_bf ) ;  }            
-
      if(part_bf_lg > 0 &&  part_bf[0] !='(' ){
         str_1 = str_1.replace(part_bf+'!' , "(m_n("+part_bf+'))');                 
-
                         }
-    
-         if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "(m_n("+1+'))'); }   
-
+          if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "(m_n("+1+'))'); }   
      return str_1;
-
    }
 function m_fact_minus(str){          
     var str_1=str;
