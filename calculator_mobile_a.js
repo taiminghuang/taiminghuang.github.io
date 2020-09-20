@@ -1773,20 +1773,13 @@ function m_fact_minus(str){
    }
 
  function m_star(str){                                 
-  
-    var str_1 = str;
- 
+  var str_1 = str;
     var part_bf = m_str_spec_part_bf(str_1 ,"π");  
     var part_bf_lg = part_bf.length;
-
     if(part_bf_lg > 0 ){
         str_1 = str_1.replace(part_bf+"π" , part_bf+'* 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586' ) ; }          
-         
-  
-    if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"π" , part_bf+'3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586' ) ; }     
-     
-     return str_1;
-
+     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"π" , part_bf+'3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194912983367336244065664308602139494639522473719070217986094370277053921717629317675238467481846766940513200056812714526356082778577134275778960917363717872146844090122495343014654958537105079227968925892354201995611212902196086403441815981362977477130996051870721134999999837297804995105973173281609631859502445945534690830264252230825334468503526193118817101000313783875288658753320838142061717766914730359825349042875546873115956286388235378759375195778185778053217122680661300192787661119590921642019893809525720106548586' ) ; }     
+   return str_1;
    }
 
 
@@ -1794,9 +1787,7 @@ function m_star_rem(str,nub){
     var str_1 = str;
     var nubb = nub;
     var pi_index = str_1.indexOf("π");   
-     
        if(pi_index ==-1){ var ans_1 = str_1; return ans_1;}  
-
     var str_1 = str_1.replace("*π","π");  
     var str_1 = str_1.replace("e+","e");  
     var part_bf = m_str_spec_part_bf(str_1 ,"π"); 
@@ -1809,90 +1800,58 @@ function m_star_rem(str,nub){
                    var bf_op_data = pi_index-part_bf_lg-1 ;
                      if(bf_op_data ==-1){ var bf_op ="";}
                       else {var bf_op = str_1.substr(pi_index-part_bf_lg-1,1); } 
-
                     var af_op = str_1.substr(pi_index+1,1);  
                     var af2_str_bf = str_bf.substr(str_bf.length-2,2);  
-                    var bf2_str_af = str_af.substr(0,2);
+                    var bf2_str_af = str_af.substr(0,2);                
               if( bf_op =="*" || bf_op =="/" || bf_op =="^"  ||af_op =="*" || af_op =="/" || af_op =="^" || af2_str_bf =="((" || af2_str_bf =="/("|| af2_str_bf =="*("|| af2_str_bf =="^(" || bf2_str_af =="))" || bf2_str_af ==")*" ||bf2_str_af ==")/" ||bf2_str_af ==")^" ){
-              
                   str_1 = str_bf + part_bf +"π"+ str_af;
-           
                          return str_1; 
-                   
-                   }
-               
-    var part_af = m_str_spec_part_af(str_1 ,"π");
+                  }
+       var part_af = m_str_spec_part_af(str_1 ,"π");
        var part_bf = part_bf.replace("Q","-");  
-   
-          var nub_point= m_str_char(part_bf,".") ;  
-
+       var nub_point= m_str_char(part_bf,".") ;  
            if(nub_point >2){        
               var ans_1 = message_1(30);   
-
                            return  ans_1  }
-
            var part_bf  = m_str_e_to_str(part_bf);      
-      
-    var bf_pos_pot = part_bf.indexOf(".");   
-    var part_bf_lg = part_bf.length;
-
-       if(bf_pos_pot ==-1){ var part_bf = part_bf.substr(part_bf_lg-1,1); 
-
-                  if(part_bf % 2 == 0) { var part_bf = 0 ;}
-                  else { var part_bf = 1 ;}
-
-                     if(nubb==1){ var part_bf = 0 ;}  
-
+      var bf_pos_pot = part_bf.indexOf(".");   
+      var part_bf_lg = part_bf.length;
+         if(bf_pos_pot ==-1){ var part_bf = part_bf.substr(part_bf_lg-1,1); 
+         if(part_bf % 2 == 0) { var part_bf = 0 ;}
+          else { var part_bf = 1 ;}
+         if(nubb==1){ var part_bf = 0 ;}  
                            }                                                      
-
-       if(bf_pos_pot !=-1){ part_bf = part_bf.substr(bf_pos_pot-1,part_bf_lg-bf_pos_pot+1);  
-                             var fst_part_bf =  part_bf.substr(0,1);         
-
-                                 if(fst_part_bf % 2 == 0) { var part_bf = "0" + part_bf.substr(1,part_bf_lg -1) ;}   
-                                     else { var part_bf = "1" + part_bf.substr(1,part_bf_lg -1);}                     
-                                        
-                                        if(nubb==1){  var part_bf = "0" + part_bf.substr(1,part_bf_lg -1) ;}    
-
-                                                                                            }  
-
-     if(part_bf_lg ==0){ var part_bf= "P" ; }                  
-     if(part_bf_lg !=0 && part_bf != 0 && part_bf != 1 ){ var part_bf= part_bf+"P" ; }   
-     if(part_bf_lg !=0 && part_bf == 0){ var part_bf= "0";}
-     if(part_bf_lg !=0 && part_bf == 1){ var part_bf= "P" ; }   
-        
-              var str_new ="";
-              var str_new = str_bf + part_bf + str_af;
-               if(str_new=="0-0" || str_new=="-0" ){ var str_new="0";}
-
-                     var str_new_lg = str_new.length;
-                     var str_new_fst_sec = str_new.substr(0,2); 
-                     var str_new_lst_sec = str_new.substr(str_new_lg-2,2);   
-                     if(str_new_fst_sec =="0-" ){ str_new = str_new.substr(1,str_new_lg-1);}    
-                     if(str_new_lst_sec =="-0" ){ str_new = str_new.substr(0,str_new_lg-2);}   
- 
-
+         if(bf_pos_pot !=-1){ part_bf = part_bf.substr(bf_pos_pot-1,part_bf_lg-bf_pos_pot+1);  
+             var fst_part_bf =  part_bf.substr(0,1);         
+         if(fst_part_bf % 2 == 0) { var part_bf = "0" + part_bf.substr(1,part_bf_lg -1) ;}   
+         else { var part_bf = "1" + part_bf.substr(1,part_bf_lg -1);}                     
+         if(nubb==1){  var part_bf = "0" + part_bf.substr(1,part_bf_lg -1) ;} }   
+         if(part_bf_lg ==0){ var part_bf= "P" ; }                  
+         if(part_bf_lg !=0 && part_bf != 0 && part_bf != 1 ){ var part_bf= part_bf+"P" ; }   
+         if(part_bf_lg !=0 && part_bf == 0){ var part_bf= "0";}
+         if(part_bf_lg !=0 && part_bf == 1){ var part_bf= "P" ; }   
+            var str_new ="";
+            var str_new = str_bf + part_bf + str_af;
+         if(str_new=="0-0" || str_new=="-0" ){ var str_new="0";}
+            var str_new_lg = str_new.length;
+            var str_new_fst_sec = str_new.substr(0,2); 
+            var str_new_lst_sec = str_new.substr(str_new_lg-2,2);   
+         if(str_new_fst_sec =="0-" ){ str_new = str_new.substr(1,str_new_lg-1);}    
+         if(str_new_lst_sec =="-0" ){ str_new = str_new.substr(0,str_new_lg-2);}   
      return str_new;
-
    }
 
 
 
 function m_star_deg(str){                                 
-  
-    var str_1 = str;
-   
+  var str_1 = str;
     var part_bf = m_str_spec_part_bf(str_1 ,"°");  
-          part_bf = part_bf.replace("Q","\-");    
- 
+        part_bf = part_bf.replace("Q","\-");    
     var part_bf_lg = part_bf.length;
-      
-          if(part_bf_lg > 0 ){
-              str_1 = str_1.replace(part_bf+"°" , part_bf+'\* 0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477' ) ; }           
-         
-    if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+'0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477' ) ; }   
-    
-     return str_1;
-
+     if(part_bf_lg > 0 ){
+       str_1 = str_1.replace(part_bf+"°" , part_bf+'\* 0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477' ) ; }           
+     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+'0.017453292519943295769236907684886127134428718885417254560971914401710091146034494436822415696345094822123044925073790592483854692275281012398474218934047117319168245015010769561697553581238605305168788691271172087032963589602642490187704350918173343939698047594019224158946968481378963297818112495229298469927814479531045416008449560904606967176196468710514390888951836280826780369563245260844119508941294762613143108844183845478429899625621072806214155969235444237497596399365292916062377434350066384054631518680225870239366785527479973470762170567665894131682058551206534962093068803748991487052250733336489595251464226821032063015321053384297984326230380227229027519056369719918728059957109384771797455666422845161233115911302323110075720970951722002881706729722222213183211388616998509626756090658861246996974149490570236235045851914916862566284378727833350765770849369930740046563447873209273040575545852724604197048506442015910457521042187510876565876558512062371147850010710425617755051202334438544973651117030477' ) ; }   
+    return str_1;
    }
 
 function m_str_spec_part_af_minus(str ,spec){         
@@ -2966,9 +2925,7 @@ function m_tri_ang_2pi_replace(str){
      var str_sin = m_str_spc_count(str_1,"sin");    
      var str_cos = m_str_spc_count(str_1,"cos");    
      var str_tan = m_str_spc_count(str_1,"tan");    
-         
        if(str_pi == 0 && str_degree ==0 ){ var ans_1=str_1 ; return ans_1 ;} 
-
     if(str_pi != 0 && str_sin !=0){
      str_1 = str_1.replace(/sin\(0π\)/g , "0");         
      str_1 = str_1.replace(/sin\(π\/6\)/g , "0.5");        
@@ -2994,11 +2951,8 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/sin\(\-3π\/2\)/g , "1");         
      str_1 = str_1.replace(/sin\(\-11π\/6\)/g , "0.5");       
      str_1 = str_1.replace(/sin\(\-2π\)/g , "0");        
-   
                                  }
-
    if(str_pi != 0 && str_cos !=0){
-
      str_1 = str_1.replace(/cos\(0π\)/g , "1");         
      str_1 = str_1.replace(/cos\(π\/3\)/g , "0.5");        
      str_1 = str_1.replace(/cos\(0.5π\)/g , "0");          
@@ -3023,12 +2977,8 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/cos\(\-3π\/2\)/g , "0");          
      str_1 = str_1.replace(/cos\(\-5π\/3\)/g , "0.5");        
      str_1 = str_1.replace(/cos\(\-2π\)/g , "1");          
-    
-                                }
-
-
+                                 }
    if(str_pi != 0 && str_tan !=0){
-
      str_1 = str_1.replace(/tan\(0π\)/g , "0");      
      str_1 = str_1.replace(/tan\(0.25π\)/g , "1");       
      str_1 = str_1.replace(/tan\(π\/4\)/g , "1");         
@@ -3053,13 +3003,8 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/tan\(\-1.75π\)/g , "1");      
      str_1 = str_1.replace(/tan\(\-7π\/4\)/g , "1");       
      str_1 = str_1.replace(/tan\(\-2π\)/g , "0");        
-    
-
-                                 }
-
-
+                                   }
    if(str_degree != 0 && str_sin !=0){
-
      str_1 = str_1.replace(/sin\(0°\)/g , "0");        
      str_1 = str_1.replace(/sin\(30°\)/g , "0.5");       
      str_1 = str_1.replace(/sin\(90°\)/g , "1");        
@@ -3078,17 +3023,8 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/sin\(\-270°\)/g , "1");        
      str_1 = str_1.replace(/sin\(\-330°\)/g , "0.5");       
      str_1 = str_1.replace(/sin\(\-360°\)/g , "0");         
-    
-
-                                    }
-
-
-
-
-
+                                     }
     if(str_degree != 0 && str_cos !=0){  
-
-
      str_1 = str_1.replace(/cos\(0°\)/g , "1");        
      str_1 = str_1.replace(/cos\(60°\)/g , "0.5");        
      str_1 = str_1.replace(/cos\(90°\)/g , "0");          
@@ -3107,9 +3043,7 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/cos\(\-270°\)/g , "0");        
      str_1 = str_1.replace(/cos\(\-300°\)/g , "0.5");       
      str_1 = str_1.replace(/cos\(\-360°\)/g , "1");        
-   
                                        }
-
    if(str_degree != 0 && str_tan !=0){
      str_1 = str_1.replace(/tan\(0°\)/g , "0");       
      str_1 = str_1.replace(/tan\(45°\)/g , "1");               
@@ -3125,30 +3059,23 @@ function m_tri_ang_2pi_replace(str){
      str_1 = str_1.replace(/tan\(\-225°\)/g , "-1");    
      str_1 = str_1.replace(/tan\(\-315°\)/g , "1");     
      str_1 = str_1.replace(/tan\(\-360°\)/g , "0");  
-    
-
                   }
        var negate_d ="";
        var negate_d = str_1.substr(0,2);
        if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);}   
-        str_1 = str_1.replace(/\-\-/g , "\+");    
-        str_1 = str_1.replace(/\+\-/g , "\-"); 
+       str_1 = str_1.replace(/\-\-/g , "\+");    
+       str_1 = str_1.replace(/\+\-/g , "\-");    
       return  str_1;
- 
-
 }
 
 
 
 
 function m_tri_ang_2pi_rem(str){                                
-   
-    var str_1 = str;
+  var str_1 = str;
     var str_1 = m_tri_ang_2pi_replace(str_1);        
     var str_pi = m_str_spc_count(str_1,"π");   
-
-       if(str_pi == 0){ var ans_1=str_1 ; return ans_1 ;} 
-           
+         if(str_pi == 0){ var ans_1=str_1 ; return ans_1 ;} 
         str_1 = str_1.replace(/asinh/g , "EB");    
         str_1 = str_1.replace(/acosh/g , "EC");   
         str_1 = str_1.replace(/atanh/g , "EF");    
@@ -3158,220 +3085,131 @@ function m_tri_ang_2pi_rem(str){
         str_1 = str_1.replace(/sinh/g , "ET");    
         str_1 = str_1.replace(/cosh/g , "EU");    
         str_1 = str_1.replace(/tanh/g , "EV");   
-
       var nub_sin = m_str_spc_count(str_1,"sin");   
       var nub_cos = m_str_spc_count(str_1,"cos");   
       var nub_tan = m_str_spc_count(str_1,"tan");   
-   
        if(nub_sin ==0 && nub_cos ==0 && nub_tan ==0 ){  return str ;} 
         var str_1_new="" ;     
-
    if( nub_sin !=0 && str_pi !=0){   
-
     for(var i=0 ;i < nub_sin ;i++){
-
-     var ang_af = m_str_spec_part_af(str_1 ,"sin"); 
-
-        var nub_pi = m_str_spc_count(ang_af,"π");   
-
+      var ang_af = m_str_spec_part_af(str_1 ,"sin"); 
+      var nub_pi = m_str_spc_count(ang_af,"π");   
         if(nub_pi ==0){      
-
-        var str_1_g = str_1.length 
-        var ang_af_lg = ang_af.length ; 
-        var ang_index = str_1.indexOf("sin");                
-
-        var str_1_bf = str_1.substr(0,ang_index+3);  
-        var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
-        var str_1_bf = str_1_bf.toString().replace( /sin/g, "SIN") ;  
-
-        var str_1_new = str_1_bf + ang_af + str_1_af;    
-        
-        var str_1 = str_1_new;     
-
+         var str_1_g = str_1.length 
+         var ang_af_lg = ang_af.length ; 
+         var ang_index = str_1.indexOf("sin");                
+         var str_1_bf = str_1.substr(0,ang_index+3);  
+         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
+         var str_1_bf = str_1_bf.toString().replace( /sin/g, "SIN") ;  
+         var str_1_new = str_1_bf + ang_af + str_1_af;    
+         var str_1 = str_1_new;     
                        }
-
         if(nub_pi !=0){      
-        var str_1_g = str_1.length 
-        var ang_af_lg = ang_af.length ; 
-        var ang_index = str_1.indexOf("sin");                
-        var str_1_bf = str_1.substr(0,ang_index+3);  
-        var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-       var str_1_bf = str_1_bf.toString().replace( /sin/g, "SIN") ;  
-
-              if(nub_pi !=0){      
-
-               for(var m=0 ; m< 2 ;m++){
+         var str_1_g = str_1.length 
+         var ang_af_lg = ang_af.length ; 
+         var ang_index = str_1.indexOf("sin");                
+         var str_1_bf = str_1.substr(0,ang_index+3);  
+         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
+         var str_1_bf = str_1_bf.toString().replace( /sin/g, "SIN") ;  
+            if(nub_pi !=0){      
+              for(var m=0 ; m< 2 ;m++){
                   var ang_af_rem =  m_star_rem_many(ang_af,2);      
-                        
-                   var ang_af = ang_af_rem ;
-                 
-                                             }
-                                               
-
-                           }
-         
+                  var ang_af = ang_af_rem ;
+                                        }
+                             }
         var str_1_new = str_1_bf + ang_af_rem + str_1_af;   
-        
         var str_1 = str_1_new;     
-
-
-                          }   
-
-                                 }   
-
-                                    } 
-
+                        }   
+                                }   
+                                   } 
 if( nub_cos !=0 && str_pi !=0){   
-   
     for(var i=0 ;i < nub_cos ;i++){
-
      var ang_af = m_str_spec_part_af(str_1 ,"cos"); 
-
-        var nub_pi = m_str_spc_count(ang_af,"π");   
+      var nub_pi = m_str_spc_count(ang_af,"π");   
        if(nub_pi ==0){      
-
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("cos");                
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg); 
-
         var str_1_bf = str_1_bf.toString().replace( /cos/g, "COS") ;  
-
         var str_1_new = str_1_bf + ang_af + str_1_af;    
-        
         var str_1 = str_1_new;     
-
-                       }
-
+                      }
         if(nub_pi !=0){      
-
-        var str_1_g = str_1.length 
-        var ang_af_lg = ang_af.length ; 
-        var ang_index = str_1.indexOf("cos");               
-
-        var str_1_bf = str_1.substr(0,ang_index+3);  
-        var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
-        var str_1_bf = str_1_bf.toString().replace( /cos/g, "COS") ;  
-            
-             if(nub_pi !=0){      
+         var str_1_g = str_1.length 
+         var ang_af_lg = ang_af.length ; 
+         var ang_index = str_1.indexOf("cos");               
+         var str_1_bf = str_1.substr(0,ang_index+3);  
+         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
+         var str_1_bf = str_1_bf.toString().replace( /cos/g, "COS") ;  
+            if(nub_pi !=0){      
                for(var m=0 ; m< 2 ;m++){
- 
-                  var ang_af_rem =  m_star_rem_many(ang_af,2);      
-                   var ang_af = ang_af_rem ;
-                 
-                  
-                                             }
-
+                 var ang_af_rem =  m_star_rem_many(ang_af,2);      
+                 var ang_af = ang_af_rem ;
+                                          }
                                                   
                            }
-
-             
-        var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
-        
-        var str_1 = str_1_new;     
-
+       var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
+       var str_1 = str_1_new;     
                           }   
-
-                                 }  
-
+                                }  
                                     } 
-
-
-if( nub_tan !=0 && str_pi !=0){   
-   
-    for(var i=0 ;i < nub_tan ;i++){
-
-     var ang_af = m_str_spec_part_af(str_1 ,"tan"); 
-
+ if( nub_tan !=0 && str_pi !=0){   
+     for(var i=0 ;i < nub_tan ;i++){
+       var ang_af = m_str_spec_part_af(str_1 ,"tan"); 
         var nub_pi = m_str_spc_count(ang_af,"π");   
-
        if(nub_pi ==0){      
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("tan");               
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
         var str_1_bf = str_1_bf.toString().replace( /tan/g, "TAN") ; 
-
         var str_1_new = str_1_bf + ang_af + str_1_af;    
-        
         var str_1 = str_1_new;     
-
-
                        }
-
         if(nub_pi !=0){      
-
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("tan");                
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
         var str_1_bf = str_1_bf.toString().replace( /tan/g, "TAN") ;  
-
              if(nub_pi !=0){      
-
                for(var m=0 ; m< 2 ;m++){
-
                   var ang_af_rem =  m_star_rem_many(ang_af,1);      
-                         
-                   var ang_af = ang_af_rem ;
-
-                  
-                                             }
-
-                                                  
-                           }
-
-          
-        var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
-        
-        var str_1 = str_1_new;     
-
+                  var ang_af = ang_af_rem ;
+                                            }
+                        }
+      var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
+      var str_1 = str_1_new;     
                           }   
-
-                                 }  
-
-                                    } 
-
- 
+                                }  
+                                  } 
       var  str_1_new = str_1_new.replace(/ET/g , "sinh");    
       var  str_1_new = str_1_new.replace(/EU/g , "cosh");    
       var  str_1_new = str_1_new.replace(/EV/g , "tanh");    
       var  str_1_new = str_1_new.replace(/EH/g , "asin");    
       var  str_1_new = str_1_new.replace(/EK/g , "acos");    
       var  str_1_new = str_1_new.replace(/ER/g , "atan");    
-      
       var  str_1_new = str_1_new.replace(/EB/g , "asinh");    
       var  str_1_new = str_1_new.replace(/EC/g , "acosh");    
       var  str_1_new = str_1_new.replace(/EF/g , "atanh");    
-   
       var  str_1_new = str_1_new.replace(/SIN/g , "sin");    
       var  str_1_new = str_1_new.replace(/COS/g , "cos");    
       var  str_1_new = str_1_new.replace(/TAN/g , "tan");    
-
-       var  str_1_new = str_1_new.replace(/\(\+/g , "(");    
-       var  str_1_new = str_1_new.replace(/n\+/g , "(");     
-       var  str_1_new = str_1_new.replace(/s\+/g , "(");     
-  
-
+      var  str_1_new = str_1_new.replace(/\(\+/g , "(");    
+      var  str_1_new = str_1_new.replace(/n\+/g , "(");     
+      var  str_1_new = str_1_new.replace(/s\+/g , "(");     
      return  str_1_new;
-
   }
 
 
   
 
 function m_tri_ang_360deg_rem(str){                                 
-  var str_1 = str;
+ var str_1 = str;
       var str_nub_deg = m_str_spc_count(str_1,"°");   
        if(str_nub_deg == 0){ var ans_1=str;  return ans_1 ;} 
         str_1 = str_1.replace(/asinh/g , "EB");    
@@ -3386,8 +3224,7 @@ function m_tri_ang_360deg_rem(str){
       var nub_sin = m_str_spc_count(str_1,"sin");   
       var nub_cos = m_str_spc_count(str_1,"cos");   
       var nub_tan = m_str_spc_count(str_1,"tan");  
-  
-       if(nub_sin ==0 && nub_cos ==0 && nub_tan ==0 ){  return str ;} 
+        if(nub_sin ==0 && nub_cos ==0 && nub_tan ==0 ){  return str ;} 
         var str_1_new="" ;     
    if( nub_sin !=0 && str_nub_deg !=0){   
     for(var i=0 ;i < nub_sin ;i++){
@@ -3410,162 +3247,81 @@ function m_tri_ang_360deg_rem(str){
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
         var str_1_bf = str_1_bf.toString().replace( /sin/g, "SIN") ;  
-       
              if(nub_deg_af !=0){      
                for(var m=0 ; m< 2 ;m++){
                  var ang_af_rem =  m_star_deg_rem_many(ang_af);      
                  var ang_af = ang_af_rem ;
-                 
- 
                                              }
-                                             
                            }
-       
         var str_1_new = str_1_bf + ang_af_rem + str_1_af;   
         var str_1 = str_1_new;     
-
                           }   
                                  }   
                                    } 
-
- 
-if( nub_cos !=0 && str_nub_deg !=0){   
-   
-    for(var i=0 ;i < nub_cos ;i++){
-
+ if( nub_cos !=0 && str_nub_deg !=0){   
+     for(var i=0 ;i < nub_cos ;i++){
      var ang_af = m_str_spec_part_af(str_1 ,"cos"); 
-
-        var nub_deg_af = m_str_spc_count(ang_af,"°");   
-
-
-         if(nub_deg_af ==0){      
-
+     var nub_deg_af = m_str_spc_count(ang_af,"°");   
+      if(nub_deg_af ==0){      
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("cos");                
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
         var str_1_bf = str_1_bf.toString().replace( /cos/g, "COS") ;  
-
         var str_1_new = str_1_bf + ang_af + str_1_af;    
-        
         var str_1 = str_1_new;     
-
-
                        } 
-
-
         if(nub_deg_af !=0){      
-
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("cos");               
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
         var str_1_bf = str_1_bf.toString().replace( /cos/g, "COS") ;  
-
              if(nub_deg_af !=0){      
-
-
                for(var m=0 ; m< 2 ;m++){
-
-
                   var ang_af_rem =  m_star_deg_rem_many(ang_af);     
-                         
                    var ang_af = ang_af_rem ;
-
-     
                                              }
-
-                                                  
-                           }
-
-         
+                          }
         var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
-        
-        var str_1 = str_1_new;     
-
-
+       var str_1 = str_1_new;     
                           }   
-
                                  }   
-
                                     } 
-
-
-
-if( nub_tan !=0 && str_nub_deg !=0){   
-   
-    for(var i=0 ;i < nub_tan ;i++){
-
+ if( nub_tan !=0 && str_nub_deg !=0){   
+   for(var i=0 ;i < nub_tan ;i++){
      var ang_af = m_str_spec_part_af(str_1 ,"tan"); 
-
         var nub_deg_af = m_str_spc_count(ang_af,"°");   
-
-
-         if(nub_deg_af ==0){      
-
+      if(nub_deg_af ==0){      
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("tan");              
-
         var str_1_bf = str_1.substr(0,ang_index+3);  
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg); 
-
         var str_1_bf = str_1_bf.toString().replace( /tan/g, "TAN") ;  
-
         var str_1_new = str_1_bf + ang_af + str_1_af;    
-        
         var str_1 = str_1_new;     
-
-
                        }
-
-
-        if(nub_deg_af !=0){      
-
+       if(nub_deg_af !=0){      
         var str_1_g = str_1.length 
         var ang_af_lg = ang_af.length ; 
         var ang_index = str_1.indexOf("tan");               
-
         var str_1_bf = str_1.substr(0,ang_index+3); 
         var str_1_af = str_1.substr(ang_index+3+ang_af_lg ,str_1_g-ang_index-3-ang_af_lg);  
-
         var str_1_bf = str_1_bf.toString().replace( /tan/g, "TAN") ;  
-
-
              if(nub_deg_af !=0){      
-
-
                for(var m=0 ; m< 2 ;m++){
-
-
                   var ang_af_rem =  m_star_deg_rem_many(ang_af);      
-                         
                    var ang_af = ang_af_rem ;
-
-                  
-                
-                                             }
-
-                                                  
-
+                                           }
                            }
-
-    
-             
-        var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
+       var str_1_new = str_1_bf + ang_af_rem + str_1_af;    
         var str_1 = str_1_new;     
                           }   
-
                                  }  
                                     } 
-
-
       var  str_1_new = str_1_new.replace(/ET/g , "sinh");    
       var  str_1_new = str_1_new.replace(/EU/g , "cosh");    
       var  str_1_new = str_1_new.replace(/EV/g , "tanh");    
@@ -3581,25 +3337,18 @@ if( nub_tan !=0 && str_nub_deg !=0){
       var  str_1_new = str_1_new.replace(/\(\+/g , "(");    
       var  str_1_new = str_1_new.replace(/n\+/g , "(");     
       var  str_1_new = str_1_new.replace(/s\+/g , "(");     
- 
-     return  str_1_new;
-
-
+    return  str_1_new;
   }
 
 
  function m_star_deg_many(str){                                
-
-   var str_1 = str;
-    
+ var str_1 = str;
     var nub_1 = m_str_spc_count(str_1,"°");   
       for(var i=0; i< nub_1 ; i++){
             str_1 =  m_star_deg(str_1);   
              }
-
     str_1 = str_1.replace( /deg/g, "°") ;  
       return  str_1;
-
  }
 
 
@@ -3607,14 +3356,11 @@ function m_fun_aft_many(str,spec1,spec2){
    var str_1=str;
    var spec_1=spec1;
    var spec_2=spec2;
-
    var nub_1 = m_str_spc_count(str_1,spec_1);   
    for(var i=0; i< nub_1 ; i++){
             str_1 =  m_fun_aft(str_1,spec_1,spec_2);     
                }
-
        return  str_1;
- 
 }
 
 
@@ -3623,18 +3369,11 @@ function m_hat_bf_aft_many(str,spec1,spec2){
    var str_1=str;
    var spec_1=spec1;
    var spec_2=spec2;
-
    var nub_1 = m_str_spc_count(str_1,spec_1);   
-         
    for(var i=0; i< nub_1 ; i++){
-
             str_1 =  m_hat_bf_aft(str_1,spec_1,spec_2);     
-      
                    }
-
-
    return  str_1;
-    
 }
 
 
@@ -3737,50 +3476,30 @@ return  this_it_a;
 }
   
  function cursor_sec_recal_t( ){                
-  
-    var str_a = cursor_re_start(1);                
+  var str_a = cursor_re_start(1);                
     var str_b = cursor_re_start(2);                
     var str_c = cursor_re_start(3);                
-      
-     var new_str ="";
-
+    var new_str ="";
     var str_2_0_1 = m_str_b_sec(str_b,"<--");          
     var str_2_0_2 = m_str_b_sec(str_b,"=");          
-       
       if(str_2_0_1.length >0){
-
          var str_2_0=str_2_0_1;}
        else{
-          var str_2_0=str_2_0_2;}
-   
+    var str_2_0=str_2_0_2;}
     var str_2_0_r =  m_str_math_replacec(str_2_0);     
-
     var str_2_0_r_ans = eval(str_2_0_r);             
-     
- if( str_2_0_r_ans >=0 || str_2_0_r_ans < 0){    
-         
-        var new_str = str_a+str_2_0.toString().trim()+"="+str_2_0_r_ans.toString().trim()+";"+str_c ;
-
+      if( str_2_0_r_ans >=0 || str_2_0_r_ans < 0){    
+       var new_str = str_a+str_2_0.toString().trim()+"="+str_2_0_r_ans.toString().trim()+";"+str_c ;
           document.getElementById('input').value = "";        
-           document.getElementById('input').value = new_str;
-
-
+          document.getElementById('input').value = new_str;
                                            }
-
-       else {
-        
-            str_2_0_r_ans =  m_str_spc_inter( str_2_0_r_ans,"<",">");    
-
+      else {
+        var  str_2_0_r_ans =  m_str_spc_inter( str_2_0_r_ans,"<",">");    
          document.getElementById('input').value = "";        
-
          document.getElementById('input').value = str_a+str_2_0 ;
                newline_1();                 
-
          document.getElementById('input').value +=  str_2_0_r_ans+";" +str_c ;   
-      
              }
-  
-     
   }
 
 
@@ -3894,33 +3613,16 @@ return  this_it_a;
   }
 
    function m_abs(x){         
-
     var xx = x.toString().trim() ;
     var xx_fst=xx.substr(0,1);
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}
-
-       return xx; 
-
+       return xx;
   }
-
-
-
-   function m_abs(x){         
-
-    var xx = x.toString().trim() ;
-    var xx_fst=xx.substr(0,1);
-     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}
-
-       return xx; 
-
-     }
-
 
  function m_sing(nub){        
     var nn = nub;
     var res = nn % 2;
- 
-        return res; 
+       return res; 
     }
 
  function m_sgn(base,p){         
@@ -3928,77 +3630,57 @@ return  this_it_a;
     var pp = p ;
     var rr = m_sing(pp);
     var ans_1 = -1;
-
       if(bb==-1 && rr==0){
         ans_1 = 1;
         }
-  
-      return ans_1;  
-
+      return ans_1;
      }
 
 
 
 function m_cut_nub_m_s(nub){             
-
     var nn = nub.toString().trim();               
     var nn_lg = nn.length;      
      var count_p =0 ;
-
      var pos_pot = nn.indexOf(".");   
-
      var nn_lg = nn.length;
-
      var point_index = m_str_spc_index(nn,".");            
-
-    
     if(pos_pot != -1){               
        var count_p =  point_index;  
                      }
     else{ var count_p =  nn_lg ;}    
-   
        return count_p;  
   }
 
 
 function m_cut_nub_m(nub){             
-     var nn = m_abs(nub);                
+    var nn = m_abs(nub);                
     var nn_lg = nn.toString().length;       
-          
     var count_p =0 ; 
        for(var i =0  ; i < (nn_lg) ; i++){
             if(nn >=1 ){
               count_p =count_p +1;
                nn = nn/10;
                        }
-                                         }
+                                  }
       if(nub < 0 ){count_p = count_p +1;}   
-
       if(nub == 0 ){count_p = -1;}   
-
-      return count_p;  
+      return count_p;    
   }
 
 function m_cut_nub_p(nub){             
-    var nn=nub;
+   var nn=nub;
     var nn_str = nn.toString().trim();
     var nn_lg = nn.toString().trim().length;  
-
     var nn_m = m_cut_nub_m(nub);       
-
     var e_index = m_str_spc_index(nn_str,"e");            
-     
      if(e_index ==0){
        var count_p = nn_lg - nn_m -1 ;    
                     }
       else{
          var e_after = nn_str.substring(e_index+1,nn_lg); 
-
               var count_p =m_abs(e_after)+1;                    
-                 
-           }
-
-    
+          }
         return count_p;    
   }
 
@@ -4009,42 +3691,33 @@ function m_nub_m_s(nub){
    var nn = nub.toString().trim();
    var mb = m_cut_nub_m_s(nn);   
    var ans_1= nn.toString().substr(0,mb);
-
-    return ans_1; 
-     
+    return ans_1;
 }
 
 
 
 function m_nub_m(nub){         
- 
    var nn = nub.toString().trim();
    var pos_pot = nn.indexOf(".");   
    var pos_e = nn.indexOf("e");     
    var nn_lg = nn.length ;
    var ans_1 ="";
-
    if(pos_pot !=-1 ) { var ans_1=nn.substr(0,pos_pot); }   
    if(pos_pot ==-1 &&  pos_e ==-1) { var ans_1=nn ; }      
    if(pos_pot ==-1 &&  pos_e !=-1) { var ans_1=nn ; }      
    if(ans_1 == '-0' ){ var ans_1=0;}
-    
-    return ans_1; 
-     
+  return ans_1;
 }
 
 
 
 function m_nub_p(nub){         
- 
-   var nn = nub;    
+ var nn = nub;    
    var nn_lg =nn.length;
    var nn_str=nn.toString();
    var nn_first =nn_str.substr(0,1);
-
       if(nn_first=="-"){ var nn_abs = nn_str.substr(1,nn_lg-1);}
       else{ var nn_abs = nn_str;}
-  
    var nn_abs_str = nn_abs.toString();  
    var str_lg = nn_abs_str.length;
    var data_t="";
@@ -4052,47 +3725,37 @@ function m_nub_p(nub){
           var pos_e = nn_abs_str.indexOf("e");  
           var pos_ngt = nn_abs_str.indexOf("-");  
           var pos_pst = nn_abs_str.indexOf("+");  
-   
-     if(pos_pot != -1 && pos_e==-1 && pos_ngt==-1 && pos_pst ==-1){    
+    if(pos_pot != -1 && pos_e==-1 && pos_ngt==-1 && pos_pst ==-1){    
                           
           var data_t = nn_abs_str.substr( pos_pot,(str_lg - pos_pot));     
                    if(nn<0){  var data_t="-0"+data_t ; }  
                     else{      var data_t="0"+data_t ;}    
-
-              
+         
                               return data_t ; }                           
-     
-     else if( pos_e !=-1  && pos_ngt !=-1 && pos_pst ==-1 ){    
+    else if( pos_e !=-1  && pos_ngt !=-1 && pos_pst ==-1 ){    
           if(pos_pot == -1){   
                  var data_bf = nn_abs_str.substr( 0,pos_e);}                                                      
            else{ var data_bf = nn_abs_str.substr( 0,pos_pot) + nn_abs_str.substr( pos_pot+1,pos_e-pos_pot-1); }  
            var data_af = nn_abs_str.substr(( pos_e+1),(str_lg-pos_e));   
            var data_af = m_abs(data_af);
-     
                var data_a="0.";
                       while( data_af >1){
                              data_a = data_a+"0" ;
-                             data_af= data_af-1;    
-
+                            data_af= data_af-1;    
                                          }
                var data_t= data_a + data_bf ;
-
                if( nub < 0 ){  var data_t="-"+ data_t.toString();}
-                         return data_t ;
-                 
-           
+                        return data_t ;
+      
                  }
-
-
       else if(pos_pot == -1 && pos_e ==-1 && pos_ngt==-1 && pos_pst ==-1){ return 0 ;}  
       else if( pos_e !=-1  && pos_pst !=-1){ return 0 ;}     
-       else{ return "未處理" ;}   
-
+      else{ return "未處理" ;} 
       }
 
 
 function m_round(nub){            
-   var nub_a=nub;
+  var nub_a=nub;
    var nub_m= m_nub_m(nub_a);      
    var nub_p= m_abs(m_nub_p(nub_a));      
    var ans_1=0;
@@ -4100,106 +3763,74 @@ function m_round(nub){
     if( nub_m >0 && nub_p < 0.5){  ans_1=nub_m ; }
     if( nub_m <0 && nub_p >=0.5){  ans_1=nub_m-1; }
     if( nub_m <0 && nub_p < 0.5){  ans_1=nub_m; }
-
      return ans_1; 
 }
 
 
 
 function m_fix_str_lst(nub){    
-                             
-   var nub_str = nub.toString().trim();  
-   var new_nub_str="";
-
+  var nub_str = nub.toString().trim();  
+          var new_nub_str="";
            var nub_str_a = m_str_power(nub_str,1); 
            var str_lg =  nub_str_a.length ;        
-           
            var pos_pot_e = nub_str_a.indexOf(".");    
            var str_lst = nub_str_a.substr(str_lg-1,1);
-
          if( pos_pot_e !=-1 && (str_lg-pos_pot_e) >200 && str_lst ==9){
-                  
-           var new_nub_str = m_fix(nub_str,str_lg-pos_pot_e-5);
+         var new_nub_str = m_fix(nub_str,str_lg-pos_pot_e-5);
                 }
-            
-          else{ 
+         else{ 
                  var new_nub_str = nub_str;
-   
                   return new_nub_str;
                                        }
-
      return new_nub_str;
 }
 
 
 function m_fix_pow_lst(nub){    
-                             
    var nub_str = nub.toString().trim();  
-
           var pos_e = nub_str.indexOf("e");     
           var pos_ngt = nub_str.indexOf("-");   
           var pos_pst = nub_str.indexOf("+");   
-
-           var nub_e = m_str_power(nub_str,0); 
-               var nub_e = nub_e.toString().trim();  
-              var pos_pot_e = nub_e.indexOf(".");    
-        
-             var str_lg =  nub_e.length ;             
-             var str_lst = nub_e.substr(str_lg-1,1); 
-          
-
-         if(pos_e !=-1 && pos_pot_e !=-1 && (str_lg-pos_pot_e) >200  && str_lst ==9){
-                     
-           var nub_e_p = m_fix(nub_e,str_lg-pos_pot_e-2);
-                        
- 
+          var nub_e = m_str_power(nub_str,0); 
+          var nub_e = nub_e.toString().trim();  
+          var pos_pot_e = nub_e.indexOf(".");    
+          var str_lg =  nub_e.length ;             
+          var str_lst = nub_e.substr(str_lg-1,1); 
+        if(pos_e !=-1 && pos_pot_e !=-1 && (str_lg-pos_pot_e) >200  && str_lst ==9){
+          var nub_e_p = m_fix(nub_e,str_lg-pos_pot_e-2);
              if(nub_e_p <=0){
                 var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
-                             }
+                            }
               else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
-
                                         }
           else{ 
                  var new_nub_str = nub;
-   
-                  return new_nub_str;
+                 return new_nub_str;
                                        }
-
      return new_nub_str;
 }
 
 
 
 function m_fix_pow(nub,pit_n){    
-
-                             
-   var nub_str = nub.toString().trim();  
-         var pos_e = nub_str.indexOf("e");     
-          var pos_ngt = nub_str.indexOf("-");   
-          var pos_pst = nub_str.indexOf("+");   
-           var nub_e = m_str_power(nub_str,0);     
-
-               var nub_e = nub_e.toString().trim();  
-
-               var pos_pot_e = nub_e.indexOf(".");    
-
+     var nub_str = nub.toString().trim();  
+      var pos_e = nub_str.indexOf("e");     
+      var pos_ngt = nub_str.indexOf("-");   
+      var pos_pst = nub_str.indexOf("+");   
+      var nub_e = m_str_power(nub_str,0);     
+      var nub_e = nub_e.toString().trim();  
+      var pos_pot_e = nub_e.indexOf(".");    
          if(pos_e !=-1 && pos_pot_e !=-1){
            var nub_e_p = m_fix(nub_e,pit_n);
-            
-          if(nub_e_p <=0){
+         if(nub_e_p <=0){
                 var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
                              }
-              else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
-
-
+          else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
                                         }
-
           else{ 
-                 var new_nub_str = nub;
-   
-                  return new_nub_str;
+               var new_nub_str = nub;
+                return new_nub_str;
                                        }
-
      return new_nub_str;
 }
  
@@ -4299,34 +3930,22 @@ function m_fix(nub,pit_n){
 
 
  function m_delay_ms(ms){
-
    var data_a = new Date();
    var cur_date =null;
-
-  do{cur_date =new Date();}
-
-   while((cur_date -data_a)  < ms ){}
-
-            
+     do{cur_date =new Date();}
+     while((cur_date -data_a)  < ms ){}
   }
 
 
 
 function s_chang_hidden_array(array_1){     
-   var array_a = array_1;
+  var array_a = array_1;
    var array_a_lg = array_a.length;
    var array_nb="";
-
      for(var i=0; i< array_a_lg ; i++){
-
       array_nb=array_a[i];
-
-       
-
         s_chang_hidden_nub(array_nb);
-
       }
-
 }
 
 
@@ -4334,8 +3953,6 @@ function s_chang_hidden_nub(nub_1){
    var nub_a = nub_1;
        document.getElementById(nub_a).disabled=true;                  
         document.getElementById(nub_a).style.opacity=0.5;
-
-     
 }
   
 
@@ -4451,54 +4068,36 @@ function s_nub_array(nub_1){
 
 
 function s_map(item_1){
-
-  var item_a = item_1;
+ var item_a = item_1;
   var item_a_p =item_a.substr(1,1);     
-
   var A = m_new_mtx(5,7);
   var B = m_new_mtx(5,7);
   var T = m_new_mtx(5,7);
-
   var item_map="" ;
-
-   var A=[["°","a","!","<=x","(",")","/"],
-         ["π","sin","exp","7","8","9","*"],
-         ["e","cos","ln","4","5","6","-"],
-         ["menu","tan","log","1","2","3","+"],
-         ["open","h","^","ac","0",".","="]];                           
-
-   var B=[["1_0","1_1","1_2","1_3","1_4","1_5","1_6"],
-          ["2_0","2_1","2_2","2_3","2_4","2_5","2_6"],
-          ["3_0","3_1","3_2","3_3","3_4","3_5","3_6"],
-          ["4_0","4_1","4_2","4_3","4_4","4_5","4_6"],
-          ["5_0","5_1","5_2","5_3","5_4","5_5","5_6"]];
-          
-     if( item_a_p =="_"){
+  var A=[["°","a","!","<=x","(",")","/"],
+        ["π","sin","exp","7","8","9","*"],
+        ["e","cos","ln","4","5","6","-"],
+        ["menu","tan","log","1","2","3","+"],
+        ["open","h","^","ac","0",".","="]];                           
+  var B=[["1_0","1_1","1_2","1_3","1_4","1_5","1_6"],
+        ["2_0","2_1","2_2","2_3","2_4","2_5","2_6"],
+        ["3_0","3_1","3_2","3_3","3_4","3_5","3_6"],
+        ["4_0","4_1","4_2","4_3","4_4","4_5","4_6"],
+        ["5_0","5_1","5_2","5_3","5_4","5_5","5_6"]];
+    if( item_a_p =="_"){
         T=A;
         A=B;
         B=T;  }    
-
-  
    var lg_c=A[0].length;    
    var lg_r=A.length;        
-
-
- 
    for(var i=0; i<lg_r;i++){
      for(var j=0; j<lg_c;j++){
-         if( item_a== A[i][j]){ 
-
-         
-
-             item_map=B[i][j] ;
-              
+      if( item_a== A[i][j]){ 
+          item_map=B[i][j] ;
                               } 
-         
                            }
                           }
-  
-
-    return item_map; 
+    return item_map;  
 }
 
 
