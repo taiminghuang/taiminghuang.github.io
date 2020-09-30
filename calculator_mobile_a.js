@@ -5554,7 +5554,59 @@ function m_exp_2_state(x,nub){
                sum_tt =sum_tt.toString();
             return sum_tt ;  
 }
-
+function m_sin(x){                  //20200930       
+    var xx=x.toString().trim();
+    var xx =m_mtx_trim(xx) ;         
+    var data_cle = m_sin_sum(xx ,0);  
+    var data_t_MTX_COL_1 = MTX_COL;
+      MTX_COL =60;            
+    var data_cle_a =0;
+    var ans_0=0;
+    var ans_a="";
+    var cle_fst = data_cle.substr(0,1);
+      if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
+    var data_cle =m_fix(data_cle,250);
+     if(data_cle== 0 ||data_cle== 0.5 ||data_cle== 1){ var ans_a = 0;  return ans_a ; }   
+     if(data_cle== 0.25 ){ var ans_a = 1; if( cle_fst =="-"){ var ans_a = -1;}  return ans_a ;   }    
+     if(data_cle== 0.75 ){ var ans_a = -1; if( cle_fst =="-"){ var ans_a = 1;}  return ans_a ;   } 
+     if(data_cle== 0.125 ){ var ans_0 = SQRT2 ;  var ans_a = m_mtx_real_div( ans_0,2);  if( cle_fst =="-"){ var ans_a = "-"+ans_a;}  return ans_a ;   } 
+    var flag = 1;
+    var data_a =0;
+    var data_nub =0;
+    var  data_cle_comp_25 = m_mtx_real_str_comp(data_cle,0.25);    
+    var  data_cle_comp_50 = m_mtx_real_str_comp(data_cle,0.50);    
+    var  data_cle_comp_75 = m_mtx_real_str_comp(data_cle,0.75);    
+    var  data_cle_comp_100 = m_mtx_real_str_comp(data_cle,1);    
+       if( data_cle_comp_25 ==1  && data_cle_comp_50 == 2){  var data_cle = m_mtx_real_sub(0.5 , data_cle) ; var flag = 2;}  
+       if( data_cle_comp_50 ==1  && data_cle_comp_75 == 2){  var data_cle = m_mtx_real_sub(data_cle ,0.5 ) ; var flag = 3;}  
+       if( data_cle_comp_75 ==1  && data_cle_comp_100 == 2){  var data_cle = m_mtx_real_sub(1 , data_cle) ; var flag = 4;}       
+      for(var i=0 ; i< 1 ;i++){                   
+        var  data_cle_comp_0156 = m_mtx_real_str_comp(data_cle,0.0156);     
+       if(data_cle_comp_0156 ==1){  var data_cle = m_mtx_real_div(data_cle,2)  ;
+           var data_nub = data_nub+1;}
+                               }
+         var data_cle_a = 0;
+         var data_cle_b = 0;
+         var ans_b = 0; 
+         var ans_c = 0;
+         var ans_d = 0;
+        for(var j=0 ; j< data_nub ;j++){    
+          var data_cle_a = m_mtx_real_mul(data_cle,PIMUL2);   
+          var data_cle_a = m_str_e_to_str(data_cle_a);            
+          var ans_b = m_sin_matrix_1(data_cle_a);             
+          var data_cle_b = m_mtx_real_sub(0.25,data_cle);      
+          var data_cle_b = m_mtx_real_mul(data_cle_b,PIMUL2);   
+          var data_cle_b = m_str_e_to_str(data_cle_b);           
+          var ans_c = m_sin_matrix_1(data_cle_b);             
+          var ans_d = m_mtx_real_mul(ans_b,ans_c);    
+          var ans_d = m_mtx_real_mul(2,ans_d);         
+                             }
+         var ans_a = ans_d;
+      if(cle_fst !="-" && (flag == 3 ||flag == 4)){ var ans_a ="-"+ans_a;}
+      if(cle_fst =="-" && (flag == 1 ||flag == 2)){ var ans_a ="-"+ans_a;}
+    MTX_COL = data_t_MTX_COL_1; 
+    return ans_a ;
+}
 function m_sin_sum(x,nub){          
   var xx=x.toString().trim();
   var xx =m_mtx_trim(xx) ;         
@@ -6093,7 +6145,7 @@ function m_cos(x){
      var ans_0 = m_fix(ans_0,300);   
      var data_t_MTX_COL_1 = MTX_COL;
         MTX_COL =60;            
-     var ans_1= m_sin_small(ans_0) ;      
+     var ans_1= m_sin(ans_0) ;      
         MTX_COL = data_t_MTX_COL_1; 
    if(flag == 2 || flag == 3){ var ans_1="-"+ans_1;}
     return ans_1 ;
@@ -6133,8 +6185,8 @@ function m_tan(x){
     var ans_c = m_fix(ans_c,300);   
     var data_t_MTX_COL_1 = MTX_COL;
       MTX_COL =60;            
-    var ans_s_1= m_sin_small(ans_s) ;     
-    var ans_c_1= m_sin_small(ans_c) ;      
+    var ans_s_1= m_sin(ans_s) ;     
+    var ans_c_1= m_sin(ans_c) ;      
     var ans_1= m_mtx_real_div(ans_s_1,ans_c_1);
        MTX_COL = data_t_MTX_COL_1; 
    if(cle_fst =="-" && (flag == 1 || flag == 3)){ var ans_1="-"+ans_1;}
