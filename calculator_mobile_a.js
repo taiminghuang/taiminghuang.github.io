@@ -6251,7 +6251,6 @@ function m_tan(x){
     var  data_cle_comp_125 = m_mtx_real_str_comp(data_cle,0.125);    
        if(data_cle_comp_125 ==1){  var  zz_s = m_mtx_real_sub(0.25,data_cle)  ;  var flag_a=1 ;}    
        else { var  zz_s = data_cle;}
-    var zz_s =data_cle ;   
     var ans_s = m_mtx_real_mul(zz_s,PIMUL2);   
     var ans_s = m_fix(ans_s,300);   
     var data_t_MTX_COL_1 = MTX_COL;
