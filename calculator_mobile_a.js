@@ -7525,8 +7525,8 @@ function m_asin(x){
    var s_a_3 =  m_pow(s_a_2,0.5);              
    var flag_b = 1;
    var  xx = s_a_3;}
-   var ans_1 = m_asin_bf_ext(xx,0) ;         
-     if(flag_b == 1){ var ans_2 =  m_mtx_real_sub(PIDIV2,ans_1) ;} 
+   var ans_2 = m_asin_bf_ext(xx,0) ;         
+     if(flag_b == 1){ var ans_2 =  m_mtx_real_sub(PIDIV2,ans_2) ;} 
      if(flag_a == 1){ var ans_2 = "-"+ans_2;}              
    var ans_2 = ans_2.toString().trim();
 return ans_2; 
