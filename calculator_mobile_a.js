@@ -2052,29 +2052,8 @@ function m_str_spec_part_af_minus_sum(str){
       var str_2 = m_e_bf_aft_many(str_2,"EP","");          
       var str_2 = m_e_bf_aft_many(str_2,"EQ","");          
       var str_2 =  m_str_sub_ngt_bf_1_bk(str_2) ;     
-      var str_2 = m_fun_det_bracket(str_2);
-   return str_2 ;
+      return str_2 ;
 }
-
-function m_fun_det_bracket(str){     
-   var str = str.toString().trim(); 
-   var str_1 = str;
-   var str_1 = m_str_sub_ngt_bf_minus(str_1);     
-   var str_1 =  str_1.replace(/\(\-/g ,"(Q");      
-   var data_fst_ng = str_1.substr(0,1);
-   if(data_fst_ng=="-" ){
-       var str_1 = "Q"+str_1.substr(1,str.length-1); }  
-   var data_add = m_str_spc_count(str_1,"+");   
-   var data_sub = m_str_spc_count(str_1,"-");   
-   var data_mul = m_str_spc_count(str_1,"*");   
-   var data_div = m_str_spc_count(str_1,"/");   
-   var data_sum = data_add+data_sub+data_mul+data_div;
-   var data_fst = str_1.substr(0,1);
-   var data_lst = str_1.substr(str_1.length-1,1);
-     if(data_fst=="(" && data_lst==")" && data_sum==0){
-       var str = str.substr(1,str.length-2); }             
-     return str ;      
-  }
 
 function m_fun_aft(str,spec1,spec2){                   
    var str_1=str;                                               
@@ -2481,12 +2460,18 @@ function m_hat_bf_aft_inv_minus(str,spec1,spec2){
    var nn_e_aft_fst = part_aft_1.substr(0,1);                
        if(nn_e_bf>=1 && nn_e_bf_lst !=")" ) { var part_bf_1= "("+part_bf_1+")";}
        if(nn_e_aft>=1 && nn_e_aft_fst !="(") { var part_aft_1= "("+part_aft_1+")";}
+   var str_bf_test = str_part_b.substr( 0,str_part_b.length-part_bf.length);  //20201013
+   var str_bf_test_lst = str_bf_test.substr(str_bf_test.length -1 ,1);        
+   var str_af_test = str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length);
+   var str_af_test_fst = str_af_test.substr(0,1);                               
+       if( str_bf_test_lst =="(" && str_af_test_fst ==")"){     }     
+       else{
        if((part_bf_lg > 0)  && (part_aft_lg > 0 )&& (nn_e_aft_fst !="-")){                  
              str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T"+ part_aft_1 +")"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
                                                       }
        if((part_bf_lg > 0)  && (part_aft_lg > 0 ) && (nn_e_aft_fst =="-")){                  
              str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T("+ part_aft_1 +"))"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
-                                                        } 
+                                                        } }
        if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
              var str_1 = str_1.replace(/EXP/g ,"exp");    
              var str_1 = str_1.replace(/eQ/g ,"e\-");     
