@@ -2464,7 +2464,7 @@ function m_hat_bf_aft_inv_minus(str,spec1,spec2){
    var str_bf_test_lst = str_bf_test.substr(str_bf_test.length -1 ,1);        
    var str_af_test = str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length);
    var str_af_test_fst = str_af_test.substr(0,1);                               
-       if( str_bf_test_lst =="(" && str_af_test_fst ==")"){     }     
+       if(( str_bf_test_lst =="(" && str_af_test_fst ==")")||( str_bf_test_lst =="" && str_af_test_fst =="")){     }     
        else{
        if((part_bf_lg > 0)  && (part_aft_lg > 0 )&& (nn_e_aft_fst !="-")){                  
              str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T"+ part_aft_1 +")"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
