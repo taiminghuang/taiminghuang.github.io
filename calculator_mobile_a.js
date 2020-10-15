@@ -1141,6 +1141,9 @@ function message_1(n){
            case 36:
             message_1 = "<--  Msg : b ^p , when   p >1e+200  or  p <-1e+200   no support -->" ;
             break;
+           case 37:
+            message_1 = "<--  Msg : sin(x), cos(x), tan(x) , f(x) , when  x >1e+49500    no support -->" ;  
+            break;
        default:
                }
  return message_1; 
@@ -5204,8 +5207,8 @@ function m_sub_error_rg(str_1){
   var sum_nb=0;
   var it = "";
   var ans ="";
-  var data_rang_str_up = m_mtx_real_str_comp(str_a,1e-285);     
-  var data_rang_str_down = m_mtx_real_str_comp(str_a,-1e-285);   
+  var data_rang_str_up = m_mtx_real_str_comp(str_a,1e-229);     
+  var data_rang_str_down = m_mtx_real_str_comp(str_a,-1e-229);   
       var it = calc.input.value;
       var this_s = it.toString().trim();           
       var this_it = m_del4_2f_char(this_s,';').toString().trim();        
@@ -5541,13 +5544,17 @@ function m_exp_2_state(x,nub){
 }
 function m_sin(x){                         
     var xx=x.toString().trim();
-    var xx =m_mtx_trim(xx) ;         
+    var xx =m_mtx_trim(xx) ;
+    var ans_a="";
+    var data_msg =0;   
+    var data_cle =0;
     var data_cle = m_sin_sum(xx ,0);  
+    var data_msg =  m_str_char(data_cle,"Msg") ; 
+      if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
     var data_t_MTX_COL_1 = MTX_COL;
       MTX_COL =60;            
     var data_cle_a =0;
     var ans_0=0;
-    var ans_a="";
     var cle_fst = data_cle.substr(0,1);
       if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
     var data_cle =m_fix(data_cle,250);
@@ -5619,7 +5626,11 @@ function m_sin_sum(x,nub){
     var  shif_all =  xx_af - shif_r ;   
     var data_t_MTX_COL = MTX_COL;
       MTX_COL =500;            
-    var AA =m_mtx_pi_100_table();                      
+    var AA =m_mtx_pi_100_table(); 
+   if( shif_all >= 2000 &&  shif_all <= 49500) {   
+      MTX_COL =10000;
+    var AA =m_mtx_2pi_inv_table();}                      
+      if(shif_all > 49500 ){  var ans_1 = message_1(37); return  ans_1 ;     }  
     var pi2inv = m_mtx_row_table(AA,0);                    
     var pi2inv = pi2inv.toString().replace(/\,/g,'');                   
        MTX_COL = data_t_MTX_COL; 
@@ -6158,10 +6169,14 @@ function m_cos_matrix_1(x){
 
 function m_cos(x){          
     var xx=x.toString().trim();
-    var xx =m_mtx_trim(xx) ;         
-    var data_cle = m_sin_sum(xx ,0);
-    var cle_fst =0; 
+    var xx =m_mtx_trim(xx) ;
     var ans_a="";
+    var data_msg =0;   
+    var data_cle =0; 
+    var data_cle = m_sin_sum(xx ,0);
+    var data_msg =  m_str_char(data_cle,"Msg") ;               
+       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;} 
+    var cle_fst =0; 
     var cle_fst = data_cle.substr(0,1);
      if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
     var data_cle =m_fix(data_cle,250);
@@ -6202,11 +6217,15 @@ function m_cos(x){
 }
 
 function m_tan(x){                           
-    var xx=x.toString().trim();
-  var xx =m_mtx_trim(xx) ;         
-  var data_cle = m_sin_sum(xx ,0);
-  var cle_fst =0; 
+  var xx=x.toString().trim();
+  var xx =m_mtx_trim(xx) ;  
   var ans_a="";
+  var data_msg =0;    
+  var data_cle =0;   
+  var data_cle = m_sin_sum(xx ,0);
+  var data_msg =  m_str_char(data_cle,"Msg") ;  
+       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
+  var cle_fst =0; 
   var cle_fst = data_cle.substr(0,1);
      if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
          var data_cle =m_fix(data_cle,250);
