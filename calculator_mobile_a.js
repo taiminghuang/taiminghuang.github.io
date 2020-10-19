@@ -5555,8 +5555,8 @@ function m_sin(x){
       MTX_COL =60;            
     var data_cle_a =0;
     var ans_0=0;
-    var cle_fst = data_cle.substr(0,1);
-      if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
+    var cle_fst = data_cle.toString().substr(0,1);
+      if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
     var data_cle =m_fix(data_cle,250);
      if(data_cle== 0 ||data_cle== 0.5 ||data_cle== 1){ var ans_a = 0;  return ans_a ; }   
      if(data_cle== 0.25 ){ var ans_a = 1; if( cle_fst =="-"){ var ans_a = -1;}  return ans_a ;   }    
