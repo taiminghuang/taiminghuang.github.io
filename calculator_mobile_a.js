@@ -5572,7 +5572,7 @@ function m_sin(x){
        if( data_cle_comp_25 ==1  && data_cle_comp_50 == 2){  var data_cle = m_mtx_real_sub(0.5 , data_cle) ; var flag = 2;}  
        if( data_cle_comp_50 ==1  && data_cle_comp_75 == 2){  var data_cle = m_mtx_real_sub(data_cle ,0.5 ) ; var flag = 3;}  
        if( data_cle_comp_75 ==1  && data_cle_comp_100 == 2){  var data_cle = m_mtx_real_sub(1 , data_cle) ; var flag = 4;}       
-   var data_cle_a = 0;   
+         var data_cle_a = 0;   
          var data_cle_b = 0;
          var ans_b = 0; 
          var ans_c = 0;
@@ -5580,10 +5580,9 @@ function m_sin(x){
          var ans_e = 0;  
          var flag_a =0 ;
    var  data_cle_comp_125 = m_mtx_real_str_comp(data_cle,0.125);   
-        if(data_cle_comp_125 ==1){  var data_cle = m_mtx_real_sub(0.25,data_cle)  ; ;  var flag_a=1 ;}
+        if(data_cle_comp_125 ==1){  var data_cle = m_mtx_real_sub(0.25,data_cle)  ;  var flag_a=1 ;}
     var data_cle_b = m_mtx_real_mul(data_cle,PIMUL2);           
-    var ans_a = m_sin_matrix_1(data_cle_b);   
-      if(flag_a==1){  var ans_a = m_cos_matrix_1(data_cle_b);}      
+     if(flag_a==1){  var ans_a = m_cos_matrix_1(data_cle_b);}      
        else {var ans_a = m_sin_matrix_1(data_cle_b);}
       if(cle_fst !="-" && (flag == 3 ||flag == 4)){ var ans_a ="-"+ans_a;}
       if(cle_fst =="-" && (flag == 1 ||flag == 2)){ var ans_a ="-"+ans_a;}
@@ -6177,8 +6176,8 @@ function m_cos(x){
     var data_msg =  m_str_char(data_cle,"Msg") ;               
        if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;} 
     var cle_fst =0; 
-    var cle_fst = data_cle.substr(0,1);
-     if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
+    var cle_fst = data_cle.toString().substr(0,1);
+     if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
     var data_cle =m_fix(data_cle,250);
      if(data_cle== 0  ||data_cle== 1){ var ans_a = 1;  return ans_a ; }
      if(data_cle== 0.5 ){ var ans_a = -1;  return ans_a ; }
@@ -6226,8 +6225,8 @@ function m_tan(x){
   var data_msg =  m_str_char(data_cle,"Msg") ;  
        if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
   var cle_fst =0; 
-  var cle_fst = data_cle.substr(0,1);
-     if(cle_fst =="-"){ var data_cle = data_cle.substr(1,data_cle.length-1);}  
+  var cle_fst = data_cle.toString().substr(0,1);
+     if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
          var data_cle =m_fix(data_cle,250);
      if(data_cle== 0  ||data_cle== 0.5 || data_cle== 1){ var ans_a = 0;  return ans_a ; }
      if(data_cle== 0.25 || data_cle== 0.75){ var ans_a = message_1(11);  return ans_a ;   } 
