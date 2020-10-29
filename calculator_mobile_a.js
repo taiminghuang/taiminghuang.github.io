@@ -2909,6 +2909,9 @@ function m_pi_dg_bf_del_1(str){
 
 function m_tri_ang_2pi_replace(str){         
     var str_1 = str;
+     var str_1 = str_1.replace(/atan/g , "ATAN");   
+     var str_1 = str_1.replace(/acos/g , "ACOS");    
+     var str_1 = str_1.replace(/asin/g , "ASIN");
      var str_pi = m_str_spc_count(str_1,"π");      
      var str_degree = m_str_spc_count(str_1,"°");   
      var str_sin = m_str_spc_count(str_1,"sin");    
@@ -3051,7 +3054,10 @@ function m_tri_ang_2pi_replace(str){
                   }
        var negate_d ="";
        var negate_d = str_1.substr(0,2);
-       if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);}   
+       if(negate_d =="--"){ str_1 = str_1.substr(2,str_1.length-2);} 
+       var str_1 = str_1.replace(/ATAN/g , "atan");   
+       var str_1 = str_1.replace(/ACOS/g , "acos");   
+       var str_1 = str_1.replace(/ASIN/g , "asin");
        str_1 = str_1.replace(/\-\-/g , "\+");    
        str_1 = str_1.replace(/\+\-/g , "\-");    
       return  str_1;
