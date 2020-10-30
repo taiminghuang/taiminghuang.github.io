@@ -4209,9 +4209,9 @@ var array_a=[];
                 array_a=["1_2","2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_2","4_4","4_5"]; }
           if(asin_3==1 || acos_3==1||asin_5==1 || acos_5==1 ){                                             
                 array_a=["1_2"]; }  
-          if(acosh_1==1 || acosh_3==1|| acosh_5==1){                    
+          if(acosh_1==1 || acosh_5==1){                    
                 array_a=["1_0","3_6","5_4","5_5"]; }
-          if(atanh_1==1 ||atanh_2==1 || atanh_3==1 || atanh_5==1){                 
+          if(atanh_1==1 ||atanh_2==1  || atanh_5==1){                 
                 array_a=["2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_3","4_4","4_5"]; }   
           if(atanh_6==1 ||atanh_7==1 || atanh_8==1 || atanh_9==1){                 
                 array_a=["2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_3","4_4","4_5"]; }
@@ -7527,8 +7527,21 @@ function m_asin(x){
    var xx_fst = xx.substr(0,1);    
    var flag_a = 0;
    var flag_b = 0;
+   var ans_1 =0 ;
+   var ans_2 =0 ;
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1); var flag_a = 1 ;}   
     else { var xx=xx;} 
+   var data_comp_xx_e_s  =  m_mtx_real_str_comp(xx,1e-100); 
+    if( data_comp_xx_e_s ==2  ){ ans_1 = xx;
+        if(xx_fst=="-"){ ans_1 = "-"+ans_1;}               
+                     return ans_1  ;}    
+     var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);       
+     var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
+    if(data_comp_xx_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+    if(data_comp_xx_0 ==3 ){ ans_1 = 0 ; return ans_1 ;}                    
+    if(data_comp_xx_1 ==3   ){ ans_1 = PIDIV2 ; 
+                  if(xx_fst=="-"){ ans_1 = "-"+ans_1;} 
+                                   return ans_1   ;}  
    var data_comp = 0.707106781186547524400844;  
    var data_comp_xx_707 =  m_mtx_real_str_comp(xx,data_comp);
    var data_comp_xx_1a =  m_mtx_real_str_comp(xx,1);    
@@ -7588,7 +7601,7 @@ return ans_1;
 function m_atan(x){                   
     var xx = x.toString().trim();
    var nub_point= m_str_char(xx,".") ;  
-   var ans_1 ="";
+   var ans_1 =0;
       if( nub_point >2){
            var ans_1 = message_1(30);
                     return  ans_1  }
@@ -7597,9 +7610,20 @@ function m_atan(x){
    var xx_fst = xx.substr(0,1);
    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
     else { var xx=xx;} 
-       xx = m_str_e_to_str(xx);      
-    var ans_1=0;
-    var comp_xx_06 = m_mtx_real_str_comp(xx,0.6); 
+   var comp_xx_e = m_mtx_real_str_comp(xx,1e+100);      
+   var comp_xx_e_s = m_mtx_real_str_comp(xx,1e-200); 
+       xx = m_str_e_to_str(xx);  
+   if(xx==0){ var ans_1= 0; return ans_1; }         
+   if(xx==1){ var ans_1= PIDIV4;
+     if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
+                return ans_1; }                     
+     if(comp_xx_e ==1){ var ans_1= PIDIV2;
+        if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
+                return ans_1; }  
+        if(comp_xx_e_s ==2){ var ans_1= xx;        
+           if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
+               return ans_1; } 
+   var comp_xx_06 = m_mtx_real_str_comp(xx,0.6); 
     var comp_xx_17 = m_mtx_real_str_comp(xx,1.7);  
     if( comp_xx_06 !=1 || comp_xx_17 !=2){           
          var ans_1 =  m_atan_part_outer(xx);}            
