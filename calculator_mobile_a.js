@@ -4152,6 +4152,9 @@ function s_chang_sum_ini(){
        var str_1=str;
        var asin_1 = m_str_spc_end(str_1,"asin");
        var acos_1 = m_str_spc_end(str_1,"acos");
+      var asin_4 = m_str_spc_end(str_1,"asin-");       
+       var acos_4 = m_str_spc_end(str_1,"acos-");
+       var atan_4 = m_str_spc_end(str_1,"atan-"); 
        var acosh_1 = m_str_spc_end(str_1,"acosh");
        var atanh_1 = m_str_spc_end(str_1,"atanh");
        var atanh_2 = m_str_spc_end(str_1,"atanh-");
@@ -4207,6 +4210,10 @@ var array_a=[];
                 array_a=["1_1","2_1","2_2","3_1","3_2","4_1","4_2"]; }
           if(asin_1==1 || acos_1==1 ){                                             
                 array_a=["1_2","2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_2","4_4","4_5"]; }
+          if( asin_4==1 || acos_4==1 ){                                                    
+             array_a=["1_1","1_2","2_0","2_1","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_4","4_5"]; }
+          if( atan_4==1 ){                                                    
+             array_a=["1_1","1_2","2_1","2_2","3_1","3_2","4_1","4_2",]; }
           if(asin_3==1 || acos_3==1||asin_5==1 || acos_5==1 ){                                             
                 array_a=["1_2"]; }  
           if(acosh_1==1 || acosh_5==1){                    
