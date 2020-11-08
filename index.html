@@ -12,22 +12,18 @@
     <meta name="Description" content="Calculator (Decimals:200 max) " >
     <meta name="Author" content="huang t.m.">
     <meta http-equiv="Pragma" content="no_cache">
-
    <script type="text/javascript" src="calculator_mobile_a.js" ></script>
    <script type="text/javascript" src="calculator_moblie_table_a.js" ></script>
    <script type="text/javascript" src="calculator_moblie_table_b.js" ></script>
    <script type="text/javascript" src="calculator_moblie_table_c.js" ></script>
    <script type="text/javascript" src="calculator_moblie_table_e.js" ></script>
- 
+   <script type="text/javascript" src="calculator_moblie_table_f.js" ></script>
+   <script type="text/javascript" src="calculator_moblie_table_g.js" ></script>
 <title>Calculator (Decimals:200 max) </title>
-
-
 <style>
-
 .block_1 {
     width:100%;
     height:100%;
-    
     margin: 0px;
     max-width: 100%;
     position:fixed;
@@ -49,10 +45,7 @@
                 -webkit-user-select:none;
                 -ms-user-select:none;
                 user-select :none;}
-   
-
-
-        }
+          }
 
 @media only screen and (orientation: landscape) {     
     
@@ -69,44 +62,24 @@
     
      }
 
-
-
 </style>
-
-
-
 <script type="text/javascript">
 
   var data_setout ;
- 
+
   function dblclick_a() {   //還原 dblclick 縮\放
-
-      
-
         data_setout = setTimeout(dblclick_inv,150);   //延後0.15s   ..執行
-
-        
-
-             }  
-
-
+           }  
  function dblclick_inv() {   //還原 dblclick 縮\放
-
-    
-      
-      document.getElementById('block_1').style.position="fixed";
+    document.getElementById('block_1').style.position="fixed";
       document.getElementById('block_1').style.top="2px";
       document.getElementById('block_1').style.left="2px";
       document.getElementById('table_a').style.left="2px";
       document.getElementById('block_1').style.zoom="normal";
-
-     
-        
-   }
+  }
     
 function click_init() {   //還原 dblclick 縮\放
-
-    
+   
       document.getElementById('block_1').style.position="fixed";
       document.getElementById('block_1').style.top="2px";
       document.getElementById('block_1').style.left="2px";
@@ -121,11 +94,7 @@ function click_init() {   //還原 dblclick 縮\放
 
                 }
 
-
-
-
 </script>
-
 
 </head>
 <body onload="document.getElementById('input').focus();init();s_chang_sum_ini()">   
@@ -134,9 +103,7 @@ function click_init() {   //還原 dblclick 縮\放
 <div class="block_1" align="center" id="block_1">
       
     <textarea class="textarea_1" id="input"   rows=3 required  readonly="readonly"   onclick="cursor_coords(event);blur(this);document.getElementById('input').focus();" style="cursor:auto;"></textarea>
-     
-
-
+  
  <table class="table_1" id="table_a" border="1px" cellspacing="0" cellpadding="0"  align="center" required readonly="readonly"  >
        
      <tr border="1px" cellspacing="0" cellpadding="0"  align="center">
