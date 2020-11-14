@@ -3,11 +3,33 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+<style>
+   table, th, td {
+  border: 1px solid black;
+  border-collapse: collapse;
+  }
+
+  th, td ,th {
+  padding: 10px;
+  font-family: "Lucida Console", Courier, monospace;
+}
+
+p ,h2,h3{
+  padding: 0px;
+  font-family: "Lucida Console", Courier, monospace;
+}
+ div{
+    padding: 0px;      
+  }
+
+
+</style>
+
 </head>
 <body  >
 <div class="block_a">
-  <h3>Examples:</h3>
-   <p><b>1.  exp1 = exp(1)  = 2.7182818284590452 ;</b>   //..e<sup><small>1</small></sup></p></p>
+  <h2>Examples:</h2>
+   <p>1.  exp1 = exp(1)  = 2.7182818284590452 ;  //..e<sup><small>1</small></sup></p>
    <p>2.  exp3= exp(3) = 20.0855369231876677 ;           //....e<sup><small>3</small></sup></p> 
    <p>3.  exp3π= exp(3π) = 20.0855369231876677 ;      //....e<sup><small>3π</small></sup></p> 
    <p>4.  exp-3= exp(-3) = 0.0497870683678639; ;        //....e<sup><small>-3</small></sup></p> 
@@ -47,7 +69,11 @@
       <br>
 </div>
 <div class="block_b">
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly">
+
+<h2>Operator</h2>
+<p></p>
+
+<p><table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
 <tbody>
 <thead>
 <tr>
@@ -57,7 +83,7 @@
 </thead>
 <tbody>
 <tr><td align="center">+</td><td>Addition operator</td></tr>
-<tr><td align="center">-</td><td>Subtraction operator or unary minus </td></tr> 
+<tr><td align="center">-</td><td>Subtraction operator or unary minus </td></tr>
 <tr><td align="center">-</td><td>unary minus (negation or +/-)</td></tr>
 <tr><td align="center">*</td><td>Multiplication operator</td></tr>
 <tr><td align="center">/</td><td>Division operator</td></tr>
@@ -70,17 +96,15 @@
 <tr><td align="center">e±</td><td> powers of +10 or powers of -10 </td></tr>  
 <tr><td align="center">.16</td><td>Select(default) ".16" ,16 digits after the decimal point, max ".200"</td></tr>  
 <tr><td align="center">menu</td><td> a list of possible available actions  that appears on calculator </td></tr>  
-
-
 </tbody>
-
 </table>
-      <br>
-      <br>
+</p>
 </div>
 <div class="block_c">
-
-<table border="1px" cellspacing="1" cellpadding="1"  align="left" required readonly="readonly">
+<p></p>
+<p></p>
+<h2>Functions</h2>
+<table border="1px" cellspacing="1" cellpadding="1"  align="left" required readonly="readonly" style="width:95%">>
 <tbody>
 <thead>
 <tr>
@@ -88,7 +112,6 @@
 <th>Description</th>
 </tr>
 </thead>
-
 <tr><td align="center">exp</td><td>e (the Euler Constant) raised to the power of a value or expression</td></tr>
 <tr><td align="center">ln</td><td>The natural logarithm of a value or expression</td></tr>
 <tr><td align="center">log</td><td>The base-10 logarithm of a value or expression</td></tr>
@@ -104,16 +127,14 @@
 <tr><td align="center">asinh</td><td>Hyperbolic inverse sine (arcsinh) of a value or expression</td></tr>
 <tr><td align="center">acosh</td><td>Hyperbolic inverse cosine (arccosh) of a value or expression</td></tr>
 <tr><td align="center">atanh</td><td>Hyperbolic inverse tangent (arctanh) of a value or expression</td></tr>
-
 </tbody>
 </table>
 <br>
 <br>
-
 </div>
 <div class="block_d">
-
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly">
+<h2>Constants</h2>
+<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly"  style="width:95%">
 <tbody>
 <thead>
 <tr>
@@ -125,17 +146,11 @@
 <tr><td align="center">°</td><td> degrees(0.0174532925199433...radian/degree)</td></tr>
 </tbody>
 </table>
-<br>
-<br>
-
 </div>
-
-
 <div class="block_e">
-
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly">
+<h2>Trigonometric functions</h2>
+<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:100%">
 <p>
-<h3>Trigonometric functions</h3>
 <p>
 <tbody>
 <thead>
@@ -144,77 +159,42 @@
 <th>Description</th>
 </tr>
 </thead>
-
   <tr><td align="center">1</td><td>sin(x) = -sin(-x)</td></tr> 
-    
-   <tr><td align="center">2</td><td>  sin(x) = - sin(x-π)</td></tr> 
-      
-   <tr><td align="center">3</td><td>  sin(x)*csc(x) = 1 ; cos(x)*csc(x) = 1 ; tan(x)*cot(x) = 1</td></tr> 
-       
-   <tr><td align="center">4</td><td>  cos(x) = sin((π/2)-x)</td></tr> 
-      
-   <tr><td align="center">5</td><td>  sin(asin(x)) = x</td></tr> 
-       
-   <tr><td align="center">6</td><td>  sin(x) = sin(x+2kπ);   //.....k is an integer</td></tr>  
-      
-   <tr><td align="center">7</td><td>  cos(x) = cos(x+2kπ);   //.....k is an integer </td></tr>  
-      
-   <tr><td align="center">8</td><td>  tan(x) = sin(x)/cos(x)</td></tr> 
-       
-   <tr><td align="center">9</td><td>  acos(x) = π/2 - asin(x)</td></tr>    
-       
+  <tr><td align="center">2</td><td>  sin(x) = - sin(x-π)</td></tr> 
+  <tr><td align="center">3</td><td>  sin(x)*csc(x) = 1 ; cos(x)*csc(x) = 1 ; tan(x)*cot(x) = 1</td></tr> 
+  <tr><td align="center">4</td><td>  cos(x) = sin((π/2)-x)</td></tr> 
+  <tr><td align="center">5</td><td>  sin(asin(x)) = x</td></tr> 
+  <tr><td align="center">6</td><td>  sin(x) = sin(x+2kπ);   //.....k is an integer</td></tr>  
+  <tr><td align="center">7</td><td>  cos(x) = cos(x+2kπ);   //.....k is an integer </td></tr>  
+  <tr><td align="center">8</td><td>  tan(x) = sin(x)/cos(x)</td></tr> 
+  <tr><td align="center">9</td><td>  acos(x) = π/2 - asin(x)</td></tr>    
   <tr><td align="center">10</td><td>  sinh(x) = (e<sup><small>x</small></sup>-e<sup><small>-x</small></sup>)/2 </td></tr> 
-       
   <tr><td align="center">11</td><td>  cosh(x) = (e<sup><small>x</small></sup>+e<sup><small>-x</small></sup>)/2 </td></tr> 
-       
   <tr><td align="center">12</td><td>  tanh(x) = sinh(x)/cosh(x)</td></tr> 
-       
   <tr><td align="center">13</td><td>  asinh(x) = ln(x+√x<sup><small>2</small></sup>+1)</td></tr> 
-      
   <tr><td align="center">14</td><td>  acosh(x) = ln(x+√x<sup><small>2</small></sup>-1)</td></tr> 
-      
   <tr><td align="center">15</td><td>  atanh(x) = (1/2)ln((1+x)/(1-x))</td></tr> 
-     
   <tr><td align="center">16</td><td>  ln(xy) = ln(x)+ln(y)</td></tr> 
-     
   <tr><td align="center">17</td><td>  ln(e<sup><small>x</small></sup>) = x;   //if x>0</td></tr> 
-     
   <tr><td align="center">18</td><td>  log(x) = ln(x)/ln(10)</td></tr>    
-     
-  
   </tbody>
 </table>
-
-<br> 
-  <h3>Series definitions</h3> </br>
-    1.  exp(x)=1+x+x<sup><small>2</small></sup>/2!+x<sup><small>3</small></sup>/3!+x<sup><small>4</small></sup>/4!+..............//for all x
-       <br>
-    2.  ln(1+x)=x-x<sup><small>2</small></sup>/2+x<sup><small>3</small></sup>/3-x<sup><small>4</small></sup>/4+.................. //for |x| ≤ 1 and x ≠ −1
-       <br>
-    3.  sin(x)=x-(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)-(x<sup><small>7</small></sup>/7!)+........//for all x
-       <br>
-    4.  cos(x)=1-(x<sup><small>2</small></sup>/2!)+(x<sup><small>4</small></sup>/4!)-(x<sup><small>6</small></sup>/6!)+........//for all x
-       <br>
-    5.  asin(x)=x+(1/2)(x<sup><small>3</small></sup>/3)+((1*3)/(2*4))(x<sup><small>5</small></sup>/5)+((1*3*5)/(2*4*8))(x<sup><small>7</small></sup>/7)+.....//for |x|<=1
-       <br>
-    6.  atan(x)=x-x<sup><small>3</small></sup>/3+x<sup><small>5</small></sup>/5-x<sup><small>7</small></sup>/7+...............//for |x|<=1
-       <br>
-    7.  sinh(x)=x+(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)+(x<sup><small>7</small></sup>/7!)+........ //for all x
-       <br>
-    8.  cosh(x)=1+(x<sup><small>2</small></sup>/2!)+(x<sup><small>4</small></sup>/4!)+(x<sup><small>6</small></sup>/6!)+........ //for all x
-       <br>
-    9.  asinh(x)=x-((1/2)*x<sup><small>3</small></sup>/3)+((1*3)/(2*4)*x<sup><small>5</small></sup>/5)-((1*3*5)/(2*4*6)*x<sup><small>7</small></sup>/7)+........//for |x| < 1   
-       <br>
-  
-  
-       <br>
-<p>Warning: Operator precedence  (non-standard way.) To avoid confusion,use parentheses();<p/>
-<p>       : Other calculator have different order, and you can get a different answer !<p/>
-<p>       : The calculator is still under development and may get things wrong, so be careful!<p/>
- 
-       <br>
-
- <table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly"> 
+  <h2>Series definitions</h2> 
+    <p>1.  exp(x)=1+x+x<sup><small>2</small></sup>/2!+x<sup><small>3</small></sup>/3!+x<sup><small>4</small></sup>/4!+..............//for all x</p>
+    <p>2.  ln(1+x)=x-x<sup><small>2</small></sup>/2+x<sup><small>3</small></sup>/3-x<sup><small>4</small></sup>/4+.................. //for |x| ≤ 1 and x ≠ −1</p>
+    <p>3.  sin(x)=x-(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)-(x<sup><small>7</small></sup>/7!)+........//for all x</p>
+    <p>4.  cos(x)=1-(x<sup><small>2</small></sup>/2!)+(x<sup><small>4</small></sup>/4!)-(x<sup><small>6</small></sup>/6!)+........//for all x</p>
+    <p>5.  asin(x)=x+(1/2)(x<sup><small>3</small></sup>/3)+((1*3)/(2*4))(x<sup><small>5</small></sup>/5)+((1*3*5)/(2*4*8))(x<sup><small>7</small></sup>/7)+.....//for |x|<=1</p>
+    <p>6.  atan(x)=x-x<sup><small>3</small></sup>/3+x<sup><small>5</small></sup>/5-x<sup><small>7</small></sup>/7+...............//for |x|<=1</p>
+    <p>7.  sinh(x)=x+(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)+(x<sup><small>7</small></sup>/7!)+........ //for all x</p>
+    <p>8.  cosh(x)=1+(x<sup><small>2</small></sup>/2!)+(x<sup><small>4</small></sup>/4!)+(x<sup><small>6</small></sup>/6!)+........ //for all x</p>
+    <p>9.  asinh(x)=x-((1/2)*x<sup><small>3</small></sup>/3)+((1*3)/(2*4)*x<sup><small>5</small></sup>/5)-((1*3*5)/(2*4*6)*x<sup><small>7</small></sup>/7)+........//for |x| < 1 </p>  
+       
+  <h2>precedence</h2> 
+<h3><p  style="color:red;">Warning: Operator precedence  (non-standard way.) To avoid confusion,use parentheses( );<p/></h3>
+<h3><p  style="color:red;">       : Other calculator have different order, and you can get a different answer !<p/></h3>
+<h3><p  style="color:red;">       : The calculator is still under development and may get things wrong, so be careful!<p/></h3>
+ <table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
 <thead>
 <tr>
 <th>precedence</th>
@@ -226,7 +206,7 @@
 </tr>
 </thead>
 <tbody>
-<tr><td align="center">8</td><td>left to right</td><td align="center">( )</td><td>parenthesization</td><td></td><td></td></tr>   
+<tr><td align="center">8</td><td>left to right</td><td align="center">( )</td><td>parenthesization</td><td></td></tr>   
 <tr><td align="center">7</td><td >left to right</td><td align="center">!</td><td> factorial </td><td >0 and natural numbers    </td></tr>
 <tr><td align="center">6</td><td>left to right</td><td>ln,log,exp,sin,cos,tan,sinh,cosh,tanh,asin,acos,atan,asinh,acosh,atanh</td><td> function </td><td > </td></tr>
 <tr><td align="center">5</td><td style="color:red;">right to left</td><td align="center">^</td><td> exponentiation </td><td >  math ^ operator is  right to left </td></tr>
@@ -244,46 +224,38 @@
 <br> 
 <br> 
 <tr></tr>
-
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly">
+<h2>calculator input rang</h2>
+<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
 <thead>
 <tr>
 <th>Operator</th>
 <th>calculator input rang</th> 
 <th>output error rang </th>
-<th>Description</th>
 <th>Remake</th>
 </tr>
 </thead>
 <tbody>  
-<tr><td align="center">n!</td><td > n >=0 and n<=<2e+7 ; n ∈ N</td><td>number after the decimal point</td><td></td><td >n>2e+7, need a lot of calculation </td></tr>
-<tr><td align="center">^(x)</td><td> -1e+200<= x <=1e+200 </td><td>number after the decimal point</td><td> </td><td > pow(x)</td></tr>   
-<tr><td align="center">ln(x)</td><td> x > 0 </td><td></td><td></td><td></td></tr>  
-<tr><td align="center">log(x)</td><td> x > 0 </td><td></td><td></td><td></td></tr> 
-<tr><td align="center">exp(x)</td><td> -1e+200<= x <=1e+200</td><td>number after the decimal point </td><td> </td><td ></td></tr>   
-<tr><td align="center">sin(x)</td><td>x<=1e+49500 </td><td> </td><td></td><td> </td></tr>
-<tr><td align="center">cos(x)</td><td> x<=1e+49500 </td><td></td><td></td><td> </td></tr>
-<tr><td align="center">tan(x)</td><td> x<=1e+49500 </td><td></td><td></td><td>x ≠ kπ+π/2  k∈Z </td></tr>
-<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td></td><td></td><td></td></tr>
-<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td></td><td></td><td></td></tr>
-<tr><td align="center">atan(x)</td><td>x ∈ R </td><td></td><td></td><td></td></tr>
-<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td></td><td></td><td></td></tr>      
-<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td></td><td></td><td></td></tr>
-<tr><td align="center">tanh(x)</td><td>|x|<= 1e+200</td><td></td><td></td><td></td></tr>
-<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td></td><td></td><td></td></tr>
-<tr><td align="center">acosh(x)</td><td>x >= 1</td><td></td><td></td><td></td></tr>
-<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td></td><td></td><td></td></tr>  
-
+<tr><td align="center">n!</td><td > n >=0 and n<=<2e+7 ; n ∈ N</td><td>number after the decimal point</td><td>n>2e+7, need a lot of calculation </td></tr>
+<tr><td align="center">^(x)</td><td> -1e+200<= x <=1e+200 </td><td>number after the decimal point</td><td > pow(x)</td></tr>   
+<tr><td align="center">ln(x)</td><td> x > 0 </td><td></td><td></td></tr>  
+<tr><td align="center">log(x)</td><td> x > 0 </td><td></td><td></td></tr> 
+<tr><td align="center">exp(x)</td><td> -1e+200<= x <=1e+200</td><td>number after the decimal point </td><td ></td></tr>   
+<tr><td align="center">sin(x)</td><td>x<=1e+49500 </td><td> </td><td></td></tr>
+<tr><td align="center">cos(x)</td><td> x<=1e+49500 </td><td></td><td></td></tr>
+<tr><td align="center">tan(x)</td><td> x<=1e+49500 </td><td></td><td>x ≠ kπ+π/2  k∈Z </td></tr>
+<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td></td><td></td></tr>
+<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td></td><td></td></tr>
+<tr><td align="center">atan(x)</td><td>x ∈ R </td><td></td><td></td></tr>
+<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td></td><td></td></tr>      
+<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td></td><td></td></tr>
+<tr><td align="center">tanh(x)</td><td>|x|<= 1e+200</td><td></td><td></td></tr>
+<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td></td><td></td></tr>
+<tr><td align="center">acosh(x)</td><td>x >= 1</td><td></td><td></td></tr>
+<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td></td><td></td></tr>  
 </tbody>
 </table>
-
-<br> 
-<br> 
-<br> 
 <tr></tr>
-
-<br><h3>References </h3></br>
-
+<br><h2>References </h2></br>
 <p>https://en.wikipedia.org/wiki/Factorial</p>
 <p>https://en.wikipedia.org/wiki/Exponentiation</p>
 <p>https://en.wikipedia.org/wiki/Natural_logarithm<p>
@@ -306,11 +278,9 @@
 <p>http://oeis.org/A000796/b000796.txt(π)(20000)</p>         
 <p>https://www.webintoapp.com</p>                               
 </div>
-<br>contact us <br>
+<br><h2>contact us</h2> <br>
  <p> If any suggestions for improvements or enhancements to this  precision calculator.</p>
  <p> We are glad  about message from you ! But we get lots of emails, and can't respond to them all.</p>
  <p> My Email Address: huangtm29@gmail.com </p>
-
-
 </body>
 </html>
