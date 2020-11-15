@@ -1101,19 +1101,19 @@ function message_1(n){
           message_1 = "<--  Msg : tan(x)  if |x|.length > 16  no support -->" ;
           break;
            case 23:
-          message_1 = "<--  Msg : exp(x)  if x > 200 digit number  no support -->" ;
+          message_1 = "<--  Msg : exp(x)  if when  x >1e+200  or  x <-1e+200   no support -->" ;
           break;
           case 24:
-          message_1 = "<--  Msg : sinh(x)  if |x| > 1000000000000000000  no support -->" ;
+          message_1 = "<--  Msg : sinh(x)  if |x| > 1e+200  no support -->" ;
           break;
            case 25:
-          message_1 = "<--  Msg : cosh(x)  if |x| > 1000000000000000000  no support -->" ;
+          message_1 = "<--  Msg : cosh(x)  if |x| > 1e+200  no support -->" ;
           break;
           case 26:
-          message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching 1 -->" ;
+          message_1 = "<--  Msg : tanh(x)  if |x| > 1e+200  and x >0  no support   : tanh(x)  value  approaching 1 -->" ;
           break;
           case 27:
-           message_1 = "<--  Msg : tanh(x)  if |x| > 1000000000000000000  no support  : tanh(x)  value  approaching -1 -->" ;
+           message_1 = "<--  Msg : tanh(x)  if |x| > 1e+200  and x < 0 no support   : tanh(x)  value  approaching -1 -->" ;
            break;
           case 28:
             message_1 = "<--  Msg :  undefined  : x^p  when x=0   p<=0  -->" ;
@@ -1122,7 +1122,7 @@ function message_1(n){
             message_1 = "<--  Msg :  error  : y/x   when x=0    -->" ;
             break;
             case 30:
-            message_1 = "<--  Msg :  error  :  .  >=2  or e >1  -->" ;
+            message_1 = "<--  Msg :  error  :  .  >1  or e >1  -->" ;
             break;
             case 31:
             message_1 = "<--  Msg :  error  :  A[0][0] < 100000 ||  A[0][0] > 999999    -->" ;
@@ -5464,33 +5464,40 @@ function m_exp(x){
               var ans_1 = message_1(30);
                            return  ans_1  }
          else{ xx=xx;}
-         var xx =m_mtx_trim(xx) ;        
-           var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
-           var comp_xx_1 = m_mtx_real_str_comp(xx,1);      
+    var xx =m_mtx_trim(xx) ; 
+    var datalg = "1e+201";                  
+    var datalg_n = "-1e+201";
+    var p_comp_datalg  =  m_mtx_real_str_comp(xx,datalg);       
+    var p_comp_datalg_n  =  m_mtx_real_str_comp(xx,datalg_n);            
+     if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
+       var ans_1 = message_1(23);
+                  return  ans_1  } 
+    var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
+    var comp_xx_1 = m_mtx_real_str_comp(xx,1);      
     var ant_1=1;
-     var xx_lg =xx.length;
-           if(comp_xx_0==3 ){ var ant_1=1;  return ant_1 ;}  
-           if(comp_xx_1==3 ){ var ant_1=bb; return ant_1 ;}  
-          var xx_fst=xx.substr(0,1);
+    var xx_lg =xx.length;
+        if(comp_xx_0==3 ){ var ant_1=1;  return ant_1 ;}  
+        if(comp_xx_1==3 ){ var ant_1=bb; return ant_1 ;}  
+    var xx_fst=xx.substr(0,1);
          if(xx_fst=="-"){ var zz=xx.substr(1,xx.length-1);}
          else {var zz=xx;}   
         zz = m_str_e_to_str(zz);      
-       var zz_m = m_nub_m(zz) ;           
-       var zz_p = m_nub_p(zz) ;          
-            var ans_1 = 0;      
-            var ans_2 = 0;      
-            var ans_3 = 0;      
-            var ant_1 = 0;
-              var comp_zz_m_0 = m_mtx_real_str_comp(zz_m,0);      
-              var comp_zz_m_100 = m_mtx_real_str_comp(zz_m,100);     
-              var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);      
-              if( comp_zz_m_100==2) {  var ans_1 = m_pow_ia(bb,zz_m )};
-              if(  comp_zz_m_100!=2){  var ans_1 = m_pow_ib(bb,zz_m )};
-              if(  comp_zz_p_0 != 3)  {  var ans_3 = m_exp_low(zz_p)};
-              if( comp_zz_m_0 != 3 && comp_zz_p_0 !=3){ var ant_1 =m_mtx_real_mul(ans_1 ,ans_3); }          
-              if( comp_zz_m_0 == 3 && comp_zz_p_0 !=3){ var ant_1 = ans_3; } 
-              if( comp_zz_m_0 != 3 && comp_zz_p_0 ==3){ var ant_1 = ans_1; } 
-            if(xx_fst=="-") { var ant_1 = m_mtx_real_div(1 ,ant_1 );}
+    var zz_m = m_nub_m(zz) ;           
+    var zz_p = m_nub_p(zz) ;          
+    var ans_1 = 0;      
+    var ans_2 = 0;      
+    var ans_3 = 0;      
+    var ant_1 = 0;
+    var comp_zz_m_0 = m_mtx_real_str_comp(zz_m,0);      
+    var comp_zz_m_100 = m_mtx_real_str_comp(zz_m,100);     
+    var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);      
+        if( comp_zz_m_100==2) {  var ans_1 = m_pow_ia(bb,zz_m )};
+        if(  comp_zz_m_100!=2){  var ans_1 = m_pow_ib(bb,zz_m )};
+        if(  comp_zz_p_0 != 3)  {  var ans_3 = m_exp_low(zz_p)};
+        if( comp_zz_m_0 != 3 && comp_zz_p_0 !=3){ var ant_1 =m_mtx_real_mul(ans_1 ,ans_3); }          
+        if( comp_zz_m_0 == 3 && comp_zz_p_0 !=3){ var ant_1 = ans_3; } 
+        if( comp_zz_m_0 != 3 && comp_zz_p_0 ==3){ var ant_1 = ans_1; } 
+        if(xx_fst=="-") { var ant_1 = m_mtx_real_div(1 ,ant_1 );}
      var ant_1 = ant_1.toString().trim();
    return ant_1;
 }
@@ -6280,16 +6287,52 @@ function m_sinh(x){
   var xx_fst =xx_str.substr(0,1);
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
-       xx_str = m_str_e_to_str(xx_str);      
-     if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }      
+  var datalg = "1e+201";                   
+  var p_comp_datalg  =  m_mtx_real_str_comp(xx_abs,datalg);      
+    if( p_comp_datalg ==1 ){
+     var ans_1 = message_1(24);
+               return  ans_1  }  
+  var xx_str = m_str_e_to_str(xx_str);      
+     if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }  
+  var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);           
+     if(comp_xx_1 !=1){        //縮小範圍 |x|<=1
+       var xx_abs = m_str_e_to_str(xx_abs);          
+       var xx_abs =m_fix(xx_abs,250);                  
+       var BB = m_mtx_exp_coefficient_150_table();       
+       var AA  = m_str_to_mtx(xx_abs) ;              
+       var AA2 = m_mtx_point_mul(AA,AA);
+       var SS_T  = m_str_to_mtx(0) ;              
+       var nn =150;  //test
+     for(var i = 1 ; i < nn ; i++){       
+       var BB_i = m_mtx_row_table(BB,i);               
+           if(i==1){
+             var SS= AA;      //inv
+             var XX = m_mtx_point_mul(SS,BB_i);             
+             var SS_T = m_mtx_point_add(SS_T,XX);
+                                  }  
+             var data_test = i%2;
+           if(data_test==1 && i!=1){
+             var SS =  m_mtx_point_mul(SS,AA2);              
+             var XX = m_mtx_point_mul(SS,BB_i);             
+             var SS_T = m_mtx_point_add(SS_T,XX);
+                                                   }  
+                                               }  
+             var SS_T = m_mtx_cell_five(SS_T);   
+             var sum_total = m_mtx_cell_five_show(SS_T);   
+           if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
+                return sum_total;     
+                 }          
   var pexp = m_exp(xx_abs);
   var nexp = m_exp("-"+xx_abs);
   var sutt ="";
   var sum_total ="";
-  var sutt = m_mtx_real_sub(pexp,nexp);
-  var sutt_1= m_mtx_real_div(sutt,2); 
+  var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ; //20201115 
+    if(data_test_a ==1){ var sutt= pexp ;}    
+    else{  var nexp = m_mtx_real_div(1,pexp);   
+  var sutt = m_mtx_real_sub(pexp,nexp);}
+  var sutt_1= m_mtx_real_mul(sutt,0.5);
           sum_total = sutt_1;
-      if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
+    if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
   var sum_total = sum_total.toString().trim();
      return sum_total;
 }
@@ -6311,12 +6354,46 @@ function m_cosh(x){
   var sum_total ="";
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
      else { var xx_abs = xx_str;}
+  var datalg = "1e+201";                  
+  var p_comp_datalg  =  m_mtx_real_str_comp(xx_abs,datalg);       
+     if( p_comp_datalg ==1 ){
+      var ans_1 = message_1(25);
+                 return  ans_1  } 
        xx_str = m_str_e_to_str(xx_str);      
-      if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;}       
-       var pexp = m_exp(xx_abs);
-       var nexp = m_exp("-"+xx_abs);
-        var sutt = m_mtx_real_add(pexp,nexp); 
-         var sutt_1= m_mtx_real_div(sutt,2); 
+      if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;} 
+   var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);     
+      if(comp_xx_1 !=1){        
+        var xx_abs = m_str_e_to_str(xx_abs);          
+        var xx_abs =m_fix(xx_abs,250);                  
+        var BB = m_mtx_exp_coefficient_150_table();       
+        var AA  = m_str_to_mtx(xx_abs) ;              
+        var AA2 = m_mtx_point_mul(AA,AA);
+        var SS_T  = m_str_to_mtx(0) ;                 
+        var nn =150;  
+         for(var i = 0 ; i < nn ; i++){       
+           var BB_i = m_mtx_row_table(BB,i);               
+            if(i==0){
+               var SS= m_str_to_mtx(1) ;                 
+               var XX = m_mtx_point_mul(SS,BB_i);             
+               var SS_T = m_mtx_point_add(SS_T,XX);
+                                }  
+               var data_test = i%2;
+            if(data_test==0 && i!=0){
+               var SS =  m_mtx_point_mul(SS,AA2);              
+               var XX = m_mtx_point_mul(SS,BB_i);             
+               var SS_T = m_mtx_point_add(SS_T,XX);
+                                                }  
+                                                }  
+               var SS_T = m_mtx_cell_five(SS_T);   
+               var  sum_total = m_mtx_cell_five_show(SS_T);   
+                  return sum_total;     
+                 }  
+     var pexp = m_exp(xx_abs);
+     var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ; //20201115  
+         if(data_test_a ==1){ var sutt= pexp ;}    
+          else {  var nexp = m_mtx_real_div(1,pexp);    
+                  var sutt = m_mtx_real_add(pexp,nexp);}
+       var sutt_1= m_mtx_real_mul(sutt,0.5);    
                 sum_total = sutt_1;
      var sum_total = sum_total.toString().trim();
      return sum_total;
@@ -6337,6 +6414,14 @@ function m_tanh(x){
   var xx_fst =xx_str.substr(0,1);
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
+  var datalg = "1e+3";                      
+  var p_comp_datalg  =  m_mtx_real_str_comp(xx_abs,datalg);      
+    if( p_comp_datalg ==1 && xx_fst!="-" ){
+       var ans_1 = 1;
+          return  ans_1  }     
+    if( p_comp_datalg ==1 && xx_fst=="-" ){
+        var ans_1 = -1;
+           return  ans_1  }  
      xx_str = m_str_e_to_str(xx_str);      
        if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }  
   var yy=0;    
