@@ -8,70 +8,251 @@
   border: 1px solid black;
   border-collapse: collapse;
   }
-
-  th, td ,th {
+  th, td  {
   padding: 10px;
   font-family: "Lucida Console", Courier, monospace;
 }
-
-p ,h2,h3{
+h2,h3{
   padding: 0px;
   font-family: "Lucida Console", Courier, monospace;
 }
  div{
-    padding: 0px;      
+    padding: 0px;
+    font-family: "Lucida Console", Courier, monospace;  
   }
-
-
-</style>
+ </style>
+<script type="text/javascript">
+       function init_menu(){     //inition 
+        document.getElementById('block_b_tb').style.visibility="hidden";
+        document.getElementById('block_b_tb').style.display="none";
+        document.getElementById('block_c_tb').style.visibility="hidden";
+        document.getElementById('block_c_tb').style.display="none";
+        document.getElementById('block_d_tb').style.visibility="hidden";
+        document.getElementById('block_d_tb').style.display="none";
+        document.getElementById('block_e_tb').style.visibility="hidden";
+        document.getElementById('block_e_tb').style.display="none";
+        document.getElementById('block_f_tb').style.visibility="hidden";
+        document.getElementById('block_f_tb').style.display="none";
+        document.getElementById('block_g_tb').style.visibility="hidden";
+        document.getElementById('block_g_tb').style.display="none";
+        document.getElementById('block_h_tb').style.visibility="hidden";
+        document.getElementById('block_h_tb').style.display="none";
+        document.getElementById('block_i_tb').style.visibility="hidden";
+        document.getElementById('block_i_tb').style.display="none";
+        document.getElementById('block_j_tb').style.visibility="hidden";
+        document.getElementById('block_j_tb').style.display="none";
+         }
+var but_a_count=0;
+    function table_but_a(){
+      but_a_count = but_a_count+1;
+     var but_a_test = but_a_count % 2;
+   if(but_a_test ==0){
+        document.getElementById('block_a_tb').style.display="block"
+        document.getElementById('block_a_tb').style.visibility="visible";
+        document.getElementById('block_a_tb_cap').innerHTML="↑Examples (keyboard input) ";
+                      }
+      else{
+        document.getElementById('block_a_tb').style.visibility="hidden";
+        document.getElementById('block_a_tb').style.display="none";
+        document.getElementById('block_a_tb_cap').innerHTML="↓Examples (keyboard input) ";
+          }
+        }
+ var but_b_count=0;
+    function table_but_b(){
+    but_b_count = but_b_count+1;
+     var but_b_test = but_b_count % 2;
+     if(but_b_test ==1){
+        document.getElementById('block_b_tb').style.display="block"
+        document.getElementById('block_b_tb').style.visibility="visible";
+        document.getElementById('block_b_tb_cap').innerHTML="↑Operator ";
+                        }
+      else{
+        document.getElementById('block_b_tb').style.visibility="hidden";
+        document.getElementById('block_b_tb').style.display="none";
+        document.getElementById('block_b_tb_cap').innerHTML="↓Operator ";
+           }
+        }
+    var but_c_count=0;
+    function table_but_c(){
+      but_c_count = but_c_count+1;
+     var but_c_test = but_c_count % 2;
+    if(but_c_test ==1){
+       document.getElementById('block_c_tb').style.display="block"
+       document.getElementById('block_c_tb').style.visibility="visible";
+       document.getElementById('block_c_tb_cap').innerHTML="↑Functions ";
+                        }
+      else{
+        document.getElementById('block_c_tb').style.visibility="hidden";
+        document.getElementById('block_c_tb').style.display="none";
+        document.getElementById('block_c_tb_cap').innerHTML="↓Functions ";
+           }
+        }
+   var but_d_count=0;
+    function table_but_d(){
+      but_d_count = but_d_count+1;
+     var but_d_test = but_d_count % 2;
+    if(but_d_test ==1){
+       document.getElementById('block_d_tb').style.display="block"
+        document.getElementById('block_d_tb').style.visibility="visible";
+        document.getElementById('block_d_tb_cap').innerHTML="↑Constants ";
+                       }
+      else{
+        document.getElementById('block_d_tb').style.visibility="hidden";
+        document.getElementById('block_d_tb').style.display="none";
+        document.getElementById('block_d_tb_cap').innerHTML="↓Constants ";
+           }
+        }
+   var but_e_count=0;
+   function table_but_e(){
+      but_e_count = but_e_count+1;
+     var but_e_test = but_e_count % 2;
+    if(but_e_test ==1){
+      document.getElementById('block_e_tb').style.display="block"
+      document.getElementById('block_e_tb').style.visibility="visible";
+      document.getElementById('block_e_tb_cap').innerHTML="↑Trigonometric functions ";
+                        }
+      else{
+        document.getElementById('block_e_tb').style.visibility="hidden";
+        document.getElementById('block_e_tb').style.display="none";
+        document.getElementById('block_e_tb_cap').innerHTML="↓Trigonometric functions ";
+           }
+        }
+   var but_f_count=0;
+    function table_but_f(){
+      but_f_count = but_f_count+1;
+     var but_f_test = but_f_count % 2;
+     if(but_f_test ==1){
+       document.getElementById('block_f_tb').style.display="block"
+        document.getElementById('block_f_tb').style.visibility="visible";
+        document.getElementById('block_f_tb_cap').innerHTML="↑Series definitions ";
+                        }
+      else{
+        document.getElementById('block_f_tb').style.visibility="hidden";
+        document.getElementById('block_f_tb').style.display="none";
+        document.getElementById('block_f_tb_cap').innerHTML="↓Series definitions ";
+           }
+       }
+   var but_g_count=0;
+    function table_but_g(){
+      but_g_count = but_g_count+1;
+     var but_g_test = but_g_count % 2;
+    if(but_g_test ==1){
+        document.getElementById('block_g_tb').style.display="block"
+        document.getElementById('block_g_tb').style.visibility="visible";
+        document.getElementById('block_g_tb_cap').innerHTML="↑Precedence ";
+                       }
+      else{
+        document.getElementById('block_g_tb').style.visibility="hidden";
+        document.getElementById('block_g_tb').style.display="none";
+        document.getElementById('block_g_tb_cap').innerHTML="↓Precedence ";
+          }
+        }
+   var but_h_count=0;
+    function table_but_h(){
+      but_h_count = but_h_count+1;
+     var but_h_test = but_h_count % 2;
+     if(but_h_test ==1){
+      document.getElementById('block_h_tb').style.display="block"
+      document.getElementById('block_h_tb').style.visibility="visible";
+       document.getElementById('block_h_tb_cap').innerHTML="↑Calculator input rang ";
+                        }
+      else{
+        document.getElementById('block_h_tb').style.visibility="hidden";
+        document.getElementById('block_h_tb').style.display="none";
+        document.getElementById('block_h_tb_cap').innerHTML="↓Calculator input rang ";
+          }
+        }
+  var but_i_count=0;
+    function table_but_i(){
+     but_i_count = but_i_count+1;
+    var but_i_test = but_i_count % 2;
+   if(but_i_test ==1){
+        document.getElementById('block_i_tb').style.display="block"
+        document.getElementById('block_i_tb').style.visibility="visible";
+        document.getElementById('block_i_tb_cap').innerHTML="↑References ";
+                        }
+      else{
+        document.getElementById('block_i_tb').style.visibility="hidden";
+        document.getElementById('block_i_tb').style.display="none";
+        document.getElementById('block_i_tb_cap').innerHTML="↓References ";
+           }
+        }
+  var but_j_count=0;
+    function table_but_j(){
+      but_j_count = but_j_count+1;
+     var but_j_test = but_j_count % 2;
+     if(but_j_test ==1){
+        document.getElementById('block_j_tb').style.display="block"
+        document.getElementById('block_j_tb').style.visibility="visible";
+        document.getElementById('block_j_tb_cap').innerHTML="↑Contact us ";
+                        }
+      else{
+        document.getElementById('block_j_tb').style.visibility="hidden";
+        document.getElementById('block_j_tb').style.display="none";
+        document.getElementById('block_j_tb_cap').innerHTML="↓Contact us ";
+          }
+        }
+ 
+</script>
 
 </head>
-<body  >
-<div class="block_a">
-  <h2>Examples:</h2>
-   <p>1.  exp1 = exp(1)  = 2.7182818284590452 ;  //..e<sup><small>1</small></sup></p>
-   <p>2.  exp3= exp(3) = 20.0855369231876677 ;           //....e<sup><small>3</small></sup></p> 
-   <p>3.  exp3π= exp(3π) = 20.0855369231876677 ;      //....e<sup><small>3π</small></sup></p> 
-   <p>4.  exp-3= exp(-3) = 0.0497870683678639; ;        //....e<sup><small>-3</small></sup></p> 
-   <p>5.  π= 3.1415926535897932;</p>
-   <p>6.  ° = 1°= 1*° = π/180 = 0.0174532925199433 ;   //........convert degrees to radians</p>  
-   <p>7.  180/π = 57.2957795131;                       //.......1 radian = 57.2957795131 degrees </p>
-   <p>8.  cos0.5 = cos(0.5) = 0.8775825618903727;      //..............x= 0.5  radians</p>
-   <p>9.  cos-30° = cos(-30°) = 0.8660254037844386;    //............x= -30 degrees</p>
-   <p>10.  asin(1) = 1.5707963267948966;               //...............1.570 radians</p>
-   <p>11.  asin(0) = 0 ; </p>   
-   <p style="color:blue;">12.  asin(1)/° = 90 ;        //........convert radians to degrees</p>  
-   <p>13.  asin(1) = 1.5707963267948966;               //...............radians</p>
-   <p>14.  sin(2π) = 0; </p>     
-   <p>15.  -2^4 = 0 - (2^4) = -16 ;                    //...........-(2<sup>4</sup>)</p>
-   <p style="color:blue;">16.  -3^2= -(3^2) = -9;       //..........math -3^2= -(3^2)= -9 ;</p>
-   <p style="color:blue;">    To avoid confusion,use parentheses( );</p>
-   <p>17.  2^(1/3) = 1.2599210498948732;                //  ..........2<sup>1/3</sup></p>
-   <p style="color:blue;">18.  2^3^4 = 2^(3^4) = 2.4178516392292583e+24; </p>
-   <p style="color:blue;">                             //...math 2^3^4 = (2^(3^4)) = 2.4178516392292583e+24 ;</p>
-   <p>19.  (2^3)^4 = ((2^3)^4) = 8^4 = 40962  ;</p>
-   <p>    //....math ^ operator right to left;</p>
-   <p>20.  7*9^2 = 7*(9^2) = 567;</p>
-   <p>21.  (-3)^2 = 9;</p>
-   <p>22   -3^2 = -(3^2) = - 9 ;</p>
-   <p>23   3π^2π = (3π)^(2π) = 1322897.0042358196875005 ;</p>
-   <p>24.  ln(1) = 0;                                      //.........ln<sub><small>e</small></sub>1 =0</p>
-   <p>25.  log(10) = 1 ;                                     //.......log<sub><small>10</small></sub>10 =1</p>
-   <p>26.  1! = 1 ; </p>  
-   <p>27.  5! = 120 ;                                       //........1*2*3*4*5=120</p>
-   <p>28.  -5! = -(5!) = - 120 ;                            //.......-(1*2*3*4*5)=-120</p>
-   <p>29.  (-5)! = <--  Msg : n! , n >=0 , n ∈ N -->; </p>
-   <p>30.  (sin(π))^2 = 0;</p>
-   <p>31.  12e+2 = 1200;                                     //........12*10<sup>2</sup> =1200;</p> 
-   <p>32.  10e-2 = 0.1;                                     //........10*10<sup>-2</sup> =0.1;</p>
-   <p>33.  exp-3!+exp-2! = exp(-(3!))+exp(-(2!)) = 0.1378140354132791;   
-       <br>
-      <br>
+<body  onload="init_menu();" ;>
+<h2 onclick="table_but_a()" id="block_a_tb_cap" style="width:35% ;background-color:beige" >↑Examples (keyboard input) </h2>
+<div class="block_a" >
+<table  id="block_a_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95% ;background-color:beige ;" onclick="table_but_a()" >
+<tbody >
+<thead>
+<tr>
+<th>item</th>
+<th>support</th>
+<th>normal</th>
+<th>value(.16)</th>
+<th>Remak</th>
+</tr>
+</thead>
+<tbody>
+ <tr><td align="center">1</td><td>exp1=</td><td>exp(1)=</td><td>2.7182818284590452</td><td>e<sup><small>1</small></sup></td></tr>
+ <tr><td align="center">2</td><td>exp3=</td><td>exp(3)=</td><td>20.0855369231876677</td><td>e<sup><small>3</small></sup></small></sup></td></tr>
+ <tr><td align="center">3</td><td>exp3π=</td><td>exp(3π)= </td><td>20.0855369231876677</td><td>e<sup><small>3π</small></sup></td></tr>
+ <tr><td align="center">4</td><td>exp-3=</td><td>exp(-3) = </td><td>0.0497870683678639</td><td>e<sup><small>-3</small></sup></td></tr>
+ <tr><td align="center">5</td><td>π=</td><td>π=</td><td>3.1415926535897932</td><td></td></tr>
+ <tr><td align="center">6</td><td>° =</td><td>1°=</td><td>0.0174532925199433</td><td>1*° = π/180 convert degrees to radians</td></tr>
+ <tr><td align="center">7</td><td></td><td>180/π=</td><td>57.2957795130823209</td><td>1 radian = 57.2957795131 degrees</td></tr> 
+ <tr><td align="center">8</td><td>cos0.5 =</td><td>cos(0.5) =</td><td>0.8775825618903727</td><td>x= 0.5  radians</td></tr>
+ <tr><td align="center">9</td><td>cos-30°</td><td>cos(-30°)</td><td>0.8660254037844386</td><td>x= -30 degrees</td></tr>
+ <tr><td align="center">10</td><td>asin1</td><td>asin(1)</td><td>1.5707963267948966</td><td>1.570.. radians</td></tr>
+ <tr><td align="center">11</td><td>asin0</td><td>asin(0)</td><td>0</td><td></td></tr>
+ <tr><td align="center">12</td><td>asin1/°</td><td>asin(1)/°</td><td>90 </td><td>convert radians to degrees</td></tr>
+ <tr><td align="center">13</td><td>asin1=</td><td>asin=(1)</td><td>1.5707963267948966</td><td>radians</td></tr>
+ <tr><td align="center">14</td><td>sin2π =</td><td>sin(2π) =</td><td>0</td><td></td></tr>
+ <tr><td align="center">15</td><td>-2^4 =</td><td>0 - (2^4)</td><td>-16</td><td>-(2<sup>4</sup>)</td></tr>
+ <tr><td align="center">16</td><td>-3^2=</td><td>-(3^2)=</td><td>-9</td><td>math -3^2= -(3^2)</td></tr>
+ <tr><td align="center">17</td><td></td><td>2^(1/3)=</td><td>1.2599210498948732</td><td>2<sup>1/3</sup></p></td></tr>
+ <tr><td align="center">18</td><td> 2^3^4 =</td><td>2^(3^4)=</td><td>2.4178516392292583e+24</td><td>math 2^3^4 = (2^(3^4))</td></tr>
+ <tr><td align="center">19</td><td>(2^3)^4=</td><td>((2^3)^4) =</td><td>8^4 = 40962</td><td></td></tr>
+ <tr><td align="center">20</td><td>7*9^2 =</td><td>7*(9^2) =</td><td>567</td><td></td></tr>
+ <tr><td align="center">21</td><td></td><td>(-3)^2=</td><td>9</td><td></td></tr>
+ <tr><td align="center">22</td><td>-3^2=</td><td> -(3^2) =</td><td>-9</td><td></td></tr>
+ <tr><td align="center">23</td><td>3π^2π =</td><td>(3π)^(2π) =</td><td>1322897.0042358196875005</td><td></td></tr>
+ <tr><td align="center">24</td><td>ln1=</td><td>ln(1)=</td><td>0</td><td></td></tr>
+ <tr><td align="center">25</td><td>log10=</td><td>log(10)=</td><td>1</td><td>log<sub><small>10</small></sub>10 =1</td></tr>
+ <tr><td align="center">26</td><td>1!=</td><td>1!=</td><td>1</td><td></td></tr>
+ <tr><td align="center">27</td><td>5! =</td><td>5! =</td><td>120</td><td>1*2*3*4*5=120</td></tr>
+ <tr><td align="center">28</td><td>-5!=</td><td>-(5!)=</td><td>-120</td><td>-(1*2*3*4*5)=-120</td></tr>
+ <tr><td align="center">29</td><td>(-5)!=</td><td>(-5)!=</td><td><--  Msg : n! , n >=0 , n ∈ N --></td><td>error</td></tr>
+ <tr><td align="center">30</td><td>sinπ^2=</td><td>(sin(π))^2=</td><td>0</td><td></td></tr>
+ <tr><td align="center">31</td><td>12e+2=</td><td>12e+2=</td><td>1200</td><td>12*10<sup>2</sup> =1200</td></tr>
+ <tr><td align="center">32</td><td>10e-2=</td><td>10e-2=</td><td>0.1</td><td>10*10<sup>-2</sup> =0.1</td></tr>
+ <tr><td align="center">33</td><td>exp-3!+exp-2! = </td><td>exp(-(3!))+exp(-(2!))=</td><td>0.1378140354132791</td><td></td></tr>
+ <tr><td align="center">34</td><td>atanh0.0001= </td><td>atanh(0.0001)=</td><td>0.0001000000003333</td><td>atanh(1e-4)=0.0001000000003333</td></tr>
+ <tr><td align="center">35</td><td> </td><td>atanh(2e-3)=</td><td>0.0020000026666731</td><td>(atanh(2*(10^(-3))))</td></tr>
+ <tr><td align="center">36</td><td>atanh(2*10^-3)= </td><td>(atanh(2*(10^(-3))))=</td><td>0.0020000026666731</td><td>atanh(2e-3)</td></tr>
+</tbody>
+</table>
 </div>
+<h2 onclick="table_but_b()" id="block_b_tb_cap" style="width:35% ;background-color:LightGray">↓Operator </h2>
 <div class="block_b">
-
-<p><table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
- <caption><h2>Operator</h2></caption>    
+<table id="block_b_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95% ;background-color:LightGray ;">
 <tbody>
 <thead>
 <tr>
@@ -96,11 +277,10 @@ p ,h2,h3{
 <tr><td align="center">menu</td><td> a list of possible available actions  that appears on calculator </td></tr>  
 </tbody>
 </table>
-</p>
 </div>
+ <h2 onclick="table_but_c()" id="block_c_tb_cap" style="width:35% ;background-color:beige">↓Functions </h2>
 <div class="block_c">
-<table border="1px" cellspacing="1" cellpadding="1"  align="left" required readonly="readonly" style="width:95%">
- <caption><h2>Functions</h2></caption>    
+<table id="block_c_tb"   border="1px" cellspacing="1" cellpadding="1"  align="left" required readonly="readonly" style="width:95% ;background-color:beige ;">
 <tbody>
 <thead>
 <tr>
@@ -126,12 +306,10 @@ p ,h2,h3{
 <tr><td align="center">atanh</td><td>Hyperbolic inverse tangent (arctanh) of a value or expression</td></tr>
 </tbody>
 </table>
-<br>
-<br>
 </div>
+<h2 onclick="table_but_d()" id="block_d_tb_cap" style="width:35% ;background-color:LightGray">↓Constants </h2>
 <div class="block_d">
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly"  style="width:95%">
- <caption><h2>Constants</h2></caption>    
+<table id="block_d_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly"  style="width:95% ;background-color:LightGray ;">
 <tbody>
 <thead>
 <tr>
@@ -144,11 +322,9 @@ p ,h2,h3{
 </tbody>
 </table>
 </div>
+<h2 onclick="table_but_e()" id="block_e_tb_cap" style="width:35% ;background-color:beige">↓Trigonometric functions </h2>
 <div class="block_e">
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:100%">
-<caption><h2>Trigonometric functions</h2></caption>     
-<p>
-<p>
+<table id="block_e_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:100% ;background-color:beige ;">
 <tbody>
 <thead>
 <tr>
@@ -156,27 +332,29 @@ p ,h2,h3{
 <th>Description</th>
 </tr>
 </thead>
-  <tr><td align="center">1</td><td>sin(x) = -sin(-x)</td></tr> 
-  <tr><td align="center">2</td><td>  sin(x) = - sin(x-π)</td></tr> 
-  <tr><td align="center">3</td><td>  sin(x)*csc(x) = 1 ; cos(x)*csc(x) = 1 ; tan(x)*cot(x) = 1</td></tr> 
-  <tr><td align="center">4</td><td>  cos(x) = sin((π/2)-x)</td></tr> 
-  <tr><td align="center">5</td><td>  sin(asin(x)) = x</td></tr> 
-  <tr><td align="center">6</td><td>  sin(x) = sin(x+2kπ);   //.....k is an integer</td></tr>  
-  <tr><td align="center">7</td><td>  cos(x) = cos(x+2kπ);   //.....k is an integer </td></tr>  
-  <tr><td align="center">8</td><td>  tan(x) = sin(x)/cos(x)</td></tr> 
-  <tr><td align="center">9</td><td>  acos(x) = π/2 - asin(x)</td></tr>    
-  <tr><td align="center">10</td><td>  sinh(x) = (e<sup><small>x</small></sup>-e<sup><small>-x</small></sup>)/2 </td></tr> 
-  <tr><td align="center">11</td><td>  cosh(x) = (e<sup><small>x</small></sup>+e<sup><small>-x</small></sup>)/2 </td></tr> 
-  <tr><td align="center">12</td><td>  tanh(x) = sinh(x)/cosh(x)</td></tr> 
-  <tr><td align="center">13</td><td>  asinh(x) = ln(x+√x<sup><small>2</small></sup>+1)</td></tr> 
-  <tr><td align="center">14</td><td>  acosh(x) = ln(x+√x<sup><small>2</small></sup>-1)</td></tr> 
-  <tr><td align="center">15</td><td>  atanh(x) = (1/2)ln((1+x)/(1-x))</td></tr> 
-  <tr><td align="center">16</td><td>  ln(xy) = ln(x)+ln(y)</td></tr> 
-  <tr><td align="center">17</td><td>  ln(e<sup><small>x</small></sup>) = x;   //if x>0</td></tr> 
-  <tr><td align="center">18</td><td>  log(x) = ln(x)/ln(10)</td></tr>    
+ <tr><td align="center">1</td><td>sin(x) = -sin(-x)</td></tr> 
+ <tr><td align="center">2</td><td>  sin(x) = - sin(x-π)</td></tr> 
+ <tr><td align="center">3</td><td>  sin(x)*csc(x) = 1 ; cos(x)*csc(x) = 1 ; tan(x)*cot(x) = 1</td></tr> 
+ <tr><td align="center">4</td><td>  cos(x) = sin((π/2)-x)</td></tr> 
+ <tr><td align="center">5</td><td>  sin(asin(x)) = x</td></tr> 
+ <tr><td align="center">6</td><td>  sin(x) = sin(x+2kπ);   //.....k is an integer</td></tr>  
+ <tr><td align="center">7</td><td>  cos(x) = cos(x+2kπ);   //.....k is an integer </td></tr>  
+ <tr><td align="center">8</td><td>  tan(x) = sin(x)/cos(x)</td></tr> 
+ <tr><td align="center">9</td><td>  acos(x) = π/2 - asin(x)</td></tr>    
+ <tr><td align="center">10</td><td>  sinh(x) = (e<sup><small>x</small></sup>-e<sup><small>-x</small></sup>)/2 </td></tr> 
+ <tr><td align="center">11</td><td>  cosh(x) = (e<sup><small>x</small></sup>+e<sup><small>-x</small></sup>)/2 </td></tr> 
+ <tr><td align="center">12</td><td>  tanh(x) = sinh(x)/cosh(x)</td></tr> 
+ <tr><td align="center">13</td><td>  asinh(x) = ln(x+√x<sup><small>2</small></sup>+1)</td></tr> 
+ <tr><td align="center">14</td><td>  acosh(x) = ln(x+√x<sup><small>2</small></sup>-1)</td></tr> 
+ <tr><td align="center">15</td><td>  atanh(x) = (1/2)ln((1+x)/(1-x))</td></tr> 
+ <tr><td align="center">16</td><td>  ln(xy) = ln(x)+ln(y)</td></tr> 
+ <tr><td align="center">17</td><td>  ln(e<sup><small>x</small></sup>) = x;   //if x>0</td></tr> 
+ <tr><td align="center">18</td><td>  log(x) = ln(x)/ln(10)</td></tr>    
   </tbody>
 </table>
-  <h2>Series definitions</h2> 
+ </div>  
+ <h2 onclick="table_but_f()" id="block_f_tb_cap" style="width:35% ;background-color:LightGray">↓Series definitions</h2>
+  <div class="block_f" id="block_f_tb" style="width:95% ;background-color:LightGray ;"> 
     <p>1.  exp(x)=1+x+x<sup><small>2</small></sup>/2!+x<sup><small>3</small></sup>/3!+x<sup><small>4</small></sup>/4!+..............//for all x</p>
     <p>2.  ln(1+x)=x-x<sup><small>2</small></sup>/2+x<sup><small>3</small></sup>/3-x<sup><small>4</small></sup>/4+.................. //for |x| ≤ 1 and x ≠ −1</p>
     <p>3.  sin(x)=x-(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)-(x<sup><small>7</small></sup>/7!)+........//for all x</p>
@@ -186,13 +364,15 @@ p ,h2,h3{
     <p>7.  sinh(x)=x+(x<sup><small>3</small></sup>/3!)+(x<sup><small>5</small></sup>/5!)+(x<sup><small>7</small></sup>/7!)+........ //for all x</p>
     <p>8.  cosh(x)=1+(x<sup><small>2</small></sup>/2!)+(x<sup><small>4</small></sup>/4!)+(x<sup><small>6</small></sup>/6!)+........ //for all x</p>
     <p>9.  asinh(x)=x-((1/2)*x<sup><small>3</small></sup>/3)+((1*3)/(2*4)*x<sup><small>5</small></sup>/5)-((1*3*5)/(2*4*6)*x<sup><small>7</small></sup>/7)+........//for |x| < 1 </p>  
-       
-  
+   </div>    
+<div>   
 <h3><p  style="color:red;">Warning: Operator precedence  (non-standard way.) To avoid confusion,use parentheses( );<p/></h3>
 <h3><p  style="color:red;">       : Other calculator have different order, and you can get a different answer !<p/></h3>
 <h3><p  style="color:red;">       : The calculator is still under development and may get things wrong, so be careful!<p/></h3>
- <table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
- <caption><h2>precedence</h2></caption>     
+</div> 
+<h2 onclick="table_but_g()" id="block_g_tb_cap" style="width:35% ;background-color:beige">↓Precedence </h2>
+<div class="block_g" >
+<table  id="block_g_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95% ;background-color:beige ;" onclick="table_but_a()" >
 <thead>
 <tr>
 <th>precedence</th>
@@ -200,7 +380,6 @@ p ,h2,h3{
 <th>Operator</th>
 <th>Description</th>
 <th>Remake</th>
-
 </tr>
 </thead>
 <tbody>
@@ -212,18 +391,13 @@ p ,h2,h3{
 <tr><td align="center">3</td><td>left to right</td><td align="center"> * </td><td>multiplication</td><td></td></tr>
 <tr><td align="center">2</td><td>left to right</td><td align="center"> -  </td><td>subtraction</td><td></td></tr>
 <tr><td align="center">1</td><td>left to right</td><td align="center"> + </td><td>addition</td><td></td></tr>
-<tr><td align="center">0</td><td>left to right</td><td align="center"> 1,2,3,4,5,6,7,8,9,0,.,π,<br>°, e+ , e- ,"-"minus</td><td>number</td><td style="color:red;"> 10e+2 = 10*10<sup>2</sup> ,<br> e+ , e- like "."</td></tr>
-
+<tr><td align="center">0</td><td>left to right</td><td > 1,2,3,4,5,6,7,8,9,0,.,π,<br>°, e+ , e- ,"-"minus</td><td>number</td><td style="color:red;"> 10e+2 = 10*10<sup>2</sup> ,<br>e+ , e- like "." </td></tr>
 </tbody>
 </table>
 </div>
-
-<br> 
-<br> 
-<br> 
-<tr></tr>
-<table border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95%">
-<caption><h2>calculator input rang</h2></caption>     
+<h2 onclick="table_but_h()" id="block_h_tb_cap" style="width:35% ;background-color:LightGray">↓Calculator input rang </h2>
+<div class="block_h" >
+<table id="block_h_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95% ;background-color:LightGray ;">
 <thead>
 <tr>
 <th>Operator</th>
@@ -234,26 +408,27 @@ p ,h2,h3{
 </thead>
 <tbody>  
 <tr><td align="center">n!</td><td > n >=0 and n<=<2e+7 ; n ∈ N</td><td align="center">number after the decimal point</td><td>n>2e+7, need a lot of calculation </td></tr>
-<tr><td align="center">^(x)</td><td> -1e+200<= x <=1e+200 </td><td align="center" >""</td><td > pow(x)</td></tr>   
-<tr><td align="center">ln(x)</td><td> x > 0 </td><td align="center" >""</td><td></td></tr>  
-<tr><td align="center">log(x)</td><td> x > 0 </td><td align="center" >""</td><td></td></tr> 
-<tr><td align="center">exp(x)</td><td> -1e+200<= x <=1e+200</td><td align="center" >"" </td><td ></td></tr>   
-<tr><td align="center">sin(x)</td><td>x<=1e+49500 </td><td align="center" > ""</td><td></td></tr>
-<tr><td align="center">cos(x)</td><td> x<=1e+49500 </td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">tan(x)</td><td> x<=1e+49500 </td><td align="center" >""</td><td>x ≠ kπ+π/2  k∈Z </td></tr>
-<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">atan(x)</td><td>x ∈ R </td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td align="center" >""</td><td></td></tr>      
-<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">tanh(x)</td><td>x ∈ R/td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">acosh(x)</td><td>x >= 1</td><td align="center" >""</td><td></td></tr>
-<tr><td align="center">atanh(x)</td><td>|x|< 1</td><td align="center" >""</td><td></td></tr>  
+<tr><td align="center">^(x)</td><td> -1e+200<= x <=1e+200 </td><td align="center">""</td><td > pow(x)</td></tr>   
+<tr><td align="center">ln(x)</td><td> x > 0 </td><td align="center">""</td><td></td></tr>  
+<tr><td align="center">log(x)</td><td> x > 0 </td><td align="center">""</td><td></td></tr> 
+<tr><td align="center">exp(x)</td><td> -1e+200<= x <=1e+200</td><td align="center">"" </td><td ></td></tr>   
+<tr><td align="center">sin(x)</td><td>x<=1e+49500 </td><td align="center"> ""</td><td></td></tr>
+<tr><td align="center">cos(x)</td><td> x<=1e+49500 </td><td align="center">""</td><td></td></tr>
+<tr><td align="center">tan(x)</td><td> x<=1e+49500 </td><td align="center">""</td><td>x ≠ kπ+π/2  k∈Z </td></tr>
+<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td align="center">""</td><td></td></tr>
+<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td align="center">""</td><td></td></tr>
+<tr><td align="center">atan(x)</td><td>x ∈ R </td><td align="center">""</td><td></td></tr>
+<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td></td></tr>      
+<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td></td></tr>
+<tr><td align="center">tanh(x)</td><td>x ∈ R</td><td align="center">""</td><td></td></tr>
+<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td align="center">""</td><td></td></tr>
+<tr><td align="center">acosh(x)</td><td>x >= 1</td><td align="center">""</td><td></td></tr>
+<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td align="center">""</td><td></td></tr>  
 </tbody>
 </table>
-<tr></tr>
-<br><h2>References </h2></br>
+</div>
+<h2 onclick="table_but_i()" id="block_i_tb_cap" style="width:35% ;background-color:beige">↓References </h2>
+<div class="block_i"  id="block_i_tb"   style="width:95%;background-color:beige" ;>
 <p>https://en.wikipedia.org/wiki/Factorial</p>
 <p>https://en.wikipedia.org/wiki/Exponentiation</p>
 <p>https://en.wikipedia.org/wiki/Natural_logarithm<p>
@@ -262,7 +437,7 @@ p ,h2,h3{
 <p>https://en.wikipedia.org/wiki/trigonometric_functions</p>
 <p>https://en.wikipedia.org/wiki/Inverse_trigonometric_functions</p>
 <p>https://en.wikipedia.org/wiki/Hyperbolic_functions</p>
-<p>https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions</p>
+<p>https://en.wikipedia.org/wiki/Inverse_hyperbolic_functions</p>  
 <p>https://mathworld.wolfram.com/Precedence.html</p>
 <p>https://www.mathsisfun.com/operation-order-pemdas.html</p>
 <p>https://www.piday.org/million/</p>
@@ -276,9 +451,11 @@ p ,h2,h3{
 <p>http://oeis.org/A000796/b000796.txt(π)(20000)</p>         
 <p>https://www.webintoapp.com</p>                               
 </div>
-<br><h2>contact us</h2> <br>
+<h2 onclick="table_but_j()" id="block_j_tb_cap" style="width:35% ;background-color:LightGray">↓Contact us </h2>
+<div class="block_j" id="block_j_tb" style="width:95% ;background-color:LightGray ;">
  <p> If any suggestions for improvements or enhancements to this  precision calculator.</p>
  <p> We are glad  about message from you ! But we get lots of emails, and can't respond to them all.</p>
  <p> My Email Address: huangtm29@gmail.com </p>
+</div>
 </body>
 </html>
