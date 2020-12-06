@@ -8342,7 +8342,9 @@ function m_str_1_point( x ,nub){
                    var pos_pot_a  = xx_st.indexOf(".");   
                    var data_x_fst_a =xx_st.substr(0,1);   
                                                      }  
-                                            }           
+                                            }  
+    var data_chk = m_mtx_trim(data_chk).toString() ;   
+    var xx_st = m_mtx_trim(xx_st).toString() ; 
       if(data_x_fst=="-"){ xx_st="-"+xx_st; }   
       if(nub == 1){ return data_chk ;}  
       if(nub == 0){ return xx_st ;}
@@ -8539,8 +8541,6 @@ function m_mtx_real_div(y,x){
    var yy_chk = m_str_1_point( yy_st ,1);              
    var yy_st  = m_str_1_point( yy_st ,0);             
    var data_chk = yy_chk-xx_chk ; 
-   var yy_st = m_mtx_trim(yy_st).toString() ;   
-   var xx_st = m_mtx_trim(xx_st).toString() ; 
    var B = m_str_to_mtx(yy_st) ; 
    var A = m_str_to_mtx(xx_st) ; 
    var sum_tt = m_mtx_reciprocal_div(B,A); 
