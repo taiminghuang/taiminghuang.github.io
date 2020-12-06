@@ -8538,11 +8538,12 @@ function m_mtx_real_div(y,x){
    var xx_st  = m_str_1_point( xx_st ,0);       
    var yy_chk = m_str_1_point( yy_st ,1);              
    var yy_st  = m_str_1_point( yy_st ,0);             
-   var data_chk = yy_chk-xx_chk ;  
+   var data_chk = yy_chk-xx_chk ; 
+   var yy_st = m_mtx_trim(yy_st).toString() ;   
+   var xx_st = m_mtx_trim(xx_st).toString() ; 
    var B = m_str_to_mtx(yy_st) ; 
    var A = m_str_to_mtx(xx_st) ; 
    var sum_tt = m_mtx_reciprocal_div(B,A); 
-   var sum_tt = m_mtx_trim(sum_tt) ;    
    var sum_tt_fst= sum_tt.substr(0,1);
       if(sum_tt_fst==0){           
        var sum_tt = sum_tt.substr(2,1)+"."+sum_tt.substr(3,sum_tt.length-2);
@@ -8605,9 +8606,12 @@ function m_mtx_reciprocal_div(B,A){
        var data_tt = i;
        var data_ttt = data_tt.toString();
        var data_qt = data_qt +  data_ttt;
-       RR =  m_mtx_sub_nub_b(DD,DR,data_tt); 
+       RR =  m_mtx_sub_nub_b(DD,DR,data_tt);
+       var data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);  
+       var data_qt = m_mtx_trim(data_qt) ;
         return data_qt ; }} }  
-       data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);  
+       var data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);  
+       var data_qt = m_mtx_trim(data_qt) ;
    return data_qt ;
  }
 
