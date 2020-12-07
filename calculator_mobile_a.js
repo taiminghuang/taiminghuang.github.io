@@ -8393,7 +8393,7 @@ function m_mtx_real_mul(y,x){
        var xx_st  = m_str_1_point( xx_st ,0);       
        var yy_chk = m_str_1_point( yy_st ,1);              
        var yy_st  = m_str_1_point( yy_st ,0);             
-       var data_chk = xx_chk+yy_chk ;   
+       var data_chk = m_mtx_real_add(xx_chk,yy_chk) ;   
    var AA = m_str_to_mtx(yy_st) ; 
    var BB = m_str_to_mtx(xx_st) ; 
    var CC = m_mtx_point_mul(AA,BB) ;  
@@ -8403,8 +8403,8 @@ function m_mtx_real_mul(y,x){
       var pos_pot_b  = sum_tt.indexOf(".");    
                if(pos_pot_b > 1){                        
                   sum_tt = m_mtx_str_element_shift(sum_tt,1-pos_pot_b);   
-                          var data_chk = m_mtx_int_add(data_chk,pos_pot_b);
-                          var data_chk = m_mtx_int_sub(data_chk,1);
+                          var data_chk = m_mtx_real_add(data_chk,pos_pot_b);
+                          var data_chk = m_mtx_real_sub(data_chk,1);
                                 }
                  var sum_tt = m_mtx_trim(sum_tt) ;   
        if( data_y_fst =="-" && data_x_fst !="-"){ var sum_tt = "-"+sum_tt;} 
