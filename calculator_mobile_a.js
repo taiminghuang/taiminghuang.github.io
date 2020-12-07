@@ -8540,10 +8540,11 @@ function m_mtx_real_div(y,x){
    var xx_st  = m_str_1_point( xx_st ,0);       
    var yy_chk = m_str_1_point( yy_st ,1);              
    var yy_st  = m_str_1_point( yy_st ,0);             
-   var data_chk = yy_chk-xx_chk ; 
+   var data_chk = m_mtx_real_sub(yy_chk,xx_chk) ; 
    var B = m_str_to_mtx(yy_st) ; 
    var A = m_str_to_mtx(xx_st) ; 
    var sum_tt = m_mtx_reciprocal_div(B,A); 
+    var sum_tt = m_mtx_trim(sum_tt) ;
    var sum_tt_fst= sum_tt.substr(0,1);
       if(sum_tt_fst==0){           
        var sum_tt = sum_tt.substr(2,1)+"."+sum_tt.substr(3,sum_tt.length-2);
