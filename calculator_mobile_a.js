@@ -5551,6 +5551,8 @@ function m_sin(x){
     var ans_a="";
     var data_msg =0;   
     var data_cle =0;
+    var  data_xx_comp_0 = m_mtx_real_str_comp(xx,0);               
+      if(data_xx_comp_0 ==3){var ans_a = 0;   return ans_a ;}
     var data_cle = m_sin_sum(xx ,0);  
     var data_msg =  m_str_char(data_cle,"Msg") ; 
       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
@@ -5625,7 +5627,7 @@ function m_sin_sum(x,nub){
          var xx_af_p = xx_af.indexOf(".");  }              
       else{ var xx_af =0;
             var xx_af_p =0;}                               
-    var  shif_all =  xx_af - shif_r ;   
+    var  shif_all = m_mtx_real_sub(xx_af , shif_r) ;   
     var data_t_MTX_COL = MTX_COL;
       MTX_COL =500;            
     var AA =m_mtx_pi_100_table(); 
