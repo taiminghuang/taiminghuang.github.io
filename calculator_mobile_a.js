@@ -6664,7 +6664,9 @@ function m_ln(x){
           var data_trans = MTX_COL;
            if( MTX_COL >=100 || xx.length >=50){       
                 MTX_COL=100 ;}
-       var xx_fst=xx.substr(0,1); 
+  var xx_fst=xx.substr(0,1); 
+  var  data_xx_comp_0 = m_mtx_real_str_comp(xx,0);    
+      if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
       if (xx_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
       if ((xx == "1" || xx == 1) && xx.length==1 ) {  var ans_t = 0 ; return ans_t;}
        var xx_str =""; 
