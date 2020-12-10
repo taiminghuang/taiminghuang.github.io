@@ -5551,8 +5551,6 @@ function m_sin(x){
     var ans_a="";
     var data_msg =0;   
     var data_cle =0;
-    var  data_xx_comp_0 = m_mtx_real_str_comp(xx,0);               
-      if(data_xx_comp_0 ==3){var ans_a = 0;   return ans_a ;}
     var data_cle = m_sin_sum(xx ,0);  
     var data_msg =  m_str_char(data_cle,"Msg") ; 
       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
@@ -5603,6 +5601,8 @@ function m_sin_sum(x,nub){
   var xx_af =0;
   var xx_af_p =0; 
   var idx_e = xx.indexOf("e");
+  var  data_xx_comp_0 = m_mtx_real_str_comp(xx,0);             
+     if(data_xx_comp_0 ==3){var ans_a = 0;     return ans_a ;} 
      if( idx_e >0){
           var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
           var xx_af_p =  m_str_char(xx_af,".") ;   
@@ -5658,12 +5658,10 @@ function m_sin_sum(x,nub){
         var xx_st_2 = xx_st_1; }
       else if (xx_st_p == -1 && xx_st_1_fst !=0) {  var xx_st_2 = 0; }  
       else if (xx_st_p == -1 && xx_st_1_fst ==0) {  var xx_st_2 = 0; }  
-      else{ var xx_st_2 = "0"+xx_st_1.substr( xx_st_p,xx_st_1.length-xx_st_p) ;}                     
+      else{ var xx_st_2 = "0"+xx_st_1.substr( xx_st_p,xx_st_1.length-xx_st_p) ;}  
+      var xx_st_2= m_fix(xx_st_2,300); 
       if(xx_fst =="-"){ var xx_st_2 ="-"+ xx_st_2; }    
-      if(xx_st_2== 0 ||xx_st_2== 0.5 ||xx_st_2== 1|| xx_st_2== -0 ||xx_st_2== -0.5 ||xx_st_2== -1){ var ans_1 = 0;  return ans_1 ; }
-      if(xx_st_2== 0.25 ||xx_st_2== -0.75){ var ans_1 = 1; return ans_1 ;   }
-      if(xx_st_2== 0.75 || xx_st_2== -0.25){ var ans_1 = -1;return ans_1 ;   }   
-    var ans_0 = m_mtx_real_mul(xx_st_2,PIMUL2);   
+      var ans_0 = m_mtx_real_mul(xx_st_2,PIMUL2);   
     var ans_0 = m_fix(ans_0,300);   
     var data_t_MTX_COL_1 = MTX_COL;
       MTX_COL =60;            
@@ -9185,6 +9183,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                             else { var function_data ="";} 
                this_it =mtx_str_e_chk(this_it);              
                this_it = m_tri_ang_2pi_rem(this_it);
+               this_it = m_tri_ang_2pi_replace(this_it );
                this_it = m_tri_ang_360deg_rem(this_it);
                this_it = m_str_sub_ngt_bf(this_it); 
                this_it = m_str_math_replacec(this_it);   
