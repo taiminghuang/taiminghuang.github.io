@@ -7203,12 +7203,15 @@ function m_log(x){
    var  xx_str ="";
    var  nub_e_str =  m_s_e(xx ,1);         
    var  xx_str =  m_s_e(xx ,0);         
-   var  xx = xx_str;   
-    var xx = m_str_e_to_str(xx);      
+   var  xx = xx_str;  
+   var data_mtx =  MTX_COL;  
+   if( MTX_COL >200){ MTX_COL=200;}      
+   var xx = m_str_e_to_str(xx);      
     var xx_fst=xx.substr(0,1);
     var xxabs = xx;
     var ans_t = 0;
-      if ( xxabs == 0){ var ans_t = message_1(14) ;  return ans_t;} 
+    var  data_xxabs_comp_0 = m_mtx_real_str_comp(xxabs,0);    
+      if ( data_xxabs_comp_0 == 3){ var ans_t = message_1(14) ;  return ans_t;} 
       if (xx_fst == "-") {  var ans_t = message_1(9); return ans_t;} 
       if (xxabs == 1 && xxabs.length==1 && nub_e_str==0) {  var ans_t = 0 ; return ans_t;}
      var xxabs = m_mtx_str_to_e(xxabs);     
