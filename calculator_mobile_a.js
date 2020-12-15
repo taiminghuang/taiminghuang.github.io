@@ -1513,7 +1513,7 @@ var str_1 = str.toString().trim();
                                                   }
                                   }
 
-         if(mark_1 =='π') {  var count_mark = pos+spec_a_lg+1 } ;   
+         if(mark_1 =='π'||mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
                  if(mark_1 =="-") {
             for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
               var mark_ref = str_1[i];
