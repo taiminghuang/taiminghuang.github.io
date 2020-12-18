@@ -8559,10 +8559,12 @@ function m_mtx_real_div(y,x){
     var nub_e_t = m_mtx_real_sub(nub_e_y,nub_e_x) ;       
     var nub_e_t = m_mtx_real_sub(nub_e_t,flag_ng) ;
     var nub_e_t = m_str_e_to_str(nub_e_t);   
-       if(nub_e_t > 0 ){ sum_tt = sum_tt+"e+"+nub_e_t;}   
-       if(nub_e_t < 0 ){ sum_tt = sum_tt+"e"+nub_e_t;}
-       if(nub_e_t == 0 ){ sum_ttt = sum_tt;}
-       if(sum_tt == 0 || sum_tt == "0"){ var sum_tt = 0 ;}       
+    var data_comp_nub_e_t_0 = m_mtx_real_str_comp(nub_e_t,0);       
+    var data_comp_sum_tt_0 = m_mtx_real_str_comp(sum_tt,0);
+       if(data_comp_nub_e_t_0 == 1 ){ sum_tt = sum_tt+"e+"+nub_e_t;}   
+       if(data_comp_nub_e_t_0 == 2 ){ sum_tt = sum_tt+"e"+nub_e_t;}
+       if(data_comp_nub_e_t_0 == 3 ){ sum_ttt = sum_tt;}
+       if(data_comp_sum_tt_0 == 3){ var sum_tt = 0 ;}       
           sum_tt=m_fix_pow_lst(sum_tt);    
           sum_tt=m_fix_str_lst(sum_tt);   
    return sum_tt;
