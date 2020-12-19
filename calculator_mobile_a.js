@@ -5623,11 +5623,13 @@ function m_sin_sum(x,nub){
         var shif_r = xx_bf.length-xx_bf_p; }           
       else{ var shif_r =0;}                 
       if( idx_e >0){
-        var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+        var xx_af = xx.substr(idx_e+1,xx.length-idx_e);
+        var xx_af =m_mtx_trim(xx_af) ;  
          var xx_af_p = xx_af.indexOf(".");  }              
       else{ var xx_af =0;
             var xx_af_p =0;}                               
-    var  shif_all = m_mtx_real_sub(xx_af , shif_r) ;   
+    var  shif_all = m_mtx_real_sub(xx_af , shif_r) ;  
+    var  shif_all =  parseFloat(shif_all);
     var data_t_MTX_COL = MTX_COL;
       MTX_COL =500;            
     var AA =m_mtx_pi_100_table(); 
@@ -5639,14 +5641,16 @@ function m_sin_sum(x,nub){
     var pi2inv = pi2inv.toString().replace(/\,/g,'');                   
        MTX_COL = data_t_MTX_COL; 
     var pi2inv = "0."+ pi2inv.toString().substr(0,pi2inv.length);
-      if(shif_all >0){ var pi2inv = "0."+ pi2inv.substr(shif_all+2, pi2inv.length-shif_all-2);} 
-      else if(shif_all ==0){ var pi2inv = pi2inv;}
-      else{                                                                     
+    var data_shif_all_comp_0 = m_mtx_real_str_comp(shif_all,0);    
+    var shif_all_sta =  m_mtx_real_add(shif_all , 2) ;
+     if(data_shif_all_comp_0 ==1){ var pi2inv = "0."+ pi2inv.substr(shif_all_sta, pi2inv.length-shif_all_sta);} 
+     if(data_shif_all_comp_0 ==3){ var pi2inv = pi2inv;}
+     if(data_shif_all_comp_0 ==2 ){                                                                     
            var shif_all_ab= m_abs(shif_all);
            var data_zero ="";
                for(var i=0;i<shif_all_ab;i++){
                  var data_zero =data_zero+"0";  }
-           var pi2inv = "0."+ data_zero+ pi2inv.substr(2,pi2inv.length-shif_all-2);
+           var pi2inv = "0."+ data_zero+ pi2inv.substr(2,pi2inv.length-shif_all_ab-2);
            }
     var xx_st_1 = m_mtx_real_mul(pi2inv,xx_bf);  
         xx_st_1 = m_str_e_to_str(xx_st_1);             
