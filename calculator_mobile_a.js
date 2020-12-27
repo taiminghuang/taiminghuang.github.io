@@ -844,24 +844,18 @@ var xx = x.toString().trim();
 
 function m_n(n){             
     var nn = n.toString().trim();
-     nn = m_str_e_to_str(nn);      
-      var nub_point= m_str_char(nn,".") ;  
-          var ans_1 ="";
-          if( nub_point >2){
-              var ans_1 = message_1(30);
-                           return  ans_1  }
-         else{ nn=nn;}
-   var nn =m_mtx_trim(nn) ;          
-       var test_point = m_nub_p(nn);        
-       var test_fst=nn.toString().substr(0,1);
+    var nn = m_str_e_to_str(nn);      
+    var nn =m_mtx_trim(nn) ;          
+    var test_point = m_nub_p(nn);        
+    var test_fst=nn.toString().substr(0,1);
        if(test_point > 0 || test_fst=="-"){
            return message_1(7);        
                          }       
     
-        var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
+      var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
            if(( nn >= 20000001 )||(data_comp_nn_20000001 !=2)){       
               return message_1(33);} 
-         var sum_total=1;
+       var sum_total=1;
           if(nn == 0 || nn==1 ){  
               sum_total=1; return sum_total;}
       var AA= m_new_zero_mtx(1,MTX_COL);             
@@ -1076,32 +1070,8 @@ function message_1(n){
           case 14:
           message_1 = "<--  Msg : log(0) value  to  -infinity -->" ;
           break;
-          case 15:
-          message_1 = "<--  Msg : cot(x) value  to  ± infinity -->" ;
-          break;
-          case 16:
-          message_1 = "<--  Msg : cot(x) value  to  ± infinity -->" ;
-          break;
-          case 17:
-          message_1 = "<--  Msg : sin(x)  if |x| > 1,000,000,000,000,000 no support -->" ;
-          break;
-          case 18:
-          message_1 = "<--  Msg : cos(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
-          break;
-          case 19:
-          message_1 = "<--  Msg : tan(x)  if  |x| > 1,000,000,000,000,000 no support -->" ;
-          break;
-          case 20:
-          message_1 = "<--  Msg : sin(x)  if |x|.length > 16  no support -->" ;
-          break;
-          case 21:
-          message_1 = "<--  Msg : cos(x)  if |x|.length > 16  no support -->" ;
-          break;
-           case 22:
-          message_1 = "<--  Msg : tan(x)  if |x|.length > 16  no support -->" ;
-          break;
-           case 23:
-          message_1 = "<--  Msg : exp(x)  if when  x >1e+200  or  x <-1e+200   no support -->" ;
+          case 23:
+          message_1 = "<--  Msg : exp(x)  if when  |x| >1e+200  no support -->" ;
           break;
           case 24:
           message_1 = "<--  Msg : sinh(x)  if |x| > 1e+200  no support -->" ;
@@ -1109,12 +1079,6 @@ function message_1(n){
            case 25:
           message_1 = "<--  Msg : cosh(x)  if |x| > 1e+200  no support -->" ;
           break;
-          case 26:
-          message_1 = "<--  Msg : tanh(x)  if |x| > 1e+200  and x >0  no support   : tanh(x)  value  approaching 1 -->" ;
-          break;
-          case 27:
-           message_1 = "<--  Msg : tanh(x)  if |x| > 1e+200  and x < 0 no support   : tanh(x)  value  approaching -1 -->" ;
-           break;
           case 28:
             message_1 = "<--  Msg :  undefined  : x^p  when x=0   p<=0  -->" ;
             break;
@@ -1128,10 +1092,10 @@ function message_1(n){
             message_1 = "<--  Msg :  error  :  A[0][0] < 100000 ||  A[0][0] > 999999    -->" ;
             break;
             case 32:
-            message_1 = "<--  Msg :  sorry : (xe+y || xe-y)  y>225 || this e type no support     -->" ;
+            message_1 = "<--  Msg :  sorry : (e± || e. || e± e || e± ..) this e type no support     -->" ;
             break;
            case 33:
-            message_1 = "<--  Msg : n! ,  n > 20000000 no support ,need a lot of calculation  -->" ;    
+            message_1 = "<--  Msg : n! ,  n > 2e+7 no support   -->" ;    
             break;
            case 34:  
             message_1 = "<--  Msg : -1e-200<= answer <=1e-200 , inside of calculator error range -->" ;    
@@ -5480,13 +5444,8 @@ function m_exp(x){
       if( p_comp_datalg ==1  ){
          var ans_1 = message_1(23);
                     return  ans_1  }
-       xx = m_str_e_to_str(xx);     
-          var nub_point= m_str_char(xx,".") ;  
-          var ans_1 ="";
-          if( nub_point >2){
-              var ans_1 = message_1(30);
-                           return  ans_1  }
-    var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
+     var xx = m_str_e_to_str(xx);     
+     var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
     var comp_xx_1 = m_mtx_real_str_comp(xx,1);      
     var ant_1=1;
     var xx_lg =xx.length;
@@ -6309,12 +6268,6 @@ function m_tan(x){
 
 function m_sinh(x){
   var xx = x.toString().trim();
-  var nub_point= m_str_char(xx,".") ;  
-  var ans_1 ="";
-      if( nub_point >2){
-         var ans_1 = message_1(30);
-                           return  ans_1  }
-      else{ xx=xx;}
   var xx =m_mtx_trim(xx) ; 
   var xx_test_small = m_mtx_str_to_e(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -6375,13 +6328,7 @@ function m_sinh(x){
 
 function m_cosh(x){       
  var xx = x.toString().trim();
-  var nub_point= m_str_char(xx,".") ;  
-  var ans_1 ="";
-          if( nub_point >2){
-              var ans_1 = message_1(30);
-                           return  ans_1  }
-         else{ xx=xx;}
-         var xx =m_mtx_trim(xx) ;
+ var xx =m_mtx_trim(xx) ;
   var xx_test_small = m_mtx_str_to_e(xx);            
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -6439,14 +6386,8 @@ function m_cosh(x){
 
 
 function m_tanh(x){
-   var xx = x.toString().trim();
-  var nub_point= m_str_char(xx,".") ;  
-  var ans_1 ="";
-          if( nub_point >2){
-             var ans_1 = message_1(30);
-                           return  ans_1  }
-         else{ xx=xx;}
-         var xx =m_mtx_trim(xx) ;
+  var xx = x.toString().trim();
+  var xx =m_mtx_trim(xx) ;
   var xx_test_small = m_mtx_str_to_e(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7443,36 +7384,29 @@ return ans_t;
 
 function m_pow(base,p){    
     var base= base.toString().trim();
-    var nub_point=0;  
-    var nub_point= m_str_char(base,".") ;  
-    var ans_1 ="";
-          if( nub_point >2){
-             var ans_1 = message_1(30);
-                           return  ans_1  }
-         else{ base=base;}
-        var base =m_mtx_trim(base) ;         
-        var  p= p.toString().trim();
-        var base_msg = m_mtx_test_msg(base);     
-        var p_msg = m_mtx_test_msg(p);
+    var base =m_mtx_trim(base) ;         
+    var  p= p.toString().trim();
+    var base_msg = m_mtx_test_msg(base);     
+    var p_msg = m_mtx_test_msg(p);
         if(base_msg !=-1 ){ return base;}     
         if(p_msg !=-1 ){ return p;} 
-        var datalg = "1e+201";                
-        var datalg_n = "-1e+201";
-        var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
-        var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
+     var datalg = "1e+201";                
+     var datalg_n = "-1e+201";
+     var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
+     var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
          if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
            var ans_1 = message_1(36);
                            return  ans_1  } 
-        var nub_point_p=0;  
-        var nub_point_p= m_str_char(p,".") ;  
-        var ans_1 ="";
+      var nub_point_p=0;  
+      var nub_point_p= m_str_char(p,".") ;  
+      var ans_1 ="";
           if( nub_point_p >2){
               var ans_1 = message_1(30);
                            return  ans_1  }
          else{ p=p;}
-         var p =m_mtx_trim(p) ;         
-         var base_msg = m_mtx_test_msg(base);
-         var p_msg = m_mtx_test_msg(p);
+      var p =m_mtx_trim(p) ;         
+      var base_msg = m_mtx_test_msg(base);
+      var p_msg = m_mtx_test_msg(p);
         if(base_msg !=-1 ){ return base;}     
         if(p_msg !=-1 ){ return p;}
    var bb=base;
@@ -7640,13 +7574,7 @@ return ans_1;
 
 
 function m_atan(x){                   
-    var xx = x.toString().trim();
-   var nub_point= m_str_char(xx,".") ;  
-   var ans_1 =0;
-      if( nub_point >2){
-           var ans_1 = message_1(30);
-                    return  ans_1  }
-         else{ xx=xx;}
+   var xx = x.toString().trim();
    var xx =m_mtx_trim(xx) ;  
    var xx_test_small = m_mtx_str_to_e(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7803,13 +7731,7 @@ function m_atan_part_center(x){
    }      
 
 function m_asinh(x){                            
-var xx = x.toString().trim();
-   var nub_point= m_str_char(xx,".") ;  
-   var ans_1 ="";
-        if( nub_point >2){
-            var ans_1 = message_1(30);
-                        return  ans_1  }
-         else{ xx=xx;}
+   var xx = x.toString().trim();
    var xx =m_mtx_trim(xx) ; 
    var xx_test_small = m_mtx_str_to_e(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7889,12 +7811,6 @@ return ans_1;
 
 function m_acosh(x){                  
   var xx = x.toString().trim();
-  var nub_point= m_str_char(xx,".") ;  
-  var ans_1 ="";
-     if( nub_point >2){
-         var ans_1 = message_1(30);
-                 return  ans_1  }
-      else{ xx=xx;}
   var xx =m_mtx_trim(xx) ;        
   var xx_fst = xx.substr(0,1);
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -7921,30 +7837,24 @@ return ans_1;
 
 function m_atanh(x){                            
 var xx = x.toString().trim();
-   var nub_point= m_str_char(xx,".") ;  
-   var ans_1 ="";
-       if( nub_point >2){
-         var ans_1 = message_1(30);
-                           return  ans_1  }
-       else{ xx=xx;}
-   var xx =m_mtx_trim(xx) ;   
-   var xx_test_small = m_mtx_str_to_e(xx);              
-   var xx_test_nub_e =m_str_power(xx_test_small,0);             
-   var xx_test_st = m_str_power(xx_test_small,1);          
+ var xx =m_mtx_trim(xx) ;   
+ var xx_test_small = m_mtx_str_to_e(xx);              
+ var xx_test_nub_e =m_str_power(xx_test_small,0);             
+ var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
-     var ans_a=xx ; return  ans_a;} 
-   var xx_fst = xx.substr(0,1);
+  var ans_a=xx ; return  ans_a;} 
+  var xx_fst = xx.substr(0,1);
        if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
         else { var xx=xx;}    
        xx = m_str_e_to_str(xx);      
-    var ans_1=0;
-    var comp_xx_0 = m_mtx_real_str_comp(xx,0);
-    var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
-    var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);    
+   var ans_1=0;
+   var comp_xx_0 = m_mtx_real_str_comp(xx,0);
+   var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
+   var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);    
       if( comp_xx_n1 == 2 || comp_xx_1 ==1 ){ var ans_1= message_1(4);  return ans_1 ;}    
       if( comp_xx_n1 == 3 || comp_xx_1 ==3 ){ var ans_1= message_1(4);  return ans_1 ;}    
       if( comp_xx_0 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
-    var comp_xx_1 = m_mtx_real_str_comp(xx,1e-100);       
+   var comp_xx_1 = m_mtx_real_str_comp(xx,1e-100);       
       if(comp_xx_1!=1){
          var ans_1 =xx;
       if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}  
@@ -7960,12 +7870,6 @@ return ans_1;
 }
 
 
-
-
-
-
-
-
 function m_mtx_row_table(A,row){     
  var AA=A;
  var n=row;
@@ -7974,8 +7878,6 @@ function m_mtx_row_table(A,row){
      BB[0][i]=AA[n][i];}
    return BB ; 
 }
-
-
 
 
 function m_mtx_point_in_int(A,x){      
@@ -8017,7 +7919,6 @@ function m_mtx_point_in(A,x){
                                  }
                                          }
    return AA;
-
 }
 
 
@@ -8044,11 +7945,7 @@ function m_mtx_point_mul_all(A,B){
                               CC[0][0]= "-"+data_c00 ;} 
 
    return CC;  
-
-
 }
-
-
 
 function m_mtx_point_mul(A,B){      
   var AA=A;
@@ -8086,10 +7983,6 @@ function m_mtx_point_mul(A,B){
    CC = m_mtx_cell_five(CC); 
   return CC;
 }
-
-
-
-
 
 
 function m_str_e_to_str(x){             
@@ -8156,8 +8049,6 @@ function m_str_e_to_str(x){
     return xx_st ;
 }
 
-
-
 function m_mtx_str_to_e(x){             
  var xx_st=x.toString().trim();             
   var xx_fst = xx_st.substr(0,1);
@@ -8202,8 +8093,6 @@ function m_mtx_str_to_e(x){
            nub_x =0;
     return xx_st ;
 }
-
-
 
 
 function m_mtx_str_to_e_a(x){             
@@ -8267,8 +8156,6 @@ var xx_st=x.toString().trim();
 
 }
 
-
-
 function m_mtx_str_to_e_ne(x){             
  var xx_st=x.toString().trim();             
   var xx_fst = xx_st.substr(0,1);
@@ -8297,9 +8184,7 @@ function m_mtx_str_to_e_ne(x){
         if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
          else{ xx_st_new=xx_st_new;}  
     return xx_st_new ;
-
 }
-
 
 function m_mtx_str_to_e_nez(x,n){             
   var xx_st=x.toString().trim();             
@@ -8351,12 +8236,7 @@ function m_mtx_str_to_e_small(x){
         if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
          else{ xx_st_new=xx_st_new;}  
       return xx_st_new ;
-
 }
-
-
-
-
 
 function m_str_1_point( x ,nub){             
    var xx_st=x.toString().trim();             
@@ -8399,10 +8279,7 @@ function m_str_1_point( x ,nub){
       if(data_x_fst=="-"){ xx_st="-"+xx_st; }   
       if(nub == 1){ return data_chk ;}  
       if(nub == 0){ return xx_st ;}
-
  }
-
-
 
 function m_mtx_real_mul(y,x){     
      var  x= x.toString().trim();
@@ -8541,7 +8418,6 @@ function m_mtx_point_div(A,B){
   return DD;
 }
 
-
 function m_mtx_real_div(y,x){    
  var xx=x.toString().trim();
    var yy=y.toString().trim();
@@ -8617,7 +8493,6 @@ function m_mtx_real_div(y,x){
    return sum_tt;
 }
 
-
 function m_mtx_reciprocal_div(B,A){    
    var AA = A;                                  
    var BB = B;   
@@ -8681,9 +8556,6 @@ function m_mtx_divisor_10(A){
   return NN;
 }
 
-
-
-
 function m_mtx_a_copy_to_n_b(A,nub_a,B,nub_b){       
   var AA =  m_mtx_zero_pad_bf(A);
   var nub_a = parseInt(nub_a);  
@@ -8705,7 +8577,6 @@ function m_mtx_a_copy_to_n_b(A,nub_a,B,nub_b){
 return NN;
  }
  
-
 function m_mtx_shift_left_1(A){               
    var AA =  m_mtx_zero_pad_bf(A);            
    var NN = m_new_zero_mtx(1,AA[0].length);   
@@ -8748,8 +8619,6 @@ function m_mtx_compare_nub(A,B,nub_b){
     return ans_1;
 }
 
-
-
 function m_mtx_compare(A,B){         
   var AA =A;
   var BB =B;
@@ -8767,7 +8636,6 @@ function m_mtx_compare(A,B){
     return ans_1;
 }
 
-
 function m_mtx_zero_pad_bf(A){
    var DD =A;
     for(var i= 0  ; i < DD[0].length ;i++){        
@@ -8781,7 +8649,6 @@ function m_mtx_zero_pad_bf(A){
       DD[0][i] = data_s;       } 
   return DD;
 }
-
 
 function m_mtx_borrow(A){    
    var DD =A;
@@ -8810,8 +8677,6 @@ function m_mtx_sub_nub_b(A,B,nub_b){
 return CC;
 }
 
-
-
 function m_mtx_sub(A,B){      
  var AA =A;
  var BB =B;
@@ -8825,7 +8690,6 @@ function m_mtx_sub(A,B){
 return CC;
 }
 
-
 function m_mtx_carry(A){       
   var SS =A;
    for(var i= SS[0].length-1 ; i>1 ;i--){         
@@ -8836,7 +8700,6 @@ function m_mtx_carry(A){
     SS[0][i-1] = parseInt(SS[0][i-1]) + parseInt(data_s_b); } } 
    return SS;
 }
-
 
 function m_mtx_add(A,B){      
  var AA =A;
@@ -8850,7 +8713,6 @@ function m_mtx_add(A,B){
     CC = m_mtx_zero_pad_bf(CC);       
 return CC;
 }
-
 
 function m_mtx_cell_five(A){     
      var AA=A;
@@ -8889,8 +8751,6 @@ function m_mtx_cell_five(A){
                                               }   
   return AA;
  }
-
-
 
 function m_mtx_cell_five_int(A){      
   var AA=A;                           
@@ -8934,12 +8794,7 @@ function m_mtx_cell_five_int(A){
                                            }
                                              }   
   return AA;
-
-
  }
-
-
-
 
 function m_mtx_cell_five_brow(A){      
   var AA=A;
@@ -8958,9 +8813,6 @@ function m_mtx_cell_five_brow(A){
      return AA ;
 }
 
-
-
-
 function m_mtx_value_col_max(A){        
    var AA=A;
   var data_row = AA.length;   
@@ -8975,8 +8827,6 @@ function m_mtx_value_col_max(A){
                           }
      return col_nub ;
 }
-
-
 
 function m_mtx_cell_five_brow_int(A){      
   var AA=A;
@@ -8996,16 +8846,14 @@ function m_mtx_cell_five_brow_int(A){
     return AA ;
 }
 
-
-
 function m_mtx_cell_five_show_int(A,B){      
     var AA=A;
-     var data_row = AA.length;   
-     var data_col=AA[0].length;  
-     var data_str_a = "";
-     var data_str_b = "";
-     var data_str = "";
-     var data_cunt = data_col-1;
+    var data_row = AA.length;   
+    var data_col=AA[0].length;  
+    var data_str_a = "";
+    var data_str_b = "";
+    var data_str = "";
+    var data_cunt = data_col-1;
        for(var i=0;i< data_cunt ;i++){  
         var data_a = AA[0][i];
         var data_a1= data_a.toString();
@@ -9020,9 +8868,7 @@ function m_mtx_cell_five_show_int(A,B){
                              }
           else{  data_str = "0"+ data_str_b.substr(1,data_str_b.length-1);}                 
      return data_str;
-
 }
-
 
 function m_mtx_cell_five_show(A){      
      var AA=A;
@@ -9061,9 +8907,7 @@ function m_mtx_cell_five_show(A){
              if(data_t_fst=="-" && data_t_sec=="."){  var data_str="-0."+ data_str.substr(2,(data_str.length-2)) ; }     
         var data_str = m_mtx_trim(data_str) ;    
      return data_str;
-
 }
-
 
 function m_mtx_insert_blank(A,row_nub){      
      var AA = A;
@@ -9080,11 +8924,9 @@ function m_mtx_insert_blank(A,row_nub){
          BB[data_shift][j]= AA[i][j];
                                           }
                                      }
-    
+  
          return BB;
-
 }
-
 
 function m_mtx_insert_blank_col(A,col_nub){      
      var AA = A;
@@ -9105,7 +8947,6 @@ function m_mtx_insert_blank_col(A,col_nub){
          return BB;
 }
 
-
 function m_mtx_update_col_index(A,col_nub){      
      var AA = A;
     var nub = parseInt(col_nub);
@@ -9121,9 +8962,7 @@ function m_mtx_update_col_index(A,col_nub){
                                       }
    
          return AA;
-
 }
-
 
 function m_mtx_delete_one(A,row_nub){      
 var AA = A;
@@ -9141,13 +8980,7 @@ var AA = A;
                                           }
                                      }
         return BB;
-
 }
-
-
-
-
-
 
 function m_mtx_sort_col_nub( X ,col_nub ,property){      
     var AA = X;
@@ -9205,7 +9038,6 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                                         }    
  
    return AA;
-
     }
   
  function calculate(item_1){
@@ -9229,9 +9061,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                    newline_1(); 
                    scroll_cursor();
                       return;}
-                                          
-              
-           var this_function = this_it;                                                      
+         var this_function = this_it;                                                      
            var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
                if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   
                             else { var function_data ="";} 
@@ -9299,7 +9129,6 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
               if(data_er_rg != this_data.toString()){   
                   document.getElementById('input').value = this_s.toString().trim()+function_data+" = "+data_er_rg +";"  ;  //20200810
                                             }
-
                else{
                var deci_dgt= parseInt(document.getElementById('5_0').value); 
 
@@ -9340,7 +9169,6 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                                            }
            
          return nb ;
- 
        }
 
 
