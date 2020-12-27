@@ -403,32 +403,34 @@ var but_a_count=0;
 <th>Operator</th>
 <th>calculator input rang</th> 
 <th>output error rang </th>
-<th>Remake</th>
+<th>Domain </th> 
+<th>Remake </th>
 </tr>
 </thead>
 <tbody>  
-<tr><td align="center">n!</td><td > n >=0 and n<=<2e+7 ;<br> n ∈ N</td><td align="center">number after the decimal point</td><td>n>2e+7, need a lot of calculation </td></tr>
-<tr><td align="center">^(x)</td><td> |x|<=1e+200 </td><td align="center">""</td><td > pow(x)</td></tr>   
-<tr><td align="center">ln(x)</td><td> x > 0 </td><td align="center">""</td><td></td></tr>  
-<tr><td align="center">log(x)</td><td> x > 0 </td><td align="center">""</td><td></td></tr> 
-<tr><td align="center">exp(x)</td><td> |x|<=1e+200</td><td align="center">"" </td><td ></td></tr>   
-<tr><td align="center">sin(x)</td><td>x<=1e+49500 </td><td align="center"> ""</td><td></td></tr>
-<tr><td align="center">cos(x)</td><td> x<=1e+49500 </td><td align="center">""</td><td></td></tr>
-<tr><td align="center">tan(x)</td><td> x<=1e+49500 </td><td align="center">""</td><td>x ≠ kπ+π/2  k∈Z </td></tr>
-<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td align="center">""</td><td></td></tr>
-<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td align="center">""</td><td></td></tr>
-<tr><td align="center">atan(x)</td><td>x ∈ R </td><td align="center">""</td><td></td></tr>
-<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td></td></tr>      
-<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td></td></tr>
-<tr><td align="center">tanh(x)</td><td>x ∈ R</td><td align="center">""</td><td></td></tr>
-<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td align="center">""</td><td></td></tr>
-<tr><td align="center">acosh(x)</td><td>x >= 1</td><td align="center">""</td><td></td></tr>
-<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td align="center">""</td><td></td></tr>  
+<tr><td align="center">n!</td><td > n >=0 <br>and n<=<2e+7 ; <br>n ∈ N</td><td align="center">number after <br>the decimal point</td><td></td><td>n>2e+7,<br> need a lot of calculation </td></tr> 
+<tr><td align="center">^(x)</td><td>|x|<=1e+200 </td><td align="center">""</td><td></td><td > pow(x)</td></tr>    
+<tr><td align="center">ln(x)</td><td> x > 0 </td><td align="center">""</td><td></td><td></td></tr>  
+<tr><td align="center">log(x)</td><td> x > 0 </td><td align="center">""</td><td></td><td></td></tr> 
+<tr><td align="center">exp(x)</td><td>|x|<=1e+200</td><td align="center">"" </td><td ></td><td></td></tr>   
+<tr><td align="center">sin(x)</td><td>|x|<=1e+49500 </td><td align="center"> ""</td><td>-1 to 1 </td><td></td></tr> 
+<tr><td align="center">cos(x)</td><td> |x|<=1e+49500 </td><td align="center">""</td><td>-1 to 1</td><td></td></tr>  
+<tr><td align="center">tan(x)</td><td> |x|<=1e+49500 </td><td align="center">""</td><td>-∞ to ∞</td><td>x ≠ kπ+π/2  k∈Z </td></tr>  
+<tr><td align="center">asin(x)</td><td>|x|<= 1 </td><td align="center">""</td><td>-π/2 to π/2</td><td></td></tr>
+<tr><td align="center">acos(x)</td><td>|x|<= 1</td><td align="center">""</td><td>0 to π</td><td></td></tr>
+<tr><td align="center">atan(x)</td><td>x ∈ R </td><td align="center">""</td><td>-π/2 to π/2</td><td></td></tr>
+<tr><td align="center">sinh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td>-∞ to ∞</td><td></td></tr>      
+<tr><td align="center">cosh(x)</td><td>|x|<= 1e+200</td><td align="center">""</td><td>>1 to ∞</td><td></td></tr>
+<tr><td align="center">tanh(x)</td><td>x ∈ R</td><td align="center">""</td><td>-1 to 1</td><td></td></tr> 
+<tr><td align="center">asinh(x)</td><td>x ∈ R</td><td align="center">""</td><td>R</td><td></td></tr>
+<tr><td align="center">acosh(x)</td><td>x >= 1</td><td align="center">""</td><td>0 to ∞</td><td></td></tr>
+<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td align="center">""</td><td>R</td><td></td></tr>  
 </tbody>
 </table>
 </div>
 <h2 onclick="table_but_i()" id="block_i_tb_cap" style="width:35% ;background-color:beige">↓References </h2>
 <div class="block_i"  id="block_i_tb"   style="width:100%;background-color:beige;font-family: Lucida Console;" >
+<p>Advanced Engineering Mathematics  Erwin Kreyszig</p>     
 <p>https://en.wikipedia.org/wiki/Factorial</p>
 <p>https://en.wikipedia.org/wiki/Exponentiation</p>
 <p>https://en.wikipedia.org/wiki/Natural_logarithm<p>
