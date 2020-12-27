@@ -4219,7 +4219,7 @@ var array_a=[];
           if(acosh_1==1 || acosh_5==1){                    
                 array_a=["1_0","3_6"]; }
           if(atanh_1==1 ||atanh_2==1  || atanh_5==1){                 
-                 array_a=["2_0",]; }
+                 array_a=["2_0"]; }
           if(atanh_6==1 ||atanh_7==1 || atanh_8==1 || atanh_9==1){                 
                 array_a=["2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_3","4_4","4_5"]; }
           if(asin1_1==1 || acos1_1==1 ||asin_1_1==1 || acos_1_1==1 ||asin1_3==1 || acos1_3==1 ||asin_1_3==1 || acos_1_3==1  ){                 
@@ -4241,7 +4241,7 @@ var array_a=[];
                document.getElementById("5_4").style.color="Green";  
                document.getElementById("5_3").style.color="Green";  
                document.getElementById("4_3").style.color="Green";}
-        else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){   //20201227            
+        else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){              
                document.getElementById("5_4").style.color="Green";    
                document.getElementById("5_3").style.color="Green";  
                document.getElementById("4_3").style.color="blue";}
@@ -6457,7 +6457,7 @@ function m_tanh(x){
     if(m_mtx_real_str_comp(xx_test_nub_e,3)==1 && xx_fst !="-"){   
           var ans_a=1 ; return  ans_a;}
      if(m_mtx_real_str_comp(xx_test_nub_e,3)==1 && xx_fst =="-"){ 
-          var ans_a=-1 ; return  ans_a;
+          var ans_a=-1 ; return  ans_a;}
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
      xx_str = m_str_e_to_str(xx_str);      
@@ -7819,7 +7819,7 @@ var xx = x.toString().trim();
    var xx_fst = xx.substr(0,1);
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
     else { var xx=xx;}
-   if(m_mtx_real_str_comp(xx_test_nub_e,1000)==1 ){     //20201227
+   if(m_mtx_real_str_comp(xx_test_nub_e,1000)==1 ){     
       var data_t = m_mtx_real_mul(xx,2);
       var ans_1 =m_ln(data_t);
     if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}
