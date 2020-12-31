@@ -4193,20 +4193,32 @@ var array_a=[];
                 array_a=["4_2","5_2"];  
              }
          if(asin_1==1 || acos_1==1 ){                                             
-               document.getElementById("5_4").style.color="Green";  
-               document.getElementById("5_3").style.color="Green";  
-               document.getElementById("4_3").style.color="Green";}
-        else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){              
-               document.getElementById("5_4").style.color="Green";    
-               document.getElementById("5_3").style.color="Green";  
-               document.getElementById("4_3").style.color="blue";}
-        else if(acosh_1==1 || acosh_5==1){                      
-               document.getElementById("5_4").style.color="Red";    
-               document.getElementById("5_3").style.color="Red";      
-               document.getElementById("4_3").style.color="blue";}
-       else{ document.getElementById("4_3").style.color="blue";
-                 document.getElementById("5_4").style.color="blue";    
-                 document.getElementById("5_3").style.color="blue"; }  
+            document.getElementById("5_4").style.color="Green";  ////20201231
+            document.getElementById("5_4").style.background="yellow";  
+            document.getElementById("5_5").style.color="Green"; 
+            document.getElementById("5_5").style.background="yellow";  
+            document.getElementById("4_3").style.color="Green";
+            document.getElementById("4_3").style.background="yellow";}  
+         else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){              
+            document.getElementById("5_4").style.color="Green"; 
+            document.getElementById("5_4").style.background="yellow";  
+            document.getElementById("5_5").style.color="Green";  
+            document.getElementById("5_5").style.background="yellow";  
+            document.getElementById("4_3").style.color="blue";
+            document.getElementById("4_3").style.backgroundColor = "transparent"; }   
+          else if(acosh_1==1 || acosh_5==1){                                                 
+             document.getElementById("5_4").style.color="Red"; 
+             document.getElementById("5_4").style.background="yellow";  
+             document.getElementById("5_5").style.color="Red";      
+             document.getElementById("5_5").style.background="yellow";  
+             document.getElementById("4_3").style.color="blue";
+             document.getElementById("4_3").style.backgroundColor = "transparent";  } 
+        else{ document.getElementById("4_3").style.color="blue";
+             document.getElementById("4_3").style.backgroundColor = "transparent";  
+             document.getElementById("5_4").style.color="blue"; 
+             document.getElementById("5_4").style.backgroundColor = "transparent";  
+             document.getElementById("5_5").style.color="blue"; 
+             document.getElementById("5_5").style.backgroundColor = "transparent";}  
        s_chang_hidden_array(array_a);      
   }
 
@@ -5208,7 +5220,7 @@ function m_sub_error_rg(str_1){
       var this_it_t_test = this_it_t_test.replace(/acos/g , "");    
       var n_nb_1 = m_str_spc_count(this_it_t_test,"sin");  
       var n_nb_2 = m_str_spc_count(this_it_t_test,"cos");
-    if(data_rang_str_up ==2 && data_rang_str_down ==1 && ng_nb_1 >=1 && ng_nb_2 >=1  && str_a !=0){    
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 && n_nb_1 >=1 && n_nb_2 >=1  && str_a !=0){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
