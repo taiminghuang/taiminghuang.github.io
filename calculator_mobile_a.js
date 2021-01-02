@@ -1089,7 +1089,7 @@ function message_1(n){
             message_1 = "<--  Msg : n! ,  n > 2e+7 no support   -->" ;    
             break;
            case 34:  
-            message_1 = "<--  Msg : -1e-200<= answer <=1e-200 , inside of calculator error range -->" ;    
+            message_1 = "<--  Msg : |answer| <=1e-200 , inside of calculator error range -->" ;    
             break;
             case 35:
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
@@ -5220,7 +5220,8 @@ function m_sub_error_rg(str_1){
       var this_it_t_test = this_it_t_test.replace(/acos/g , "");    
       var n_nb_1 = m_str_spc_count(this_it_t_test,"sin");  
       var n_nb_2 = m_str_spc_count(this_it_t_test,"cos");
-    if(data_rang_str_up ==2 && data_rang_str_down ==1 && n_nb_1 >=1 && n_nb_2 >=1  && str_a !=0){    
+      var n_nb_exp = m_str_spc_count(this_it_t_test,"exp");
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && ((n_nb_1 >=1 && n_nb_2 >=1) || (n_nb_exp >=2))){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
