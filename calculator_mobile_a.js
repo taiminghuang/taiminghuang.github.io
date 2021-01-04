@@ -1026,10 +1026,10 @@ function message_1(n){
           message_1 = "<--  Msg : acos(x) , |x|<= 1 -->" ;
           break;
         case 3:
-          message_1 = "<--  Msg : acosh(x) , x >= 1 -->" ;
+          message_1 = "<--  Msg : acosh(x) , arcosh(x) , x >= 1 -->" ;
           break;
         case 4:
-          message_1 = "<--  Msg : atanh(x) , |x|< 1 -->" ;
+          message_1 = "<--  Msg : atanh(x) , artanh(x), |x|< 1 -->" ;
           break;
         case 5:
           message_1 = "<--  Msg : ln(x) , x > 0 -->" ;
@@ -1089,7 +1089,7 @@ function message_1(n){
             message_1 = "<--  Msg : n! ,  n > 2e+7 no support   -->" ;    
             break;
            case 34:  
-            message_1 = "<--  Msg : |answer| <=1e-200 , inside of calculator error range -->" ;    
+            message_1 = "<--  Msg : | answer | <=1e-200 , inside of calculator error range -->" ;    
             break;
             case 35:
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
@@ -8516,7 +8516,7 @@ function m_mtx_reciprocal_div(B,A){
      if(data_test==3){ var ans=1; 
                     return ans;}
    var data_tt = 0;
-   var data_count = 300 ;    
+   var data_count = 2000 ;    
     for(var k=0 ; k< data_count ;k++){      
     for(var i=0 ; i< 10 ;i++){            
      var data_cp = m_mtx_compare_nub(DD,DR,i);         
@@ -9066,9 +9066,13 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
                    scroll_cursor();
                       return;}
          var this_function = this_it;                                                      
-           var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
-               if(this_function!=this_it && this_it !=""&& this_it !=0){ var function_data = " = "+this_it ;}   
-                            else { var function_data ="";} 
+         var this_it =  m_str_spec_part_af_minus_sum(this_it);                             
+         var this_it_copy =  this_it ;                            //20210104
+         var this_it_copy = this_it_copy.replace(/asinh/g , "arsinh");    
+         var this_it_copy = this_it_copy.replace(/acosh/g , "arcosh");    
+         var this_it_copy = this_it_copy.replace(/atanh/g , "artanh");     
+              if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data = " = "+this_it_copy ;}   
+              else{   var function_data ="";} 
                this_it =mtx_str_e_chk(this_it);              
                this_it = m_tri_ang_2pi_rem(this_it);
                this_it = m_tri_ang_2pi_replace(this_it );
