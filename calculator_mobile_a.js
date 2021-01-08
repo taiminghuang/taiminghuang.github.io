@@ -984,6 +984,7 @@ function m_n(n){
                                 }
          if( xx_fst=="-"){ xx ="-"+xx;}     
          if(nub==0){
+           var nub_p = m_mtx_trim(nub_p) ;
                    return nub_p;}    
          else{
             xx = m_mtx_trim(xx) ;   
@@ -5445,6 +5446,8 @@ function m_mtx_no_point_sub(A,B){
 function m_exp(x){     
   var bb=E1;
    var xx=x.toString().trim();
+   var data_msg =  m_str_char(x,"Msg") ;                     
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx_test_small = m_mtx_str_to_e(xx);             
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
@@ -5529,7 +5532,10 @@ function m_exp_low(x){
 
 function m_sin(x){                         
     var xx=x.toString().trim();
-    var xx =m_mtx_trim(xx) ;
+    var data_msg =0;
+    var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   //20210108 上移
+    var xx =m_mtx_trim(xx) ; 
     var ans_a="";
     var data_msg =0;   
     var data_cle =0;
@@ -5538,9 +5544,7 @@ function m_sin(x){
     var xx_test_st = m_str_power(xx_test_small,1);               
       if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){ return  xx;}
     var data_cle = m_sin_sum(xx ,0);  
-    var data_msg =  m_str_char(data_cle,"Msg") ; 
-      if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
-    var data_t_MTX_COL_1 = MTX_COL;
+     var data_t_MTX_COL_1 = MTX_COL;
       MTX_COL =100;            
     var data_cle_a =0;
     var ans_0=0;
@@ -6161,6 +6165,9 @@ function m_cos_matrix_1(x){
 
 function m_cos(x){          
     var xx=x.toString().trim();
+   var data_msg =0;
+    var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}  
     var xx =m_mtx_trim(xx) ;
     var ans_a="";
     var data_msg =0;   
@@ -6172,8 +6179,7 @@ function m_cos(x){
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
       var ans_a=1 ; return  ans_a;} 
     var data_cle = m_sin_sum(xx ,0);
-    var data_msg =  m_str_char(data_cle,"Msg") ;               
-       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;} 
+    
     var cle_fst =0; 
     var cle_fst = data_cle.toString().substr(0,1);
      if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
