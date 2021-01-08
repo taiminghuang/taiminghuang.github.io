@@ -6179,7 +6179,6 @@ function m_cos(x){
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
       var ans_a=1 ; return  ans_a;} 
     var data_cle = m_sin_sum(xx ,0);
-    
     var cle_fst =0; 
     var cle_fst = data_cle.toString().substr(0,1);
      if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
@@ -6222,9 +6221,11 @@ function m_cos(x){
 
 function m_tan(x){                           
   var xx=x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;  
   var ans_a="";
-  var data_msg =0;    
   var data_cle =0; 
   var xx_test_small = m_mtx_str_to_e(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -6232,9 +6233,7 @@ function m_tan(x){
      if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
      var ans_a=xx ; return  ans_a;} 
   var data_cle = m_sin_sum(xx ,0);
-  var data_msg =  m_str_char(data_cle,"Msg") ;  
-       if(data_msg >=1){ var ans_a = data_cle ; return  ans_a ;}   
-  var cle_fst =0; 
+    var cle_fst =0; 
   var cle_fst = data_cle.toString().substr(0,1);
      if(cle_fst =="-"){ var data_cle = data_cle.toString().substr(1,data_cle.length-1);}  
          var data_cle =m_fix(data_cle,250);
@@ -6283,6 +6282,9 @@ function m_tan(x){
 
 function m_sinh(x){
   var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
   var xx =m_mtx_trim(xx) ; 
   var xx_test_small = m_mtx_str_to_e(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -6343,6 +6345,9 @@ function m_sinh(x){
 
 function m_cosh(x){       
  var xx = x.toString().trim();
+  var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;
   var xx_test_small = m_mtx_str_to_e(xx);            
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -6402,6 +6407,9 @@ function m_cosh(x){
 
 function m_tanh(x){
   var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;
   var xx_test_small = m_mtx_str_to_e(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -6648,6 +6656,9 @@ function m_mtx_dele_zero(x){
 
 function m_ln(x){           
  var xx = x.toString().trim();
+ var data_msg =0;
+ var data_msg =  m_str_char(xx,"Msg") ;  
+    if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}  
  var xx =m_mtx_trim(xx) ;        
  var nub_e=0;
  var sum_ta=0;
@@ -7193,6 +7204,9 @@ function m_s_e_ln(x,nub){
 
 function m_log(x){      
    var xx=x.toString().trim();
+   var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
    var  nub_e_str =0;
    var  xx_str ="";
    var  nub_e_str =  m_s_e(xx ,1);         
@@ -7470,6 +7484,9 @@ function m_pow(base,p){
 
 function m_asin(x){                                              
   var zz = x.toString().trim();
+  var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx_test_small = m_mtx_str_to_e(zz);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7556,6 +7573,9 @@ function m_asin(x){
 
 function m_acos(x){                   
    var xx = x.toString().trim();
+   var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx_test_small = m_mtx_str_to_e(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7590,6 +7610,9 @@ return ans_1;
 
 function m_atan(x){                   
    var xx = x.toString().trim();
+   var data_msg = 0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx =m_mtx_trim(xx) ;  
    var xx_test_small = m_mtx_str_to_e(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7747,6 +7770,9 @@ function m_atan_part_center(x){
 
 function m_asinh(x){                            
    var xx = x.toString().trim();
+   var data_msg = 0;
+    var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
    var xx =m_mtx_trim(xx) ; 
    var xx_test_small = m_mtx_str_to_e(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7826,6 +7852,9 @@ return ans_1;
 
 function m_acosh(x){                  
   var xx = x.toString().trim();
+  var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;        
   var xx_fst = xx.substr(0,1);
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -7852,6 +7881,9 @@ return ans_1;
 
 function m_atanh(x){                            
 var xx = x.toString().trim();
+var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;   
  var xx_test_small = m_mtx_str_to_e(xx);              
  var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -8468,6 +8500,10 @@ function m_mtx_real_div(y,x){
      if(data_comp_xx_1==3){
         var ans_1 = yy;                         
        return ans_1 ;}   
+  var data_comp_xx_yy = m_mtx_real_str_comp(xx,yy);      
+       if(data_comp_xx_yy==3){
+                  var ans_1 = 1;                         
+                        return ans_1 ;}
    var yy = m_mtx_str_to_e(yy);       
    var xx = m_mtx_str_to_e(xx);        
    var yy = m_mtx_str_to_e_a(yy);       
@@ -8569,7 +8605,8 @@ function m_mtx_reciprocal_div(B,A){
        var data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);  
        var data_qt = m_mtx_trim(data_qt) ;
         return data_qt ; }} }  
-       var data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);  
+       var data_qt = data_qt.substr(0,1) + "." + data_qt.substr(1,data_qt.length-1);
+       var data_qt = data_qt.toString() ; 
        var data_qt = m_mtx_trim(data_qt) ;
    return data_qt ;
  }
