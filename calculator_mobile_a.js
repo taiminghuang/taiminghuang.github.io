@@ -6712,175 +6712,195 @@ function m_ln_small(x){
    var nub_ln19=0;  
    var nub_ln37=0;   
    var nub_ln67=0;    
-   var data_chk = xx_st.substr(0,12).trim();
-   var data_chk = parseFloat(data_chk);
-      if( data_chk < 0.1 ){               
-        while( data_chk < 0.1 ){
+   var xx_st = m_str_e_to_str(xx_st);
+   var data_xx_st_comp_01 = m_mtx_real_str_comp(xx_st,0.1);    
+  if(data_xx_st_comp_01 ==2 ){        
+        while( data_xx_st_comp_01 ==2 ){  
        xx_st=m_mtx_real_mul(xx_st,2); var nub_ln2 = m_mtx_int_sub(nub_ln2,1);      
        xx_st = m_str_e_to_str(xx_st);           
-   var data_chk = xx_st.substr(0,12).trim();
-   var data_chk = parseFloat(data_chk); }}
-   var data_chk = xx_st.substr(0,12).trim();    
-   var data_chk = parseFloat(data_chk);
-      if( data_chk >= 0.1   && data_chk< 0.124){  xx_st=m_mtx_real_mul(xx_st,8); var nub_ln2=m_mtx_int_sub(nub_ln2,3);}    
-      if( data_chk >= 0.124 && data_chk< 0.24 ){  xx_st=m_mtx_real_mul(xx_st,4); var nub_ln2=m_mtx_int_sub(nub_ln2,2);}
-      if( data_chk >= 0.24  && data_chk < 0.5  ){  xx_st=m_mtx_real_mul(xx_st,2); var nub_ln2=m_mtx_int_sub(nub_ln2,1);}
+   var data_xx_st_comp_01 = m_mtx_real_str_comp(xx_st,0.1); }}  
+
+   var xx_st = m_str_e_to_str(xx_st);
+   var data_xx_st_comp_01 = m_mtx_real_str_comp(xx_st,0.1);   
+ 
+   var data_xx_st_comp_0124 = m_mtx_real_str_comp(xx_st,0.124);   
+   var data_xx_st_comp_024 = m_mtx_real_str_comp(xx_st,0.24);    
+   var data_xx_st_comp_05 = m_mtx_real_str_comp(xx_st,0.5);         
+      if(data_xx_st_comp_01 != 2   && data_xx_st_comp_0124 ==2){  xx_st=m_mtx_real_mul(xx_st,8); var nub_ln2=m_mtx_int_sub(nub_ln2,3);}    
+      if(data_xx_st_comp_0124 !=2  && data_xx_st_comp_024 ==2 ){  xx_st=m_mtx_real_mul(xx_st,4); var nub_ln2=m_mtx_int_sub(nub_ln2,2);}
+      if(data_xx_st_comp_024 != 2  && data_xx_st_comp_05==2  ){  xx_st=m_mtx_real_mul(xx_st,2); var nub_ln2=m_mtx_int_sub(nub_ln2,1);}
     var xx_st = m_str_e_to_str(xx_st);  
-    var data_chk_1 = xx_st.substr(0,12);
-    var data_chk_1 = parseFloat(data_chk_1); 
-      if( data_chk_1 <= 0.6 ){  xx_st=m_mtx_real_mul(xx_st,2); var nub_ln2 = m_mtx_int_sub(nub_ln2,1);}      
-    var xx_st = m_str_e_to_str(xx_st);         
-    var data_chk_2 = xx_st.substr(0,12);
-    var data_chk_2 = parseFloat(data_chk_2); 
-       if( data_chk_2 >= 0.6  && data_chk_2 <= 0.7 ){ 
+    var  data_xx_st_comp_06 = m_mtx_real_str_comp(xx_st,0.6);   // 20210110
+       if( data_xx_st_comp_06 !=1 ){  xx_st=m_mtx_real_mul(xx_st,2); var nub_ln2 = m_mtx_int_sub(nub_ln2,1);}       
+    var xx_st = m_str_e_to_str(xx_st);
+    var data_xx_st_comp_06 = m_mtx_real_str_comp(xx_st,0.6);    
+    var data_xx_st_comp_07 = m_mtx_real_str_comp(xx_st,0.7);   
+       if( data_xx_st_comp_06 !=2  && data_xx_st_comp_07 !=1 ){ 
     var xx_st=m_mtx_real_div(xx_st,0.64); 
     var nub_ln2 = m_mtx_int_add(nub_ln2 ,6 );           
-    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2); 
-                                                }   
-       if( data_chk_2 > 0.7  && data_chk_2 <= 0.875 ){ 
+    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);} 
+    var xx_st = m_str_e_to_str(xx_st);
+    var data_xx_st_comp_0875 = m_mtx_real_str_comp(xx_st,0.875);    
+    var data_xx_st_comp_07 = m_mtx_real_str_comp(xx_st,0.7);                                                
+       if( data_xx_st_comp_07 ==1  && data_xx_st_comp_0875 !=1 ){ 
     var xx_st=m_mtx_real_div(xx_st,0.8); 
     var nub_ln2 = m_mtx_int_add(nub_ln2 ,3) ;   
-    var nub_ln10 = m_mtx_int_sub(nub_ln10,1);
-                                                       }       
-       if( data_chk_2 >= 1.125  && data_chk_2 <= 1.2 ){    //
+    var nub_ln10 = m_mtx_int_sub(nub_ln10,1);}
+    var xx_st = m_str_e_to_str(xx_st);
+    var data_xx_st_comp_1125 = m_mtx_real_str_comp(xx_st,1.125);           
+    var data_xx_st_comp_12 = m_mtx_real_str_comp(xx_st,1.2);                                                           
+       if(data_xx_st_comp_1125 !=2  && data_xx_st_comp_12 !=1 ){   
     var xx_st=m_mtx_real_div(xx_st,1.28); 
     var nub_ln2 = m_mtx_int_add(nub_ln2 ,7) ; 
-    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2); 
-                                                     }      
-    var xx_st = m_str_e_to_str(xx_st);         
-    var data_chk_3 = xx_st.substr(0,12);
-    var data_chk_3 = parseFloat(data_chk_3); 
-        if( data_chk_3 >= 0.875  && data_chk_3 <= 0.95 ){ 
+    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2); }
+                                                           
+    var xx_st = m_str_e_to_str(xx_st);  
+    var data_xx_st_comp_095= m_mtx_real_str_comp(xx_st,0.95);    
+    var data_xx_st_comp_0875= m_mtx_real_str_comp(xx_st,0.875);  
+        if( data_xx_st_comp_0875 !=2  && data_xx_st_comp_095 != 1 ){ 
     var xx_st=m_mtx_real_div(xx_st,0.9);
     var nub_ln3 = m_mtx_int_add(nub_ln3 , 2) ;  
-    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,1);
-                                                     }   
-    var data_chk_3_1 = xx_st.substr(0,12);          
-    var data_chk_3_1 = parseFloat(data_chk_3_1);     
-        if(( data_chk_3_1 >= 1.1  && data_chk_3_1 < 1.125 )||( data_chk_3_1 < 1.1  && data_chk_3_1 >= 1.05 )){
-         var data_chk_3=data_chk_3_1;       
-                                         }
-        if( data_chk_3 >= 1.1  && data_chk_3 < 1.125 ){ 
+    var nub_ln10 = m_mtx_int_sub(nub_ln10 ,1); } 
+                                 
+      var xx_st = m_str_e_to_str(xx_st);                                          
+     var data_xx_st_comp_11= m_mtx_real_str_comp(xx_st,1.1);    
+     var data_xx_st_comp_1125= m_mtx_real_str_comp(xx_st,1.125);  
+       if( data_xx_st_comp_11 !=2  && data_xx_st_comp_1125==2 ){ 
      var xx_st=m_mtx_real_div(xx_st,1.125); 
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 2) ;  
      var nub_ln5 = m_mtx_int_add(nub_ln5 , 3) ;
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3); 
-                                                 }      
-        if( data_chk_3 < 1.1  && data_chk_3 >= 1.05 ){ 
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);}
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_11= m_mtx_real_str_comp(xx_st,1.1);    
+     var data_xx_st_comp_105= m_mtx_real_str_comp(xx_st,1.05);                                                  
+        if( data_xx_st_comp_11==2  && data_xx_st_comp_105 !=2 ){ 
      var xx_st=m_mtx_real_div(xx_st,1.05); 
      var nub_ln3 = m_mtx_int_add(nub_ln3 ,1) ;  
      var nub_ln5 = m_mtx_int_add(nub_ln5 ,1) ; 
      var nub_ln7 = m_mtx_int_add(nub_ln7 ,1 ); 
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);  
-                                                  }                   
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);}   
      var xx_st = m_str_e_to_str(xx_st); 
-     var data_chk_5 = xx_st.substr(0,12);
-     var data_chk_5 = parseFloat(data_chk_5); 
-         if( data_chk_5 >= 0.95  && data_chk_5 <= 0.975 ){ 
+     var data_xx_st_comp_095= m_mtx_real_str_comp(xx_st,0.95);    
+     var data_xx_st_comp_0975= m_mtx_real_str_comp(xx_st,0.975); 
+         if( data_xx_st_comp_095 !=2  && data_xx_st_comp_0975 !=1 ){ 
      var  xx_st=m_mtx_real_div(xx_st,0.96);
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 1) ;  
      var nub_ln2 = m_mtx_int_add(nub_ln2 , 5) ; 
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);
-                                                  }   
-        if( data_chk_5 >= 1.025  && data_chk_5 < 1.05 ){   
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);} 
+     xx_st = m_str_e_to_str(xx_st);
+     var data_xx_st_comp_1025= m_mtx_real_str_comp(xx_st,1.025);    
+     var data_xx_st_comp_105= m_mtx_real_str_comp(xx_st,1.05);                                               
+        if( data_xx_st_comp_1025 !=2  && data_xx_st_comp_105==2){   
      var  xx_st=m_mtx_real_div(xx_st,1.05); 
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 1) ;  
      var nub_ln5 = m_mtx_int_add(nub_ln5 , 1) ;  
      var nub_ln7 = m_mtx_int_add(nub_ln7 , 1) ;  
      var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2); }
-     var xx_st = m_str_e_to_str(xx_st);        
-     var data_chk_6 = xx_st.substr(0,12);
-     var data_chk_6 = parseFloat(data_chk_6); 
-         if( data_chk_6 >= 0.975  && data_chk_6 <= 0.9875 ){ 
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_0975= m_mtx_real_str_comp(xx_st,0.975);    
+     var data_xx_st_comp_09875= m_mtx_real_str_comp(xx_st,0.9875); 
+         if(data_xx_st_comp_0975 !=2  && data_xx_st_comp_09875 !=1 ){ 
      var  xx_st=m_mtx_real_div(xx_st,0.98); 
      var nub_ln7 = m_mtx_int_add(nub_ln7 , 2) ;  
      var nub_ln2 = m_mtx_int_add(nub_ln2 , 1) ;
-     var nub_ln10 = m_mtx_int_sub(nub_ln10,2);
-                                                  }   
-         if( data_chk_6 >= 1.0125  && data_chk_6 < 1.025 ){ 
+     var nub_ln10 = m_mtx_int_sub(nub_ln10,2); }
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_10125= m_mtx_real_str_comp(xx_st,1.0125);    
+     var data_xx_st_comp_1025= m_mtx_real_str_comp(xx_st,1.025);                                              
+         if( data_xx_st_comp_10125 !=2 && data_xx_st_comp_1025==2 ){ 
      var xx_st=m_mtx_real_div(xx_st,1.024); 
      var nub_ln2 = m_mtx_int_add(nub_ln2 , 10) ;
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);  
-                                                  } 
-     var xx_st = m_str_e_to_str(xx_st);        
-     var data_chk_7 = xx_st.substr(0,12);
-     var data_chk_7 = parseFloat(data_chk_7); 
-          if( data_chk_7 > 0.9875  && data_chk_7 <= 0.99 ){ 
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);  } 
+                                                  
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_09875= m_mtx_real_str_comp(xx_st,0.9875);    
+     var data_xx_st_comp_099= m_mtx_real_str_comp(xx_st,0.99); 
+          if( data_xx_st_comp_09875==1  && data_xx_st_comp_099 !=1 ){ 
      var  xx_st=m_mtx_real_div(xx_st,0.98);
      var nub_ln7 = m_mtx_int_add(nub_ln7 , 2) ;  
      var nub_ln2 = m_mtx_int_add(nub_ln2 , 1) ; 
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);
-                                                }  
-     var data_chk_7_1 = xx_st.substr(0,12);          
-     var data_chk_7_1 = parseFloat(data_chk_7_1);      
-          if( data_chk_7_1 >= 1.01  && data_chk_7_1 < 1.0125 ){
-     var data_chk_7=data_chk_7_1;       
-                                   }
-           if( data_chk_7 >= 1.01  && data_chk_7 < 1.0125 ){            
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,2);} 
+     var xx_st = m_str_e_to_str(xx_st);                                             
+     var data_xx_st_comp_101= m_mtx_real_str_comp(xx_st,1.01);    
+     var data_xx_st_comp_10125= m_mtx_real_str_comp(xx_st,1.0125);       
+                                 
+           if(data_xx_st_comp_101 !=2  && data_xx_st_comp_10125==2 ){            
      var  xx_st=m_mtx_real_div(xx_st,1.0125); 
      var nub_ln5 = m_mtx_int_add(nub_ln5 , 3) ; 
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 4) ; 
      var nub_ln10 = m_mtx_int_sub(nub_ln10,4);  } 
-     var xx_st = m_str_e_to_str(xx_st);         
-     var data_chk_8 = xx_st.substr(0,12);
-     var data_chk_8 = parseFloat(data_chk_8); 
-           if( data_chk_8 > 0.99  && data_chk_8 <= 0.995 ){ 
+     var xx_st = m_str_e_to_str(xx_st);  
+     var data_xx_st_comp_099 = m_mtx_real_str_comp(xx_st,0.99);   
+     var data_xx_st_comp_0995 = m_mtx_real_str_comp(xx_st,0.995); 
+           if(data_xx_st_comp_099==1  && data_xx_st_comp_0995 !=1 ){ 
      var xx_st=m_mtx_real_mul(xx_st,1.008);
      var nub_ln7 = m_mtx_int_sub(nub_ln7 , 1) ; 
      var nub_ln3 = m_mtx_int_sub(nub_ln3 , 2) ;
      var nub_ln2 = m_mtx_int_sub(nub_ln2 , 4) ; 
-     var nub_ln10 = m_mtx_int_add(nub_ln10 ,3);  }   
-            if( data_chk_8 >= 1.005  && data_chk_8 < 1.01 ){                        
+     var nub_ln10 = m_mtx_int_add(nub_ln10 ,3);  } 
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_1005 = m_mtx_real_str_comp(xx_st,1.005);    
+     var data_xx_st_comp_101 = m_mtx_real_str_comp(xx_st,1.01);
+            if(data_xx_st_comp_1005 != 2 && data_xx_st_comp_101 ==2 ){                        
      var xx_st=m_mtx_real_div(xx_st,1.008); 
      var nub_ln7 = m_mtx_int_add(nub_ln7 , 1) ; 
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 2) ; 
      var nub_ln2 = m_mtx_int_add(nub_ln2 , 4) ; 
      var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);    }         
-     var xx_st = m_str_e_to_str(xx_st);   
-     var data_chk_9 = xx_st.substr(0,12);
-     var data_chk_9 = parseFloat(data_chk_9); 
-             if( data_chk_9 > 0.995  && data_chk_9 <= 0.9975 ){ 
+     var xx_st = m_str_e_to_str(xx_st);
+     var data_xx_st_comp_0995 = m_mtx_real_str_comp(xx_st,0.995);   
+     var data_xx_st_comp_09975 = m_mtx_real_str_comp(xx_st,0.9975); 
+             if( data_xx_st_comp_0995 ==1  && data_xx_st_comp_09975 !=1 ){ 
      var xx_st=m_mtx_real_mul(xx_st,1.005); 
      var nub_ln67 = m_mtx_int_sub(nub_ln67 , 1) ; 
      var nub_ln3 = m_mtx_int_sub(nub_ln3 , 1) ;
      var nub_ln5 = m_mtx_int_sub(nub_ln5 , 1) ; 
      var nub_ln10 = m_mtx_int_add(nub_ln10 ,3);  } 
-            if( data_chk_9 >= 1.0025  && data_chk_9 < 1.005 ){                       
-     var  xx_st=m_mtx_real_mul(xx_st,0.9975);  
+     var xx_st = m_str_e_to_str(xx_st);
+     var data_xx_st_comp_10025 = m_mtx_real_str_comp(xx_st,1.0025);   
+     var data_xx_st_comp_1005 = m_mtx_real_str_comp(xx_st,1.005); 
+            if(data_xx_st_comp_10025 !=2  && data_xx_st_comp_1005==2 ){                       
+     var xx_st=m_mtx_real_mul(xx_st,0.9975);  
      var nub_ln3 = m_mtx_int_sub(nub_ln3 , 1) ; 
      var nub_ln5 = m_mtx_int_sub(nub_ln5 , 2) ; 
      var nub_ln7 = m_mtx_int_sub(nub_ln7 ,1) ; 
      var nub_ln19 = m_mtx_int_sub(nub_ln19 , 1) ;  
      var nub_ln10 = m_mtx_int_add(nub_ln10 ,4);    }       
-     var xx_st = m_str_e_to_str(xx_st);         
-     var data_chk_a = xx_st.substr(0,12);
-     var data_chk_a = parseFloat(data_chk_a); 
-           if( data_chk_a > 0.9975  && data_chk_a <= 0.99875 ){ 
+     var xx_st = m_str_e_to_str(xx_st);  
+     var data_xx_st_comp_09975 = m_mtx_real_str_comp(xx_st,0.9975);    
+     var data_xx_st_comp_099875 = m_mtx_real_str_comp(xx_st,0.99875); 
+           if( data_xx_st_comp_09975 ==1  && data_xx_st_comp_099875 !=1){ 
      var xx_st=m_mtx_real_div(xx_st,0.9984); 
      var nub_ln2 = m_mtx_int_add(nub_ln2 ,8) ; 
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 1) ;
      var nub_ln13 = m_mtx_int_add(nub_ln13 , 1) ; 
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,4);  }   
-           if( data_chk_a >= 1.00125  && data_chk_a < 1.0025 ){                        
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,4);  } 
+     var xx_st = m_str_e_to_str(xx_st);
+     var data_xx_st_comp_100125 = m_mtx_real_str_comp(xx_st,1.00125);    
+     var data_xx_st_comp_10025 = m_mtx_real_str_comp(xx_st,1.0025);
+           if( data_xx_st_comp_100125 !=2  && data_xx_st_comp_10025 ==2  ){                        
      var xx_st=m_mtx_real_mul(xx_st,0.9984);  
      var nub_ln2 = m_mtx_int_sub(nub_ln2 ,8) ; 
      var nub_ln3 = m_mtx_int_sub(nub_ln3 , 1) ;
      var nub_ln13 = m_mtx_int_sub(nub_ln13 , 1) ; 
      var nub_ln10 = m_mtx_int_add(nub_ln10 ,4);  } 
-     var xx_st = m_str_e_to_str(xx_st);         
-     var data_chk_b = xx_st.substr(0,12);
-     var data_chk_b = parseFloat(data_chk_b); 
-          if( data_chk_b > 0.99875  && data_chk_b <= 0.999375 ){ 
+     var xx_st = m_str_e_to_str(xx_st);   
+     var data_xx_st_comp_099875 = m_mtx_real_str_comp(xx_st,0.99875);    
+     var data_xx_st_comp_0999375 = m_mtx_real_str_comp(xx_st,0.999375); 
+          if(data_xx_st_comp_099875 ==1  && data_xx_st_comp_0999375 != 1 ){ 
      var  xx_st=m_mtx_real_div(xx_st,0.999);  
      var nub_ln3 = m_mtx_int_add(nub_ln3 , 3) ;
      var nub_ln37 = m_mtx_int_add(nub_ln37 , 1) ; 
-     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);  }   
-         if( data_chk_b >= 1.000625  && data_chk_b < 1.00125 ){                       
+     var nub_ln10 = m_mtx_int_sub(nub_ln10 ,3);  }  
+     var xx_st = m_str_e_to_str(xx_st); 
+     var data_xx_st_comp_1000625 = m_mtx_real_str_comp(xx_st,1.000625);    
+     var data_xx_st_comp_100125 = m_mtx_real_str_comp(xx_st,1.00125);
+         if( data_xx_st_comp_1000625 !=2  && data_xx_st_comp_100125 ==2 ){                       
      var  xx_st=m_mtx_real_mul(xx_st,0.999);  
      var nub_ln3 = m_mtx_int_sub(nub_ln3 , 3) ;
      var nub_ln37 = m_mtx_int_sub(nub_ln37 , 1) ; 
      var nub_ln10 = m_mtx_int_add(nub_ln10 ,3);  } 
-    var xx_st = m_str_e_to_str(xx_st);         
+     var xx_st = m_str_e_to_str(xx_st);         
          KK=m_new_zero_mtx(1,MTX_COL);           
          KK[0][0]= (parseInt(KK[0][0])+ ( m_abs(nub_ln3)*100000)).toString() ; 
          AA=m_mtx_ln_100_table();    
@@ -7002,7 +7022,7 @@ function m_ln_small(x){
                if( data_comp_xx_1 == 2 && sum_fst !="-"){   var sum_tt ="-"+sum_tt;}             
                if( data_comp_xx_1 == 1 && sum_fst =="-"){   var sum_tt =sum_tt.substr(1,sum_tt.length-1);}             
          var sum_tt = sum_tt.toString().trim();
-  return   sum_tt ;  
+  return   sum_tt ;   
 }
 
 
@@ -7127,6 +7147,9 @@ function m_s_e_ln(x,nub){
     if ( data_comp_xx_1 == 3){ var sum_tt = 0 ; return sum_tt; }   
     if ( data_comp_xx_0 ==3 ){ var sum_tt = message_1(13); return sum_tt; }
     if ( xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
+    var pos_e0  = xx.indexOf("e");    
+    if(  pos_e0 == -1){ 
+     var  xx= m_mtx_str_to_e(xx); }
       var pos_e  = xx.indexOf("e");    
       var pos_fst  = xx.substr(0,1);   
       var pos_sec  = xx.substr(1,1); 
@@ -7187,16 +7210,20 @@ function m_s_e_ln(x,nub){
 
       if(nub_a==0){
           return xx ;}        
-      else if (nub_a==1){
-          return nub_e ;}   
-      else if (nub_a==2){
-           var ans_a= xx.toString() + nub_e.toString();
+      if (nub_a==1){
+         var nub_e = m_fix_pow_lst(nub_e);    
+          return nub_e ;}   //power
+      if ((nub_a==2)&&(nub_e <0 )){
+           var ans_a= xx.toString() +"e"+ nub_e.toString();
            return ans_a ;} 
-      else{
-          if(nub_e <0 ){
-                var ans_a= xx.toString() +"e"+ nub_e.toString();}
-          else{ var ans_a= xx.toString() +"e+"+ nub_e.toString();}    
-        return ans_a ;}
+       if ((nub_a==2)&&(nub_e >0 )){
+           var ans_a= xx.toString() +"e+"+ nub_e.toString();
+           return ans_a ;}
+       if ((nub_a==2)&&(nub_e ==0 )){
+           var ans_a= xx.toString() ;
+           return ans_a ;}   
+     var ans_a= "no";                                 
+           return ans_a ;
   
   }
 
