@@ -5310,7 +5310,7 @@ function m_mtx_real_sub(x,y){
              else{ 
                   var sutt = m_mtx_point_add_sub_e(pexp,nexp ,1);}   
               sutt = sutt.replace(/\.e/g , "e");  
-              sutt =m_fix_str_lst(sutt);         
+                     
           if(sutt==-0 && sutt.lngth==2){ var sutt=0;}         
        return sutt;     
           
