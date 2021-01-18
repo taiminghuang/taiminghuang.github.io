@@ -192,7 +192,22 @@ var but_a_count=0;
         document.getElementById('block_j_tb_cap').innerHTML="↓Contact us ";
           }
         }
- 
+  var but_k_count=0;                            
+    function table_but_k(){
+     but_k_count = but_k_count+1;
+    var but_k_test = but_k_count % 2;
+   if(but_k_test ==1){
+        document.getElementById('block_k_tb').style.display="block"
+        document.getElementById('block_k_tb').style.visibility="visible";
+        document.getElementById('block_k_tb_cap').innerHTML="↑References ";
+                        }
+      else{
+        document.getElementById('block_k_tb').style.visibility="hidden";
+        document.getElementById('block_k_tb').style.display="none";
+        document.getElementById('block_k_tb_cap').innerHTML="↓References ";
+           }
+        }
+     
 </script>
 
 </head>
@@ -428,8 +443,37 @@ var but_a_count=0;
 </tbody>
 </table>
 </div>
-<h2 onclick="table_but_i()" id="block_i_tb_cap" style="width:35% ;background-color:beige">↓References </h2>
-<div class="block_i"  id="block_i_tb"   style="width:100%;background-color:beige;font-family: Lucida Console;" >
+<h2 onclick="table_but_i()" id="block_i_tb_cap" style="width:45% ;background-color:LightGray">↓Verifications </h2>   //20210117
+<div class="block_h" >
+<table id="block_i_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:95% ;background-color:LightGray ;font-family: Lucida Console;">
+<thead>
+<tr>
+<th>Equation</th>
+<th>calculator input rang</th>
+<th>Subtract</th>  
+<th>output error rang </th>
+<th>Remake </th>
+</tr>
+</thead>
+<tbody>  
+<tr><td align="center">x^(y*z)=(x^y)*(x^z)</td><td> |y*z|<=1e+200 </td><td align="center">x^(y*z)-(x^y)*(x^z)=</td><td>number after <br>the decimal point;<br> <=|1e-200|</td><td></td></tr>  
+<tr><td align="center">exp(x*y)=exp(x)*exp(y)</td><td>|x|<=1e+200 </td><td align="center">exp(x*y)-exp(x)*exp(y)=</td><td>"</td><td></td></tr> 
+<tr><td align="center">ln(log(x))=x</td><td> x > 0 </td><td align="center">ln(log(x))-x=</td><td>"</td><td></td></tr>
+<tr><td align="center">log(ln(x))=x</td><td> x > 0</td><td align="center">log(ln(x))-x=</td><td>"</td><td></td></tr>
+<tr><td align="center">sin(asin(x))=x</td><td >|x|<= 1 </td><td align="center">sin(asin(x))-x=</td><td>"</td><td> </td></tr> 
+<tr><td align="center">cos(acos(x))=x</td><td>|x|<= 1 </td><td align="center">cos(acos(x))-x=</td><td>"</td><td ></td></tr>    
+<tr><td align="center">tan(atan(x)=x</td><td> x ∈ R </td><td align="center">tan(atan(x)-x=</td><td>"</td><td></td></tr>  
+<tr><td align="center">cosh(x)-sinh(x)=exp(x)</td><td> |x|<= 1e+200 </td><td align="center">cosh(x)-sinh(x)-xp(x)=</td><td>"</td><td></td></tr> 
+<tr><td align="center">tanh(x+y)<br>=(tanh(x)+tanh(y))<br>/(1+tanh(x)+tanh(y))</td><td> x ∈ R</td><td align="center">tanh(x+y)<br>-(tanh(x)+tanh(y))<br>/(1+tanh(x)+tanh(y))=</td><td>"</td><td> </td></tr>  
+<tr><td align="center">arsinh(x)<br>=ln(x+(x^2+1)^0.5)</td><td>x ∈ R</td><td align="center">arsinh(x)<br>-ln(x+(x^2+1)^0.5)=</td><td>"</td><td></td></tr>      
+<tr><td align="center">arcosh(x)<br>=ln(x+(x^2-1)^0.5)</td><td>x >= 1</td><td align="center">arcosh(x)<br>-ln(x+(x^2-1)^0.5=</td><td>>"</td><td></td></tr>
+<tr><td align="center">artanh(x)<br>=0.5*ln(1+x)<br>/ln(1-x)</td><td>|x|< 1 </td><td align="center">artanh(x)<br>-0.5*ln(1+x)/ln(1-x)=</td><td>"</td><td></td></tr>
+</tbody>
+</table>
+</div>
+
+<h2 onclick="table_but_j()" id="block_j_tb_cap" style="width:35% ;background-color:beige">↓References </h2>
+<div class="block_j"  id="block_j_tb"   style="width:100%;background-color:beige;font-family: Lucida Console;" >
 <p>Advanced Engineering Mathematics  Erwin Kreyszig</p>     
 <p><a href="https://en.wikipedia.org/wiki/Factorial">https://en.wikipedia.org/wiki/Factorial</a></p>
 <p><a href="https://en.wikipedia.org/wiki/Exponentiation">https://en.wikipedia.org/wiki/Exponentiation</a></p>
@@ -453,8 +497,8 @@ var but_a_count=0;
 <p><a href="https://oeis.org/A000796/b000796.txt">http://oeis.org/A000796/b000796.txt(π)(20000)</a></p> 
 <p><a href="https://www.webintoapp.com">https://www.webintoapp.com</a></p>
 </div>
-<h2 onclick="table_but_j()" id="block_j_tb_cap" style="width:35% ;background-color:LightGray">↓Contact us </h2>
-<div class="block_j" id="block_j_tb" style="width:95% ;background-color:LightGray ;font-family: Lucida Console;">
+<h2 onclick="table_but_k()" id="block_k_tb_cap" style="width:35% ;background-color:LightGray">↓Contact us </h2>
+<div class="block_k" id="block_k_tb" style="width:95% ;background-color:LightGray ;font-family: Lucida Console;">
  <p> If any suggestions for improvements or enhancements to this  precision calculator.</p>
  <p> We are glad  about message from you ! But we get lots of messages, and can't respond to them all.</p>
  
