@@ -7527,6 +7527,13 @@ function m_asin(x){
       var zz = zz.substr(1,zz.length-1);
       var flag_a=1; }                            
    else{ zz=zz;}
+   var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
+      var data_comp_zz_0   =  m_mtx_real_str_comp(zz,0); 
+      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+      if(data_comp_zz_0 ==3 ){ ans_1 = 0 ; return ans_1 ;}                    
+      if(data_comp_zz_1 ==3   ){ ans_1 = PIDIV2 ; 
+                  if(zz_fst=="-"){ ans_1 = "-"+ans_1;} 
+                                   return ans_1   ;}
    var sum_tt =0 ;
    var data_test1= m_mtx_real_div(SQRT2,2);    
    var comp_zz_1 = m_mtx_real_str_comp(zz,data_test1);              
