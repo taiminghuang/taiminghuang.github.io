@@ -212,7 +212,8 @@ var but_a_count=0;
 
 </head>
 <body  onload="init_menu();" ;>
-<h2 onclick="table_but_a()" id="block_a_tb_cap" style="width:75% ;background-color:beige" >↑Examples (keyboard input) <td></td><td><button  type="button"  id="back"  style="background-color:silver;color:blue;font-family: Lucida Console;" OnClick="window.location='index.html'; "  ><h2 strong>←home</strong></h2></button></td></h2>  
+<h2 ><button  type="button"  id="back"  style="background-color:silver;color:blue;font-family: Lucida Console;" OnClick="window.location='index.html'; "  ><h2 strong>←home</strong></h2></button></h2> 
+<h2 onclick="table_but_a()" id="block_a_tb_cap" style="width:75% ;background-color:beige" >↑Examples (keyboard input) <td></td></h2>  
 <div class="block_a" >
 <table  id="block_a_tb" border="1px" cellspacing="0" cellpadding="0"  align="left" required readonly="readonly" style="width:100% ;background-color:beige ;font-family: Lucida Console;" onclick="table_but_a()" >
 <tbody >
@@ -456,10 +457,11 @@ var but_a_count=0;
 </tr>
 </thead>
 <tbody>  
-<tr><td align="center">x^(y*z)=(x^y)*(x^z)</td><td> |y*z|<=1e+200 </td><td align="center">x^(y*z)-(x^y)*(x^z)=</td><td>number after <br>the decimal point;<br> <=|1e-200|</td><td></td></tr>  
-<tr><td align="center">exp(x*y)=exp(x)*exp(y)</td><td>|x|<=1e+200 </td><td align="center">exp(x*y)-exp(x)*exp(y)=</td><td>"</td><td></td></tr> 
-<tr><td align="center">ln(log(x))=x</td><td> x > 0 </td><td align="center">ln(log(x))-x=</td><td>"</td><td></td></tr>
-<tr><td align="center">log(ln(x))=x</td><td> x > 0</td><td align="center">log(ln(x))-x=</td><td>"</td><td></td></tr>
+<tr><td align="center">x^(y+z)=(x^y)*(x^z)</td><td> |y*z|<=1e+200 </td><td align="center">x^(y+z)-(x^y)*(x^z)=</td><td>number after <br>the decimal point;<br> <=|1e-200|</td><td></td></tr>  
+<tr><td align="center">exp(x+y)=exp(x)*exp(y)</td><td>|x|<=1e+200 </td><td align="center">exp(x+y)-exp(x)*exp(y)=</td><td>"</td><td></td></tr> 
+<tr><td align="center">ln(exp(x))=x</td><td>|x|<=1e+200 </td><td align="center">ln(exp(x))-x=</td><td>"</td><td></td></tr>
+<tr><td align="center">exp(ln(x))=x</td><td> x > 0</td><td align="center">exp(ln(x))-x=</td><td>"</td><td></td></tr>
+<tr><td align="center">log(x)=ln(x)/ln(10)</td><td> x > 0</td><td align="center">log(x)-ln(x)/ln(10)=</td><td>"</td><td></td></tr>    
 <tr><td align="center">sin(asin(x))=x</td><td >|x|<= 1 </td><td align="center">sin(asin(x))-x=</td><td>"</td><td> </td></tr> 
 <tr><td align="center">cos(acos(x))=x</td><td>|x|<= 1 </td><td align="center">cos(acos(x))-x=</td><td>"</td><td ></td></tr>    
 <tr><td align="center">tan(atan(x)=x</td><td> x ∈ R </td><td align="center">tan(atan(x)-x=</td><td>"</td><td></td></tr>  
