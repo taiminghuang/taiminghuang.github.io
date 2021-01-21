@@ -5247,7 +5247,7 @@ function m_sub_error_rg(str_1){
       var n_nb_log = m_str_spc_count(this_it_t_test,"log");
       var sum_nb = n_nb_sin + n_nb_cos + n_nb_tan + n_nb_asin + n_nb_acos +n_nb_atan + n_nb_sinh + n_nb_cosh + n_nb_tanh + n_nb_asinh + n_nb_acosh +n_nb_atanh + n_nb_cap + n_nb_exp + n_nb_ln +n_nb_log;   
 
-    if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && sum_nb >=2) || (n_nb_exp >=2))){    
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && sum_nb >=2){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
