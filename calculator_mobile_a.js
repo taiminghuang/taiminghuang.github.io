@@ -5219,15 +5219,35 @@ function m_sub_error_rg(str_1){
       var this_it_s = this_it;   
       var this_it_t = m_str_sub_ngt_bf(this_it_s);   
       var ng_nb = m_str_spc_count(this_it_t,"-");  
-      var this_it_t_test =  this_it_t ;      
-      var this_it_t_test = this_it_t_test.replace(/asinh/g , "");  
-      var this_it_t_test = this_it_t_test.replace(/acosh/g , "");  
+      var this_it_t_test =  this_it_t ; 
+      var n_nb_asinh = m_str_spc_count(this_it_t_test,"asinh");       
+      var this_it_t_test = this_it_t_test.replace(/asinh/g , "");    
+      var n_nb_acosh = m_str_spc_count(this_it_t_test,"acosh"); 
+      var this_it_t_test = this_it_t_test.replace(/acosh/g , "");    
+      var n_nb_atanh = m_str_spc_count(this_it_t_test,"atanh");
+      var this_it_t_test = this_it_t_test.replace(/atanh/g , "");
+      var n_nb_asin = m_str_spc_count(this_it_t_test,"asin");
       var this_it_t_test = this_it_t_test.replace(/asin/g , "");    
+      var n_nb_acos = m_str_spc_count(this_it_t_test,"acos");
       var this_it_t_test = this_it_t_test.replace(/acos/g , "");    
-      var n_nb_1 = m_str_spc_count(this_it_t_test,"sin");  
-      var n_nb_2 = m_str_spc_count(this_it_t_test,"cos");
-      var n_nb_exp = m_str_spc_count(this_it_t_test,"exp");
-    if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && ((n_nb_1 >=1 && n_nb_2 >=1) || (n_nb_exp >=2))){    
+      var n_nb_atan = m_str_spc_count(this_it_t_test,"atan");
+      var this_it_t_test = this_it_t_test.replace(/atan/g , "");    
+      var n_nb_sinh = m_str_spc_count(this_it_t_test,"sinh");  
+      var this_it_t_test = this_it_t_test.replace(/sinh/g , "");
+      var n_nb_cosh = m_str_spc_count(this_it_t_test,"cosh");                                               
+      var this_it_t_test = this_it_t_test.replace(/cosh/g , "");
+      var n_nb_tanh = m_str_spc_count(this_it_t_test,"tanh");                                               
+      var this_it_t_test = this_it_t_test.replace(/tanh/g , "");
+      var n_nb_sin = m_str_spc_count(this_it_t_test,"sin");        
+      var n_nb_cos = m_str_spc_count(this_it_t_test,"cos");                                               
+      var n_nb_tan = m_str_spc_count(this_it_t_test,"tan");                                               
+      var n_nb_cap = m_str_spc_count(this_it_t_test,"^");
+      var n_nb_exp = m_str_spc_count(this_it_t_test,"exp");   
+      var n_nb_ln = m_str_spc_count(this_it_t_test,"ln");
+      var n_nb_log = m_str_spc_count(this_it_t_test,"log");
+      var sum_nb = n_nb_sin + n_nb_cos + n_nb_tan + n_nb_asin + n_nb_acos +n_nb_atan + n_nb_sinh + n_nb_cosh + n_nb_tanh + n_nb_asinh + n_nb_acosh +n_nb_atanh + n_nb_cap + n_nb_exp + n_nb_ln +n_nb_log;   
+
+    if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && sum_nb >=2) || (n_nb_exp >=2))){    
         var ans = "0  "+message_1(34);
       }
     else {ans = str_1;}
