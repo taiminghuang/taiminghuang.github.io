@@ -3373,8 +3373,7 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.toLowerCase(); 
            this_it_a = this_it_a.replace(/q/g , "Q");
            this_it_a = m_fun_aft_many(this_it_a ,' ','');
-       var this_it_a =  m_str_sub_ngt_bf_1_math(this_it_a) ;            
-       var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EP","");          
+       var this_it_a =  m_str_sub_ngt_bf_1_math(this_it_a) ;           
        var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EQ","");          
        var this_it_a =  m_str_sub_ngt_bf_1_bk_math(this_it_a) ;  
            this_it_a = this_it_a.replace(/e-/g , "eQ");      
