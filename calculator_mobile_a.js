@@ -6292,7 +6292,7 @@ function m_tan(x){
        if(data_cle_comp_125 ==1){  var  zz_s = m_mtx_real_sub(0.25,data_cle)  ;  var flag_a=1 ;}    
        else { var  zz_s = data_cle;}
     var ans_s = m_mtx_real_mul(zz_s,PIMUL2);   
-    var ans_s = m_fix(ans_s,250);   
+    var ans_s = m_fix(ans_s,270);   
     var data_t_MTX_COL_1 = MTX_COL;
       MTX_COL =100;            
     var ans_s_1= m_sin_matrix_1(ans_s) ;      
