@@ -7850,11 +7850,12 @@ function m_asinh(x){
    var xx_fst = xx.substr(0,1);
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
     else { var xx=xx;}
-   if(m_mtx_real_str_comp(xx_test_nub_e,1000)==1 ){     
-      var data_t = m_mtx_real_mul(xx,2);
-      var ans_1 =m_ln(data_t);
-    if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}
-          return  ans_a;} 
+  var comp_xx_60 = m_mtx_real_str_comp(xx,1e+60);      
+       if(comp_xx_60==1){
+        var data_t = m_mtx_real_mul(xx,2);
+        var ans_1 =m_ln(data_t);
+       if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}
+           return  ans_1;}
      var comp_xx_7 = m_mtx_real_str_comp(xx,0.7);      
      if(comp_xx_7 != 1){
      var zz = xx;
