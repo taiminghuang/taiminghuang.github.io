@@ -4820,12 +4820,17 @@ function m_mtx_int_str_comp(x,y){
          if( xx_word !="" &&  yy_word =="" && xx_fst !="-"){ var ant=1 ; return ant; }  
          if( xx_word =="" &&  yy_word !="" && xx_fst !="-"){ var ant=2 ; return ant; }    
          if( xx_word !="" &&  yy_word =="" && xx_fst =="-"){ var ant=2 ; return ant; }  
-         if( xx_word =="" &&  yy_word !="" && xx_fst =="-"){ var ant=1 ; return ant; }   
+         if( xx_word =="" &&  yy_word !="" && xx_fst =="-"){ var ant=1 ; return ant; } 
+        if(xx_lg== yy_lg){  
          if(( xx_word > yy_word)&& xx_fst !="-"){ var ant=1 ; return ant; }  
          if(( xx_word < yy_word)&& xx_fst !="-"){ var ant=2 ; return ant; }  
          if(( xx_word > yy_word)&& xx_fst =="-"){ var ant=2 ; return ant; }  
-         if(( xx_word < yy_word)&& xx_fst =="-"){ var ant=1 ; return ant; }  
-                                                    } 
+         if(( xx_word < yy_word)&& xx_fst =="-"){ var ant=1 ; return ant; } } 
+        else if(( xx_lg > yy_lg) &&(xx_fst !="-")) {var ant=1 ; return ant; } 
+        else if(( xx_lg > yy_lg) &&(xx_fst =="-")) {var ant=2 ; return ant; } 
+        else if(( yy_lg > xx_lg) &&(yy_fst !="-")) {var ant=2 ; return ant; } 
+        else if(( yy_lg > xx_lg) &&(yy_fst =="-")) {var ant=1 ; return ant; } 
+        else {var ant=3 ;  return ant; } }                                          
            var ant=3;
             return ant ;
              }    
