@@ -3801,7 +3801,8 @@ function m_fix(nub,pit_n){
                   str_lg = str_lg -1;       
                                 }
           else{ nn_abs_str = nn_abs_str;}
-   var pnn = pit_n ;     
+   var pnn = pit_n ;  
+   var pnn = parseInt(pnn);
    var data_t="";
           var pos_pot = nn_abs_str.indexOf(".");   
           var pos_e = nn_abs_str.indexOf("e");     
@@ -7354,7 +7355,8 @@ function m_pow_ib(base,p){
                      if(idx_e !=0){ pp_r_lg_a = m_mtx_int_sub(idx_e,idx_point);}
                      else{ pp_r_lg_a = m_mtx_int_sub(pp_r_lg,idx_point);}
                   var pp_r_rf =0;
-                  var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,2);     
+                  if(pp_r_lg >=250){ var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,10); }           
+                   else{var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,1); }
                   var pp_r =m_fix(pp_r,pp_r_rf); 
                   var pp_r = m_str_e_to_str(pp_r);      
                    var data_b=1;
