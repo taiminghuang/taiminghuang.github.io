@@ -440,7 +440,7 @@ var but_a_count=0;
 <tr><td align="center">tanh(x)</td><td>x ∈ R</td><td align="center">""</td><td>-1 to 1</td><td></td></tr> 
 <tr><td align="center">asinh(x)</td><td>x ∈ R</td><td align="center">""</td><td>R</td><td></td></tr>
 <tr><td align="center">acosh(x)</td><td>x >= 1</td><td align="center">""</td><td>0 to ∞</td><td></td></tr>
-<tr><td align="center">atanh(x)</td><td>|x|< 1</td> <td align="center">""</td><td>R</td><td></td></tr>  
+<tr><td align="center">atanh(x)</td><td>|x|< 1-(1e-9999)</td> <td align="center">""</td><td>R</td><td></td></tr>  
 </tbody>
 </table>
 </div>
@@ -465,11 +465,9 @@ var but_a_count=0;
 <tr><td align="center">sin(asin(x))=x</td><td >|x|<= 1 </td><td align="center">sin(asin(x))-x=</td><td>"</td><td> </td></tr> 
 <tr><td align="center">cos(acos(x))=x</td><td>|x|<= 1 </td><td align="center">cos(acos(x))-x=</td><td>"</td><td ></td></tr>    
 <tr><td align="center">tan(atan(x)=x</td><td> x ∈ R </td><td align="center">tan(atan(x)-x=</td><td>"</td><td></td></tr>  
-<tr><td align="center">cosh(x)+sinh(x)=exp(x)</td><td> |x|<= 1e+200 </td><td align="center">cosh(x)+sinh(x)-xp(x)=</td><td>"</td><td></td></tr> 
-<tr><td align="center">tanh(x+y)<br>=(tanh(x)+tanh(y))<br>/(1+tanh(x)+tanh(y))</td><td> x ∈ R</td><td align="center">tanh(x+y)<br>-(tanh(x)+tanh(y))<br>/(1+tanh(x)+tanh(y))=</td><td>"</td><td> </td></tr>  
-<tr><td align="center">arsinh(x)<br>=ln(x+(x^2+1)^0.5)</td><td>x ∈ R</td><td align="center">arsinh(x)<br>-ln(x+(x^2+1)^0.5)=</td><td>"</td><td></td></tr>      
-<tr><td align="center">arcosh(x)<br>=ln(x+(x^2-1)^0.5)</td><td>x >= 1</td><td align="center">arcosh(x)<br>-ln(x+(x^2-1)^0.5=</td><td>"</td><td></td></tr>
-<tr><td align="center">artanh(x)<br>=0.5*(ln(1+x)<br>-ln(1-x))</td><td>|x|< 1 </td><td align="center">artanh(x)<br>-0.5*(ln(1+x)-ln(1-x))=</td><td>"</td><td></td></tr>
+<tr><td align="center">sinh(asinh(x))=x</td><td> x ∈ R </td><td align="center">sinh(asinh(x))-x=</td><td>"</td><td></td></tr>     
+<tr><td align="center">cosh(acosh(x))=x</td><td> x >= 1 </td><td align="center">cosh(acosh(x))-x=</td><td>"</td><td></td></tr> 
+<tr><td align="center">tanh(atanh(x))=x</td><td> |x|< 1-(1e-9999)  </td><td align="center">tanh(atanh(x))-x=</td><td>"</td><td></td></tr> 
 </tbody>
 </table>
 </div>
