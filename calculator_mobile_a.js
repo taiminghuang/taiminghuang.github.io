@@ -5480,7 +5480,7 @@ function m_exp(x){
    var xx=x.toString().trim();
    var data_msg =  m_str_char(x,"Msg") ;                     
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   var xx_test_small = m_mtx_str_to_e(xx);             
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-205)==2 ){ return  1;}  
@@ -5571,7 +5571,7 @@ function m_sin(x){
     var ans_a="";
     var data_msg =0;   
     var data_cle =0;
-    var xx_test_small = m_mtx_str_to_e(xx);                       
+    var xx_test_small = m_mtx_str_to_e_a(xx);                       
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
     var xx_test_st = m_str_power(xx_test_small,1);               
       if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){ return  xx;}
@@ -6204,7 +6204,7 @@ function m_cos(x){
     var ans_a="";
     var data_msg =0;   
     var data_cle =0; 
-    var xx_test_small = m_mtx_str_to_e(xx);               
+    var xx_test_small = m_mtx_str_to_e_a(xx);               
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
     var xx_test_st = m_str_power(xx_test_small,1);          
     var xx_test_st_fst = xx_test_st.toString().substr(0,1);
@@ -6259,7 +6259,7 @@ function m_tan(x){
   var xx =m_mtx_trim(xx) ;  
   var ans_a="";
   var data_cle =0; 
-  var xx_test_small = m_mtx_str_to_e(xx);               
+  var xx_test_small = m_mtx_str_to_e_a(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);           
      if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -6318,7 +6318,7 @@ function m_sinh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
   var xx =m_mtx_trim(xx) ; 
-  var xx_test_small = m_mtx_str_to_e(xx);               
+  var xx_test_small = m_mtx_str_to_e_a(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
     if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -6381,7 +6381,7 @@ function m_cosh(x){
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;
-  var xx_test_small = m_mtx_str_to_e(xx);            
+  var xx_test_small = m_mtx_str_to_e_a(xx);            
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -6443,7 +6443,7 @@ function m_tanh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;
-  var xx_test_small = m_mtx_str_to_e(xx);              
+  var xx_test_small = m_mtx_str_to_e_a(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -7553,11 +7553,13 @@ function m_asin(x){
   var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-  var xx_test_small = m_mtx_str_to_e(zz);               
+  var xx_test_small = m_mtx_str_to_e_a(zz);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
-          var ans_a=x ; return  ans_a;}  
+          var ans_a=x ; return  ans_a;} 
+  if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
+       var ans_a= message_1(1);  return ans_a;}
    var flag_a=0;
    var flag_b=0;
    var sum_total="";
@@ -7647,13 +7649,16 @@ function m_asin(x){
 function m_acos(x){                   
    var xx = x.toString().trim();
    var data_msg =0;
+  var ans_a="";
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   var xx_test_small = m_mtx_str_to_e(xx);             
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
     if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
        var ans_a=PIDIV2 ; return  ans_a;} 
+  if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
+      var ans_a= message_1(2);  return ans_a;}
    var xx =m_mtx_trim(xx) ;         
    var xx_fst = xx.substr(0,1);
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -7687,7 +7692,7 @@ function m_atan(x){
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx =m_mtx_trim(xx) ;  
-   var xx_test_small = m_mtx_str_to_e(xx);             
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -7847,7 +7852,7 @@ function m_asinh(x){
     var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
    var xx =m_mtx_trim(xx) ; 
-   var xx_test_small = m_mtx_str_to_e(xx);             
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
@@ -7959,7 +7964,7 @@ var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;   
- var xx_test_small = m_mtx_str_to_e(xx);              
+ var xx_test_small = m_mtx_str_to_e_a(xx);              
  var xx_test_nub_e =m_str_power(xx_test_small,0);             
  var xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-105)==2 ){ 
