@@ -5345,8 +5345,12 @@ function m_mtx_real_sub(x,y){
 
 
 function m_mtx_real_sub_bf(x,y){       
-var pexp = x.toString().trim();
+    var pexp = x.toString().trim();
     var nexp = y.toString().trim();
+    var p_idx_pt = pexp.indexOf(".");   
+    var n_idx_pt = nexp.indexOf(".");   
+      if(n_idx_pt ==-1 && p_idx_pt ==-1 ){   
+    var sutt =  m_mtx_int_sub(pexp,nexp);  return sutt;  } 
     var sutt ="";
     var x_fst = pexp.substr(0,1);     
     var x_lg = pexp.length;
