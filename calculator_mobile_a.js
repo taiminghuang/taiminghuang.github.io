@@ -5225,8 +5225,12 @@ function m_sub_error_rg(str_1){
       var this_it = m_del4_2f_char(this_s,';').toString().trim();        
       var this_it_s = this_it;   
       var this_it_t = m_str_sub_ngt_bf(this_it_s);   
-      var ng_nb = m_str_spc_count(this_it_t,"-");  
       var this_it_t_test =  this_it_t ; 
+      var this_it_t_test = m_str_sub_ngt_bf(this_it_t_test);   
+      var ng_nb = m_str_spc_count(this_it_t_test,"-");
+      var ng_pb = m_str_spc_count(this_it_t_test,"+");
+      var ng_Q = m_str_spc_count(this_it_t_test,"Q");             
+          if(ng_Q >0 && ng_pb>0){ var ng_nb = m_mtx_int_add(ng_nb,1);}
       var n_nb_asinh = m_str_spc_count(this_it_t_test,"asinh");       
       var this_it_t_test = this_it_t_test.replace(/asinh/g , "");    
       var n_nb_acosh = m_str_spc_count(this_it_t_test,"acosh"); 
@@ -5252,8 +5256,7 @@ function m_sub_error_rg(str_1){
       var n_nb_exp = m_str_spc_count(this_it_t_test,"exp");   
       var n_nb_ln = m_str_spc_count(this_it_t_test,"ln");
       var n_nb_log = m_str_spc_count(this_it_t_test,"log");
-      var sum_nb = n_nb_sin + n_nb_cos + n_nb_tan + n_nb_asin + n_nb_acos +n_nb_atan + n_nb_sinh + n_nb_cosh + n_nb_tanh + n_nb_asinh + n_nb_acosh +n_nb_atanh + n_nb_cap + n_nb_exp + n_nb_ln +n_nb_log;   
-
+      var sum_nb = parseInt(n_nb_sin) + parseInt(n_nb_cos) + parseInt(n_nb_tan) + parseInt(n_nb_asin) + parseInt(n_nb_acos) +parseInt(n_nb_atan) + parseInt(n_nb_sinh) + parseInt(n_nb_cosh) + parseInt(n_nb_tanh) + parseInt(n_nb_asinh) + parseInt(n_nb_acosh) +parseInt(n_nb_atanh) + parseInt(n_nb_cap) + parseInt(n_nb_exp) + parseInt(n_nb_ln) +parseInt(n_nb_log);    //20210207 
     if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !=0 && ng_nb >=1  && sum_nb >=2){    
         var ans = "0  "+message_1(34);
       }
@@ -5458,6 +5461,12 @@ function m_mtx_real_sub_bf(x,y){
                 var sutt= m_mtx_cell_five_show_int(EE,FF); 
                  var sutt = m_mtx_del_point(sutt);
                  if(data_point ==1){ sutt = "-" +sutt;} 
+                var xy_lg = m_mtx_int_add(x_lg,y_lg);           
+                var sutt_9 =sutt.substr(sutt.length-5 ,5);
+                var idx_point = sutt.indexOf(".");
+              if((sutt.length > xy_lg)&& (sutt_9 =="99999") &&(idx_point !=-1 )){ 
+                 var sutt= m_fix(sutt,xy_lg); }
+  
        return sutt;     
 }
 
@@ -8707,7 +8716,7 @@ function m_mtx_reciprocal_div(B,A){
 
 
 function m_mtx_divisor_10(A){      
-   var AA = m_mtx_zero_pad_bf(A);
+   var AA = m_mtx_cell_five(A);
    var NN = m_new_zero_mtx(10,AA[0].length);    
    var SS = m_new_zero_mtx(1,AA[0].length);    
    var i=0;
@@ -8718,7 +8727,7 @@ function m_mtx_divisor_10(A){
 }
 
 function m_mtx_a_copy_to_n_b(A,nub_a,B,nub_b){       
-  var AA =  m_mtx_zero_pad_bf(A);
+  var AA = m_mtx_cell_five(A);
   var nub_a = parseInt(nub_a);  
   var mtx_lg = AA[0].length ;
   var mtx_lg_1 = mtx_lg +1  ;
@@ -8739,7 +8748,7 @@ return NN;
  }
  
 function m_mtx_shift_left_1(A){               
-   var AA =  m_mtx_zero_pad_bf(A);            
+   var AA = m_mtx_cell_five(A);            
    var NN = m_new_zero_mtx(1,AA[0].length);   
      for(var i= 0  ; i < AA[0].length ;i++){ 
      if( i==0){                        
@@ -8797,19 +8806,6 @@ function m_mtx_compare(A,B){
     return ans_1;
 }
 
-function m_mtx_zero_pad_bf(A){
-   var DD =A;
-    for(var i= 0  ; i < DD[0].length ;i++){        
-     var data_s =DD[0][i];
-     var data_s = data_s.toString();
-     var data_s_lg = data_s.length;
-   if( data_s_lg < 5){ 
-     while(data_s_lg < 5){                
-      var data_s ="0"+data_s;
-      var data_s_lg = data_s.length; } }
-      DD[0][i] = data_s;       } 
-  return DD;
-}
 
 function m_mtx_borrow(A){    
    var DD =A;
@@ -8834,7 +8830,7 @@ function m_mtx_sub_nub_b(A,B,nub_b){
     var data_b=BB[nub][i];
     CC[0][i]=parseInt(data_a) - parseInt(data_b);}
     CC = m_mtx_borrow(CC);  
-    CC = m_mtx_zero_pad_bf(CC);   
+    CC = m_mtx_cell_five(CC); 
 return CC;
 }
 
@@ -8847,7 +8843,7 @@ function m_mtx_sub(A,B){
     var data_b=BB[0][i];
      CC[0][i]=parseInt(data_a) - parseInt(data_b);}
      CC = m_mtx_borrow(CC);  
-     CC = m_mtx_zero_pad_bf(CC);   
+    CC = m_mtx_cell_five(CC);  
 return CC;
 }
 
@@ -8871,7 +8867,7 @@ function m_mtx_add(A,B){
     var data_b=BB[0][i];
     CC[0][i]=parseInt(data_a) + parseInt(data_b);  }
     CC = m_mtx_carry(CC);   
-    CC = m_mtx_zero_pad_bf(CC);       
+    CC = m_mtx_cell_five(CC);       
 return CC;
 }
 
