@@ -457,17 +457,18 @@ var but_a_count=0;
 </tr>
 </thead>
 <tbody>  
-<tr><td align="center">x^(y+z)=(x^y)*(x^z)</td><td> |y*z|<=1e+200 </td><td align="center">x^(y+z)-(x^y)*(x^z)=</td><td>number after <br>the decimal point;<br> <=|1e-200|</td><td></td></tr>  
-<tr><td align="center">exp(x+y)=exp(x)*exp(y)</td><td>|x|<=1e+200 </td><td align="center">exp(x+y)-exp(x)*exp(y)=</td><td>"</td><td></td></tr> 
-<tr><td align="center">ln(exp(x))=x</td><td>|x|<=1e+200 </td><td align="center">ln(exp(x))-x=</td><td>"</td><td></td></tr>
-<tr><td align="center">exp(ln(x))=x</td><td> x > 0</td><td align="center">exp(ln(x))-x=</td><td>"</td><td></td></tr>
-<tr><td align="center">log(x)=ln(x)/ln(10)</td><td> x > 0</td><td align="center">log(x)-ln(x)/ln(10)=</td><td>"</td><td></td></tr>    
-<tr><td align="center">sin(asin(x))=x</td><td >|x|<= 1 </td><td align="center">sin(asin(x))-x=</td><td>"</td><td> </td></tr> 
-<tr><td align="center">cos(acos(x))=x</td><td>|x|<= 1 </td><td align="center">cos(acos(x))-x=</td><td>"</td><td ></td></tr>    
-<tr><td align="center">tan(atan(x)=x</td><td> x ∈ R </td><td align="center">tan(atan(x)-x=</td><td>"</td><td></td></tr>  
-<tr><td align="center">sinh(asinh(x))=x</td><td> x ∈ R </td><td align="center">sinh(asinh(x))-x=</td><td>"</td><td></td></tr>     
-<tr><td align="center">cosh(acosh(x))=x</td><td> x >= 1 </td><td align="center">cosh(acosh(x))-x=</td><td>"</td><td></td></tr> 
-<tr><td align="center">tanh(atanh(x))=x</td><td> |x|< 1-(1e-9999)  </td><td align="center">tanh(atanh(x))-x=</td><td>"</td><td></td></tr> 
+<tr><td align="center">x^(y+z)=(x^y)*(x^z)</td><td> |y*z|<=1e+200 </td><td align="center">x^(y+z)-(x^y)*(x^z)=</td><td>number after <br>the decimal point;<br> <=|1e-200|</td><td>long time</td></tr>  
+<tr><td align="center">exp(x+y)=exp(x)*exp(y)</td><td>|x|<=1e+200 </td><td align="center">exp(x+y)-exp(x)*exp(y)=</td><td>"</td><td>"/td></tr> 
+<tr><td align="center">ln(exp(x))=x</td><td>|x|<=1e+200 </td><td align="center">ln(exp(x))-x=</td><td>"</td><td>"/td></tr>
+<tr><td align="center">exp(ln(x))=x</td><td> x > 0</td><td align="center">exp(ln(x))-x=</td><td>"</td><td>"/td></tr>
+<tr><td align="center">log(x)=ln(x)/ln(10)</td><td> x > 0</td><td align="center">log(x)-ln(x)/ln(10)=</td><td>"</td><td>"/td></tr> 
+<tr><td align="center">sin(2*x)=2*sin(x)*cos(x)</td><td >|x|<=1e+49500 </td><td align="center">sin(2*x)-2*sin(x)*cos(x)=</td><td>"</td><td> "</td></tr>  
+<tr><td align="center">sin(asin(x))=x</td><td >|x|<= 1 </td><td align="center">sin(asin(x))-x=</td><td>"</td><td>"</td></tr> 
+<tr><td align="center">cos(acos(x))=x</td><td>|x|<= 1 </td><td align="center">cos(acos(x))-x=</td><td>"</td><td >"/td></tr>    
+<tr><td align="center">tan(atan(x)=x</td><td> x ∈ R </td><td align="center">tan(atan(x)-x=</td><td>"</td><td>"/td></tr>  
+<tr><td align="center">sinh(asinh(x))=x</td><td> x ∈ R </td><td align="center">sinh(asinh(x))-x=</td><td>"</td><td>"/td></tr>     
+<tr><td align="center">cosh(acosh(x))=x</td><td> x >= 1 </td><td align="center">cosh(acosh(x))-x=</td><td>"</td><td>"/td></tr> 
+<tr><td align="center">tanh(atanh(x))=x</td><td> |x|< 1-(1e-9999)  </td><td align="center">tanh(atanh(x))-x=</td><td>"</td><td>"/td></tr> 
 </tbody>
 </table>
 </div>
