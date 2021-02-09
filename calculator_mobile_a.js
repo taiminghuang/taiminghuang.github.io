@@ -620,94 +620,24 @@ var xx = x.toString().trim();
 
  }
 
-
-
-function mtx_str_e_chk(x){             
-var xx = x.toString().trim();
-      xx = xx.replace(/exp/g , "EZ");    
-  var nub_e= m_str_char(xx,"e") ;  
-  var ans_1="";   
-   if(nub_e < 1){    
-    var xx = xx.replace(/EZ/g , "exp");    
-    var ans_1=xx;  return  ans_1 ; }       
-    var xx =  m_str_sub_ngt_bf(xx);   
-        xx = xx.replace(/e\+/g , "EE");   
-        xx = xx.replace(/eQ/g , "EQ");    
-        xx = xx.replace(/e/g , "EE");    
-        xx = xx.replace(/\+/g , "EA");    
-        xx = xx.replace(/\-/g , "ES");    
-        xx = xx.replace(/\*/g , "EM");   
-        xx = xx.replace(/\//g , "ED");    
-        xx = xx.replace(/\^/g , "EP");    
-        xx = xx.replace(/π/g , "EI");    
-        xx = xx.replace(/\°/g , "EG");    
-        xx = xx.replace(/\(/g , "EL");    
-        xx = xx.replace(/\)/g , "EJ");    
-        xx = xx.replace(/\!/g , "E!");    
-        xx = xx.replace(/In/g , "EN");    
-        xx = xx.replace(/log/g , "EO");    
-        xx = xx.replace(/asinh/g , "EB");    
-        xx = xx.replace(/acosh/g , "EC");    
-        xx = xx.replace(/atanh/g , "EF");    
-        xx = xx.replace(/asin/g , "EH");    
-        xx = xx.replace(/acos/g , "EK");    
-        xx = xx.replace(/atan/g , "ER");    
-        xx = xx.replace(/sinh/g , "ET");    
-        xx = xx.replace(/cosh/g , "EU");    
-        xx = xx.replace(/tanh/g , "EV");    
-        xx = xx.replace(/sin/g , "EW");    
-        xx = xx.replace(/cos/g , "EX");    
-        xx = xx.replace(/tan/g , "EY");    
-        xx=xx+"E"; 
-      var nub_E= m_str_char(xx,"E") ;  
-      var index_E = xx.indexOf("E");  
-     for(var i=0; i<nub_E ;i++){
-       var index_E = xx.indexOf("E");  
-       var str_bf = xx.substr(0,index_E);  
-       var str_mf = xx.substr(index_E,2);  
-       var str_af = xx.substr(index_E+2,xx.length-index_E-2);  
-       var nub_e_bf= m_str_char(str_bf,"e") ;   
-           if(nub_e_bf >=1){
-               var str_bf = mtx_str_e(str_bf);  
-               
-               }
-          var ans_1 = ans_1+ str_bf+ str_mf;  
-          var xx = str_af ;     
-                                       }
-      var  ans_1 = ans_1.replace(/EW/g , "sin");    
-      var  ans_1 = ans_1.replace(/EX/g , "cos");    
-      var  ans_1 = ans_1.replace(/EY/g , "tan");    
-      var  ans_1 = ans_1.replace(/ET/g , "sinh");    
-      var  ans_1 = ans_1.replace(/EU/g , "cosh");    
-      var  ans_1 = ans_1.replace(/EV/g , "tanh");    
-      var  ans_1 = ans_1.replace(/EH/g , "asin");    
-      var  ans_1 = ans_1.replace(/EK/g , "acos");    
-      var  ans_1 = ans_1.replace(/ER/g , "atan");    
-      var  ans_1 = ans_1.replace(/EB/g , "asinh");    
-      var  ans_1 = ans_1.replace(/EC/g , "acosh");    
-      var  ans_1 = ans_1.replace(/EF/g , "atanh");    
-      var  ans_1 = ans_1.replace(/EO/g , "log");   
-      var  ans_1 = ans_1.replace(/EN/g , "In");    
-      var  ans_1 = ans_1.replace(/E!/g , "\!");    
-      var  ans_1 = ans_1.replace(/EL/g , "\(");   
-      var  ans_1 = ans_1.replace(/EJ/g , "\)");    
-      var  ans_1 = ans_1.replace(/EG/g , "\°");    
-      var  ans_1 = ans_1.replace(/EI/g , "π");    
-      var  ans_1 = ans_1.replace(/EA/g , "\+");    
-      var  ans_1 = ans_1.replace(/ES/g , "\-");    
-      var  ans_1 = ans_1.replace(/EM/g , "\*");    
-      var  ans_1 = ans_1.replace(/ED/g , "\/");    
-      var  ans_1 = ans_1.replace(/EP/g , "\^");    
-      var  ans_1 = ans_1.replace(/EE/g , "e\+");    
-      var  ans_1 = ans_1.replace(/EQ/g , "e\-");     
-      var  ans_1 = ans_1.replace(/EZ/g , "exp");    
-      var  ans_1 = ans_1.replace(/E/g , "");     
-        if(nub_E ==1){                     
-           var ans_1 = ans_1 +"-0" ;
-                     }
-         return  ans_1 ;
-       
+function mtx_str_e_chk_to_str(x){    
+  var xx = x.toString().trim();
+  var ans_a="";
+  var nub_e = m_str_char(xx,"e") ;
+  var nub_m = m_str_char(xx,"m") ;
+  var fis_xx= xx.substr(0,1);
+  var index_e = xx.indexOf("e");  
+  var xx_af = xx.substr(index_e+1,xx.length-index_e-1);  
+  var nub_point = m_str_char(xx_af,".") ;  
+  var flag_xx=0; 
+  if(fis_xx =="'" || fis_xx =='"'){ var flag_xx=0; }
+  else{ var flag_xx=1; }
+  if(nub_m ==0 && flag_xx==1 && nub_e==1 && nub_point ==1 ){
+                                      var ans_a="'"+xx+"'";}
+  else{var ans_a=xx;}
+  return  ans_a ;
 }
+
 
 
 
@@ -9226,7 +9156,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
          var this_it_copy = this_it_copy.replace(/atanh/g , "artanh");     
               if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data = " = "+this_it_copy ;}   
               else{   var function_data ="";} 
-               this_it =mtx_str_e_chk(this_it);              
+                          
                this_it = m_tri_ang_2pi_rem(this_it);
                this_it = m_tri_ang_2pi_replace(this_it );
                this_it = m_tri_ang_360deg_rem(this_it);
@@ -9268,6 +9198,7 @@ function m_mtx_sort_col_nub( X ,col_nub ,property){
               else{
                  this_it=this_it.toString(); 
                    }
+           var this_it=  mtx_str_e_chk_to_str(this_it); 
             var this_data = eval(this_it);  
             var this_data_error = this_data;     
                 this_data=this_data.toString();    
