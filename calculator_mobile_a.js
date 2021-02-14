@@ -5423,6 +5423,7 @@ function m_exp(x){
    var xx=x.toString().trim();
    var data_msg =  m_str_char(x,"Msg") ;                     
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+   var xx = m_str_e_to_str_point(xx );
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
@@ -6261,6 +6262,7 @@ function m_sinh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
   var xx =m_mtx_trim(xx) ; 
+  var xx = m_str_e_to_str_point(xx );
   var xx_test_small = m_mtx_str_to_e_a(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -6324,6 +6326,7 @@ function m_cosh(x){
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;
+  var xx = m_str_e_to_str_point(xx );
   var xx_test_small = m_mtx_str_to_e_a(xx);            
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -6386,6 +6389,7 @@ function m_tanh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;
+  var xx = m_str_e_to_str_point(xx ); 
   var xx_test_small = m_mtx_str_to_e_a(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -6634,7 +6638,8 @@ function m_ln(x){
  var data_msg =0;
  var data_msg =  m_str_char(xx,"Msg") ;  
     if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}  
- var xx =m_mtx_trim(xx) ;        
+ var xx =m_mtx_trim(xx) ;   
+ var xx = m_str_e_to_str_point(xx ); 
  var nub_e=0;
  var sum_ta=0;
  var sum_tb=0;
@@ -7496,6 +7501,7 @@ function m_asin(x){
   var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var zz = m_str_e_to_str_point(zz ); 
   var xx_test_small = m_mtx_str_to_e_a(zz);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7595,6 +7601,7 @@ function m_acos(x){
   var ans_a="";
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var xx = m_str_e_to_str_point(xx );
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7634,7 +7641,8 @@ function m_atan(x){
    var data_msg = 0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   var xx =m_mtx_trim(xx) ;  
+   var xx =m_mtx_trim(xx) ; 
+  var xx = m_str_e_to_str_point(xx ); 
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7795,6 +7803,7 @@ function m_asinh(x){
     var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
    var xx =m_mtx_trim(xx) ; 
+  var xx = m_str_e_to_str_point(xx );
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7877,7 +7886,8 @@ function m_acosh(x){
   var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-  var xx =m_mtx_trim(xx) ;        
+  var xx =m_mtx_trim(xx) ;  
+   var xx = m_str_e_to_str_point(xx );
   var xx_fst = xx.substr(0,1);
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
      else { var xx=xx;}  
@@ -7907,6 +7917,7 @@ var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
  var xx =m_mtx_trim(xx) ;   
+ var xx = m_str_e_to_str_point(xx ); 
  var xx_test_small = m_mtx_str_to_e_a(xx);              
  var xx_test_nub_e =m_str_power(xx_test_small,0);             
  var xx_test_st = m_str_power(xx_test_small,1);          
@@ -8467,34 +8478,22 @@ function m_mtx_real_mul(y,x){
 function m_str_e_to_str_point(str){     
   var yy_st=str;
   var yy_st;
-  var pos_pot  = yy_st.indexOf(".");    
-  var pos_e  = yy_st.indexOf("e");    
+  var pos_e  = yy_st.indexOf("e");               
   var st_lg = yy_st.length;
-           if(  pos_e == -1 || pos_pot  ==-1 ){   
-               return str;
-                 }
-      var nub_e_y=0; //inition  y
-          if(  pos_e != -1){ 
-            nub_e_y =m_str_power(yy_st,0);         
-            yy_st = m_str_power(yy_st,1);          
-                           }
-      var nub_e_y_fst = nub_e_y.substr(0,1);
-      var pos = nub_e_y.indexOf(".");    
-      var nub_e_y_bf=nub_e_y.substr(0,pos); 
-      var nub_e_y_af=nub_e_y.substr(pos+1,nub_e_y.length-1-pos);
-      if(  pos == -1  ){   return str; }               
-      var nub_e_y_af="0."+nub_e_y_af.toString();
-      if(nub_e_y_fst =="-"){ 
-                     var nub_e_y_af = m_mtx_real_sub(1,nub_e_y_af);     
-                     var yy_st = m_mtx_real_div(yy_st,10); } 
-      var data_tran = MTX_COL;                          
-            if( MTX_COL >100){ MTX_COL =100;  }
-      var yy_st_a=m_pow(10,nub_e_y_af);
-       MTX_COL = data_tran ;
-      var yy_st_b= m_mtx_real_mul(yy_st,yy_st_a);
-      var yy_st_b = m_str_e_to_str(yy_st_b); 
-      var yy_st_c= yy_st_b +"e"+nub_e_y_bf;
- return yy_st_c;
+  var yy_st_af = yy_st.substr( pos_e+1,st_lg -pos_e-1);  
+  var pos_pot  = yy_st_af.indexOf(".");                  
+   if(  pos_e == -1 || pos_pot  ==-1 ){   
+           return str; }
+   var nub_e_y=0; 
+   var nub_e_y =m_str_power(yy_st,0);          
+   var yy_st = m_str_power(yy_st,1);          
+   var data_tran = MTX_COL;                      
+        if( MTX_COL >100){ MTX_COL =100;  }          
+   var yy_st_a = m_pow(10,nub_e_y);  
+           MTX_COL = data_tran ;               
+    var yy_st_b= m_mtx_real_mul(yy_st,yy_st_a);
+                 //alert("yy_st_b =" +yy_st_b);           
+ return yy_st_b;   
 
 }
 
