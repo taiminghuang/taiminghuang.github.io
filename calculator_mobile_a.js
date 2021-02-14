@@ -8588,7 +8588,9 @@ function m_mtx_real_div(y,x){
        if(data_comp_nub_e_t_0 == 2 ){ sum_tt = sum_tt+"e"+nub_e_t;}
        if(data_comp_nub_e_t_0 == 3 ){ sum_ttt = sum_tt;}
        if(data_comp_sum_tt_0 == 3){ var sum_tt = 0 ;}       
-           
+    var sum_tt_9 = sum_tt.substr(240 ,5);                       
+  if(x.length>=500 && y.length>=500 && sum_tt_9 =="99999"){ 
+    var sum_tt= m_fix(sum_tt,245); }       
    return sum_tt;
 }
 
