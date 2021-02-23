@@ -3758,8 +3758,13 @@ function m_fix(nub,pit_n){
    if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) <=4 && pos_e ==-1 ){      
               var data_t = data_bf +"."+data_af.substr(0,pnn); 
                                     }
-  if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){                  
-               var AA =m_new_zero_mtx(1,MTX_COL);                                          
+  if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){  
+              var mtx_col_this = parseInt(pnn/5);                   
+               var mtx_col_this = m_mtx_int_add( mtx_col_this,10);      
+                if( mtx_col_this <=210 ){ mtx_col_this =210;}                 
+                 else if( mtx_col_this >=410 ){ mtx_col_this =410;}
+                 else{mtx_col_this =210;} 
+               var AA =m_new_zero_mtx(1,mtx_col_this);                                        
                var  data_af_in="0."+data_af.toString();            
                    AA=m_mtx_point_in(AA,data_af_in);         
                         if(data_bf !=0){
@@ -5512,6 +5517,8 @@ function m_sin(x){
     var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   //20210108 上移
     var xx =m_mtx_trim(xx) ; 
+    var xx = m_str_e_to_str_point(xx );    
+    var xx = m_mtx_str_to_e_a(xx); 
     var ans_a="";
     var data_msg =0;   
     var data_cle =0;
@@ -7502,6 +7509,7 @@ function m_asin(x){
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var zz = m_str_e_to_str_point(zz ); 
+  var zz = m_fix(zz,500) ;  
   var xx_test_small = m_mtx_str_to_e_a(zz);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7643,6 +7651,7 @@ function m_atan(x){
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx =m_mtx_trim(xx) ; 
   var xx = m_str_e_to_str_point(xx ); 
+  var xx = m_mtx_str_to_e_a(xx);
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -7670,6 +7679,7 @@ function m_atan(x){
                return ans_1; } 
    var comp_xx_06 = m_mtx_real_str_comp(xx,0.6); 
     var comp_xx_17 = m_mtx_real_str_comp(xx,1.7);  
+    var xx=m_fix(xx,500); 
     if( comp_xx_06 !=1 || comp_xx_17 !=2){           
          var ans_1 =  m_atan_part_outer(xx);}            
     else{   
