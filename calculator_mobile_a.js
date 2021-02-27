@@ -3760,7 +3760,8 @@ function m_fix(nub,pit_n){
                                     }
   if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){  
               var mtx_col_this = parseInt(pnn/5);                   
-               var mtx_col_this = m_mtx_int_add( mtx_col_this,10);      
+               var mtx_col_this = m_mtx_int_add( mtx_col_this,10); 
+               var mtx_col_this = parseInt(mtx_col_this); 
                 if( mtx_col_this <=210 ){ mtx_col_this =210;}                 
                  else if( mtx_col_this >=410 ){ mtx_col_this =410;}
                  else{mtx_col_this =210;} 
@@ -5505,7 +5506,7 @@ function m_exp_low(x){
         var sum_total = m_mtx_cell_five_show(SS_T);   
         var sum_total = m_mtx_real_add(1 ,sum_total);  
             if(flag_a ==1){    
-                  var sum_total = m_mtx_point_div(1, sum_total);   
+                  var sum_total = m_mtx_real_div(1, sum_total);   
                              }   
      return sum_total;  
           
@@ -8507,19 +8508,7 @@ function m_str_e_to_str_point(str){
 
 }
 
-function m_mtx_point_div(A,B){     
-  var AA=A;
-  var BB=B;
-  var data_row_a = AA.length;   
-  var data_col_a = AA[0].length;  
-  var data_row_b = BB.length;   
-  var data_col_b = BB[0].length;  
-  var CC = m_new_zero_mtx(1,MTX_COL);    
-  var DD = m_new_zero_mtx(1,MTX_COL);    
-      CC = m_mtx_any_inv(BB ,1);          
-      DD=  m_mtx_point_mul(AA,CC) ;    
-  return DD;
-}
+
 
 function m_mtx_real_div(y,x){    
    var xx=x.toString().trim();
