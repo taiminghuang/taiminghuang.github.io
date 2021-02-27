@@ -3760,11 +3760,9 @@ function m_fix(nub,pit_n){
                                     }
   if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){  
               var mtx_col_this = parseInt(pnn/5);                   
-               var mtx_col_this = m_mtx_int_add( mtx_col_this,10); 
-               var mtx_col_this = parseInt(mtx_col_this); 
-                if( mtx_col_this <=210 ){ mtx_col_this =210;}                 
-                 else if( mtx_col_this >=410 ){ mtx_col_this =410;}
-                 else{mtx_col_this =210;} 
+              var data_comp_mtx_col_this_210 = m_mtx_real_str_comp(mtx_col_this,210); 
+                 if( data_comp_mtx_col_this_210 == 2 ){ mtx_col_this =210;}                 
+                 else{mtx_col_this =410;}  
                var AA =m_new_zero_mtx(1,mtx_col_this);                                        
                var  data_af_in="0."+data_af.toString();            
                    AA=m_mtx_point_in(AA,data_af_in);         
