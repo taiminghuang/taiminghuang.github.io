@@ -5007,7 +5007,7 @@ function m_mtx_real_add(x,y){
     var  x_e = m_mtx_str_to_e_ne(x_e);              
     var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();      
     var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();       
-    var fix_cols =MTX_COL;                       
+    var fix_cols =500;                       
     var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();     
     var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
     var  y_e_100 = y_e_100.toString();    
@@ -5431,7 +5431,7 @@ function m_exp(x){
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-205)==2 ){ return  1;}  
+      if(m_mtx_real_str_comp(xx_test_nub_e,-500)==2 ){ return  1;}  
    var p_comp_datalg  =  m_mtx_real_str_comp(xx_test_nub_e,201);        
       if( p_comp_datalg ==1  ){
          var ans_1 = message_1(23);
@@ -5478,11 +5478,14 @@ function m_exp_low(x){
         var zz = zz.substr(1,zz.length-1);
         var flag_a=1; }                            
      else{ zz=zz;}
+  var comp_zz_0 = m_mtx_real_str_comp(zz,0);
   var comp_zz_1 = m_mtx_real_str_comp(zz,1);            
-  if(zz==0){ var sum_total= 1; return sum_total; }        
+   if(comp_zz_0==3){ var sum_total= 1; return sum_total; }        
      if(comp_zz_1 !=1){    
-       var zz = m_str_e_to_str(zz);          
-       var zz =m_fix(zz,250);                 
+       var zz = m_str_e_to_str(zz); 
+       var zz_fst_3= zz.substr(0,3);                     
+         if(zz_fst_3=="0.0"){ var zz =m_fix(zz,1000);}      
+         else{ var zz =m_fix(zz,250);}                   
        var BB = m_mtx_exp_coefficient_150_table();       
        var AA  = m_str_to_mtx(zz) ;              
        var SS_T  = m_str_to_mtx(0) ;              
@@ -6654,7 +6657,7 @@ function m_ln(x){
  var ans_t = 0;  
           var data_trans = MTX_COL;
            if( MTX_COL >=100 || xx.length >=50){       
-                MTX_COL=100 ;}
+                MTX_COL=200 ;}
   var xx_fst=xx.substr(0,1); 
   var  data_xx_comp_0 = m_mtx_real_str_comp(xx,0);    
       if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
