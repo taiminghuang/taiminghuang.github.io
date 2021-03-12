@@ -5689,9 +5689,9 @@ function m_sin_small(x){
               if(zz_m==0 && zz_m.length ==1){ var zz =  zz_p;}
               else if(zz_p==0 && zz_p.length ==1 ){ var zz =  zz_m;}
               else {var zz = m_mtx_real_add(zz_m, zz_p);}
-              if(zz.length > 500){
-               var   zz_cp = m_fix(zz,500);      
-               var  PIMUL2_cp = m_fix(PIMUL2,500);
+              if(zz.length > 1000){
+               var   zz_cp = m_fix(zz,1000);      
+               var  PIMUL2_cp = m_fix(PIMUL2,1000);
                               }
            if( zz >= 6 ){
              var data_comp_zz_PIMUL2 = m_mtx_real_str_comp(zz_cp,PIMUL2_cp);   
@@ -7561,9 +7561,7 @@ function m_asin(x){
    var data_comp_zz_0_ag   =  m_mtx_real_str_comp(zz,0);           
    if(data_comp_zz_0_ag==3){ var sum_total= 0; return sum_total; }        
    if(data_comp_zz_1_ag ==3){ var sum_total= PIDIV2; 
-   if(zz==0){ var sum_total= 0; return sum_total; }        
-   if(zz==1){ var sum_total= PIDIV2; 
-             
+           
         if(flag_a==1){sum_total="-"+sum_total;}
            return sum_total; }   
    var zz_fix = m_fix(zz,1000);
@@ -7694,7 +7692,7 @@ function m_atan(x){
     else { var xx=xx;} 
    var comp_xx_e = m_mtx_real_str_comp(xx,1e+100);      
    var comp_xx_e_s = m_mtx_real_str_comp(xx,1e-200); 
-       xx = m_str_e_to_str(xx); 
+   var xx = m_str_e_to_str(xx); 
   var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
    var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
    if(comp_xx_0==3){ var ans_1= 0; return ans_1; }         
