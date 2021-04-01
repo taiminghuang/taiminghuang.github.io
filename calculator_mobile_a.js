@@ -4778,6 +4778,7 @@ function m_mtx_real_str_comp(x,y){
       if(x!="" && y==""){ var ant=1 ; return ant; }
       if(x=="" && y!=""){ var ant=2 ; return ant; }
       if(x=="" && y==""){ var ant=3 ; return ant; }
+    var x=m_str_e_to_str_point(x);
     var xx = m_mtx_str_to_e(x);             
     var yy = m_mtx_str_to_e(y);   
     var xx = m_mtx_str_to_e_a(xx);             
@@ -4822,7 +4823,10 @@ function m_mtx_real_str_comp(x,y){
           if(data_e_cpl == 3){
                            var xx_str = m_mtx_e_str(xx,1);   
                            var yy_str = m_mtx_e_str(yy,1);   
-                           var ant = m_mtx_int_str_comp(xx_str,yy_str);
+                           var A = m_str_to_mtx(xx_str) ;   
+                           var B = m_str_to_mtx(yy_str) ;   
+                           var ant = m_mtx_compare(A,B);    
+   
                                }
                              
                                                                }   
@@ -8751,7 +8755,9 @@ function m_mtx_compare_nub(A,B,nub_b){
 
 function m_mtx_compare(A,B){         
   var AA =A;
+  var AA = m_mtx_cell_five(AA); 
   var BB =B;
+  var BB = m_mtx_cell_five(BB);
   var ans_1 = 0;
   var data_a = 0;     
   var data_b = 0;
