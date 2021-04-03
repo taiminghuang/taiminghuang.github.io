@@ -5086,8 +5086,8 @@ function m_mtx_real_add_bf_1(x,y){
   var y_fst = nexp.substr(0,1); 
     if(x_fst =="-"){ pexp = pexp.substr(1,pexp.length-1);}
     if(y_fst =="-"){ nexp = nexp.substr(1,nexp.length-1);}
-          pexp = pexp.toString();                                   
-          pexp = pexp.toString().trim();
+          var pexp = pexp.toString();                                   
+          var nexp = nexp.toString().trim();
           var p_idx_p = pexp.indexOf(".");
           var p_idx_e = pexp.indexOf("e");
       if( p_idx_e != -1 &&  p_idx_p != -1){                           
@@ -5399,11 +5399,7 @@ function m_mtx_real_sub_bf(x,y){
                 var sutt= m_mtx_cell_five_show_int(EE,FF); 
                  var sutt = m_mtx_del_point(sutt);
                  if(data_point ==1){ sutt = "-" +sutt;} 
-                var xy_lg = m_mtx_int_add(x_lg,y_lg);           
-                var sutt_9 =sutt.substr(sutt.length-5 ,5);
-                var idx_point = sutt.indexOf(".");
-              if((sutt.length > xy_lg)&& (sutt_9 =="99999") &&(idx_point !=-1 )){ 
-                 var sutt= m_fix(sutt,xy_lg); }
+                
   
        return sutt;     
 }
