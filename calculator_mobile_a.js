@@ -6697,7 +6697,7 @@ function m_ln(x){
   var data_com = 0;
   var data_com_pow=0 ;
 
-  for(var j=0;j<ˊ;j++){   
+  for(var j=0;j<6;j++){   
    if(j==0){var data_com = 2.511886431509580111086 ;var data_com_pow=0.4 ;}
    if(j==1){var data_com = 1.995262314968879601353 ;var data_com_pow=0.3 ;}        
    if(j==2){var data_com = 1.096478196143185013144 ;var data_com_pow=0.04 ;}        
