@@ -5428,6 +5428,7 @@ function m_exp(x){
    var data_msg =  m_str_char(x,"Msg") ;                     
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
    var xx = m_str_e_to_str_point(xx );
+   var xx = m_fix(xx,1000);
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
@@ -6733,7 +6734,7 @@ function m_ln_matrix(x){
  var zz = "0."+ zz.substr(2,zz.length-2); 
  var BB = m_mtx_unit_inv_lg_100_table();      
  var AA  = m_str_to_mtx(zz) ;   
- var nn=150;
+ var nn=200;
    for(var i = 1 ; i < nn ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
           if(i ==1){                         
