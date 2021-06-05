@@ -6681,7 +6681,7 @@ function m_ln(x){
  var data_msg =  m_str_char(xx,"Msg") ;  
     if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
  var xx = m_str_e_to_str_point(xx );  
- var xx_e = m_mtx_str_to_e_a(xx);
+ var xx_e = m_mtx_str_to_e(xx);
   var xx_e = m_mtx_str_to_e_a(xx_e);
   var nub_x = m_str_power(xx_e ,0); 
   var xx_e_st = m_str_power(xx_e ,1); 
@@ -6706,7 +6706,7 @@ function m_ln(x){
    if(j==4){var data_com = 1.000921458319295876109 ;var data_com_pow=0.0004 ;}      
    if(j==5){var data_com = 1.000092107645368472635 ;var data_com_pow=0.00004 ;}    
      
-  for(var i=6;i<10 ;i++){
+  for(var i=0;i<10 ;i++){
     var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);    
       if(data_xx_st_comp_data_com != 2){
         var xx_st =m_fix(xx_st,200); 
