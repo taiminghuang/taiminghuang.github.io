@@ -6734,7 +6734,7 @@ function m_ln_matrix(x){
  var zz = "0."+ zz.substr(2,zz.length-2); 
  var BB = m_mtx_unit_inv_lg_100_table();      
  var AA  = m_str_to_mtx(zz) ;   
- var nn=200;
+ var nn=150;
    for(var i = 1 ; i < nn ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
           if(i ==1){                         
