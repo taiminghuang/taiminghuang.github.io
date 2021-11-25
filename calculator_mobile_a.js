@@ -4943,7 +4943,8 @@ function m_mtx_real_add(x,y){
     var  y_e = m_mtx_str_to_e_ne(y_e);               
     var  x_e = m_mtx_str_to_e_ne(x_e);              
     var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();      
-    var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();       
+    var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();  
+    var fix_cols =2000;
     var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();     
     var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
     var  y_e_100 = y_e_100.toString();    
