@@ -5976,7 +5976,7 @@ function m_tan(x){
     var xx_fst = xx.substr(0,1);
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
    var com_zz_pidiv2 =0;
-       var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2); 
+       var com_zz_pidiv2 = m_mtx_real_str_comp(xx,  PIDIV2); 
    if(com_zz_pidiv2 ==1 ||com_zz_pidiv2 ==3){
        var zz = m_mtx_real_div(xx,PIMUL2);  
        var zz = m_str_e_to_str(zz);   
@@ -6008,7 +6008,7 @@ function m_tan(x){
       var ans_a = m_mtx_real_div(data_sin,data_cos);             
       if(xx_fst =="-" && flag_1_3 ==1){ var ans_a ="-"+ans_a;}
       if(xx_fst !="-" && flag_2_4 ==1){ var ans_a ="-"+ans_a;}
-  return ans_1 ;    
+  return ans_a ;    
    }
 
 
