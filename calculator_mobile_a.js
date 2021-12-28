@@ -6684,7 +6684,7 @@ function m_ln_matrix(x){
  var nub_fix =36;    //20211228
    if(DECI_DGT<= 16 ){var nub_fix =5 ;}
    if(DECI_DGT >16 && DECI_DGT< 50 ){var nub_fix =11 ;}
-   else if(DECI_DGT>=50 && DECI_DGT<=200 ){var nub_fix =40 ;} //20211228
+   else if(DECI_DGT>=50 && DECI_DGT<=200 ){var nub_fix =40 ;} 
    else {var nub_fix = 260  ;}
   for(var i = 1 ; i <nub_fix ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
