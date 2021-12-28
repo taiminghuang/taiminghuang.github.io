@@ -6710,7 +6710,7 @@ function m_ln_matrix(x){
  var zz = "0."+ zz.substr(2,zz.length-2); 
  var BB = m_mtx_unit_inv_lg_100_table();      
  var AA  = m_str_to_mtx(zz) ;   
- var nub_fix =36;    //20211228
+ var nub_fix =36;    
    if(DECI_DGT<= 16 ){var nub_fix =5 ;}
    if(DECI_DGT >16 && DECI_DGT< 50 ){var nub_fix =11 ;}
    else if(DECI_DGT>=50 && DECI_DGT<=200 ){var nub_fix =40 ;} 
