@@ -6481,30 +6481,19 @@ function m_mtx_dele_zero(x){
            var xx_st = m_mtx_trim(xx_st) ;   
    return xx_st;
 }
+function m_ln_bf(x){     //20211228
 
-function m_ln(x){           
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(xx,"Msg") ;  
-    if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
- var xx = m_str_e_to_str_point(xx );  
- var xx_e = m_mtx_str_to_e(xx);
-  var xx_e = m_mtx_str_to_e_a(xx_e);
-  var nub_x = m_str_power(xx_e ,0); 
-  var xx_e_st = m_str_power(xx_e ,1); 
-  var xx_e_st_fst=xx_e_st.substr(0,1);  
-  var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);    
-      if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
-      if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
-  var ans_t = 0 ;
-  var ans_t1 = 0 ; 
-   if (xx_e_st <= 99 && nub_x==0 && xx.length<=2){   
+       var ans_t = 0 ;
+       var ans_t1 = 0 ;
+       var xx=x;
+   if (xx <= 99  && xx.length<=2){        
+
        LN2=m_fix(LN2,FIX_COL);    
        LN3=m_fix(LN3,FIX_COL);
        LN5=m_fix(LN5,FIX_COL);
        LN7=m_fix(LN7,FIX_COL);
        LN10=m_fix(LN10,FIX_COL);  
-       LN11=m_fix(LN11,FIX_COL);   
+       LN11=m_fix(LN11,FIX_COL);  
        LN13=m_fix(LN13,FIX_COL);
        LN17=m_fix(LN17,FIX_COL);
        LN19=m_fix(LN19,FIX_COL);
@@ -6524,108 +6513,148 @@ function m_ln(x){
        LN79=m_fix(LN79,FIX_COL);
        LN83=m_fix(LN83,FIX_COL);
        LN89=m_fix(LN89,FIX_COL);
-       LN97=m_fix(LN97,FIX_COL);
+       LN97=m_fix(LN97,FIX_COL);   
+
+      if (xx == 1 &&  xx.length==1) {var ans_t = 0 ; return ans_t;}  
+      if (xx == 2 &&  xx.length==1) {var ans_t = LN2 ; return ans_t;}  
+      if (xx == 3 &&  xx.length==1) {var ans_t = LN3 ; return ans_t;}  
+      if (xx == 4 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN2) ; return ans_t;}  
+      if (xx == 5 &&  xx.length==1) {var ans_t = LN5 ; return ans_t;}  
+      if (xx == 6 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN3) ; return ans_t;}  
+      if (xx == 7 &&  xx.length==1) {var ans_t = LN7 ; return ans_t;}  
+      if (xx == 8 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN2 , 3) ; return ans_t;}  
+      if (xx == 9 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN3 ,2)  ; return ans_t;}  
+      if (xx == 10 &&  xx.length==2) {var ans_t = LN10 ; return ans_t;}  
+      if (xx == 11 &&  xx.length==2) {var ans_t = LN11 ; return ans_t;}  
+      if (xx == 12 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  return ans_t;}  
+      if (xx == 13 &&  xx.length==2) {var ans_t = LN13 ; return ans_t;}  
+      if (xx == 14 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN7 ) ; return ans_t;}  
+      if (xx == 15 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN5 ) ; return ans_t;}  
+      if (xx == 16 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,4) ; return ans_t;}  
+      if (xx == 17 &&  xx.length==2) {var ans_t = LN17 ; return ans_t;}  
+      if (xx == 18 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN2) ;  return ans_t;}   
+      if (xx == 19 &&  xx.length==2) {var ans_t = LN19; return ans_t;}  
+      if (xx == 20 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  return ans_t;}   
+      if (xx == 21 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN7 ) ; return ans_t;}  
+      if (xx == 23 &&  xx.length==2) {var ans_t = LN23; return ans_t;}   
+      if (xx == 24 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 3) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  return ans_t;}  
+      
+      if (xx == 25 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN5 ,2)  ; return ans_t;}  
+      if (xx == 26 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN13) ; return ans_t;}  
+      if (xx == 27 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,3)  ; return ans_t;}  
+      if (xx == 29 &&  xx.length==2) {var ans_t = LN29; return ans_t;}  
+      if (xx == 30 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 , LN3) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  return ans_t;}  
+     
+      if (xx == 31 &&  xx.length==2) {var ans_t = LN31; return ans_t;}  
+    
+      if (xx == 32 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,5) ; return ans_t;}  
+      if (xx == 33 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN11) ; return ans_t;}  
+      if (xx == 34 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN17) ; return ans_t;}  
+      if (xx == 35 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 , LN5) ; return ans_t;}  
+      if (xx == 36 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ; var ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;return ans_t;} 
+
+      if (xx == 37 &&  xx.length==2) {var ans_t = LN37; return ans_t;}  
+      if (xx == 38 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN19) ; return ans_t;}  
+      if (xx == 39 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN13) ; return ans_t;}  
+      if (xx == 40 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;} 
+
+      if (xx == 41 &&  xx.length==2) {var ans_t = LN41; return ans_t;}  
+      if (xx == 42 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
+
+      if (xx == 43 &&  xx.length==2) {var ans_t = LN43; return ans_t;}  
+      if (xx == 44 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;return ans_t;} 
+      if (xx == 45 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;} 
+      if (xx == 46 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN23) ; return ans_t;} 
+ 
+      if (xx == 47 &&  xx.length==2) {var ans_t = LN47; return ans_t;}  
+      if (xx == 48 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;  var ans_t = m_mtx_real_add(ans_t1 , LN3) ;return ans_t;} 
+
+
+      if (xx == 49 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN7 ,2)  ; return ans_t;}  
+      if (xx == 50 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;return ans_t;} 
+      if (xx == 51 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN17) ; return ans_t;} 
+      if (xx == 52 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN13) ;return ans_t;} 
+      
+      if (xx == 53 &&  xx.length==2) {var ans_t = LN53; return ans_t;}  
+      if (xx == 54 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;return ans_t;} 
+      if (xx == 55 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN11) ; return ans_t;} 
+      if (xx == 56 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
+      if (xx == 57 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN19) ;return ans_t;} 
+      if (xx == 58 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN29) ;return ans_t;} 
+      
+      if (xx == 59 &&  xx.length==2) {var ans_t = LN59; return ans_t;}  
+      if (xx == 60 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t2 = m_mtx_real_add(ans_t1 , LN3) ; var ans_t2 = m_mtx_real_add(ans_t2 , LN5) ;return ans_t;} 
+      
+      if (xx == 61 &&  xx.length==2) {var ans_t = LN61; return ans_t;}  
+      if (xx == 62 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN31) ;return ans_t;} 
+      if (xx == 63 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
+       
+      if (xx == 64 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,6) ; return ans_t;}  
+      if (xx == 65 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN13) ; return ans_t;}  
+      if (xx == 66 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;return ans_t;} 
           
-     if (xx_e_st == 1 && nub_x==0 && xx.length==1) {var ans_t = 0 ; return ans_t;}  
-      if (xx_e_st == 2 && nub_x==0 && xx.length==1) {var ans_t = LN2 ; return ans_t;}  
-      if (xx_e_st == 3 && nub_x==0 && xx.length==1) {var ans_t = LN3 ; return ans_t;}  
-      if (xx_e_st == 4 && nub_x==0 && xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN2) ; return ans_t;}  
-      if (xx_e_st == 5 && nub_x==0 && xx.length==1) {var ans_t = LN5 ; return ans_t;}  
-      if (xx_e_st == 6 && nub_x==0 && xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN3) ; return ans_t;}  
-      if (xx_e_st == 7 && nub_x==0 && xx.length==1) {var ans_t = LN7 ; return ans_t;}  
-      if (xx_e_st == 8 && nub_x==0 && xx.length==1) {var ans_t = m_mtx_real_mul(LN2 , 3) ; return ans_t;}  
-      if (xx_e_st == 9 && nub_x==0 && xx.length==1) {var ans_t = m_mtx_real_mul(LN3 ,2)  ; return ans_t;}  
-      if (xx_e_st == 10 && nub_x==0 && xx.length==2) {var ans_t = LN10 ; return ans_t;}  
-      if (xx_e_st == 11 && nub_x==0 && xx.length==2) {var ans_t = LN11 ; return ans_t;}  
-      if (xx_e_st == 12 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  return ans_t;}  
-      if (xx_e_st == 13 && nub_x==0 && xx.length==2) {var ans_t = LN13 ; return ans_t;}   
-      if (xx_e_st == 14 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN7 ) ; return ans_t;}  
-      if (xx_e_st == 15 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN5 ) ; return ans_t;}  
-      if (xx_e_st == 16 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,4) ; return ans_t;}  
-      if (xx_e_st == 17 && nub_x==0 && xx.length==2) {var ans_t = LN17 ; return ans_t;}   
-      if (xx_e_st == 18 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN2) ;  return ans_t;}   
-      if (xx_e_st == 19 && nub_x==0 && xx.length==2) {var ans_t = LN19; return ans_t;}  
-      if (xx_e_st == 20 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  return ans_t;}  
-      if (xx_e_st == 21 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN7 ) ; return ans_t;}  
-      if (xx_e_st == 23 && nub_x==0 && xx.length==2) {var ans_t = LN23; return ans_t;}   
-      if (xx_e_st == 24 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 3) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  return ans_t;}   
-      if (xx_e_st == 25 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN5 ,2)  ; return ans_t;}  
-      if (xx_e_st == 26 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN13) ; return ans_t;}  
-      if (xx_e_st == 27 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,3)  ; return ans_t;}  
-      if (xx_e_st == 29 && nub_x==0 && xx.length==2) {var ans_t = LN29; return ans_t;}  
-      if (xx_e_st == 30 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 , LN3) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  return ans_t;}  
-      if (xx_e_st == 31 && nub_x==0 && xx.length==2) {var ans_t = LN31; return ans_t;}  
-      if (xx_e_st == 32 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,5) ; return ans_t;}  
-      if (xx_e_st == 33 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN11) ; return ans_t;}  
-      if (xx_e_st == 34 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN17) ; return ans_t;}  
-      if (xx_e_st == 35 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN7 , LN5) ; return ans_t;}  
-      if (xx_e_st == 36 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ; var ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;return ans_t;} 
-      if (xx_e_st == 37 && nub_x==0 && xx.length==2) {var ans_t = LN37; return ans_t;}  
-      if (xx_e_st == 38 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN19) ; return ans_t;}  
-      if (xx_e_st == 39 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN13) ; return ans_t;}  
-      if (xx_e_st == 40 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;} 
-      if (xx_e_st == 41 && nub_x==0 && xx.length==2) {var ans_t = LN41; return ans_t;}  
-      if (xx_e_st == 42 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
-      if (xx_e_st == 43 && nub_x==0 && xx.length==2) {var ans_t = LN43; return ans_t;}  
-      if (xx_e_st == 44 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;return ans_t;} 
-      if (xx_e_st == 45 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;} 
-      if (xx_e_st == 46 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN23) ; return ans_t;} 
-      if (xx_e_st == 47 && nub_x==0 && xx.length==2) {var ans_t = LN47; return ans_t;}  
-      if (xx_e_st == 48 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;  var ans_t = m_mtx_real_add(ans_t1 , LN3) ;return ans_t;} 
-      if (xx_e_st == 49 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN7 ,2)  ; return ans_t;}  
-      if (xx_e_st == 50 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;return ans_t;} 
-      if (xx_e_st == 51 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN17) ; return ans_t;} 
-      if (xx_e_st == 52 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN13) ;return ans_t;} 
-      if (xx_e_st == 53 && nub_x==0 && xx.length==2) {var ans_t = LN53; return ans_t;}  
-      if (xx_e_st == 54 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;return ans_t;} 
-      if (xx_e_st == 55 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN11) ; return ans_t;} 
-      if (xx_e_st == 56 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
-      if (xx_e_st == 57 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN19) ;return ans_t;} 
-      if (xx_e_st == 58 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN29) ;return ans_t;} 
-      if (xx_e_st == 59 && nub_x==0 && xx.length==2) {var ans_t = LN59; return ans_t;}  
-      if (xx_e_st == 60 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t2 = m_mtx_real_add(ans_t1 , LN3) ; var ans_t2 = m_mtx_real_add(ans_t2 , LN5) ;return ans_t;} 
-      if (xx_e_st == 61 && nub_x==0 && xx.length==2) {var ans_t = LN61; return ans_t;}  
-      if (xx_e_st == 62 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN31) ;return ans_t;} 
-      if (xx_e_st == 63 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
-      if (xx_e_st == 64 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,6) ; return ans_t;}  
-      if (xx_e_st == 65 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN13) ; return ans_t;}  
-      if (xx_e_st == 66 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;return ans_t;} 
-      if (xx_e_st == 67 && nub_x==0 && xx.length==2) {var ans_t = LN67; return ans_t;}  
-      if (xx_e_st == 68 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN17) ;return ans_t;} 
-      if (xx_e_st == 69 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN23) ; return ans_t;}  
-      if (xx_e_st == 70 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN5) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
-      if (xx_e_st == 71 && nub_x==0 && xx.length==2) {var ans_t = LN71; return ans_t;}  
-      if (xx_e_st == 72 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;return ans_t;} 
-      if (xx_e_st == 73 && nub_x==0 && xx.length==2) {var ans_t = LN73; return ans_t;}  
-      if (xx_e_st == 74 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN37) ; return ans_t;} 
-      if (xx_e_st == 75 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN3) ;return ans_t;} 
-      if (xx_e_st == 76 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN19) ;return ans_t;} 
-      if (xx_e_st == 77 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN11) ; return ans_t;} 
-      if (xx_e_st == 78 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ; var ans_t = m_mtx_real_add(ans_t1 ,LN13) ;return ans_t;} 
-      if (xx_e_st == 79 && nub_x==0 && xx.length==2) {var ans_t = LN79; return ans_t;}  
-      if (xx_e_st == 80 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;   var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;}
-      if (xx_e_st == 81 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,4)  ; return ans_t;}  
-      if (xx_e_st == 82 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN41)  ; return ans_t;}  
-      if (xx_e_st == 83 && nub_x==0 && xx.length==2) {var ans_t = LN83; return ans_t;}  
-      if (xx_e_st == 84 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN7) ;return ans_t;} 
-      if (xx_e_st == 85 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; return ans_t;} 
-      if (xx_e_st == 86 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN43) ;  return ans_t;} 
-      if (xx_e_st == 87 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN29) ;  return ans_t;} 
-      if (xx_e_st == 88 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; return ans_t;} 
-      if (xx_e_st == 89 && nub_x==0 && xx.length==2) {var ans_t = LN89; return ans_t;}  
-      if (xx_e_st == 90 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN2) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;return ans_t;} 
-      if (xx_e_st == 91 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN13) ;  return ans_t;} 
-      if (xx_e_st == 92 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN23) ; return ans_t;} 
-      if (xx_e_st == 93 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN31) ;  return ans_t;} 
-      if (xx_e_st == 94 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN47) ;  return ans_t;} 
-      if (xx_e_st == 95 && nub_x==0 && xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN19) ;  return ans_t;} 
-      if (xx_e_st == 96 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,5) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; return ans_t;} 
-      if (xx_e_st == 97 && nub_x==0 && xx.length==2) {var ans_t = LN97; return ans_t;}  
-      if (xx_e_st == 98 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN7 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; return ans_t;} 
-      if (xx_e_st == 99 && nub_x==0 && xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; return ans_t;} 
-      }  
-  
-      if (xx_e_st == 1 && nub_x==0 && xx.length==1  ) {  var ans_t = 0 ; return ans_t;}  
+      if (xx == 67 &&  xx.length==2) {var ans_t = LN67; return ans_t;}  
+      if (xx == 68 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN17) ;return ans_t;} 
+      if (xx == 69 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN23) ; return ans_t;}  
+      if (xx == 70 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN5) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;return ans_t;} 
+      if (xx == 71 &&  xx.length==2) {var ans_t = LN71; return ans_t;}  
+      if (xx == 72 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;return ans_t;} 
+      
+      if (xx == 73 &&  xx.length==2) {var ans_t = LN73; return ans_t;}  
+      if (xx == 74 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN37) ; return ans_t;} 
+      if (xx == 75 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN3) ;return ans_t;} 
+      if (xx == 76 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN19) ;return ans_t;} 
+      if (xx == 77 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN11) ; return ans_t;} 
+      if (xx == 78 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ; var ans_t = m_mtx_real_add(ans_t1 ,LN13) ;return ans_t;} 
+      
+      if (xx == 79 &&  xx.length==2) {var ans_t = LN79; return ans_t;}  
+      if (xx == 80 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;   var ans_t = m_mtx_real_add(ans_t1 , LN5) ;return ans_t;}
+      if (xx == 81 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,4)  ; return ans_t;}  
+      if (xx == 82 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN41)  ; return ans_t;}  
+      if (xx == 83 &&  xx.length==2) {var ans_t = LN83; return ans_t;}  
+      if (xx == 84 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN7) ;return ans_t;} 
+      if (xx == 85 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; return ans_t;} 
+      if (xx == 86 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN43) ;  return ans_t;} 
+      if (xx == 87 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN29) ;  return ans_t;} 
+      if (xx == 88 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; return ans_t;} 
+      
+      if (xx == 89 &&  xx.length==2) {var ans_t = LN89; return ans_t;}  
+      if (xx == 90 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN2) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;return ans_t;} 
+      if (xx == 91 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN13) ;  return ans_t;} 
+      if (xx == 92 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN23) ; return ans_t;} 
+      if (xx == 93 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN31) ;  return ans_t;} 
+      if (xx == 94 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN47) ;  return ans_t;} 
+      if (xx == 95 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN19) ;  return ans_t;} 
+      if (xx == 96 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,5) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; return ans_t;} 
+      
+      if (xx == 97 &&  xx.length==2) {var ans_t = LN97; return ans_t;}  
+      if (xx == 98 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN7 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; return ans_t;} 
+      if (xx == 99 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; return ans_t;} 
+      
+
+   
+    }  
+       return  x ;
+   }
+function m_ln(x){           
+ var xx = x.toString().trim();
+ var data_msg =0;
+ var data_msg =  m_str_char(xx,"Msg") ;  
+    if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
+ var xx = m_str_e_to_str_point(xx );  
+ var ans_0=0;                  
+  if (xx <= 99  && xx.length<=2 && xx !=0){  
+     var ans_0 = m_ln_bf(x);
+     return ans_0;
+   } 
+ var xx_e = m_mtx_str_to_e(xx);
+  var xx_e = m_mtx_str_to_e_a(xx_e);
+  var nub_x = m_str_power(xx_e ,0); 
+  var xx_e_st = m_str_power(xx_e ,1); 
+  var xx_e_st_fst=xx_e_st.substr(0,1);  
+  var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);    
+      if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
+      if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
       LN10=m_fix(LN10,FIX_COL); 
   var sum_tt_1 = m_mtx_real_mul(nub_x , LN10) ; 
   if (xx_e_st == 1  && nub_x !=0) {  var ans_t = sum_tt_1 ; return ans_t;}
