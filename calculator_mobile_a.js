@@ -6591,7 +6591,7 @@ function m_ln_bf(x){     //20211228
        
       if (xx == 64 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,6) ; }  
       if (xx == 65 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN13) ; }  
-      if (xx == 66 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
+      if (xx == 66 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
           
       if (xx == 67 &&  xx.length==2) {var ans_t = LN67; }  
       if (xx == 68 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN17) ;} 
