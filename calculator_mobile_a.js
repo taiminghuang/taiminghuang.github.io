@@ -6481,7 +6481,7 @@ function m_mtx_dele_zero(x){
            var xx_st = m_mtx_trim(xx_st) ;   
    return xx_st;
 }
-function m_ln_bf(x){     //20211228
+function m_ln_bf(x){     
 
        var ans_t = 0 ;
        var ans_t1 = 0 ;
@@ -6514,108 +6514,108 @@ function m_ln_bf(x){     //20211228
        LN83=m_fix(LN83,FIX_COL);
        LN89=m_fix(LN89,FIX_COL);
        LN97=m_fix(LN97,FIX_COL);   
-
-     if (xx == 1 &&  xx.length==1) {var ans_t = 0 ; }  //20211229
-      if (xx == 2 &&  xx.length==1) {var ans_t = LN2 ; }  
-      if (xx == 3 &&  xx.length==1) {var ans_t = LN3 ; }  
-      if (xx == 4 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN2) ; }  
-      if (xx == 5 &&  xx.length==1) {var ans_t = LN5 ; }  
-      if (xx == 6 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN3) ; }  
-      if (xx == 7 &&  xx.length==1) {var ans_t = LN7 ; }  
-      if (xx == 8 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN2 , 3) ; }  
-      if (xx == 9 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN3 ,2)  ; }  
-      if (xx == 10 &&  xx.length==2) {var ans_t = LN10 ; }  
-      if (xx == 11 &&  xx.length==2) {var ans_t = LN11 ; }  
-      if (xx == 12 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  }  
-      if (xx == 13 &&  xx.length==2) {var ans_t = LN13 ; }  
-      if (xx == 14 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN7 ) ; }  
-      if (xx == 15 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN5 ) ; }  
-      if (xx == 16 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,4) ; }  
-      if (xx == 17 &&  xx.length==2) {var ans_t = LN17 ; }  
-      if (xx == 18 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN2) ;  }   
-      if (xx == 19 &&  xx.length==2) {var ans_t = LN19; }  
-      if (xx == 20 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  }   
-      if (xx == 21 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN7 ) ; }
-      if (xx == 22 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN11 ) ; }
-      if (xx == 23 &&  xx.length==2) {var ans_t = LN23; }   
-      if (xx == 24 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 3) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  }  
-      if (xx == 25 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN5 ,2)  ; }  
-      if (xx == 26 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN13) ; }  
-      if (xx == 27 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,3)  ; }  
-      if (xx == 28 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;var ans_t = m_mtx_real_add(ans_t1 , LN7) ; }
-      if (xx == 29 &&  xx.length==2) {var ans_t = LN29; }  
-      if (xx == 30 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 , LN3) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  }  
-      if (xx == 31 &&  xx.length==2) {var ans_t = LN31; }  
-      if (xx == 32 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,5) ; }  
-      if (xx == 33 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN11) ; }  
-      if (xx == 34 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN17) ; }  
-      if (xx == 35 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 , LN5) ; }  
-      if (xx == 36 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ; var ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;} 
-      if (xx == 37 &&  xx.length==2) {var ans_t = LN37; }  
-      if (xx == 38 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN19) ; }  
-      if (xx == 39 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN13) ; }  
-      if (xx == 40 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;} 
-      if (xx == 41 &&  xx.length==2) {var ans_t = LN41; }  
-      if (xx == 42 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
-      if (xx == 43 &&  xx.length==2) {var ans_t = LN43; }  
-      if (xx == 44 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
-      if (xx == 45 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;} 
-      if (xx == 46 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN23) ; } 
-      if (xx == 47 &&  xx.length==2) {var ans_t = LN47; }  
-      if (xx == 48 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;  var ans_t = m_mtx_real_add(ans_t1 , LN3) ;} 
-      if (xx == 49 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN7 ,2)  ; }  
-      if (xx == 50 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;} 
-      if (xx == 51 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN17) ; } 
-      if (xx == 52 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN13) ;} 
-      if (xx == 53 &&  xx.length==2) {var ans_t = LN53; }  
-      if (xx == 54 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;} 
-      if (xx == 55 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN11) ; } 
-      if (xx == 56 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
-      if (xx == 57 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN19) ;} 
-      if (xx == 58 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN29) ;} 
-      if (xx == 59 &&  xx.length==2) {var ans_t = LN59; }  
-      if (xx == 60 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t2 = m_mtx_real_add(ans_t1 , LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;}  if (xx == 61 &&  xx.length==2) {var ans_t = LN61; }  
-      if (xx == 62 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN31) ;} 
-      if (xx == 63 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
-      if (xx == 64 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,6) ; }  
-      if (xx == 65 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN13) ; }  
-      if (xx == 66 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
-      if (xx == 67 &&  xx.length==2) {var ans_t = LN67; }  
-      if (xx == 68 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN17) ;} 
-      if (xx == 69 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN23) ; }  
-      if (xx == 70 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN5) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
-      if (xx == 71 &&  xx.length==2) {var ans_t = LN71; }  
-      if (xx == 72 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;} 
-      if (xx == 73 &&  xx.length==2) {var ans_t = LN73; }  
-      if (xx == 74 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN37) ; } 
-      if (xx == 75 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN3) ;} 
-      if (xx == 76 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN19) ;} 
-      if (xx == 77 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN11) ; } 
-      if (xx == 78 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ; var ans_t = m_mtx_real_add(ans_t1 ,LN13) ;} 
-      if (xx == 79 &&  xx.length==2) {var ans_t = LN79; }  
-      if (xx == 80 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;   var ans_t = m_mtx_real_add(ans_t1 , LN5) ;}
-      if (xx == 81 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,4)  ; }  
-      if (xx == 82 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN41)  ; }  
-      if (xx == 83 &&  xx.length==2) {var ans_t = LN83; }  
-      if (xx == 84 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN7) ;} 
-      if (xx == 85 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN17) ; }
-      if (xx == 86 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN43) ;  } 
-      if (xx == 87 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN29) ;  } 
-      if (xx == 88 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
-      if (xx == 89 &&  xx.length==2) {var ans_t = LN89; }  
-      if (xx == 90 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN2) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;} 
-      if (xx == 91 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN13) ;  } 
-      if (xx == 92 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN23) ; } 
-      if (xx == 93 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN31) ;  } 
-      if (xx == 94 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN47) ;  } 
-      if (xx == 95 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN19) ;  } 
-      if (xx == 96 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,5) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; } 
-      if (xx == 97 &&  xx.length==2) {var ans_t = LN97; }  
-      if (xx == 98 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN7 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; } 
-      if (xx == 99 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
-      return ans_t;  
-    }  
-       return  x ;
+      if (xx == 1 &&  xx.length==1) {var ans_t = 0 ; }  
+      else if (xx == 2 &&  xx.length==1) {var ans_t = LN2 ; }  
+      else if (xx == 3 &&  xx.length==1) {var ans_t = LN3 ; }  
+      else if (xx == 4 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN2) ; }  
+      else if (xx == 5 &&  xx.length==1) {var ans_t = LN5 ; }  
+      else if (xx == 6 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN3) ; }  
+      else if (xx == 7 &&  xx.length==1) {var ans_t = LN7 ; }  
+      else if (xx == 8 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN2 , 3) ; }  
+      else if (xx == 9 &&  xx.length==1) {var ans_t = m_mtx_real_mul(LN3 ,2)  ; }  
+      else if (xx == 10 &&  xx.length==2) {var ans_t = LN10 ; }  
+      else if (xx == 11 &&  xx.length==2) {var ans_t = LN11 ; }  
+      else if (xx == 12 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  }  
+      else if (xx == 13 &&  xx.length==2) {var ans_t = LN13 ; }  
+      else if (xx == 14 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN7 ) ; }  
+      else if (xx == 15 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN5 ) ; }  
+      else if (xx == 16 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,4) ; }  
+      else if (xx == 17 &&  xx.length==2) {var ans_t = LN17 ; }  
+      else if (xx == 18 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN2) ;  }   
+      else if (xx == 19 &&  xx.length==2) {var ans_t = LN19; }  
+      else if (xx == 20 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 2) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  }   
+      else if (xx == 21 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN7 ) ; } 
+      else if (xx == 22 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN11 ) ; }
+      else if (xx == 23 &&  xx.length==2) {var ans_t = LN23; }   
+      else if (xx == 24 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 , 3) ;var ans_t = m_mtx_real_add(ans_t1 , LN3) ;  }  
+      else if (xx == 25 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN5 ,2)  ; }  
+      else if (xx == 26 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN13) ; }  
+      else if (xx == 27 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,3)  ; } 
+      else if (xx == 28 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;var ans_t = m_mtx_real_add(ans_t1 , LN7) ; }
+      else if (xx == 29 &&  xx.length==2) {var ans_t = LN29; }  
+      else if (xx == 30 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 , LN3) ;var ans_t = m_mtx_real_add(ans_t1 , LN5) ;  }  
+      else if (xx == 31 &&  xx.length==2) {var ans_t = LN31; }  
+      else if (xx == 32 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,5) ; }  
+      else if (xx == 33 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN11) ; }  
+      else if (xx == 34 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN17) ; }  
+      else if (xx == 35 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 , LN5) ; }  
+      else if (xx == 36 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ; var ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;} 
+      else if (xx == 37 &&  xx.length==2) {var ans_t = LN37; }  
+      else if (xx == 38 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN19) ; }  
+      else if (xx == 39 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN13) ; }  
+      else if (xx == 40 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;} 
+      else if (xx == 41 &&  xx.length==2) {var ans_t = LN41; }  
+      else if (xx == 42 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
+      else if (xx == 43 &&  xx.length==2) {var ans_t = LN43; }  
+      else if (xx == 44 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
+      else if (xx == 45 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN5) ;} 
+      else if (xx == 46 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN23) ; } 
+      else if (xx == 47 &&  xx.length==2) {var ans_t = LN47; }  
+      else if (xx == 48 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;  var ans_t = m_mtx_real_add(ans_t1 , LN3) ;} 
+      else if (xx == 49 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN7 ,2)  ; }  
+      else if (xx == 50 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;} 
+      else if (xx == 51 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN17) ; } 
+      else if (xx == 52 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN13) ;} 
+      else if (xx == 53 &&  xx.length==2) {var ans_t = LN53; }  
+      else if (xx == 54 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN2) ;} 
+      else if (xx == 55 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN11) ; } 
+      else if (xx == 56 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
+      else if (xx == 57 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 , LN19) ;} 
+      else if (xx == 58 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN29) ;} 
+      else if (xx == 59 &&  xx.length==2) {var ans_t = LN59; }  
+      else if (xx == 60 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t2 = m_mtx_real_add(ans_t1 , LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;}
+      else if (xx == 61 &&  xx.length==2) {var ans_t = LN61; }  
+      else if (xx == 62 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 , LN31) ;} 
+      else if (xx == 63 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
+      else if (xx == 64 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN2 ,6) ; }  
+      else if (xx == 65 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN13) ; }  
+      else if (xx == 66 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN11) ;} 
+      else if (xx == 67 &&  xx.length==2) {var ans_t = LN67; }  
+      else if (xx == 68 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  var ans_t = m_mtx_real_add(ans_t1 , LN17) ;} 
+      else if (xx == 69 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN23) ; }  
+      else if (xx == 70 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN5) ;  var ans_t = m_mtx_real_add(ans_t1 , LN7) ;} 
+      else if (xx == 71 &&  xx.length==2) {var ans_t = LN71; }  
+      else if (xx == 72 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t2 = m_mtx_real_mul(LN3 ,2) ; var ans_t = m_mtx_real_add(ans_t1 , ans_t2) ;} 
+      else if (xx == 73 &&  xx.length==2) {var ans_t = LN73; }  
+      else if (xx == 74 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN37) ; } 
+      else if (xx == 75 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN5 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN3) ;} 
+      else if (xx == 76 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;   var ans_t = m_mtx_real_add(ans_t1 , LN19) ;} 
+      else if (xx == 77 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN11) ; } 
+      else if (xx == 78 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN2 ,LN3) ; var ans_t = m_mtx_real_add(ans_t1 ,LN13) ;} 
+      else if (xx == 79 &&  xx.length==2) {var ans_t = LN79; }  
+      else if (xx == 80 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,4) ;   var ans_t = m_mtx_real_add(ans_t1 , LN5) ;}
+      else if (xx == 81 &&  xx.length==2) {var ans_t = m_mtx_real_mul(LN3 ,4)  ; }  
+      else if (xx == 82 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN41)  ; }  
+      else if (xx == 83 &&  xx.length==2) {var ans_t = LN83; }  
+      else if (xx == 84 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN3) ; var ans_t = m_mtx_real_add(ans_t2 , LN7) ;} 
+      else if (xx == 85 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN17) ; } 
+      else if (xx == 86 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN43) ;  } 
+      else if (xx == 87 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN29) ;  } 
+      else if (xx == 88 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,3) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
+      else if (xx == 89 &&  xx.length==2) {var ans_t = LN89; }  
+      else if (xx == 90 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t2 = m_mtx_real_add(ans_t1 ,LN2) ; var ans_t = m_mtx_real_add(ans_t2 , LN5) ;} 
+      else if (xx == 91 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN7 ,LN13) ;  } 
+      else if (xx == 92 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN23) ; } 
+      else if (xx == 93 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN3 ,LN31) ;  } 
+      else if (xx == 94 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN2 ,LN47) ;  } 
+      else if (xx == 95 &&  xx.length==2) {var ans_t = m_mtx_real_add(LN5 ,LN19) ;  } 
+      else if (xx == 96 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN2 ,5) ;  ans_t = m_mtx_real_add(ans_t1 ,LN3) ; } 
+      else if (xx == 97 &&  xx.length==2) {var ans_t = LN97; }  
+      else if (xx == 98 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN7 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; } 
+      else if (xx == 99 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
+      else {var ans_t =x; }
+      return ans_t;   
+      }
    }
 function m_ln(x){           
  var xx = x.toString().trim();
@@ -6657,23 +6657,65 @@ function m_ln(x){
   var sum_tt = 0 ;
   var data_com = 0;
   var data_com_pow=0 ;
- for(var j=0;j<12;j++){   
-   if(j==0){var data_com = "2.511886431509580111086" ;var data_com_pow=0.4 ;}   
-   if(j==1){var data_com = "1.995262314968879601353" ;var data_com_pow=0.3 ;} 
-   if(j==2){var data_com = "1.230268770812381534242" ;var data_com_pow=0.09 ;}    
-   if(j==3){var data_com = "1.096478196143185013144" ;var data_com_pow=0.04 ;} 
-   if(j==4){var data_com = "1.020939483707679955415" ;var data_com_pow=0.009 ;}    
-   if(j==5){var data_com = "1.009252886076684411916" ;var data_com_pow=0.004;} 
-   if(j==6){var data_com = "1.002074475336478857763" ;var data_com_pow=0.0009 ;}    
-   if(j==7){var data_com = "1.000921458319295876109" ;var data_com_pow=0.0004 ;}  
-   if(j==8){var data_com = "1.000207254132540169093" ;var data_com_pow=0.00009 ;}    
-   if(j==9){var data_com = "1.000092107645368472635" ;var data_com_pow=0.00004 ;} 
-   if(j==10){var data_com = "1.000020723480565303174" ;var data_com_pow=0.000009 ;}    
-   if(j==11){var data_com = "1.000009210382787291287" ;var data_com_pow=0.000004 ;}  
-   for(var i=0;i<5 ;i++){
+ for(var j=0;j<53;j++){     
+    if(j==0){var data_com = "7.9432823472428150206591828" ;var data_com_pow=0.9;} 
+    if(j==1){var data_com = "6.3095734448019324943436014" ;var data_com_pow=0.8;} 
+    if(j==2){var data_com = "5.0118723362727228500155419" ;var data_com_pow=0.7;}  
+    if(j==3){var data_com = "3.9810717055349725077025231" ;var data_com_pow=0.6;} 
+    if(j==4){var data_com = "3.1622776601683793319988935" ;var data_com_pow=0.5;}  
+    if(j==5){var data_com = "2.5118864315095801110850321" ;var data_com_pow=0.4;} 
+    if(j==6){var data_com = "1.9952623149688796013524554" ;var data_com_pow=0.3;}  
+    if(j==7){var data_com = "1.5848931924611134852021014" ;var data_com_pow=0.2;} 
+    if(j==8){var data_com = "1.2589254117941672104239541" ;var data_com_pow=0.1;}    
+    if(j==9){var data_com = "1.2302687708123815342415404" ;var data_com_pow=0.09;}  
+    if(j==10){var data_com = "1.2022644346174129058326127" ;var data_com_pow=0.08;}    
+    if(j==11){var data_com = "1.1748975549395295417220678" ;var data_com_pow=0.07;} 
+    if(j==12){var data_com = "1.1481536214968827515462246" ;var data_com_pow=0.06;}    
+    if(j==13){var data_com = "1.1220184543019634355910389" ;var data_com_pow=0.05;} 
+    if(j==14){var data_com = "1.0964781961431850131437136" ;var data_com_pow=0.04;}    
+    if(j==15){var data_com = "1.0715193052376064174083022" ;var data_com_pow=0.03;} 
+    if(j==16){var data_com = "1.047128548050899533464502"  ;var data_com_pow=0.02;}    
+    if(j==17){var data_com = "1.0232929922807541309662752" ;var data_com_pow=0.01;} 
+    if(j==18){var data_com = "1.0209394837076799554149033" ;var data_com_pow=0.009;}    
+    if(j==19){var data_com = "1.0185913880541169240797989" ;var data_com_pow=0.008;}  
+    if(j==20){var data_com = "1.0162486928706956276733661" ;var data_com_pow=0.007;}    
+    if(j==21){var data_com = "1.0139113857366794119988279" ;var data_com_pow=0.006;} 
+    if(j==22){var data_com = "1.0115794542598985244409323" ;var data_com_pow=0.005;}    
+    if(j==23){var data_com = "1.0092528860766844119155278" ;var data_com_pow=0.004;}  
+    if(j==24){var data_com = "1.0069316688518041699296608" ;var data_com_pow=0.003;}    
+    if(j==25){var data_com = "1.004615790278395142404652"  ;var data_com_pow=0.002;} 
+    if(j==26){var data_com = "1.0023052380778996719154049" ;var data_com_pow=0.001;}    
+    if(j==27){var data_com = "1.0020744753364788577622205" ;var data_com_pow=0.0009;} 
+    if(j==28){var data_com = "1.0018437657240259517971073" ;var data_com_pow=0.0008;}   
+    if(j==29){var data_com = "1.0016131092283089653826887" ;var data_com_pow=0.0007;}  
+    if(j==30){var data_com = "1.0013825058370987260768187" ;var data_com_pow=0.0006;}    
+    if(j==31){var data_com = "1.0011519555381688769842032" ;var data_com_pow=0.0005;} 
+    if(j==32){var data_com = "1.0009214583192958761081718" ;var data_com_pow=0.0004;}    
+    if(j==33){var data_com = "1.0006910141682589957025974" ;var data_com_pow=0.0003;}  
+    if(j==34){var data_com = "1.0004606230728403216239657" ;var data_com_pow=0.0002;}    
+    if(j==35){var data_com = "1.0002302850208247526835943" ;var data_com_pow=0.0001;} 
+    if(j==36){var data_com = "1.0002072541325401690920909" ;var data_com_pow=0.00009;}    
+    if(j==37){var data_com = "1.0001842237745552806012277" ;var data_com_pow=0.00008;} 
+    if(j==38){var data_com = "1.0001611939468578767498557" ;var data_com_pow=0.00007;}    
+    if(j==39){var data_com = "1.0001381646494357473579791" ;var data_com_pow=0.00005;}  
+    if(j==40){var data_com = "1.0000921076453684726384543" ;var data_com_pow=0.00004;}    
+    if(j==41){var data_com = "1.0000690799386989083565213" ;var data_com_pow=0.00003;} 
+    if(j==42){var data_com = "1.0000460527622557806255009" ;var data_com_pow=0.00002;}    
+    if(j==43){var data_com = "1.000023026116026880671065"  ;var data_com_pow=0.00001;}  
+    if(j==44){var data_com = "1.0000207234805653031739097" ;var data_com_pow=0.000009;}    
+    if(j==45){var data_com = "1.0000184208504057336610176" ;var data_com_pow=0.000008;} 
+    if(j==46){var data_com = "1.0000161182255481599240782" ;var data_com_pow=0.000007;}    
+    if(j==47){var data_com = "1.0000138156059925697548092" ;var data_com_pow=0.000006;} 
+    if(j==48){var data_com = "1.0000115129917389509449561" ;var data_com_pow=0.000005;}    
+    if(j==49){var data_com = "1.000009210382787291286293"  ;var data_com_pow=0.000004;}  
+    if(j==50){var data_com = "1.0000069077791375785706217" ;var data_com_pow=0.000003;}    
+    if(j==51){var data_com = "1.0000046051807898005897723" ;var data_com_pow=0.000002;} 
+    if(j==52){var data_com = "1.000002302587743945135603"  ;var data_com_pow=0.000001;}    
+   
+   for(var i=0;i<2 ;i++){
     var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);    
       if(data_xx_st_comp_data_com != 2){
-        var xx_st =m_fix(xx_st,35); 
+        var xx_st =m_fix(xx_st,30); 
         var xx_st=m_mtx_real_div(xx_st,data_com); 
         var nub_ln10 = m_mtx_real_add(nub_ln10 , data_com_pow) ; }
        else{ i=100 ;}   
