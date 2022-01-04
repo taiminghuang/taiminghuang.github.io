@@ -5836,7 +5836,7 @@ function m_sin_matrix_1(x){
     var DD=m_mtx_point_in(DD,zz_p);  
    
     var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0); 
-    var nn =51;
+    var nn =50;
      for(var n=1;n < nn ;n++){      
           EE = m_mtx_row_table(AA,n);     
          for(var i=0;i<EE[0].length;i++){
@@ -5900,7 +5900,7 @@ function m_cos_matrix_1(x){
     var DD=m_new_zero_mtx(1,MTX_COL);            
     var DD=m_mtx_point_in(DD,zz_p); 
     var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);  
-    var nn =51;
+    var nn =50;
       for(var n=1;n <=nn ;n++){                 
          EE = m_mtx_row_table(AA,n);     
      for(var i=0;i<EE[0].length;i++){
