@@ -5508,7 +5508,7 @@ function m_exp_low(x){
        var BB = m_mtx_exp_coefficient_150_table();       
        var AA  = m_str_to_mtx(zz) ;              
        var SS_T  = m_str_to_mtx(0) ;              
-       var nn =MTX_COL;
+       var nn =210;
      for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);           
         if(i==1){
@@ -5590,14 +5590,14 @@ function m_sin(x){
            }  
      else{ var data_cle_b = xx;  var flag_1_2=1 ;}  
     var data_flag_sin=0;   
-    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000000001'); 
+    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000001'); 
       if(data_com ==1){                          
-       var data_cle_b_s = m_mtx_real_div(data_cle_b,3486784401);  
+       var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);  
        var data_flag_sin=1;   }                        
       else{ data_cle_b_s = data_cle_b ;  }  
     var data_a_s = m_sin_matrix_1(data_cle_b_s);
       if(data_flag_sin ==1){                          
-        for(var i=0 ; i<20; i++){   
+        for(var i=0 ; i<13; i++){   
          var data_a3 = m_mtx_real_mul(3,data_a_s);    
          var data_b = m_mtx_real_mul(data_a_s,data_a_s);
          var data_c = m_mtx_real_mul(data_a_s,data_b);
@@ -5791,30 +5791,6 @@ function m_mtx_any_inv(A ,nub){
 }
 
 
-function m_mtx_pi_inv(){          
-  var X = m_new_zero_mtx(5,MTX_COL);            
-  var AA =m_mtx_pi_100_table();                
-  var PI = m_mtx_row_table(AA,3);          
-  var SS = m_new_zero_mtx(5,MTX_COL);            
-    for(var i=0;i<MTX_COL;i++){     
-     for( var j=4;j >=0 ;j--){    
-       for(var k=9 ;k > 0 ;k--){    
-           X[0][i]=parseInt(X[0][i])+Math.pow(10,j) ;     
-              SS = m_mtx_point_mul(PI,X);       
-              SS = m_mtx_cell_five_brow(SS);   
-              SS = m_mtx_cell_five(SS);        
-              if(parseInt(SS[0][0]) >= 100000){
-                X[0][i]=parseInt(X[0][i]) - Math.pow(10,j) ;     
-                      k = -1; }                        
-                                } 
-                               } 
-                        } 
-          X = m_mtx_cell_five_brow(X);   
-          X = m_mtx_cell_five(X);         
-          var sum_tt = m_mtx_cell_five_show(X);   
-              sum_tt =sum_tt.toString(); 
-    return  sum_tt;
-}
 
 
 function m_sin_matrix_1(x){    
@@ -5998,14 +5974,14 @@ function m_cos(x){
       var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
      else{ var data_cle_b = xx; var flag_1_4=1;  }        
     var data_flag_cos=0;   
-    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000000001'); 
+    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000001'); 
       if(data_com ==1){                          
-       var data_cle_b_s = m_mtx_real_div(data_cle_b,3486784401);  
+       var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);  
        var data_flag_cos=1; }                          
       else{ data_cle_b_s = data_cle_b ;  }   
     var data_a_s = m_cos_matrix_1(data_cle_b_s);  
      if(data_flag_cos ==1){                          
-        for(var i=0 ; i<20; i++){         
+        for(var i=0 ; i<13; i++){         
          var data_a3 = m_mtx_real_mul(3,data_a_s);    
          var data_b = m_mtx_real_mul(data_a_s,data_a_s);
          var data_c = m_mtx_real_mul(data_a_s,data_b);
@@ -6084,9 +6060,7 @@ function m_tan(x){
       var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p);  } 
    else{ var data_cle_b = xx; var flag_1_3=1 ;}   
       var data_sin = m_sin(data_cle_b);                       
-      var data_sin2 = m_mtx_real_mul(data_sin,data_sin);     
-      var data_1_sin2 = m_mtx_real_sub(1,data_sin2);          
-      var data_cos = m_pow(data_1_sin2,0.5);                  
+      var data_cos = m_cos(data_cle_b);   
       var ans_a = m_mtx_real_div(data_sin,data_cos);             
       if(xx_fst =="-" && flag_1_3 ==1){ var ans_a ="-"+ans_a;}
       if(xx_fst !="-" && flag_2_4 ==1){ var ans_a ="-"+ans_a;}
@@ -6123,12 +6097,8 @@ function m_sinh(x){
        var AA  = m_str_to_mtx(xx_abs) ;              
        var AA2 = m_mtx_point_mul(AA,AA);
        var SS_T  = m_str_to_mtx(0) ;              
-       var nn =150;  
-       if( MTX_COL <= 80){      
-             var nn = 200;}    
-        else{
-           var nn =700; }
-     for(var i = 1 ; i < nn ; i++){       
+       var nn =211;  
+  for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);               
            if(i==1){
              var SS= AA;      //inv
@@ -6194,12 +6164,8 @@ function m_cosh(x){
         var AA  = m_str_to_mtx(xx_abs) ;              
         var AA2 = m_mtx_point_mul(AA,AA);
         var SS_T  = m_str_to_mtx(0) ;                 
-        var nn =150;  
-        if( MTX_COL <= 80){     
-             var nn = 200;}    
-       else{
-           var nn =800; }
-         for(var i = 0 ; i < nn ; i++){       
+        var nn =211;  
+       for(var i = 0 ; i < nn ; i++){       
            var BB_i = m_mtx_row_table(BB,i);               
             if(i==0){
                var SS= m_str_to_mtx(1) ;                 
@@ -6480,12 +6446,10 @@ function m_mtx_dele_zero(x){
    return xx_st;
 }
 function m_ln_bf(x){     
-
-       var ans_t = 0 ;
-       var ans_t1 = 0 ;
+      var ans_t = 0 ;
+      var ans_t1 = 0 ;
        var xx=x;
    if (xx <= 99  && xx.length<=2){        
-
        LN2=m_fix(LN2,FIX_COL);    
        LN3=m_fix(LN3,FIX_COL);
        LN5=m_fix(LN5,FIX_COL);
