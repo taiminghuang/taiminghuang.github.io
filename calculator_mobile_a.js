@@ -3316,7 +3316,7 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.replace(/m_asinh\(m_sinh/g , "m_asinh_sinh\(");
            this_it_a = this_it_a.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\("); 
            this_it_a = this_it_a.replace(/m_cosh\(m_acosh/g , "m_cosh_acosh\(");
-           this_it_a = this_it_a.replace(/m_cosh\(\(m_aosh/g , "m_cosh_acosh\(\(");    
+           this_it_a = this_it_a.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");    
            this_it_a = this_it_a.replace(/m_acosh\(m_cosh/g , "m_acosh_cosh\(");
            this_it_a = this_it_a.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\("); 
            this_it_a = this_it_a.replace(/m_tanh\(m_atanh/g , "m_tanh_atanh\(");
@@ -4216,7 +4216,7 @@ function s_check_str_equation(str ){
       str_1 = str_1.replace(/m_ln_exp/g,''); 
       str_1 = str_1.replace(/m_sinh_asinh/g,'');    
       str_1 = str_1.replace(/m_asinh_sinh/g,'');
-      str_1 = str_1.replace(/m_cosh_acoh/g,'');   
+      str_1 = str_1.replace(/m_cosh_acosh/g,'');   
       str_1 = str_1.replace(/m_acosh_cosh/g,'');
       str_1 = str_1.replace(/m_tanh_atanh/g,'');   
       str_1 = str_1.replace(/m_atanh_tanh/g,'');
