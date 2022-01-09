@@ -8737,8 +8737,14 @@ function m_sin_asin(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
-   var ans_a= message_1(1);  return ans_a;}         
-   return zz ;}
+   var ans_a= message_1(1);  return ans_a;} 
+   var zz_fst=zz.substr(0,1);
+   if(zz_fst=="-"){
+      var zz = zz.substr(1,zz.length-1);}
+  var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
+      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+   return x ;}
+  
  function m_asin_sin(x){ 
    var xx=x.toString().trim();
    var data_msg =0;
