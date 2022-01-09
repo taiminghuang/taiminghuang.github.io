@@ -8956,7 +8956,7 @@ function m_cosh_acosh(x){
     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
      else { var xx=xx;}  
     if( m_mtx_real_str_comp(xx,1)==2 || xx_fst=="-" ){ var ans_1= message_1(3);  return ans_1 ;}      
-   return xx ;}
+   return x ;}
       
 function m_acosh_cosh(x){ 
    var xx = x.toString().trim();
