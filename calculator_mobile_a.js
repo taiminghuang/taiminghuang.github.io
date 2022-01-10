@@ -5798,6 +5798,8 @@ function m_sin_matrix_1(x){
     var zz_str= zz.toString();
     var sum_tt =0 ;
     var tt=1;
+    var ans_1 ="";
+    if(zz=="0"){  var ans_1 = 0;  return  ans_1; }
     var zz = m_str_e_to_str(zz);      
     var zz_m = m_nub_m(zz) ;           
     var zz_p = m_nub_p(zz) ;          
@@ -5863,6 +5865,8 @@ function m_cos_matrix_1(x){
     var zz_str= zz.toString();
     var sum_tt =0 ;
     var tt=1;
+    var ans_1 ="";
+    if(zz=="0"){  var ans_1 = 1;  return  ans_1; } 
     var zz = m_str_e_to_str(zz);      
     var zz_m = m_nub_m(zz) ;           
     var zz_p = m_nub_p(zz) ;           
