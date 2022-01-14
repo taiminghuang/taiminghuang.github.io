@@ -6015,8 +6015,8 @@ function m_cos(x){
           else if(dd_t==75){ var ans_b = SIN15D ;}
           else if(dd_t==81){ var ans_b = SIN09D ;}
           else { var ans_b = "" ;}
-         if(xx_fst !="-" && flag_2_3 ==1){ var ans_b ="-"+ans_b;}
-          else if(xx_fst =="-" && flag_1_4 ==1){ var ans_b ="-"+ans_b;}
+         if( flag_2_3 ==1){ var ans_b ="-"+ans_b;}
+          else if( flag_1_4 ==1){ var ans_b =+ans_b;}
         if(ans_b !=""){ return  ans_b; }
                          }    
       var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
@@ -6038,8 +6038,8 @@ function m_cos(x){
          var data_d = m_mtx_real_sub(data_c4,data_a3); 
          var data_a_s = data_d;  }   }       
       var ans_a = data_a_s;   
-    if(xx_fst !="-" && flag_2_3 ==1){ var ans_a ="-"+ans_a;}
-    if(xx_fst =="-" && flag_1_4 ==1){ var ans_a ="-"+ans_a;}
+    if( flag_2_3 ==1){ var ans_a ="-"+ans_a;}
+    if( flag_1_4 ==1){ var ans_a = +ans_a;}
     return ans_a ;
 }
 
