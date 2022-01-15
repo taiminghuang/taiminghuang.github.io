@@ -8913,8 +8913,10 @@ function m_acos_cos(x){
   var ans_1 = "";
   var ans_a = "";
   var ans_a_s = "";
-  var flag_2_3=0; 
-  var flag_1_4=0; 
+  var flag_1=0;  
+  var flag_2=0; 
+  var flag_3=0; 
+  var flag_4=0; 
   var xx_fst ="" ;
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
@@ -8933,7 +8935,6 @@ function m_acos_cos(x){
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }   
       PIDIV2= m_fix(PIDIV2,FIX_COL); 
       PIMUL2 = m_fix(PIMUL2,FIX_COL);
-      SQRT2 = m_fix(SQRT2,FIX_COL);
    var com_zz_pidiv2 =0;
    var zz = m_mtx_real_div(xx,PIMUL2);  
    var zz = m_str_e_to_str(zz);   
@@ -8943,20 +8944,10 @@ function m_acos_cos(x){
     var zz_p = m_mtx_trim(zz_p) ; 
     var zz_p_t=m_fix(zz_p,200);            
     var zz_p_t =m_mtx_trim(zz_p_t) ;
-      if( zz_p_t >='0.75'&& zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_1_4=1;  }   
-      else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_2_3=1 ; }   
-      else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
-      else if( zz_p_t <'0.25'){ var zz_p = zz_p ;var flag_1_4=1 ; }
-     var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
-      if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_4=1 ;}   
-      else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
-    var ans_t= 0;
-      if( flag_2_3 ==1){ var data_cle_b ="-"+data_cle_b;}
-      if( flag_1_4 ==1){ var data_cle_b ="-"+data_cle_b;}
-    var test_p_n = m_mtx_real_str_comp(xx,PIDIV2);    
-    if(test_p_n !=2){
-       var ans_t= m_mtx_real_add(data_cle_b,PI);}
-    else{ var ans_t= data_cle_b;}
+      if( zz_p_t >'0.5' &&  zz_p_t <= '1'){  var zz_p = m_mtx_real_sub(1,zz_p);  }   
+      else{ var zz_p =zz_p;}
+     var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p);     
+     var ans_t= data_cle_b;
    return ans_t ; }
 function m_tan_atan(x){
    var xx = x.toString().trim();
