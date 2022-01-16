@@ -6769,7 +6769,8 @@ function m_ln_matrix(x){
  var zz = "0."+ zz.substr(2,zz.length-2); 
  var BB = m_mtx_unit_inv_lg_100_table();      
  var AA  = m_str_to_mtx(zz) ;   
- var nub_fix =50;    
+ var nub_fix =50;   
+  if(DECI_DGT<= 16 ){var nub_fix =10 ;} 
     for(var i = 1 ; i <nub_fix ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
           if(i ==1){                         
@@ -7254,6 +7255,7 @@ function m_asin(x){
     var zz =m_fix(zz,FIX_COL);                                    
     var data_a=m_mtx_real_mul(zz,zz);
      var data_b=m_mtx_real_sub(1,data_a);
+     var data_b =m_fix(data_b,250);
      var data_c=m_pow(data_b,0.5);
      var data_d=m_mtx_real_add(1,data_c);
      var data_e=m_mtx_real_div(zz,data_d);
@@ -7297,9 +7299,10 @@ function m_acos(x){
      if( data_comp_xx_1== 3 && data_comp_x_1 == 3 ){ ans_1 = 0 ; return ans_1   ;}  
      if( data_comp_xx_1== 3 && data_comp_x_n1==3  ){ ans_1 = PI ;  return ans_1  ;}  
    var ans_0=0;
-   if(xx_fst=="-"){ var xx="-"+xx ;}   //20210831 還原  
+   if(xx_fst=="-"){ var xx="-"+xx ;}     
     var data_a=m_mtx_real_mul(xx,xx);
     var data_b=m_mtx_real_sub(1,data_a);
+    var data_b =m_fix(data_b,250);
     var data_c=m_pow(data_b,0.5);
     var data_d=m_mtx_real_add(1,xx);
     var data_e=m_mtx_real_div(data_c,data_d);
