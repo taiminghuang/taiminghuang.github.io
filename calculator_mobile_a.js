@@ -7376,6 +7376,7 @@ function m_atan(x){
          var data_b = m_mtx_real_div(xx,4); 
          var data_c = m_mtx_real_add(1,data_b); 
          var xx=  m_mtx_real_div(data_a,data_c); }
+     if( DECI_DGT > 16){ 
      var ATAN0125= "0.12435499454676143503135484916387102557317019176980408991511411911572226742756675862371059431335333032637905130343837904381116308396839504671224378687171138859102401250904002718788102654925876989000973265906011694932561477352380174653752050574821602248006715464219160658033901853095048722664103400886537";
      var ATAN0125=m_fix(ATAN0125,FIX_COL); //20211130 
      var comp_xx_0125 = m_mtx_real_str_comp(xx,0.125);                       
@@ -7466,7 +7467,7 @@ function m_atan(x){
        var data_b = m_mtx_real_div(xx,1024);      
        var data_c = m_mtx_real_add(1,data_b); 
        var xx=  m_mtx_real_div(data_a,data_c); }
-   
+    }
      var BB = m_mtx_unit_inv_lg_100_table();  
      if(xx !=0){ 
       var AA  = m_str_to_mtx(xx) ;      
@@ -8913,11 +8914,7 @@ function m_acos_cos(x){
   var ans_1 = "";
   var ans_a = "";
   var ans_a_s = "";
-  var flag_1=0;  
-  var flag_2=0; 
-  var flag_3=0; 
-  var flag_4=0; 
-  var xx_fst ="" ;
+   var xx_fst ="" ;
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
