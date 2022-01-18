@@ -6686,75 +6686,90 @@ function m_ln(x){
   var data_com = 0;
   var data_com_pow=0 ;
   var xx_st =m_fix(xx_st,30);
- for(var j=0;j<53;j++){     
-    if(j==0){var data_com = "7.943282347242815" ;var data_com_pow=0.9;} 
-    if(j==1){var data_com = "6.309573444801932" ;var data_com_pow=0.8;} 
-    if(j==2){var data_com = "5.011872336272722" ;var data_com_pow=0.7;}  
-    if(j==3){var data_com = "3.981071705534972" ;var data_com_pow=0.6;} 
-    if(j==4){var data_com = "3.162277660168379" ;var data_com_pow=0.5;}  
-    if(j==5){var data_com = "2.511886431509580" ;var data_com_pow=0.4;} 
-    if(j==6){var data_com = "1.995262314968879" ;var data_com_pow=0.3;}  
-    if(j==7){var data_com = "1.584893192461113" ;var data_com_pow=0.2;} 
-    if(j==8){var data_com = "1.258925411794167" ;var data_com_pow=0.1;} 
-    if(j==9){var data_com = "1.230268770812381" ;var data_com_pow=0.09;}  
-    if(j==10){var data_com = "1.202264434617412" ;var data_com_pow=0.08;}    
-    if(j==11){var data_com = "1.174897554939529" ;var data_com_pow=0.07;} 
-    if(j==12){var data_com = "1.148153621496882" ;var data_com_pow=0.06;}    
-    if(j==13){var data_com = "1.122018454301963" ;var data_com_pow=0.05;} 
-    if(j==14){var data_com = "1.096478196143185" ;var data_com_pow=0.04;}    
-    if(j==15){var data_com = "1.071519305237606" ;var data_com_pow=0.03;} 
-    if(j==16){var data_com = "1.047128548050899"  ;var data_com_pow=0.02;}    
-    if(j==17){var data_com = "1.023292992280754" ;var data_com_pow=0.01;} 
-    if(j==18){var data_com = "1.020939483707679" ;var data_com_pow=0.009;}    
-    if(j==19){var data_com = "1.018591388054116" ;var data_com_pow=0.008;}  
-    if(j==20){var data_com = "1.016248692870695" ;var data_com_pow=0.007;}    
-    if(j==21){var data_com = "1.013911385736679" ;var data_com_pow=0.006;} 
-    if(j==22){var data_com = "1.011579454259898" ;var data_com_pow=0.005;}    
-    if(j==23){var data_com = "1.009252886076684" ;var data_com_pow=0.004;}  
-    if(j==24){var data_com = "1.006931668851804" ;var data_com_pow=0.003;}    
-    if(j==25){var data_com = "1.004615790278395"  ;var data_com_pow=0.002;} 
-    if(j==26){var data_com = "1.002305238077899" ;var data_com_pow=0.001;} 
-    if(j==27){var data_com = "1.002074475336478" ;var data_com_pow=0.0009;} 
-    if(j==28){var data_com = "1.001843765724025" ;var data_com_pow=0.0008;}   
-    if(j==29){var data_com = "1.001613109228308" ;var data_com_pow=0.0007;}  
-    if(j==30){var data_com = "1.001382505837098" ;var data_com_pow=0.0006;}    
-    if(j==31){var data_com = "1.001151955538168" ;var data_com_pow=0.0005;} 
-    if(j==32){var data_com = "1.000921458319295" ;var data_com_pow=0.0004;}    
-    if(j==33){var data_com = "1.000691014168258" ;var data_com_pow=0.0003;} 
-    if(j==34){var data_com = "1.000460623072840" ;var data_com_pow=0.0002;}    
-    if(j==35){var data_com = "1.000230285020824" ;var data_com_pow=0.0001;} 
-    if(j==36){var data_com = "1.000207254132540" ;var data_com_pow=0.00009;}    
-    if(j==37){var data_com = "1.000184223774555" ;var data_com_pow=0.00008;} 
-    if(j==38){var data_com = "1.000161193946857" ;var data_com_pow=0.00007;}    
-    if(j==39){var data_com = "1.000138164649435" ;var data_com_pow=0.00005;}  
-    if(j==40){var data_com = "1.000092107645368" ;var data_com_pow=0.00004;}    
-    if(j==41){var data_com = "1.000069079938698" ;var data_com_pow=0.00003;} 
-    if(j==42){var data_com = "1.000046052762255" ;var data_com_pow=0.00002;}    
-    if(j==43){var data_com = "1.000023026116026"  ;var data_com_pow=0.00001;}  
-    if(j==44){var data_com = "1.000020723480565" ;var data_com_pow=0.000009;}    
-    if(j==45){var data_com = "1.000018420850405" ;var data_com_pow=0.000008;} 
-    if(j==46){var data_com = "1.000016118225548" ;var data_com_pow=0.000007;}    
-    if(j==47){var data_com = "1.000013815605992" ;var data_com_pow=0.000006;} 
-    if(j==48){var data_com = "1.000011512991738" ;var data_com_pow=0.000005;}    
-    if(j==49){var data_com = "1.000009210382787"  ;var data_com_pow=0.000004;}  
-    if(j==50){var data_com = "1.000006907779137" ;var data_com_pow=0.000003;}    
-    if(j==51){var data_com = "1.000004605180789" ;var data_com_pow=0.000002;} 
-    if(j==52){var data_com = "1.000002302587743"  ;var data_com_pow=0.000001;}    
-  
-   for(var i=0;i<2 ;i++){
-    var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);    
+   if( DECI_DGT <=16 ){ var j_nub = 8 ;}  ;
+     else if( DECI_DGT >16 && DECI_DGT <=50){ var j_nub = 17 ;}  
+     else if( DECI_DGT >50 && DECI_DGT <=100){ var j_nub = 26;}  
+     else if( DECI_DGT >100 && DECI_DGT <=150){ var j_nub = 35 ;}  
+     else {var j_nub = 53 ;}
+ for(var j=0;j<j_nub;j++){     
+    else if(j==1){var data_com = "6.309573444801932" ;var data_com_pow=0.8;}   
+    else if(j==2){var data_com = "5.011872336272722" ;var data_com_pow=0.7;}  
+    else if(j==3){var data_com = "3.981071705534972" ;var data_com_pow=0.6;} 
+    else if(j==4){var data_com = "3.162277660168379" ;var data_com_pow=0.5;}  
+    else if(j==5){var data_com = "2.511886431509580" ;var data_com_pow=0.4;} 
+    else if(j==6){var data_com = "1.995262314968879" ;var data_com_pow=0.3;}  
+    else if(j==7){var data_com = "1.584893192461113" ;var data_com_pow=0.2;} 
+    else if(j==8){var data_com = "1.258925411794167" ;var data_com_pow=0.1;} 
+    else if(j==9){var data_com = "1.230268770812381" ;var data_com_pow=0.09;} 
+    else if(j==10){var data_com = "1.202264434617412" ;var data_com_pow=0.08;}    
+    else if(j==11){var data_com = "1.174897554939529" ;var data_com_pow=0.07;} 
+    else if(j==12){var data_com = "1.148153621496882" ;var data_com_pow=0.06;}    
+    else if(j==13){var data_com = "1.122018454301963" ;var data_com_pow=0.05;} 
+    else if(j==14){var data_com = "1.096478196143185" ;var data_com_pow=0.04;}    
+    else if(j==15){var data_com = "1.071519305237606" ;var data_com_pow=0.03;} 
+    else if(j==16){var data_com = "1.047128548050899"  ;var data_com_pow=0.02;}    
+    else if(j==17){var data_com = "1.023292992280754" ;var data_com_pow=0.01;} 
+    else if(j==18){var data_com = "1.020939483707679" ;var data_com_pow=0.009;}    
+    else if(j==19){var data_com = "1.018591388054116" ;var data_com_pow=0.008;}  
+    else if(j==20){var data_com = "1.016248692870695" ;var data_com_pow=0.007;}    
+    else if(j==21){var data_com = "1.013911385736679" ;var data_com_pow=0.006;} 
+    else if(j==22){var data_com = "1.011579454259898" ;var data_com_pow=0.005;}    
+    else if(j==23){var data_com = "1.009252886076684" ;var data_com_pow=0.004;}  
+    else if(j==24){var data_com = "1.006931668851804" ;var data_com_pow=0.003;}    
+    else if(j==25){var data_com = "1.004615790278395"  ;var data_com_pow=0.002;} 
+    else if(j==26){var data_com = "1.002305238077899" ;var data_com_pow=0.001;} 
+    else if(j==27){var data_com = "1.002074475336478" ;var data_com_pow=0.0009;} 
+    else if(j==28){var data_com = "1.001843765724025" ;var data_com_pow=0.0008;}   
+    else if(j==29){var data_com = "1.001613109228308" ;var data_com_pow=0.0007;}  
+    else if(j==30){var data_com = "1.001382505837098" ;var data_com_pow=0.0006;}    
+    else if(j==31){var data_com = "1.001151955538168" ;var data_com_pow=0.0005;} 
+    else if(j==32){var data_com = "1.000921458319295" ;var data_com_pow=0.0004;}    
+    else if(j==33){var data_com = "1.000691014168258" ;var data_com_pow=0.0003;} 
+    else if(j==34){var data_com = "1.000460623072840" ;var data_com_pow=0.0002;}    
+    else if(j==35){var data_com = "1.000230285020824" ;var data_com_pow=0.0001;} 
+    else if(j==36){var data_com = "1.000207254132540" ;var data_com_pow=0.00009;}    
+    else if(j==37){var data_com = "1.000184223774555" ;var data_com_pow=0.00008;} 
+    else if(j==38){var data_com = "1.000161193946857" ;var data_com_pow=0.00007;}    
+    else if(j==39){var data_com = "1.000138164649435" ;var data_com_pow=0.00005;}  
+    else if(j==40){var data_com = "1.000092107645368" ;var data_com_pow=0.00004;}    
+    else if(j==41){var data_com = "1.000069079938698" ;var data_com_pow=0.00003;} 
+    else if(j==42){var data_com = "1.000046052762255" ;var data_com_pow=0.00002;}    
+    else if(j==43){var data_com = "1.000023026116026"  ;var data_com_pow=0.00001;}  
+    else if(j==44){var data_com = "1.000020723480565" ;var data_com_pow=0.000009;}    
+    else if(j==45){var data_com = "1.000018420850405" ;var data_com_pow=0.000008;} 
+    else if(j==46){var data_com = "1.000016118225548" ;var data_com_pow=0.000007;}    
+    else if(j==47){var data_com = "1.000013815605992" ;var data_com_pow=0.000006;} 
+    else if(j==48){var data_com = "1.000011512991738" ;var data_com_pow=0.000005;}    
+    else if(j==49){var data_com = "1.000009210382787"  ;var data_com_pow=0.000004;}  
+    else if(j==50){var data_com = "1.000006907779137" ;var data_com_pow=0.000003;}    
+    else if(j==51){var data_com = "1.000004605180789" ;var data_com_pow=0.000002;} 
+    else if(j==52){var data_com = "1.000002302587743"  ;var data_com_pow=0.000001;}   
+     var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);    
       if(data_xx_st_comp_data_com != 2){
         var xx_st =m_fix(xx_st,30); 
         var xx_st=m_mtx_real_div(xx_st,data_com); 
         var nub_ln10 = m_mtx_real_add(nub_ln10 , data_com_pow) ; }
-       else{ i=100 ;}   
-              }  
+           
             }
 
-      var sum_tt = m_mtx_real_mul(nub_ln10 , LN10) ; 
-      var nub_ln10_base = nub_ln10 * 1000000;  
-     var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430";
-     var data_xx_i = m_pow(ref_base,-nub_ln10_base);   
+     var sum_tt = m_mtx_real_mul(nub_ln10 , LN10) ; 
+      if( DECI_DGT <=16 ){      
+       var nub_ln10_base = nub_ln10 * 10;       
+       var ref_base = "1.258925411794167210423954106395800606093617409466931069107923019526647615782502024121050966275946170388690602325144909383663361386688577362221605929121253766329865785786669766592263268143684956690543809568407485907313428057721650276349659138969652018411069690309268037392021958262623549989801429652653"; }
+      else if( DECI_DGT >16 && DECI_DGT <=50){      
+       var nub_ln10_base = nub_ln10 * 100;       
+       var ref_base = "1.02329299228075413096627517481987782734116405723798130859942558567382964586251715618695459388691739476433307129049209602591527167694357576262821057323591442270457354551376072520370120511755052325550825001439380316412054584407215474868044971577043148967969350699911427807212516938698940499495239438679";}
+     else if( DECI_DGT >50 && DECI_DGT <=100){      
+       var nub_ln10_base = nub_ln10 * 1000;       
+       var ref_base = "1.002305238077899671915404889328110554053668453542160646411634852304743136772040136768493111118901994607996350645999337068553382047409877548672761358017302166556347750878142721202516912487380967161818325742748696465130974473477901087672441359955459530036516430570637933955100251479326277403279662902226";}
+    else if( DECI_DGT >100 && DECI_DGT <=150){      
+      var nub_ln10_base = nub_ln10 * 10000;       
+      var ref_base = "1.000230285020824752683594255671941331867821612462653452696347584522820538257904099580292194766922885635475474826593166760831809285478319305881828315627825162917625181117809640550432897187361519963258865672577553457293676053864903433066248055330502843145271217485222038794962619239517175147857154193486"; }
+   else { 
+       var nub_ln10_base = nub_ln10 * 1000000;         
+       var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430";
+         } 
+      var data_xx_i = m_pow(ref_base,-nub_ln10_base);   
       var xx_st_1 = m_mtx_real_mul(xx_e_st , data_xx_i) ;   
       var xx_st_1 = m_str_e_to_str(xx_st_1);   
       var sum_tt_s = m_ln_matrix(xx_st_1);             
@@ -6770,7 +6785,6 @@ function m_ln_matrix(x){
  var BB = m_mtx_unit_inv_lg_100_table();      
  var AA  = m_str_to_mtx(zz) ;   
  var nub_fix =50;   
-  if(DECI_DGT<= 16 ){var nub_fix =10 ;} 
     for(var i = 1 ; i <nub_fix ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
           if(i ==1){                         
@@ -7425,9 +7439,9 @@ function m_atan(x){
          var data_b = m_mtx_real_div(xx,64); 
          var data_c = m_mtx_real_add(1,data_b); 
          var xx=  m_mtx_real_div(data_a,data_c); }
-     
+   if( DECI_DGT > 50){ 
     var ATAN00078125="0.00781234106010111129646339184219928162122281172501472355745390224838987204533523137930264204013581201516597412499471821348553302353878092180560926844402769223609048129950759908514659506357037982796854621058316149983252239761135382160304008718116505749512456340612407081598444109949379452801588288052721";
-   var ATAN00078125=m_fix(ATAN00078125,FIX_COL); //20211130
+    var ATAN00078125=m_fix(ATAN00078125,FIX_COL); //20211130
     var comp_xx_00078125 = m_mtx_real_str_comp(xx,0.0078125);
        if(comp_xx_00078125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00078125);  
                                          var xx=0;}                 
@@ -7459,8 +7473,9 @@ function m_atan(x){
        var data_b = m_mtx_real_div(xx,512);      
        var data_c = m_mtx_real_add(1,data_b); 
        var xx=  m_mtx_real_div(data_a,data_c); }
+   if( DECI_DGT > 150){   
      var ATAN00009765625= "0.00097656218955931943040343019971729085163419701581008759004900725226763752035508454423581560302772747151329615923475615560028030019450898599859643846480343517498211853084646751392792362942417529030419460985728010663319644662176337731300628076961207172493394559869667997215661553994740459731535987767223";
-    var ATAN00009765625=m_fix(ATAN00009765625,FIX_COL); 
+     var ATAN00009765625=m_fix(ATAN00009765625,FIX_COL); 
      var comp_xx_00009765625 = m_mtx_real_str_comp(xx,0.0009765625);                       
         if(comp_xx_00009765625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00009765625);  
                                    var xx=0;} 
@@ -7470,7 +7485,7 @@ function m_atan(x){
        var data_b = m_mtx_real_div(xx,1024);      
        var data_c = m_mtx_real_add(1,data_b); 
        var xx=  m_mtx_real_div(data_a,data_c); }
-    }
+    }}}
      var BB = m_mtx_unit_inv_lg_100_table();  
      if(xx !=0){ 
       var AA  = m_str_to_mtx(xx) ;      
