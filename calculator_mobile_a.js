@@ -6686,7 +6686,7 @@ function m_ln(x){
   var data_com = 0;
   var data_com_pow=0 ;
   var xx_st =m_fix(xx_st,30);
-   if( DECI_DGT <=16 ){ var j_nub = 8 ;}  ;
+   if( DECI_DGT <=16 ){ var j_nub = 8 ;} 
      else if( DECI_DGT >16 && DECI_DGT <=50){ var j_nub = 17 ;}  
      else if( DECI_DGT >50 && DECI_DGT <=100){ var j_nub = 26;}  
      else if( DECI_DGT >100 && DECI_DGT <=150){ var j_nub = 35 ;}  
