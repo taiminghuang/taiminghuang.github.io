@@ -6691,7 +6691,8 @@ function m_ln(x){
      else if( DECI_DGT >50 && DECI_DGT <=100){ var j_nub = 26;}  
      else if( DECI_DGT >100 && DECI_DGT <=150){ var j_nub = 35 ;}  
      else {var j_nub = 53 ;}
- for(var j=0;j<j_nub;j++){     
+ for(var j=0;j<j_nub;j++){ 
+    if(j==0){var data_com = "7.943282347242815" ;var data_com_pow=0.9;} 
     else if(j==1){var data_com = "6.309573444801932" ;var data_com_pow=0.8;}   
     else if(j==2){var data_com = "5.011872336272722" ;var data_com_pow=0.7;}  
     else if(j==3){var data_com = "3.981071705534972" ;var data_com_pow=0.6;} 
