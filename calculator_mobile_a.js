@@ -9123,14 +9123,14 @@ function m_tanh_atanh(x){
     var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up); 
      if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
     var ans_1= message_1(15);  return ans_1 ; }
-   return xx ;}
+   return xx_s ;}
   function m_atanh_tanh(x){                 
    var xx = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ;
-  return xx_s ; }
+  return xx ; }
  
  function calculate(item_1){
  s_chang_visible_all();          
