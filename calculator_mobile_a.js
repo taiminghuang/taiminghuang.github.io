@@ -5514,10 +5514,14 @@ function m_exp_low(x){
    if(comp_zz_0==3){ var sum_total= 1; return sum_total; }        
      if(comp_zz_1 !=1){    
        var zz = m_str_e_to_str(zz); 
-       var BB = m_mtx_exp_coefficient_150_table();       
+       if( DECI_DGT <=25){
+        var BB = m_mtx_exp_coefficient_150_table_a(); }
+       else{ var BB = m_mtx_exp_coefficient_150_table();}
        var AA  = m_str_to_mtx(zz) ;              
        var SS_T  = m_str_to_mtx(0) ;              
-       var nn =167;
+       if( DECI_DGT <=25){
+            var nn=51; }       
+       else{ var nn=167;}
      for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);           
         if(i==1){
@@ -5830,8 +5834,10 @@ function m_sin_matrix_1(x){
     var tt=1;
     var zz = m_str_e_to_str(zz);      
     var zz_m = m_nub_m(zz) ;           
-    var zz_p = m_nub_p(zz) ;          
-    var AA =m_mtx_unit_inv_lg_100_table();       
+    var zz_p = m_nub_p(zz) ;  
+    if( DECI_DGT <=25){
+      var AA = m_mtx_unit_inv_lg_100_table_a(); }
+    else{ var AA = m_mtx_unit_inv_lg_100_table();}
     var CC=m_new_zero_mtx(1,AA[0].length);            
     var BB=m_new_zero_mtx(1,AA[0].length);            
     var ZZ=m_new_zero_mtx(1,AA[0].length);           
@@ -5895,8 +5901,10 @@ function m_cos_matrix_1(x){
     var tt=1;
     var zz = m_str_e_to_str(zz);      
     var zz_m = m_nub_m(zz) ;           
-    var zz_p = m_nub_p(zz) ;           
-    var AA =m_mtx_unit_inv_lg_100_table();        
+    var zz_p = m_nub_p(zz) ; 
+    if( DECI_DGT <=25){
+      var AA = m_mtx_unit_inv_lg_100_table_a(); }
+    else{ var AA = m_mtx_unit_inv_lg_100_table();}
     var CC=m_new_zero_mtx(1,AA[0].length);             
     var BB=m_new_zero_mtx(1,AA[0].length);             
     var ZZ=m_new_zero_mtx(1,AA[0].length);             
@@ -6158,12 +6166,15 @@ function m_sinh(x){
   var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);           
      if(comp_xx_1 !=1){        
        var xx_abs = m_str_e_to_str(xx_abs);          
-       var xx_abs =m_fix(xx_abs,FIX_COL);                  
-       var BB = m_mtx_exp_coefficient_150_table();       
+       var xx_abs =m_fix(xx_abs,FIX_COL);
+       if( DECI_DGT <=25){
+       var BB = m_mtx_exp_coefficient_150_table_a(); }
+       else{ var BB = m_mtx_exp_coefficient_150_table();} 
        var AA  = m_str_to_mtx(xx_abs) ;              
        var AA2 = m_mtx_point_mul(AA,AA);
        var SS_T  = m_str_to_mtx(0) ;              
-       var nn =167;  
+       if( DECI_DGT <=25){ var nn=51; }                       
+        else{  var nn=167; }  
   for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);               
            if(i==1){
@@ -6226,11 +6237,14 @@ function m_cosh(x){
       if(comp_xx_1 !=1){        
         var xx_abs = m_str_e_to_str(xx_abs);          
         var xx_abs =m_fix(xx_abs,FIX_COL);                  
-        var BB = m_mtx_exp_coefficient_150_table();       
+        if( DECI_DGT <=25){
+       var BB = m_mtx_exp_coefficient_150_table_a(); }
+       else{ var BB = m_mtx_exp_coefficient_150_table();}       
         var AA  = m_str_to_mtx(xx_abs) ;              
         var AA2 = m_mtx_point_mul(AA,AA);
         var SS_T  = m_str_to_mtx(0) ;                 
-        var nn =167;  
+        if( DECI_DGT <=25){ var nn=51; }  
+       else{var nn=167; } 
        for(var i = 0 ; i < nn ; i++){       
            var BB_i = m_mtx_row_table(BB,i);               
             if(i==0){
@@ -6783,7 +6797,9 @@ function m_ln(x){
 function m_ln_matrix(x){          
  var zz = x.toString().trim();
  var zz = "0."+ zz.substr(2,zz.length-2); 
- var BB = m_mtx_unit_inv_lg_100_table();      
+ if( DECI_DGT <=25){
+    var BB = m_mtx_unit_inv_lg_100_table_a(); }
+    else{ var BB = m_mtx_unit_inv_lg_100_table();}       
  var AA  = m_str_to_mtx(zz) ;   
  var nub_fix =50;   
     for(var i = 1 ; i <nub_fix ; i++){              
@@ -7487,7 +7503,9 @@ function m_atan(x){
        var data_c = m_mtx_real_add(1,data_b); 
        var xx=  m_mtx_real_div(data_a,data_c); }
     }}}
-     var BB = m_mtx_unit_inv_lg_100_table();  
+     if( DECI_DGT <=25){
+      var BB = m_mtx_unit_inv_lg_100_table_a(); }
+    else{ var BB = m_mtx_unit_inv_lg_100_table();}    
      if(xx !=0){ 
       var AA  = m_str_to_mtx(xx) ;      
       var XX = AA;  
@@ -9082,6 +9100,7 @@ function m_acosh_cosh(x){
     
 function m_tanh_atanh(x){         
    var xx = x.toString().trim();
+   var xx_s =xx;
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                   
@@ -9111,7 +9130,7 @@ function m_tanh_atanh(x){
    var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ;
-  return xx ; }
+  return xx_s ; }
  
  function calculate(item_1){
  s_chang_visible_all();          
