@@ -9096,6 +9096,9 @@ function m_acosh_cosh(x){
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
      if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
           var ans_a= message_1(25) ; return  ans_a;} 
+   var xx_fst = xx.substr(0,1);
+       if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+        else { var xx=xx;}
     return xx ; }
     
 function m_tanh_atanh(x){         
