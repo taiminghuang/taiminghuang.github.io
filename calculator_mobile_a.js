@@ -1556,6 +1556,36 @@ function m_str_spec_part_af_div(str ,spec){
  
 }
 
+function m_str_spec_part_af_db_ft_test(str ,spec){              
+     var str_1 = str.toString().trim();
+     var str_0 =str_1 ;                    
+     var str_a_lg = str_1.length;
+     var spec_1= spec;
+     var spec_a_lg = spec_1.length;
+      if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
+         var  str_1= m_str_sub_ngt_bf(str_1);   
+     var pos = str_1.indexOf(spec_1) ;  
+     if( pos=="-1" || pos==-1){ var ans_1="" ; return ans_1 ;}  
+     var mark_1 =str_1[pos +spec_a_lg];           
+     var count_a = 2 ;   //20220125  改變狀態 exp(ln(7)+2)
+     var count_mark=2500;
+         if(mark_1 =="("){
+           for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
+              var mark_ref = str_1[i];
+                 if(mark_ref =="("){
+                     count_a = count_a +1 ;}  //20220125
+                 if(mark_ref ==")"){
+                     count_a = count_a-1 ;}
+                 if(count_a==0){
+                     var count_mark = i+1 ;
+                       i = str_a_lg ;                                     
+                                 }
+                                                   }
+                           }
+         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark); 
+          var pos_1 = str_part_b.indexOf('))') ;
+   return pos_1;
+ }
 
 function m_str_spec_part_bf_inv(str ,spec){      
      var str_1 = str.toString().trim();
@@ -3287,6 +3317,34 @@ function m_str_math_replacec(this_it){
            this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
            this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
            this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
+           for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'exp(ln(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/exp\(ln/i , "exl");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'ln(exp(');  
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/ln\(exp/i , "lex");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'sinh(asinh(');  
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/sinh\(asinh/i , "sha");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'cosh(acosh(');  
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/cosh\(acosh/i , "cha");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'tanh(atanh(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/tanh\(atanh/i , "tha");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'asinh(sinh(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/asinh\(sinh/i , "ash");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'acosh(cosh(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/acosh\(cosh/i , "ach");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'atanh(tanh(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/atanh\(tanh/i , "ath");}  else{ var i=20000;}  }   
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'sin(asin(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/sin\(asin/i , "sna");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'cos(acos(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/cos\(acos/i , "csa");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'tan(atan(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/tan\(atan/i , "tna");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'asin(sin(');  
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/asin\(sin/i , "asn");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'acos(cos(');   
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/acos\(cos/i , "acs");}  else{ var i=20000;}  }    
+          for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'atan(tan(');  
+            if(it_a!=-1){ this_it_a = this_it_a.replace(/atan\(tan/i , "atn");}  else{ var i=20000;}  }
            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
@@ -3317,38 +3375,20 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
            this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');    
            this_it_a = this_it_a.replace(/ggg/g , "m_log");  
-           this_it_a = this_it_a.replace(/m_exp\(m_ln/g , "m_exp_ln\(");       //20211222 
-           this_it_a = this_it_a.replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");    
-           this_it_a = this_it_a.replace(/m_ln\(m_exp/g , "m_ln_exp\(");
-           this_it_a = this_it_a.replace(/m_ln\(\(m_exp/g , "m_ln_exp\(\("); 
-           this_it_a = this_it_a.replace(/m_sinh\(m_asinh/g , "m_sinh_asinh\(");
-           this_it_a = this_it_a.replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\(");    
-           this_it_a = this_it_a.replace(/m_asinh\(m_sinh/g , "m_asinh_sinh\(");
-           this_it_a = this_it_a.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\("); 
-           this_it_a = this_it_a.replace(/m_cosh\(m_acosh/g , "m_cosh_acosh\(");
-           this_it_a = this_it_a.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");    
-           this_it_a = this_it_a.replace(/m_acosh\(m_cosh/g , "m_acosh_cosh\(");
-           this_it_a = this_it_a.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\("); 
-           this_it_a = this_it_a.replace(/m_tanh\(m_atanh/g , "m_tanh_atanh\(");
-           this_it_a = this_it_a.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
-           this_it_a = this_it_a.replace(/m_atanh\(m_tanh/g , "m_atanh_tanh\(");
-           this_it_a = this_it_a.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");   
-           this_it_a = this_it_a.replace(/nh/g , "xn");   
-           this_it_a = this_it_a.replace(/sh/g , "xs");  
-           this_it_a = this_it_a.replace(/m_sin\(m_asin/g , "m_sin_asin\(");
-           this_it_a = this_it_a.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");    
-           this_it_a = this_it_a.replace(/m_asin\(m_sin/g , "m_asin_sin\(");
-           this_it_a = this_it_a.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\("); 
-           this_it_a = this_it_a.replace(/m_cos\(m_acos/g , "m_cos_acos\(");
-           this_it_a = this_it_a.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");    
-           this_it_a = this_it_a.replace(/m_acos\(m_cos/g , "m_acos_cos\(");
-           this_it_a = this_it_a.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\("); 
-           this_it_a = this_it_a.replace(/m_tan\(m_atan/g , "m_tan_atan\(");
-           this_it_a = this_it_a.replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");    
-           this_it_a = this_it_a.replace(/m_atan\(m_tan/g , "m_atan_tan\(");
-           this_it_a = this_it_a.replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\("); 
-           this_it_a = this_it_a.replace(/xn/g , "nh");   
-           this_it_a = this_it_a.replace(/xs/g , "sh");
+           this_it_a = this_it_a.replace(/exl/g , "m_exp_ln(");   
+           this_it_a = this_it_a.replace(/lex/g , "m_ln_exp(");    
+           this_it_a = this_it_a.replace(/ash/g , "m_asinh_sinh(");   
+           this_it_a = this_it_a.replace(/ach/g , "m_acosh_cosh(");    
+           this_it_a = this_it_a.replace(/ath/g , "m_atanh_tanh(");    
+           this_it_a = this_it_a.replace(/sha/g , "m_sinh_asinh(");    
+           this_it_a = this_it_a.replace(/cha/g , "m_cosh_acosh(");    
+           this_it_a = this_it_a.replace(/tha/g , "m_tanh_atanh(");    
+           this_it_a = this_it_a.replace(/sna/g , "m_sin_asin(");    
+           this_it_a = this_it_a.replace(/csa/g , "m_cos_acos(");    
+           this_it_a = this_it_a.replace(/tna/g , "m_tan_atan(");    
+           this_it_a = this_it_a.replace(/asn/g , "m_asin_sin(");    
+           this_it_a = this_it_a.replace(/acs/g , "m_acos_cos(");    
+           this_it_a = this_it_a.replace(/atn/g , "m_atan_tan(");
            this_it_a = m_hat_bf_aft_many(this_it_a ,'/','DDD');           
            this_it_a = this_it_a.replace(/DDD/g ,'m_mtx_real_div');    
            this_it_a = this_it_a.replace(/\/1°/g , "\/(0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929)");
@@ -6704,7 +6744,7 @@ function m_ln(x){
      else if( DECI_DGT >16 && DECI_DGT <=50){ var j_nub = 17 ;}  
      else if( DECI_DGT >50 && DECI_DGT <=100){ var j_nub = 26;}  
      else if( DECI_DGT >100 && DECI_DGT <=150){ var j_nub = 35 ;}  
-     else {var j_nub = 53 ;}
+     else {var j_nub = 52 ;}
  for(var j=0;j<j_nub;j++){ 
     if(j==0){var data_com = "7.943282347242815" ;var data_com_pow=0.9;} 
     else if(j==1){var data_com = "6.309573444801932" ;var data_com_pow=0.8;}   
