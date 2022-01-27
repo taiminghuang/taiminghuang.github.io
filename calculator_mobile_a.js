@@ -6088,7 +6088,7 @@ function m_cos(x){
          var data_a_s = data_d;  }   }       
       var ans_a = data_a_s;   
     if( flag_2_3 ==1){ var ans_a ="-"+ans_a;}
-    if( flag_1_4 ==1){ var ans_a = +ans_a;}
+    if( flag_1_4 ==1){ var ans_a = ans_a;}
     return ans_a ;
 }
 
