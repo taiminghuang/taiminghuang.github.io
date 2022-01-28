@@ -32,6 +32,7 @@ var LN89 ="4.4886363697321398383178155406698492194046603871329593641066975772879
 var LN97 ="4.57471097850338282211672162170396171380891490265878135597623436876017729177818712534228274503427454992695068064837970662753799135355895969188445273029578412840687860839556310976343588148642308813748063599091829860864826338491545526791275011755833456490759004954331070405689280108596198228987118639202017";
 var E1="2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746639193200305992181741359662904357290033429526059563073813232862794349076323382988075319525101901157383418793070215408914993488416750924476146066808226480016847741185374234544243710753907774499206955170";
 var π= PI; 
+var DEG="0.0174532925199432957692369076848861271344287188854172545609719144017100911460344944368224156963450948221230449250737905924838546922752810123984742189340471173191682450150107695616975535812386053051687886912711720870329635896026424901877043509181733439396980475940192241589469684813789632978181124952292984";
 var ln10 = LN10;
 var ln2 = LN2 ;
 var SIN09D="0.156434465040230869010105319467166892313899892085660790084641346057758793305623579336695872676848688375140300847680446937398178819070625499302226840832214122991451599282569833595264414776895836512260377580456827300235182216762796982183068184753704096064807513823680089021403524065849605203125283418644";
@@ -73,6 +74,53 @@ function m_deci_dgt_1(){
   var DECI_DGT= parseInt(document.getElementById('5_0').value); 
    return  DECI_DGT;                   
 }
+function m_gol_fix(){   
+  PIMUL2 =m_fix(PIMUL2,100);
+  PI =m_fix(PI,10);
+  PIDIV2=m_fix(PIDIV2,100);
+  PIDIV4=m_fix(PIDIV4,100);
+  SQRT2=m_fix(SQRT2,100);
+  LN2 =m_fix( LN2,100);
+  LN3 =m_fix(LN3,100);
+  LN5 =m_fix(LN5,100);
+  LN7 =m_fix(LN7,100); 
+  LN10 =m_fix(LN10,100);
+  LN11=m_fix(LN11,100); 
+  LN13=m_fix(LN13,100); 
+  LN17=m_fix(LN17 ,100);
+  LN19=m_fix(LN19 ,100);
+  LN23=m_fix(LN23 ,100);
+  LN29 =m_fix(LN29,100);
+  LN31=m_fix(LN31 ,100);
+  LN37=m_fix(LN37,100); 
+  LN41 =m_fix(LN41,100);
+  LN43 =m_fix(LN43,100);
+  LN47 =m_fix(LN47,100);
+  LN53=m_fix(LN53,100);
+  LN59=m_fix(LN59,100); 
+  LN61=m_fix(LN61,100);
+  LN67=m_fix(LN67,100); 
+  LN71 =m_fix(LN71,100);
+  LN73=m_fix(LN73,100); 
+  LN79=m_fix(LN79,100); 
+  LN83=m_fix(LN83,100); 
+  LN89=m_fix(LN89,100); 
+  LN97=m_fix(LN97,100); 
+  E1=m_fix(E1,100);
+  DEG=m_fix(DEG,100);
+  SIN09D=m_fix(SIN09D,100);
+  SIN15D=m_fix(SIN15D,100);
+  SIN18D=m_fix(SIN18D,100);
+  SIN36D=m_fix(SIN36D,100);
+  SIN45D=m_fix(SIN45D,100);
+  SIN54D=m_fix(SIN54D,100);
+  SIN60D=m_fix(SIN60D,100);
+  SIN72D=m_fix(SIN72D,100);
+  SIN75D=m_fix(SIN75D,100);
+  SIN81D=m_fix(SIN81D,100);
+return ;
+ }
+
   function m_add_sub_fix_cols(){       
       var FIX_COL = MTX_COL * 5 ;  
       return  FIX_COL;
@@ -1738,9 +1786,9 @@ function m_fact_minus(str){
     var part_bf = m_str_spec_part_bf(str_1 ,"π");  
     var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-    var str_1 = str_1.replace(part_bf+"π" , part_bf+'* 3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372' ) ; }          
-    if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"π" , part_bf+'3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372' ) ; }     
-       return str_1;
+    var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PI ) ; }          
+    var  str_1 = str_1.replace(part_bf+"π" , part_bf+PI ) ; }     
+      return str_1;
    }
 
 
@@ -1810,8 +1858,8 @@ function m_star_deg(str){
         part_bf = part_bf.replace("Q","\-");    
     var part_bf_lg = part_bf.length;
      if(part_bf_lg > 0 ){
-       str_1 = str_1.replace(part_bf+"°" , part_bf+'\* 0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929' ) ; }
- if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+'0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929' ) ; }  
+      var str_1 = str_1.replace(part_bf+"°" , part_bf+'\*'+DEG ) ; }
+     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+DEG ) ; }  
   return str_1;
    }
 
@@ -3391,11 +3439,11 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.replace(/atn/g , "m_atan_tan(");
            this_it_a = m_hat_bf_aft_many(this_it_a ,'/','DDD');           
            this_it_a = this_it_a.replace(/DDD/g ,'m_mtx_real_div');    
-           this_it_a = this_it_a.replace(/\/1°/g , "\/(0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929)");
-          this_it_a = this_it_a.replace(/\/°/g , "\/(0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929)");
-          this_it_a =  m_star_deg_many(this_it_a);           
-          this_it_a = this_it_a.replace(/°/g , "(0.01745329251994329576923690768488612713442871888541725456097191440171009114603449443682241569634509482212304492507379059248385469227528101239847421893404711731916824501501076956169755358123860530516878869127117208703296358960264249018770435091817334393969804759401922415894696848137896329781811249522929)");
-           this_it_a = m_replace_star(this_it_a) ;
+           this_it_a = this_it_a.replace(/\/1°/g , "\/("+DEG+")");
+            this_it_a = this_it_a.replace(/\/°/g , "\/("+DEG+")");
+              this_it_a =  m_star_deg_many(this_it_a);           
+          this_it_a = this_it_a.replace(/°/g , "("+DEG+")");
+            this_it_a = m_replace_star(this_it_a) ;
              this_it_a = m_star_many(this_it_a); 
       
 return  this_it_a;
@@ -5249,9 +5297,11 @@ function m_sub_error_rg(str_1){
       var n_nb_exp = m_str_spc_count(this_it_t_test,"exp");   
       var n_nb_ln = m_str_spc_count(this_it_t_test,"ln");
       var n_nb_log = m_str_spc_count(this_it_t_test,"log");
-      var sum_nb = parseInt(n_nb_sin) + parseInt(n_nb_cos) + parseInt(n_nb_tan) + parseInt(n_nb_asin) + parseInt(n_nb_acos) +parseInt(n_nb_atan) + parseInt(n_nb_sinh) + parseInt(n_nb_cosh) + parseInt(n_nb_tanh) + parseInt(n_nb_asinh) + parseInt(n_nb_acosh) +parseInt(n_nb_atanh) + parseInt(n_nb_cap) + parseInt(n_nb_exp) + parseInt(n_nb_ln) +parseInt(n_nb_log);     
-       if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !='0' && ng_nb >=1  && sum_nb >=2){    
-        var ans = "0  "+message_1(34);
+      var n_nb_dg = m_str_spc_count(this_it_t_test,"°");  
+      var n_nb_pi = m_str_spc_count(this_it_t_test,"π"); 
+      var sum_nb = parseInt(n_nb_sin) + parseInt(n_nb_cos) + parseInt(n_nb_tan) + parseInt(n_nb_asin) + parseInt(n_nb_acos) +parseInt(n_nb_atan) + parseInt(n_nb_sinh) + parseInt(n_nb_cosh) + parseInt(n_nb_tanh) + parseInt(n_nb_asinh) + parseInt(n_nb_acosh) +parseInt(n_nb_atanh) + parseInt(n_nb_cap) + parseInt(n_nb_exp) + parseInt(n_nb_ln) +parseInt(n_nb_log)+parseInt(n_nb_dg)+parseInt(n_nb_pi);     
+      if(data_rang_str_up ==2 && data_rang_str_down ==1 &&  str_a !='0' && ng_nb >=1  && sum_nb >=2){    
+        var ans = "0;" + message_1(34);
       }
     else {ans = str_1;}
     return ans;  
@@ -9180,6 +9230,8 @@ function m_tanh_atanh(x){
              MTX_COL = m_deci_dgt();
              DECI_DGT = m_deci_dgt_1(); 
              FIX_COL = m_add_sub_fix_cols();
+          if( DECI_DGT <=50){
+              m_gol_fix(); }
           var str_part_lg= string_lg_1();             
           var str_cursor_pos = cursor_position();     
         if(str_part_lg >str_cursor_pos){  
