@@ -1786,7 +1786,8 @@ function m_fact_minus(str){
     var part_bf = m_str_spec_part_bf(str_1 ,"π");  
     var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-    var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PI ) ; }          
+    var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PI ) ; } 
+   if(part_bf_lg == 0){ 
     var  str_1 = str_1.replace(part_bf+"π" , part_bf+PI ) ; }     
       return str_1;
    }
