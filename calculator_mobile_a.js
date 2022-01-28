@@ -6267,7 +6267,7 @@ function m_sinh(x){
        var AA2 = m_mtx_point_mul(AA,AA);
        var SS_T  = m_str_to_mtx(0) ;              
        if( DECI_DGT <=25){ var nn=51; }                       
-        else{  var nn=167; }  
+        else{  var nn=200; }  
   for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);               
            if(i==1){
@@ -6337,7 +6337,7 @@ function m_cosh(x){
         var AA2 = m_mtx_point_mul(AA,AA);
         var SS_T  = m_str_to_mtx(0) ;                 
         if( DECI_DGT <=25){ var nn=51; }  
-       else{var nn=167; } 
+       else{var nn=200; } 
        for(var i = 0 ; i < nn ; i++){       
            var BB_i = m_mtx_row_table(BB,i);               
             if(i==0){
