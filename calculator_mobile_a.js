@@ -2848,15 +2848,16 @@ function m_pi_dg_bf_del_1(str){
 
 function m_tri_ang_2pi_replace(str){         
     var str_1 = str;
-     var str_1 = str_1.replace(/atan/g , "ATAN");   
-     var str_1 = str_1.replace(/acos/g , "ACOS");    
-     var str_1 = str_1.replace(/asin/g , "ASIN");
+     
      var str_pi = m_str_spc_count(str_1,"π");      
      var str_degree = m_str_spc_count(str_1,"°");   
      var str_sin = m_str_spc_count(str_1,"sin");    
      var str_cos = m_str_spc_count(str_1,"cos");    
      var str_tan = m_str_spc_count(str_1,"tan");    
        if(str_pi == 0 && str_degree ==0 ){ var ans_1=str_1 ; return ans_1 ;} 
+     var str_1 = str_1.replace(/atan/g , "ATAN");   
+     var str_1 = str_1.replace(/acos/g , "ACOS");    
+     var str_1 = str_1.replace(/asin/g , "ASIN");
     if(str_pi != 0 && str_sin !=0){
      str_1 = str_1.replace(/sin\(0π\)/g , "0");         
      str_1 = str_1.replace(/sin\(π\/6\)/g , "0.5");        
@@ -3366,6 +3367,18 @@ function m_str_math_replacec(this_it){
            this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
            this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
            this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
+           this_it_a.replace(/asinh\(asinh/g , "aShaSh");
+           this_it_a.replace(/asin\(asinh/g , "aSaSh");
+           this_it_a.replace(/asin\(asin/g , "aSaS");
+           this_it_a.replace(/sin\(asinh/g , "SaSh");
+           this_it_a.replace(/acosh\(acosh/g , "aChaCh");
+           this_it_a.replace(/acos\(acosh/g , "aCaCh");
+           this_it_a.replace(/acos\(acos/g , "aCaC");
+           this_it_a.replace(/cos\(acosh/g , "CaCh");
+           this_it_a.replace(/atanh\(atanh/g , "aThaTh");
+            this_it_a.replace(/atan\(atanh/g , "aTaTh");
+            this_it_a.replace(/atan\(atan/g , "aTaT");
+            this_it_a.replace(/tan\(atanh/g , "TaTh");
            for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'exp(ln(');   
             if(it_a!=-1){ this_it_a = this_it_a.replace(/exp\(ln/i , "exl");}  else{ var i=20000;}  }    
           for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'ln(exp(');  
@@ -3394,6 +3407,18 @@ function m_str_math_replacec(this_it){
             if(it_a!=-1){ this_it_a = this_it_a.replace(/acos\(cos/i , "acs");}  else{ var i=20000;}  }    
           for(var i=0 ;i<10000 ;i++){ var it_a = m_str_spec_part_af_db_ft_test(this_it_a ,'atan(tan(');  
             if(it_a!=-1){ this_it_a = this_it_a.replace(/atan\(tan/i , "atn");}  else{ var i=20000;}  }
+           this_it_a.replace(/aShaSh/g , "asinh\(asinh");
+           this_it_a.replace(/aSaSh/g , "asin\(asinh");
+           this_it_a.replace(/aSaS/g , "asin\(asin");
+           this_it_a.replace(/SaSh/g , "sin\(asinh");
+            this_it_a.replace(/aChaCh/g , "acosh\(acosh");
+            this_it_a.replace(/aCaCh/g , "acos\(acosh");
+            this_it_a.replace(/aCaC/g , "acos\(acos");
+            this_it_a.replace(/CaCh/g , "cos\(acosh");
+            this_it_a.replace(/aThaTh/g , "atanh\(atanh");
+            this_it_a.replace(/aTaTh/g , "atan\(atanh");
+            this_it_a.replace(/aTaT/g , "atan\(atan");
+            this_it_a.replace(/TaTh/g , "tan\(atanh");
            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
