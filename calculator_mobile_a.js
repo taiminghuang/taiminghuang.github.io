@@ -78,7 +78,6 @@ function m_gol_fix(){
   if( DECI_DGT <=16){ var nub_col=50 ;}    
    else{var nub_col=100 ;}
   PIMUL2 =m_fix(PIMUL2,nub_col);
-  PI =m_fix(PI,nub_col);
   PIDIV2=m_fix(PIDIV2,nub_col);
   PIDIV4=m_fix(PIDIV4,nub_col);
   SQRT2=m_fix(SQRT2,nub_col);
@@ -109,7 +108,6 @@ function m_gol_fix(){
   LN89=m_fix(LN89,nub_col); 
   LN97=m_fix(LN97,nub_col); 
   E1=m_fix(E1,nub_col);
-  DEG=m_fix(DEG,nub_col);
   SIN09D=m_fix(SIN09D,nub_col);
   SIN15D=m_fix(SIN15D,nub_col);
   SIN18D=m_fix(SIN18D,nub_col);
