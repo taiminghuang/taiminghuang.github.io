@@ -3368,6 +3368,7 @@ function m_str_math_replacec(this_it){
            this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
            this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
            this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
+  
            this_it_a =m_fun_aft_many(this_it_a ,'exp(ln','exl');    
            this_it_a =m_fun_aft_many(this_it_a ,'ln(exp','lex');  
            this_it_a =m_fun_aft_many(this_it_a ,'asinh(asinh' , 'aShaSh');   
@@ -3424,7 +3425,8 @@ function m_str_math_replacec(this_it){
            this_it_a =m_fun_aft_many(this_it_a ,'tan(atan','tat');    
            this_it_a =m_fun_aft_many(this_it_a ,'atan(tan' ,'att');  
            this_it_a =m_fun_aft_many(this_it_a ,'tan(asin','tas');   
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(acos','tac');  
+           this_it_a =m_fun_aft_many(this_it_a ,'tan(acos','tac'); 
+  
            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
@@ -3441,7 +3443,7 @@ function m_str_math_replacec(this_it){
            this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn'); 
            this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');
   
-           this_it_a =this_it_a.replace( /aShaSh/g ,"m_asinh(m_asinh" );  //20220203//繹碼 20220204a
+           this_it_a =this_it_a.replace( /aShaSh/g ,"m_asinh(m_asinh" );  
            this_it_a =this_it_a.replace( /aSaSh/g ,"m_asin(m_asinh" );
            this_it_a =this_it_a.replace( /aSaCh/g ,"m_asin(m_acosh" );  
            this_it_a =this_it_a.replace( /aSaTh/g ,"m_asin(m_atanh" );  
@@ -3499,6 +3501,7 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.replace(/tac/g , "m_tan_acos(");
            this_it_a = this_it_a.replace(/sat/g , "m_sin_atan(");
            this_it_a = this_it_a.replace(/cat/g , "m_cos_atan("); 
+  
            this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
            this_it_a = this_it_a.replace(/azz/g , "m_asin");     
            this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
@@ -3510,7 +3513,8 @@ function m_str_math_replacec(this_it){
            this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
            this_it_a = this_it_a.replace(/axx/g , "m_atan");     
            this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
-           this_it_a = this_it_a.replace(/xxx/g , "m_tan");     
+           this_it_a = this_it_a.replace(/xxx/g , "m_tan");
+  
            this_it_a = this_it_a.replace(/eee/g , "m_exp");   
            this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
            this_it_a = this_it_a.replace(/ggg/g , "m_log");  
