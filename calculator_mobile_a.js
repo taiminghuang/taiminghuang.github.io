@@ -6349,7 +6349,6 @@ function m_sinh(x){
   var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);           
      if(comp_xx_1 !=1){        
        var xx_abs = m_str_e_to_str(xx_abs);          
-       var xx_abs =m_fix(xx_abs,FIX_COL);
        if( DECI_DGT <=25){
        var BB = m_mtx_exp_coefficient_150_table_a(); }
        else{ var BB = m_mtx_exp_coefficient_150_table();} 
@@ -6419,8 +6418,7 @@ function m_cosh(x){
    var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);     
       if(comp_xx_1 !=1){        
         var xx_abs = m_str_e_to_str(xx_abs);          
-        var xx_abs =m_fix(xx_abs,FIX_COL);                  
-        if( DECI_DGT <=25){
+       if( DECI_DGT <=25){
        var BB = m_mtx_exp_coefficient_150_table_a(); }
        else{ var BB = m_mtx_exp_coefficient_150_table();}       
         var AA  = m_str_to_mtx(xx_abs) ;              
@@ -6712,8 +6710,7 @@ function m_ln_bf(x){
       var ans_t = 0 ;
       var ans_t1 = 0 ;
        var xx=x;
-    alert(" i0="+FIX_COL); 
-    alert(" i1="+DECI_DGT);
+    
    if (xx <= 99  && xx.length<=2){        
        LN2=m_fix(LN2,FIX_COL);    
        LN3=m_fix(LN3,FIX_COL);
@@ -6841,7 +6838,10 @@ function m_ln_bf(x){
       else if (xx == 98 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN7 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; } 
       else if (xx == 99 &&  xx.length==2) {var ans_t1 = m_mtx_real_mul(LN3 ,2) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
       else {var ans_t =x; }
+     alert(" ans_t="+ans_t); 
+     
       return ans_t;   
+     
       }
    }
 function m_ln(x){           
