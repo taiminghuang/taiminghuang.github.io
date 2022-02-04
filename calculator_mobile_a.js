@@ -6711,7 +6711,7 @@ function m_ln_bf(x){
       var ans_t1 = 0 ;
        var xx=x;
     
-   if (xx <= 99  && xx.length<=2){        
+   if (xx <= 99  && xx >= 1 && xx.length<=2){        
        LN2=m_fix(LN2,FIX_COL);    
        LN3=m_fix(LN3,FIX_COL);
        LN5=m_fix(LN5,FIX_COL);
@@ -6738,7 +6738,7 @@ function m_ln_bf(x){
        LN83=m_fix(LN83,FIX_COL);
        LN89=m_fix(LN89,FIX_COL);
        LN97=m_fix(LN97,FIX_COL);   
-      if (xx == 1 &&  xx.length==1) {var ans_t = 0 ; }  
+      if (xx == 1 &&  xx.length==1) {var ans_t = 0 ; return ans_t;}  
       else if (xx == 2 &&  xx.length==1) {var ans_t = LN2 ;return ans_t; }  
       else if (xx == 3 &&  xx.length==1) {var ans_t = LN3 ;return ans_t; }  
       else if (xx == 4 &&  xx.length==1) {var ans_t = m_mtx_real_add(LN2 , LN2) ;return ans_t; }  
