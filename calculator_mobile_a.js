@@ -6357,7 +6357,7 @@ function m_sinh(x){
        var AA2 = m_mtx_point_mul(AA,AA);
        var SS_T  = m_str_to_mtx(0) ;              
        if( DECI_DGT <=25){ var nn=51; }                       
-        else{  var nn=200; }  
+        else{  var nn=167; }  
   for(var i = 1 ; i < nn ; i++){       
        var BB_i = m_mtx_row_table(BB,i);               
            if(i==1){
@@ -6427,7 +6427,7 @@ function m_cosh(x){
         var AA2 = m_mtx_point_mul(AA,AA);
         var SS_T  = m_str_to_mtx(0) ;                 
         if( DECI_DGT <=25){ var nn=51; }  
-       else{var nn=200; } 
+       else{var nn=167; } 
        for(var i = 0 ; i < nn ; i++){       
            var BB_i = m_mtx_row_table(BB,i);               
             if(i==0){
@@ -6712,6 +6712,8 @@ function m_ln_bf(x){
       var ans_t = 0 ;
       var ans_t1 = 0 ;
        var xx=x;
+    alert(" i0="+FIX_COL); 
+    alert(" i1="+DECI_DGT);
    if (xx <= 99  && xx.length<=2){        
        LN2=m_fix(LN2,FIX_COL);    
        LN3=m_fix(LN3,FIX_COL);
