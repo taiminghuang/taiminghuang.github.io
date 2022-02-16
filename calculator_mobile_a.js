@@ -6884,74 +6884,71 @@ function m_ln(x){
   var data_com = 0;
   var data_com_pow=0 ;
   var xx_st =m_fix(xx_st,30);
-  var j_nub = 52;
+  var j_nub = 53;
  for(var j=0;j<j_nub;j++){ 
-    if(j==0){var data_com = "7.943282347242815" ;var data_com_pow=0.9;} 
-    else if(j==1){var data_com = "6.309573444801932" ;var data_com_pow=0.8;}   
-    else if(j==2){var data_com = "5.011872336272722" ;var data_com_pow=0.7;}  
-    else if(j==3){var data_com = "3.981071705534972" ;var data_com_pow=0.6;} 
-    else if(j==4){var data_com = "3.162277660168379" ;var data_com_pow=0.5;}  
-    else if(j==5){var data_com = "2.511886431509580" ;var data_com_pow=0.4;} 
-    else if(j==6){var data_com = "1.995262314968879" ;var data_com_pow=0.3;}  
-    else if(j==7){var data_com = "1.584893192461113" ;var data_com_pow=0.2;} 
-    else if(j==8){var data_com = "1.258925411794167" ;var data_com_pow=0.1;} 
-    else if(j==9){var data_com = "1.230268770812381" ;var data_com_pow=0.09;} 
-    else if(j==10){var data_com = "1.202264434617412" ;var data_com_pow=0.08;}    
-    else if(j==11){var data_com = "1.174897554939529" ;var data_com_pow=0.07;} 
-    else if(j==12){var data_com = "1.148153621496882" ;var data_com_pow=0.06;}    
-    else if(j==13){var data_com = "1.122018454301963" ;var data_com_pow=0.05;} 
-    else if(j==14){var data_com = "1.096478196143185" ;var data_com_pow=0.04;}    
-    else if(j==15){var data_com = "1.071519305237606" ;var data_com_pow=0.03;} 
-    else if(j==16){var data_com = "1.047128548050899"  ;var data_com_pow=0.02;}    
-    else if(j==17){var data_com = "1.023292992280754" ;var data_com_pow=0.01;} 
-    else if(j==18){var data_com = "1.020939483707679" ;var data_com_pow=0.009;}    
-    else if(j==19){var data_com = "1.018591388054116" ;var data_com_pow=0.008;}  
-    else if(j==20){var data_com = "1.016248692870695" ;var data_com_pow=0.007;}    
-    else if(j==21){var data_com = "1.013911385736679" ;var data_com_pow=0.006;} 
-    else if(j==22){var data_com = "1.011579454259898" ;var data_com_pow=0.005;}    
-    else if(j==23){var data_com = "1.009252886076684" ;var data_com_pow=0.004;}  
-    else if(j==24){var data_com = "1.006931668851804" ;var data_com_pow=0.003;}    
-    else if(j==25){var data_com = "1.004615790278395"  ;var data_com_pow=0.002;} 
-    else if(j==26){var data_com = "1.002305238077899" ;var data_com_pow=0.001;} 
-    else if(j==27){var data_com = "1.002074475336478" ;var data_com_pow=0.0009;} 
-    else if(j==28){var data_com = "1.001843765724025" ;var data_com_pow=0.0008;}   
-    else if(j==29){var data_com = "1.001613109228308" ;var data_com_pow=0.0007;}  
-    else if(j==30){var data_com = "1.001382505837098" ;var data_com_pow=0.0006;}    
-    else if(j==31){var data_com = "1.001151955538168" ;var data_com_pow=0.0005;} 
-    else if(j==32){var data_com = "1.000921458319295" ;var data_com_pow=0.0004;}    
-    else if(j==33){var data_com = "1.000691014168258" ;var data_com_pow=0.0003;} 
-    else if(j==34){var data_com = "1.000460623072840" ;var data_com_pow=0.0002;}    
-    else if(j==35){var data_com = "1.000230285020824" ;var data_com_pow=0.0001;} 
-    else if(j==36){var data_com = "1.000207254132540" ;var data_com_pow=0.00009;}    
-    else if(j==37){var data_com = "1.000184223774555" ;var data_com_pow=0.00008;} 
-    else if(j==38){var data_com = "1.000161193946857" ;var data_com_pow=0.00007;}    
-    else if(j==39){var data_com = "1.000138164649435" ;var data_com_pow=0.00005;}  
-    else if(j==40){var data_com = "1.000092107645368" ;var data_com_pow=0.00004;}    
-    else if(j==41){var data_com = "1.000069079938698" ;var data_com_pow=0.00003;} 
-    else if(j==42){var data_com = "1.000046052762255" ;var data_com_pow=0.00002;}    
-     else if(j==43){var data_com = "1.00002302611602688"  ;var data_com_pow=0.00001;}    
-    else if(j==44){var data_com = "1.00002072348056530" ;var data_com_pow=0.000009;}    
-    else if(j==45){var data_com = "1.00001842085040573" ;var data_com_pow=0.000008;} 
-    else if(j==46){var data_com = "1.000016118225548159" ;var data_com_pow=0.000007;}    
-    else if(j==47){var data_com = "1.000013815605992569" ;var data_com_pow=0.000006;} 
-    else if(j==48){var data_com = "1.000011512991738950" ;var data_com_pow=0.000005;}    
-    else if(j==49){var data_com = "1.000009210382787291" ;var data_com_pow=0.000004;}  
-    else if(j==50){var data_com = "1.000006907779137578" ;var data_com_pow=0.000003;}    
-    else if(j==51){var data_com = "1.000004605180789800" ;var data_com_pow=0.000002;} 
-    else if(j==52){var data_com = "1.000002302587743945" ;var data_com_pow=0.000001;}    
+    if(j==0){var data_com = "7.9432823473" ;var data_com_pow=0.9;} 
+    else if(j==1){var data_com = "6.3095734449" ;var data_com_pow=0.8;}   
+    else if(j==2){var data_com = "5.0118723363" ;var data_com_pow=0.7;}  
+    else if(j==3){var data_com = "3.9810717056" ;var data_com_pow=0.6;} 
+    else if(j==4){var data_com = "3.1622776602" ;var data_com_pow=0.5;}  
+    else if(j==5){var data_com = "2.5118864316" ;var data_com_pow=0.4;} 
+    else if(j==6){var data_com = "1.9952623150" ;var data_com_pow=0.3;}  
+    else if(j==7){var data_com = "1.5848931925" ;var data_com_pow=0.2;} 
+    else if(j==8){var data_com = "1.2589254118" ;var data_com_pow=0.1;} 
+    else if(j==9){var data_com = "1.2302687709" ;var data_com_pow=0.09;} 
+    else if(j==10){var data_com = "1.2022644347" ;var data_com_pow=0.08;}    
+    else if(j==11){var data_com = "1.1748975550" ;var data_com_pow=0.07;} 
+    else if(j==12){var data_com = "1.1481536215" ;var data_com_pow=0.06;}    
+    else if(j==13){var data_com = "1.1220184544" ;var data_com_pow=0.05;} 
+    else if(j==14){var data_com = "1.0964781962" ;var data_com_pow=0.04;}    
+    else if(j==15){var data_com = "1.0715193053" ;var data_com_pow=0.03;} 
+    else if(j==16){var data_com = "1.0471285481"  ;var data_com_pow=0.02;}    
+    else if(j==17){var data_com = "1.0232929923" ;var data_com_pow=0.01;} 
+    else if(j==18){var data_com = "1.0209394838" ;var data_com_pow=0.009;}    
+    else if(j==19){var data_com = "1.0185913881" ;var data_com_pow=0.008;}  
+    else if(j==20){var data_com = "1.0162486929" ;var data_com_pow=0.007;}    
+    else if(j==21){var data_com = "1.0139113858" ;var data_com_pow=0.006;} 
+    else if(j==22){var data_com = "1.0115794543" ;var data_com_pow=0.005;}    
+    else if(j==23){var data_com = "1.0092528861" ;var data_com_pow=0.004;}  
+    else if(j==24){var data_com = "1.0069316689" ;var data_com_pow=0.003;}    
+    else if(j==25){var data_com = "1.0046157903"  ;var data_com_pow=0.002;} 
+    else if(j==26){var data_com = "1.0023052381" ;var data_com_pow=0.001;} 
+    else if(j==27){var data_com = "1.0020744754" ;var data_com_pow=0.0009;} 
+    else if(j==28){var data_com = "1.0018437658" ;var data_com_pow=0.0008;}   
+    else if(j==29){var data_com = "1.0016131093" ;var data_com_pow=0.0007;}  
+    else if(j==30){var data_com = "1.0013825059" ;var data_com_pow=0.0006;}    
+    else if(j==31){var data_com = "1.0011519556" ;var data_com_pow=0.0005;} 
+    else if(j==32){var data_com = "1.0009214584" ;var data_com_pow=0.0004;}    
+    else if(j==33){var data_com = "1.0006910142" ;var data_com_pow=0.0003;} 
+    else if(j==34){var data_com = "1.0004606231" ;var data_com_pow=0.0002;}    
+    else if(j==35){var data_com = "1.0002302851" ;var data_com_pow=0.0001;} 
+    else if(j==36){var data_com = "1.0002072542" ;var data_com_pow=0.00009;}    
+    else if(j==37){var data_com = "1.0001842238" ;var data_com_pow=0.00008;} 
+    else if(j==38){var data_com = "1.0001611940" ;var data_com_pow=0.00007;}    
+    else if(j==39){var data_com = "1.0001381647" ;var data_com_pow=0.00005;}  
+    else if(j==40){var data_com = "1.0000921077" ;var data_com_pow=0.00004;}    
+    else if(j==41){var data_com = "1.0000690800" ;var data_com_pow=0.00003;} 
+    else if(j==42){var data_com = "1.0000460528" ;var data_com_pow=0.00002;}    
+    else if(j==43){var data_com = "1.0000230262"  ;var data_com_pow=0.00001;}    
+    else if(j==44){var data_com = "1.0000207235" ;var data_com_pow=0.000009;}    
+    else if(j==45){var data_com = "1.0000184209" ;var data_com_pow=0.000008;} 
+    else if(j==46){var data_com = "1.0000161183" ;var data_com_pow=0.000007;}    
+    else if(j==47){var data_com = "1.0000138157" ;var data_com_pow=0.000006;} 
+    else if(j==48){var data_com = "1.0000115130" ;var data_com_pow=0.000005;}    
+    else if(j==49){var data_com = "1.0000092104" ;var data_com_pow=0.000004;}  
+    else if(j==50){var data_com = "1.0000069078" ;var data_com_pow=0.000003;}    
+    else if(j==51){var data_com = "1.0000046052" ;var data_com_pow=0.000002;} 
+    else if(j==52){var data_com = "1.0000023026" ;var data_com_pow=0.000001;}    
      var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);    
       if(data_xx_st_comp_data_com != 2){
         var xx_st =m_fix(xx_st,30); 
         var xx_st=m_mtx_real_div(xx_st,data_com); 
         var nub_ln10 = m_mtx_real_add(nub_ln10 , data_com_pow) ; }
-           
             }
-
      var sum_tt = m_mtx_real_mul(nub_ln10 , LN10) ; 
      var nub_ln10_base = nub_ln10 * 1000000;  
      var nub_ln10_base = m_fix(nub_ln10_base,1);
      var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430";
-       
       var data_xx_i = m_pow(ref_base,-nub_ln10_base);   
       var xx_st_1 = m_mtx_real_mul(xx_e_st , data_xx_i) ;   
       var xx_st_1 = m_str_e_to_str(xx_st_1);   
@@ -6959,7 +6956,6 @@ function m_ln(x){
       var total = m_mtx_real_add(sum_tt , sum_tt_s) ;
       var total_s = m_mtx_real_add(sum_tt_1 , total) ;
    return  total_s ;
-
 }
 
 function m_ln_matrix(x){          
