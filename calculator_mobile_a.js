@@ -1113,7 +1113,7 @@ function message_1(n){
             message_1 = "<--  Msg : | answer | <=1e-200 , inside of calculator error range -->" ;    
             break;
             case 35:
-            message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  //20200729
+            message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  
             break;
            case 36:
             message_1 = "<--  Msg : b ^p , when   p >1e+200  or  p <-1e+200   no support -->" ;
@@ -5354,8 +5354,10 @@ function m_sub_error_rg(str_1){
   var it = "";
   var ans ="";
   var data_rang_str_up = m_mtx_real_str_comp(str_a,'1e-229');     
-  var data_rang_str_down = m_mtx_real_str_comp(str_a,'-1e-229');   
-      var it = calc.input.value;
+  var data_rang_str_down = m_mtx_real_str_comp(str_a,'-1e-229'); 
+  var data_rang_str_up_16 = m_mtx_real_str_comp(str_a,'1e-45');      
+  var data_rang_str_down_16 = m_mtx_real_str_comp(str_a,'-1e-45');      
+       var it = calc.input.value;
       var this_s = it.toString().trim();           
       var this_it = m_del4_2f_char(this_s,';').toString().trim();        
       var this_it_s = this_it;   
@@ -5398,7 +5400,6 @@ function m_sub_error_rg(str_1){
          var ans = "0;" + message_1(34); }                 
       else if(data_rang_str_up_16 ==2 && data_rang_str_down_16 ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT <=16) {    
          var ans = "0;" + message_1(38); }  
-                      
       else {ans = str_1;}
     return ans;  
 }
