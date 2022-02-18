@@ -1119,10 +1119,11 @@ function message_1(n){
             message_1 = "<--  Msg : b ^p , when   p >1e+200  or  p <-1e+200   no support -->" ;
             break;
            case 37:
-            message_1 = "<--  Msg : sin(x), cos(x), tan(x) , f(x) , when  x >1e+49500    no support -->" ;  
-            brcase 38:  
+            message_1 = "<--  Msg : sin(x), cos(x), tan(x) , f(x) , when  x >1e+49500    no support -->" ; 
+            break; 
+            case 38:  
             message_1 ="<--  Msg :  .x  x<=16 , | answer | <=1e-40 , inside of calculator error range -->" ;  
-            break;eak;
+            break;
       default:
                }
  return message_1; 
@@ -5393,10 +5394,10 @@ function m_sub_error_rg(str_1){
       var n_nb_dg = m_str_spc_count(this_it_t_test,"°");  
       var n_nb_pi = m_str_spc_count(this_it_t_test,"π"); 
       var sum_nb = parseInt(n_nb_sin) + parseInt(n_nb_cos) + parseInt(n_nb_tan) + parseInt(n_nb_asin) + parseInt(n_nb_acos) +parseInt(n_nb_atan) + parseInt(n_nb_sinh) + parseInt(n_nb_cosh) + parseInt(n_nb_tanh) + parseInt(n_nb_asinh) + parseInt(n_nb_acosh) +parseInt(n_nb_atanh) + parseInt(n_nb_cap) + parseInt(n_nb_exp) + parseInt(n_nb_ln) +parseInt(n_nb_log)+parseInt(n_nb_dg)+parseInt(n_nb_pi);     
-      if(data_rang_str_up ==2 && data_rang_str_down ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT >16) {    //單獨函數不處理   //20210109  ng_nb >=2   -負值 ++1
-         var ans = "0;" + message_1(34); }                 //20220211
-      else if(data_rang_str_up_16 ==2 && data_rang_str_down_16 ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT <=16) {    //單獨函數不處理   //20210109  ng_nb >=2   -負值 ++1
-         var ans = "0;" + message_1(38); }  //20220211
+      if(data_rang_str_up ==2 && data_rang_str_down ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT >16) {    
+         var ans = "0;" + message_1(34); }                 
+      else if(data_rang_str_up_16 ==2 && data_rang_str_down_16 ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT <=16) {    
+         var ans = "0;" + message_1(38); }  
                       
       else {ans = str_1;}
     return ans;  
