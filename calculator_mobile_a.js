@@ -5208,6 +5208,16 @@ function m_mtx_real_add(x,y){
     var  x_e = m_mtx_str_to_e_ne(x_e);              
     var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();      
     var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();  
+    var nub_x = m_str_power(x_e ,0);  
+    var nub_y = m_str_power(y_e ,0); 
+     if(nub_x.length >3 || nub_y.length >3){
+      var nub_dif_x = m_mtx_real_sub(nub_x,nub_y);  
+      var nub_dif_y = m_mtx_real_sub(nub_y,nub_x); 
+      var x_comp_1000 = m_mtx_real_str_comp(nub_dif_x,1000);   
+      var y_comp_1000 = m_mtx_real_str_comp(nub_dif_y,1000);
+    if(x_comp_1000 !=2){var ans_1=x; return ans_1;}      
+    if(y_comp_1000 !=2){var ans_1=y; return ans_1;}      
+     }  
     var fix_cols =2000;
     var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();     
     var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
@@ -5428,7 +5438,18 @@ function m_mtx_real_sub(x,y){
     var  y_e = m_mtx_str_to_e_ne(y_e);               
     var  x_e = m_mtx_str_to_e_ne(x_e);               
     var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();       
-    var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();       
+    var  x_e = m_mtx_str_to_e_a(x_e).toString().trim(); 
+    var nub_x = m_str_power(x_e ,0);  
+    var nub_y = m_str_power(y_e ,0);
+     if(nub_x.length >3 || nub_y.length>3){ 
+      var nub_dif_x = m_mtx_real_sub(nub_x,nub_y);  
+      var nub_dif_y = m_mtx_real_sub(nub_y,nub_x); 
+      var x_comp_1000 = m_mtx_real_str_comp(nub_dif_x,1000);   
+      var y_comp_1000 = m_mtx_real_str_comp(nub_dif_y,1000);
+     if(x_comp_1000 !=2){var ans_1=x; return ans_1;}    
+     if(y_comp_1000 !=2){ if(y_st_fst=="-"){ var ans_1= y_st;} 
+                          else{var ans_1="-"+ y_st;} return ans_1;} 
+     }
     var fix_cols =MTX_COL*5-5 ;              
     var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
     var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();    
