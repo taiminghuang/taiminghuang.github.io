@@ -5757,9 +5757,9 @@ function m_sin(x){
     var xx=x.toString().trim();
     var data_msg =0;
     var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   //20210108 上移
+       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
     var xx =m_mtx_trim(xx) ; 
-    var xx_af =0;                 //20211113
+    var xx_af =0;                 
     var xx_af_p =0; 
     var xx_af_e =0; 
     var ans_1 = "";
@@ -5782,7 +5782,7 @@ function m_sin(x){
     var xx_test_small = xx;                      
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
     var xx_test_st = m_str_power(xx_test_small,1);  
-      if(m_mtx_real_str_comp(xx_test_nub_e,-1000)==2 ){ return  xx;}  
+      if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){ return  xx;}  
       if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);  return  ans_1 ; } 
     var xx_fst = xx.substr(0,1);
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }
@@ -6194,7 +6194,7 @@ function m_cos(x){
     var xx_test_small = xx;              
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
     var xx_test_st = m_str_power(xx_test_small,1);           
-      if(m_mtx_real_str_comp(xx_test_nub_e,-1000)==2 ){      
+      if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){      
         var ans_a=1 ; return  ans_a;}                      
       if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16); return  ans_1 ; }  
     var xx_fst = xx.substr(0,1);
@@ -6295,7 +6295,7 @@ function m_tan(x){
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
 
-     if(m_mtx_real_str_comp(xx_test_nub_e,-1000)==2 ){    
+     if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){    
        var ans_a=xx ; return  ans_a;}                       
      if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   
                                                                 return  ans_1 ; }    
