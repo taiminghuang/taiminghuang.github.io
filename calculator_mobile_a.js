@@ -2695,7 +2695,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
    var index_2 = 0; 
        index_1 = m_str_spc_index(str,spec_a);
        index_2 = m_str_spc_index(str,spe2_2);
-   var new_str =str_1.substring(index_1,index_2+1);   
+   var new_str =str_1.substring(index_1,index_2+2);   
        return new_str;
    }
 
@@ -9692,6 +9692,8 @@ function m_tanh_atanh(x){
         var this_data_str = m_mtx_e_str(this_data ,1);  
             var data_er_rg ="";
             var data_er_rg = m_sub_error_rg(this_data); 
+          alert("data_er_rg="+data_er_rg);
+   
       if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
               if(data_er_rg != this_data.toString()){   
                   document.getElementById('input').value = this_s.toString().trim()+function_data+" = "+data_er_rg +";"  ;  //20200810
