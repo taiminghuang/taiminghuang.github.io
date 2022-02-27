@@ -9673,6 +9673,8 @@ function m_tanh_atanh(x){
                    }
            var this_it=  mtx_str_e_chk_to_str(this_it); 
             var this_data = eval(this_it);  
+            alert("llk="+this_data); 
+           
             var this_data_error = this_data;     
                 this_data=this_data.toString();    
             var this_data_fst = this_data.substr(0,1);
