@@ -1080,8 +1080,8 @@ function message_1(n){
           message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-1e-9999 no support -->"  ;    
           break;
           case 16:
-          message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if when |x| >1e+200   no support -->" ;   
-          break;
+          message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if when |x| >1e+200   no support -->" ; 
+         break;
           case 23:
           message_1 = "<--  Msg : exp(x)  if when  |x| >1e+200  no support -->" ;
           break;
@@ -9692,8 +9692,7 @@ function m_tanh_atanh(x){
         var this_data_str = m_mtx_e_str(this_data ,1);  
             var data_er_rg ="";
             var data_er_rg = m_sub_error_rg(this_data); 
-          alert("data_er_rg="+data_er_rg);
-   
+          
       if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
               if(data_er_rg != this_data.toString()){   
                   document.getElementById('input').value = this_s.toString().trim()+function_data+" = "+data_er_rg +";"  ;  //20200810
@@ -9706,7 +9705,9 @@ function m_tanh_atanh(x){
                                            }
        else {
           var error_str = this_data_error ;
-              error_str =  m_str_spc_inter_2word( error_str,"<","->");  
+         alert("error_str1="+error_str);
+              error_str =  m_str_spc_inter_2word( error_str,"<","->"); 
+         alert("error_str="+error_str);
                if(error_str ==""){ var error_str="system error";}
           document.getElementById('input').value = this_s.toString().trim()  ;  
           document.getElementById('input').value += "     "+error_str +";"  ; 
