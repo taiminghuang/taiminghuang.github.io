@@ -2695,7 +2695,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
    var index_2 = 0; 
        index_1 = m_str_spc_index(str,spec_a);
        index_2 = m_str_spc_index(str,spe2_2);
-   var new_str =str_1.substring(index_1,index_2+2);   
+   var new_str =str_1.substring(index_1,index_2+1);   
        return new_str;
    }
 
@@ -9705,9 +9705,6 @@ function m_tanh_atanh(x){
        else {
           var error_str = this_data_error ;
               error_str =  m_str_spc_inter_2word( error_str,"<","->");  
-         
-         alert("error_str="+error_str); 
-         
                if(error_str ==""){ var error_str="system error";}
           document.getElementById('input').value = this_s.toString().trim()  ;  
           document.getElementById('input').value += "     "+error_str +";"  ; 
