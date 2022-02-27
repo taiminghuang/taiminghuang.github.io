@@ -5653,7 +5653,7 @@ function m_exp(x){
    var  xx_test_nub_e =m_str_power(xx_test_small,0);             
    var  xx_test_st = m_str_power(xx_test_small,1);          
       if(m_mtx_real_str_comp(xx_test_nub_e,-5001)==2 ){ return  1;}  
-   var p_comp_datalg  =  m_mtx_real_str_comp(xx_test_nub_e,201);        
+   var p_comp_datalg  =  m_mtx_real_str_comp(xx_test_nub_e,200);        
       if( p_comp_datalg ==1  ){
          var ans_1 = message_1(23);
                     return  ans_1  }
