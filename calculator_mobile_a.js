@@ -1077,25 +1077,25 @@ function message_1(n){
           message_1 = "<--  Msg : log(0) value  to  -infinity -->" ;
           break;
          case 15:
-          message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-1e-9999 no support -->"  ;    
+          message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-(10^(-9999)) no support -->"  ;    
           break;
           case 16:
-          message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if when |x| >1e+200   no support -->" ; 
+          message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if as |x| >10^200   no support -->" ; 
          break;
           case 23:
-          message_1 = "<--  Msg : exp(x)  if when  |x| >1e+200  no support -->" ;
+          message_1 = "<--  Msg : exp(x)  if as  |x| >10^200  no support -->" ;
           break;
           case 24:
-          message_1 = "<--  Msg : sinh(x)  if |x| > 1e+200  no support -->" ;
+          message_1 = "<--  Msg : sinh(x)  if |x| > 10^200  no support -->" ;
           break;
            case 25:
-          message_1 = "<--  Msg : cosh(x)  if |x| > 1e+200  no support -->" ;
+          message_1 = "<--  Msg : cosh(x)  if |x| > 10^200  no support -->" ;
           break;
           case 28:
-            message_1 = "<--  Msg :  undefined  : x^p  when x=0   p<=0  -->" ;
+            message_1 = "<--  Msg :  undefined  : x^p  as x=0   p<=0  -->" ;
             break;
           case 29:
-            message_1 = "<--  Msg :  error  : y/x   when x=0    -->" ;
+            message_1 = "<--  Msg :  error  : y/x   as x=0    -->" ;
             break;
             case 30:
             message_1 = "<--  Msg :  error  :  .  >1  or e >1  -->" ;
@@ -1107,22 +1107,19 @@ function message_1(n){
             message_1 = "<--  Msg :  sorry : (e± || e. || e± e || e± ..) this e type no support     -->" ;
             break;
            case 33:
-            message_1 = "<--  Msg : n! ,  n > 2e+7 no support   -->" ;    
+            message_1 = "<--  Msg : n! ,  n > 2*10^7 no support   -->" ;    
             break;
            case 34:  
-            message_1 = "<--  Msg : | answer | <=1e-200 , inside of calculator error range -->" ;    
+            message_1 = "<--  Msg : | answer | <=10^(-200) , inside of calculator error range -->" ;    
             break;
             case 35:
             message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  
             break;
            case 36:
-            message_1 = "<--  Msg : b ^p , when   p >1e+200  or  p <-1e+200   no support -->" ;
+            message_1 = "<--  Msg : b ^p ,as   p >10^200  or  p <-(10^200)   no support -->" ;
             break;
-           case 37:
-            message_1 = "<--  Msg : sin(x), cos(x), tan(x) , f(x) , when  x >1e+49500    no support -->" ; 
-            break; 
-            case 38:  
-            message_1 ="<--  Msg :  .x  x<=16 , | answer | <=1e-40 , inside of calculator error range -->" ;  
+             case 38:  
+            message_1 ="<--  Msg :  .x  x<=16 , | answer | <=10^(-40) , inside of calculator error range -->" ;  
             break;
       default:
                }
