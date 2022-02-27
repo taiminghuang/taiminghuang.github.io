@@ -9705,10 +9705,8 @@ function m_tanh_atanh(x){
                                            }
        else {
           var error_str = this_data_error ;
-         alert("error_str1="+error_str);
               error_str =  m_str_spc_inter_2word( error_str,"<","->"); 
-         alert("error_str="+error_str);
-               if(error_str ==""){ var error_str="system error";}
+           if(error_str ==""){ var error_str="system error";}
           document.getElementById('input').value = this_s.toString().trim()  ;  
           document.getElementById('input').value += "     "+error_str +";"  ; 
              }
