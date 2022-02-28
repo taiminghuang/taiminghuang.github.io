@@ -1077,7 +1077,7 @@ function message_1(n){
           message_1 = "<--  Msg : log(0) value  to  -infinity -->" ;
           break;
          case 15:
-          message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-(10^(-9999)) no support -->"  ;    
+          message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-(10^(-200)) no support -->"  ;    
           break;
           case 16:
           message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if as |x| >10^200   no support -->" ; 
@@ -7806,7 +7806,7 @@ var data_msg =0;
  var xx_test_small = m_mtx_str_to_e_a(xx);              
  var xx_test_nub_e =m_str_power(xx_test_small,0);             
  var xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-500)==2 ){ 
+      if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){ 
   var ans_a=xx ; return  ans_a;} 
   var xx_fst = xx.substr(0,1);
        if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -7820,8 +7820,8 @@ var data_msg =0;
       if( comp_xx_n1 == 3 || comp_xx_1 ==3 ){ var ans_1= message_1(4);  return ans_1 ;}    
       if( comp_xx_0 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
    var comp_xx_1 = m_mtx_real_str_comp(xx,1); 
-    var data_test = m_mtx_real_sub('1','1e-1950');  
-    var data_test_up = m_mtx_real_sub('1','1e-9999');       
+    var data_test = m_mtx_real_sub('1','1e-195');  
+    var data_test_up = m_mtx_real_sub('1','1e-200');       
     var comp_xx_data_test = m_mtx_real_str_comp(xx,data_test);  
     var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up);  
      if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
