@@ -3368,65 +3368,6 @@ function m_str_math_replacec(this_it){
            this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
            this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
            this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
-  
-           this_it_a =m_fun_aft_many(this_it_a ,'exp(ln','exl');    
-           this_it_a =m_fun_aft_many(this_it_a ,'ln(exp','lex');  
-           this_it_a =m_fun_aft_many(this_it_a ,'asinh(asinh' , 'aShaSh');   
-           this_it_a =m_fun_aft_many(this_it_a ,'asinh(sinh','ashsh');   
-           this_it_a =m_fun_aft_many(this_it_a ,'sinh(asinh','shash'); 
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(asinh' , 'aSaSh');  
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(acosh' , 'aSaCh');  
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(atanh' , 'aSaTh');  
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(cosh' , 'aSCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(acos' , 'aSaC');    
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(acosh' , 'SaCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(asin' , 'aSaS');    
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(sinh' , 'aSSh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(atan' , 'aSaT');    
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(asinh' , 'SaSh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(atanh' , 'SaTh');     
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(sin','ass');       
-           this_it_a =m_fun_aft_many(this_it_a ,'asin(cos','asc');   
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(asin','sas');        
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(acos','sac');
-           this_it_a =m_fun_aft_many(this_it_a ,'sin(atan','sat');
-           this_it_a =m_fun_aft_many(this_it_a ,'acosh(acosh' , 'aChaCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(acosh' , 'aCaCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(atanh' , 'aCaTh');      
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(asinh' , 'aCaSh');     
-           this_it_a =m_fun_aft_many(this_it_a ,'acosh(cosh','achch');   
-           this_it_a =m_fun_aft_many(this_it_a ,'cosh(acosh','chach');   
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(sinh' , 'aCSh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(asin' , 'aCaS');    
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(asinh' , 'CaSh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(atanh' , 'CaTh');      
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(atan' , 'aCaT');     
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(acos' , 'aCaC');    
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(cosh' , 'aCCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(acosh' , 'CaCh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'acos(cos','acc');   
-           this_it_a =m_fun_aft_many(this_it_a , 'acos(sin','acs' );
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(acos','cac');    
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(asin','cas');
-           this_it_a =m_fun_aft_many(this_it_a ,'cos(atan','cat' );  
-           this_it_a =m_fun_aft_many(this_it_a ,'atanh(atanh' , 'aThaTh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'atanh(tanh','athth');    
-           this_it_a =m_fun_aft_many(this_it_a ,'tanh(atanh','thath');  
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(asinh' , 'aTaSh');     
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(acosh' , 'aTaCh');      
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(atanh' , 'aTaTh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(atan' , 'aTaT');    
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(asin' , 'aTaS');      
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(acos' , 'aTaC');      
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(tanh' , 'aTTh');     
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(atanh' , 'TaTh');    
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(asinh' , 'TaSh');       
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(acosh' , 'TaCh');      
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(atan','tat');    
-           this_it_a =m_fun_aft_many(this_it_a ,'atan(tan' ,'att');  
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(asin','tas');   
-           this_it_a =m_fun_aft_many(this_it_a ,'tan(acos','tac'); 
-  
            this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
            this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
            this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
@@ -3438,70 +3379,11 @@ function m_str_math_replacec(this_it){
            this_it_a = m_fun_aft_many(this_it_a ,'atanh','axh');   
            this_it_a = m_fun_aft_many(this_it_a ,'atan','axx');   
            this_it_a = m_fun_aft_many(this_it_a ,'tanh','xxh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx'); 
+           this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx');  
            this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');  
            this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn'); 
-           this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');
-  
-           this_it_a =this_it_a.replace( /aShaSh/g ,"m_asinh(m_asinh" );  
-           this_it_a =this_it_a.replace( /aSaSh/g ,"m_asin(m_asinh" );
-           this_it_a =this_it_a.replace( /aSaCh/g ,"m_asin(m_acosh" );  
-           this_it_a =this_it_a.replace( /aSaTh/g ,"m_asin(m_atanh" );  
-           this_it_a =this_it_a.replace( /aSCh/g ,"m_asin(m_cosh" );
-           this_it_a =this_it_a.replace( /aSaC/g ,"m_asin(m_acos" );
-           this_it_a =this_it_a.replace( /SaCh/g ,"m_sin(m_acosh" );
-           this_it_a =this_it_a.replace( /aSaS/g ,"m_asin(m_asin" );
-           this_it_a =this_it_a.replace( /aSSh/g ,"m_asin(m_sinh" );
-           this_it_a =this_it_a.replace( /aSaT/g ,"m_asin(m_atan" );
-           this_it_a =this_it_a.replace( /SaSh/g ,"m_sin(m_asinh" );
-           this_it_a =this_it_a.replace( /SaTh/g ,"m_sin(m_atanh" ); 
-           this_it_a =this_it_a.replace( /aChaCh/g ,"m_acosh(m_acosh" );
-           this_it_a =this_it_a.replace( /aCaCh/g ,"m_acos(m_acosh" );
-           this_it_a =this_it_a.replace( /aCaTh/g ,"m_acos(m_atanh" );  
-           this_it_a =this_it_a.replace( /aCaSh/g ,"m_acos(m_asinh" ); 
-           this_it_a =this_it_a.replace( /aCSh/g ,"m_acos(m_sinh" );
-           this_it_a =this_it_a.replace( /aCaS/g ,"m_acos(m_asin" );
-           this_it_a =this_it_a.replace( /CaSh/g ,"m_cos(m_asinh" );
-           this_it_a =this_it_a.replace( /CaTh/g ,"m_cos(m_atanh" );  
-           this_it_a =this_it_a.replace( /aCaT/g ,"m_acos(m_atan" ); 
-           this_it_a =this_it_a.replace( /aCaC/g ,"m_acos(m_acos" );
-           this_it_a =this_it_a.replace( /aCCh/g ,"m_acos(m_cosh" );
-           this_it_a =this_it_a.replace( /CaCh/g ,"m_cos(m_acosh" );
-           this_it_a =this_it_a.replace( /aThaTh/g ,"m_atanh(m_atanh" );
-           this_it_a =this_it_a.replace( /aTaTh/g ,"m_atan(m_atanh" );
-           this_it_a =this_it_a.replace( /aTaSh/g ,"m_atan(m_asinh" ); 
-           this_it_a =this_it_a.replace( /aTaCh/g ,"m_atan(m_acosh" );  
-           this_it_a =this_it_a.replace( /aTaT/g ,"m_atan(m_atan" );
-           this_it_a =this_it_a.replace( /aTaS/g ,"m_atan(m_asin" );  
-           this_it_a =this_it_a.replace( /aTaC/g ,"m_atan(m_acos" );  
-           this_it_a =this_it_a.replace( /aTTh/g ,"m_atan(m_tanh" ); 
-           this_it_a =this_it_a.replace( /TaTh/g ,"m_tan(m_atanh" );
-           this_it_a =this_it_a.replace( /TaSh/g ,"m_tan(m_asinh" );   
-           this_it_a =this_it_a.replace( /TaCh/g ,"m_tan(m_acosh" );   
-          
-           this_it_a = this_it_a.replace(/exl/g , "m_exp_ln(");    
-           this_it_a = this_it_a.replace(/lex/g , "m_ln_exp("); 
-           this_it_a = this_it_a.replace(/ashsh/g , "m_asinh_sinh(");   
-           this_it_a = this_it_a.replace(/achch/g , "m_acosh_cosh(");    
-           this_it_a = this_it_a.replace(/athth/g , "m_atanh_tanh(");    
-           this_it_a = this_it_a.replace(/shash/g , "m_sinh_asinh(");    
-           this_it_a = this_it_a.replace(/chach/g , "m_cosh_acosh(");    
-           this_it_a = this_it_a.replace(/thath/g , "m_tanh_atanh(");  
-           this_it_a = this_it_a.replace(/sas/g , "m_sin_asin(");    
-           this_it_a = this_it_a.replace(/cac/g , "m_cos_acos(");    
-           this_it_a = this_it_a.replace(/tat/g , "m_tan_atan(");    
-           this_it_a = this_it_a.replace(/ass/g , "m_asin_sin(");    
-           this_it_a = this_it_a.replace(/acc/g , "m_acos_cos(");  
-           this_it_a = this_it_a.replace(/att/g , "m_atan_tan("); 
-           this_it_a = this_it_a.replace(/asc/g , "m_asin_cos(");   
-           this_it_a = this_it_a.replace(/sac/g , "m_sin_acos(");
-           this_it_a = this_it_a.replace(/acs/g , "m_acos_sin(");
-           this_it_a = this_it_a.replace(/cas/g , "m_cos_asin(");
-           this_it_a = this_it_a.replace(/tas/g , "m_tan_asin(");   
-           this_it_a = this_it_a.replace(/tac/g , "m_tan_acos(");
-           this_it_a = this_it_a.replace(/sat/g , "m_sin_atan(");
-           this_it_a = this_it_a.replace(/cat/g , "m_cos_atan("); 
-  
+           this_it_a = m_fun_aft_many(this_it_a ,'log','ggg'); 
+        
            this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
            this_it_a = this_it_a.replace(/azz/g , "m_asin");     
            this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
@@ -6549,9 +6431,26 @@ function m_ext_in_funct(x){
 
 }
 
-
-
-
+function m_ext_in_funct_2(x){ 
+     var xx_st = x ;
+     var xx_st = xx_st.replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");  
+     var xx_st = xx_st.replace(/m_ln\(\(m_exp/g , "m_ln_exp\(\(");   
+     var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+     var xx_st = xx_st.replace(/m_sin\(\(m_acos/g , "m_sin_acos\(\(");   
+     var xx_st = xx_st.replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
+     var xx_st = xx_st.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
+     var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+     var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\(");    
+     var xx_st = xx_st.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
+     var xx_st = xx_st.replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
+     var xx_st = xx_st.replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\(");  
+     var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");    
+     var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");  
+     var xx_st = xx_st.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
+     var xx_st = xx_st.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
+    
+ return xx_st ;
+}
 
 function m_mtx_e_str(x,nub){   
    var xx_st=x.toString();
@@ -9657,7 +9556,8 @@ function m_tanh_atanh(x){
                          return;
                                           }
                 this_it = m_str_sub_ngt_bf(this_it); 
-                this_it = m_ext_in_funct(this_it);   
+                this_it = m_ext_in_funct(this_it);  
+                this_it = m_ext_in_funct_2(this_it); 
                 this_it = this_it.replace(/Q/g , "-"); 
                     var this_it_fst=this_it.substr(0,2);      
                         if(this_it_fst=="-\(" || this_it_fst=="-m"){ var this_it=this_it.substr(1,this_it.length-1);}   
