@@ -7985,7 +7985,14 @@ var xx_st=x.toString().trim();
       if(pos_e  !=-1){
         nub_x = m_str_power(xx_st,0);          
                      }
-      xx_st = m_str_power(xx_st,1);          
+     var xx_st = m_str_power(xx_st,1);
+     var xx_st_lg = xx_st.length;  
+      if( xx_st_lg >1 ){   
+       var  xx_st1 = m_mtx_str_to_e(xx_st);  
+       var  nub_x1 = m_str_power(xx_st1,0);     
+       var  nub_x = m_mtx_int_add(nub_x,nub_x1);
+       var xx_st = m_str_power(xx_st1,1); 
+      } 
      var nub_m= m_nub_m(xx_st);      
      var nub_p= m_nub_p(xx_st);      
      var nub_m_lg = nub_m.toString().length;
