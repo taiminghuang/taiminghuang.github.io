@@ -432,6 +432,9 @@ function backspace(){
          cursor_position_set(no-1) ;    
             scroll_cursor();    
               click_init() ; 
+  
+  
+  
              }
 
 function delete_a(){
@@ -965,7 +968,7 @@ function m_n(n){
 
    }
 
-function m_delete_bracket(x){   //20230118 //去括號  ( )
+function m_delete_bracket(x){   
    var xx=x.toString().trim(); 
    var lg = xx.length;
    var xx_fst_s=xx.substr(0,1);                                         
@@ -982,6 +985,7 @@ function m_delete_bracket(x){   //20230118 //去括號  ( )
 
  function m_str_power(x,nub){          
    var xx=x.toString().trim();
+   var xx = m_delete_bracket(xx); 
    var xx_fst=xx.substr(0,1);
        if( xx_fst=="-"){ xx =xx.substr(1,xx.length-1);}  
           var xx_p = xx.indexOf(".");
@@ -2809,59 +2813,6 @@ function m_lj_str(str){
 }
 
 
-function m_pi_dg_bf_and_1(str){       
-   var str_1 = str;
-     var nub_pi = m_str_spc_count(str_1,"π");    
-     var nub_dg = m_str_spc_count(str_1,"°");   
-   if(nub_pi !=0){
-     str_1 = str_1.replace(/\(π/g , "\(1π");      
-     str_1 = str_1.replace(/\+π/g , "\+1π");    
-     str_1 = str_1.replace(/\-π/g , "\-1π");    
-     str_1 = str_1.replace(/\*π/g , "\*1π");    
-     str_1 = str_1.replace(/\/π/g , "\/1π");    
-           var data_fst=str_1.substr(0,1);    
-               if(data_fst=="π"){  var str_1="1"+str_1;}
-                 }
-     if(nub_dg !=0){
-     str_1 = str_1.replace(/\(°/g , "\(1°");       
-     str_1 = str_1.replace(/\+°/g , "\+1°");    
-     str_1 = str_1.replace(/\-°/g , "\-1°");    
-     str_1 = str_1.replace(/\*°/g , "\*1°");    
-     str_1 = str_1.replace(/\/°/g , "\/1°");    
-           var data_fst=str_1.substr(0,1);    
-               if(data_fst=="°"){  var str_1="1"+str_1; }
-                 }
-     return  str_1; 
- }
-
-function m_pi_dg_bf_del_1(str){       
-  var str_1 = str;
-     var nub_pi = m_str_spc_count(str_1,"π");    
-     var nub_dg = m_str_spc_count(str_1,"°");   
-   if(nub_pi !=0){
-     str_1 = str_1.replace(/\(1π/g , "\(π");       
-     str_1 = str_1.replace(/\+1π/g , "\+π");    
-     str_1 = str_1.replace(/\-1π/g , "\-π");    
-     str_1 = str_1.replace(/\*1π/g , "\*π");    
-     str_1 = str_1.replace(/\/1π/g , "\\π");    
-           var data_fst=str_1.substr(0,1);    
-           var data_sec=str_1.substr(1,1);    
-               if(data_fst=="1" && data_sec=="π"){  var str_1="1"+str_1;}
-                 }
-      if(nub_dg !=0){
-     str_1 = str_1.replace(/\(1°/g , "\(°");       
-     str_1 = str_1.replace(/\+1°/g , "\+°");    
-     str_1 = str_1.replace(/\-1°/g , "\-°");    
-     str_1 = str_1.replace(/\*1°/g , "\*°");    
-     str_1 = str_1.replace(/\/1°/g , "\/°");    
-           var data_fst=str_1.substr(0,1);    
-           var data_sec=str_1.substr(1,1);    
-               if(data_fst=="1" && data_sec=="°"){  var str_1="1"+str_1; }
-                 }
-     return  str_1;
- }
-
-
  function m_star_deg_many(str){                                
  var str_1 = str;
     var nub_1 = m_str_spc_count(str_1,"°");   
@@ -3505,7 +3456,7 @@ function s_nub_array(nub_1){
       array_a=["1_5","1_6","2_6","4_6","5_1","5_2","3_0","5_6"];
       break;
     case "1_5":
-      array_a=[""1_0",1_1","1_4","2_0","2_1","2_2","2_3","2_4","2_5","3_0","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_4","5_5"];
+      array_a=["1_0",1_1","1_4","2_0","2_1","2_2","2_3","2_4","2_5","3_0","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_4","5_5"];
      break;
     case "1_6":
       array_a=["1_2","1_5","1_6","2_6","3_0","3_6","4_6","5_1","5_2","5_5","5_6"];
@@ -3651,11 +3602,21 @@ function s_chang_no_visible_all(){
                          }
                   }
 
+var COUNT_KEY = 0;                    
+var KEY_MTX =  m_new_mtx(1,2000);      
+var COUNT_KEYIN =1;                     
+var KEY_MTXIN =  m_new_mtx(1,2000);     
+
 
 function s_chang_sum(item){     
  s_chang_visible_all();       
    var item_1=item;
-   var item_a= s_map(item_1);    
+ 
+   KEY_MTX[0][COUNT_KEY] = item_1;            
+   KEY_MTXIN[0][COUNT_KEY] = item_1.length;  
+  
+   var item_a= s_map(item_1);  
+   COUNT_KEY = COUNT_KEY +1;
    var array_a = s_nub_array(item_a);      
     s_chang_hidden_array(array_a); 
 }
@@ -5077,8 +5038,7 @@ function m_mtx_real_sub_bf(x,y){
                                    var mka =m;                        
                                    if( mka ==mmkka){               
                                      FF[0][m]=100000 - parseInt(FF[0][m]);} 
-                                                           
-                                   else{FF[0][m]=99999 - parseInt(FF[0][m]); } 
+                                  else{FF[0][m]=99999 - parseInt(FF[0][m]); } 
                                                                    }
                                                                  }
               var nn=0;
@@ -5652,7 +5612,7 @@ function m_cos(x){
     var data_msg =  m_str_char(x,"Msg") ;  
        if(data_msg >=1){ var ans_a = x ; return  ans_a ;}  
     var xx =m_mtx_trim(xx) ;
-    var xx_af =0;               // 20211113
+    var xx_af =0;               
     var xx_af_p =0; 
     var xx_af_e =0; 
     var ans_1 = "";
@@ -5680,7 +5640,7 @@ function m_cos(x){
     var com_zz_pidiv2 =0;
         PIDIV2= m_fix(PIDIV2,FIX_COL); 
         PIMUL2 = m_fix(PIMUL2,FIX_COL);
-        SQRT2 = m_fix(SQRT2,FIX_COL); //20220111
+        SQRT2 = m_fix(SQRT2,FIX_COL); 
        var zz = m_mtx_real_div(xx,PIMUL2A); 
        var zz = m_fix(zz,280); 
        var zz = m_str_e_to_str(zz);   
