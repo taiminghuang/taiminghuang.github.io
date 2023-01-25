@@ -50,33 +50,20 @@ var SIN81D="0.987688340595137726190040247693437260758406861589880434923904801638
 var MTX_COL =400;  
 var FIX_COL =2000;
 var DECI_DGT=200 ; 
-function m_deci_dgt(){     
+function m_deci_dgt(){           
   var deci_dgt= parseInt(document.getElementById('5_0').value); 
-    if( deci_dgt <= 50){
-        var MTX_COL = 60; }   
-    else if( deci_dgt > 50 && deci_dgt <= 150){
-        var MTX_COL= 65; }   
-    else if( deci_dgt > 150 && deci_dgt <= 200){
-        var MTX_COL = 80; }   
-    else if ( deci_dgt > 200 && deci_dgt<=300 ) { 
-        var MTX_COL = 90 ; }  
-    else if ( deci_dgt > 300 && deci_dgt<=400 ) { 
-        var MTX_COL = 110 ; }  
-    else if ( deci_dgt > 400 && deci_dgt<=450 ) { 
-        var MTX_COL = 120 ; }  
-    else if ( deci_dgt > 450 && deci_dgt<=500 ) { 
-        var MTX_COL = 150 ; }  
-    else if ( deci_dgt > 500 && deci_dgt<=1000 ) { 
-        var MTX_COL = 300 ; }  
-    else { var MTX_COL =  404 ;}    
-   return  MTX_COL;   
+    if( deci_dgt <= 16){      
+        var MTX_COL = 15; }   
+     else { var MTX_COL =  80 ;}    
+   return  MTX_COL;                           
 }
+
 function m_deci_dgt_1(){           
   var DECI_DGT= parseInt(document.getElementById('5_0').value); 
    return  DECI_DGT;                   
 }
 function m_gol_fix(){   
-  if( DECI_DGT <=16){ var nub_col=50 ;}    
+  if( DECI_DGT <=16){ var nub_col=75;}    
    else{var nub_col=100 ;}
   PIMUL2 =m_fix(PIMUL2,nub_col);
   PIDIV2=m_fix(PIDIV2,nub_col);
@@ -9084,7 +9071,7 @@ function m_tanh_atanh(x){
              MTX_COL = m_deci_dgt();
              DECI_DGT = m_deci_dgt_1(); 
              FIX_COL = m_add_sub_fix_cols();
-          if( DECI_DGT <=50){
+          if( DECI_DGT <=16){
               m_gol_fix(); }
           var str_part_lg= string_lg_1();             
           var str_cursor_pos = cursor_position();     
