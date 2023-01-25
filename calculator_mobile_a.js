@@ -9053,6 +9053,7 @@ function m_tanh_atanh(x){
  function m_replace_eq(x){                       
     var xx = x.toString().trim();
     var xx = xx.replace(/\)π/g , "\)\*π");   
+    var xx = xx.replace(/\)\°/g , "\)\*°");
     var xx = xx.replace(/0π/g , "0\*π");   
     var xx = xx.replace(/1π/g , "1\*π");   
     var xx = xx.replace(/2π/g , "2\*π");   
@@ -9063,7 +9064,8 @@ function m_tanh_atanh(x){
     var xx = xx.replace(/7π/g , "7\*π");   
     var xx = xx.replace(/8π/g , "8\*π");   
     var xx = xx.replace(/9π/g , "9\*π");   
-    var xx = xx.replace(/\°π/g , "\°\*π");   
+    var xx = xx.replace(/\°π/g , "\°\*π");  
+    var xx = xx.replace(/π\°/g , "π*\°");
   return xx ; }  
 
  function calculate(item_1){
