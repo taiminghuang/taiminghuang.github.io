@@ -5004,12 +5004,8 @@ function m_mtx_real_sub_bf(x,y){
                          if( parseInt(FF[0][0]) > (-1000000) ){    
                             FF[0][0]=parseInt(FF[0][0])+99999;
                             EE[0][0]=parseInt(EE[0][0])-1;
-                              var mmkk =FF[0].length-1; 
                                for(var m=1; m < FF[0].length ;m++){
-                                   var mk =m;
-                                 if( mk == mmkk){                                  
-                                       FF[0][m]=100000 - parseInt(FF[0][m]);} 
-                                 else {FF[0][m]=99999 - parseInt(FF[0][m]); } 
+                                   FF[0][m]=99999 - parseInt(FF[0][m]); 
                                  }
                                                               }
                        }
@@ -5022,10 +5018,7 @@ function m_mtx_real_sub_bf(x,y){
                             FF[0][0]=parseInt(FF[0][0])+99999;
                             EE[0][0]=parseInt(EE[0][0])-1;
                                 for(var m=1; m < FF[0].length ;m++){
-                                   var mka =m;                        
-                                   if( mka ==mmkka){               
-                                     FF[0][m]=100000 - parseInt(FF[0][m]);} 
-                                  else{FF[0][m]=99999 - parseInt(FF[0][m]); } 
+                                   FF[0][m]=99999 - parseInt(FF[0][m]);  
                                                                    }
                                                                  }
               var nn=0;
