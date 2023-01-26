@@ -9102,7 +9102,6 @@ function m_tanh_atanh(x){
          var this_it_copy = this_it_copy.replace(/asinh/g , "arsinh");    
          var this_it_copy = this_it_copy.replace(/acosh/g , "arcosh");    
          var this_it_copy = this_it_copy.replace(/atanh/g , "artanh"); 
-         var this_it_copy = m_delete_bracket(this_it_copy); 
               if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data = " = "+this_it_copy ;}   
               else{   var function_data ="";} 
           var this_it = m_str_sub_ngt_bf(this_it); 
