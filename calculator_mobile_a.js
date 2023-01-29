@@ -64,7 +64,7 @@ function m_deci_dgt_1(){
 }
 function m_gol_fix(){   
   if( DECI_DGT <=16){ var nub_col=75;}    
-   else{var nub_col=100 ;}
+   else{var nub_col=280 ;}
   PIMUL2 =m_fix(PIMUL2,nub_col);
   PIDIV2=m_fix(PIDIV2,nub_col);
   PIDIV4=m_fix(PIDIV4,nub_col);
