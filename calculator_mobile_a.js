@@ -64,7 +64,7 @@ function m_deci_dgt_1(){
 }
 function m_gol_fix(){   
   if( DECI_DGT <=16){ var nub_col=75;}    
-   else{var nub_col=280 ;}
+   else{var nub_col=295 ;}
   PIMUL2 =m_fix(PIMUL2,nub_col);
   PIDIV2=m_fix(PIDIV2,nub_col);
   PIDIV4=m_fix(PIDIV4,nub_col);
@@ -361,54 +361,9 @@ function cursor_coords(event){
   return data_a;
  }
 
- 
-var repeat_bs;
- var repeat_del;
- var repeat_sp;
- var repeat_left;
- var repeat_right;
- var repeat_up;
- var repeat_down;
-
-function m_repeat_fu(nub){  
-  var nub_a=nub;
-    if(nub_a==0){
-        repeat_bs = setInterval("backspace()" , 1);  }    
-    if(nub_a==1){
-        repeat_del = setInterval("delete_a()" , 100);  }   
-    if(nub_a==2){
-        repeat_sp = setInterval("space_1()" , 100);  }   
-    if(nub_a==3){
-        repeat_left = setInterval("cursor_left_1()" , 100);  }   
-     if(nub_a==4){
-        repeat_right = setInterval("cursor_right_1()" , 100);  }   
-      if(nub_a==5){
-        repeat_up = setInterval("cursor_up_1()" , 100);  }   
-      if(nub_a==6){
-        repeat_down = setInterval("cursor_down_1()" , 100);  }   
-  
-  }
 
 
- function m_stop_repeat_fu(nub){
-  var nub_a=nub;
-    if(nub_a==0){
-      clearInterval(repeat_bs); }    
-     if(nub_a==1){
-      clearInterval(repeat_del); }    
-     if(nub_a==2){
-      clearInterval(repeat_sp); }    
-    if(nub_a==3){
-      clearInterval(repeat_left); }    
-    if(nub_a==4){
-      clearInterval(repeat_right); }     
-    if(nub_a==5){
-      clearInterval(repeat_up); }     
-    if(nub_a==6){
-      clearInterval(repeat_down); }     
- }
-
-function backspace(){
+function backspace_bf(){
       s_chang_visible_all();     
         var no = cursor_position();
         var lg = string_lg_1();
@@ -423,20 +378,37 @@ function backspace(){
   
   
              }
-
-function delete_a(){
-    s_chang_visible_all();     
-        var no = cursor_position();
-        var lg = string_lg_1();
-        var input_str = calc.input.value;
-        var new_str = input_str.substr(0,no) + input_str.substr(no+1,lg);
-        document.getElementById('input').value = new_str;
-         cursor_position_set(no) ;    
-      
-             }
+var BACK_COUNT = 0;                     
+var BACK_MTX =  m_new_mtx(1,5000);     
+function backspace(){     
+      if(BACK_COUNT<=0){
+              BACK_COUNT=0 ;
+          backspace_bf();            
+          var item_1 ="=";        
+          var item_a= s_map(item_1);  
+          var array_a = s_nub_array(item_a);      
+          s_chang_hidden_array(array_a);
+            return }
+     var item_bf = BACK_MTX[0][BACK_COUNT-1];
+     var lg = item_bf.length; 
+          for(var i=0; i<lg;i++){
+                backspace_bf();            
+           BACK_MTX[0][BACK_COUNT-1]="";    
+               }
+         BACK_COUNT = BACK_COUNT-1;
+        if(BACK_COUNT==0){ var item_1 ="="; }
+        else {var item_1 = BACK_MTX[0][BACK_COUNT-1];}
+      var item_a= s_map(item_1);  
+      var array_a = s_nub_array(item_a);      
+      s_chang_hidden_array(array_a); 
+    }      
+  
 
 function clear_all_1(item_1){
- s_chang_visible_all();    
+ s_chang_visible_all();   
+  for(var i=0;i<= BACK_COUNT ;i++){  
+      BACK_MTX[0][i]="";}
+      BACK_COUNT =0;
    var item_a=item_1;
       s_chang_sum(item_a);     
     var input_str = calc.input.value;
@@ -463,6 +435,8 @@ function space_1(){
 
 function key_1(char_1){
       var char_1=char_1;
+      BACK_MTX[0][BACK_COUNT] = char_1;              
+      BACK_COUNT = BACK_COUNT+1; 
          s_chang_sum(char_1);      
       var char_lg = char_1.length;  
       var no = cursor_position();  
@@ -536,14 +510,6 @@ s_chang_visible_all();
         var new_ln_w = string_lg_1();  
     cursor_position_set(new_ln_w) ; 
       }
-
- function scroll_x_y(){
-       var elem = document.getElementById('input');
-       var x_1=elem.scrollLeft;
-       var y_1=elem.scrollTop;
-      elem.scrollTop = elem.scrollHeight ; 
-   }
-
 
 function scroll_cursor(){       
       var text_area = document.getElementById('input');
