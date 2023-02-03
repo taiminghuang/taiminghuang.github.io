@@ -5170,7 +5170,7 @@ function m_sin(x){
      var flag_1_2=0; 
     var flag_3_4=0; 
     var xx_fst ="" ;
-    if(xx.length<=2 && xx>=0 && xx<=10){   //20230131
+    if(xx.length<=2 && xx>=0 && xx<=10){   
          var ans_r ="";
          if(xx=="0" ){ var ans_r = SIN00R ;}
           else if(xx=="1"){ var ans_r = SIN01R ;}
@@ -5186,7 +5186,7 @@ function m_sin(x){
           else { var ans_r = "" ;}
         if(ans_r !=""){ return  ans_r; }
                       }    
-     if(xx.length<=3 && xx<=0 && xx>=-10){   //20230202
+     if(xx.length<=3 && xx<=0 && xx>=-10){   
          var ans_ra ="";
                if(xx=="-1"){ var ans_ra = "-"+SIN01R ;}
           else if(xx=="-2"){ var ans_ra = "-"+SIN02R ;}
@@ -5244,9 +5244,9 @@ function m_sin(x){
          else if( zz_p_t <'0.25'){ var zz_p = zz_p ; var flag_1_2=1 ; }   
        var dd_t = m_mtx_real_mul(360,zz_p); 
        var dd_t=m_fix(dd_t,200);             
-        if(dd_t.length<=2){   
+        if(dd_t.length<=2 && dd_t.length>=1){   
          var ans_b ="";
-         if(dd_t==09){ var ans_b = SIN09D ;}
+         if(dd_t==09||dd_t==9){ var ans_b = SIN09D ;}
           else if(dd_t==15){ var ans_b = SIN15D ;}
           else if(dd_t==18){ var ans_b = SIN18D ;}
           else if(dd_t==30){ var ans_b = 0.5 ;}
@@ -5618,7 +5618,7 @@ function m_cos(x){
     var flag_2_3=0; 
     var flag_1_4=0; 
     var xx_fst ="" ;
-    if(xx.length<=3 && xx >=10 && xx <=-10){   
+    if(xx.length<=3 && xx <=10 && xx >=-10){   
          var ans_r ="";
          if(xx=="0" || xx=="-0"){ var ans_r = COS00R ;}
           else if(xx=="1" || xx=="-1" ){ var ans_r = COS01R ;}
@@ -5673,9 +5673,9 @@ function m_cos(x){
       else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
      var dd_t = m_mtx_real_mul(360,zz_p); 
      var dd_t=m_fix(dd_t,400);    
-     if(dd_t.length<=2){   
+     if(dd_t.length<=2 && dd_t.length>=1){   
           var ans_b ="";
-         if(dd_t==09){ var ans_b = SIN81D ;}
+         if(dd_t==09||dd_t==9){ var ans_b = SIN81D ;}
           else if(dd_t==15){ var ans_b = SIN75D ;}
           else if(dd_t==18){ var ans_b = SIN72D ;}
           else if(dd_t==30){ var ans_b = SIN60D ;}
@@ -5810,9 +5810,9 @@ function m_tan(x){
        else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
      var dd_t = m_mtx_real_mul(360,zz_p); 
      var dd_t=m_fix(dd_t,200); 
-     if(dd_t.length<=2){   
+     if(dd_t.length<=2 && dd_t.length>=1){   
           var ans_b ="";
-         if(dd_t==09){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
+         if(dd_t==09||dd_t==9){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
           else if(dd_t==15){ var ans_b = m_mtx_real_div(SIN09D,SIN75D) ;}
           else if(dd_t==18){ var ans_b = m_mtx_real_div(SIN18D,SIN72D) ;}
           else if(dd_t==30){ var ans_b = m_mtx_real_div(SIN30D,SIN60D) ;}
