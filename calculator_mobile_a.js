@@ -1029,91 +1029,85 @@ function message_1(n){
   var message_1;
      switch(nn){
        case 1:
-          message_1 = "<--  Msg : asin(x) , |x|<= 1 -->" ;
+          message_1 ="<--Msg : asin(x) ,|x|<= 1-->";
           break;
         case 2:
-          message_1 = "<--  Msg : acos(x) , |x|<= 1 -->" ;
+          message_1 ="<--Msg : acos(x) ,|x|<= 1-->";
           break;
         case 3:
-          message_1 = "<--  Msg : acosh(x) , arcosh(x) , x >= 1 -->" ;
+          message_1 ="<--Msg : acosh(x) ,arcosh(x) ,x >= 1-->";
           break;
         case 4:
-          message_1 = "<--  Msg : atanh(x) , artanh(x), |x|< 1 -->" ;
+          message_1 ="<--Msg : atanh(x) ,artanh(x),|x|< 1-->";
           break;
         case 5:
-          message_1 = "<--  Msg : ln(x) , x > 0 -->" ;
+          message_1 ="<--Msg : ln(x) ,x >0-->";
           break;
         case 6:
-          message_1 = "<--  Msg : b ^p , when b<0 and p decimal point except zero , complex logarithm-->" ;
+          message_1 ="<--Msg:b ^p ,when b<0 and p decimal point except zero ,complex logarithm-->";
           break;
          case 7:
-          message_1 = "<--  Msg : n! , n >=0 ,  n=0 or n ∈ N   -->" ;
+          message_1 ="<--Msg:n! ,n >=0 ,n=0 or n ∈ N-->";
           break; 
-         case 8:
-          message_1 = "<--  Msg : () ,  no data -->" ;
-          break;
-          case 9:
-          message_1 = "<--  Msg : log(x) , x > 0 -->" ;
+        case 9:
+          message_1 ="<--Msg:log(x),x >0-->";
           break;
           case 10:
-          message_1 = "<--  Msg : exp(x) value approximation to  0 -->" ;
+          message_1 ="<--Msg:exp(x) value approximation to 0-->";
           break;
           case 11:
-          message_1 = "<--  Msg : tan(x)  x ≠ kπ+π/2  k∈Z -->" ;   
+          message_1 ="<--Msg:tan(x) x ≠ kπ+π/2 k∈Z-->";   
           break;
-          case 12:
-          message_1 = "<--  Msg : tan(x) value  to  ± infinity -->" ;
-          break;
-          case 13:
-          message_1 = "<--  Msg : ln(0) value  to  -infinity -->" ;
+         case 13:
+          message_1 ="<--Msg:ln(0) value to -infinity-->";
           break;
           case 14:
-          message_1 = "<--  Msg : log(0) value  to  -infinity -->" ;
+          message_1 ="<--Msg:log(0) value to -infinity-->";
           break;
          case 15:
-          message_1 = "<--  Msg : atanh(x) ,artanh(x), |x|< 1 and |x|> 1-(10^(-200)) no support -->"  ;    
+          message_1 ="<--Msg:atanh(x) ,artanh(x), |x|< 1 and |x|>1-(10^(-200)) no support-->";    
           break;
-          case 16:
-          message_1 = "<--  Msg : sin(x) or cos(x) or tan(x)  if as |x| >10^200   no support -->" ; 
+          case 16:  //20230204
+          message_1 ="<--Msg:sin(x) or cos(x) or tan(x) if as |x|>10^200 no support-->"; 
          break;
           case 23:
-          message_1 = "<--  Msg : exp(x)  if as  |x| >10^200  no support -->" ;
+          message_1 ="<--Msg:exp(x) if as |x| >10^200 no support-->";
           break;
           case 24:
-          message_1 = "<--  Msg : sinh(x)  if |x| > 10^200  no support -->" ;
+          message_1 ="<--Msg:sinh(x) if |x|>10^200 no support-->";
           break;
            case 25:
-          message_1 = "<--  Msg : cosh(x)  if |x| > 10^200  no support -->" ;
+          message_1 ="<--Msg:cosh(x) if |x|>10^200 no support-->";
           break;
           case 28:
-            message_1 = "<--  Msg :  undefined  : x^p  as x=0   p<=0  -->" ;
+            message_1 ="<--Msg:undefined : x^p as x=0 p<=0-->";
             break;
           case 29:
-            message_1 = "<--  Msg :  error  : y/x   as x=0    -->" ;
+            message_1 ="<--Msg:error : y/x as x=0-->" ;
             break;
             case 30:
-            message_1 = "<--  Msg :  error  :  .  >1  or e >1  -->" ;
+            message_1 ="<--Msg:error : . >1 or e >1-->";
             break;
             case 31:
-            message_1 = "<--  Msg :  error  :  A[0][0] < 100000 ||  A[0][0] > 999999    -->" ;
+            message_1 ="<--Msg:error : A[0][0] < 100000 || A[0][0] > 999999-->";
             break;
             case 32:
-            message_1 = "<--  Msg :  sorry : (e± || e. || e± e || e± ..) this e type no support     -->" ;
+            message_1 ="<--Msg:sorry : (e± || e. || e± e || e± ..) this e type no support-->";
             break;
            case 33:
-            message_1 = "<--  Msg : n! ,  n > 2*10^7 no support   -->" ;    
+            message_1 ="<--Msg:n! , n > 2*10^7 no support-->";    
             break;
            case 34:  
-            message_1 = "<--  Msg : | answer | <=10^(-200) , inside of calculator error range -->" ;    
+            message_1 ="<--Msg:|answer|<=10^(-200) , inside of calculator error range-->";    
             break;
             case 35:
-            message_1 = "<-- Msg : sorry no support and try use parentheses() -->" ;  
+            message_1 ="<--Msg:sorry no support and try use parentheses()-->";  
             break;
            case 36:
-            message_1 = "<--  Msg : b ^p ,as   p >10^200  or  p <-(10^200)   no support -->" ;
+            message_1 ="<--Msg:b ^p ,as p >10^200 or p <-(10^200) no support-->";
             break;
              case 38:  
-            message_1 ="<--  Msg :  .x  x<=16 , | answer | <=10^(-40) , inside of calculator error range -->" ;  
+            message_1 ="<--Msg:.x x<=16 , |answer|<=10^(-40) ,inside of calculator error range-->";  
             break;
       default:
                }
