@@ -7923,9 +7923,11 @@ function m_mtx_int_mul(x,y){
  var idxy_power =0;
  var idx_point = xx.indexOf(".");
  var idy_point = yy.indexOf(".");
-  if(idx_point !=-1){xx = xx.replace(/\./g,""); 
+  if(idx_point !=-1){var xx = xx.replace(/\./g,""); 
+                     var xx_lg =xx.length ;
       var idx_power = xx.length - idx_point ;}
-  if(idy_point !=-1){yy = yy.replace(/\./g,""); 
+  if(idy_point !=-1){var yy = yy.replace(/\./g,""); 
+                     var yy_lg = yy.length;
                      var idy_power = yy.length - idy_point ;}
  var idxy_power = m_mtx_int_add(idx_power,idy_power);   
  var x_e=0; 
