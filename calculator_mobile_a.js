@@ -7933,11 +7933,11 @@ function m_mtx_int_mul(x,y){
  var xy_e=0;
  var xy_et=0;
   if(yy_lg >=220 ){var yy=yy.substr(0,220) ;
-                   var yy_lg =yy.length;
-                   var y_e = yy_lg-220 ;}  
-  if(xx_lg >=220){var xx=xx.substr(0,220) ;
-                  var xx_lg =xx.length;
-                  var x_e = xx_lg-220 ;}
+                   var y_e =  yy_lg-220 ;
+                   var yy_lg =yy.length;}
+ if(xx_lg >=220){var xx=xx.substr(0,220) ;
+                  var x_e = xx_lg-220 ;
+                  var xx_lg =xx.length;}
   var xy_e = m_mtx_int_add(x_e,y_e);
   var xy_et = m_mtx_int_add(xy_e,xy_power);
   var xy_ett = m_mtx_int_sub(xy_et,idxy_power);
