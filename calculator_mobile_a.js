@@ -151,7 +151,7 @@ function m_deci_dgt_1(){
 }
 function m_gol_fix(){   
   if( DECI_DGT <=16){ var nub_col=75;}    
-   else{var nub_col=295 ;}
+   else{var nub_col=300 ;}
   PIMUL2 =m_fix(PIMUL2S,nub_col);
   PIDIV2=m_fix(PIDIV2S,nub_col);
   PIDIV4=m_fix(PIDIV4S,nub_col);
@@ -5261,16 +5261,16 @@ function m_sin(x){
           else if(xx=="8"){ var ans_r = SIN08R ;}
           else if(xx=="9"){ var ans_r = SIN09R ;}
           else if(xx=="10"){ var ans_r = SIN10R ;} 
-          else if(xx=="12"){ var ans_ra = m_mtx_real_mul(SIN06R,COS06R);  
-                             var ans_r =  m_mtx_real_mul(2,ans_ra);}
-          else if(xx=="14"){ var ans_ra = m_mtx_real_mul(SIN07R,COS07R);
-                             var ans_r =  m_mtx_real_mul(2,ans_ra);}
-          else if(xx=="16"){ var ans_ra = m_mtx_real_mul(SIN08R,COS08R);  
-                             var ans_r =  m_mtx_real_mul(2,ans_ra);}
-          else if(xx=="18"){ var ans_ra = m_mtx_real_mul(SIN09R,COS09R);  
-                             var ans_r =  m_mtx_real_mul(2,ans_ra);} 
-          else if(xx=="20"){ var ans_ra = m_mtx_real_mul(SIN10R,COS10R);
-                             var ans_r =  m_mtx_real_mul(2,ans_ra);} 
+          else if(xx=="12"){ var ans_ra = m_mtx_int_mul(SIN06R,COS06R);  
+                             var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+          else if(xx=="14"){ var ans_ra = m_mtx_int_mul(SIN07R,COS07R);
+                             var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+          else if(xx=="16"){ var ans_ra = m_mtx_int_mul(SIN08R,COS08R);  
+                             var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+          else if(xx=="18"){ var ans_ra = m_mtx_int_mul(SIN09R,COS09R);  
+                             var ans_r =  m_mtx_real_add(ans_ra,ans_ra);} 
+          else if(xx=="20"){ var ans_ra = m_mtx_int_mul(SIN10R,COS10R);
+                             var ans_r =  m_mtx_real_add(ans_ra,ans_ra);} 
           else { var ans_r = "" ;}
         if(ans_r !=""){ return  ans_r; }
                       }    
@@ -5286,19 +5286,19 @@ function m_sin(x){
           else if(xx=="-8"){ var ans_ra = "-"+SIN08R ;}
           else if(xx=="-9"){ var ans_ra = "-"+SIN09R ;}
           else if(xx=="-10"){ var ans_ra = SIN10R.substr(1,280) ;}
-           else if(xx=="-12"){ var ans_r1 = m_mtx_real_mul(SIN06R,COS06R);  
-                              var ans_r2 =  m_mtx_real_mul(2,ans_r1);
+           else if(xx=="-12"){ var ans_r1 = m_mtx_int_mul(SIN06R,COS06R);  
+                              var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
                               var ans_ra = ans_r2.substr(1,280);} 
-         else if(xx=="-14"){ var ans_r1 = m_mtx_real_mul(SIN07R,COS07R);
-                            var ans_ra = "-"+m_mtx_real_mul(2,ans_r1);}
-         else if(xx=="-16"){ var ans_r1 = m_mtx_real_mul(SIN08R,COS08R);  
-                            var ans_r2 =  m_mtx_real_mul(2,ans_r1);
+         else if(xx=="-14"){ var ans_r1 = m_mtx_int_mul(SIN07R,COS07R);
+                            var ans_ra = "-"+m_mtx_read_add(ans_r1,ans_r1);}
+         else if(xx=="-16"){ var ans_r1 = m_mtx_int_mul(SIN08R,COS08R);  
+                            var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
                             var ans_ra = ans_r2.substr(1,280);} 
-         else if(xx=="-18"){ var ans_r1 = m_mtx_real_mul(SIN09R,COS09R);  
-                            var ans_r2 =  m_mtx_real_mul(2,ans_r1);
+         else if(xx=="-18"){ var ans_r1 = m_mtx_int_mul(SIN09R,COS09R);  
+                            var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
                             var ans_ra = ans_r2.substr(1,280);}
-         else if(xx=="-20"){ var ans_r1 = m_mtx_real_mul(SIN10R,COS10R);
-                            var ans_ra =  "-"+m_mtx_real_mul(2,ans_r1);} 
+         else if(xx=="-20"){ var ans_r1 = m_mtx_int_mul(SIN10R,COS10R);
+                            var ans_ra =  "-"+m_mtx_read_add(ans_r1,ans_r1);} 
           else { var ans_ra = "" ;}
         if(ans_ra !=""){ return  ans_ra; }
                       }
@@ -5373,16 +5373,25 @@ function m_sin(x){
        var data_flag_sin=1;   }                        
       else{ data_cle_b_s = data_cle_b ;  }  
     var data_a_s = m_sin_matrix_1(data_cle_b_s);
+    if( DECI_DGT <=16){ var deci_nub=75;} 
+     else { var deci_nub=250;} 
+    var data_a_s=m_fix(data_a_s,deci_nub);
       if(data_flag_sin ==1){                          
         for(var i=0 ; i<13; i++){   
-         var data_a3 = m_mtx_real_mul(3,data_a_s);    
+         var data_a3 = m_mtx_real_mul(3,data_a_s);  
+         var data_a3=m_fix(data_a3,deci_nub); 
          var data_b = m_mtx_real_mul(data_a_s,data_a_s);
+         var data_b=m_fix(data_b,deci_nub); 
          var data_c = m_mtx_real_mul(data_a_s,data_b);
-         var data_c4 = m_mtx_real_mul(4,data_c);      
+         var data_c=m_fix(data_c,deci_nub);
+         var data_c4 = m_mtx_real_mul(4,data_c); 
+         var data_c4=m_fix(data_c4,deci_nub); 
          var data_d = m_mtx_real_sub(data_a3,data_c4); 
+         var data_d=m_fix(data_d,deci_nub);   
          var data_a_s = data_d; 
         }    } 
-     var ans_a = data_a_s; 
+     var data_a_s=m_fix(data_a_s,deci_nub);
+      var ans_a = data_a_s; 
      if(xx_fst !="-" && flag_3_4 ==1){ var ans_a ="-"+ans_a;}
       else if(xx_fst =="-" && flag_1_2 ==1){ var ans_a ="-"+ans_a;}
       else { var ans_a = ans_a;}
