@@ -5324,9 +5324,11 @@ function m_sin(x){
       PIMUL2 = m_fix(PIMUL2,FIX_COL); 
       SQRT2 = m_fix(SQRT2,FIX_COL); 
     var com_zz_pidiv2 =0;
-      var zz = m_mtx_real_div(xx,PIMUL2); 
-      var zz = m_fix(zz,280);
-      var zz = m_fix_pow(zz,280);
+      var zz = m_mtx_real_div(xx,PIMUL2);
+      if( DECI_DGT <=16){ var deci_b=70;} 
+      else { var deci_b=260;}
+      var zz = m_fix(zz,deci_b);
+      var zz = m_fix_pow(zz,deci_b);
        var zz = m_str_e_to_str(zz);   
        var zz_m = m_nub_m(zz) ;         
        var zz_p = m_nub_p(zz) ;  
@@ -5765,8 +5767,10 @@ function m_cos(x){
       PIMUL2 = m_fix(PIMUL2,FIX_COL); 
       SQRT2 = m_fix(SQRT2,FIX_COL); 
      var zz = m_mtx_real_div(xx,PIMUL2); 
-     var zz = m_fix(zz,280); 
-     var zz = m_fix_pow(zz,280);
+     if( DECI_DGT <=16){ var deci_b=70;} 
+     else { var deci_b=260;}
+     var zz = m_fix(zz,deci_b); 
+     var zz = m_fix_pow(zz,deci_b);
       var zz = m_str_e_to_str(zz);   
       var zz_m = m_nub_m(zz) ;         
       var zz_p = m_nub_p(zz)  ;                 
@@ -5908,8 +5912,10 @@ function m_tan(x){
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
    var com_zz_pidiv2 =0;
       var zz = m_mtx_real_div(xx,PIMUL2); 
-      var zz = m_fix(zz,280);  
-      var zz = m_fix_pow(zz,280);
+      if( DECI_DGT <=16){ var deci_b=70;} //20230305
+     else { var deci_b=260;} 
+      var zz = m_fix(zz,deci_b);  
+      var zz = m_fix_pow(zz,deci_b);
        var zz = m_str_e_to_str(zz);   
        var zz_m = m_nub_m(zz) ;         
        var zz_p = m_nub_p(zz) ;  
