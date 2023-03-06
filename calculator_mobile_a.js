@@ -1128,16 +1128,13 @@ function message_1(n){
           message_1 ="<--Msg : ln(x) ,x >0-->";
           break;
         case 6:
-          message_1 ="<--Msg:b ^p ,when b<0 and p decimal point except zero ,complex logarithm-->";
+          message_1 ="<--Msg:b^p ,when b<0 and p decimal point except zero ,complex logarithm-->";
           break;
          case 7:
           message_1 ="<--Msg:n! ,n >=0 ,n=0 or n ∈ N-->";
           break; 
          case 9:
           message_1 ="<--Msg:log(x),x >0-->";
-          break;
-          case 10:
-          message_1 ="<--Msg:exp(x) value approximation to 0-->";
           break;
           case 11:
           message_1 ="<--Msg:tan(x) x ≠ kπ+π/2 k∈Z-->";   
@@ -1188,10 +1185,10 @@ function message_1(n){
             message_1 ="<--Msg:sorry no support and try use parentheses()-->";  
             break;
            case 36:
-            message_1 ="<--Msg:b ^p ,as p >10^200 or p <-(10^200) no support-->";
+            message_1 ="<--Msg:b^p ,as p >10^200 or p <-(10^200) no support-->";
             break;
              case 38:  
-            message_1 ="<--Msg:.x x<=16 , |answer|<=10^(-40) ,inside of calculator error range-->";  
+            message_1 ="<--Msg: .x x<=16 ,|answer|<=10^(-40),inside of calculator error range-->";  
             break;
       default:
                }
