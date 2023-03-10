@@ -6171,15 +6171,22 @@ function m_ext_in_funct_2(x){
      var xx_st = xx_st.replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
      var xx_st = xx_st.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
      var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
-     var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\(");    
+     var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\("); 
+     var xx_st = xx_st.replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\("); 
+     var xx_st = xx_st.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\(");
      var xx_st = xx_st.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
      var xx_st = xx_st.replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
      var xx_st = xx_st.replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\(");  
-     var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");    
-     var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");  
+     var xx_st = xx_st.replace(/m_acos\(\(m_sin/g , "m_acos_sin\(\(");    
+     var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");    
+     var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\("); 
+     var xx_st = xx_st.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\("); 
+     var xx_st = xx_st.replace(/m_tan\(\(m_asin/g , "m_tan_asin\(\(");   
+     var xx_st = xx_st.replace(/m_tan\(\(m_acos/g , "m_tan_acos\(\(");   
+     var xx_st = xx_st.replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");   
+     var xx_st = xx_st.replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\("); 
      var xx_st = xx_st.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
      var xx_st = xx_st.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
-    
  return xx_st ;
 }
 
