@@ -7482,9 +7482,8 @@ var data_msg =0;
     var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up);  
      if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
             var ans_1= message_1(15);  return ans_1 ; }
-      if((comp_xx_data_test_up !=1)&& (comp_xx_data_test !=2)){ 
-       LN2=m_fix(LN2,FIX_COL); 
-    var data_a = LN2; 
+   if((comp_xx_data_test_up !=1)&& (comp_xx_data_test !=2)){ 
+    var data_a = m_fix(LN2S,250); 
     var xx =  xx.toString();     
     var data_b = m_mtx_real_sub('1',xx); 
     var data_c = m_ln(data_b) 
