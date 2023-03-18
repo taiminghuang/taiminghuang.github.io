@@ -4409,7 +4409,7 @@ function m_mtx_int_str_comp(x,y){
     if(xx_fst =="-" && yy_fst !="-"){ var ant=2 ; return ant; }   
    var xx_lg = xx.length;
    var yy_lg = yy.length;
-   var x_pos_pot  = xx.indexOf(".");    //20210201
+   var x_pos_pot  = xx.indexOf(".");    
    var y_pos_pot  = yy.indexOf("."); 
    var x_i_lg =0; 
    var y_i_lg =0; 
@@ -4512,7 +4512,7 @@ function m_mtx_int_add(x,y){
    var y_pos_pot  = yy.indexOf(".");    
    var x_pos_e  = xx.indexOf("e");    
    var y_pos_e  = yy.indexOf("e");    
-      if(x_pos_e !=-1 ){ return ;};    //20200901
+      if(x_pos_e !=-1 ){ return ;};    
       if(y_pos_e !=-1 ){ return ;};  
     var x_st_fst= xx.substr(0,1);
     var y_st_fst= yy.substr(0,1);
@@ -4520,7 +4520,7 @@ function m_mtx_int_add(x,y){
                    else{  var x_st = xx;}
     if(y_st_fst=="-"){  var y_st=yy.substr(1,yy.length-1);} 
                    else{  var y_st = yy;}
-    if( x_pos_pot>=1 || y_pos_pot>=1 ){        //小數點 移位  20200901
+    if( x_pos_pot>=1 || y_pos_pot>=1 ){        
        var xst_pos_pot  = x_st.indexOf(".");    
        var yst_pos_pot  = y_st.indexOf("."); 
        var xst_p_bf = x_st.substr(xst_pos_pot+1,x_st.length-xst_pos_pot);        
@@ -4789,6 +4789,8 @@ function m_mtx_real_add_bf_1(x,y){
            nexp = nexp.substr(0,n_idx_e);                             
            nexp =  m_mtx_str_element_shift(nexp ,nub_n);               
                             }
+             var tran = MTX_COL;  
+              MTX_COL=80;
               AA=m_new_zero_mtx(1,MTX_COL);                 
               BB=m_new_zero_mtx(1,MTX_COL);                 
               CC=m_new_zero_mtx(1,MTX_COL);                 
@@ -4822,6 +4824,7 @@ function m_mtx_real_add_bf_1(x,y){
              var sutt= m_mtx_cell_five_show_int(EE,FF);  
              var sutt = m_mtx_trim(sutt) ;   
               if(x_fst =="-" && y_fst =="-"){ var sutt ="-"+sutt;}    
+            MTX_COL=tran;  
        return sutt;    
          
 }
