@@ -6644,8 +6644,8 @@ function m_ln(x){
 function m_ln_matrix(x){          
  var zz = x.toString().trim();
  var zz = "0."+ zz.substr(2,zz.length-2); 
- var BB = m_mtx_unit_inv_lg_100_table();  //20230322  //20230326
- var nub_fix =100;        
+ var BB = m_mtx_unit_inv_lg_100_table();  
+  var nub_fix =100;        
  var AA  = m_str_to_mtx(zz) ;   
    for(var i = 1 ; i <nub_fix ; i++){              
        var BB_i = m_mtx_row_table(BB,i);               
