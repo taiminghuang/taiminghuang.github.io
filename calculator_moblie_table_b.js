@@ -1,5 +1,5 @@
 ﻿
-function m_mtx_unit_inv_lg_100_table(){    //20230326 
+function m_mtx_unit_inv_lg_100_table(){    
     var A = m_new_zero_mtx(601,100);     
 A[0][0]="100000";
 A[1][0]="100000";
