@@ -6692,7 +6692,7 @@ function m_lrog(x){
    return  ans ;    
 }
 
-function m_str_part_1en_bf(s){   
+function m_str_part_1en_s(s){   
   var ss=s.toString().trim();  
   for(var i=0; i<10 ;i++){        
    var ss_ln_n1  = ss.indexOf("ln(1-(");                   
@@ -6713,6 +6713,7 @@ function m_str_part_1en_bf(s){
      if(ss_log_p2 !=-1){ var ss = m_str_part_1en(ss,"log(1+") ;}
      if((ss_ln_n1 ==-1)&&(ss_ln_n2 ==-1)&&(ss_ln_p1 ==-1)&&(ss_ln_p2 ==-1)&&(ss_log_n1 ==-1)&&(ss_log_n2 ==-1)&&(ss_log_p1 ==-1)&&(ss_log_p2 ==-1)){
              var  i=11 ;}
+                  }
        return ss;
 }
 
@@ -6733,9 +6734,8 @@ function m_str_part_1en(s,f){
    var ss_af_bf = ss_af_bf.replace(/e\-/g , "EN");    
    var ss_af_bf_add = ss_af_bf.indexOf("+");
         if(ss_af_bf_add!=-1){return ss ;}  
-    var ss_af_bf_sub = ss_af_bf.indexOf("-");
-    var ss_af_bf = ss_af_bf.replace(/EN/g , "e-");
-    var ss_af_bf_sub = ss_af_bf.indexOf("-"); 
+   var ss_af_bf = ss_af_bf.replace(/EN/g , "e-");
+   var ss_af_bf_sub = ss_af_bf.indexOf("-"); 
          if(ss_af_bf_sub!=ss_af_bf_e + 1){return ss ;}  
     var ss_af_bf_star = ss_af_bf.indexOf("*");
           if(ss_af_bf_star!=-1){return ss ;}   
@@ -6780,8 +6780,8 @@ function m_str_char_nb(strs,char_a){
  return nub_a;
 }
 function m_str_part_del_pi_s(strs){
-   var ss=strs.toString().trim();  //字串
-   var sin_nb=m_str_char_nb(ss,'sin(');    //計算nb=1 sin( ,nb=2 cos( ,nb=3 tan( 數
+   var ss=strs.toString().trim();  
+   var sin_nb=m_str_char_nb(ss,'sin(');    
    var cos_nb=m_str_char_nb(ss,'cos(');
    var tan_nb=m_str_char_nb(ss,'tan(');
    var pi_nb=m_str_char_nb(ss,'π)');
@@ -6789,60 +6789,60 @@ function m_str_part_del_pi_s(strs){
    var char_nb=m_mtx_int_add(sin_nb,cos_nb);
    var char_nba=m_mtx_int_add(char_nb,tan_nb);
    var char_nbb=m_mtx_int_add(pi_nb,deg_nb);
-    if(char_nba ==0 || char_nbb==0){ return ss; } //不須做
-   var ss = ss.replace(/e\+/g,"EP");   //DECODE 
-   var ss = ss.replace(/e\-/g,"EN");   //DECODE 
+    if(char_nba ==0 || char_nbb==0){ return ss; } 
+   var ss = ss.replace(/e\+/g,"EP");    
+   var ss = ss.replace(/e\-/g,"EN");   
     if(pi_nb> 0 && sin_nb >0){
-    var ss=m_str_angle_decode(ss);   //還原 
-    var ss = ss.replace(/asin/g,"ASIN");   //還原 
+    var ss=m_str_angle_decode(ss);    
+    var ss = ss.replace(/asin/g,"ASIN");    
    for(var i=0; i<sin_nb;i++){
     var ss = m_str_part_del_pi(ss,'sin(','π)');
                               }
                            } 
   if(deg_nb> 0 && sin_nb >0){
-   var ss=m_str_angle_decode(ss);   //還原 
-   var ss = ss.replace(/asin/g,"ASIN");   //還原 
+   var ss=m_str_angle_decode(ss);    
+   var ss = ss.replace(/asin/g,"ASIN");    
   for(var j=0; j<sin_nb;j++){
    var ss = m_str_part_del_pi(ss,'sin(','°)');
                            }
                              }
   if(pi_nb> 0 && cos_nb >0){
-   var ss=m_str_angle_decode(ss);   //還原 
-   var ss = ss.replace(/acos/g,"ACOS");   //還原 
+   var ss=m_str_angle_decode(ss);   
+   var ss = ss.replace(/acos/g,"ACOS");    
   for(var k=0; k<cos_nb;k++){
     var ss = m_str_part_del_pi(ss,'cos(','π)');
                                }
                            } 
  
   if(deg_nb> 0 && cos_nb >0){
-   var ss=m_str_angle_decode(ss);   //還原 
-    var ss = ss.replace(/acos/g,"ACOS");   //還原 
+   var ss=m_str_angle_decode(ss);    
+    var ss = ss.replace(/acos/g,"ACOS");    
     for(var l=0; l<cos_nb;l++){
     var ss = m_str_part_del_pi(ss,'cos(','°)');
                               }
                              }
  if(pi_nb> 0 && tan_nb >0){
-    var ss=m_str_angle_decode(ss);   //還原 
-    var ss = ss.replace(/atan/g,"ATAN");   //還原 
+    var ss=m_str_angle_decode(ss);    
+    var ss = ss.replace(/atan/g,"ATAN");    
      for(var m=0; m<tan_nb;m++){
       var ss = m_str_part_del_pi(ss,'tan(','π)');
                                }
                            } 
  if(deg_nb> 0 && tan_nb >0){
-   var ss=m_str_angle_decode(ss);   //還原 
-   var ss = ss.replace(/atan/g,"ATAN");   //還原 
+   var ss=m_str_angle_decode(ss);    
+   var ss = ss.replace(/atan/g,"ATAN");   
   for(var n=0; n<tan_nb;n++){
     var ss = m_str_part_del_pi(ss,'tan(','°)');
                               }
                              }
-   var ss = ss.replace(/EP/g,"e\+");   //還原 
-   var ss = ss.replace(/EN/g,"e\-");   //還原 
-   var ss=m_str_angle_decode(ss);   //還原 
+   var ss = ss.replace(/EP/g,"e\+");    
+   var ss = ss.replace(/EN/g,"e\-");    
+   var ss=m_str_angle_decode(ss);    
  return ss;
 }
 
-function m_str_angle_encode(strs){   //20230410
-    var ss=strs.toString().trim();  //字串
+function m_str_angle_encode(strs){   
+    var ss=strs.toString().trim();  
     var ss = ss.replace(/asinh/g,"ASINH");  
     var ss = ss.replace(/sinh/g,"SINH");  
     var ss = ss.replace(/asin/g,"ASIN");  
@@ -6855,8 +6855,8 @@ function m_str_angle_encode(strs){   //20230410
    return ss;
 }
 
-function m_str_angle_decode(strs){   //20230410
-    var ss=strs.toString().trim();  //字串
+function m_str_angle_decode(strs){   
+    var ss=strs.toString().trim();  
     var ss = ss.replace(/ASINH/g,"asinh"); 
     var ss = ss.replace(/SINH/g,"sinh");  
     var ss = ss.replace(/ASIN/g,"asin"); 
