@@ -6545,6 +6545,7 @@ function m_str_part_1en_sa(s){
     if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)){
         var ss = ss.replace(/ACOSH/g,"acosh"); 
                   return ss;  }
+                 }
      var ss = ss.replace(/ACOSH/g,"acosh"); 
         return ss;
 }
