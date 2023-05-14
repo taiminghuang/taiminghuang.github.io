@@ -6543,8 +6543,8 @@ function m_str_part_1en_sa(s){
    var ss_acos_n2  = ss.indexOf("acos(-1+");                 
      if(ss_acos_n2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+") ;}
     if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)){
-        var  i=max_nb+1;}  
-                       }
+        var ss = ss.replace(/ACOSH/g,"acosh"); 
+                  return ss;  }
      var ss = ss.replace(/ACOSH/g,"acosh"); 
         return ss;
 }
@@ -6571,7 +6571,7 @@ function m_str_part_1en_sah(s){
   var ss_atanh_p2  = ss.indexOf("atanh(-1+");                             
     if(ss_atanh_p2 !=-1){ var ss = m_str_part_1en(ss,"atanh(-1+") ;}
     if((ss_acosh_p1 ==-1)&&(ss_acosh_p2 ==-1)&&(ss_atanh_n1 ==-1)&&(ss_atanh_n2 ==-1)&&(ss_atanh_p1 ==-1)&&(ss_atanh_p2 ==-1)){
-       var  i= max_nb+1 ;}  
+       return ss; }  
                       }
      return ss;
 }
@@ -6602,7 +6602,7 @@ function m_str_part_1en_s(s){
    var ss_log_p2  = ss.indexOf("log(1+");                 
      if(ss_log_p2 !=-1){ var ss = m_str_part_1en(ss,"log(1+") ;}
      if((ss_ln_n1 ==-1)&&(ss_ln_n2 ==-1)&&(ss_ln_p1 ==-1)&&(ss_ln_p2 ==-1)&&(ss_log_n1 ==-1)&&(ss_log_n2 ==-1)&&(ss_log_p1 ==-1)&&(ss_log_p2 ==-1)){
-       var  i=max_nb+1 ;}  
+       return ss;}  
                        }
        return ss;
 }
@@ -6814,16 +6814,25 @@ var ss_fst_str = bf ;
          var ss=ss_0_str + ss_fst_str +ss_af_str ; return ss;}
   var ss_end_str = ss.substr(af_idx, ss.length-af_idx);
   if(m_mtx_real_str_comp(ss_sec_str,1e-110)==2 ){  
-    var sin_nb = m_str_char_nb(bf,"sin");
+    var sinn_nb = m_str_char_nb(bf,"sin(-");    
+     var bf = bf.replace(/sin\(\-/g,"SIN\(\-");
+     var sin_nb = m_str_char_nb(bf,"sin");
      var sinn_nb = m_str_char_nb(bf,"sin(-");
+     var cosn_nb = m_str_char_nb(bf,"cos(-");    
+     var bf = bf.replace(/cos\(\-/g,"COS\(\-");
      var cos_nb = m_str_char_nb(bf,"cos");
      var cosn_nb = m_str_char_nb(bf,"cos(-");
+     var tann_nb = m_str_char_nb(bf,"tan(-");     
+     var bf = bf.replace(/tan\(\-/g,"TAN\(\-"); 
      var tan_nb = m_str_char_nb(bf,"tan");
      var tann_nb = m_str_char_nb(bf,"tan(-");
      var pi_nb = m_str_all_char_nb(bf,"π");
      var dge_nb = m_str_all_char_nb(bf,"*°");
      var ngc_nb = m_str_all_char_nb(bf,"-(");
      var psc_nb = m_str_all_char_nb(bf,"+(");
+     var bf = bf.replace(/TAN\(\-/g,"tan\(\-");  
+     var bf = bf.replace(/COS\(\-/g,"cos\(\-");  
+     var bf = bf.replace(/SIN\(\-/g,"sin\(\-");
   if(sin_nb !=0 && pi_nb !=0 && sinn_nb ==0 && ngc_nb !=0){
      if(bf=="sin(π/2-(" ){
        var ss_fst_str_nw = ss_fst_str.replace(/SIN\(π\/2\-\(/g,"\(\(");    
