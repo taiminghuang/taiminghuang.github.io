@@ -6581,8 +6581,14 @@ function m_str_part_1en_sa(s){
      if(ss_acos_n1 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+(") ;}
    var ss_acos_n2  = ss.indexOf("acos(-1+");                 
      if(ss_acos_n2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+") ;}
-    if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)){
-        var ss = ss.replace(/ACOSH/g,"acosh"); 
+   var ss_acos_n3  = ss.indexOf("acos(-1-(-(");                 
+        if(ss_acos_n3 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(-(") ;} 
+     var ss_acos_er1  = ss.indexOf("acos(1+(");                             
+         if(ss_acos_er1 !=-1){ var ss = m_str_part_1en(ss,"acos(1+(") ;}
+      var ss_acos_er2  = ss.indexOf("acos(-1-(");                             
+         if(ss_acos_er2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(") ;}
+      if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)&&(ss_acos_n3 ==-1)&&(ss_acos_er1 ==-1)&&(ss_acos_er2 ==-1)){   
+     var ss = ss.replace(/ACOSH/g,"acosh"); 
                   return ss;  }
                  }
      var ss = ss.replace(/ACOSH/g,"acosh"); 
