@@ -6506,7 +6506,7 @@ function m_acros(x){
  var ans_a="";
  var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-  if((m_mtx_real_str_comp(xx,1)==1 )&& (m_mtx_real_str_comp(xx,-1)!=3  )){  
+  if((m_mtx_real_str_comp(xx,1)==1 )|| (m_mtx_real_str_comp(xx,-1)==2  )){  
       var ans_a= message_1(2);  return ans_a;} 
  var xx_fst = xx.substr(0,1);
   if(xx_fst =="-"){ var xx=xx.substr(1,xx.length-1) ;} 
