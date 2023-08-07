@@ -4696,7 +4696,8 @@ function m_sub_error_rg(str_1){
     return ans;  
 }
 
-function m_mtx_real_sub(x,y){      
+function m_mtx_real_sub(x,y){    
+    var x = x.toString().trim() ;
     var x=m_mtx_trim(x).toString();  
     var y = y.toString().trim() ;  
     var y=m_mtx_trim(y).toString();
@@ -4746,17 +4747,12 @@ function m_mtx_real_sub(x,y){
       var sutt = sutt.toString();
          return sutt;
                        };
-    if(y_e_100.length < 15 && x_e_100.length < 15 ){       
-      if((parseFloat(y_e_100) == parseFloat(x_e_100) && x_st_fst=="-" &&  y_st_fst=="-")||(parseFloat(y_e_100) == parseFloat(x_e_100) && x_st_fst!="-" &&  y_st_fst !="-")) {      
-       var sutt = 0;
-       var sutt = sutt.toString();
-          return sutt;
-                      };
-                                    };
     var pexp = x ;      
     var nexp = y ;      
     var  pexp = m_mtx_str_to_e_ne(pexp);               
-    var  nexp = m_mtx_str_to_e_ne(nexp);               
+    var  nexp = m_mtx_str_to_e_ne(nexp);
+    var  pexp = m_mtx_str_to_e_a(pexp).toString().trim();       
+    var  nexp = m_mtx_str_to_e_a(nexp).toString().trim();  
     var data_x_fst = pexp.substr(0,1);
     var data_y_fst = nexp.substr(0,1);
     var x_sub =pexp.substr(0,10050);  
