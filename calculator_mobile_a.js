@@ -7622,8 +7622,8 @@ function m_asin(x){
                                    return ans_1   ;}
      var zz = m_str_e_to_str(zz);       
     var zz =m_fix(zz,420);                      
-    var data_a=m_mtx_int_mul(zz,zz);     
-    if( DECI_DGT <=16){ var deci_nub=240;} 
+    var data_a=m_mtx_real_mul(zz,zz);     
+    if( DECI_DGT <=16){ var deci_nub=320;} 
      else { var deci_nub=420;}  
      var data_b=m_mtx_real_sub('1',data_a);  
      var data_b =m_fix(data_b,deci_nub);   
@@ -7674,7 +7674,7 @@ function m_acos(x){
      if( data_comp_xx_1== 3 && data_comp_x_n1==3  ){ ans_1 = PI ;  return ans_1  ;}  
    var ans_0=0;
    if(xx_fst=="-"){ var xx="-"+xx ;}   
-     if( DECI_DGT <=16){ var deci_nub=240;} 
+     if( DECI_DGT <=16){ var deci_nub=320;} 
      else { var deci_nub=420;}               
     var data_a=m_mtx_real_mul(xx,xx);     
     var data_a =m_fix(data_a,deci_nub);      
