@@ -1,10 +1,7 @@
-﻿                                                                                                                                                                                                                                                                                                                                                                          
- var insert_flag="yes";
+﻿var insert_flag="yes";
 var PIMUL2S
 ="6.28318530717958647692528676655900576839433879875021164194988918461563281257241799725606965068423413596429617302656461329418768921910116446345071881625696223490056820540387704221111928924589790986076392885762195133186689225695129646757356633054240381829129713384692069722090865329642678721452049828254744917401321263117634976304184192565850818343072873578518072002266106109764093304276829390388302321886611454073151918390618437223476386522358621023709614892475992549913470377150544978245587636602389826";
-var PIS ="3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245";
 var PIS ="3.14159265358979323846264338327950288419716939937510582097494459230781640628620899862803482534211706798214808651328230664709384460955058223172535940812848111745028410270193852110555964462294895493038196442881097566593344612847564823378678316527120190914564856692346034861045432664821339360726024914127372458700660631558817488152092096282925409171536436789259036001133053054882046652138414695194151160943305727036575959195309218611738193261179310511854807446237996274956735188575272489122793818301194913";
-var PIS ="3.1415926535897932384626433832795028841971693993751058209749445923078164062862089986280348253421170679821480865132823066470938446095505822317253594081284811174502841027019385211055596446229489549303819644288109756659334461284756482337867831652712019091456485669234603486104543266482133936072602491412737245870066063155881748815209209628292540917153643678925903600113305305488204665213841469519415116094330572703657595919530921861173819326117931051185480744623799627495673518857527248912279381830119491298336733624406566430860213949463952247371907021798609437027705392171762931767523846748184676694051320005681271452635608277857713427577896091736371787214684409012249534301465495853710507922796892589235420199561121290219608640344181598136297747713099605187072113499999983729780499510597317328160963186";
 var PIDIV2S="1.57079632679489661923132169163975144209858469968755291048747229615390820314310449931401741267105853399107404325664115332354692230477529111586267970406424055872514205135096926055277982231147447746519098221440548783296672306423782411689339158263560095457282428346173017430522716332410669680363012457063686229350330315779408744076046048141462704585768218394629518000566526527441023326069207347597075580471652863518287979597654609305869096630589655255927403723118998137478367594287636244561396909150597456";
 var PIDIV4S="0.7853981633974483096156608458198757210492923498437764552437361480769541015715522496570087063355292669955370216283205766617734611523876455579313398520321202793625710256754846302763899111557372387325954911072027439164833615321189120584466957913178004772864121417308650871526135816620533484018150622853184";
 var SQRT2S="1.41421356237309504880168872420969807856967187537694807317667973799073247846210703885038753432764157273501384623091229702492483605585073721264412149709993583141322266592750559275579995050115278206057147010955997160597027453459686201472851741864088919860955232923048430871432145083976260362799525140798968";
@@ -138,19 +135,18 @@ var COS07R=COS07RS;
 var COS08R=COS08RS;
 var COS09R=COS09RS;
 var COS10R=COS10RS;
-var THIS_DATA; 
+var THIS_DATA;  
 var LOGE1="0.4342944819032518276511289189166050822943970058036665661144537831658646492088707747292249493384317483187061067447663037336416792871589639065692210646628122658521270865686703295933708696588266883311636077384905142844348666768646586085135561482123487653435434357317253835622281395603048646652366095539377356176323431916710991411597894962993512457934926357655469077671082419150479910989674900103277537653570270087328550951731440674697951899513594088040423931518868108402544654089797029863286828762624144";
 var MTX_COL =400;  
 var FIX_COL =2000;
 var DECI_DGT=200 ; 
 function m_deci_dgt(){         
   var deci_dgt= parseInt(document.getElementById('5_0').value); 
-   if( deci_dgt <= 16){      
-     var MTX_COL = 60; }   
+    if( deci_dgt <= 16){      
+      var MTX_COL = 60; }   
     else { var MTX_COL =  80 ;}  
    return  MTX_COL;                           
 }
-
 function m_deci_dgt_1(){           
   var DECI_DGT= parseInt(document.getElementById('5_0').value); 
    return  DECI_DGT;                   
@@ -222,250 +218,249 @@ function m_gol_fix(){
 return ;
  }
 
-  function m_add_sub_fix_cols(){       
-      var FIX_COL = MTX_COL*5+20;  
-      return  FIX_COL;
+function m_add_sub_fix_cols(){       
+  var FIX_COL = MTX_COL*5+20;  
+    return  FIX_COL;
   }
-   var display_width = 35;   
-   function doGetCaretPosition (ctrl) {
-   	var CaretPos = 0;
-    	if (document.selection) {
-   		ctrl.focus ();
-    		var Sel = document.selection.createRange ();
-   		Sel.moveStart ('character', -ctrl.value.length);
-   		CaretPos = Sel.text.length;
+
+ var display_width = 35;   
+
+function doGetCaretPosition (ctrl) {
+  var CaretPos = 0;
+    if(document.selection) {
+      ctrl.focus ();
+      var Sel = document.selection.createRange ();
+      Sel.moveStart ('character', -ctrl.value.length);
+      CaretPos = Sel.text.length;
     	}
-     	else if (ctrl.selectionStart || ctrl.selectionStart == '0')
-    		CaretPos = ctrl.selectionStart;
+    else if (ctrl.selectionStart || ctrl.selectionStart == '0')
+      CaretPos = ctrl.selectionStart;
     	return (CaretPos);
     }
 
-    function setCaretPosition(ctrl, pos)
-   {
-    	if(ctrl.setSelectionRange)
-    	{
-    		ctrl.focus();
-    		ctrl.setSelectionRange(pos,pos);
+function setCaretPosition(ctrl, pos)
+  {
+    if(ctrl.setSelectionRange)
+      {
+       ctrl.focus();
+       ctrl.setSelectionRange(pos,pos);
     	}
-    	else if (ctrl.createTextRange) {
-    		var range = ctrl.createTextRange();
-    		range.collapse(true);
-    		range.moveEnd('character', pos);
-    		range.moveStart('character', pos);
-    		range.select();
+    else if (ctrl.createTextRange) {
+      var range = ctrl.createTextRange();
+          range.collapse(true);
+          range.moveEnd('character', pos);
+          range.moveStart('character', pos);
+          range.select();
     	}
     }
 
  function string_lg(it){        
-        var this_it = it ;    
-        var str_lg = this_it.length;
-        return (str_lg);
+   var this_it = it ;    
+   var str_lg = this_it.length;
+     return (str_lg);
       }
 
  function string_lg_1(){        
    var str_lg = string_lg(calc.input.value);
-        return (str_lg);
+     return (str_lg);
       }
 
  function cursor_position(){   
-     var nub = doGetCaretPosition(document.getElementById('input'));
-        return (nub);
+   var nub = doGetCaretPosition(document.getElementById('input'));
+     return (nub);
     }
 
-   function cursor_position_set(n){     
-     var string_s = document.getElementById('input');
-       var nub_set = setCaretPosition(string_s , n) ;
+ function cursor_position_set(n){     
+   var string_s = document.getElementById('input');
+   var nub_set = setCaretPosition(string_s , n) ;
      }
 
-     function cursor_left_1(){         
-       s_chang_visible_all();     
-        var no = cursor_position();
-        var lg = string_lg_1();
-        var input_str = calc.input.value.trim();
-        var new_str = input_str.substr(0,no) + input_str.substr(no,lg-1);
-          document.getElementById('input').value = new_str;
-         cursor_position_set(no-1) ;    
-         if(no==0){cursor_position_set(0); }    
-         click_init() ;
-      }
+ function cursor_left_1(){         
+   s_chang_visible_all();     
+   var no = cursor_position();
+   var lg = string_lg_1();
+   var input_str = calc.input.value.trim();
+   var new_str = input_str.substr(0,no) + input_str.substr(no,lg-1);
+     document.getElementById('input').value = new_str;
+     cursor_position_set(no-1) ;    
+    if(no==0){cursor_position_set(0); }    
+       click_init() ;
+    }
 
-    function cursor_right_1(){          
-    s_chang_visible_all();     
-       var no = cursor_position();
-       var lg = string_lg_1();
-        if(no <= lg){
-    	 setCaretPosition(document.getElementById('input'),no+1);
+function cursor_right_1(){          
+  s_chang_visible_all();     
+  var no = cursor_position();
+  var lg = string_lg_1();
+    if(no <= lg){
+  setCaretPosition(document.getElementById('input'),no+1);
                     }
     }
 
- function cursor_up_1(){               
-     s_chang_visible_all();     
-    var arry = m_count_newline();
-    var arry_lg =arry.length;
-    var arry_ref=[];                 
-        arry_ref.push(0);
-      for(i=0; i<arry_lg ;i++){
-                   arry_ref.push(arry[i]+1);
-                               }
-    var no = cursor_position();
-    var arry_ref_lg=arry_ref.length; 
-    var arry_small=[];
-            for(i=0; i<arry_ref_lg ;i++){
-                if(arry_ref[i] <= no){             
-                   arry_small.push(arry_ref[i]);
-                                 }
-                                     }   
-        arry_small_lg = arry_small.length;
-     var arry_small_2=[];   
-        arry_small_2=arry_small.reverse(); 
-     var test_lg = arry_small_2.length;
-        if(test_lg >=2){
-         var ref_down = arry_small_2[0];    
-         var ref_up = arry_small_2[1];      
-        if(((ref_down-ref_up)>(no-ref_down))&&((no-ref_down)< display_width)) {    
-          var new_no = ref_up+no-ref_down;}
-         if(((ref_down-ref_up)<=(no-ref_down))&&((no-ref_down)< display_width)){   
-           var new_no = ref_down-1;}
-         if((no-ref_down) > display_width){     
-            var new_no = no-display_width;}
-                                            } 
-         if((test_lg ==1)&&(no > display_width)){ 
-             var new_no = no-display_width;}
-         if((test_lg ==1)&&(no <= display_width)){ 
-             var new_no = no;}      
-       setCaretPosition(document.getElementById('input'),new_no);
-          scroll_cursor();
+function cursor_up_1(){               
+  s_chang_visible_all();     
+  var arry = m_count_newline();
+  var arry_lg =arry.length;
+  var arry_ref=[];                 
+      arry_ref.push(0);
+   for(i=0; i<arry_lg ;i++){
+     arry_ref.push(arry[i]+1);
+                     }
+  var no = cursor_position();
+  var arry_ref_lg=arry_ref.length; 
+  var arry_small=[];
+    for(i=0; i<arry_ref_lg ;i++){
+      if(arry_ref[i] <= no){             
+        arry_small.push(arry_ref[i]);
+                         }
+                            }   
+      arry_small_lg = arry_small.length;
+  var arry_small_2=[];   
+      arry_small_2=arry_small.reverse(); 
+  var test_lg = arry_small_2.length;
+    if(test_lg >=2){
+      var ref_down = arry_small_2[0];    
+      var ref_up = arry_small_2[1];      
+    if(((ref_down-ref_up)>(no-ref_down))&&((no-ref_down)< display_width)) {    
+      var new_no = ref_up+no-ref_down;}
+    if(((ref_down-ref_up)<=(no-ref_down))&&((no-ref_down)< display_width)){   
+      var new_no = ref_down-1;}
+    if((no-ref_down) > display_width){     
+      var new_no = no-display_width;}
+                           } 
+    if((test_lg ==1)&&(no > display_width)){ 
+       var new_no = no-display_width;}
+    if((test_lg ==1)&&(no <= display_width)){ 
+       var new_no = no;}      
+    setCaretPosition(document.getElementById('input'),new_no);
+         scroll_cursor();
    }
  
-   function cursor_down_1(){                
-      s_chang_visible_all();     
-      var arry = m_count_newline();
-      var arry_lg =arry.length;
-      var no = cursor_position();
-      var lg = string_lg_1();
-         if(lg <= no) { no = lg;}    
-           var arry_small=[];
-           for(i=0; i<arry_lg ;i++){
-                if(arry[i] <=no){             
-                   arry_small.push(arry[i]);
-                                 }
-                                     }  
-            var arry_small_lg = arry_small.length; 
-            var arry_lager=[];
-            for(i=0; i< arry_lg ;i++){
-                if(arry[i] > no){             
-                   arry_lager.push(arry[i]);
-                                 }
-                                     }  
-              var arry_lager_lg = arry_lager.length;
-            if(arry_small_lg >=1){
-              var ref_1 = arry_small[arry_small_lg -1 ];}  
-             else{  var ref_1=0;}
-             if(arry_lager_lg >=1){                       
-               var ref_2 = arry_lager[0];}
-                  else{  var ref_2=0;}
-         if(arry_small_lg >=0 && arry_lager_lg >=1){
-               var trans_1=(no-ref_1) % display_width;
-                    if((ref_2-no) >= display_width){   
-                       var new_no = no + display_width;
-                                                    }
-                    else{ var new_no = ref_2+trans_1;}
-                                                  }
-          if(arry_small_lg ==0 && arry_lager_lg >=1){
-               var trans_1=(no-ref_1) % display_width;
-                    if((ref_2-no) >= display_width){   
-                       var new_no = no + display_width;
-                                                    }
-                    else{ var new_no = ref_2+trans_1+1;}  
-                                                  }
-        if(arry_small_lg >= 1 && arry_lager_lg ==0){
-               var trans_1=(no-ref_1) % display_width;
-                    if((lg-no) >= display_width){   
-                       var new_no = no + display_width;}
-                   else{ var new_no = no ;}
-                                                  }
-       if(arry_small_lg == 0 && arry_lager_lg ==0){
-                    if((lg-no) >= display_width){   
-                       var new_no = no + display_width;}
-                   else{ var new_no = no ;}
-                                                  }
-     	setCaretPosition(document.getElementById('input'),new_no);
+ function cursor_down_1(){                
+   s_chang_visible_all();     
+   var arry = m_count_newline();
+   var arry_lg =arry.length;
+   var no = cursor_position();
+   var lg = string_lg_1();
+     if(lg <= no) { no = lg;}    
+       var arry_small=[];
+     for(i=0; i<arry_lg ;i++){
+      if(arry[i] <=no){             
+        arry_small.push(arry[i]);
+                  }
+                      }  
+   var arry_small_lg = arry_small.length; 
+   var arry_lager=[];
+     for(i=0; i< arry_lg ;i++){
+       if(arry[i] > no){             
+         arry_lager.push(arry[i]);
+                     }
+                      }  
+  var arry_lager_lg = arry_lager.length;
+    if(arry_small_lg >=1){
+      var ref_1 = arry_small[arry_small_lg -1 ];}  
+    else{  var ref_1=0;}
+    if(arry_lager_lg >=1){                       
+      var ref_2 = arry_lager[0];}
+    else{  var ref_2=0;}
+    if(arry_small_lg >=0 && arry_lager_lg >=1){
+      var trans_1=(no-ref_1) % display_width;
+    if((ref_2-no) >= display_width){   
+       var new_no = no + display_width;
+                         }
+     else{ var new_no = ref_2+trans_1;}
+                           }
+     if(arry_small_lg ==0 && arry_lager_lg >=1){
+        var trans_1=(no-ref_1) % display_width;
+        if((ref_2-no) >= display_width){   
+           var new_no = no + display_width;
+                               }
+        else{ var new_no = ref_2+trans_1+1;}  
+                                     }
+     if(arry_small_lg >= 1 && arry_lager_lg ==0){
+        var trans_1=(no-ref_1) % display_width;
+          if((lg-no) >= display_width){   
+            var new_no = no + display_width;}
+          else{ var new_no = no ;}
+                          }
+     if(arry_small_lg == 0 && arry_lager_lg ==0){
+       if((lg-no) >= display_width){   
+         var new_no = no + display_width;}
+       else{ var new_no = no ;}
+                     }
+   setCaretPosition(document.getElementById('input'),new_no);
         scroll_cursor();
     }
 
 function cursor_position_row(){                
-    var arry = m_count_newline();
-    var arry_lg =arry.length;
-    var no = cursor_position();
-    var lg = string_lg_1();          
-       if(lg <= no) { no = lg;}    
-   var row_nub=0;
+  var arry = m_count_newline();
+  var arry_lg =arry.length;
+  var no = cursor_position();
+  var lg = string_lg_1();          
+    if(lg <= no) { no = lg;}    
+  var row_nub=0;
     for(i=0; i< arry_lg ;i++){
-    var nub_1=arry[i];
-       if(i==0 && nub_1<no ){
-          var nub_1=arry[i];
-          var row_nub = row_nub+ m_abs(m_nub_m((nub_1-0)/display_width))+2;   
+      var nub_1=arry[i];
+      if(i==0 && nub_1<no ){
+         var nub_1=arry[i];
+         var row_nub = row_nub+ m_abs(m_nub_m((nub_1-0)/display_width))+2;   
               }
-       if(i > 0 && nub_1 < no ){
+      if(i > 0 && nub_1 < no ){
          var nub_1=arry[i];
          var nub_2=arry[i+1];
-        var row_nub = row_nub + m_abs(m_nub_m((nub_2-nub_1)/display_width))+1;  
+         var row_nub = row_nub + m_abs(m_nub_m((nub_2-nub_1)/display_width))+1;  
         }
-                            }
+                }
   arry =[];
   return row_nub; 
 }
 
-
  function cursor_re_start(nub){                
-      var nub_a=nub;
-      var arry = m_count_semicolon();
-      var arry_lg =arry.length;
-         var no = cursor_position();
-         var input_str_a = calc.input.value;  
-         var lg = string_lg_1();
-         if(lg <= no) { no = lg;}    
-           var arry_small=[];
-             for(i=0; i<arry_lg ;i++){
-                if(arry[i] <=no){             
-                   arry_small.push(arry[i]);
-                                 }
-                                     }  
-            var arry_small_lg = arry_small.length; 
-            var arry_lager=[];
-            for(i=0; i< arry_lg ;i++){
-                if(arry[i] > no){              
-                   arry_lager.push(arry[i]);
-                                 }
-                                    }  
-             var arry_lager_lg = arry_lager.length;
-            input_str_1="";
-            input_str_2="";
-            input_str_3="";
-         if(arry_small_lg >0 && arry_lager_lg >0){
-           var input_str_1 = input_str_a.substr(0 ,arry_small[arry_small_lg-1]+1);                         
-           var input_str_2 = input_str_a.substring(arry_small[arry_small_lg-1]+1,arry_lager[0]+1);         
-           var input_str_3 = input_str_a.substr(arry_lager[0]+1,lg-arry_lager[0]);                          
-                                              }
-         if(arry_small_lg ==0 && arry_lager_lg>0){
-           var input_str_1 = "";                                                    
-           var input_str_2 = input_str_a.substring(0 ,arry_lager[0]+1);             
-           var input_str_3 = input_str_a.substr(arry_lager[0]+1 ,lg-arry_lager[0]);  
-                                                             }
-         if(arry_small_lg >0 && arry_lager_lg==0){
-          var input_str_1 = input_str_a.substring(0 ,lg);      
-           var input_str_2 = "";                                             
-           var input_str_3 = "";                                             
-                                                             }
-          
-      if(nub_a==1){ return input_str_1; }
-      if(nub_a==2){ return input_str_2; }
-      if(nub_a==3){ return input_str_3; } 
-
+   var nub_a=nub;
+   var arry = m_count_semicolon();
+   var arry_lg =arry.length;
+   var no = cursor_position();
+   var input_str_a = calc.input.value;  
+   var lg = string_lg_1();
+    if(lg <= no) { no = lg;}    
+   var arry_small=[];
+    for(i=0; i<arry_lg ;i++){
+      if(arry[i] <=no){             
+       arry_small.push(arry[i]);
+                     }
+                         }  
+  var arry_small_lg = arry_small.length; 
+  var arry_lager=[];
+    for(i=0; i< arry_lg ;i++){
+       if(arry[i] > no){              
+       arry_lager.push(arry[i]);
+                        }
+                          }  
+  var arry_lager_lg = arry_lager.length;
+  var input_str_1="";
+  var input_str_2="";
+  var input_str_3="";
+    if(arry_small_lg >0 && arry_lager_lg >0){
+       var input_str_1 = input_str_a.substr(0 ,arry_small[arry_small_lg-1]+1);                         
+       var input_str_2 = input_str_a.substring(arry_small[arry_small_lg-1]+1,arry_lager[0]+1);         
+       var input_str_3 = input_str_a.substr(arry_lager[0]+1,lg-arry_lager[0]);                          
+                                        }
+    if(arry_small_lg ==0 && arry_lager_lg>0){
+       var input_str_1 = "";                                                    
+       var input_str_2 = input_str_a.substring(0 ,arry_lager[0]+1);             
+       var input_str_3 = input_str_a.substr(arry_lager[0]+1 ,lg-arry_lager[0]);  
+                                             }
+    if(arry_small_lg >0 && arry_lager_lg==0){
+       var input_str_1 = input_str_a.substring(0 ,lg);      
+       var input_str_2 = "";                                             
+       var input_str_3 = "";                                             
+                                  }
+   if(nub_a==1){ return input_str_1; }
+   if(nub_a==2){ return input_str_2; }
+   if(nub_a==3){ return input_str_3; } 
    }
 
-function cursor_coords(event){     
- var x=event.clientX;
+function cursor_coords(event){      
+  var x=event.clientX;
   var y=event.clientY;
   var ys=event.screenY;
    s_chang_visible_all(); 
@@ -473,11 +468,11 @@ function cursor_coords(event){
  }
 
 function backspace_bf(){  
-      s_chang_visible_all();     
-      var no = cursor_position();
-      var lg = string_lg_1();
-      var input_str = calc.input.value.trim();
-      var new_str = input_str.substr(0,no-1) + input_str.substr(no,lg-1);
+  s_chang_visible_all();     
+  var no = cursor_position();
+  var lg = string_lg_1();
+  var input_str = calc.input.value.trim();
+  var new_str = input_str.substr(0,no-1) + input_str.substr(no,lg-1);
       document.getElementById('input').value = new_str;
       document.getElementById('input').blur();  
       cursor_position_set(no-1) ;    
@@ -485,143 +480,145 @@ function backspace_bf(){
       click_init() ; 
 }
 
-
 var BACK_COUNT = 0;                    
-var BACK_MTX =  m_new_mtx(1,5000);    
-function backspace(){     
-    if(BACK_COUNT<=0){
+var BACK_MTX =  m_new_mtx(1,5000);     
+ 
+function backspace(){      
+   if(BACK_COUNT<=0){
       BACK_COUNT=0 ;
-    backspace_bf();            
-    var item_1 ="=";        
-    var item_a= s_map(item_1);  
-    var array_a = s_nub_array(item_a);      
-    s_chang_hidden_array(array_a);
-            return }
-    var item_bf = BACK_MTX[0][BACK_COUNT-1];
-    var lg = item_bf.length;      
-       for(var i=0; i<lg;i++){
-            backspace_bf();            
-         BACK_MTX[0][BACK_COUNT-1]="";   
-               }
+      backspace_bf();            
+      var item_1 ="=";        
+      var item_a= s_map(item_1);  
+      var array_a = s_nub_array(item_a);      
+      s_chang_hidden_array(array_a);
+         return }
+   var item_bf = BACK_MTX[0][BACK_COUNT-1];
+   var lg = item_bf.length;      
+     for(var i=0; i<lg;i++){
+        backspace_bf();            
+        BACK_MTX[0][BACK_COUNT-1]="";    
+              }
         BACK_COUNT = BACK_COUNT-1;
-       if(BACK_COUNT==0){ var item_1 ="="; }
-             else {var item_1 = BACK_MTX[0][BACK_COUNT-1];}
+        if(BACK_COUNT==0){ var item_1 ="="; }
+        else {var item_1 = BACK_MTX[0][BACK_COUNT-1];}
    var item_a= s_map(item_1);  
    var array_a = s_nub_array(item_a);      
-    s_chang_hidden_array(array_a); 
+      s_chang_hidden_array(array_a); 
     }      
 
 function clear_all_1(item_1){  
- s_chang_visible_all(); 
-     for(var i=0;i<= BACK_COUNT ;i++){  
-      BACK_MTX[0][i]="";}
-      BACK_COUNT =0;                   
-   var item_a=item_1;
-      s_chang_sum(item_a);     
-    var input_str = calc.input.value;
-    var new_str ="";
-      document.getElementById('input').value = new_str;
-       cursor_position_set(0) ;  
+  s_chang_visible_all(); 
+  for(var i=0;i<= BACK_COUNT ;i++){  
+    BACK_MTX[0][i]="";}
+    BACK_COUNT =0;                   
+  var item_a=item_1;
+  s_chang_sum(item_a);     
+  var input_str = calc.input.value;
+  var new_str ="";
+  document.getElementById('input').value = new_str;
+    cursor_position_set(0) ;  
  }
 
 function space_1(){
-      s_chang_visible_all();     
-        var no = cursor_position();
-        var lg = string_lg_1();
-        var input_str = calc.input.value;
-       if(insert_flag=="yes"){
-          var new_str = input_str.substr(0,no) +" "+ input_str.substr(no,lg);
-                             }
-        else{
-         var new_str = input_str.substr(0,no) +" "+ input_str.substr(no+1,lg);
-            }         
-        document.getElementById('input').value = new_str;
-         cursor_position_set(no+1) ;
+  s_chang_visible_all();     
+  var no = cursor_position();
+  var lg = string_lg_1();
+  var input_str = calc.input.value;
+    if(insert_flag=="yes"){
+      var new_str = input_str.substr(0,no) +" "+ input_str.substr(no,lg);
+                            }
+    else{
+      var new_str = input_str.substr(0,no) +" "+ input_str.substr(no+1,lg);
+         }         
+   document.getElementById('input').value = new_str;
+   cursor_position_set(no+1) ;
              }
 
 function key_1(char_1){                 
-      var char_1=char_1;
-     BACK_MTX[0][BACK_COUNT] = char_1;              
-     BACK_COUNT = BACK_COUNT+1;                     
-       s_chang_sum(char_1);      
-      var char_lg = char_1.length;  
-      var no = cursor_position();  
-      var lg = string_lg_1();
-      var input_str = calc.input.value;
-     if(char_1== "h("){
-         if(insert_flag=="yes"){
-              var new_str = input_str.substr(0,no-1) +char_1+ input_str.substr(no,lg);
+  var char_1=char_1;
+  BACK_MTX[0][BACK_COUNT] = char_1;              
+  BACK_COUNT = BACK_COUNT+1;                     
+   s_chang_sum(char_1);      
+  var char_lg = char_1.length;  
+  var no = cursor_position();  
+  var lg = string_lg_1();
+  var input_str = calc.input.value;
+  if(char_1== "h("){
+    if(insert_flag=="yes"){
+       var new_str = input_str.substr(0,no-1) +char_1+ input_str.substr(no,lg);
+                           }
+     else{ 
+        var new_str = input_str.substr(0,no-1) +char_1+ input_str.substr(no+char_lg,lg);}  
+           }
+   else{
+        if(insert_flag=="yes"){
+          var new_str = input_str.substr(0,no) +char_1+ input_str.substr(no,lg);
                              }
-           else{ 
-              var new_str = input_str.substr(0,no-1) +char_1+ input_str.substr(no+char_lg,lg);}  
-                }
-      else{
-            if(insert_flag=="yes"){
-              var new_str = input_str.substr(0,no) +char_1+ input_str.substr(no,lg);
-                             }
-           else{
-             var new_str = input_str.substr(0,no) +char_1+ input_str.substr(no+char_lg,lg);
-                }
+        else{
+           var new_str = input_str.substr(0,no) +char_1+ input_str.substr(no+char_lg,lg);
+              }
                       }
-      document.getElementById('input').value = new_str;
-        cursor_position_set(no+char_lg) ;    
-            s_check_nb(new_str);         
-           s_check_end(new_str);        
-            scroll_cursor();    
-           click_init() ;  
+   document.getElementById('input').value = new_str;
+    cursor_position_set(no+char_lg) ;    
+    s_check_nb(new_str);         
+    s_check_end(new_str);        
+    scroll_cursor();    
+       click_init() ;  
   }
 
-
- var insert_flag="not";   
+var insert_flag="not";  
 
 function rept_1(char_1, nb){
   var char_1 = char_1;
-   var nb = nb;
-   var char_t="";
-     for(var n =0; n < nb+1 ;n++){
-         char_t = char_t +char_1;
+  var nb = nb;
+  var char_t="";
+   for(var n =0; n < nb+1 ;n++){
+     char_t = char_t +char_1;
      }
-     return (char_t);
+    return (char_t);
 }
 
 function enter_1(){      
-s_chang_visible_all();     
+  s_chang_visible_all();     
   var no = cursor_position();
-   var lg = string_lg_1();             
-   var input_str = calc.input.value;
-   var rten = input_str.charCodeAt(no);   
-    if(rten !=13 && rten !=10){
-    var new_str = input_str.substring(0,no) +'\r'+ input_str.substring(no,lg); }       
-    if(rten ==13 ){
-    var new_str = input_str.substr(0,no) +'\r'+'\r'+ input_str.substr(no,lg);  }         
-    if(rten ==10){
-    var new_str = input_str.substr(0,no) +'\r'+'\n'+ input_str.substr(no,lg);  }        
-    document.getElementById('input').value = new_str;
-         cursor_position_set(no+1) ;     
+  var lg = string_lg_1();             
+  var input_str = calc.input.value;
+  var rten = input_str.charCodeAt(no);   
+   if(rten !=13 && rten !=10){
+     var new_str = input_str.substring(0,no) +'\r'+ input_str.substring(no,lg);        
+                 }
+   if(rten ==13 ){
+     var new_str = input_str.substr(0,no) +'\r'+'\r'+ input_str.substr(no,lg);         
+       }   
+   if(rten ==10){
+     var new_str = input_str.substr(0,no) +'\r'+'\n'+ input_str.substr(no,lg);         
+       }
+   document.getElementById('input').value = new_str;
+   cursor_position_set(no+1) ;     
    scroll_cursor();
 }
 
 function newline_1(){                
-s_chang_visible_all();     
-   var no = cursor_position();
-   var s_lg = string_lg_1();             
-   var input_str = calc.input.value;
-   var new_str = input_str+'\n' ;     
-    document.getElementById('input').value = new_str;
-        var new_ln_w = string_lg_1();  
-    cursor_position_set(new_ln_w) ; 
+  s_chang_visible_all();     
+  var no = cursor_position();
+  var s_lg = string_lg_1();             
+  var input_str = calc.input.value;
+  var new_str = input_str+'\n' ;     
+  document.getElementById('input').value = new_str;
+  var new_ln_w = string_lg_1();  
+  cursor_position_set(new_ln_w) ; 
       }
 
 function scroll_cursor(){       
-      var text_area = document.getElementById('input');
-      var y_t=text_area.scrollTop;
-      var y_h=text_area.scrollHeight ;
-      var n_cur = cursor_position_row();  
-        text_area.scrollTop = 9999 ;
+  var text_area = document.getElementById('input');
+  var y_t=text_area.scrollTop;
+  var y_h=text_area.scrollHeight ;
+  var n_cur = cursor_position_row();  
+    text_area.scrollTop = 9999 ;
  };
 
 function mtx_str_inpt_chk_bf(x){               
-var xx = x.toString().trim();
+  var xx = x.toString().trim();
   var nub_e=0;   
   var nub_j=0;
   var nub_e= m_str_char(xx,"e") ;   
@@ -631,8 +628,8 @@ var xx = x.toString().trim();
   var ans_1="";  
   var xx_fst = xx.substr(0,1); 
   if(nub_e==0 && nub_j==0 && nub_point_xx <=1 ){      
-        var ans_1=xx; 
-        return  ans_1 ; }                         
+    var ans_1=xx; 
+    return  ans_1 ; }                         
    var xx =  m_str_sub_ngt_bf(xx);   
        xx = xx.replace(/e\+/g , "ET");   
        xx = xx.replace(/eQ/g , "EQ");    
@@ -654,99 +651,103 @@ var xx = x.toString().trim();
      var ans_0 = xx; 
      var MTX_COL_bf =0;
        for(var i=0; i<nub_E ;i++){         
-        var index_E = ans_0.indexOf("E");     
-        var str_bf = ans_0.substr(0,index_E);  
-            if(((str_mf=="ET"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){         
-                 var col_nub = Math.floor(m_mtx_real_div(str_bf,5));
-                        if( col_nub < 60 ){  var  MTX_COL_bf = 60 ;}       
-                        else if( col_nub >60 &&  col_nub <=400){
-                          var  MTX_COL_bf = m_mtx_real_add(col_nub,100);}                    
-                        else if( col_nub >400 &&  col_nub <=1000){
-                          var  MTX_COL_bf = m_mtx_real_add(col_nub,100); }                    
-                        else if( col_nub >1000 &&  col_nub <=1500){
-                          var  MTX_COL_bf = m_mtx_real_add(col_nub,200);}                   
-                        else{
-                          var  MTX_COL_bf = 2010;}     
-                             var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);             
-                       if(str_mf=="EQ"){  var MTX_COL_bf = m_mtx_real_add(MTX_COL_bf,m_mtx_real_div(str_bf,2)) ;    
-                                          var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);   }    }       
-                       if( parseInt(MTX_COL_bf) > parseInt(MTX_COL)){      
-                                MTX_COL = parseInt(MTX_COL_bf); }
-                 var nub_point = m_str_char(str_bf,".") ;   
-                        if(nub_point>=2 ){   
-                          var ans_1 = message_1(30);
-                         return  ans_1  ; }
-       var str_mf = ans_0.substr(index_E,2);  
-       var str_af = ans_0.substr(index_E+2,xx.length-index_E-2);   
-       var ans_0="";
-       var ans_0=str_af;   } 
-   return  x ;  
+         var index_E = ans_0.indexOf("E");     
+         var str_bf = ans_0.substr(0,index_E);  
+         if(((str_mf=="ET"||str_mf=="EQ")  && str_bf >=100)||(str_bf.length >= 100)){         
+            var col_nub = Math.floor(m_mtx_real_div(str_bf,5));
+            if( col_nub < 60 ){  var  MTX_COL_bf = 60 ;}       
+            else if( col_nub >60 &&  col_nub <=400){
+               var  MTX_COL_bf = m_mtx_real_add(col_nub,100);}                    
+            else if( col_nub >400 &&  col_nub <=1000){
+               var  MTX_COL_bf = m_mtx_real_add(col_nub,100); }                    
+            else if( col_nub >1000 &&  col_nub <=1500){
+                var  MTX_COL_bf = m_mtx_real_add(col_nub,200);}                   
+             else{
+                 var  MTX_COL_bf = 2010;}     
+     var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);             
+       if(str_mf=="EQ"){  var MTX_COL_bf = m_mtx_real_add(MTX_COL_bf,m_mtx_real_div(str_bf,2)) ;    
+          var MTX_COL_bf = m_str_e_to_str(MTX_COL_bf);            
+                               }   
+                                  }
+       if( parseInt(MTX_COL_bf) > parseInt(MTX_COL)){      
+          MTX_COL = parseInt(MTX_COL_bf);
+                                 }
+     var nub_point = m_str_char(str_bf,".") ;   
+       if(nub_point>=2 ){   
+         var ans_1 = message_1(30);
+             return  ans_1  ;
+                                  } 
+     var str_mf = ans_0.substr(index_E,2);  
+     var str_af = ans_0.substr(index_E+2,xx.length-index_E-2);   
+     var ans_0="";
+     var ans_0=str_af;   
+                                      }
+ return  x ;  
    }
 
 function mtx_str_hat_chk(x){             
-var xx = x.toString().trim();
+  var xx = x.toString().trim();
   var nub_hat= m_str_char(xx,"^") ;   
   var ans_0="";  
   var ans_1="";  
   var xx_fst = xx.substr(0,1); 
-  if((nub_hat==0)||(nub_hat==1 && xx_fst !="-")){      
-        var ans_1=xx;  return  ans_1 ; }               
+   if((nub_hat==0)||(nub_hat==1 && xx_fst !="-")){      
+     var ans_1=xx;  return  ans_1 ; }               
    if(nub_hat==1 && xx_fst =="-"){
-        var ans_1="0"+xx;  return  ans_1 ; }            
-    var xx =  m_str_sub_ngt_bf(xx);  
-        xx = xx.replace(/exp/g , "EZ"); 
-        xx = xx.replace(/e\+/g , "EE");   
-        xx = xx.replace(/eQ/g , "EQ");    
-        xx = xx.replace(/\+/g , "EA");    
-        xx = xx.replace(/\-/g , "ES");    
-        xx = xx.replace(/\//g , "ED");    
-        xx = xx.replace(/\*/g , "EM");    
-        xx = xx.replace(/\^/g , "EP");    
-        xx = xx.replace(/\(/g , "EL");    
-        xx = xx.replace(/\)/g , "ER");    
-       xx = xx.replace(/EP/g , "\^");      
-     xx=xx+"E"; 
-     var nub_E= m_str_char(xx,"E") ;  
-       for(var i=0; i<nub_E ;i++){
-        var index_E = xx.indexOf("E");  
-        var str_bf = xx.substr(0,index_E);  
-        var str_mf = xx.substr(index_E,2);  
-        var str_af = xx.substr(index_E+2,xx.length-index_E-2);  
-        var nub_hat_bf= m_str_char(str_bf,"^") ;   
-           if(nub_hat_bf >1){          
-             var str_bf = mtx_str_e(str_bf);  
-             for(var j=0; j< nub_hat_bf ;j++){
-               var index_hat_p = str_bf.indexOf("^");         
-               var str_bf_bf = str_bf.substr(0,index_hat_p);  
-               var str_bf_mf = str_bf.substr(index_hat_p,1);  
-               var str_bf_af = str_bf.substr(index_hat_p+1,str_bf.length-index_hat_p-1);   
-               var ans_0 = ans_0+"("+ str_bf_bf + str_bf_mf;
-               var str_bf = str_bf_af ;     
-                          }
-               var ans_0 = ans_0+ str_bf_af;       
-               for(var k=0; k< nub_hat_bf ;k++){
-                   var ans_0 = ans_0+")";       
-                          }
-                   var str_bf = ans_0;   
-                   var ans_0="" ;        
+     var ans_1="0"+xx;  return  ans_1 ; }            
+  var xx =  m_str_sub_ngt_bf(xx);  
+      xx = xx.replace(/exp/g , "EZ"); 
+      xx = xx.replace(/e\+/g , "EE");   
+      xx = xx.replace(/eQ/g , "EQ");    
+      xx = xx.replace(/\+/g , "EA");    
+      xx = xx.replace(/\-/g , "ES");    
+      xx = xx.replace(/\//g , "ED");    
+      xx = xx.replace(/\*/g , "EM");    
+      xx = xx.replace(/\^/g , "EP");    
+      xx = xx.replace(/\(/g , "EL");    
+      xx = xx.replace(/\)/g , "ER");    
+      xx = xx.replace(/EP/g , "\^");      
+      xx=xx+"E"; 
+   var nub_E= m_str_char(xx,"E") ;  
+     for(var i=0; i<nub_E ;i++){
+       var index_E = xx.indexOf("E");  
+       var str_bf = xx.substr(0,index_E);  
+       var str_mf = xx.substr(index_E,2);  
+       var str_af = xx.substr(index_E+2,xx.length-index_E-2);  
+       var nub_hat_bf= m_str_char(str_bf,"^") ;   
+      if(nub_hat_bf >1){          
+        var str_bf = mtx_str_e(str_bf);  
+        for(var j=0; j< nub_hat_bf ;j++){
+          var index_hat_p = str_bf.indexOf("^");         
+          var str_bf_bf = str_bf.substr(0,index_hat_p);  
+          var str_bf_mf = str_bf.substr(index_hat_p,1);  
+          var str_bf_af = str_bf.substr(index_hat_p+1,str_bf.length-index_hat_p-1);   
+          var ans_0 = ans_0+"("+ str_bf_bf + str_bf_mf;
+          var str_bf = str_bf_af ;     
+                        }
+          var ans_0 = ans_0+ str_bf_af;       
+          for(var k=0; k< nub_hat_bf ;k++){
+             var ans_0 = ans_0+")";       
+                 }
+             var str_bf = ans_0;   
+             var ans_0="" ;        
                }
       var ans_1 = ans_1+ str_bf+ str_mf;  
       var xx = str_af ;     
-                              }
-      var  ans_1 = ans_1.replace(/EA/g , "\+");    
-      var  ans_1 = ans_1.replace(/ES/g , "\-");    
-      var  ans_1 = ans_1.replace(/EM/g , "\*");    
-      var  ans_1 = ans_1.replace(/ED/g , "\/");    
-      var  ans_1 = ans_1.replace(/EP/g , "\^");    
-      var  ans_1 = ans_1.replace(/EE/g , "e\+");   
-      var  ans_1 = ans_1.replace(/EQ/g , "eQ");    
-      var  ans_1 = ans_1.replace(/EL/g , "\(");    
-      var  ans_1 = ans_1.replace(/ER/g , "\)");    
-      var  ans_1 = ans_1.replace(/Q/g , "\-");    
-      var  ans_1 = ans_1.replace(/E/g , ""); 
-      var  ans_1 = ans_1.replace(/EZ/g , "exp");  
-    return  ans_1 ;
-
+                 }
+      var ans_1 = ans_1.replace(/EA/g , "\+");    
+      var ans_1 = ans_1.replace(/ES/g , "\-");    
+      var ans_1 = ans_1.replace(/EM/g , "\*");    
+      var ans_1 = ans_1.replace(/ED/g , "\/");    
+      var ans_1 = ans_1.replace(/EP/g , "\^");    
+      var ans_1 = ans_1.replace(/EE/g , "e\+");   
+      var ans_1 = ans_1.replace(/EQ/g , "eQ");    
+      var ans_1 = ans_1.replace(/EL/g , "\(");    
+      var ans_1 = ans_1.replace(/ER/g , "\)");    
+      var ans_1 = ans_1.replace(/Q/g , "\-");    
+      var ans_1 = ans_1.replace(/E/g , ""); 
+      var ans_1 = ans_1.replace(/EZ/g , "exp");  
+    return ans_1 ;
  }
 
 function mtx_str_e_chk_to_str(x){    
@@ -759,249 +760,247 @@ function mtx_str_e_chk_to_str(x){
   var xx_af = xx.substr(index_e+1,xx.length-index_e-1);  
   var nub_point = m_str_char(xx_af,".") ;  
   var flag_xx=0; 
-  if(fis_xx =="'" || fis_xx =='"'){ var flag_xx=0; }
-  else{ var flag_xx=1; }
-  if(nub_m ==0 && flag_xx==1 && nub_e==1 && nub_point ==1 ){
-                                      var ans_a="'"+xx+"'";}
-  else{var ans_a=xx;}
+   if(fis_xx =="'" || fis_xx =='"'){ var flag_xx=0; }
+   else{ var flag_xx=1; }
+   if(nub_m ==0 && flag_xx==1 && nub_e==1 && nub_point ==1 ){
+     var ans_a="'"+xx+"'";}
+   else{var ans_a=xx;}
   return  ans_a ;
 }
 
 function mtx_str_e_bf(x){             
- var xx = x.toString().trim();
- var xx_lg = xx.length;
- var xx_fst =  xx.substr(0,1);
- var xx_lst =  xx.substr(xx_lg-1,1);
- var xx_lst_2 =  xx.substr(xx_lg-2,2);
- var ans_1="";
- var ans_bf="";
- var ans_af="";
- var nub_e= m_str_char(xx,"e") ;  
-   if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
-     var ans_1 = message_1(32);   
-        return  ans_1 ; }
- var pos_e = xx.indexOf("e");  
-   if(pos_e ==-1 ) { var ans_1=xx; return ans_1; }       
-   if(pos_e !=-1 ) { 
-       var ans_bf=xx.substr(0,pos_e);                     
-       var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);     
-       var ans_af = m_mtx_trim(ans_af);       
-       var ans_af = m_str_e_to_str(ans_af);   
-                } 
- var pos_point = ans_af.indexOf(".");  
- var ans_af_lg = ans_af.length;        
-    if(pos_point ==-1 ) {                            
-     var ans_af_fst = ans_af.substr(0,1);
-      if(ans_af_fst =="-"){
-       var ans_1= ans_bf+"e"+ ans_af;
-                           }
+  var xx = x.toString().trim();
+  var xx_lg = xx.length;
+  var xx_fst =  xx.substr(0,1);
+  var xx_lst =  xx.substr(xx_lg-1,1);
+  var xx_lst_2 =  xx.substr(xx_lg-2,2);
+  var ans_1="";
+  var ans_bf="";
+  var ans_af="";
+  var nub_e= m_str_char(xx,"e") ;  
+    if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
+      var ans_1 = message_1(32);   
+      return  ans_1 ; }
+  var pos_e = xx.indexOf("e");  
+    if(pos_e ==-1 ) { var ans_1=xx; return ans_1; }       
+    if(pos_e !=-1 ) { 
+      var ans_bf=xx.substr(0,pos_e);                     
+      var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);     
+      var ans_af = m_mtx_trim(ans_af);       
+      var ans_af = m_str_e_to_str(ans_af);   
+                   } 
+   var pos_point = ans_af.indexOf(".");  
+   var ans_af_lg = ans_af.length;        
+     if(pos_point ==-1 ) {                            
+       var ans_af_fst = ans_af.substr(0,1);
+       if(ans_af_fst =="-"){
+           var ans_1= ans_bf+"e"+ ans_af;
+                            }
        else{
-         var ans_1= ans_bf+"e+"+ ans_af;
-                   }
-                                 }
-      else{                   
-         var ans_af_bf= ans_af.substr(0,pos_point);                         
-         var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
-         var ans_af_af = m_mtx_trim(ans_af_af);       
-         var ans_af_bf_fst = ans_af_bf.substr(0,1); 
-      if(ans_af_bf_fst =="-"){
-         var ans_af_af="-0."+ ans_af_af;  
-                                   } 
-      else{
-         var ans_af_af="0."+ ans_af_af;  
-                    }
-     var data_a = Math.pow(10,ans_af_af);  
-     var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
-     var ans_af_bf_fst = ans_af_bf.substr(0,1);     
-      if(ans_af_bf_fst =="-"){   
-        var ans_1 = data_b+"e"+ans_af_bf ;
+           var ans_1= ans_bf+"e+"+ ans_af;
+             }
+                            }
+     else{                   
+        var ans_af_bf= ans_af.substr(0,pos_point);                         
+        var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
+        var ans_af_af = m_mtx_trim(ans_af_af);       
+        var ans_af_bf_fst = ans_af_bf.substr(0,1); 
+        if(ans_af_bf_fst =="-"){
+          var ans_af_af="-0."+ ans_af_af;  
+                               } 
+        else{
+           var ans_af_af="0."+ ans_af_af;  
+             }
+        var data_a = Math.pow(10,ans_af_af);  
+        var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
+        var ans_af_bf_fst = ans_af_bf.substr(0,1);     
+          if(ans_af_bf_fst =="-"){   
+            var ans_1 = data_b+"e"+ans_af_bf ;
                                   }
-                   else{
-                    var ans_1 = data_b+"e+"+ans_af_bf ; 
-                       }
+           else{
+              var ans_1 = data_b+"e+"+ans_af_bf ; 
+                }
                 }
    return ans_1; 
-
 }
 
 function mtx_str_e(x){        
-var xx = x.toString().trim();
- var xx_lg = xx.length;
- var xx_fst =  xx.substr(0,1);
- var xx_lst =  xx.substr(xx_lg-1,1);
- var xx_lst_2 =  xx.substr(xx_lg-2,2);
- var ans_1="";
- var ans_bf="";
- var ans_af="";
- var nub_e= m_str_char(xx,"e") ;  
-   if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
-      var ans_1 = message_1(32);   
-       return  ans_1  }
-var pos_e = xx.indexOf("e");  
+  var xx = x.toString().trim();
+  var xx_lg = xx.length;
+  var xx_fst =  xx.substr(0,1);
+  var xx_lst =  xx.substr(xx_lg-1,1);
+  var xx_lst_2 =  xx.substr(xx_lg-2,2);
+  var ans_1="";
+  var ans_bf="";
+  var ans_af="";
+  var nub_e= m_str_char(xx,"e") ;  
+    if((xx_fst =="e")||(xx_lst =="e")||(xx_lst_2 =="e.")|| (nub_e>2)){        
+       var ans_1 = message_1(32);   
+             return  ans_1  }
+  var pos_e = xx.indexOf("e");  
    if(pos_e ==-1 ) { var ans_1=xx; return ans_1; }       
    if(pos_e !=-1 ) { 
-   var ans_bf=xx.substr(0,pos_e);                     
-   var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);    
-   var ans_af = m_mtx_trim(ans_af);       
-   var ans_af = mtx_str_e_bf(ans_af); 
-   var ans_af = m_str_e_to_str(ans_af);   
-                     } 
-   var pos_point = ans_af.indexOf(".");  
-   var ans_af_lg = ans_af.length;        
-   if(pos_point ==-1 ) {                            
-    var ans_af_fst = ans_af.substr(0,1);
-    if(ans_af_fst =="-"){
-      var ans_1= ans_bf+"e"+ ans_af;
-                        }
-    else{
-     var ans_1= ans_bf+"e+"+ ans_af;
-        }
+     var ans_bf=xx.substr(0,pos_e);                     
+     var ans_af=xx.substr(pos_e+1,xx_lg-pos_e-1);    
+     var ans_af = m_mtx_trim(ans_af);       
+     var ans_af = mtx_str_e_bf(ans_af); 
+     var ans_af = m_str_e_to_str(ans_af);   
+                   } 
+     var pos_point = ans_af.indexOf(".");  
+     var ans_af_lg = ans_af.length;        
+     if(pos_point ==-1 ) {                            
+       var ans_af_fst = ans_af.substr(0,1);
+       if(ans_af_fst =="-"){
+         var ans_1= ans_bf+"e"+ ans_af;
+                            }
+       else{
+          var ans_1= ans_bf+"e+"+ ans_af;
                    }
-   else{                  
-    var ans_af_bf= ans_af.substr(0,pos_point);                         
-    var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
-    var ans_af_af = m_mtx_trim(ans_af_af);       
-    var ans_af_bf_fst = ans_af_bf.substr(0,1); 
-    if(ans_af_bf_fst =="-"){
-       var ans_af_af="-0."+ ans_af_af;  
-                            } 
-    else{
-      var ans_af_af="0."+ ans_af_af;  
-         }
+                          }
+     else{                  
+       var ans_af_bf= ans_af.substr(0,pos_point);                         
+       var ans_af_af= ans_af.substr(pos_point+1,ans_af_lg-pos_point-1);   
+       var ans_af_af = m_mtx_trim(ans_af_af);       
+       var ans_af_bf_fst = ans_af_bf.substr(0,1); 
+       if(ans_af_bf_fst =="-"){
+         var ans_af_af="-0."+ ans_af_af;  
+                          } 
+       else{
+         var ans_af_af="0."+ ans_af_af;  
+                       }
     var data_a = m_pow(10,ans_af_af);  
     var data_b = m_mtx_real_mul(ans_bf, data_a) ;     
         data_b = m_str_e_to_str(data_b);      
     var ans_af_bf_fst = ans_af_bf.substr(0,1);     
       if(ans_af_bf_fst =="-"){   
         var ans_1 = data_b+"e"+ans_af_bf ;
-                                   }
-      else{
-        var ans_1 = data_b+"e+"+ans_af_bf ; 
-                    }
-                }
+                             }
+       else{
+         var ans_1 = data_b+"e+"+ans_af_bf ; 
+                     }
+               }
    return ans_1; 
 }
  
-
 function m_n(n){             
   var nn = n.toString().trim();
   var nn = m_str_e_to_str(nn);      
   var nn =m_mtx_trim(nn) ;          
   var test_point = m_nub_p(nn);        
   var test_fst=nn.toString().substr(0,1);
-   if(test_point > 0 || test_fst=="-"){
+    if(test_point > 0 || test_fst=="-"){
       return message_1(7);        
                         }       
-   var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
-   if(( nn >= 20000001 )||(data_comp_nn_20000001 !=2)){       
+  var data_comp_nn_20000001 = m_mtx_real_str_comp(nn,20000001);   
+    if(( nn >= 20000001 )||(data_comp_nn_20000001 !=2)){       
        return message_1(33);} 
-   var sum_total=1;
+  var sum_total=1;
     if(nn == 0 || nn==1 ){  
-       sum_total=1; return sum_total;}
-   var AA= m_new_zero_mtx(1,MTX_COL);             
-   var BB= m_new_zero_mtx(1,MTX_COL);            
-   var CC= m_new_zero_mtx(1,MTX_COL);            
-   var DD= m_new_zero_mtx(1,MTX_COL);            
-   var data_row = AA.length;   
-       AA[0][0]=100000;      
-       DD[0][0]=100000;      
-    var  value_nub=0;
-    var MM = m_mtx_n_100_table();  
-    var nn=parseFloat(nn);   
-        TB = m_mtx_n_100_bf_table();  
-    var data_flg =0 ;
-    var data_i_end =0;
-      for(var m=0; m < (TB.length) ;m++){
-        if(nn >=TB[m][0] && nn < TB[m+1][0] ){       
-          if( nn <= (parseInt(TB[m][0]) + parseInt(TB[m+1][0]))/2){  
-            var data_i_star = TB[m][1];
-            var value_nub = TB[m][2];
-            var data_e_al = TB[m][3];
-            var data_flg =0 ;                     
-                                         }
-        else{
+      sum_total=1; return sum_total;}
+  var AA= m_new_zero_mtx(1,MTX_COL);             
+  var BB= m_new_zero_mtx(1,MTX_COL);            
+  var CC= m_new_zero_mtx(1,MTX_COL);            
+  var DD= m_new_zero_mtx(1,MTX_COL);            
+  var data_row = AA.length;   
+      AA[0][0]=100000;      
+      DD[0][0]=100000;      
+  var value_nub=0;
+  var MM = m_mtx_n_100_table();  
+  var nn=parseFloat(nn);   
+      TB = m_mtx_n_100_bf_table();  
+  var data_flg =0 ;
+  var data_i_end =0;
+    for(var m=0; m < (TB.length) ;m++){
+      if(nn >=TB[m][0] && nn < TB[m+1][0] ){       
+        if( nn <= (parseInt(TB[m][0]) + parseInt(TB[m+1][0]))/2){  
+           var data_i_star = TB[m][1];
+           var value_nub = TB[m][2];
+           var data_e_al = TB[m][3];
+           var data_flg =0 ;                     
+                      }
+         else{
            var data_i_end = TB[m+1][1];
            var value_nub = TB[m+1][2];
            var data_e_al = TB[m+1][3]; 
            var data_flg =1 ;                  
-                        }
-           var m =  TB.length; 
-                     }
-                                             }    
-        if(value_nub >= 0 ){
+                }
+         var m =  TB.length; 
+                    }
+                                  }    
+         if(value_nub >= 0 ){
             MM_part = m_mtx_row_table(MM,value_nub);
             AA= MM_part; 
                     }
-        else{ AA=AA;}
-          var nn=parseFloat(nn);   
-          var data_e_a = 0;  
-       if(data_flg ==0){
-         for(var i = data_i_star ; i < (nn+1) ; i++){               
-           var data_str = m_mtx_str_to_e_nez(i,0);    
-           var data_e = m_mtx_str_to_e_nez(i,1);   
-           BB=m_mtx_point_in(BB,data_str);         
-           DD =  m_mtx_point_mul(DD,BB);        
-           var data_e_a =data_e_a+data_e;  
-           DD = m_mtx_cell_five(DD);          
-           var data_test = parseInt(DD[0][0]);
-            if(  data_test ==0){
-              var  C = m_mtx_copy_col_mtx(CC,DD);   
-              var  DD = C;
-              var data_e_a =data_e_a-5;   
-                                 }
-                                     }   
-            var data_e_al =parseInt(data_e_al)+parseInt(data_e_a);   
-            AA =  m_mtx_point_mul(AA,DD);        
-            AA = m_mtx_cell_five(AA);          
-                          }  
-            else{
-             var data_e_a =0;
+          else{ AA=AA;}
+   var nn=parseFloat(nn);   
+   var data_e_a = 0;  
+     if(data_flg ==0){
+       for(var i = data_i_star ; i < (nn+1) ; i++){               
+         var data_str = m_mtx_str_to_e_nez(i,0);    
+         var data_e = m_mtx_str_to_e_nez(i,1);   
+             BB=m_mtx_point_in(BB,data_str);         
+             DD =  m_mtx_point_mul(DD,BB);        
+         var data_e_a =data_e_a+data_e;  
+             DD = m_mtx_cell_five(DD);          
+         var data_test = parseInt(DD[0][0]);
+         if(data_test ==0){
+            var  C = m_mtx_copy_col_mtx(CC,DD);   
+            var  DD = C;
+            var data_e_a =data_e_a-5;   
+                         }
+                             }   
+          var data_e_al =parseInt(data_e_al)+parseInt(data_e_a);   
+             AA =  m_mtx_point_mul(AA,DD);        
+             AA = m_mtx_cell_five(AA);          
+                         }  
+         else{
+           var data_e_a =0;
             for(var i = (parseInt(nn)+1) ; i < parseInt(data_i_end) ; i++){            
-               var data_str = m_mtx_str_to_e_nez(i,0);    
-               var data_e = m_mtx_str_to_e_nez(i,1);   
-                BB=m_mtx_point_in(BB,data_str);         
-                DD =  m_mtx_point_mul(DD,BB);        
-                var data_e_a =data_e_a+data_e;  
-                DD = m_mtx_cell_five(DD);          
-                var data_test = parseInt(DD[0][0]);    
-              if(  data_test ==0){     
-                var  C = m_mtx_copy_col_mtx(CC,DD);   
-                var  DD = C;
-                var data_e_a =data_e_a-5;   
-                                      }
-                                        }   
-                var data_test_d0 = parseInt(DD[0][0]);
-                var data_test_nub = 0;
-                   while( data_test_d0 < 100000){
-                     var DD = m_mtx_element_shift(DD,1);  
-                     var data_e_a = data_e_a-1;   
-                     var data_test_d0 = parseInt(DD[0][0]);  
-                     var   data_test_nub = data_test_nub+1;
-                   if( data_test_nub ==10){  var data_test_d0 = 200000 ;}  
-                                                                }
+              var data_str = m_mtx_str_to_e_nez(i,0);    
+              var data_e = m_mtx_str_to_e_nez(i,1);   
+                  BB=m_mtx_point_in(BB,data_str);         
+                  DD =  m_mtx_point_mul(DD,BB);        
+              var data_e_a =data_e_a+data_e;  
+                  DD = m_mtx_cell_five(DD);          
+              var data_test = parseInt(DD[0][0]);    
+                if(  data_test ==0){     
+                 var C = m_mtx_copy_col_mtx(CC,DD);   
+                 var  DD = C;
+                 var data_e_a =data_e_a-5;   
+                                 }
+                                }   
+             var data_test_d0 = parseInt(DD[0][0]);
+             var data_test_nub = 0;
+               while( data_test_d0 < 100000){
+                  var DD = m_mtx_element_shift(DD,1);  
+                  var data_e_a = data_e_a-1;   
+                  var data_test_d0 = parseInt(DD[0][0]);  
+                      data_test_nub = data_test_nub+1;
+                 if( data_test_nub ==10){  var data_test_d0 = 200000 ;}  
+                                                 }
                    var data_e_al =parseInt(data_e_al)-parseInt(data_e_a);   
-                    DDI = m_mtx_any_inv(DD ,1);          
-                    AA =  m_mtx_point_mul(AA,DDI);        
-                    AA = m_mtx_cell_five(AA);          
+                       DDI = m_mtx_any_inv(DD ,1);          
+                       AA =  m_mtx_point_mul(AA,DDI);        
+                       AA = m_mtx_cell_five(AA);          
                     }
-           var sum_total= m_mtx_cell_five_show(AA);     
-               sum_total = sum_total.toString();
-               sum_total_lg = sum_total.length;
-               sum_total = sum_total+"e+"+data_e_al;  
+      var sum_total= m_mtx_cell_five_show(AA);     
+          sum_total = sum_total.toString();
+          sum_total_lg = sum_total.length;
+          sum_total = sum_total+"e+"+data_e_al;  
      return sum_total; 
    }
 
-function m_delete_bracket(x){   
+ function m_delete_bracket(x){   
    var xx=x.toString().trim(); 
    var lg = xx.length;
    var xx_fst_s=xx.substr(0,1);                                         
    var xx_lst_e=xx.substr(xx.length-1,1);   
     if( xx_fst_s!="\(" || xx_lst_e!="\)" ){ return xx;}       
-  for(var i=1 ; i<=lg ;i++){
+   for(var i=1 ; i<=lg ;i++){
    var xx_fst_s=xx.substr(0,1);                                         
    var xx_lst_e=xx.substr(xx.length-1,1); 
    if( xx_fst_s=="\(" && xx_lst_e=="\)" ){ xx =xx.substr(1,xx.length-2);} 
-    else{return xx;}                                                         
+   else{return xx;}                                                         
                            }
   return xx; 
    }
@@ -1011,39 +1010,39 @@ function m_delete_bracket(x){
    var xx = m_delete_bracket(xx); 
    var xx_fst=xx.substr(0,1);
      if( xx_fst=="-"){ xx =xx.substr(1,xx.length-1);}  
-       var xx_p = xx.indexOf(".");
-       var xx_e = xx.indexOf("e");
+   var xx_p = xx.indexOf(".");
+   var xx_e = xx.indexOf("e");
      if( xx_e != -1 &&  xx_p != -1){                             
-        var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
+       var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
        if(nub_p ==""){var nub_p =0;}
          nub_p = nub_p.toString().trim();
          var flag_1 = nub_p.substr(0,1);  
        if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
-             xx = xx.substr(0,xx_e);       
+              xx = xx.substr(0,xx_e);       
                           }
        if( xx_e != -1 &&  xx_p == -1){                               
-          var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
+         var  nub_p =  xx.substr(xx_e+1,xx.length - xx_e);  
           if(nub_p ==""){var nub_p =0;}
-             nub_p = nub_p.toString().trim();
-             var flag_1 = nub_p.substr(0,1);  
+              nub_p = nub_p.toString().trim();
+            var flag_1 = nub_p.substr(0,1);  
           if(flag_1 =="+"){ var nub_p = nub_p.substr(1,(nub_p.length-1));}     
-             xx = xx.substr(0,xx_e);       
+              xx = xx.substr(0,xx_e);       
                           }
-          if( xx_e == -1 &&  xx_p == -1){         
+       if( xx_e == -1 &&  xx_p == -1){         
           var  nub_p =  0 ;  
           var   xx = xx;       
-                          }
-         if( xx_e == -1 &&  xx_p != -1){         
+                               }
+       if( xx_e == -1 &&  xx_p != -1){         
           var  nub_p =  0 ;  
           var   xx = xx;       
                                 }
-         if( xx_fst=="-"){ xx ="-"+xx;}     
-         if(nub==0){
-           var nub_p = m_mtx_trim(nub_p) ;
+       if( xx_fst=="-"){ xx ="-"+xx;}     
+       if(nub==0){
+         var nub_p = m_mtx_trim(nub_p) ;
                    return nub_p;}    
-         else{
-            xx = m_mtx_trim(xx) ;   
-         return xx ;}              
+       else{
+           xx = m_mtx_trim(xx) ;   
+        return xx ;}              
   }
 
 
@@ -1058,357 +1057,361 @@ function m_lg_str_to_e(x){
   var xx_str_bf = m_nub_m(xx_str);      
   var xx_str_af = m_nub_p(xx_str);       
   var xx_str_bf_lg = xx_str_bf.length;
-          if((xx_e + sum_total_lg-1) >0){
-             xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1)+"e+"+(xx_e + sum_total_lg-1);     
+      if((xx_e + sum_total_lg-1) >0){
+        xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1)+"e+"+(xx_e + sum_total_lg-1);     
                                }
-          else if((xx_e + sum_total_lg-1) <0){
-             xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1)+"e"+(xx_e + sum_total_lg-1);    
+       else if((xx_e + sum_total_lg-1) <0){
+         xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1)+"e"+(xx_e + sum_total_lg-1);    
                                }
-           else{
-               xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1);
+       else{
+          xx_t = xx_str_bf.substr(0,1)+"."+ xx_str_bf.substr(1,xx_str_bf-1);
                           }
-           if(xx_fst=="-"){ xx_t = "-"+xx_t; }  
+      if(xx_fst=="-"){ xx_t = "-"+xx_t; }  
     return xx_t;
 }
 
 function message_1(n){    
- var nn = n;
+  var nn = n;
   var message_1;
-     switch(nn){
-       case 1:
-          message_1 ="<--Msg : asin(x) ,|x|<= 1-->";
+    switch(nn){
+      case 1:
+        message_1 ="<--Msg : asin(x) ,|x|<= 1-->";
           break;
-        case 2:
-          message_1 ="<--Msg : acos(x) ,|x|<= 1-->";
+      case 2:
+        message_1 ="<--Msg : acos(x) ,|x|<= 1-->";
           break;
-        case 3:
-          message_1 ="<--Msg : acosh(x) ,arcosh(x) ,x >= 1-->";
+      case 3:
+        message_1 ="<--Msg : acosh(x) ,arcosh(x) ,x >= 1-->";
           break;
-        case 4:
-          message_1 ="<--Msg : atanh(x) ,artanh(x),|x|< 1-->";
+      case 4:
+        message_1 ="<--Msg : atanh(x) ,artanh(x),|x|< 1-->";
           break;
-        case 5:
-          message_1 ="<--Msg : ln(x) ,x >0-->";
+      case 5:
+        message_1 ="<--Msg : ln(x) ,x >0-->";
           break;
-        case 6:
-          message_1 ="<--Msg:b^p ,when b<0 and p decimal point except zero ,complex logarithm-->";
+      case 6:
+        message_1 ="<--Msg:b^p ,when b<0 and p decimal point except zero ,complex logarithm-->";
           break;
-         case 7:
-          message_1 ="<--Msg:n! ,n >=0 ,n=0 or n ∈ N-->";
+      case 7:
+        message_1 ="<--Msg:n! ,n >=0 ,n=0 or n ∈ N-->";
           break; 
-         case 9:
-          message_1 ="<--Msg:log(x),x >0-->";
+      case 9:
+        message_1 ="<--Msg:log(x),x >0-->";
           break;
-        case 11:
-          message_1 ="<--Msg:tan(x) x ≠ kπ+π/2 k∈Z-->";   
+      case 11:
+        message_1 ="<--Msg:tan(x) x ≠ kπ+π/2 k∈Z-->";   
           break;
-          case 13:
-          message_1 ="<--Msg:ln(0) value to -infinity-->";
+      case 13:
+        message_1 ="<--Msg:ln(0) value to -infinity-->";
           break;
-          case 14:
-          message_1 ="<--Msg:log(0) value to -infinity-->";
+      case 14:
+        message_1 ="<--Msg:log(0) value to -infinity-->";
           break;
-         case 15:
-          message_1 ="<--Msg:atanh(x) ,artanh(x), |x|< 1 and |x|>1-(10^(-200)) no support-->";    
+      case 15:
+        message_1 ="<--Msg:atanh(x) ,artanh(x), |x|< 1 and |x|>1-(10^(-200)) no support-->";    
           break;
-          case 16:  
-          message_1 ="<--Msg:sin(x) or cos(x) or tan(x) if as |x|>10^200 no support-->"; 
-         break;
-          case 23:
-          message_1 ="<--Msg:exp(x) if as |x| >10^200 no support-->";
+      case 16:  
+        message_1 ="<--Msg:sin(x) or cos(x) or tan(x) if as |x|>10^200 no support-->"; 
           break;
-          case 24:
-          message_1 ="<--Msg:sinh(x) if |x|>10^200 no support-->";
+      case 23:
+        message_1 ="<--Msg:exp(x) if as |x| >10^200 no support-->";
           break;
-           case 25:
-          message_1 ="<--Msg:cosh(x) if |x|>10^200 no support-->";
+      case 24:
+        message_1 ="<--Msg:sinh(x) if |x|>10^200 no support-->";
           break;
-          case 28:
-            message_1 ="<--Msg:undefined : x^p as x=0 p<=0-->";
-            break;
-          case 29:
-            message_1 ="<--Msg:error : y/x as x=0-->" ;
-            break;
-            case 30:
-            message_1 ="<--Msg:error : . >1 or e >1-->";
-            break;
-            case 31:
-            message_1 ="<--Msg:error : A[0][0] < 100000 || A[0][0] > 999999-->";
-            break;
-            case 32:
-            message_1 ="<--Msg:sorry : (e± || e. || e± e || e± ..) this e type no support-->";
-            break;
-           case 33:
-            message_1 ="<--Msg:n! , n > 2*10^7 no support-->";    
-            break;
-           case 34:  
-            message_1 ="<--Msg:|answer|<=10^(-200) , inside of calculator error range-->";    
-            break;
-            case 35:
-            message_1 ="<--Msg:sorry no support and try use parentheses()-->";  
-            break;
-           case 36:
-            message_1 ="<--Msg:b^p ,as p >10^200 or p <-(10^200) no support-->";
-            break;
-             case 38:  
-            message_1 ="<--Msg: .x x<=16 ,|answer|<=10^(-40),inside of calculator error range-->";  
-            break;
+      case 25:
+        message_1 ="<--Msg:cosh(x) if |x|>10^200 no support-->";
+          break;
+      case 28:
+        message_1 ="<--Msg:undefined : x^p as x=0 p<=0-->";
+          break;
+      case 29:
+        message_1 ="<--Msg:error : y/x as x=0-->" ;
+          break;
+      case 30:
+        message_1 ="<--Msg:error : . >1 or e >1-->";
+          break;
+      case 31:
+        message_1 ="<--Msg:error : A[0][0] < 100000 || A[0][0] > 999999-->";
+          break;
+      case 32:
+        message_1 ="<--Msg:sorry : (e± || e. || e± e || e± ..) this e type no support-->";
+          break;
+      case 33:
+        message_1 ="<--Msg:n! , n > 2*10^7 no support-->";    
+          break;
+      case 34:  
+        message_1 ="<--Msg:|answer|<=10^(-200) , inside of calculator error range-->";    
+          break;
+      case 35:
+        message_1 ="<--Msg:sorry no support and try use parentheses()-->";  
+          break;
+      case 36:
+        message_1 ="<--Msg:b^p ,as p >10^200 or p <-(10^200) no support-->";
+          break;
+      case 38:  
+        message_1 ="<--Msg: .x x<=16 ,|answer|<=10^(-40),inside of calculator error range-->";  
+          break;
+      case 39:  
+        message_1 ="'over input range |x|<10^200' no support -->";  
+          break;
+      case 40:  
+        message_1 ="'over input range |x|>10^(-200)' no support -->";  
+          break;
       default:
                }
  return message_1; 
  }
 
+
   function m_del4_2f_char(s,c){     
     var ss=s;
-     var cc=c;
-     var ss_lg=ss.length; 
-     var cc_lg=cc.length;
-     var pos=ss.lastIndexOf(cc);
-     var partstring = ss.substr((pos+cc_lg),ss_lg);
+    var cc=c;
+    var ss_lg=ss.length; 
+    var cc_lg=cc.length;
+    var pos=ss.lastIndexOf(cc);
+    var partstring = ss.substr((pos+cc_lg),ss_lg);
    return partstring ;
     }
 
+
  function m_count_newline(){     
    var lg = string_lg_1();
-    var input_str = calc.input.value ;
-    var rten = "";  
-    var arr  =[];
+   var input_str = calc.input.value ;
+   var rten = "";  
+   var arr  =[];
      for(var i=1 ; i<=lg ;i++){
        var rten = input_str.charCodeAt(i);  
         if(rten ==10 || rten ==13){
-           arr.push(i);
-                                  }
-                              }
+          arr.push(i);
+                                 }
+                             }
      return arr;
   }
 
 function m_count_semicolon(){     
-   var lg = string_lg_1();
-    var input_str = calc.input.value ;
-    var rten = "";  
-    var arr  =[];
-      for(var i=1 ; i<=lg ;i++){
-         var rten = input_str.charCodeAt(i);  
-             if(rten ==59 ){
-                   arr.push(i);
-                                      }
-                                }
+  var lg = string_lg_1();
+  var input_str = calc.input.value ;
+  var rten = "";  
+  var arr  =[];
+    for(var i=1 ; i<=lg ;i++){
+      var rten = input_str.charCodeAt(i);  
+       if(rten ==59 ){
+         arr.push(i);
+                      }
+                            }
      return arr;
   }
 
 function m_replace(str_s ,old_s ,new_s ){          
-var ss = str_s.toString().trim();
-    var oo = old_s.toString().trim();  
-    var nn = new_s.toString().trim();  
-    var ss_lg = ss.length;
-    var oo_lg = oo.length;  
-    var nn_lg = nn.length;  
-    var new_ss = ss ;       
-    var fg =0 ;            
-  for(var i=0 ; i < ss_lg ; i++){
-    var oo_part = ss.substr(i,oo_lg);
-    if(oo_part == oo){
-     var new_ss = new_ss.substr(0, i+fg) + nn  +new_ss.substr(i+oo_lg + fg , ss_lg-1+fg);
-     var fg = fg+(nn_lg-oo_lg);    
-                        }
-                                }
-     return new_ss;
+  var ss = str_s.toString().trim();
+  var oo = old_s.toString().trim();  
+  var nn = new_s.toString().trim();  
+  var ss_lg = ss.length;
+  var oo_lg = oo.length;  
+  var nn_lg = nn.length;  
+  var new_ss = ss ;       
+  var fg =0 ;            
+   for(var i=0 ; i < ss_lg ; i++){
+     var oo_part = ss.substr(i,oo_lg);
+     if(oo_part == oo){
+        var new_ss = new_ss.substr(0, i+fg) + nn  +new_ss.substr(i+oo_lg + fg , ss_lg-1+fg);
+        var fg = fg+(nn_lg-oo_lg);    
+                       }
+                                 }
+    return new_ss;
 }
 
-
 function m_replace_star(str_s ){          
-    var str_1=str_s;
-    var str_new = m_replace(str_1 ,')m',')*m');
-        for(var i=0;i<=9;i++){
-          str_new = m_replace(str_new ,i+'m',i+'*m');
-            }
+  var str_1=str_s;
+  var str_new = m_replace(str_1 ,')m',')*m');
+    for(var i=0;i<=9;i++){
+      str_new = m_replace(str_new ,i+'m',i+'*m');
+          }
    return str_new;
 }
 
 function m_str_sub_ngt_bf_1_bk_math(str){     
-    var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
-     if(str_fst=="-"){
-          var  str_1=str_1.substr(1,str_1.length-1);  }  
-    var  str_1 = str_1.replace(/EQ/g , "e\-");         
-    var  str_1 = str_1.replace(/EP/g , "e\+");           
-    var  str_1 = str_1.replace(/EXP/g , "exp");         
-     if(str_fst=="-"){
-           var  str_1 ="-"+str_1 ;}   
-return str_1;
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
+    if(str_fst=="-"){
+      var  str_1=str_1.substr(1,str_1.length-1);  }  
+  var str_1 = str_1.replace(/EQ/g , "e\-");         
+  var str_1 = str_1.replace(/EP/g , "e\+");           
+  var str_1 = str_1.replace(/EXP/g , "exp");         
+    if(str_fst=="-"){
+      var  str_1 ="-"+str_1 ;}   
+  return str_1;
 }
 
+
 function m_str_sub_ngt_bf_1_math(str){     
-    var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
     if(str_fst=="-"){
-    var str_1="0"+str_1;  }              
-        str_1 = str_1.replace(/\(-/g , "\(0-");     
-        str_1 = str_1.replace(/n-/g , "nQ");         
-        str_1 = str_1.replace(/s-/g , "sQ");         
-        str_1 = str_1.replace(/y-/g , "yQ");        
-        str_1 = str_1.replace(/p-/g , "pQ");         
-        str_1 = str_1.replace(/,-/g , ",Q");         
-        str_1 = str_1.replace(/\^-/g , "\^Q");         
-        str_1 = str_1.replace(/e-/g , "EQ");        
-        str_1 = str_1.replace(/e\+/g , "EP");        
-        str_1 = str_1.replace(/exp/g , "EXP");        
-         str_1 = str_1.replace(/e/g , "EP");         
+      var  str_1="0"+str_1;  }              
+      str_1 = str_1.replace(/\(\-/g , "\(0\-");     
+      str_1 = str_1.replace(/n\-/g , "nQ");         
+      str_1 = str_1.replace(/s\-/g , "sQ");         
+      str_1 = str_1.replace(/y\-/g , "yQ");        
+      str_1 = str_1.replace(/p\-/g , "pQ");         
+      str_1 = str_1.replace(/\,\-/g , "\,Q");         
+      str_1 = str_1.replace(/\^\-/g , "\^Q");         
+      str_1 = str_1.replace(/e\-/g , "EQ");        
+      str_1 = str_1.replace(/e\+/g , "EP");        
+      str_1 = str_1.replace(/exp/g , "EXP");        
+      str_1 = str_1.replace(/e/g , "EP");         
     return str_1;
  }
 
-
-
 function m_str_sub_ngt_bf_1_bk(str){    
-    var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
-     if(str_fst=="-"){
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
+    if(str_fst=="-"){
     var  str_1=str_1.substr(1,str_1.length-1);  }  
-    var  str_1 = str_1.replace(/EQ/g , "e\-");       
-    var  str_1 = str_1.replace(/EP/g , "e\+"); 
-    var  str_1 = str_1.replace(/EXP/g , "exp");
-      if(str_fst=="-"){
+  var str_1 = str_1.replace(/EQ/g , "e\-");       
+  var str_1 = str_1.replace(/EP/g , "e\+"); 
+  var str_1 = str_1.replace(/EXP/g , "exp");
+    if(str_fst=="-"){
     var  str_1 ="-"+str_1 ;}
 return str_1;
- 
 }
 
-
 function m_str_sub_ngt_bf_1(str){     
-    var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
-        str_1 = str_1.replace(/n-/g , "nQ");      
-        str_1 = str_1.replace(/s-/g , "sQ");      
-        str_1 = str_1.replace(/y-/g , "yQ");      
-        str_1 = str_1.replace(/p-/g , "pQ");      
-        str_1 = str_1.replace(/,-/g , ",Q");      
-        str_1 = str_1.replace(/\^-/g , "\^Q"); 
-        str_1 = str_1.replace(/e-/g , "EQ");      
-        str_1 = str_1.replace(/e\+/g , "EP");  
-        str_1 = str_1.replace(/exp/g , "EXP");        
-        str_1 = str_1.replace(/e/g , "EP");    
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
+      str_1 = str_1.replace(/n\-/g , "nQ");      
+      str_1 = str_1.replace(/s\-/g , "sQ");      
+      str_1 = str_1.replace(/y\-/g , "yQ");      
+      str_1 = str_1.replace(/p\-/g , "pQ");      
+      str_1 = str_1.replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.replace(/\^\-/g , "\^Q"); 
+      str_1 = str_1.replace(/e\-/g , "EQ");      
+      str_1 = str_1.replace(/e\+/g , "EP");  
+      str_1 = str_1.replace(/exp/g , "EXP");        
+      str_1 = str_1.replace(/e/g , "EP");    
     return str_1;
  }
 
 function m_str_sub_ngt_bf(str){   
-var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
-            if(str_fst=="-"){
-                   var  str_1="0"+str_1;  }              
-             str_1 = str_1.replace(/n-/g , "nQ");      
-             str_1 = str_1.replace(/s-/g , "sQ");      
-             str_1 = str_1.replace(/y-/g , "yQ");      
-             str_1 = str_1.replace(/p-/g , "pQ");     
-             str_1 = str_1.replace(/,-/g , ",Q");      
-             str_1 = str_1.replace(/\^-/g , "\^Q");      
-             str_1 = str_1.replace(/e-/g , "eQ");      
-             str_1 = str_1.replace(/e\+/g , "e");      
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
+    if(str_fst=="-"){
+       var  str_1="0"+str_1;  }              
+      str_1 = str_1.replace(/n\-/g , "nQ");      
+      str_1 = str_1.replace(/s\-/g , "sQ");      
+      str_1 = str_1.replace(/y\-/g , "yQ");      
+      str_1 = str_1.replace(/p\-/g , "pQ");     
+      str_1 = str_1.replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.replace(/\^\-/g , "\^Q");      
+      str_1 = str_1.replace(/e\-/g , "eQ");      
+      str_1 = str_1.replace(/e\+/g , "e");      
    return str_1;
  }
 
 function m_str_sub_ngt_bf_minus(str){   
-    var str_1 = str.toString().trim();
-    var str_1_lg = str_1.length;
-    var str_fst = str_1.substr(0,1);
-    var str_sec = str_1.substr(1,1);
-             str_1 = str_1.replace(/n-/g , "nQ");      
-             str_1 = str_1.replace(/s-/g , "sQ");      
-             str_1 = str_1.replace(/h-/g , "hQ");      
-             str_1 = str_1.replace(/p-/g , "pQ");      
-             str_1 = str_1.replace(/,-/g , ",Q");      
-             str_1 = str_1.replace(/\^-/g , "\^Q");      
-             str_1 = str_1.replace(/e-/g , "eQ");      
-             str_1 = str_1.replace(/e\+/g , "e");      
+  var str_1 = str.toString().trim();
+  var str_1_lg = str_1.length;
+  var str_fst = str_1.substr(0,1);
+  var str_sec = str_1.substr(1,1);
+      str_1 = str_1.replace(/n\-/g , "nQ");      
+      str_1 = str_1.replace(/s\-/g , "sQ");      
+      str_1 = str_1.replace(/h\-/g , "hQ");      
+      str_1 = str_1.replace(/p\-/g , "pQ");      
+      str_1 = str_1.replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.replace(/\^\-/g , "\^Q");      
+      str_1 = str_1.replace(/e\-/g , "eQ");      
+      str_1 = str_1.replace(/e\+/g , "e");      
     return str_1;
  }
 
-
-
 function m_str_spec_part_bf(str ,spec){           
-   var str_1 = str.toString().trim();
-     var spec_1= spec;
-          str_1 =  m_str_sub_ngt_bf(str_1) ;     
-     var pos = str_1.indexOf(spec_1) ; 
-     var mark_1 =str_1[pos - 1];        
-     var count_1 = 1 ;
-     var count_mark = pos ;
-       if(mark_1 ==")"){
-         for(var i= pos-2;0 <= i  ; i=i-1){
-          var mark_ref = str_1[i];
-           if(mark_ref ==")"){
-              count_1 = count_1 +1 ;}
-           if(mark_ref =="("){
-              count_1 = count_1-1 ;}
-            if(count_1==0){
+  var str_1 = str.toString().trim();
+  var spec_1= spec;
+      str_1 =  m_str_sub_ngt_bf(str_1) ;     
+  var pos = str_1.indexOf(spec_1) ; 
+  var mark_1 =str_1[pos - 1];        
+  var count_1 = 1 ;
+  var count_mark = pos ;
+    if(mark_1 ==")"){
+      for(var i= pos-2;0 <= i  ; i=i-1){
+        var mark_ref = str_1[i];
+        if(mark_ref ==")"){
+          count_1 = count_1 +1 ;}
+        if(mark_ref =="("){
+           count_1 = count_1-1 ;}
+        if(count_1==0){
+          var count_mark = i ;
+          var i=-1;                                     
+                      }
+                      }
+            }
+     if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°") {  
+       var count_mark = pos-1;   
+       for(var i = pos - 2; 0 <= i   ; i=i-1){
+         var mark_ref = str_1[i];
+           if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'){     
               var count_mark = i ;
-                  i=-1;                                     
-                            }
-                             }
-                           }
-          if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°") {  
-             var count_mark = pos-1;   
-           for(var i = pos - 2; 0 <= i   ; i=i-1){
-              var mark_ref = str_1[i];
-          if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'){     
-               var count_mark = i ;
-                                                }
+                                     }
            else{  
-               i=-1 ;                                
-                                  }     
-                                }
-                                  }
-        var str_part_b= str_1.substring(count_mark,pos);
+             var i=-1 ;                                
+                    }     
+                        }
+                         }
+   var str_part_b= str_1.substring(count_mark,pos);
     return str_part_b;
 }
 
 function m_str_spec_part_bf_mn(str ,spec){            
-   var str_1 = str.toString().trim();
-   var spec_1= spec;
-   var str_bf_1_bit ="";    
-   var str_bf_2_bit ="";
-   var ans_1="";
-   var str_1 = str_1.replace(/eQ/g , "eN");
-   var str_1 = str_1.replace(/e\-/g , "eN"); 
-       str_1 =  m_str_sub_ngt_bf(str_1) ;     
-   var pos = str_1.indexOf(spec_1) ; 
-   var mark_1 =str_1[pos - 1];        
-   var count_1 = 1 ;
-   var count_mark = pos ;
-     if(mark_1 ==")"){
-       for(var i= pos-2;0 <= i  ; i=i-1){
-          var mark_ref = str_1[i];
-          if(mark_ref ==")"){
-             count_1 = count_1 +1 ;}
-          if(mark_ref =="("){
-             count_1 = count_1-1 ;}
+  var str_1 = str.toString().trim();
+  var spec_1= spec;
+  var str_bf_1_bit ="";    
+  var str_bf_2_bit ="";
+  var ans_1="";
+  var str_1 = str_1.replace(/eQ/g , "eN");
+  var str_1 = str_1.replace(/e\-/g , "eN"); 
+      str_1 =  m_str_sub_ngt_bf(str_1) ;     
+  var pos = str_1.indexOf(spec_1) ; 
+  var mark_1 =str_1[pos - 1];        
+  var count_1 = 1 ;
+  var count_mark = pos ;
+    if(mark_1 ==")"){
+      for(var i= pos-2;0 <= i  ; i=i-1){
+         var mark_ref = str_1[i];
+           if(mark_ref ==")"){
+              count_1 = count_1 +1 ;}
+           if(mark_ref =="("){
+              count_1 = count_1-1 ;}
            if(count_1==0){
-             var count_mark = i ;
-                     i=-1;                                     
-                         }
-                             }
-                           }
-        if((mark_1 >=0 && mark_1<=9)) {  
-            var count_mark = pos-1;   
-           for(var i = pos - 2; 0 <= i   ; i=i-1){
-              var mark_ref = str_1[i];
-                if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='e'||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='N'){     
-                        var count_mark = i ;
-                                       }
-                  else{  i=-1 ;   } 
-                                            }
-                                 }
-       var str_part_b= str_1.substring(count_mark,pos);
-       var str_part_b = str_part_b.replace(/eN/g , "eQ");    
+              var count_mark = i ;
+              var i=-1;                                     
+                          }
+                                   }
+                          }
+    if((mark_1 >=0 && mark_1<=9)) {  
+      var count_mark = pos-1;   
+      for(var i = pos - 2; 0 <= i   ; i=i-1){
+        var mark_ref = str_1[i];
+        if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='e'||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='N'){     
+          var count_mark = i ;
+                              }
+        else{  
+          var i=-1 ;                                
+              }     
+                 }
+                 }
+  var str_part_b= str_1.substring(count_mark,pos);
+  var str_part_b = str_part_b.replace(/eN/g , "eQ");    
     return str_part_b;
 }
 
@@ -1416,38 +1419,38 @@ function m_str_spec_part_bf_mul(str ,spec){
   var str_1 = str.toString().trim();
   var spec_1= spec;
       str_1 =  m_str_sub_ngt_bf(str_1) ;      
-   var pos = str_1.indexOf(spec_1) ; 
-   var mark_1 =str_1[pos - 1];        
-   var count_1 = 1 ;
-   var count_mark = pos ;
-     if(mark_1 ==")"){
-       for(var i= pos-2;0 <= i  ; i=i-1){
+  var pos = str_1.indexOf(spec_1) ; 
+  var mark_1 =str_1[pos - 1];        
+  var count_1 = 1 ;
+  var count_mark = pos ;
+    if(mark_1 ==")"){
+      for(var i= pos-2;0 <= i  ; i=i-1){
          var mark_ref = str_1[i];
-        if(mark_ref ==")"){
+         if(mark_ref ==")"){
            count_1 = count_1 +1 ;}
-        if(mark_ref =="("){
-            count_1 = count_1-1 ;}
-        if(count_1==0){
+         if(mark_ref =="("){
+           count_1 = count_1-1 ;}
+         if(count_1==0){
            var count_mark = i ;
-                    i=-1;    }                                   
-                    }
+           var i=-1;                                     
+                        }
+                          }
+                         }
+     if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°"|| mark_1=="*"|| mark_1=="/") {  
+       var count_mark = pos-1;   
+       for(var i = pos - 2; 0 <= i   ; i=i-1){
+         var mark_ref = str_1[i];
+         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'|| mark_ref=='*'|| mark_ref=='/'){     
+           var count_mark = i ;
+                            }
+         else{  
+           var i=-1 ;                                
+                 }     
                  }
-        if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°"|| mark_1=="*"|| mark_1=="/") {  
-             var count_mark = pos-1;   
-           for(var i = pos - 2; 0 <= i   ; i=i-1){
-              var mark_ref = str_1[i];
-                  if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'|| mark_ref=='*'|| mark_ref=='/'){     
-                        var count_mark = i ;
-                                                       }
-                   else{  
-                          i=-1 ;                                
-                                             }     
-                                                }
-                                  }
-     var str_part_b= str_1.substring(count_mark,pos);
+                }
+  var str_part_b= str_1.substring(count_mark,pos);
      return str_part_b; 
 }
-
 
 function m_str_spec_part_af(str ,spec){          
   var str_1 = str.toString().trim();
@@ -1455,146 +1458,143 @@ function m_str_spec_part_af(str ,spec){
   var str_a_lg = str_1.length;
   var spec_1= spec;
   var spec_a_lg = spec_1.length;
-   if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
+    if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
   var  str_1= m_str_sub_ngt_bf(str_1);   
   var pos = str_1.indexOf(spec_1) ;  
   var mark_1 =str_1[pos +spec_a_lg];           
   var count_a = 1 ;
   var count_mark=2500;  
     if(mark_1 =="("){
-     for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
-       var mark_ref = str_1[i];
-       if(mark_ref =="("){
-         count_a = count_a +1 ;}
-       if(mark_ref ==")"){
-         count_a = count_a-1 ;}
-       if(count_a==0){
-         var count_mark = i+1 ;
-          i = str_a_lg ;                                     
-                             }
-                                }
+      for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
+        var mark_ref = str_1[i];
+        if(mark_ref =="("){
+          count_a = count_a +1 ;}
+        if(mark_ref ==")"){
+           count_a = count_a-1 ;}
+        if(count_a==0){
+          var count_mark = i+1 ;
+          var i = str_a_lg ;                                     
                         }
-       if(mark_1 >=0 && mark_1<=9) {
-         for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
-           var mark_ref = str_1[i];
-           if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
-                                                     }
-           else{  
-              var count_mark = i ;
-                i= str_a_lg;   }      
-                                 }
+                              }
                            }
-       if(mark_1 =='.') {                                     
-          for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
-            var mark_ref = str_1[i];
-            if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {      
-                                                      }
-            else{  
-              var count_mark = i ;
-                 i= str_a_lg;   }       
-                                         }
-                                  }
+     if(mark_1 >=0 && mark_1<=9) {
+       for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+         var mark_ref = str_1[i];
+         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
+                     }
+         else{  
+           var count_mark = i ;
+           var i= str_a_lg;   }      
+                          }
+                   }
+     if(mark_1 =='.') {                                     
+       for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
+           var mark_ref = str_1[i];
+         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {      
+                                        }
+         else{  
+           var count_mark = i ;
+           var i= str_a_lg;        }       
+                            }
+                         }
       if(mark_1 =='π'||mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
-         if(mark_1 =="-") {
-           for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
-            var mark_ref = str_1[i];
-               if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {      
-                                                       }
-                else{  
-                   var count_mark = i ;
-                   i= str_a_lg;  }       
-                                     }
+        if(mark_1 =="-") {
+          for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
+              var mark_ref = str_1[i];
+              if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {      
+                          }
+              else{  
+                var count_mark = i ;
+                var i= str_a_lg;      }       
+                                    }
                                   }
-           if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
-         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
-    return str_part_b;
- }
-
-
-
-function m_str_spec_part_af_mul(str ,spec){          
-    var str_1 = str.toString().trim();
-     var str_a_lg = str_1.length;
-     var spec_1= spec;
-     var spec_a_lg = spec_1.length;
-     if( spec_1!="π" && spec_1!="°"){ var ans_1=""; return ans_1 ;}   
-     var pos = str_1.indexOf(spec_1) ;  
-     var mark_1 =str_1[pos +spec_a_lg];         
-     var count_a = 1 ;
-     var count_mark=pos+spec_a_lg;  
-        if((mark_1 =="*" || mark_1=="/")) {     　　
-           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){     
-             var mark_ref = str_1[i];
-             if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='＊'|| mark_ref=='/' ) {      
-                                  }
-             else{  
-               var count_mark = i ;    
-               i= str_a_lg;    }      
-                                     }  
-
-                                  } 
-          else{ var ans_1=""; return ans_1 ;}   
-        var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
+     if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
+  var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
      return str_part_b;
 }
 
+function m_str_spec_part_af_mul(str ,spec){          
+  var str_1 = str.toString().trim();
+  var str_a_lg = str_1.length;
+  var spec_1= spec;
+  var spec_a_lg = spec_1.length;
+  if( spec_1!="π" && spec_1!="°"){ var ans_1=""; return ans_1 ;}   
+  var pos = str_1.indexOf(spec_1) ;  
+  var mark_1 =str_1[pos +spec_a_lg];         
+  var count_a = 1 ;
+  var count_mark=pos+spec_a_lg;  
+    if((mark_1 =="*" || mark_1=="/")) {     　　
+      for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){     
+         var mark_ref = str_1[i];
+        if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='＊'|| mark_ref=='/' ) {      
+                                                }
+        else{  
+           var count_mark = i ;    
+           var i= str_a_lg;    }      
+                             }  
+                         } 
+    else{ var ans_1=""; return ans_1 ;}   
+  var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
+     return str_part_b;  
+}
+
 function m_str_spec_part_af_div(str ,spec){          
-    var str_1 = str.toString().trim();
-     var str_0 =str_1 ;                    
-     var str_a_lg = str_1.length;
-     var spec_1= spec;
-     var spec_a_lg = spec_1.length;
-      if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
-         var  str_1= m_str_sub_ngt_bf(str_1);  
-     var pos = str_1.indexOf(spec_1) ;  
-     var mark_1 =str_1[pos +spec_a_lg];           
-     var count_a = 1 ;
-     var count_mark=2500;  
-        if(mark_1 =="("){
-        for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
-            var mark_ref = str_1[i];
-          if(mark_ref =="("){
-             count_a = count_a +1 ;}
-          if(mark_ref ==")"){
-              count_a = count_a-1 ;}
-           if(count_a==0){
-              var count_mark = i+1 ;
-               i = str_a_lg ;                                     
-                           }
+  var str_1 = str.toString().trim();
+  var str_0 =str_1 ;                    
+  var str_a_lg = str_1.length;
+  var spec_1= spec;
+  var spec_a_lg = spec_1.length;
+    if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}   
+  var  str_1= m_str_sub_ngt_bf(str_1);  
+  var pos = str_1.indexOf(spec_1) ;  
+  var mark_1 =str_1[pos +spec_a_lg];           
+  var count_a = 1 ;
+  var count_mark=2500;  
+    if(mark_1 =="("){
+      for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
+        var mark_ref = str_1[i];
+        if(mark_ref =="("){
+          count_a = count_a +1 ;}
+        if(mark_ref ==")"){
+          count_a = count_a-1 ;}
+        if(count_a==0){
+          var count_mark = i+1 ;
+          var i = str_a_lg ;                                     
+                            }
+                          }
+                         }
+    if(mark_1 >=0 && mark_1<=9) {
+       for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+         var mark_ref = str_1[i];
+         if((mark_ref <= 9 && mark_ref >= 0 ) || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref =='°' || mark_ref =='π') {         
+                 }
+          else{  
+               var count_mark = i ;
+               var i= str_a_lg;      }       
+                                   }
+                              }
+    if(mark_1 =='.') {                                     
+       for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
+         var mark_ref = str_1[i];
+          if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref =='°' || mark_ref =='π') {       
                                      }
-                           }
-          if(mark_1 >=0 && mark_1<=9) {
-           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
-             var mark_ref = str_1[i];
-          if((mark_ref <= 9 && mark_ref >= 0 ) || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref =='°' || mark_ref =='π') {         
-                                                       }
           else{  
              var count_mark = i ;
-               i= str_a_lg;   }       
-                                       }
-                                 }
-          if(mark_1 =='.') {                                     
-          for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
-           var mark_ref = str_1[i];
-         if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref =='°' || mark_ref =='π') {       
-                                                   }
-         else{  
-           var count_mark = i ;
-              i= str_a_lg;  }      
-                                                 }
-                                  }
-        if(mark_1 =='π'|| mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
-            if(mark_1 =="-") {
-         for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
-            var mark_ref = str_1[i];
-             if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e'){ ;}
-            else{
-               var count_mark = i ;
-                i= str_a_lg;   }       
-                                                  }
+             var i= str_a_lg;       }      
                                 }
-       if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
-       var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
+                              }
+     if(mark_1 =='π'|| mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
+        if(mark_1 =="-") {
+          for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
+              var mark_ref = str_1[i];
+            if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e')    {  ;  }
+            else{  
+               var count_mark = i ;
+               var i= str_a_lg;     }       
+                                    }
+                                  }
+      if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
+   var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
      return str_part_b;
 }
 
@@ -1609,7 +1609,7 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
      var pos = str_1.indexOf(spec_1) ;  
      if( pos=="-1" || pos==-1){ var ans_1="" ; return ans_1 ;}  
      var mark_1 =str_1[pos +spec_a_lg];           
-     var count_a = 2 ;  
+     var count_a = 2 ;   
      var count_mark=2500;
          if(mark_1 =="("){
            for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){     
@@ -1619,126 +1619,121 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
                  if(mark_ref ==")"){
                      count_a = count_a-1 ;}
                  if(count_a==0){
-                     var count_mark = i+1 ;
+                    var count_mark = i+1 ;
                        i = str_a_lg ;                                     
+                               }
                                  }
-                                                   }
                            }
-         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark); 
-          var pos_1 = str_part_b.indexOf('))') ;
-   return pos_1;
+     var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark); 
+     var pos_1 = str_part_b.indexOf('))') ;
+        return pos_1;
  }
 
-function m_str_spec_part_bf_inv(str ,spec){      
-     var str_1 = str.toString().trim();
-     var spec_1= spec;
-     var str_1 = str_1.replace(/exp/g ,"EXP");    
-     var str_1 = str_1.replace(/e\-/g ,"eQ");     
-     var str_1 = str_1.replace(/e\+/g ,"eP"); 
-     var str_1 =  m_str_sub_ngt_bf_minus(str_1) ;     
-     var pos = str_1.lastIndexOf(spec_1) ; 
-     var mark_1 =str_1[pos - 1];        
-     var count_1 = 1 ;
-     var count_mark = pos ;
-          if(mark_1 ==")"){
-           for(var i= pos-2;0 <= i  ; i=i-1){
-              var mark_ref = str_1[i];
-                 if(mark_ref ==")"){
-                     count_1 = count_1 +1 ;}
-                 if(mark_ref =="("){
-                     count_1 = count_1-1 ;}
-                  if(count_1==0){
-                     var count_mark = i ;
-                       i=-1;                                     
-                                          }
-                                           }
+ function m_str_spec_part_bf_inv(str ,spec){      
+   var str_1 = str.toString().trim();
+   var spec_1= spec;
+   var str_1 = str_1.replace(/exp/g ,"EXP");    
+   var str_1 = str_1.replace(/e\-/g ,"eQ");     
+   var str_1 = str_1.replace(/e\+/g ,"eP"); 
+   var str_1 =  m_str_sub_ngt_bf_minus(str_1) ;     
+   var pos = str_1.lastIndexOf(spec_1) ; 
+   var mark_1 =str_1[pos - 1];        
+   var count_1 = 1 ;
+   var count_mark = pos ;
+     if(mark_1 ==")"){
+       for(var i= pos-2;0 <= i  ; i=i-1){
+         var mark_ref = str_1[i];
+         if(mark_ref ==")"){
+           count_1 = count_1 +1 ;}
+         if(mark_ref =="("){
+           count_1 = count_1-1 ;}
+         if(count_1==0){
+           var count_mark = i ;
+               i=-1;                                     
+                      }
+                         }
                            }
-          if((mark_1 >=0 && mark_1<=9)|| mark_1=="π") {  
-             var count_mark = pos-1;   
-           for(var i = pos - 2; 0 <= i   ; i=i-1){
-              var mark_ref = str_1[i];
-                  if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='e'|| mark_ref=='Q'|| mark_ref=='P'){     
-                        var count_mark = i ;
-                                                       }
-                   else{  
-                           i=-1 ;                                
-                                             }     
-                                                  }
+      if((mark_1 >=0 && mark_1<=9)|| mark_1=="π") {  
+        var count_mark = pos-1;   
+        for(var i = pos - 2; 0 <= i   ; i=i-1){
+          var mark_ref = str_1[i];
+          if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='e'|| mark_ref=='Q'|| mark_ref=='P'){     
+            var count_mark = i ;
                                   }
-         var str_part_b= str_1.substring(count_mark,pos);
-         var str_1 = str_1.replace(/EXP/g ,"exp");     
-         var str_1 = str_1.replace(/eQ/g ,"e-");        
-         var str_1 = str_1.replace(/eP/g ,"e+"); 
+          else{  
+             i=-1 ;                                
+                   }     
+                      }
+                              }
+   var str_part_b= str_1.substring(count_mark,pos);
+   var str_1 = str_1.replace(/EXP/g ,"exp");     
+   var str_1 = str_1.replace(/eQ/g ,"e\-");        
+   var str_1 = str_1.replace(/eP/g ,"e\+"); 
     return str_part_b;
 }
 
 
-function m_str_spec_part_af_inv(str ,spec){          
-     var str_1 = str.toString().trim();
-     var str_a_lg = str_1.length;
-     var spec_1= spec;
-     var spec_a_lg = spec_1.length;
-     var pos = str_1.lastIndexOf(spec_1) ;  
-     var mark_1 =str_1[pos +spec_a_lg];        
-     var count_a = 1 ;
-     var count_mark=2500; 
-     var str_1 = str_1.replace(/exp/g ,"EXP");    
-     var str_1 = str_1.replace(/e\-/g ,"eQ");     
-     var str_1 = str_1.replace(/e\+/g ,"eP");
-         if(mark_1 =="("){
-            for(var i= (pos + spec_a_lg+1) ; i < str_a_lg  ; i++){
-              var mark_ref = str_1[i];
-                 if(mark_ref =="("){
-                     count_a = count_a +1 ;}
-                 if(mark_ref ==")"){
-                     count_a = count_a-1 ;}
-                 if(count_a==0){
-                     var count_mark = i+1 ;
-                       i = str_a_lg ;                                     
-                                 }
-                                                   }
+ function m_str_spec_part_af_inv(str ,spec){          
+   var str_1 = str.toString().trim();
+   var str_a_lg = str_1.length;
+   var spec_1= spec;
+   var spec_a_lg = spec_1.length;
+   var pos = str_1.lastIndexOf(spec_1) ;  
+   var mark_1 =str_1[pos +spec_a_lg];        
+   var count_a = 1 ;
+   var count_mark=2500; 
+   var str_1 = str_1.replace(/exp/g ,"EXP");    
+   var str_1 = str_1.replace(/e\-/g ,"eQ");     
+   var str_1 = str_1.replace(/e\+/g ,"eP");
+     if(mark_1 =="("){
+       for(var i= (pos + spec_a_lg+1) ; i < str_a_lg  ; i++){
+           var mark_ref = str_1[i];
+         if(mark_ref =="("){
+            count_a = count_a +1 ;}
+         if(mark_ref ==")"){
+            count_a = count_a-1 ;}
+         if(count_a==0){
+           var count_mark = i+1 ;
+               i = str_a_lg ;                                     
                            }
-    
-          if(mark_1 >=0 && mark_1<=9) {
-           for(var i = pos + spec_a_lg;  i < str_a_lg  ; i++){
-              var mark_ref = str_1[i];
-                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P' ) {      
-                                                      }
-                   else{  
-                     var count_mark = i ;
-                         i= str_a_lg;                      }       
-                                                    
-                                                  }
+                        }
+                         }
+     if(mark_1 >=0 && mark_1<=9) {
+       for(var i = pos + spec_a_lg;  i < str_a_lg  ; i++){
+          var mark_ref = str_1[i];
+          if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P' ) {      
+                              }
+          else{  
+              var count_mark = i ;
+                  i= str_a_lg;   }       
+                                }
                                   }
-          
-           if(mark_1 =='.') {                                     
-           for(var i = pos + spec_a_lg+1;  i < str_a_lg  ; i++){
-              var mark_ref = str_1[i];
-                  if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P') {      
-                                                     }
-                   else{  
-                     var count_mark = i ;
-                         i= str_a_lg;                      }       
-                                                    
-                                                  }
+      if(mark_1 =='.') {                                     
+        for(var i = pos + spec_a_lg+1;  i < str_a_lg  ; i++){
+           var mark_ref = str_1[i];
+          if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P') {      
+                                                }
+          else{  
+            var count_mark = i ;
+              i= str_a_lg;     }       
+                           }
+                             }
+      if(mark_1 =='π') {  var count_mark = pos+spec_a_lg+1 } ;   
+      if(mark_1 =="-") {
+        for(var i = pos + spec_a_lg+1;  i < str_a_lg  ; i++){
+          var mark_ref = str_1[i];
+          if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P') {      
+                                           }
+          else{  
+               var count_mark = i ;
+                i= str_a_lg;        }     
                                   }
-          if(mark_1 =='π') {  var count_mark = pos+spec_a_lg+1 } ;   
-              if(mark_1 =="-") {
-            for(var i = pos + spec_a_lg+1;  i < str_a_lg  ; i++){
-              var mark_ref = str_1[i];
-                   if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e'|| mark_ref=='P') {      
-                                                      }
-                   else{  
-                     var count_mark = i ;
-                         i= str_a_lg;                      }     
-                                                    
-                                                  }
-                                 }
-           if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;   
-       var str_1 = str_1.replace(/EXP/g ,"exp");               
-       var str_1 = str_1.replace(/eQ/g ,"e-");                 
-       var str_1 = str_1.replace(/eP/g ,"e+"); 
-       var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
+                                }
+      if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;   
+   var str_1 = str_1.replace(/EXP/g ,"exp");               
+   var str_1 = str_1.replace(/eQ/g ,"e\-");                 
+   var str_1 = str_1.replace(/eP/g ,"e\+"); 
+   var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
      return str_part_b;
 }
 
@@ -1756,6 +1751,7 @@ function m_str_spec_part_af_inv(str ,spec){
           if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "(m_n("+1+'))'); }   
      return str_1;
    }
+
 function m_fact_minus(str){          
     var str_1=str;
     var ans_1="";
@@ -1777,12 +1773,12 @@ function m_fact_minus(str){
 
  function m_star(str){                                 
   var str_1 = str;
-  var part_bf = m_str_spec_part_bf(str_1 ,"π");  
-  var part_bf_lg = part_bf.length;
+    var part_bf = m_str_spec_part_bf(str_1 ,"π");  
+    var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-  var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PI ) ; } 
+    var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PIS ) ; }   
    if(part_bf_lg == 0){ 
-   var  str_1 = str_1.replace(part_bf+"π" , part_bf+PI ) ; }     
+    var  str_1 = str_1.replace(part_bf+"π" , part_bf+PIS ) ; }     
       return str_1;
    }
 
@@ -1845,54 +1841,52 @@ function m_star_rem(str,nub){
      return str_new;
    }
 
-
-
-function m_star_deg(str){                                
+function m_star_deg(str){                                 
   var str_1 = str;
   var part_bf = m_str_spec_part_bf(str_1 ,"°");  
-      part_bf = part_bf.replace("Q","\-");    
+    part_bf = part_bf.replace("Q","\-");    
   var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-     var str_1 = str_1.replace(part_bf+"°" , part_bf+'\*'+DEG ) ; }
+      var str_1 = str_1.replace(part_bf+"°" , part_bf+'\*'+DEG ) ; }
     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+DEG ) ; }  
   return str_1;
    }
 
 function m_str_spec_part_af_minus(str ,spec){         
-   var str_1 = str.toString().trim();
-   var str_0 =str_1 ;                    
-   var str_a_lg = str_1.length;
-   var spec_1= spec;                      
-   var spec_a_lg = spec_1.length;
-     if( spec_1=="π" || spec_1=="°"){ var ans_1=str_1 ; return ans_1 ;}   
-       var  str_1= m_str_sub_ngt_bf_minus(str_1);   
-       var nn_end = m_str_spc_count(str_1,spec_1);
-   var n = 0;
-   var nn_end = 0;
-   var nn_end = m_str_spc_count(str_1,spec_1);   
-     for(var n=0; n < nn_end ;n++){            
-     var str_a_lg = str_1.length;
-     var spec_1= spec;                      
-     var spec_a_lg = spec_1.length;
-     var pos =0;   
-     var pos = str_1.indexOf(spec_1) ; 
-     var mark_1 ="";   
-     var mark_1 =str_1[pos +spec_a_lg];
-     var mark_2 ="";
-     var mark_2 =str_1[pos +spec_a_lg+1];  
-     var count_a = 1 ;
-     var count_mark=2500; 
-         if(mark_1 =="("){        
-            var nub_a=0;
-            var nub_j=0; 
-            var nub_t =0;
-               for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
-                   var mark_ref = str_1[i];
-                   if( mark_ref=='(' ) {                       
-                      var nub_a=nub_a+1;}
-                   if( mark_ref==')' ) {                        
-                      var nub_j=nub_j+1;}
-                      var nub_t = nub_j - nub_a ; 
+  var str_1 = str.toString().trim();
+  var str_0 =str_1 ;                    
+  var str_a_lg = str_1.length;
+  var spec_1= spec;                      
+  var spec_a_lg = spec_1.length;
+    if( spec_1=="π" || spec_1=="°"){ var ans_1=str_1 ; return ans_1 ;}   
+  var str_1= m_str_sub_ngt_bf_minus(str_1);   
+  var nn_end = m_str_spc_count(str_1,spec_1);
+  var n = 0;
+  var nn_end = 0;
+  var nn_end = m_str_spc_count(str_1,spec_1);   
+    for(var n=0; n < nn_end ;n++){            
+      var str_a_lg = str_1.length;
+      var spec_1= spec;                      
+      var spec_a_lg = spec_1.length;
+      var pos =0;   
+      var pos = str_1.indexOf(spec_1) ; 
+      var mark_1 ="";   
+      var mark_1 =str_1[pos +spec_a_lg];
+      var mark_2 ="";
+      var mark_2 =str_1[pos +spec_a_lg+1];  
+      var count_a = 1 ;
+      var count_mark=2500; 
+        if(mark_1 =="("){        
+          var nub_a=0;
+          var nub_j=0; 
+          var nub_t =0;
+            for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+               var mark_ref = str_1[i];
+               if( mark_ref=='(' ) {                       
+                  var nub_a=nub_a+1;}
+               if( mark_ref==')' ) {                        
+                  var nub_j=nub_j+1;}
+                  var nub_t = nub_j - nub_a ; 
                     if( nub_t ==0 && nub_a >= 1){        
                      var count_mark = i ;
                          i= str_a_lg+1;             }    
@@ -1922,10 +1916,8 @@ function m_str_spec_part_af_minus(str ,spec){
                    else{  
                      var count_mark = i ;
                          i= str_a_lg;                      }      
-                                                    
-                                                  }
+                                                 }
                                   }
-         
            if(mark_1 =='.') {                                     
            for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
               var mark_ref = str_1[i];
@@ -1934,8 +1926,7 @@ function m_str_spec_part_af_minus(str ,spec){
                    else{  
                      var count_mark = i ;
                          i= str_a_lg;                      }       
-                                                    
-                                                  }
+                                                                }
                                   }
           if(mark_1 =='π'|| mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
          var str_part_fst= str_1.substring(0 ,pos+spec_a_lg);              
@@ -1964,8 +1955,8 @@ function m_str_spec_part_af_minus(str ,spec){
             var str_3 = str_2.replace(/TTT/g ,spec_1);
             var str_3 = str_3.replace(/exp/g ,"EXP");
             var str_3 = str_3.replace(/e\-/g ,"EN");     
-             var str_3 = str_3.replace(/e/g ,"e+");    
-             var str_3 = str_3.replace(/EN/g ,"e-"); 
+             var str_3 = str_3.replace(/e/g ,"e\+");    
+             var str_3 = str_3.replace(/EN/g ,"e\-"); 
              var str_3 = str_3.replace(/EXP/g ,"exp");
              var str_1 = str_3 ;    
           return str_3 ;
@@ -2066,12 +2057,14 @@ function m_fun_aft(str,spec1,spec2){
    var part_aft =  m_str_spec_part_af(str_1 ,spec_1);
    var part_aft_lg = part_aft.length;
       if(part_aft_lg > 0 ){
-         str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");            
+         str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");             
                         }
      if(part_aft_lg == 0 && spec2 =="eee" ){  str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +"("+1+')'+")" );  }   
       if(part_aft_lg == 0 && spec2 !="eee" ){  str_1 = "error,  not data" ; }
    return str_1;
 }
+
+
 
 function m_str_spec_part_af_e(str ,spec){     
      var str_1 = str.toString().trim();
@@ -2080,39 +2073,39 @@ function m_str_spec_part_af_e(str ,spec){
      var spec_1= spec;
      var spec_a_lg = spec_1.length;
       if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}  
-     var nub_ep = m_str_spc_count(str_1,"exp");    
-      if(nub_ep !=0){
-      var str_1 = str_1.replace(/exp/g , "EXP");        
-                    }   
+     var nub_ep = m_str_spc_count(str_1,"exp");   
+        if(nub_ep !=0){
+           var str_1 = str_1.replace(/exp/g , "EXP");        
+                       }   
      var pos = str_1.indexOf(spec_1) ;  
      var mark_1 =str_1[pos +spec_a_lg];          
      var count_a = 1 ;
      var count_mark=2500;  
-      if(mark_1 =="("){
-       for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){    
-         var mark_ref = str_1[i];
-        if(mark_ref =="("){
-          count_a = count_a +1 ;}
-        if(mark_ref ==")"){
-          count_a = count_a-1 ;}
-        if(count_a==0){
-           var count_mark = i+1 ;
-           i = str_a_lg ;                                     
-                     }
-                         }
+        if(mark_1 =="("){
+           for(var i= (pos + spec_a_lg+1) ; i < str_a_lg+1  ; i++){    
+              var mark_ref = str_1[i];
+                 if(mark_ref =="("){
+                     count_a = count_a +1 ;}
+                 if(mark_ref ==")"){
+                     count_a = count_a-1 ;}
+                  if(count_a==0){
+                     var count_mark = i+1 ;
+                       i = str_a_lg ;                                     
+                                 }
+                                                   }
                            }
         if(mark_1 >=0 && mark_1<=9) {
-         for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
-           var mark_ref = str_1[i];
-        if((mark_ref <= 9 && mark_ref >= 0 ) || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='P'|| mark_ref=='e' ) {      
-                    }
-        else{  
-           var count_mark = i ;
-           i= str_a_lg;  }       
-                          }
-                       }
-       var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
-       if(nub_ep !=0){
+           for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
+              var mark_ref = str_1[i];
+                 if((mark_ref <= 9 && mark_ref >= 0 ) || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='P'|| mark_ref=='e' ) {      
+                                                       }
+                   else{  
+                     var count_mark = i ;
+                         i= str_a_lg;                      }       
+                                        }
+                                  }
+         var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
+            if(nub_ep !=0){
            var str_1 = str_1.replace(/EXP/g , "exp");      
                        }  
        return str_part_b;
@@ -2135,19 +2128,20 @@ function m_str_spec_part_bf_e(str ,spec){
             var count_mark = pos-1;   
           for(var i = pos - 2; 0 <= i   ; i=i-1){
               var mark_ref = str_1[i];
-           if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='.'|| mark_ref=='Q' || mark_ref=='P'){      
-              var count_mark = i ;
-                     }
-          else{  
-              i=-1 ; }                                
-                    }
-                             }
-    var str_part_b= str_1.substring(count_mark,pos);
-        if(nub_ep !=0){
-         var str_1 = str_1.replace(/EXP/g , "exp");         
+                   if((mark_ref <= 9 && mark_ref >= 0 )|| mark_ref=='.'|| mark_ref=='Q' || mark_ref=='P'){      
+                        var count_mark = i ;
+                                                       }
+                   else{  
+                          i=-1 ;            }     
+                                                  }
+                                  }
+         var str_part_b= str_1.substring(count_mark,pos);
+           if(nub_ep !=0){
+           var str_1 = str_1.replace(/EXP/g , "exp");         
                        } 
    return str_part_b;
 }
+
 
 
 function m_e_bf_aft(str,spec1,spec2){                 
@@ -2226,35 +2220,35 @@ function m_e_bf_aft_math(str,spec1,spec2){
     }
     else{part_bf_1= part_bf;}
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
-     var spec_tt = -1;
-     var spec_tt_idx =-1;
-     var spec_tt_bf ="";
-     var spec_tt_af ="";
-     var spec_tt = part_bf_1 +spec_1+part_aft_1 ;  
-     var spec_tt_idx =  m_str_spc_index(str_1,spec_tt);                
-    if(spec_tt_idx ==0){                                    
-      var spec_tt_bf = "";}                           
-    else{ var spec_tt_bf = str_1.substr(spec_tt_idx-1,1);}             
-  var spec_tt_af = str_1.substr(spec_tt_idx+spec_tt.length,1);           
-   if(spec_tt_bf =="(" && spec_tt_af ==")"){                                  
-      str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; }   
-    else if(spec_tt_bf =="" && spec_tt_af ==""){            
-      str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; 
-      str_1 =  str_1+ "+"+"0";                   }                  
-     else{  str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
+            var spec_tt = -1;
+            var spec_tt_idx =-1;
+            var spec_tt_bf ="";
+            var spec_tt_af ="";
+            var spec_tt = part_bf_1 +spec_1+part_aft_1 ;  
+            var spec_tt_idx =  m_str_spc_index(str_1,spec_tt);                
+             if(spec_tt_idx ==0){                                    
+               var spec_tt_bf = "";}                           
+             else{ var spec_tt_bf = str_1.substr(spec_tt_idx-1,1);}             
+            var spec_tt_af = str_1.substr(spec_tt_idx+spec_tt.length,1);           
+            if(spec_tt_bf =="(" && spec_tt_af ==")"){                                  
+             str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; }   
+            else if(spec_tt_bf =="" && spec_tt_af ==""){            
+              str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; 
+                    str_1 =  str_1+ "+"+"0";                   }                  
+           else{  str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
                                                       }        
-   if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
-     var nub_point_bf=0;  
-     var nub_point_af=0;  
-     var nub_e_bf=0;
-     var nub_e_af=0;   
-     var nub_point_bf= m_str_char(part_bf_1,".") ;  
-     var nub_e_bf= m_str_char(part_bf_1,"e") ;      
-     var nub_point_af= m_str_char(part_aft_1,".") ;  
-     var nub_e_af= m_str_char(part_aft_1,"e") ;      
-    if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
-       var ans_1 = message_1(30);
-                return  ans_1  }
+       if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
+          var nub_point_bf=0;  
+          var nub_point_af=0;  
+          var nub_e_bf=0;
+          var nub_e_af=0;   
+          var nub_point_bf= m_str_char(part_bf_1,".") ;  
+          var nub_e_bf= m_str_char(part_bf_1,"e") ;      
+          var nub_point_af= m_str_char(part_aft_1,".") ;  
+          var nub_e_af= m_str_char(part_aft_1,"e") ;      
+          if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
+             var ans_1 = message_1(30);
+                           return  ans_1  }
      return str_1;
 }
 
@@ -2272,8 +2266,8 @@ function m_e_bf_aft_many_math(str,spec1,spec2){
                    }
           var  str_1 =  str_1.replace(/TT/g , spec_1 )  ;  
    return  str_1;
-}
 
+}
 function m_e_p_pow(bf,af){         
    var  bf_1= bf.toString().trim();
    var  bf_1= m_mtx_trim(bf_1) ;         
@@ -2298,6 +2292,7 @@ function m_e_p_pow(bf,af){
     return  ans_2;
 }
 
+
 function m_e_n_pow(bf,af){        
    var  bf_1= bf.toString().trim();
    var  bf_1= m_mtx_trim(bf_1) ;         
@@ -2305,23 +2300,24 @@ function m_e_n_pow(bf,af){
    var  af_1= m_mtx_trim(af_1) ;         
    var ans_1 ="";
    var ans_2 ="";
-   var nub_point=0;  
-   var nub_point_bf= m_str_char(bf_1,".") ;  
-   var nub_e_bf= m_str_char(bf_1,"e") ;      
-   var nub_point_af= m_str_char(af_1,".") ;  
-   var nub_e_af= m_str_char(af_1,"e") ;      
-    if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
-       var ans_1 = message_1(30);
-              return  ans_1  }
-   var af_1="-"+af_1 ; 
-     if(nub_point_af==1){
-       var ans_1 =m_pow(10,af_1); 
-       var ans_2 =m_mtx_real_mul(bf_1, ans_1); 
-       var  ans_2 =m_mtx_str_to_e_ne(ans_2) ;            
+         var nub_point=0;  
+          var nub_point_bf= m_str_char(bf_1,".") ;  
+          var nub_e_bf= m_str_char(bf_1,"e") ;      
+          var nub_point_af= m_str_char(af_1,".") ;  
+          var nub_e_af= m_str_char(af_1,"e") ;      
+         if( nub_point_bf >1 ||  nub_point_af >1 || nub_e_bf >=1 || nub_e_af >=1){
+             var ans_1 = message_1(30);
+                          return  ans_1  }
+           var af_1="-"+af_1 ; 
+      if(nub_point_af==1){
+         var ans_1 =m_pow(10,af_1); 
+         var ans_2 =m_mtx_real_mul(bf_1, ans_1); 
+         var  ans_2 =m_mtx_str_to_e_ne(ans_2) ;            
                        }
      else{ var ans_2 = bf_1+"e-"+af_1; }     
     return  ans_2;
 } 
+
 
 function m_hat_bf_aft(str,spec1,spec2){                   
    var str_1=str;                                              
@@ -2415,7 +2411,6 @@ function m_hat_bf_aft_inv(str,spec1,spec2){
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
         str_1 = str_1.replace(part_bf+"T"+part_aft , "("+part_bf_1 +","+part_aft_1+")" ) ;  }  
       if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
-
      return str_1;
 }
 
@@ -2432,7 +2427,6 @@ function m_hat_bf_aft_inv(str,spec1,spec2){
                  i= i+ spec_1_lg -1 ;}  
                                 }
      return count_1;
-
    }
 
 
@@ -2455,51 +2449,49 @@ function m_str_spc_index(str,spec){
 
 function m_str_spc_index_m(str,spec){            
   var str_1 = str;
-   var spec_1 = spec;
-   var str_1_lg = str_1.length;
-   var spec_1_lg = spec_1.length;
-   var nub_count =  m_str_spc_count(str_1,spec_1);            
-   var A=m_new_mtx(nub_count,2); 
-   var k=0 ;   
-     for(var i=0;i<(str_1_lg-spec_1_lg+1);i++){
-       var str_ref= str_1.substr(i,spec_1_lg) ;
-            if(str_ref == spec_1){
-                A[k][0]=i;
-                A[k][1]= spec_1;
-                k=k+1;                
-                                 }  
-                                }
+  var spec_1 = spec;
+  var str_1_lg = str_1.length;
+  var spec_1_lg = spec_1.length;
+  var nub_count =  m_str_spc_count(str_1,spec_1);            
+  var A=m_new_mtx(nub_count,2); 
+  var k=0 ;   
+   for(var i=0;i<(str_1_lg-spec_1_lg+1);i++){
+    var str_ref= str_1.substr(i,spec_1_lg) ;
+     if(str_ref == spec_1){
+      A[k][0]=i;
+      A[k][1]= spec_1;
+      k=k+1;                
+                         }  
+                    }
      return A;
    }
 
-
 function m_str_spc_index_m_2(str,spec_1,spec_2){            
-   var str_a = str;
-   var spec_a = spec_1;
-   var spec_b = spec_2;
-   var str_a_lg = str_a.length;
-   var spec_a_lg = spec_a.length;
-   var spec_b_lg = spec_b.length;
-   var nub_count_a =  m_str_spc_count(str_a,spec_a);            
-   var nub_count_b =  m_str_spc_count(str_a,spec_b);            
-   var A=m_new_mtx((nub_count_a+nub_count_b),2); 
-   var k=0 ;   
-   var m=0 ;   
-     for(var i=0;i < str_a_lg;i++){
-       var str_ref_a= str_a.substr(i,spec_a_lg) ;
-            if(str_ref_a == spec_a){
-                A[k][0]=i;
-                A[k][1]= spec_a;
-                k=k+1;                
-                                 }  
-         var str_ref_b= str_a.substr(i,spec_b_lg) ;
-            if(str_ref_b == spec_b){
-                A[k][0]=i;
-                A[k][1]= spec_b;
-                k=k+1;               
-                                  }     
-                                }
-  
+  var str_a = str;
+  var spec_a = spec_1;
+  var spec_b = spec_2;
+  var str_a_lg = str_a.length;
+  var spec_a_lg = spec_a.length;
+  var spec_b_lg = spec_b.length;
+  var nub_count_a =  m_str_spc_count(str_a,spec_a);            
+  var nub_count_b =  m_str_spc_count(str_a,spec_b);            
+  var A=m_new_mtx((nub_count_a+nub_count_b),2); 
+  var k=0 ;   
+  var m=0 ;   
+    for(var i=0;i < str_a_lg;i++){
+      var str_ref_a= str_a.substr(i,spec_a_lg) ;
+        if(str_ref_a == spec_a){
+          A[k][0]=i;
+          A[k][1]= spec_a;
+          k=k+1;                
+            }  
+      var str_ref_b= str_a.substr(i,spec_b_lg) ;
+        if(str_ref_b == spec_b){
+          A[k][0]=i;
+          A[k][1]= spec_b;
+          k=k+1;               
+                             }     
+                            }
      return A;
    }
 
@@ -2534,9 +2526,7 @@ function m_str_spc_index_m_2_sp(str,spec_1,spec_2){
                 k=k+1;                
                                  }     
                               }
-   
-     return A;
-
+   return A;
    }
 
 
@@ -2572,36 +2562,31 @@ function m_str_spc_index_m_2_st(str,spec_1,spec_2){
    }
 
 
-
-
-
-
 function m_str_spc_inter(str,spec_1,spec_2){            
-   var str_1 = str;
-   var spec_a = spec_1;
-   var spe2_2 = spec_2;
-   var str_1_lg = str_1.length;
-   var index_1 = 0; 
-   var index_2 = 0; 
-       index_1 = m_str_spc_index(str,spec_a);
-       index_2 = m_str_spc_index(str,spe2_2);
-   var new_str =str_1.substring(index_1,index_2+1);   
-       return new_str;
+  var str_1 = str;
+  var spec_a = spec_1;
+  var spe2_2 = spec_2;
+  var str_1_lg = str_1.length;
+  var index_1 = 0; 
+  var index_2 = 0; 
+      index_1 = m_str_spc_index(str,spec_a);
+      index_2 = m_str_spc_index(str,spe2_2);
+  var new_str =str_1.substring(index_1,index_2+1);   
+    return new_str;
    }
 
 
-
 function m_str_spc_inter_2word(str,spec_1,spec_2){            
-   var str_1 = str;
-   var spec_a = spec_1;
-   var spe2_2 = spec_2;
-   var str_1_lg = str_1.length;
-   var index_1 = 0; 
-   var index_2 = 0; 
-       index_1 = m_str_spc_index(str,spec_a);
-       index_2 = m_str_spc_index(str,spe2_2);
-   var new_str =str_1.substring(index_1,index_2+2);   
-       return new_str;
+  var str_1 = str;
+  var spec_a = spec_1;
+  var spe2_2 = spec_2;
+  var str_1_lg = str_1.length;
+  var index_1 = 0; 
+  var index_2 = 0; 
+      index_1 = m_str_spc_index(str,spec_a);
+      index_2 = m_str_spc_index(str,spe2_2);
+  var new_str =str_1.substring(index_1,index_2+2);   
+    return new_str;
    }
 
 
@@ -2619,282 +2604,258 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
 
    }
 
-
-
-function m_str_spc_end(str,spec){            
+ function m_str_spc_end(str,spec){            
    var str_1 = str;
    var spec_1 = spec;
    var str_1_lg = str_1.length;
    var spec_1_lg = spec_1.length;
    var str_ref="";
      for(var i=(str_1_lg-spec_1_lg);i<str_1_lg;i=(i+spec_1_lg)){
-      var str_ref= str_1.substr(i,spec_1_lg) ;
-            if(str_ref == spec_1){
-               return 1;         
+       var str_ref= str_1.substr(i,spec_1_lg) ;
+       if(str_ref == spec_1){
+          return 1;         
                 }  
-           else{ 
-                 return 0 ;}     
-                               }
-    
-   }
+        else{ 
+          return 0 ;}     
+                  }
+     }
 
 
   function m_fact_many(str){                         
-      var str_1 = str;
-      var nub_1 = m_str_spc_count(str_1,'!');   
-          for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_fact(str_1);   
+    var str_1 = str;
+    var nub_1 = m_str_spc_count(str_1,'!');   
+      for(var i=0; i< nub_1 ; i++){
+        str_1 =  m_fact(str_1);   
              }
       return  str_1;
   }
 
-function m_fact_many_minus(str){                         
-      var str_1 = str;
-      var nub_1 = m_str_spc_count(str_1,'!');   
-          for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_fact_minus(str_1);    
+ function m_fact_many_minus(str){                         
+   var str_1 = str;
+   var nub_1 = m_str_spc_count(str_1,'!');   
+     for(var i=0; i< nub_1 ; i++){
+       str_1 =  m_fact_minus(str_1);    
              }
-      str_1 = str_1.replace( /T/g, "!") ;  
+       str_1 = str_1.replace( /T/g, "!") ;  
       return  str_1;
   }
 
  function m_star_many(str){                                 
    var str_1 = str;
-    var nub_1 = m_str_spc_count(str_1,"π");   
-    for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_star(str_1);   
+   var nub_1 = m_str_spc_count(str_1,"π");   
+     for(var i=0; i< nub_1 ; i++){
+       str_1 =  m_star(str_1);   
                }
-      str_1 = str_1.replace( /pi/g, "π") ;  
+       str_1 = str_1.replace( /pi/g, "π") ;  
      return  str_1;  
   }
 
-function m_star_rem_many(str,nub){                                 
+ function m_star_rem_many(str,nub){                                 
    var str_1 = str;
-    var nubb = nub;
-    var nub_1 = m_str_spc_count(str_1,"π");   
-    var  str_2 ="" ; 
-    for(var i=0; i< nub_1 ; i++){
-        var str_2 =  m_star_rem(str_1 ,nubb);   
-         var str_1 = str_2 ;  
+   var nubb = nub;
+   var nub_1 = m_str_spc_count(str_1,"π");   
+   var  str_2 ="" ; 
+     for(var i=0; i< nub_1 ; i++){
+       var str_2 =  m_star_rem(str_1 ,nubb);   
+       var str_1 = str_2 ;  
                }
-            str_1 = str_1.toString().replace( /P/g, "π") ;  
-     return  str_1;
+      str_1 = str_1.toString().replace( /P/g, "π") ;  
+        return  str_1;
   }
 
-
-
-function m_lj_str(str){   
-     var str_1 = str;
-     var nub_l = m_str_spc_count(str_1,"(");   
-     var nub_j = m_str_spc_count(str_1,")");    
-      if( nub_l != nub_j){ var ans_1="error" ; return ans_1 ;}
-      if( nub_l == 0){ var ans_1=str ; return ans_1 ;}
-     var str_new ="";  
+ function m_lj_str(str){   
+   var str_1 = str;
+   var nub_l = m_str_spc_count(str_1,"(");   
+   var nub_j = m_str_spc_count(str_1,")");    
+     if( nub_l != nub_j){ var ans_1="error" ; return ans_1 ;}
+     if( nub_l == 0){ var ans_1=str ; return ans_1 ;}
+   var str_new ="";  
      if(nub_l > 0 ){
-      var str_1_lg=str_1.length;
-      var l_index = str_1.lastIndexOf("(");  
-      var str_1_af = str_1.substr(l_index+1,str_1_lg-l_index-1);  
-      var j_index = str_1_af.indexOf(")");  
-      var str_1_m = str_1_af.substr(0,j_index);  
-      var str_1= str_1_m;
+       var str_1_lg=str_1.length;
+       var l_index = str_1.lastIndexOf("(");  
+       var str_1_af = str_1.substr(l_index+1,str_1_lg-l_index-1);  
+       var j_index = str_1_af.indexOf(")");  
+       var str_1_m = str_1_af.substr(0,j_index);  
+       var str_1= str_1_m;
         }
      return  str_1;
 }
 
-
  function m_star_deg_many(str){                                
- var str_1 = str;
-    var nub_1 = m_str_spc_count(str_1,"°");   
-      for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_star_deg(str_1);   
-             }
-    str_1 = str_1.replace( /deg/g, "°") ;  
-      return  str_1;
+   var str_1 = str;
+   var nub_1 = m_str_spc_count(str_1,"°");   
+     for(var i=0; i< nub_1 ; i++){
+       str_1 =  m_star_deg(str_1);   
+           }
+       str_1 = str_1.replace( /deg/g, "°") ;  
+     return  str_1;
  }
 
-
 function m_fun_aft_many(str,spec1,spec2){                     
-   var str_1=str;
-   var spec_1=spec1;
-   var spec_2=spec2;
-   var nub_1 = m_str_spc_count(str_1,spec_1);   
-   for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_fun_aft(str_1,spec_1,spec_2);     
-               }
-       return  str_1;
+  var str_1=str;
+  var spec_1=spec1;
+  var spec_2=spec2;
+  var nub_1 = m_str_spc_count(str_1,spec_1);   
+    for(var i=0; i< nub_1 ; i++){
+      str_1 =  m_fun_aft(str_1,spec_1,spec_2);     
+             }
+     return  str_1;
 }
-
 
 
 function m_hat_bf_aft_many(str,spec1,spec2){                   
-   var str_1=str;
-   var spec_1=spec1;
-   var spec_2=spec2;
-   var nub_1 = m_str_spc_count(str_1,spec_1);   
-   for(var i=0; i< nub_1 ; i++){
-            str_1 =  m_hat_bf_aft(str_1,spec_1,spec_2);     
-                   }
+  var str_1=str;
+  var spec_1=spec1;
+  var spec_2=spec2;
+  var nub_1 = m_str_spc_count(str_1,spec_1);   
+    for(var i=0; i< nub_1 ; i++){
+      str_1 =  m_hat_bf_aft(str_1,spec_1,spec_2);     
+              }
    return  str_1;
 }
 
-
 function m_hat_bf_aft_many_inv(str,spec1,spec2){        
-   var str_1=str.toString().trim();
-   var spec_1=spec1;
-   var spec_2=spec2;
-   var data_fst = str_1.substr(0,1);
-   var nub_1 = m_str_spc_count(str_1,spec_1);   
-       for(var i = nub_1; i>0 ; i--){
-            str_1 =  m_hat_bf_aft_inv(str_1,spec_1,spec_2);     
-                }
-         str_1 = str_1.replace( /\,/g, "\^") ;  
-         str_1 = str_1.replace( /T/g, "\^") ;
+  var str_1=str.toString().trim();
+  var spec_1=spec1;
+  var spec_2=spec2;
+  var data_fst = str_1.substr(0,1);
+  var nub_1 = m_str_spc_count(str_1,spec_1);   
+    for(var i = nub_1; i>0 ; i--){
+      str_1 =  m_hat_bf_aft_inv(str_1,spec_1,spec_2);     
+             }
+      str_1 = str_1.replace( /\,/g, "\^") ;  
+      str_1 = str_1.replace( /T/g, "\^") ;
   return  str_1;
-    
 }
 
 function m_hat_bf_aft_many_inv_minus(str,spec1,spec2){        
-   var str_1=str.toString().trim();
-   var spec_1=spec1;
-   var spec_2=spec2;
-   var data_fst = str_1.substr(0,1);
-   var nub_1 = m_str_spc_count(str_1,spec_1);   
-     for(var i = nub_1; i>0 ; i--){
-            str_1 =  m_hat_bf_aft_inv_minus(str_1,spec_1,spec_2);    
-                   }
-           str_1 = str_1.replace( /\,/g, "\^") ;  
-           str_1 = str_1.replace( /T/g, "\^") ;
+  var str_1=str.toString().trim();
+  var spec_1=spec1;
+  var spec_2=spec2;
+  var data_fst = str_1.substr(0,1);
+  var nub_1 = m_str_spc_count(str_1,spec_1);   
+    for(var i = nub_1; i>0 ; i--){
+      str_1 =  m_hat_bf_aft_inv_minus(str_1,spec_1,spec_2);    
+                 }
+      str_1 = str_1.replace( /\,/g, "\^") ;  
+      str_1 = str_1.replace( /T/g, "\^") ;
    return  str_1;
-    
 }
 
 function m_str_b_sec(str,spec){     
-   var str_1 = str;
-   var spec_1 = spec;
-   var index_a= m_str_spc_index(str_1,spec_1);           
-   var str_b_part=str_1.substr(0 ,index_a);
+  var str_1 = str;
+  var spec_1 = spec;
+  var index_a= m_str_spc_index(str_1,spec_1);           
+  var str_b_part=str_1.substr(0 ,index_a);
    return  str_b_part;
 }
 
-
-
 function m_str_math_replacec(this_it){         
-       var this_it_a = this_it;
-           this_it_a = this_it_a.toLowerCase(); 
-           this_it_a = this_it_a.replace(/q/g , "Q");
-           this_it_a = m_fun_aft_many(this_it_a ,' ','');
-       var this_it_a =  m_str_sub_ngt_bf_1_math(this_it_a) ; 
-       var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EPQ",""); 
-       var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EQ","");          
-       var this_it_a =  m_str_sub_ngt_bf_1_bk_math(this_it_a) ;  
-           this_it_a = this_it_a.replace(/e-/g , "eQ");      
-           this_it_a = this_it_a.replace(/e\+/g , "e");  
-           this_it_a = m_fact_many(this_it_a); 
-           this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
-           this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
-           this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
-           this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
-           this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
-           this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'sin','zzz');   
-           this_it_a = m_fun_aft_many(this_it_a ,'acosh','ayh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'acos','ayy');   
-           this_it_a = m_fun_aft_many(this_it_a ,'cosh','yyh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'cos','yyy');   
-           this_it_a = m_fun_aft_many(this_it_a ,'atanh','axh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'atan','axx');   
-           this_it_a = m_fun_aft_many(this_it_a ,'tanh','xxh');   
-           this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx');  
-           this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');  
-           this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn'); 
-           this_it_a = m_fun_aft_many(this_it_a ,'log','ggg'); 
-        
-           this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
-           this_it_a = this_it_a.replace(/azz/g , "m_asin");     
-           this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
-           this_it_a = this_it_a.replace(/zzz/g , "m_sin");                
-           this_it_a = this_it_a.replace(/ayh/g , "m_acosh");     
-           this_it_a = this_it_a.replace(/ayy/g , "m_acos");     
-           this_it_a = this_it_a.replace(/yyh/g , "m_cosh");     
-           this_it_a = this_it_a.replace(/yyy/g , "m_cos");     
-           this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
-           this_it_a = this_it_a.replace(/axx/g , "m_atan");     
-           this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
-           this_it_a = this_it_a.replace(/xxx/g , "m_tan");
-  
-           this_it_a = this_it_a.replace(/eee/g , "m_exp");   
-           this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
-           this_it_a = this_it_a.replace(/ggg/g , "m_log");  
-           this_it_a = m_hat_bf_aft_many(this_it_a ,'/','DDD');           
-           this_it_a = this_it_a.replace(/DDD/g ,'m_mtx_real_div');    
-           this_it_a = this_it_a.replace(/\/1°/g , "\/("+DEG+")");
-           this_it_a = this_it_a.replace(/\/°/g , "\/("+DEG+")");
-           this_it_a =  m_star_deg_many(this_it_a);           
-           this_it_a = this_it_a.replace(/°/g , "("+DEG+")");
-           this_it_a = m_replace_star(this_it_a) ;
-           this_it_a = m_star_many(this_it_a); 
-           this_it_a = this_it_a.replace(/atanh\(1\-/g , "artanhs\(0\-");     
-           this_it_a = this_it_a.replace(/atanh\(0\-1\+/g , "artanha\(");  
-
-return  this_it_a;
+  var this_it_a = this_it;
+      this_it_a = this_it_a.toLowerCase(); 
+      this_it_a = this_it_a.replace(/q/g , "Q");
+      this_it_a = m_fun_aft_many(this_it_a ,' ','');
+  var this_it_a =  m_str_sub_ngt_bf_1_math(this_it_a) ; 
+  var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EPQ",""); 
+  var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EQ","");          
+  var this_it_a =  m_str_sub_ngt_bf_1_bk_math(this_it_a) ;  
+      this_it_a = this_it_a.replace(/e\-/g , "eQ");      
+      this_it_a = this_it_a.replace(/e\+/g , "e");  
+      this_it_a = m_fact_many(this_it_a); 
+      this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
+      this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
+      this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
+      this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
+      this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
+      this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
+      this_it_a = m_fun_aft_many(this_it_a ,'sin','zzz');   
+      this_it_a = m_fun_aft_many(this_it_a ,'acosh','ayh');   
+      this_it_a = m_fun_aft_many(this_it_a ,'acos','ayy');   
+      this_it_a = m_fun_aft_many(this_it_a ,'cosh','yyh');   
+      this_it_a = m_fun_aft_many(this_it_a ,'cos','yyy');   
+      this_it_a = m_fun_aft_many(this_it_a ,'atanh','axh');   
+      this_it_a = m_fun_aft_many(this_it_a ,'atan','axx');   
+      this_it_a = m_fun_aft_many(this_it_a ,'tanh','xxh');   
+      this_it_a = m_fun_aft_many(this_it_a ,'tan','xxx');  
+      this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');  
+      this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn'); 
+      this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');
+      this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
+      this_it_a = this_it_a.replace(/azz/g , "m_asin");     
+      this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
+      this_it_a = this_it_a.replace(/zzz/g , "m_sin");                
+      this_it_a = this_it_a.replace(/ayh/g , "m_acosh");     
+      this_it_a = this_it_a.replace(/ayy/g , "m_acos");     
+      this_it_a = this_it_a.replace(/yyh/g , "m_cosh");     
+      this_it_a = this_it_a.replace(/yyy/g , "m_cos");     
+      this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
+      this_it_a = this_it_a.replace(/axx/g , "m_atan");     
+      this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
+      this_it_a = this_it_a.replace(/xxx/g , "m_tan");
+      this_it_a = this_it_a.replace(/eee/g , "m_exp");   
+      this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
+      this_it_a = this_it_a.replace(/ggg/g , "m_log");  
+      this_it_a = m_replace_star(this_it_a) ;   
+      this_it_a = this_it_a.replace(/atanh\(1\-/g , "artanhs\(0\-");     
+      this_it_a = this_it_a.replace(/atanh\(0\-1\+/g , "artanha\(");  
+  return  this_it_a;
 }
   
- function cursor_sec_recal_t( ){               
-  var str_a = cursor_re_start(1);                
-    var str_b = cursor_re_start(2);                
-    var str_c = cursor_re_start(3);                
-    var new_str ="";
-    var str_2_0_1 = m_str_b_sec(str_b,"<--");          
-    var str_2_0_2 = m_str_b_sec(str_b,"=");          
-      if(str_2_0_1.length >0){
-         var str_2_0=str_2_0_1;}
-       else{
-    var str_2_0=str_2_0_2;}
-    var str_2_0_r =  m_str_math_replacec(str_2_0);     
-    var str_2_0_r_ans = eval(str_2_0_r);             
-      if( str_2_0_r_ans >=0 || str_2_0_r_ans < 0){    
+ function cursor_sec_recal_t( ){                
+   var str_a = cursor_re_start(1);                
+   var str_b = cursor_re_start(2);                
+   var str_c = cursor_re_start(3);                
+   var new_str ="";
+   var str_2_0_1 = m_str_b_sec(str_b,"<--");          
+   var str_2_0_2 = m_str_b_sec(str_b,"=");          
+     if(str_2_0_1.length >0){
+       var str_2_0=str_2_0_1;}
+     else{
+   var str_2_0=str_2_0_2;}
+   var str_2_0_r =  m_str_math_replacec(str_2_0);     
+   var str_2_0_r_ans = eval(str_2_0_r);             
+     if( str_2_0_r_ans >=0 || str_2_0_r_ans < 0){    
        var new_str = str_a+str_2_0.toString().trim()+"="+str_2_0_r_ans.toString().trim()+";"+str_c ;
-          document.getElementById('input').value = "";        
-          document.getElementById('input').value = new_str;
+           document.getElementById('input').value = "";        
+           document.getElementById('input').value = new_str;
                                            }
-      else {
-        var  str_2_0_r_ans =  m_str_spc_inter( str_2_0_r_ans,"<",">");    
-         document.getElementById('input').value = "";        
-         document.getElementById('input').value = str_a+str_2_0 ;
+     else {
+       var  str_2_0_r_ans =  m_str_spc_inter( str_2_0_r_ans,"<",">");    
+          document.getElementById('input').value = "";        
+          document.getElementById('input').value = str_a+str_2_0 ;
                newline_1();                 
-         document.getElementById('input').value +=  str_2_0_r_ans+";" +str_c ;   
+          document.getElementById('input').value +=  str_2_0_r_ans+";" +str_c ;   
              }
   }
 
 
-
  function m_oct_nb(str_a) {             
- var stra=str_a;
-  var lg=stra.length;
-  var test_nub1=1;
-  var test_nub2=1;
-  if(lg>=200){ var test_nub1=100 ;}
-    else { var test_nub1 = lg-1 ;}
-   for(var i=0;i<test_nub1;i++){
-     var char_1= stra.toString().substr(0,1);  
-     var char_2= stra.toString().substr(1,1);  
-     var index_1= m_str_spc_index(stra,"1") ; 
-     var index_2= m_str_spc_index(stra,"2") ; 
-     var index_3= m_str_spc_index(stra,"3") ; 
-     var index_4= m_str_spc_index(stra,"4") ; 
-     var index_5= m_str_spc_index(stra,"5") ; 
-     var index_6= m_str_spc_index(stra,"6") ; 
-     var index_7= m_str_spc_index(stra,"7") ; 
-     var index_8= m_str_spc_index(stra,"8") ; 
-     var index_9= m_str_spc_index(stra,"9") ; 
-         if((char_1=="0" && (index_1==1 || index_2==1 ||index_3==1 || index_4==1 ||index_5==1 || index_6==1 ||index_7==1 || index_8==1 ||index_9==1 || char_2=="0" ))||char_1==""){ 
-             var  stra=stra.substring(1,lg);
-             var  lg=stra.length;    }   
+   var stra=str_a;
+   var lg=stra.length;
+   var test_nub1=1;
+   var test_nub2=1;
+     if(lg>=200){ var test_nub1=100 ;}
+     else { var test_nub1 = lg-1 ;}
+     for(var i=0;i<test_nub1;i++){
+       var char_1= stra.toString().substr(0,1);  
+       var char_2= stra.toString().substr(1,1);  
+       var index_1= m_str_spc_index(stra,"1") ; 
+       var index_2= m_str_spc_index(stra,"2") ; 
+       var index_3= m_str_spc_index(stra,"3") ; 
+       var index_4= m_str_spc_index(stra,"4") ; 
+       var index_5= m_str_spc_index(stra,"5") ; 
+       var index_6= m_str_spc_index(stra,"6") ; 
+       var index_7= m_str_spc_index(stra,"7") ; 
+       var index_8= m_str_spc_index(stra,"8") ; 
+       var index_9= m_str_spc_index(stra,"9") ; 
+     if((char_1=="0" && (index_1==1 || index_2==1 ||index_3==1 || index_4==1 ||index_5==1 || index_6==1 ||index_7==1 || index_8==1 ||index_9==1 || char_2=="0" ))||char_1==""){ 
+        var  stra=stra.substring(1,lg);
+        var  lg=stra.length;    }   
                           }
-    var lg=stra.length;  
-      if(lg>=200){ var test_nub2=100 ;}
-      else { var test_nub2 = lg-1 ;}
-    for(var i=0;i<test_nub2 ;i++){       
+  var lg=stra.length;  
+     if(lg>=200){ var test_nub2=100 ;}
+     else { var test_nub2 = lg-1 ;}
+     for(var i=0;i<test_nub2 ;i++){       
         var stra =m_replace(stra ,"+00" ,"+0" ) ;         
         var stra =m_replace(stra ,"-00" ,"-0" ) ;         
         var stra =m_replace(stra ,"*00" ,"*0" ) ;           
@@ -2976,20 +2937,20 @@ return  this_it_a;
    return stra ;
   }
 
-   function m_abs(x){         
-    var xx = x.toString().trim() ;
-    var xx_fst=xx.substr(0,1);
+ function m_abs(x){         
+   var xx = x.toString().trim() ;
+   var xx_fst=xx.substr(0,1);
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}
        return xx;
   }
 
  function m_sing(nub){        
-    var nn = nub;
-    var res = nn % 2;
-       return res; 
+   var nn = nub;
+   var res = nn % 2;
+     return res; 
     }
 
- function m_sgn(base,p){         
+  function m_sgn(base,p){         
     var bb = base ;
     var pp = p ;
     var rr = m_sing(pp);
@@ -3002,56 +2963,54 @@ return  this_it_a;
 
 
 
-function m_cut_nub_m_s(nub){             
-    var nn = nub.toString().trim();               
-    var nn_lg = nn.length;      
-     var count_p =0 ;
-     var pos_pot = nn.indexOf(".");   
-     var nn_lg = nn.length;
-     var point_index = m_str_spc_index(nn,".");            
-    if(pos_pot != -1){               
+ function m_cut_nub_m_s(nub){             
+   var nn = nub.toString().trim();               
+   var nn_lg = nn.length;      
+   var count_p =0 ;
+   var pos_pot = nn.indexOf(".");   
+   var nn_lg = nn.length;
+   var point_index = m_str_spc_index(nn,".");            
+     if(pos_pot != -1){               
        var count_p =  point_index;  
                      }
-    else{ var count_p =  nn_lg ;}    
+     else{ var count_p =  nn_lg ;}    
        return count_p;  
   }
 
 
-function m_cut_nub_m(nub){             
-    var nn = m_abs(nub);                
-    var nn_lg = nn.toString().length;       
-    var count_p =0 ; 
-       for(var i =0  ; i < (nn_lg) ; i++){
-            if(nn >=1 ){
-              count_p =count_p +1;
-               nn = nn/10;
+ function m_cut_nub_m(nub){             
+   var nn = m_abs(nub);                
+   var nn_lg = nn.toString().length;       
+   var count_p =0 ; 
+     for(var i =0  ; i < (nn_lg) ; i++){
+       if(nn >=1 ){
+         count_p =count_p +1;
+         nn = nn/10;
                        }
                                   }
-      if(nub < 0 ){count_p = count_p +1;}   
-      if(nub == 0 ){count_p = -1;}   
+    if(nub < 0 ){count_p = count_p +1;}   
+    if(nub == 0 ){count_p = -1;}   
       return count_p;    
   }
 
 function m_cut_nub_p(nub){             
-   var nn=nub;
-    var nn_str = nn.toString().trim();
-    var nn_lg = nn.toString().trim().length;  
-    var nn_m = m_cut_nub_m(nub);       
-    var e_index = m_str_spc_index(nn_str,"e");            
-     if(e_index ==0){
-       var count_p = nn_lg - nn_m -1 ;    
+  var nn=nub;
+  var nn_str = nn.toString().trim();
+  var nn_lg = nn.toString().trim().length;  
+  var nn_m = m_cut_nub_m(nub);       
+  var e_index = m_str_spc_index(nn_str,"e");            
+    if(e_index ==0){
+      var count_p = nn_lg - nn_m -1 ;    
                     }
-      else{
-         var e_after = nn_str.substring(e_index+1,nn_lg); 
-              var count_p =m_abs(e_after)+1;                    
+     else{
+       var e_after = nn_str.substring(e_index+1,nn_lg); 
+           var count_p =m_abs(e_after)+1;                    
           }
         return count_p;    
   }
 
 
-
-
-function m_nub_m_s(nub){         
+ function m_nub_m_s(nub){         
    var nn = nub.toString().trim();
    var mb = m_cut_nub_m_s(nn);   
    var ans_1= nn.toString().substr(0,mb);
@@ -3060,96 +3019,90 @@ function m_nub_m_s(nub){
 
 
 
-function m_nub_m(nub){         
+ function m_nub_m(nub){         
    var nn = nub.toString().trim();
    var pos_pot = nn.indexOf(".");   
    var pos_e = nn.indexOf("e");     
    var nn_lg = nn.length ;
    var ans_1 ="";
-   if(pos_pot !=-1 ) { var ans_1=nn.substr(0,pos_pot); }   
-   if(pos_pot ==-1 &&  pos_e ==-1) { var ans_1=nn ; }      
-   if(pos_pot ==-1 &&  pos_e !=-1) { var ans_1=nn ; }      
-   if(ans_1 == '-0' ){ var ans_1=0;}
+     if(pos_pot !=-1 ) { var ans_1=nn.substr(0,pos_pot); }   
+     if(pos_pot ==-1 &&  pos_e ==-1) { var ans_1=nn ; }      
+     if(pos_pot ==-1 &&  pos_e !=-1) { var ans_1=nn ; }      
+     if(ans_1 == '-0' ){ var ans_1=0;}
   return ans_1;
 }
 
 
-
-function m_nub_p(nub){         
- var nn = nub;    
+ function m_nub_p(nub){         
+   var nn = nub;    
    var nn_lg =nn.length;
    var nn_str=nn.toString();
    var nn_first =nn_str.substr(0,1);
-      if(nn_first=="-"){ var nn_abs = nn_str.substr(1,nn_lg-1);}
-      else{ var nn_abs = nn_str;}
+     if(nn_first=="-"){ var nn_abs = nn_str.substr(1,nn_lg-1);}
+     else{ var nn_abs = nn_str;}
    var nn_abs_str = nn_abs.toString();  
    var str_lg = nn_abs_str.length;
    var data_t="";
-          var pos_pot = nn_abs_str.indexOf(".");  
-          var pos_e = nn_abs_str.indexOf("e");  
-          var pos_ngt = nn_abs_str.indexOf("-");  
-          var pos_pst = nn_abs_str.indexOf("+");  
-    if(pos_pot != -1 && pos_e==-1 && pos_ngt==-1 && pos_pst ==-1){    
-                          
-          var data_t = nn_abs_str.substr( pos_pot,(str_lg - pos_pot));     
-                   if(nn<0){  var data_t="-0"+data_t ; }  
-                    else{      var data_t="0"+data_t ;}    
-         
-                              return data_t ; }                           
-    else if( pos_e !=-1  && pos_ngt !=-1 && pos_pst ==-1 ){    
+   var pos_pot = nn_abs_str.indexOf(".");  
+   var pos_e = nn_abs_str.indexOf("e");  
+   var pos_ngt = nn_abs_str.indexOf("-");  
+   var pos_pst = nn_abs_str.indexOf("+");  
+     if(pos_pot != -1 && pos_e==-1 && pos_ngt==-1 && pos_pst ==-1){    
+       var data_t = nn_abs_str.substr( pos_pot,(str_lg - pos_pot));     
+         if(nn<0){ var data_t="-0"+data_t ; }  
+         else{ var data_t="0"+data_t ;}    
+                  return data_t ; }                           
+     else if( pos_e !=-1  && pos_ngt !=-1 && pos_pst ==-1 ){    
           if(pos_pot == -1){   
-                 var data_bf = nn_abs_str.substr( 0,pos_e);}                                                      
-           else{ var data_bf = nn_abs_str.substr( 0,pos_pot) + nn_abs_str.substr( pos_pot+1,pos_e-pos_pot-1); }  
-           var data_af = nn_abs_str.substr(( pos_e+1),(str_lg-pos_e));   
-           var data_af = m_abs(data_af);
-               var data_a="0.";
-                      while( data_af >1){
-                             data_a = data_a+"0" ;
-                            data_af= data_af-1;    
-                                         }
-               var data_t= data_a + data_bf ;
-               if( nub < 0 ){  var data_t="-"+ data_t.toString();}
-                        return data_t ;
-      
+             var data_bf = nn_abs_str.substr( 0,pos_e);}                                                      
+          else{ var data_bf = nn_abs_str.substr( 0,pos_pot) + nn_abs_str.substr( pos_pot+1,pos_e-pos_pot-1); }  
+          var data_af = nn_abs_str.substr(( pos_e+1),(str_lg-pos_e));   
+          var data_af = m_abs(data_af);
+          var data_a="0.";
+            while( data_af >1){
+              data_a = data_a+"0" ;
+              data_af= data_af-1;    
+                              }
+          var data_t= data_a + data_bf ;
+            if( nub < 0 ){  var data_t="-"+ data_t.toString();}
+                return data_t ;
                  }
       else if(pos_pot == -1 && pos_e ==-1 && pos_ngt==-1 && pos_pst ==-1){ return 0 ;}  
       else if( pos_e !=-1  && pos_pst !=-1){ return 0 ;}     
       else{ return "未處理" ;} 
-      }
+       }
 
-
-function m_round(nub){            
-  var nub_a=nub;
+ function m_round(nub){            
+   var nub_a=nub;
    var nub_m= m_nub_m(nub_a);      
    var nub_p= m_abs(m_nub_p(nub_a));      
    var ans_1=0;
-    if( nub_m >0 && nub_p >=0.5){  ans_1=nub_m+1; }
-    if( nub_m >0 && nub_p < 0.5){  ans_1=nub_m ; }
-    if( nub_m <0 && nub_p >=0.5){  ans_1=nub_m-1; }
-    if( nub_m <0 && nub_p < 0.5){  ans_1=nub_m; }
-     return ans_1; 
+     if( nub_m >0 && nub_p >=0.5){  ans_1=nub_m+1; }
+     if( nub_m >0 && nub_p < 0.5){  ans_1=nub_m ; }
+     if( nub_m <0 && nub_p >=0.5){  ans_1=nub_m-1; }
+     if( nub_m <0 && nub_p < 0.5){  ans_1=nub_m; }
+       return ans_1; 
+}
+
+ function m_fix_str_lst(nub){    
+   var nub_str = nub.toString().trim();  
+   var new_nub_str="";
+   var nub_str_a = m_str_power(nub_str,1); 
+   var str_lg =  nub_str_a.length ;        
+   var pos_pot_e = nub_str_a.indexOf(".");    
+   var str_lst = nub_str_a.substr(str_lg-1,1);
+     if(pos_pot_e !=-1 && (str_lg-pos_pot_e) >200 && str_lst ==9){
+       var new_nub_str = m_fix(nub_str,str_lg-pos_pot_e-5);
+                }
+     else{ 
+       var new_nub_str = nub_str;
+         return new_nub_str;
+                        }
+      return new_nub_str;
 }
 
 
-
-function m_fix_str_lst(nub){    
-  var nub_str = nub.toString().trim();  
-  var new_nub_str="";
-  var nub_str_a = m_str_power(nub_str,1); 
-  var str_lg =  nub_str_a.length ;        
-  var pos_pot_e = nub_str_a.indexOf(".");    
-  var str_lst = nub_str_a.substr(str_lg-1,1);
-  if( pos_pot_e !=-1 && (str_lg-pos_pot_e) >200 && str_lst ==9){
-   var new_nub_str = m_fix(nub_str,str_lg-pos_pot_e-5);
-           }
-  else{ 
-   var new_nub_str = nub_str;
-     return new_nub_str;
-                       }
-    return new_nub_str;
-}
-
-function m_fix_pow_lst(nub){    
+ function m_fix_pow_lst(nub){    
    var nub_str = nub.toString().trim();  
    var pos_e = nub_str.indexOf("e");     
    var pos_ngt = nub_str.indexOf("-");   
@@ -3159,21 +3112,21 @@ function m_fix_pow_lst(nub){
    var pos_pot_e = nub_e.indexOf(".");    
    var str_lg =  nub_e.length ;             
    var str_lst = nub_e.substr(str_lg-1,1); 
-   if(pos_e !=-1 && pos_pot_e !=-1 && (str_lg-pos_pot_e) >200  && str_lst ==9){
-     var nub_e_p = m_fix(nub_e,str_lg-pos_pot_e-2);
-     if(nub_e_p <=0){
-       var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
-                      }
-     else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
-                                 }
-   else{ 
-     var new_nub_str = nub;
-      return new_nub_str;
-                          }
-   return new_nub_str;
+     if(pos_e !=-1 && pos_pot_e !=-1 && (str_lg-pos_pot_e) >200  && str_lst ==9){
+       var nub_e_p = m_fix(nub_e,str_lg-pos_pot_e-2);
+       if(nub_e_p <=0){
+         var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
+                         }
+       else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
+                                        }
+     else{ 
+       var new_nub_str = nub;
+       return new_nub_str;
+                    }
+     return new_nub_str;
 }
 
-function m_fix_pow(nub,pit_n){    
+ function m_fix_pow(nub,pit_n){    
    var nub_str = nub.toString().trim();  
    var pos_e = nub_str.indexOf("e");     
    var pos_ngt = nub_str.indexOf("-");   
@@ -3181,15 +3134,15 @@ function m_fix_pow(nub,pit_n){
    var nub_e = m_str_power(nub_str,0);     
    var nub_e = nub_e.toString().trim();  
    var pos_pot_e = nub_e.indexOf(".");    
-   if(pos_e !=-1 && pos_pot_e !=-1){
-     var nub_e_p = m_fix(nub_e,pit_n);
+     if(pos_e !=-1 && pos_pot_e !=-1){
+       var nub_e_p = m_fix(nub_e,pit_n);
      if(nub_e_p <=0){
-      var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
-                     }
+       var new_nub_str = m_str_power(nub_str,1)+"e"+ nub_e_p;       
+                       }
      else{var new_nub_str = m_str_power(nub_str,1)+"e+"+ nub_e_p;}  
-                                    }
-    else{ 
-      var new_nub_str = nub;
+                               }
+     else{ 
+       var new_nub_str = nub;
        return new_nub_str;
                       }
      return new_nub_str;
@@ -3201,96 +3154,97 @@ function m_fix_pow(nub,pit_n){
    var slg_end = sutt.substr(slg-1,1);   
    var s_idx_point = sutt.indexOf(".");  
    var s_fix = slg -s_idx_point-2;
-    if(slg >=250 && slg_end=="9" && s_idx_point !=-1){  
-     var sutt=m_fix(sutt,s_fix);  }                 
-   return sutt;              
+     if(slg >=250 && slg_end=="9" && s_idx_point !=-1){  
+       var sutt=m_fix(sutt,s_fix);  }                 
+  return sutt;             
  }
 
-function m_fix(nub,pit_n){                 
+
+function m_fix(nub,pit_n){                  
   var nn = nub;                           
   var nn_abs_str = nn.toString().trim(); 
   var nn_abs_str=m_mtx_trim(nn_abs_str).toString() ; 
   var str_lg = nn_abs_str.length;         
   var data_nn_test= nn_abs_str.substr(0,1); 
     if(data_nn_test=="-"){              
-       nn_abs_str = nn_abs_str.substr(1,str_lg-1);
-       str_lg = str_lg -1;       
-                         }
+      nn_abs_str = nn_abs_str.substr(1,str_lg-1);
+      str_lg = str_lg -1;       
+                     }
     else{ nn_abs_str = nn_abs_str;}
-   var pnn = pit_n ;  
-   var pnn = parseInt(pnn);
-   var data_t="";
-   var pos_pot = nn_abs_str.indexOf(".");   
-   var pos_e = nn_abs_str.indexOf("e");     
-   var pos_ngt = nn_abs_str.indexOf("-");  
-   var pos_pst = nn_abs_str.indexOf("+");   
-   var nub_e =m_str_power(nn_abs_str,0);          
-  if(pos_pot == -1){ return nub ;} 
-     var chk_lg_1 = pos_e-pos_pot-1;
-     var chk_lg_2 = str_lg-pos_pot-1; 
-  if((pos_e == -1)&& chk_lg_2 <=pnn){ return nub ;}  
-  if((pos_e != -1)&& chk_lg_1 <=pnn){ return nub ;}  
-    var data_a_test  = nn_abs_str.substr((pos_pot+pnn+1),1);    
-    var data_bf  = nn_abs_str.substr(0,pos_pot);                   
-    var data_a   = nn_abs_str.substr((pos_pot+pnn),1);         
+  var pnn = pit_n ;  
+  var pnn = parseInt(pnn);
+  var data_t="";
+  var pos_pot = nn_abs_str.indexOf(".");   
+  var pos_e = nn_abs_str.indexOf("e");     
+  var pos_ngt = nn_abs_str.indexOf("-");  
+  var pos_pst = nn_abs_str.indexOf("+");   
+  var nub_e =m_str_power(nn_abs_str,0);          
+    if(pos_pot == -1){ return nub ;} 
+  var chk_lg_1 = pos_e-pos_pot-1;
+  var chk_lg_2 = str_lg-pos_pot-1; 
+    if((pos_e == -1)&& chk_lg_2 <=pnn){ return nub ;}  
+    if((pos_e != -1)&& chk_lg_1 <=pnn){ return nub ;}  
+  var data_a_test  = nn_abs_str.substr((pos_pot+pnn+1),1);    
+  var data_bf  = nn_abs_str.substr(0,pos_pot);                   
+  var data_a   = nn_abs_str.substr((pos_pot+pnn),1);         
     if(pos_e !=-1 && (pos_e-pos_pot ) > pnn){ var data_af  = nn_abs_str.substr((pos_pot+1),pnn); }  
     if(pos_e !=-1 && (pos_e-pos_pot ) <= pnn) { return nn ; }                                        
     if(pos_e ==-1 && (nn_abs_str.length - pos_pot-1 ) > pnn){ var data_af  = nn_abs_str.substr((pos_pot+1),pnn); }   
     if(pos_e ==-1){var data_af  = nn_abs_str.substr((pos_pot+1),pnn); }                             
-    if( pos_e ==-1 && data_af.toString().trim().length <  pnn) { return nn ; }                                 
-    if( data_af.toString().trim().length >= pnn && (data_a_test=="e"||parseInt(data_a_test) <=4) && pos_e !=-1 ){      
-       var data_t = data_bf +"."+data_af.substr(0,data_af.length)+ nn_abs_str.substr(pos_e,(nn_abs_str.length-pos_e)); 
-                                 }
-   if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) <=4 && pos_e ==-1 ){      
-       var data_t = data_bf +"."+data_af.substr(0,pnn); 
-                                  }
-   if( data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){  
-       var mtx_col_this = parseInt(pnn/5);                   
-       var data_comp_mtx_col_this_210 = m_mtx_real_str_comp(mtx_col_this,210); 
-     if( data_comp_mtx_col_this_210 == 2 ){ mtx_col_this =210;}                 
-     else{mtx_col_this =410;}  
-       var AA =m_new_zero_mtx(1,mtx_col_this);                                        
-       var  data_af_in="0."+data_af.toString();            
-       AA=m_mtx_point_in(AA,data_af_in);         
-        if(data_bf !=0){
-          var data_bf = data_bf.toString() +"00000";
-                     }
-         else{ var data_bf = data_bf;}
-        var data_aa00= AA[0][0];
-        var data_asdfg = m_mtx_int_add(data_bf,data_aa00);    
-             AA[0][0] = data_asdfg;
-        var data_so =Math.floor(pnn / 5) ;  
-        var data_re = 5-(pnn % 5) ;         
-        if(data_re==0){data_so=data_so-1;} 
-        AA[0][data_so] =parseInt(AA[0][data_so])+parseInt(Math.pow(10,data_re))  ; 
-        BB = m_mtx_cell_five(AA);              
-         var sum_tt = m_mtx_cell_five_show(BB );   
-             sum_tt = m_mtx_trim(sum_tt) ;   
-         var zz_m = m_nub_m(sum_tt) ;                
-         var zz_p = m_nub_p(sum_tt) ;                
-         if(pos_e ==-1 && zz_p !=0){                                          
-          var data_t = zz_m +"."+ zz_p.substr(2,pnn);
-                           }
-         if(pos_e ==-1 && zz_p ==0){                                          
-           var data_t = zz_m ;
-                          }
-         if(pos_e !=-1 && zz_p !=0){                                         
-           var data_t = zz_m +"."+ zz_p.substr(2,pnn)+ nn_abs_str.substr(pos_e,(nn_abs_str.length-pos_e)); 
+    if(pos_e ==-1 && data_af.toString().trim().length <  pnn) { return nn ; }                                 
+    if(data_af.toString().trim().length >= pnn && (data_a_test=="e"||parseInt(data_a_test) <=4) && pos_e !=-1 ){      
+      var data_t = data_bf +"."+data_af.substr(0,data_af.length)+ nn_abs_str.substr(pos_e,(nn_abs_str.length-pos_e)); 
                         }
-         if(pos_e !=-1 && zz_p ==0){                                          
-             var data_t = zz_m +"e"+nub_e; 
+    if(data_af.toString().trim().length >= pnn && parseInt(data_a_test) <=4 && pos_e ==-1 ){      
+      var data_t = data_bf +"."+data_af.substr(0,pnn); 
+                       }
+    if(data_af.toString().trim().length >= pnn && parseInt(data_a_test) >= 5 ){  
+      var mtx_col_this = parseInt(pnn/5);                   
+      var data_comp_mtx_col_this_210 = m_mtx_real_str_comp(mtx_col_this,210); 
+      if( data_comp_mtx_col_this_210 == 2 ){ mtx_col_this =210;}                 
+      else{mtx_col_this =410;}  
+      var AA =m_new_zero_mtx(1,mtx_col_this);                                        
+      var data_af_in="0."+data_af.toString();            
+          AA=m_mtx_point_in(AA,data_af_in);         
+         if(data_bf !=0){
+            var data_bf = data_bf.toString() +"00000";
+                         }
+         else{ var data_bf = data_bf;}
+       var data_aa00= AA[0][0];
+       var data_asdfg = m_mtx_int_add(data_bf,data_aa00);    
+          AA[0][0] = data_asdfg;
+       var data_so =Math.floor(pnn / 5) ;  
+       var data_re = 5-(pnn % 5) ;         
+         if(data_re==0){data_so=data_so-1;} 
+         AA[0][data_so] =parseInt(AA[0][data_so])+parseInt(Math.pow(10,data_re))  ; 
+         BB = m_mtx_cell_five(AA);              
+       var sum_tt = m_mtx_cell_five_show(BB );   
+           sum_tt = m_mtx_trim(sum_tt) ;   
+       var zz_m = m_nub_m(sum_tt) ;                
+       var zz_p = m_nub_p(sum_tt) ;                
+         if(pos_e ==-1 && zz_p !=0){                                          
+           var data_t = zz_m +"."+ zz_p.substr(2,pnn);
+                           }
+             if(pos_e ==-1 && zz_p ==0){                                          
+               var data_t = zz_m ;
+                            }
+             if(pos_e !=-1 && zz_p !=0){                                         
+                 var data_t = zz_m +"."+ zz_p.substr(2,pnn)+ nn_abs_str.substr(pos_e,(nn_abs_str.length-pos_e)); 
+                           }
+             if(pos_e !=-1 && zz_p ==0){                                          
+                  var data_t = zz_m +"e"+nub_e; 
                           }
-                                                    }
-         data_t = m_mtx_trim(data_t) ;   
-         data_t = data_t.replace(/\.\./g,'\.');   
-         data_t_fst=data_t.substr(0,1);        
-         data_t_sec=data_t.substr(1,1); 
-        if(data_t_fst==0 && data_t_sec =="e"){  var data_t=0 ; } 
-        if(data_t_fst=="." ){  var data_t="0"+data_t ; }    
-          var data_cp =  m_mtx_real_str_comp(data_t,0);      
-        if(data_nn_test=="-" && data_cp !=3){  var data_t="-"+data_t ; }  
-              data_t = m_mtx_trim(data_t);       
-              return data_t ; 
+                                        }
+        var data_t = m_mtx_trim(data_t) ;   
+            data_t = data_t.replace(/\.\./g,'\.');   
+        var data_t_fst=data_t.substr(0,1);        
+        var data_t_sec=data_t.substr(1,1); 
+          if(data_t_fst==0 && data_t_sec =="e"){  var data_t=0 ; } 
+          if(data_t_fst=="." ){  var data_t="0"+data_t ; }    
+        var data_cp =  m_mtx_real_str_comp(data_t,0);      
+          if(data_nn_test=="-" && data_cp !=3){  var data_t="-"+data_t ; }  
+            data_t = m_mtx_trim(data_t);       
+          return data_t ; 
       }
 
  function m_delay_1(){  
@@ -3299,32 +3253,30 @@ function m_fix(nub,pit_n){
        return tc; 
   }
 
-function m_delay_ms(ms){
- var data_a = new Date();
- var cur_date =null;
- do{cur_date =new Date();}
-   while((cur_date -data_a)  < ms ){}
+ function m_delay_ms(ms){
+   var data_a = new Date();
+   var cur_date =null;
+     do{cur_date =new Date();}
+     while((cur_date -data_a)  < ms ){}
   }
 
 function s_chang_hidden_array(array_1){     
   var array_a = array_1;
-  var array_a_lg = array_a.length;
-  var array_nb="";
-  for(var i=0; i< array_a_lg ; i++){
-     array_nb=array_a[i];
-     s_chang_hidden_nub(array_nb);
+   var array_a_lg = array_a.length;
+   var array_nb="";
+     for(var i=0; i< array_a_lg ; i++){
+      array_nb=array_a[i];
+        s_chang_hidden_nub(array_nb);
       }
 }
 
-
 function s_chang_hidden_nub(nub_1){      
-  var nub_a = nub_1;
-      document.getElementById(nub_a).disabled=true;                  
-      document.getElementById(nub_a).style.opacity=0.5;
+   var nub_a = nub_1;
+       document.getElementById(nub_a).disabled=true;                  
+        document.getElementById(nub_a).style.opacity=0.5;
 }
-  
 
-function s_nub_array(nub_1){          
+function s_nub_array(nub_1){       
     var nub_a=nub_1;
     var array_a=[];
      s_chang_visible_all();       
@@ -3392,7 +3344,7 @@ function s_nub_array(nub_1){
     case "3_6":
       array_a=["1_2","1_5","1_6","2_6","3_0","3_6","4_6","5_1","5_2","5_5","5_6"];
       break;
-    case "4_1":
+   case "4_1":
       array_a=["1_1","1_2","1_5","1_6","2_1","2_2","2_6","3_0","3_1","3_2","4_1","4_2","4_6","5_2"];
       break;
     case "4_2":
@@ -3432,7 +3384,6 @@ function s_nub_array(nub_1){
     return array_a;
  }
 
-
 function s_map(item_1){
  var item_a = item_1;
   var item_a_p =item_a.substr(1,1);     
@@ -3465,33 +3416,33 @@ function s_map(item_1){
                           }
     return item_map;  
 }
+
 function s_chang_visible_all(){
 for(var i=1;i <= 5;i++){     
-  for(var j=0;j <= 6;j++){   
-     var item_n= i+"_"+j;
-     document.getElementById(item_n).disabled=false;
-     document.getElementById(item_n).style.opacity=1;      
-                        }
-                       }
+       for(var j=0;j <= 6;j++){   
+       var item_n= i+"_"+j;
+          document.getElementById(item_n).disabled=false;
+          document.getElementById(item_n).style.opacity=1;      
+                            }
+                          }
                   }
 
 function s_chang_no_visible_all(){   
    for(var i=1;i <= 5;i++){     
-    for(var j=0;j <= 6;j++){   
-     var item_n= i+"_"+j;
-     document.getElementById(item_n).disabled=true;
-     document.getElementById(item_n).style.opacity=1;      
+       for(var j=0;j <= 6;j++){   
+       var item_n= i+"_"+j;
+          document.getElementById(item_n).disabled=true;
+          document.getElementById(item_n).style.opacity=1;      
                             }
                          }
                   }
 
-
 function s_chang_sum(item){     
  s_chang_visible_all();       
- var item_1=item;
- var item_a= s_map(item_1); 
- var array_a = s_nub_array(item_a);      
-  s_chang_hidden_array(array_a); 
+   var item_1=item;
+   var item_a= s_map(item_1); 
+   var array_a = s_nub_array(item_a);      
+    s_chang_hidden_array(array_a); 
 }
 
 function s_chang_sum_ini(){     
@@ -3500,204 +3451,202 @@ function s_chang_sum_ini(){
    var item_a= s_map(item_1);    
    var array_a = s_nub_array(item_a);      
      s_chang_hidden_array(array_a);     
-
 }
 
- function s_check_nb(str){        
-   var str_1=str;
-   var befor_a = m_str_spc_count(str_1,"(");  
-   var after_a = m_str_spc_count(str_1,")");   
-    if( befor_a <=after_a){ ;  
+function s_check_nb(str){        
+  var str_1=str;
+  var befor_a = m_str_spc_count(str_1,"(");  
+  var after_a = m_str_spc_count(str_1,")");   
+   if( befor_a <=after_a){   
                            }
-    }
-
+     }
  
-  function s_check_end(str){                          
-    var str_1=str;
-    var asin_1 = m_str_spc_end(str_1,"asin");
-    var acos_1 = m_str_spc_end(str_1,"acos");
-    var asin_4 = m_str_spc_end(str_1,"asin-");       
-    var acos_4 = m_str_spc_end(str_1,"acos-");
-    var atan_4 = m_str_spc_end(str_1,"atan-"); 
-    var acosh_1 = m_str_spc_end(str_1,"acosh");
-    var atanh_1 = m_str_spc_end(str_1,"atanh");
-    var atanh_2 = m_str_spc_end(str_1,"atanh-");
-    var asin_3 = m_str_spc_end(str_1,"asin(");        
-    var acos_3 = m_str_spc_end(str_1,"acos(");
-    var acosh_3 = m_str_spc_end(str_1,"acosh(");      
-    var atanh_3 = m_str_spc_end(str_1,"atanh(");      
-    var asin_5 = m_str_spc_end(str_1,"asin(-");        
-    var acos_5 = m_str_spc_end(str_1,"acos(-");
-    var acosh_5 = m_str_spc_end(str_1,"acosh(-");      
-    var atanh_5 = m_str_spc_end(str_1,"atanh(-");      
-    var atanh_6 = m_str_spc_end(str_1,"atanh-0");     
-    var atanh_7 = m_str_spc_end(str_1,"atanh(-0");      
-    var atanh_8 = m_str_spc_end(str_1,"atanh0");      
-    var atanh_9 = m_str_spc_end(str_1,"atanh(0");     
-    var asin1_1 = m_str_spc_end(str_1,"asin1");        
-    var acos1_1 = m_str_spc_end(str_1,"acos1");
-    var asin1_0 = m_str_spc_end(str_1,"asin0");         
-    var acos1_0 = m_str_spc_end(str_1,"acos0");
-    var asin_30 = m_str_spc_end(str_1,"asin(0");        
-    var acos_30 = m_str_spc_end(str_1,"acos(0");
-    var asin_50 = m_str_spc_end(str_1,"asin(-0");        
-    var acos_50 = m_str_spc_end(str_1,"acos(-0"); 
-    var asin1_3 = m_str_spc_end(str_1,"asin(1");         
-    var acos1_3 = m_str_spc_end(str_1,"acos(1");
-    var asin_1_1 = m_str_spc_end(str_1,"asin-1");         
-    var acos_1_1 = m_str_spc_end(str_1,"acos-1");
-    var asin_1_3 = m_str_spc_end(str_1,"asin(-1");        
-    var acos_1_3 = m_str_spc_end(str_1,"acos(-1");
-    var ln_0 = m_str_spc_end(str_1,"ln0");        
-    var log_0 = m_str_spc_end(str_1,"log0");        
-    var ln_0_3 = m_str_spc_end(str_1,"ln(0");        
-    var log_0_3 = m_str_spc_end(str_1,"log(0");        
-    var ln_5 = m_str_spc_end(str_1,"ln(");        
-    var log_5 = m_str_spc_end(str_1,"log(");        
-    var ln_1 = m_str_spc_end(str_1,"ln0.");        
-    var log_1 = m_str_spc_end(str_1,"log0.");        
-    var ln_1_3 = m_str_spc_end(str_1,"ln(0.");        
-    var log_1_3 = m_str_spc_end(str_1,"log(0.");        
-    var a_0=m_str_spc_end(str_1,"0");        
-    var a_1=m_str_spc_end(str_1,"1");         
-    var a_2=m_str_spc_end(str_1,"2");         
-    var a_3=m_str_spc_end(str_1,"3");        
-    var a_4=m_str_spc_end(str_1,"4");         
-    var a_5=m_str_spc_end(str_1,"5");         
-    var a_6=m_str_spc_end(str_1,"6");        
-    var a_7=m_str_spc_end(str_1,"7");         
-    var a_8=m_str_spc_end(str_1,"8");         
-    var a_9=m_str_spc_end(str_1,"9");        
-    var a_ =m_str_spc_end(str_1,".");           
-    var array_a=[];    
-      if(a_0==1 || a_1==1 || a_2==1 || a_3==1 ||a_4==1 || a_5==1 || a_6==1 || a_7==1 ||a_8==1 || a_9==1 || a_==1 ){                                             
-        array_a=["1_1","2_1","2_2","3_1","3_2","4_1","4_2"]; }
-      if(asin_1==1 || acos_1==1 ){                                             
-        array_a=["1_2","2_0","4_2"];} 
-      if( asin_4==1 || acos_4==1 ){                                                    
-        array_a=["1_1","1_2","2_0","2_1","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_4","4_5"]; }
-      if( atan_4==1 ){                                                    
-        array_a=["1_1","1_2","2_1","2_2","3_1","3_2","4_1","4_2",]; }
-      if(asin_3==1 || acos_3==1||asin_5==1 || acos_5==1 ){                                             
-         array_a=["1_2"]; }  
-       if(acosh_1==1 || acosh_5==1){                    
-          array_a=["1_0","3_6"]; }
-       if(atanh_1==1 ||atanh_2==1  || atanh_5==1){                 
-           array_a=["2_0"]; }
-       if(atanh_6==1 ||atanh_7==1 || atanh_8==1 || atanh_9==1){                 
-           array_a=["2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_3","4_4","4_5"]; }
-       if(asin1_1==1 || acos1_1==1 ||asin_1_1==1 || acos_1_1==1 ||asin1_3==1 || acos1_3==1 ||asin_1_3==1 || acos_1_3==1  ){                 
-          array_a=["1_0","1_1","1_2","2_1","2_0","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_2","5_4","5_5"];
+ function s_check_end(str){                         
+   var str_1=str;
+   var asin_1 = m_str_spc_end(str_1,"asin");
+   var acos_1 = m_str_spc_end(str_1,"acos");
+   var asin_4 = m_str_spc_end(str_1,"asin-");       
+   var acos_4 = m_str_spc_end(str_1,"acos-");
+   var atan_4 = m_str_spc_end(str_1,"atan-"); 
+   var acosh_1 = m_str_spc_end(str_1,"acosh");
+   var atanh_1 = m_str_spc_end(str_1,"atanh");
+   var atanh_2 = m_str_spc_end(str_1,"atanh-");
+   var asin_3 = m_str_spc_end(str_1,"asin(");        
+   var acos_3 = m_str_spc_end(str_1,"acos(");
+   var acosh_3 = m_str_spc_end(str_1,"acosh(");      
+   var atanh_3 = m_str_spc_end(str_1,"atanh(");      
+   var asin_5 = m_str_spc_end(str_1,"asin(-");        
+   var acos_5 = m_str_spc_end(str_1,"acos(-");
+   var acosh_5 = m_str_spc_end(str_1,"acosh(-");      
+   var atanh_5 = m_str_spc_end(str_1,"atanh(-");      
+   var atanh_6 = m_str_spc_end(str_1,"atanh-0");     
+   var atanh_7 = m_str_spc_end(str_1,"atanh(-0");      
+   var atanh_8 = m_str_spc_end(str_1,"atanh0");      
+   var atanh_9 = m_str_spc_end(str_1,"atanh(0");     
+   var asin1_1 = m_str_spc_end(str_1,"asin1");        
+   var acos1_1 = m_str_spc_end(str_1,"acos1");
+   var asin1_0 = m_str_spc_end(str_1,"asin0");         
+   var acos1_0 = m_str_spc_end(str_1,"acos0");
+   var asin_30 = m_str_spc_end(str_1,"asin(0");        
+   var acos_30 = m_str_spc_end(str_1,"acos(0");
+   var asin_50 = m_str_spc_end(str_1,"asin(-0");        
+   var acos_50 = m_str_spc_end(str_1,"acos(-0"); 
+   var asin1_3 = m_str_spc_end(str_1,"asin(1");         
+   var acos1_3 = m_str_spc_end(str_1,"acos(1");
+   var asin_1_1 = m_str_spc_end(str_1,"asin-1");         
+   var acos_1_1 = m_str_spc_end(str_1,"acos-1");
+   var asin_1_3 = m_str_spc_end(str_1,"asin(-1");        
+   var acos_1_3 = m_str_spc_end(str_1,"acos(-1");
+   var ln_0 = m_str_spc_end(str_1,"ln0");        
+   var log_0 = m_str_spc_end(str_1,"log0");        
+   var ln_0_3 = m_str_spc_end(str_1,"ln(0");        
+   var log_0_3 = m_str_spc_end(str_1,"log(0");        
+   var ln_5 = m_str_spc_end(str_1,"ln(");        
+   var log_5 = m_str_spc_end(str_1,"log(");        
+   var ln_1 = m_str_spc_end(str_1,"ln0.");        
+   var log_1 = m_str_spc_end(str_1,"log0.");        
+   var ln_1_3 = m_str_spc_end(str_1,"ln(0.");        
+   var log_1_3 = m_str_spc_end(str_1,"log(0.");        
+   var a_0=m_str_spc_end(str_1,"0");        
+   var a_1=m_str_spc_end(str_1,"1");         
+   var a_2=m_str_spc_end(str_1,"2");         
+   var a_3=m_str_spc_end(str_1,"3");        
+   var a_4=m_str_spc_end(str_1,"4");         
+   var a_5=m_str_spc_end(str_1,"5");         
+   var a_6=m_str_spc_end(str_1,"6");        
+   var a_7=m_str_spc_end(str_1,"7");         
+   var a_8=m_str_spc_end(str_1,"8");         
+   var a_9=m_str_spc_end(str_1,"9");        
+   var a_ =m_str_spc_end(str_1,".");           
+   var array_a=[];    
+     if(a_0==1 || a_1==1 || a_2==1 || a_3==1 ||a_4==1 || a_5==1 || a_6==1 || a_7==1 ||a_8==1 || a_9==1 || a_==1 ){                                             
+       array_a=["1_1","2_1","2_2","3_1","3_2","4_1","4_2"]; }
+     if(asin_1==1 || acos_1==1 ){                                             
+       array_a=["1_2","2_0","4_2"];} 
+     if(asin_4==1 || acos_4==1 ){                                                    
+       array_a=["1_1","1_2","2_0","2_1","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_4","4_5"]; }
+     if(atan_4==1 ){                                                    
+       array_a=["1_1","1_2","2_1","2_2","3_1","3_2","4_1","4_2",]; }
+     if(asin_3==1 || acos_3==1||asin_5==1 || acos_5==1 ){                                             
+       array_a=["1_2"]; }  
+     if(acosh_1==1 || acosh_5==1){                    
+       array_a=["1_0","3_6"]; }
+     if(atanh_1==1 ||atanh_2==1  || atanh_5==1){                 
+       array_a=["2_0"]; }
+     if(atanh_6==1 ||atanh_7==1 || atanh_8==1 || atanh_9==1){                 
+       array_a=["2_0","2_3","2_4","2_5","3_3","3_4","3_5","4_3","4_4","4_5"]; }
+     if(asin1_1==1 || acos1_1==1 ||asin_1_1==1 || acos_1_1==1 ||asin1_3==1 || acos1_3==1 ||asin_1_3==1 || acos_1_3==1  ){                 
+       array_a=["1_0","1_1","1_2","2_1","2_0","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_2","5_4","5_5"];
                   }
-       if(asin1_0==1 || acos1_0==1 ||asin_30==1 || acos_30==1||asin_50==1 || acos_50==1 ){                 
-          array_a=["1_0","1_1","1_2","2_1","2_0","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_2","5_4"];
+     if(asin1_0==1 || acos1_0==1 ||asin_30==1 || acos_30==1||asin_50==1 || acos_50==1 ){                 
+       array_a=["1_0","1_1","1_2","2_1","2_0","2_2","2_3","2_4","2_5","3_1","3_2","3_3","3_4","3_5","4_1","4_2","4_3","4_4","4_5","5_1","5_2","5_4"];
                   } 
-       if(ln_0==1 || log_0==1 || ln_0_3==1 || log_0_3==1){                 
-          array_a=["1_0","1_1","1_2","1_4","1_5","1_6","2_0","2_1","2_2","2_3","2_4","2_5","2_6","3_1","3_2","3_3","3_4","3_5","3_6","4_1","4_2","4_3","4_4","4_5","4_6","5_1","5_2","5_4"];
+     if(ln_0==1 || log_0==1 || ln_0_3==1 || log_0_3==1){                 
+       array_a=["1_0","1_1","1_2","1_4","1_5","1_6","2_0","2_1","2_2","2_3","2_4","2_5","2_6","3_1","3_2","3_3","3_4","3_5","3_6","4_1","4_2","4_3","4_4","4_5","4_6","5_1","5_2","5_4"];
                   }
-       if(ln_5==1 || log_5==1 ){                 
-          array_a=["3_6"];
+     if(ln_5==1 || log_5==1 ){                
+       array_a=["3_6"];
                   }
-       if(ln_1==1 || log_1==1 || ln_1_3==1 || log_1_3==1){ 
-          array_a=["4_2","5_2"];  
+     if(ln_1==1 || log_1==1 || ln_1_3==1 || log_1_3==1){ 
+       array_a=["4_2","5_2"];  
              }
-       if(asin_1==1 || acos_1==1 ){                                             
-          document.getElementById("5_4").style.color="Green";  
-          document.getElementById("5_4").style.background="yellow";  
-          document.getElementById("5_5").style.color="Green"; 
-          document.getElementById("5_5").style.background="yellow";  
-          document.getElementById("4_3").style.color="Green";
-          document.getElementById("4_3").style.background="yellow";}  
-       else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){              
-          document.getElementById("5_4").style.color="Green"; 
-          document.getElementById("5_4").style.background="yellow";  
-          document.getElementById("5_5").style.color="Green";  
-          document.getElementById("5_5").style.background="yellow";  
-          document.getElementById("4_3").style.color="blue";
-          document.getElementById("4_3").style.backgroundColor = "transparent"; }   
-        else if(acosh_1==1 || acosh_5==1){                                                 
-          document.getElementById("5_4").style.color="Red"; 
-          document.getElementById("5_4").style.background="yellow";  
-          document.getElementById("5_5").style.color="Red";      
-          document.getElementById("5_5").style.background="yellow";  
-          document.getElementById("4_3").style.color="blue";
-          document.getElementById("4_3").style.backgroundColor = "transparent";  } 
-        else{ document.getElementById("4_3").style.color="blue";
-          document.getElementById("4_3").style.backgroundColor = "transparent";  
-          document.getElementById("5_4").style.color="blue"; 
-          document.getElementById("5_4").style.backgroundColor = "transparent";  
-          document.getElementById("5_5").style.color="blue"; 
-          document.getElementById("5_5").style.backgroundColor = "transparent";}  
-       s_chang_hidden_array(array_a);      
+     if(asin_1==1 || acos_1==1 ){                                             
+       document.getElementById("5_4").style.color="Green";  
+       document.getElementById("5_4").style.background="yellow";  
+       document.getElementById("5_5").style.color="Green"; 
+       document.getElementById("5_5").style.background="yellow";  
+       document.getElementById("4_3").style.color="Green";
+       document.getElementById("4_3").style.background="yellow";}  
+     else if(atanh_1==1 ||atanh_2==1  || atanh_5==1){              
+       document.getElementById("5_4").style.color="Green"; 
+       document.getElementById("5_4").style.background="yellow";  
+       document.getElementById("5_5").style.color="Green";  
+       document.getElementById("5_5").style.background="yellow";  
+       document.getElementById("4_3").style.color="blue";
+       document.getElementById("4_3").style.backgroundColor = "transparent"; }   
+     else if(acosh_1==1 || acosh_5==1){                                                 
+       document.getElementById("5_4").style.color="Red"; 
+       document.getElementById("5_4").style.background="yellow";  
+       document.getElementById("5_5").style.color="Red";      
+       document.getElementById("5_5").style.background="yellow";  
+       document.getElementById("4_3").style.color="blue";
+       document.getElementById("4_3").style.backgroundColor = "transparent";  } 
+     else{ document.getElementById("4_3").style.color="blue";
+       document.getElementById("4_3").style.backgroundColor = "transparent";  
+       document.getElementById("5_4").style.color="blue"; 
+       document.getElementById("5_4").style.backgroundColor = "transparent";  
+       document.getElementById("5_5").style.color="blue"; 
+       document.getElementById("5_5").style.backgroundColor = "transparent";}  
+      s_chang_hidden_array(array_a);      
   }
 
 
-function s_check_str_char(str,char_a ){       
-  var str_1= str;
-  var str_lg = str_1.length;
-  var char_1=char_a;
-  var char_lg=char_1.length;
-  var A = m_new_mtx(1,str_lg); 
-  var data_a = -1;
-  var jj=0;
-  var data_count=0;
-  for(var i=0;i<str_lg;i++){
-    var data_a = str_1.indexOf(char_1,i);
-      if(data_a >=0){  A[0,jj]=data_a;
-        data_count=data_count+1;
-        jj=jj+1;
-     var i=data_a+(char_lg-1) ;       
-             }
-      }
+ function s_check_str_char(str,char_a ){       
+   var str_1= str;
+   var str_lg = str_1.length;
+   var char_1=char_a;
+   var char_lg=char_1.length;
+   var A = m_new_mtx(1,str_lg); 
+   var data_a = -1;
+   var jj=0;
+   var data_count=0;
+     for(var i=0;i<str_lg;i++){
+       var data_a = str_1.indexOf(char_1,i);
+         if(data_a >=0){  A[0,jj]=data_a;
+           data_count=data_count+1;
+           jj=jj+1;
+         var i=data_a+(char_lg-1) ;       
+                 }
+       }
     return  data_count ; 
  }
 
-function s_check_str_equal(str ){   
- var str_1=str;
- var data_a = s_check_str_char(str_1,"=");
- var data_a = s_check_str_char(str_1," "); 
-  return  data_a ;    
+ function s_check_str_equal(str ){   
+   var str_1=str;
+   var data_a = s_check_str_char(str_1,"=");
+   var data_a = s_check_str_char(str_1," "); 
+     return  data_a ;    
 }
 
-function s_check_str_equation(str ){      
-  var str_1=str;
-      str_1 = str_1.replace(/m_mtx_real_add/g,''); 
-      str_1 = str_1.replace(/m_mtx_real_sub/g,'');
-      str_1 = str_1.replace(/m_mtx_real_mul/g,'');
-      str_1 = str_1.replace(/m_mtx_real_div/g,'');
-      str_1 = str_1.replace(/m_exp_ln/g,'');     
-      str_1 = str_1.replace(/m_ln_exp/g,''); 
-      str_1 = str_1.replace(/m_sinh_asinh/g,'');    
-      str_1 = str_1.replace(/m_asinh_sinh/g,'');
-      str_1 = str_1.replace(/m_cosh_acosh/g,'');   
-      str_1 = str_1.replace(/m_acosh_cosh/g,'');
-      str_1 = str_1.replace(/m_tanh_atanh/g,'');   
-      str_1 = str_1.replace(/m_atanh_tanh/g,'');
-      str_1 = str_1.replace(/m_sin_asin/g,''); 
-      str_1 = str_1.replace(/m_sin_acos/g,'');  
-      str_1 = str_1.replace(/m_asin_sin/g,'');
-      str_1 = str_1.replace(/m_asin_cos/g,'');  
-      str_1 = str_1.replace(/m_cos_acos/g,'');
-      str_1 = str_1.replace(/m_cos_asin/g,'');   
-      str_1 = str_1.replace(/m_acos_cos/g,'');
-      str_1 = str_1.replace(/m_acos_sin/g,'');  
-      str_1 = str_1.replace(/m_tan_atan/g,'');   
-      str_1 = str_1.replace(/m_atan_tan/g,'');
-      str_1 = str_1.replace(/m_tan_asin/g,'');  
-      str_1 = str_1.replace(/m_tan_acos/g,'');  
-      str_1 = str_1.replace(/m_sin_atan/g,'');  
-      str_1 = str_1.replace(/m_cos_atan/g,'');
-      str_1 = str_1.replace(/m_artanhs\(/g,''); 
-      str_1 = str_1.replace(/m_artanha\(/g,''); 
-      str_1 = str_1.replace(/m_atranh\(/g,'');  
-      str_1 = str_1.replace(/m_asinh\(/g,''); 
-      str_1 = str_1.replace(/m_asrin\(/g,''); 
-      str_1 = str_1.replace(/m_asin\(/g,'');    
-      str_1 = str_1.replace(/m_sinh\(/g,'');    
+ function s_check_str_equation(str ){      
+   var str_1=str;
+       str_1 = str_1.replace(/m_mtx_real_add/g,''); 
+       str_1 = str_1.replace(/m_mtx_real_sub/g,'');
+       str_1 = str_1.replace(/m_mtx_real_mul/g,'');
+       str_1 = str_1.replace(/m_mtx_real_div/g,'');
+       str_1 = str_1.replace(/m_exp_ln/g,'');     
+       str_1 = str_1.replace(/m_ln_exp/g,''); 
+       str_1 = str_1.replace(/m_sinh_asinh/g,'');    
+       str_1 = str_1.replace(/m_asinh_sinh/g,'');
+       str_1 = str_1.replace(/m_cosh_acosh/g,'');   
+       str_1 = str_1.replace(/m_acosh_cosh/g,'');
+       str_1 = str_1.replace(/m_tanh_atanh/g,'');   
+       str_1 = str_1.replace(/m_atanh_tanh/g,'');
+       str_1 = str_1.replace(/m_sin_asin/g,''); 
+       str_1 = str_1.replace(/m_sin_acos/g,'');  
+       str_1 = str_1.replace(/m_asin_sin/g,'');
+       str_1 = str_1.replace(/m_asin_cos/g,'');  
+       str_1 = str_1.replace(/m_cos_acos/g,'');
+       str_1 = str_1.replace(/m_cos_asin/g,'');   
+       str_1 = str_1.replace(/m_acos_cos/g,'');
+       str_1 = str_1.replace(/m_acos_sin/g,'');  
+       str_1 = str_1.replace(/m_tan_atan/g,'');   
+       str_1 = str_1.replace(/m_atan_tan/g,'');
+       str_1 = str_1.replace(/m_tan_asin/g,'');  
+       str_1 = str_1.replace(/m_tan_acos/g,'');  
+       str_1 = str_1.replace(/m_sin_atan/g,'');  
+       str_1 = str_1.replace(/m_cos_atan/g,'');
+       str_1 = str_1.replace(/m_artanhs\(/g,''); 
+       str_1 = str_1.replace(/m_artanha\(/g,''); 
+       str_1 = str_1.replace(/m_atranh\(/g,'');  
+       str_1 = str_1.replace(/m_asinh\(/g,''); 
+       str_1 = str_1.replace(/m_asrin\(/g,''); 
+       str_1 = str_1.replace(/m_asin\(/g,'');    
+       str_1 = str_1.replace(/m_sinh\(/g,'');    
       str_1 = str_1.replace(/m_sin\(/g,'');  
-      str_1 = str_1.replace(/m_acrosh\(/g,'');   
+     str_1 = str_1.replace(/m_acrosh\(/g,'');   
       str_1 = str_1.replace(/m_acosh\(/g,''); 
-      str_1 = str_1.replace(/m_acros\(/g,'');
+      str_1 = str_1.replace(/m_acros\(/g,''); 
       str_1 = str_1.replace(/m_acos\(/g,'');    
       str_1 = str_1.replace(/m_cosh\(/g,'');    
       str_1 = str_1.replace(/m_cos\(/g,'');     
@@ -3725,37 +3674,35 @@ function s_check_str_equation(str ){
       str_1 = str_1.replace(/m_/g,'');  
       str_1=str_1.toString().trim();  
     return  str_1 ;
+
 }
 
-
 function m_new_mtx(rows,cols){
- var A =new Array(rows);                          
-  for(var m=0; m<A.length; m++){
-     A[m]= new Array(cols); }                     
-  return A;
+  var A =new Array(rows);  
+    for(var m=0; m<A.length; m++){
+      A[m]= new Array(cols); } 
+   return A;
 }
 
 
 function m_new_space_mtx(rows,cols){               
- var A =m_new_mtx(rows,cols);                          
- for(var i=0;i<A.length ;i++){  
-   for(var j=0;j<A[0].length ;j++){          
-      A[i][j] ="";} }
+  var A =m_new_mtx(rows,cols);                          
+    for(var i=0;i<A.length ;i++){  
+      for(var j=0;j<A[0].length ;j++){          
+          A[i][j] ="";} }
   return A;
 }
 
-
-
 function m_new_zero_mtx(rows,cols){                    
-    var A =m_new_mtx(rows,cols);                          
-     for(var i=0;i<A.length ;i++){  
-       for(var j=0;j<A[0].length ;j++){          
-          A[i][j] =0;}}
+  var A =m_new_mtx(rows,cols);                          
+    for(var i=0;i<A.length ;i++){  
+      for(var j=0;j<A[0].length ;j++){          
+         A[i][j] =0;}}
   return A;
 }
 
 function m_new_unit_mtx(rows,cols){                    
-var A =m_new_mtx(rows,cols);                          
+   var A =m_new_mtx(rows,cols);                          
      for(var i=0;i<A.length ;i++){  
        for(var j=0;j<A[0].length ;j++){          
           A[i][j] =1;}}
@@ -3763,39 +3710,38 @@ var A =m_new_mtx(rows,cols);
 }
 
 function m_new_5_unit_mtx(rows,cols){                   
-    var A =m_new_zero_mtx(rows,cols);                        
-       A[0][0] =100000;
+  var A =m_new_zero_mtx(rows,cols);                        
+    A[0][0] =100000;
   return A;
 }
 
-
 function m_mtx_space_end(A){       
- var AA=A;
-   var data_row = AA.length;   
-   var data_col=AA[0].length;  
-     BB = m_new_space_mtx(data_row,data_col);               
-    for(var i=0;i<data_row ;i++){
-       var k=0 ; 
-    for(var j=0;j<data_col ;j++){
-       var data_element = AA[i][j].toString();
-         if(data_element !=""){       
-             BB[i][k] = data_element;
-                  var k=k+1 ;} }}
+  var AA=A;
+  var data_row = AA.length;   
+  var data_col=AA[0].length;  
+      BB = m_new_space_mtx(data_row,data_col);               
+   for(var i=0;i<data_row ;i++){
+     var k=0 ; 
+   for(var j=0;j<data_col ;j++){
+     var data_element = AA[i][j].toString();
+     if(data_element !=""){       
+       BB[i][k] = data_element;
+     var k=k+1 ;} }}
   return BB;
 }
 
 
 function m_mtx_element_str(A){        
- var AA=A;
+  var AA=A;
   var data_row = AA.length;   
   var data_col=AA[0].length;  
   var str_new = "" ;                
     for(var i=0;i<data_row ;i++){
     for(var j=0;j<data_col ;j++){
-     var data_element = AA[i][j].toString();
-     if(data_element !=""){       
-      var str_new=str_new+data_element; } }  }
-      var str_new=str_new.trim();  
+      var data_element = AA[i][j].toString();
+        if(data_element !=""){       
+         var str_new=str_new+data_element; } }  }
+         var str_new=str_new.trim();  
   return str_new ;
 }
 
@@ -3806,7 +3752,7 @@ function m_mtx_scale(A,x){
   var data_row = AA.length;   
   var data_col=AA[0].length;  
     for(var i=0;i<data_row ;i++){
-     for(var j=0;j<data_col ;j++){
+      for(var j=0;j<data_col ;j++){
         AA[i][j]=AA[i][j]*xx; }}
  return AA;
 }
@@ -3817,11 +3763,11 @@ function m_mtx_copy_mtx(A,B){
   var BB=B;
   var data_row = AA.length;   
   var data_col=AA[0].length;  
-    for(var i=0;i<data_row ;i++){
+   for(var i=0;i<data_row ;i++){
      for(var j=0;j<data_col ;j++){
-        AA[i][j]= BB[i][j];   
-                                }
-                                 } 
+       AA[i][j]= BB[i][j];   
+                         }
+              } 
   return AA;
 }
 
@@ -3833,9 +3779,89 @@ function m_mtx_copy_col_mtx(A,B){
     for(var i=0;i<data_row ;i++){     
      for(var j=0;j<(data_col-1) ;j++){
         AA[i][j]=BB[i][j+1]; 
-                                           }
-                                 } 
+                               }
+               } 
   return AA;
+}
+
+   
+
+function m_mtx_sort(A,col,nub){    
+  var AA=A;
+  if(AA==""){return AA;}
+  var col=col;
+  var nub=nub;
+  var data_row = AA.length;   
+  var data_col=AA[0].length;
+  var BUFF = m_new_mtx(1,data_col)
+  var data_a =0;
+  var data_b =0;
+  var col_sort=m_n(data_row-1);          
+    for(var k=0;k<col_sort ;k++){             
+      for(var i=0;i<(data_row-1) ;i++){    
+        var data_a = AA[i][col];
+        var data_b = AA[i+1][col];
+        var a_fst=data_a.substr(0,1);
+       if(a_fst=="+"){ data_a = data_a.substr(1,data_a.length-1);}
+       if(a_fst=="*" &&( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);} 
+       if(a_fst=="/" &&( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);} 
+        var data_a = data_a.replace(/\(/g , ""); 
+        var data_a = data_a.replace(/\)/g , ""); 
+        var a_fst=data_a.substr(0,1);  
+       if(a_fst=="-" && ( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);}
+        var b_fst=data_b.substr(0,1);
+      if(b_fst=="+"){ data_b = data_b.substr(1,data_b.length-1);} 
+      if(b_fst=="*" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);} 
+      if(b_fst=="/" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);} 
+       var data_b = data_b.replace(/\(/g , ""); 
+       var data_b = data_b.replace(/\)/g , "");  
+       var b_fst=data_b.substr(0,1); 
+      if(b_fst=="-" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);}
+       var data_a = data_a.replace(/EN/g , "e\-"); 
+       var data_a = data_a.replace(/EP/g , "e\+");
+       var data_a = data_a.replace(/\*\π/g , ""); 
+       var data_a = data_a.replace(/\π/g , "1"); 
+       var data_a = data_a.replace(/\*\°/g , ""); 
+       var data_a = data_a.replace(/\°/g , "1"); 
+       var data_b = data_b.replace(/EN/g , "e\-"); 
+        var data_b = data_b.replace(/EP/g , "e\+");
+        var data_b = data_b.replace(/\*\π/g , ""); 
+        var data_b = data_b.replace(/\π/g , "1"); 
+        var data_b = data_b.replace(/\*\°/g , ""); 
+        var data_b = data_b.replace(/\°/g , "1");
+       var data_comp= m_mtx_real_str_comp(data_a,data_b);
+      if((data_comp==1||data_comp==3) && ((nub==0)||(nub==4))){    
+       for(var j=0;j<data_col ;j++){    
+          BUFF[0][j] = AA[i+1][j];
+          AA[i+1][j]=AA[i][j] ;
+          AA[i][j]=BUFF[0][j] ;  } 
+                                    } 
+     if( (data_comp==2||data_comp==3) &&((nub==1)||(nub==3))){ 
+       for(var j=0;j<data_col ;j++){    
+          BUFF[0][j] = AA[i+1][j];
+          AA[i+1][j]=AA[i][j] ;
+          AA[i][j]=BUFF[0][j] ;  } 
+                                    } 
+                              }  
+                            }  
+ return AA;
+}
+
+ function m_mtx_exchange(A,rowa,rowb){    
+   var AA=A;
+   var row_a=rowa;
+   var row_b=rowb;
+   var data_row = AA.length;   
+   var data_col=AA[0].length;
+   var BUFF = m_new_mtx(1,data_col)
+   var data_a =0;
+   var data_b =0;
+     for(var i=0;i<(data_col) ;i++){    
+       BUFF[0][i]= AA[row_a][i];     
+       AA[row_a][i]= AA[row_b][i]; 
+       AA[row_b][i]= BUFF[0][i];
+                                 }
+   return AA;
 }
 
 function m_mtx_point_add_total(x,y){     
@@ -3844,34 +3870,123 @@ function m_mtx_point_add_total(x,y){
   var C=m_new_zero_mtx(1,MTX_COL);                
       A=m_mtx_point_in(A,x);              
       B=m_mtx_point_in(B,y);              
-       for(var i=0;i<C[0].length ;i++){  
-        if(x<0){ A[0][i]=A[0][i]*(-1);}    
-        if(y<0){ B[0][i]=B[0][i]*(-1);}    
+         for(var i=0;i<C[0].length ;i++){  
+           if(x<0){ A[0][i]=A[0][i]*(-1);}    
+           if(y<0){ B[0][i]=B[0][i]*(-1);}    
                       }
   var C = m_mtx_point_add(A,B);
   return CC;
 }
 
+   
+function m_mtx_col_sum(A,col){    
+  var AA=A;
+  if(AA==""){return AA ;}
+  var col=col;
+  var data_row = AA.length;   
+  var data_col = AA[0].length;
+  var BUFF = m_new_mtx(1,data_col)
+  var data_sum ='0';
+  var data_a=0;  
+  var flag_a="";
+  for(var i=0;i<(data_row) ;i++){    
+    var data_a = AA[i][col];
+    var data_a = data_a.replace(/\"/g , "");  
+    var a_fst=data_a.substr(0,1);
+    if(a_fst=="+"){ data_a = data_a.substr(1,data_a.length-1);}
+    var m_nb  = m_str_all_char_nb(data_a,"m_");
+    var pi_nb  = m_str_all_char_nb(data_a,"π");
+    var dge_nb = m_str_all_char_nb(data_a,"°");
+    var data_a = data_a.replace(/e\-/g , "EN"); 
+    var data_a = data_a.replace(/e\+/g , "EP");  
+    var en_nb = m_str_all_char_nb(data_a,"EN");  
+    var ep_nb = m_str_all_char_nb(data_a,"EP");
+    var mul_nb = m_str_all_char_nb(data_a,"*");  
+    var div_nb = m_str_all_char_nb(data_a,"/");
+    var data_a = data_a.replace(/EN/g , "e\-"); 
+    var data_a = data_a.replace(/EP/g , "e\+");  
+      if(mul_nb>=1 || div_nb>=1 ){                  
+        var data_a = m_ext_in_funct(data_a);  
+        var data_a = m_ext_in_funct_2(data_a); 
+        var data_a =eval(data_a);
+                     }   
+      if(m_nb>=1){var data_a =eval(data_a);}   
+      if(pi_nb>=1){
+      if(data_a=='π'){var data_a =1;}
+      else {var data_a = data_a.replace(/\π/g , ""); } 
+        var flag_a = "pi";
+                   }
+      if(dge_nb>=1){
+        if(data_a=='°'){var data_a =1;}
+        else{var data_a = data_a.replace(/\°/g , "");}  
+        var flag_a="dge";
+                   }
+       if((en_nb+ep_nb)>=1){
+         var data_a = data_a.replace(/\(/g , "");  
+         var data_a = data_a.replace(/\)/g , "");  
+                                           }
+      var data_sum =data_sum;   
+      var data_a_fst=data_a.toString().substr(0,1);
+      var data_sum_fst=data_sum.toString().substr(0,1);
+        if(data_a_fst=="-"){ var data_a=data_a.substr(1,data_a.length-1);}          
+        if(data_sum_fst=="-"){ var data_sum=data_sum.substr(1,data_sum.length-1);}  
+      var data_sum= data_sum.toString().trim();
+      var data_sum=m_mtx_trim(data_sum).toString();  
+      var data_a= data_a.toString().trim();
+      var data_a=m_mtx_trim(data_a).toString();
+        if(data_a_fst!="-" && data_sum_fst!="-" ){
+          var data_sum = m_mtx_real_add(data_sum,data_a);} 
+        if(data_a_fst=="-" && data_sum_fst=="-" ){
+          var data_sum = m_mtx_real_add(data_sum,data_a);
+          var data_sum ="-"+ data_sum; }
+        if(data_a_fst!="-" && data_sum_fst =="-" ) {
+          var data_sum = m_mtx_real_sub(data_a,data_sum);}
+        if(data_a_fst=="-" && data_sum_fst !="-" ) {
+          var data_sum = m_mtx_real_sub(data_sum,data_a);}
+                          }  
+   var data_sum = m_str_e_to_str(data_sum);
+     if(flag_a=="pi"){ var data_sum = data_sum+"*π";}
+     if(flag_a=="dge"){ var data_sum = data_sum+"*°";}
+   var sum_fst = data_sum.substr(0,1);
+     if(sum_fst !="-"){var data_sum="+"+data_sum;}   
+  return data_sum ;
+}
+
+
+function m_mtx_point_add_total(x,y){     
+  var A=m_new_zero_mtx(1,MTX_COL);            
+  var B=m_new_zero_mtx(1,MTX_COL);            
+  var C=m_new_zero_mtx(1,MTX_COL);                
+      A=m_mtx_point_in(A,x);              
+      B=m_mtx_point_in(B,y);              
+        for(var i=0;i<C[0].length ;i++){  
+          if(x<0){ A[0][i]=A[0][i]*(-1);}    
+          if(y<0){ B[0][i]=B[0][i]*(-1);}    
+                  }
+  var C = m_mtx_point_add(A,B);
+  return CC;
+}
+
 function m_mtx_point_add(A,B){        
-var AA=A;
-    var BB=B; 
-    AA= m_mtx_cell_five_brow(AA);        
-    AA= m_mtx_cell_five(AA);             
-    BB= m_mtx_cell_five_brow(BB);         
-    BB= m_mtx_cell_five(BB);               
-    var aa=AA[0][0].toString().trim();
-    var bb=BB[0][0].toString().trim();
-    var data_chk_a = aa.substr(0,1);
-    var data_chk_b = bb.substr(0,1);
-   if(data_chk_a =="-"){ 
-     var aaa=aa.substr(1,aa.length-1);
-     AA[0][0]= aaa ;   
+  var AA=A;
+  var BB=B; 
+      AA= m_mtx_cell_five_brow(AA);        
+      AA= m_mtx_cell_five(AA);             
+      BB= m_mtx_cell_five_brow(BB);         
+      BB= m_mtx_cell_five(BB);               
+  var aa=AA[0][0].toString().trim();
+  var bb=BB[0][0].toString().trim();
+  var data_chk_a = aa.substr(0,1);
+  var data_chk_b = bb.substr(0,1);
+    if(data_chk_a =="-"){ 
+      var aaa=aa.substr(1,aa.length-1);
+          AA[0][0]= aaa ;   
          } 
-   if(data_chk_b =="-"){ 
-     var bbb=bb.substr(1,bb.length-1);
-     BB[0][0]= bbb ;   
+    if(data_chk_b =="-"){ 
+      var bbb=bb.substr(1,bb.length-1);
+          BB[0][0]= bbb ;   
          }  
-    var CC=m_new_zero_mtx(AA.length,AA[0].length);               
+  var CC=m_new_zero_mtx(AA.length,AA[0].length);               
     if(data_chk_a =="-" && data_chk_b !="-"){                      
          CC= m_mtx_point_sub(BB,AA); 
          CC = m_mtx_cell_five_brow(CC); 
@@ -3884,197 +3999,194 @@ var AA=A;
                                       }
     else{                                                    
       for(var n=0;n<CC[0].length ;n++){    
-        var data_a = parseInt(AA[0][n]);
-        var data_b = parseInt(BB[0][n]);
-        CC[0][n]= data_a + data_b;
-                                 }
-        CC= m_mtx_cell_five(CC);                
-       if(data_chk_a =="-" && data_chk_b =="-"){
-        CC[0][0]= "-"+CC[0][0].toString() ;  }  
-  
-            }
+          var data_a = parseInt(AA[0][n]);
+          var data_b = parseInt(BB[0][n]);
+              CC[0][n]= data_a + data_b;
+                           }
+              CC= m_mtx_cell_five(CC);                
+        if(data_chk_a =="-" && data_chk_b =="-"){
+            CC[0][0]= "-"+CC[0][0].toString() ;  }  
+           }
   return CC;
 }
 
 function m_mtx_no_point_add(A,B){        
-var AA=A;
-    var BB=B; 
-    AA= m_mtx_cell_five_brow_int(AA);        
-    AA= m_mtx_cell_five_int(AA);             
-    BB= m_mtx_cell_five_brow_int(BB);         
-    BB= m_mtx_cell_five_int(BB);                
-   var aa=AA[0][0].toString().trim();
-   var bb=BB[0][0].toString().trim();
-   var data_chk_a = aa.substr(0,1);
-   var data_chk_b = bb.substr(0,1);
-   if(data_chk_a =="-"){ 
-         var aaa=aa.substr(1,aa.length-1);
-        AA[0][0]= aaa ;   
+  var AA=A;
+  var BB=B; 
+      AA= m_mtx_cell_five_brow_int(AA);        
+      AA= m_mtx_cell_five_int(AA);             
+      BB= m_mtx_cell_five_brow_int(BB);         
+      BB= m_mtx_cell_five_int(BB);                
+  var aa=AA[0][0].toString().trim();
+  var bb=BB[0][0].toString().trim();
+  var data_chk_a = aa.substr(0,1);
+  var data_chk_b = bb.substr(0,1);
+    if(data_chk_a =="-"){ 
+      var aaa=aa.substr(1,aa.length-1);
+      AA[0][0]= aaa ;   
        } 
-   if(data_chk_b =="-"){ 
-        var bbb=bb.substr(1,bb.length-1);
+    if(data_chk_b =="-"){ 
+      var bbb=bb.substr(1,bb.length-1);
       BB[0][0]= bbb ;   
        }  
-    var CC=m_new_zero_mtx(AA.length,AA[0].length);                 
+  var CC=m_new_zero_mtx(AA.length,AA[0].length);                 
     if(data_chk_a =="-" && data_chk_b !="-"){                     
-         CC= m_mtx_point_sub(BB,AA); 
-         CC = m_mtx_cell_five_brow_int(CC); 
-         CC= m_mtx_cell_five_int(CC);                
-                                        }            
+       CC= m_mtx_point_sub(BB,AA); 
+       CC = m_mtx_cell_five_brow_int(CC); 
+       CC= m_mtx_cell_five_int(CC);                
+                                }            
     else if(data_chk_a !="-" && data_chk_b =="-"){               
-         CC= m_mtx_point_sub(AA,BB);
-         CC = m_mtx_cell_five_brow_int(CC);  
-         CC= m_mtx_cell_five_int(CC);
-                                      }
+       CC= m_mtx_point_sub(AA,BB);
+       CC = m_mtx_cell_five_brow_int(CC);  
+       CC= m_mtx_cell_five_int(CC);
+                                  }
     else{                                                    
-        for(var n=0;n<CC[0].length ;n++){    
-              var data_a = parseInt(AA[0][n]);
-              var data_b = parseInt(BB[0][n]);
-                   CC[0][n]= data_a + data_b;
-                                 }
-                CC= m_mtx_cell_five_int(CC);               
-                 if(data_chk_a =="-" && data_chk_b =="-"){
-                     CC[0][0]= "-"+CC[0][0].toString() ;  }  
+      for(var n=0;n<CC[0].length ;n++){    
+          var data_a = parseInt(AA[0][n]);
+          var data_b = parseInt(BB[0][n]);
+          CC[0][n]= data_a + data_b;
+                            }
+          CC= m_mtx_cell_five_int(CC);               
+        if(data_chk_a =="-" && data_chk_b =="-"){
+          CC[0][0]= "-"+CC[0][0].toString() ;  }  
            }
-     var  CC = m_mtx_cell_five(CC);
+    var CC = m_mtx_cell_five(CC);
   return CC;
 }
 
-
 function m_mtx_point_sub(A,B){  
-var AA=A;
-   var BB=B;
-   var aa = AA[0][0];
-   var bb = BB[0][0];
-       aa=aa.toString().trim(); 
-       bb=bb.toString().trim(); 
-   var aa_fst=aa.substr(0,1);
-   var bb_fst=bb.substr(0,1);
-     if(aa_fst =="-" && bb_fst == "-" ){   
-        AA[0][0]=aa.substr(1,aa.length-1);  
-        BB[0][0]=bb.substr(1,bb.length-1);
-       for(var i=0; i< AA[0].length ; i++){            
+  var AA=A;
+  var BB=B;
+  var aa = AA[0][0];
+  var bb = BB[0][0];
+      aa=aa.toString().trim(); 
+      bb=bb.toString().trim(); 
+  var aa_fst=aa.substr(0,1);
+  var bb_fst=bb.substr(0,1);
+    if(aa_fst =="-" && bb_fst == "-" ){   
+      AA[0][0]=aa.substr(1,aa.length-1);  
+      BB[0][0]=bb.substr(1,bb.length-1);
+      for(var i=0; i< AA[0].length ; i++){            
          var data_a_fst = parseInt(AA[0][i]);
-          var data_b_fst = parseInt(BB[0][i]);
+         var data_b_fst = parseInt(BB[0][i]);
         if( data_a_fst != data_b_fst){
-           var i= AA[0].length }        
-                    }  
+          var i= AA[0].length }        
+                     }  
         if(data_b_fst > data_a_fst){ 
-            CC= m_mtx_point_sub_bf(BB,AA); }       
+          CC= m_mtx_point_sub_bf(BB,AA); }       
         else{
-           CC= m_mtx_point_sub_bf(AA,BB);         
-           CC[0][0]= parseInt(CC[0][0]) *(-1);
+          CC= m_mtx_point_sub_bf(AA,BB);         
+          CC[0][0]= parseInt(CC[0][0]) *(-1);
          if(CC[0][0]==0){ CC[0][0]= '-0';  }
                   }     
-                                  }
+                          }
      if(aa_fst !="-" && bb_fst!="-" ){   
        for(var i=0; i< AA[0].length ; i++){            
            var data_a_fst = parseInt(AA[0][i]);
            var data_b_fst = parseInt(BB[0][i]);
          if( data_a_fst != data_b_fst){
-            var i= AA[0].length }        
+           var i= AA[0].length }        
                      }   
-      if(data_a_fst > data_b_fst){ 
-           CC= m_mtx_point_sub_bf(AA,BB);}
-       else{ CC= m_mtx_point_sub_bf(BB,AA);              
-           CC[0][0]= parseInt(CC[0][0]) *(-1);
-        if(CC[0][0]==0){CC[0][0]= '-0'; }
+     if(data_a_fst > data_b_fst){ 
+        CC= m_mtx_point_sub_bf(AA,BB);}
+     else{ CC= m_mtx_point_sub_bf(BB,AA);              
+         CC[0][0]= parseInt(CC[0][0]) *(-1);
+      if(CC[0][0]==0){CC[0][0]= '-0'; }
           }     
                                    }
-      if(aa_fst !="-" && bb_fst=="-" ){            
-          BB[0][0]= parseInt(BB[0][0]) *(-1);       
-          CC= m_mtx_point_add(AA,BB);                
-                                      }
-       if(aa_fst =="-" && bb_fst!="-" ){             
-          AA[0][0]= parseInt(AA[0][0]) *(-1);        
+     if(aa_fst !="-" && bb_fst=="-" ){            
+        BB[0][0]= parseInt(BB[0][0]) *(-1);       
+        CC= m_mtx_point_add(AA,BB);                
+                                     }
+     if(aa_fst =="-" && bb_fst!="-" ){             
+        AA[0][0]= parseInt(AA[0][0]) *(-1);        
         if(AA[0][0]==0){ AA[0][0]= '0'; }       
-          CC= m_mtx_point_add(AA,BB);             
-          CC[0][0]= parseInt(CC[0][0]) *(-1);
+        CC= m_mtx_point_add(AA,BB);             
+        CC[0][0]= parseInt(CC[0][0]) *(-1);
         if(CC[0][0]==0){ CC[0][0]= '-0'; }
-                                } 
-        var CC = m_mtx_cell_five_brow(CC);  
-        var  CC = m_mtx_cell_five(CC);
-  return CC;
+                           } 
+   var CC = m_mtx_cell_five_brow(CC);  
+   var  CC = m_mtx_cell_five(CC);
+   return CC;
  }
 
 function m_mtx_point_sub_bf(A,B){        
-   var AA=A;
-   var BB=B; 
-   var CC=m_new_zero_mtx(AA.length,AA[0].length);                 
-   var data_a_fst=0;
-   var data_b_fst=0;
+  var AA=A;
+  var BB=B; 
+  var CC=m_new_zero_mtx(AA.length,AA[0].length);                 
+  var data_a_fst=0;
+  var data_b_fst=0;
     for(var i=0; i< AA[0].length ; i++){            
-     var data_a_fst = parseInt(AA[0][i]);
-     var data_b_fst = parseInt(BB[0][i]);
-    if( data_a_fst != data_b_fst){
-      var i= AA[0].length }        
-                  }
-   for(var n=0;n < CC[0].length ; n++){
-    var data_a = parseInt(AA[0][n]);
-    var data_b = parseInt(BB[0][n]);
-   if(data_a_fst >= data_b_fst){
+      var data_a_fst = parseInt(AA[0][i]);
+      var data_b_fst = parseInt(BB[0][i]);
+      if( data_a_fst != data_b_fst){
+         var i= AA[0].length }        
+                    }
+    for(var n=0;n < CC[0].length ; n++){
+      var data_a = parseInt(AA[0][n]);
+      var data_b = parseInt(BB[0][n]);
+      if(data_a_fst >= data_b_fst){
         CC[0][n]= data_a - data_b;}
-   else{
+      else{
         CC[0][n]= data_b - data_a;}     
-                       }
-   if(data_a_fst < data_b_fst){
+                              }
+      if(data_a_fst < data_b_fst){
         CC[0][0]= parseInt(CC[0][0])*(-1);                         
-    if(parseInt(CC[0][0]==0)){  CC[0][0]="-00000";}    
-                            }
-   CC = m_mtx_cell_five_brow(CC);   
-   CC = m_mtx_cell_five(CC);        
+       if(parseInt(CC[0][0]==0)){  CC[0][0]="-00000";}    
+                }
+    CC = m_mtx_cell_five_brow(CC);   
+    CC = m_mtx_cell_five(CC);        
   return CC;
 }
 
- 
 
-function m_mtx_trim(x){       
+function m_mtx_trim(x){      
   var xx_st = x.toString().trim(); 
   var xx_st = m_delete_bracket(xx_st); 
   var xx_fst12 = xx_st.substr(0,2);
-   if( xx_fst12 == '0e' || xx_st =='0.') { var data_t=0 ; return data_t ;}    
-  var xx_st_1 = m_mtx_del_plus(xx_st);     
-  var xx_st_2 = m_mtx_add_zero_bf(xx_st_1);     
+    if( xx_fst12 == '0e' || xx_st =='0.') { var data_t=0 ; return data_t ;}   
+  var xx_st_1 = m_mtx_del_plus(xx_st);   
+  var xx_st_2 = m_mtx_add_zero_bf(xx_st_1);   
    for(var i=0 ;i<10 ;i++){    
      var xx_st_3 = m_mtx_del_point(xx_st_2);    
      var xx_st_5 = m_mtx_del_zero_bf(xx_st_3);    
      var xx_st_6 = m_mtx_del_zero(xx_st_5);     
      var  xx_st_2 = xx_st_6;
-                        }
+                   }
   return xx_st_6;
 }
 
 function m_mtx_add_zero_bf(x){     
- var xx_st = x.toString().trim();
- var fst_st = xx_st.substr(0,1);
- var sec_st = xx_st.substr(1,1);
- if(fst_st =="."){ xx_st="0"+xx_st ;}
- if(fst_st =="-" && sec_st =="."){ xx_st="-0"+xx_st.substr(1,xx_st.length-1) ;}
-   return xx_st;
+  var xx_st = x.toString().trim();
+  var fst_st = xx_st.substr(0,1);
+  var sec_st = xx_st.substr(1,1);
+  if(fst_st =="."){ xx_st="0"+xx_st ;}
+  if(fst_st =="-" && sec_st =="."){ xx_st="-0"+xx_st.substr(1,xx_st.length-1) ;}
+      return xx_st;
 }
 
 
 function m_mtx_del_zero_bf(x){     
- var xx_st = x.toString().trim();
- var xx_st = xx_st.toString();    
- var fst_st = xx_st.substr(0,1);
- var sec_st = xx_st.substr(1,1);
- var tri_st = xx_st.substr(2,1);
- for(var i=0 ;i < (xx_st.length-1);i++){   
-   if(( fst_st ==0 || fst_st =="0") && (sec_st !=".") && (xx_st.length !=1)){ 
-    var xx_st = xx_st.substr(1,xx_st_length-1);
-    var fst_st = xx_st.substr(0,1);  
-    var sec_st = xx_st.substr(1,2);  
-                                                      }
-                                           }  
- for(var i=0 ;i < (xx_st.length-1);i++){      
-   if(fst_st =="-" && ( sec_st ==0 || sec_st =="0") && (tri_st !=".") && (xx_st.length !=1)){
-    var xx_st = "-"+xx_st.substr(2,xx_st_length-2);
-    var fst_st = xx_st.substr(0,1);  
-    var sec_st = xx_st.substr(1,2);  
-    var tri_st = xx_st.substr(2,1);  
-                            }
-                             }  
+  var xx_st = x.toString().trim();
+  var xx_st = xx_st.toString();    
+  var fst_st = xx_st.substr(0,1);
+  var sec_st = xx_st.substr(1,1);
+  var tri_st = xx_st.substr(2,1);
+    for(var i=0 ;i < (xx_st.length-1);i++){   
+      if((fst_st ==0 || fst_st =="0") && (sec_st !=".") && (xx_st.length !=1)){ 
+        var xx_st = xx_st.substr(1,xx_st_length-1);
+        var fst_st = xx_st.substr(0,1);  
+        var sec_st = xx_st.substr(1,2);  
+                             }
+                        }  
+    for(var i=0 ;i < (xx_st.length-1);i++){      
+      if(fst_st =="-" && ( sec_st ==0 || sec_st =="0") && (tri_st !=".") && (xx_st.length !=1)){
+        var xx_st = "-"+xx_st.substr(2,xx_st_length-2);
+        var fst_st = xx_st.substr(0,1);  
+        var sec_st = xx_st.substr(1,2);  
+        var tri_st = xx_st.substr(2,1);  
+                                  }
+                   }  
       return xx_st;
 }
 
@@ -4085,304 +4197,301 @@ function m_mtx_del_zero(x){
   var pos_e  = xx_st.indexOf("e");    
   var st_lg = xx_st.length;
   var nub_e_x=0; 
-   if(  pos_e != -1){                          
-     nub_e_x =m_str_power(xx_st,0);          
-     xx_st = m_str_power(xx_st,1);          
+    if( pos_e != -1){                          
+      nub_e_x =m_str_power(xx_st,0);          
+      xx_st = m_str_power(xx_st,1);          
                      }
   var xx = xx_st;
   var xx_pot = xx.indexOf(".");
   var xx_lg  = xx.length;
   var xx_lst ="";  
-   if(xx_lg >1){
-     var xx_lst = xx.substr(xx_lg-1,1); 
+    if(xx_lg >1){
+      var xx_lst = xx.substr(xx_lg-1,1); 
               }
   var nn=0; 
-   if(xx_lst=="0"){var nn=1;}
-   else{var nn=0;}   
- while(nn >0){       
-  if(xx_pot != -1 && xx_lst=="0"){
-            xx = xx.substr(0,(xx_lg-1));
-    var xx_lg  = xx.length;       
-        xx_lst =xx.substr(xx_lg-1,1); 
-   if(xx_lst=="0"){var nn=1;}
+    if(xx_lst=="0"){var nn=1;}
     else{var nn=0;}   
-                      }  
-  else{ var nn=0;}  
+    while(nn >0){       
+      if(xx_pot != -1 && xx_lst=="0"){
+        xx = xx.substr(0,(xx_lg-1));
+        var xx_lg  = xx.length;       
+        xx_lst =xx.substr(xx_lg-1,1); 
+          if(xx_lst=="0"){var nn=1;}
+          else{var nn=0;}   
+                                 }  
+      else{ var nn=0;}  
                  }  
-   if(nub_e_x > 0){ xx=xx+"e+"+nub_e_x;}   
-   if(nub_e_x < 0){ xx=xx+"e"+nub_e_x;}
-   if(nub_e_x == 0){ xx=xx;}
-     return xx;
+      if(nub_e_x > 0){ xx=xx+"e+"+nub_e_x;}   
+      if(nub_e_x < 0){ xx=xx+"e"+nub_e_x;}
+      if(nub_e_x == 0){ xx=xx;}
+        return xx;
 }            
 
 
 function m_mtx_del_point(x){     
- var xx_st = x.toString().trim();
- var lst_st = xx_st.substr(xx_st.length-1,1);    
- var lg = xx_st.length;
-   for(var i=0 ;i< lg  ;i++){
-    if( lst_st =="."){ xx_st = xx_st.substr(0,xx_st.length -1);
-      var lst_st = xx_st.substr(xx_st.length-1,1);  }  
-     else { var i= lg ;
-       var  xx_st = xx_st ;
-        return xx_st; }  }
-  var pos_pot  = xx_st.indexOf(".");    
-  var pos_e  = xx_st.indexOf("e");     
+  var xx_st = x.toString().trim();
+  var lst_st = xx_st.substr(xx_st.length-1,1);    
+  var lg = xx_st.length;
+    for(var i=0 ;i< lg  ;i++){
+      if(lst_st =="."){ xx_st = xx_st.substr(0,xx_st.length -1);
+        var lst_st = xx_st.substr(xx_st.length-1,1);  }  
+      else { var i= lg ;
+        var xx_st = xx_st ;
+            return xx_st; }  }
+  var pos_pot = xx_st.indexOf(".");    
+  var pos_e = xx_st.indexOf("e");     
   var st_lg = xx_st.length;
   var nub_e_x=0; 
-    if( pos_pot ==-1){ return x ;} 
-    if( xx_st=="0."){ return "0" ;}
-    if( pos_e != -1){ 
-     nub_e_x =m_str_power(xx_st,0);          
-     xx_st = m_str_power(xx_st,1);          
-                       }
+    if(pos_pot ==-1){ return x ;} 
+    if(xx_st=="0."){ return "0" ;}
+    if(pos_e != -1){ 
+      nub_e_x =m_str_power(xx_st,0);          
+      xx_st = m_str_power(xx_st,1);          
+                        }
   var sutt=xx_st;
   var pos_pot_sum  = sutt.indexOf(".");
   var sum_lg  = sutt.length;
-  if(pos_pot_sum == (sum_lg-1) ){sutt = sutt.substr(0,(sum_lg-1));}  
-  if(nub_e_x > 0){ sutt=sutt+"e+"+nub_e_x;}   
-  if(nub_e_x < 0){ sutt=sutt+"e"+nub_e_x;}
-  if(nub_e_x == 0){ sutt=sutt;}
+    if(pos_pot_sum == (sum_lg-1) ){sutt = sutt.substr(0,(sum_lg-1));}  
+    if(nub_e_x > 0){ sutt=sutt+"e+"+nub_e_x;}   
+    if(nub_e_x < 0){ sutt=sutt+"e"+nub_e_x;}
+    if(nub_e_x == 0){ sutt=sutt;}
      return sutt;
 }            
 
 
 function m_mtx_test_msg(x){
-var  x= x.toString().trim();
-   var x_msg = x.indexOf("Msg");
-      if(x_msg !=-1 ){ return x;}     
-      else{ return -1 ;}
+  var x= x.toString().trim();
+  var x_msg = x.indexOf("Msg");
+    if(x_msg !=-1 ){ return x;}     
+    else{ return -1 ;}
 }
 
 
 function m_mtx_n_str_cpl_9(x){   
-var xx= x.toString().trim();
-   var xx = m_str_e_to_str(xx);      
-   var pos_pot  = xx.indexOf(".");    
-   var st_lg = xx.length;
+  var xx= x.toString().trim();
+  var xx = m_str_e_to_str(xx);      
+  var pos_pot  = xx.indexOf(".");    
+  var st_lg = xx.length;
     if(pos_pot!=-1){ return xx;};  
-   var data_x=xx;
-   var data_y="";
+  var data_x=xx;
+  var data_y="";
     for(var i=0;i<st_lg;i++){     
       data_y=data_y+"9";}
-    AA=m_new_zero_mtx(1,100);                
-    BB=m_new_zero_mtx(1,100);                 
-    CC=m_new_zero_mtx(1,100);                 
-     AA=m_mtx_point_in_int(AA,data_x);  
-     BB=m_mtx_point_in_int(BB,data_y);  
-      for(var j=0; j< CC[0].length ;j++){
-          var data_bb = BB[0][j];
-          var data_bb = parseInt(data_bb); 
-          var data_aa =  AA[0][j];
-          var data_aa = parseInt(data_aa); 
-         CC[0][j]= data_bb - data_aa;           
-                                    }
-       CC= m_mtx_cell_five_int(CC);           
-       var  data_z="";  
-       var  data_t="";  
-       for(var k=0; k<CC[0].length ;k++){    
-              var  data_t = CC[0][k].toString();
+   AA=m_new_zero_mtx(1,100);                
+   BB=m_new_zero_mtx(1,100);                 
+   CC=m_new_zero_mtx(1,100);                 
+   AA=m_mtx_point_in_int(AA,data_x);  
+   BB=m_mtx_point_in_int(BB,data_y);  
+     for(var j=0; j< CC[0].length ;j++){
+       var data_bb = BB[0][j];
+       var data_bb = parseInt(data_bb); 
+       var data_aa =  AA[0][j];
+       var data_aa = parseInt(data_aa); 
+        CC[0][j]= data_bb - data_aa;           
+                                }
+    CC= m_mtx_cell_five_int(CC);           
+   var data_z="";  
+   var data_t="";  
+     for(var k=0; k<CC[0].length ;k++){    
+        var  data_t = CC[0][k].toString();
         data_z = data_t + data_z; 
-                                     }
-        var n=0;
-      while(n<(CC[0].length*5)){   
-        var data_fst=data_z.substr(0,1);  
-              if(data_fst==0){
-                 data_z=data_z.substr(1,data_z.length-1); 
                             }
-               else { n=(CC[0].length*5);}
-                 var n=n+1;
+        var n=0;
+       while(n<(CC[0].length*5)){   
+        var data_fst=data_z.substr(0,1);  
+          if(data_fst==0){
+            data_z=data_z.substr(1,data_z.length-1); 
+                        }
+          else { n=(CC[0].length*5);}
+             var n=n+1;
                     } 
-       if(data_z==""  ){var data_z=0;}
-       if(data_z==-0  ){var data_z=0;}
+     if(data_z==""  ){var data_z=0;}
+     if(data_z==-0  ){var data_z=0;}
    return data_z ;
 }
 
 
 function m_mtx_int_str_comp(x,y){      
-   var  xx= x.toString().trim();
-   var  yy= y.toString().trim();
-   var x_e  = xx.indexOf("e");    
-   var y_e  = yy.indexOf("e");    
-     if(x_e !=-1 || y_e !=-1){ return ;};       
-   var ant=0;
-      if(xx!="" && yy==""){ var ant=1 ; return ant; }
-      if(xx=="" && yy!=""){ var ant=2 ; return ant; }
-      if(xx=="" && yy==""){ var ant=3 ; return ant; }
-   var xx_fst = xx.substr(0,1);
-   var yy_fst = yy.substr(0,1);
+  var xx= x.toString().trim();
+  var yy= y.toString().trim();
+  var x_e  = xx.indexOf("e");    
+  var y_e  = yy.indexOf("e");    
+    if(x_e !=-1 || y_e !=-1){ return ;};       
+  var ant=0;
+    if(xx!="" && yy==""){ var ant=1 ; return ant; }
+    if(xx=="" && yy!=""){ var ant=2 ; return ant; }
+    if(xx=="" && yy==""){ var ant=3 ; return ant; }
+  var xx_fst = xx.substr(0,1);
+  var yy_fst = yy.substr(0,1);
     if(xx_fst !="-" && yy_fst =="-"){ var ant=1 ; return ant; }   
     if(xx_fst =="-" && yy_fst !="-"){ var ant=2 ; return ant; }   
-   var xx_lg = xx.length;
-   var yy_lg = yy.length;
-   var x_pos_pot  = xx.indexOf(".");    
-   var y_pos_pot  = yy.indexOf("."); 
-   var x_i_lg =0; 
-   var y_i_lg =0; 
-     if( x_pos_pot == -1){ var x_i_lg = xx_lg ;}  
-     else { var x_i_lg = x_pos_pot ;}
-     if( y_pos_pot == -1){ var y_i_lg = yy_lg ;}  
-     else { var y_i_lg = y_pos_pot ;}
-     if(( x_i_lg > y_i_lg) && (xx_fst !="-") && (yy_fst !="-")){ var ant=1 ; return ant; }      
-     if(( x_i_lg > y_i_lg) && (xx_fst =="-") && (yy_fst =="-")){ var ant=2 ; return ant; }   
-     if(( y_i_lg > x_i_lg) && (xx_fst !="-") && (yy_fst !="-")){ var ant=2 ; return ant; }    
-     if(( y_i_lg > x_i_lg) && (xx_fst =="-") && (yy_fst =="-")){ var ant=1 ; return ant; } 
-      
-      if(xx_lg >= yy_lg){ var xy_lg = xx_lg; }    
-      else { var xy_lg = yy_lg; } 
-        for(var i=0 ; i< xy_lg;i++){
-            var xx_word = xx.substr(i,1);
-            var yy_word = yy.substr(i,1);
-         if( xx_word !="" &&  yy_word =="" && xx_fst !="-"){ var ant=1 ; return ant; }  
-         if( xx_word =="" &&  yy_word !="" && xx_fst !="-"){ var ant=2 ; return ant; }    
-         if( xx_word !="" &&  yy_word =="" && xx_fst =="-"){ var ant=2 ; return ant; }  
-         if( xx_word =="" &&  yy_word !="" && xx_fst =="-"){ var ant=1 ; return ant; } 
+  var xx_lg = xx.length;
+  var yy_lg = yy.length;
+  var x_pos_pot  = xx.indexOf(".");    
+  var y_pos_pot  = yy.indexOf("."); 
+  var x_i_lg =0; 
+  var y_i_lg =0; 
+    if( x_pos_pot == -1){ var x_i_lg = xx_lg ;}  
+    else { var x_i_lg = x_pos_pot ;}
+    if( y_pos_pot == -1){ var y_i_lg = yy_lg ;}  
+    else { var y_i_lg = y_pos_pot ;}
+    if(( x_i_lg > y_i_lg) && (xx_fst !="-") && (yy_fst !="-")){ var ant=1 ; return ant; }      
+    if(( x_i_lg > y_i_lg) && (xx_fst =="-") && (yy_fst =="-")){ var ant=2 ; return ant; }   
+    if(( y_i_lg > x_i_lg) && (xx_fst !="-") && (yy_fst !="-")){ var ant=2 ; return ant; }    
+    if(( y_i_lg > x_i_lg) && (xx_fst =="-") && (yy_fst =="-")){ var ant=1 ; return ant; } 
+    if(xx_lg >= yy_lg){ var xy_lg = xx_lg; }    
+    else { var xy_lg = yy_lg; } 
+      for(var i=0 ; i< xy_lg;i++){
+        var xx_word = xx.substr(i,1);
+        var yy_word = yy.substr(i,1);
+        if( xx_word !="" &&  yy_word =="" && xx_fst !="-"){ var ant=1 ; return ant; }  
+        if( xx_word =="" &&  yy_word !="" && xx_fst !="-"){ var ant=2 ; return ant; }    
+        if( xx_word !="" &&  yy_word =="" && xx_fst =="-"){ var ant=2 ; return ant; }  
+        if( xx_word =="" &&  yy_word !="" && xx_fst =="-"){ var ant=1 ; return ant; } 
         if(( xx_word > yy_word)&& xx_fst !="-"){ var ant=1 ; return ant; }  
-         if(( xx_word < yy_word)&& xx_fst !="-"){ var ant=2 ; return ant; }  
-         if(( xx_word > yy_word)&& xx_fst =="-"){ var ant=2 ; return ant; }  
-         if(( xx_word < yy_word)&& xx_fst =="-"){ var ant=1 ; return ant; } }
-                                                
-           var ant=3;
-            return ant ;
-           
+        if(( xx_word < yy_word)&& xx_fst !="-"){ var ant=2 ; return ant; }  
+        if(( xx_word > yy_word)&& xx_fst =="-"){ var ant=2 ; return ant; }  
+        if(( xx_word < yy_word)&& xx_fst =="-"){ var ant=1 ; return ant; } }
+     var ant=3;
+        return ant ;
    }
 
 function m_mtx_real_str_comp(x,y){      
-   var  x= x.toString().trim();
-   var  y= y.toString().trim();
-   var ant=0;
-      if(x!="" && y==""){ var ant=1 ; return ant; }
-      if(x=="" && y!=""){ var ant=2 ; return ant; }
-      if(x=="" && y==""){ var ant=3 ; return ant; }
-    var x=m_str_e_to_str_point(x);
-    var xx = m_mtx_str_to_e(x);             
-    var yy = m_mtx_str_to_e(y);   
-    var xx = m_mtx_str_to_e_a(xx);             
-    var yy = m_mtx_str_to_e_a(yy);
-    var xx = m_mtx_str_to_e_ne(xx);             
-    var yy = m_mtx_str_to_e_ne(yy);
-        xx = m_fix_pow_lst(xx);    
-        yy = m_fix_pow_lst(yy);  
-    var xx_fst = xx.substr(0,1);
-    var xx_sec = xx.substr(1,1);
-    var xx_tri = xx.substr(2,1);
-    var xx_e = m_mtx_e_str(xx,0);   
-    var xx_lg = xx.length;
-    var yy_fst = yy.substr(0,1);
-    var yy_sec = yy.substr(1,1);
-    var yy_tri = yy.substr(2,1);
-    var yy_e = m_mtx_e_str(yy,0);   
-    var yy_lg = yy.length; 
-     if(xx_lg >= yy_lg){ var xy_lg = xx_lg; }    
-     else { var xy_lg = yy_lg; } 
+  var x= x.toString().trim();
+  var y= y.toString().trim();
+  var ant=0;
+    if(x!="" && y==""){ var ant=1 ; return ant; }
+    if(x=="" && y!=""){ var ant=2 ; return ant; }
+    if(x=="" && y==""){ var ant=3 ; return ant; }
+  var x=m_str_e_to_str_point(x);
+  var xx = m_mtx_str_to_e(x);             
+  var yy = m_mtx_str_to_e(y);   
+  var xx = m_mtx_str_to_e_a(xx);             
+  var yy = m_mtx_str_to_e_a(yy);
+  var xx = m_mtx_str_to_e_ne(xx);             
+  var yy = m_mtx_str_to_e_ne(yy);
+      xx = m_fix_pow_lst(xx);    
+      yy = m_fix_pow_lst(yy);  
+  var xx_fst = xx.substr(0,1);
+  var xx_sec = xx.substr(1,1);
+  var xx_tri = xx.substr(2,1);
+  var xx_e = m_mtx_e_str(xx,0);   
+  var xx_lg = xx.length;
+  var yy_fst = yy.substr(0,1);
+  var yy_sec = yy.substr(1,1);
+  var yy_tri = yy.substr(2,1);
+  var yy_e = m_mtx_e_str(yy,0);   
+  var yy_lg = yy.length; 
+    if(xx_lg >= yy_lg){ var xy_lg = xx_lg; }    
+    else { var xy_lg = yy_lg; } 
     if(xx_fst !="-" && yy_fst =="-"){ var ant=1 ; return ant; }   
     if(xx_fst =="-" && yy_fst !="-"){ var ant=2 ; return ant; }   
-        var  xx_e=parseInt(xx_e);   
-        var  yy_e=parseInt(yy_e); 
+      var xx_e=parseInt(xx_e);   
+      var yy_e=parseInt(yy_e); 
     if((xx_fst !="-" && yy_fst !="-")||(xx_fst =="-" && yy_fst =="-")){             
       if(xx_fst !="-" &&  xx !="0"  &&  yy =="0" && yy.length ==1){ var ant=1 ;   return ant; }       
       if(xx_fst =="-" &&  xx !="0"  &&  yy =="0" && yy.length ==1){ var ant=2 ;   return ant; }       
       if(xx =="0"  && xx.length ==1 &&  yy !="0" && yy_fst !="-"){ var ant=2 ; return ant; }        
       if(xx =="0"  && xx.length ==1 &&  yy !="0" && yy_fst =="-"){ var ant=1 ; return ant; }        
       if(xx =="0"  && xx.length ==1 &&  yy =="0" && yy.length ==1){ var ant=3 ; return ant; }        
-         var data_e_cpl = m_mtx_int_str_comp(xx_e,yy_e);
+        var data_e_cpl = m_mtx_int_str_comp(xx_e,yy_e);
       if(xx_fst !="-" && yy_fst !="-"){                    
         if(data_e_cpl==1){ var ant=1 ; return ant; }            
         if(data_e_cpl==2){ var ant=2 ; return ant; }            
-                                           }
-        if(xx_fst =="-" && yy_fst =="-"){                       
-          if(data_e_cpl==1){ var ant=2 ; return ant; }            
-          if(data_e_cpl==2){ var ant=1 ; return ant; }            
+                                      }
+      if(xx_fst =="-" && yy_fst =="-"){                       
+        if(data_e_cpl==1){ var ant=2 ; return ant; }            
+        if(data_e_cpl==2){ var ant=1 ; return ant; }            
                                              }
-         if((data_e_cpl == 3) && (xx_fst >  yy_fst)){ var ant=1 ; return ant; }   
-             if((data_e_cpl == 3) && (xx_fst <  yy_fst)){ var ant=2 ; return ant; }   
-         if(data_e_cpl == 3){
-             var xx_str = m_mtx_e_str(xx,1);   
-             var yy_str = m_mtx_e_str(yy,1);   
-             var ant = m_mtx_int_str_comp(xx_str,yy_str);    
-                                  }
-                                                }   
-           return ant; 
+      if((data_e_cpl == 3) && (xx_fst >  yy_fst)){ var ant=1 ; return ant; }   
+      if((data_e_cpl == 3) && (xx_fst <  yy_fst)){ var ant=2 ; return ant; }   
+      if(data_e_cpl == 3){
+        var xx_str = m_mtx_e_str(xx,1);   
+        var yy_str = m_mtx_e_str(yy,1);   
+        var ant = m_mtx_int_str_comp(xx_str,yy_str);    
+                      }
+                    }   
+          return ant; 
    }
 
 
 function m_mtx_int_add(x,y){   
-   var xx= x.toString().trim();
-   var yy= y.toString().trim();
-   var xx = m_str_e_to_str(xx);       
-   var yy = m_str_e_to_str(yy);     
-   var x_pos_pot  = xx.indexOf(".");    
-   var y_pos_pot  = yy.indexOf(".");    
-   var x_pos_e  = xx.indexOf("e");    
-   var y_pos_e  = yy.indexOf("e");    
-    if(x_pos_e !=-1 ){ return ;};   
+  var xx= x.toString().trim();
+  var yy= y.toString().trim();
+  var xx = m_str_e_to_str(xx);       
+  var yy = m_str_e_to_str(yy);     
+  var x_pos_pot  = xx.indexOf(".");    
+  var y_pos_pot  = yy.indexOf(".");    
+  var x_pos_e  = xx.indexOf("e");    
+  var y_pos_e  = yy.indexOf("e");    
+    if(x_pos_e !=-1 ){ return ;};    
     if(y_pos_e !=-1 ){ return ;};  
-   var x_st_fst= xx.substr(0,1);
-   var y_st_fst= yy.substr(0,1);
-    if(x_st_fst=="-"){  var x_st=xx.substr(1,xx.length-1);} 
-                   else{  var x_st = xx;}
-    if(y_st_fst=="-"){  var y_st=yy.substr(1,yy.length-1);} 
-                   else{  var y_st = yy;}
-    if( x_pos_pot>=1 || y_pos_pot>=1 ){        
-     var xst_pos_pot  = x_st.indexOf(".");    
-     var yst_pos_pot  = y_st.indexOf("."); 
-     var xst_p_bf = x_st.substr(xst_pos_pot+1,x_st.length-xst_pos_pot);        
-     var xst_p_bf_lg = xst_p_bf.length;                                    
-     var yst_p_bf = y_st.substr(yst_pos_pot+1,y_st.length-yst_pos_pot);        
-     var yst_p_bf_lg = yst_p_bf.length;                                    
-     var data_comp_0 = m_mtx_real_str_comp(xst_p_bf_lg,yst_p_bf_lg);      
-      if(data_comp_0==3 && xst_p_bf_lg >=1){       
-        var x_st = x_st.replace(/\./g,'');            
-        var y_st = y_st.replace(/\./g,'');            
-         var sf_flag = xst_p_bf_lg;   }  
-      else if(data_comp_0==1 && xst_p_bf_lg >=1  ){       
-         var x_st = x_st.replace(/\./g,'');                                   
-         var y_st = y_st.replace(/\./g,''); 
-         for(var i=0 ;i<(xst_p_bf_lg-yst_p_bf_lg);i++){
-             var y_st = y_st+"0" ;                              
-             var sf_flag = xst_p_bf_lg;}
-                      }
-      else if(data_comp_0==2 && yst_p_bf_lg >=1  ){       
+  var x_st_fst= xx.substr(0,1);
+  var y_st_fst= yy.substr(0,1);
+    if(x_st_fst=="-"){ var x_st=xx.substr(1,xx.length-1);} 
+    else{  var x_st = xx;}
+    if(y_st_fst=="-"){ var y_st=yy.substr(1,yy.length-1);} 
+    else{ var y_st = yy;}
+    if(x_pos_pot>=1 || y_pos_pot>=1 ){        
+       var xst_pos_pot  = x_st.indexOf(".");    
+       var yst_pos_pot  = y_st.indexOf("."); 
+       var xst_p_bf = x_st.substr(xst_pos_pot+1,x_st.length-xst_pos_pot);        
+       var xst_p_bf_lg = xst_p_bf.length;                                    
+       var yst_p_bf = y_st.substr(yst_pos_pot+1,y_st.length-yst_pos_pot);        
+       var yst_p_bf_lg = yst_p_bf.length;                                    
+       var data_comp_0 = m_mtx_real_str_comp(xst_p_bf_lg,yst_p_bf_lg);      
+    if(data_comp_0==3 && xst_p_bf_lg >=1){       
+       var x_st = x_st.replace(/\./g,'');            
+       var y_st = y_st.replace(/\./g,'');            
+       var sf_flag = xst_p_bf_lg; }  
+    else if(data_comp_0==1 && xst_p_bf_lg >=1  ){       
+       var x_st = x_st.replace(/\./g,'');                                   
+       var y_st = y_st.replace(/\./g,''); 
+       for(var i=0 ;i<(xst_p_bf_lg-yst_p_bf_lg);i++){
+          var y_st = y_st+"0" ;                              
+          var sf_flag = xst_p_bf_lg;}
+                     }
+     else if(data_comp_0==2 && yst_p_bf_lg >=1  ){       
         var x_st = x_st.replace(/\./g,'');                                  
         var y_st = y_st.replace(/\./g,''); 
-         for(var i=0 ;i<(yst_p_bf_lg-xst_p_bf_lg);i++){
-          var x_st = x_st+"0" ;                              
-          var sf_flag = yst_p_bf_lg;}
+          for(var i=0 ;i<(yst_p_bf_lg-xst_p_bf_lg);i++){
+            var x_st = x_st+"0" ;                              
+            var sf_flag = yst_p_bf_lg;}
                         }
       else{ var x_st=x_st ;
-            var y_st=y_st ;
-            var sf_flag = 0; } 
+         var y_st=y_st ;
+         var sf_flag = 0; } 
          }                           
-      if(x_st==0){ return y;}    
-      if(y_st==0){ return x;} 
-       var x_lg = x_st.length;
-       var y_lg = y_st.length;
-       var max_lg = 0;
-      if( x_lg >= y_lg){ var max_lg = x_lg ;}
-      else{var max_lg = y_lg ;}
-         var data_z=0;
-      if( max_lg <15 && sf_flag == 0){ var data_z= parseInt(x)+parseInt(y);   
-          return data_z;}
-      if( max_lg <15 && sf_flag != 0){ 
-       if(x_st_fst=="-"){ var x_st="-"+x_st;}
-       if(y_st_fst=="-"){ var y_st="-"+y_st;}
+    if(x_st==0){ return y;}    
+    if(y_st==0){ return x;} 
+    var x_lg = x_st.length;
+    var y_lg = y_st.length;
+    var max_lg = 0;
+    if( x_lg >= y_lg){ var max_lg = x_lg ;}
+    else{var max_lg = y_lg ;}
+   var data_z=0;
+    if( max_lg <15 && sf_flag == 0){ var data_z= parseInt(x)+parseInt(y);   
+       return data_z;}
+    if( max_lg <15 && sf_flag != 0){ 
+      if(x_st_fst=="-"){ var x_st="-"+x_st;}
+      if(y_st_fst=="-"){ var y_st="-"+y_st;}
       var data_z= parseInt(x_st)+parseInt(y_st);  
       var data_z = data_z.toString();
       var data_z_fst= data_z.substr(0,1);                                    
-        if(data_z_fst=="-"){ var data_z = data_z.substr(1,data_z.length-1);} 
-        if(data_z.length >sf_flag){
-             var data_z = data_z.substr(0,data_z.length-sf_flag)+"."+ data_z.substr(data_z.length - sf_flag ,sf_flag )
-                                           }
-         if(data_z.length ==sf_flag){
-              var data_z = "0."+ data_z  ;                                               
-                                             }
-         if(data_z.length < sf_flag){            
-              var data_z_00 ="";
-           for(var jj=0 ;jj< (sf_flag-data_z.length);jj++){
-              var data_z_00 = "0"+ data_z_00 } ;                                                 
-              var data_z="0."+data_z_00+data_z;
-                                                }
-        if(data_z_fst=="-"){ var data_z = "-"+data_z ;}  
+      if(data_z_fst=="-"){ var data_z = data_z.substr(1,data_z.length-1);} 
+      if(data_z.length >sf_flag){
+         var data_z = data_z.substr(0,data_z.length-sf_flag)+"."+ data_z.substr(data_z.length - sf_flag ,sf_flag )
+                                   }
+      if(data_z.length ==sf_flag){
+          var data_z = "0."+ data_z  ;                                               
+                                   }
+      if(data_z.length < sf_flag){            
+        var data_z_00 ="";
+        for(var jj=0 ;jj< (sf_flag-data_z.length);jj++){
+          var data_z_00 = "0"+ data_z_00 } ;                                                 
+          var data_z="0."+data_z_00+data_z;
+                                        }
+      if(data_z_fst=="-"){ var data_z = "-"+data_z ;}  
               return data_z;}                                   
     var data_comp = m_mtx_real_str_comp(x_st,y_st);      
     var data_col=0;
@@ -4390,8 +4499,8 @@ function m_mtx_int_add(x,y){
     AA=m_new_zero_mtx(1,data_col);                     
     BB=m_new_zero_mtx(1,data_col);                 
     CC=m_new_zero_mtx(1,data_col);                 
-    AA=m_mtx_point_in_int(AA,x_st);  
-    BB=m_mtx_point_in_int(BB,y_st);  
+     AA=m_mtx_point_in_int(AA,x_st);  
+     BB=m_mtx_point_in_int(BB,y_st);  
     if((x_st_fst=="-" && y_st_fst=="-") || (x_st_fst!="-" && y_st_fst!="-")){
       for(var i=0;i< CC[0].length ;i++){              
           CC[0][i]=parseInt(AA[0][i])+parseInt(BB[0][i]);      
@@ -4407,62 +4516,59 @@ function m_mtx_int_add(x,y){
           CC[0][k]=parseInt(BB[0][k])-parseInt(AA[0][k]);      
        }
                       }
+         
       CC= m_mtx_cell_five_brow_int(CC);     
       CC= m_mtx_cell_five_int(CC);           
       var  data_z="";  
       var  data_t="";  
        for(var k=0; k<data_col ;k++){       
-              var  data_t = CC[0][k].toString();
-         data_z = data_t + data_z; 
-                                          }
-        var n=0;
+           var  data_t = CC[0][k].toString();
+        data_z = data_t + data_z; 
+                          }
+      var n=0;
        while(n<(data_col*5)){   
         var data_fst=data_z.substr(0,1);  
           if(data_fst==0){
-            data_z=data_z.substr(1,data_z.length-1); 
-                         }
-           else { n=(data_col*5);}
-               var n=n+1;
-                   } 
+             data_z=data_z.substr(1,data_z.length-1); 
+                        }
+          else { n=(data_col*5);}
+            var n=n+1;
+                    } 
            data_z= data_z.toString();
-       if(data_z==""){var data_z=0;}  
-    if ((x_st_fst=="-" && y_st_fst=="-")||((data_comp !=2 && x_st_fst=="-" && y_st_fst!="-"))||((data_comp ==2 && x_st_fst!="-" && y_st_fst=="-"))){
-         data_z ="-"+ data_z;
+    if(data_z==""){var data_z=0;}  
+    if((x_st_fst=="-" && y_st_fst=="-")||((data_comp !=2 && x_st_fst=="-" && y_st_fst!="-"))||((data_comp ==2 && x_st_fst!="-" && y_st_fst=="-"))){
+        data_z ="-"+ data_z;
             }  
     if(data_z==-0  ){var data_z=0;} 
     if(sf_flag >0){                     
-        var data_z = data_z.substr(0,data_z.length-sf_flag)+"."+ data_z.substr(data_z.length - sf_flag ,sf_flag )
-                       }    
-          return data_z; 
-  
+       var data_z = data_z.substr(0,data_z.length-sf_flag)+"."+ data_z.substr(data_z.length - sf_flag ,sf_flag )
+              }    
+       return data_z; 
 }
 
-
-function m_mtx_int_sub(x,y){           
-   var  xx= x.toString().trim();
-   var  yy= y.toString().trim();
-   var xx = m_str_e_to_str(xx);       
-   var yy = m_str_e_to_str(yy);     
-   var x_pos_pot  = xx.indexOf("e");   
-   var y_pos_pot  = yy.indexOf("e");    
+function m_mtx_int_sub(x,y){          
+  var  xx= x.toString().trim();
+  var  yy= y.toString().trim();
+  var xx = m_str_e_to_str(xx);       
+  var yy = m_str_e_to_str(yy);     
+  var x_pos_pot  = xx.indexOf("e");    
+  var y_pos_pot  = yy.indexOf("e");    
     if(x_pos_pot!=-1 ){ return ;};  
     if(y_pos_pot!=-1 ){ return ;};  
-   var y_st_fst= yy.substr(0,1);
-   var x_st = xx;
+  var y_st_fst= yy.substr(0,1);
+  var x_st = xx;
     if(y_st_fst=="-"){  var y_st=yy.substr(1,yy.length-1);}   
     else{  var y_st = "-"+yy;}
-   var data_z = 0; 
-   var data_z = m_mtx_int_add(x_st,y_st);
-   var data_z =m_mtx_trim(data_z) ;  
-         return data_z; 
+  var data_z = 0; 
+  var data_z = m_mtx_int_add(x_st,y_st);
+  var data_z =m_mtx_trim(data_z) ;  
+       return data_z; 
 }
 
-
-
-function m_mtx_real_add(x,y){        
-  var  x= x.toString().trim();
+function m_mtx_real_add(x,y){       
+  var x= x.toString().trim();
   var x=m_mtx_trim(x).toString();  
-  var  y= y.toString().trim();
+  var y= y.toString().trim();
   var y=m_mtx_trim(y).toString();
   var x_msg = m_mtx_test_msg(x);
   var y_msg = m_mtx_test_msg(y);
@@ -4472,87 +4578,83 @@ function m_mtx_real_add(x,y){
     if(data_x_comp_0 ==3 ){ var ans_1=y; return ans_1;}      
   var data_y_comp_0 = m_mtx_real_str_comp(y,0);           
     if(data_y_comp_0 ==3 ){ var ans_1=x; return ans_1;}  
-  var  x_st= x;
-  var  y_st= y;
-  var  x_st_fst= x_st.substr(0,1);
-  var  y_st_fst= y_st.substr(0,1);
+  var x_st= x;
+  var y_st= y;
+  var x_st_fst= x_st.substr(0,1);
+  var y_st_fst= y_st.substr(0,1);
     if(x_st_fst=="-"){  var x_st=x_st.substr(1,x_st.length-1);} 
     else{  var x_st = x_st;}
     if(y_st_fst=="-"){  var y_st=y_st.substr(1,y_st.length-1);} 
     else{  var y_st = y_st;}
-  var  y_e = m_mtx_str_to_e(y_st);             
-  var  x_e = m_mtx_str_to_e(x_st);           
-  var  y_e = m_mtx_str_to_e_ne(y_e);               
-  var  x_e = m_mtx_str_to_e_ne(x_e);              
-  var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();      
-  var  x_e = m_mtx_str_to_e_a(x_e).toString().trim();  
+  var y_e = m_mtx_str_to_e(y_st);             
+  var x_e = m_mtx_str_to_e(x_st);           
+  var y_e = m_mtx_str_to_e_ne(y_e);               
+  var x_e = m_mtx_str_to_e_ne(x_e);              
+  var y_e = m_mtx_str_to_e_a(y_e).toString().trim();      
+  var x_e = m_mtx_str_to_e_a(x_e).toString().trim();  
   var nub_x = m_str_power(x_e ,0);  
   var nub_y = m_str_power(y_e ,0); 
-   if(nub_x.length >3 || nub_y.length >3){
-     var nub_dif_x = m_mtx_int_sub(nub_x,nub_y); 
-     var nub_dif_y = m_mtx_int_sub(nub_y,nub_x);   
-     var x_comp_1000 = m_mtx_real_str_comp(nub_dif_x,1000);   
-     var y_comp_1000 = m_mtx_real_str_comp(nub_dif_y,1000);
-    if(x_comp_1000 !=2){var ans_1=x; return ans_1;}      
-    if(y_comp_1000 !=2){var ans_1=y; return ans_1;}      
+    if(nub_x.length >3 || nub_y.length >3){
+      var nub_dif_x = m_mtx_int_sub(nub_x,nub_y);  
+      var nub_dif_y = m_mtx_int_sub(nub_y,nub_x);   
+      var x_comp_1000 = m_mtx_real_str_comp(nub_dif_x,1000);   
+      var y_comp_1000 = m_mtx_real_str_comp(nub_dif_y,1000);
+   if(x_comp_1000 !=2){var ans_1=x; return ans_1;}      
+   if(y_comp_1000 !=2){var ans_1=y; return ans_1;}      
      }  
   var fix_cols =2000;
-  var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();     
-  var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
-  var  y_e_100 = y_e_100.toString();    
-  var  x_e_100 = x_e_100.toString();
+  var y_e_100 = m_fix(y_e,fix_cols).toString().trim();     
+  var x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
+  var y_e_100 = y_e_100.toString();    
+  var x_e_100 = x_e_100.toString();
   var sutt = " " ;
     if((y_e_100 == x_e_100 && x_st_fst=="-" &&  y_st_fst!="-")||(y_e_100 == x_e_100 && x_st_fst!="-" &&  y_st_fst=="-")) { 
       var sutt = 0;
       var sutt = sutt.toString();
       return sutt;
-                       };
-   if(y_e_100.length < 15 && x_e_100.length < 15 ){         
+                   };
+    if(y_e_100.length < 15 && x_e_100.length < 15 ){         
      if((parseFloat(y_e_100) == parseFloat(x_e_100) && x_st_fst=="-" &&  y_st_fst!="-")||(parseFloat(y_e_100) == parseFloat(x_e_100) && x_st_fst!="-" &&  y_st_fst=="-")) {      
-     var sutt = 0;
-     var sutt = sutt.toString();
-      return sutt;
+       var sutt = 0;
+       var sutt = sutt.toString();
+            return sutt;
                        };    
                                                   };
-
   var pexp = x ;
   var nexp = y ;
   var sutt = 0 ;
-  var  pexp = m_mtx_str_to_e_ne(pexp);               
-  var  nexp = m_mtx_str_to_e_ne(nexp);               
-       pexp = pexp.toString();                                   
+  var pexp = m_mtx_str_to_e_ne(pexp);               
+  var nexp = m_mtx_str_to_e_ne(nexp);               
+      pexp = pexp.toString();                                   
   var p_idx_e = pexp.indexOf("e");
-       nexp = nexp.toString();                               
+      nexp = nexp.toString();                               
   var n_idx_e = nexp.indexOf("e");
     if( n_idx_e == -1 &&  p_idx_e == -1){  
-        var sutt =  m_mtx_real_add_bf(pexp,nexp);   
-                       }
-     else{ var sutt = m_mtx_point_add_sub_e(pexp,nexp ,0);}
+      var sutt = m_mtx_real_add_bf(pexp,nexp);   
+                         }
+    else{ var sutt = m_mtx_point_add_sub_e(pexp,nexp ,0);}
   var sutt = m_fix_end_9(sutt);  
           return sutt;     
 }
-
 
 function m_mtx_real_add_bf(x,y){  
   var xx=x.toString().trim() ;
   var yy=y.toString().trim() ;
   var x_fst = xx.substr(0,1);
   var y_fst = yy.substr(0,1);  
-   if(( x_fst=="-" && y_fst=="-")||( x_fst !="-" && y_fst!="-")){  
-    var sutt = m_mtx_real_add_bf_1(xx,yy);
+    if((x_fst=="-" && y_fst=="-")||( x_fst !="-" && y_fst!="-")){  
+      var sutt = m_mtx_real_add_bf_1(xx,yy);
+       }
+    if(x_fst!="-" && y_fst =="-"){                
+      var yy=yy.substr(1,yy.length-1);
+      var sutt = m_mtx_real_sub_bf(xx,yy);      
       }
-   if( x_fst!="-" && y_fst =="-"){                
-    var yy=yy.substr(1,yy.length-1);
-    var sutt = m_mtx_real_sub_bf(xx,yy);      
-     }
-   if( x_fst=="-" && y_fst !="-"){               
-    var xx=xx.substr(1,xx.length-1);
-    var sutt = m_mtx_real_sub_bf(yy,xx);        
-     }
+    if(x_fst=="-" && y_fst !="-"){               
+      var xx=xx.substr(1,xx.length-1);
+      var sutt = m_mtx_real_sub_bf(yy,xx);        
+      }
     return sutt;
 }
-
-
 
 function m_mtx_del_plus(x){    
   var xx = x.toString().trim() ;
@@ -4571,66 +4673,66 @@ function m_mtx_real_add_bf_1(x,y){
   var nexp = y.toString().trim() ;
   var x_fst = pexp.substr(0,1);
   var y_fst = nexp.substr(0,1); 
-  if(x_fst =="-"){ pexp = pexp.substr(1,pexp.length-1);}
-  if(y_fst =="-"){ nexp = nexp.substr(1,nexp.length-1);}
+   if(x_fst =="-"){ pexp = pexp.substr(1,pexp.length-1);}
+   if(y_fst =="-"){ nexp = nexp.substr(1,nexp.length-1);}
   var pexp = pexp.toString();                                   
   var nexp = nexp.toString().trim();
   var p_idx_p = pexp.indexOf(".");
   var p_idx_e = pexp.indexOf("e");
-   if( p_idx_e != -1 &&  p_idx_p != -1){                           
-    var nub_p =  pexp.substr(p_idx_e+1,pexp.length - p_idx_e);  
-    var nub_p = m_mtx_trim(nub_p) ;   
-         pexp = pexp.substr(0,p_idx_e);       
-         pexp =  m_mtx_str_element_shift(pexp ,nub_p);          
-                         }
-         nexp = nexp.toString();                                
-         nexp = nexp.toString().trim();
-    var n_idx_p = nexp.indexOf(".");
-    var n_idx_e = nexp.indexOf("e");
-      if( n_idx_e != -1 &&  n_idx_p != -1){                       
-        var nub_n =  nexp.substr(n_idx_e+1,nexp.length - n_idx_e); 
-        var nub_n = m_mtx_trim(nub_n) ;   
+    if( p_idx_e != -1 &&  p_idx_p != -1){                           
+      var nub_p =  pexp.substr(p_idx_e+1,pexp.length - p_idx_e);  
+      var nub_p = m_mtx_trim(nub_p) ;   
+          pexp = pexp.substr(0,p_idx_e);       
+          pexp =  m_mtx_str_element_shift(pexp ,nub_p);          
+                    }
+          nexp = nexp.toString();                                
+          nexp = nexp.toString().trim();
+   var n_idx_p = nexp.indexOf(".");
+   var n_idx_e = nexp.indexOf("e");
+     if( n_idx_e != -1 &&  n_idx_p != -1){                       
+       var nub_n =  nexp.substr(n_idx_e+1,nexp.length - n_idx_e); 
+       var nub_n = m_mtx_trim(nub_n) ;   
            nexp = nexp.substr(0,n_idx_e);                             
            nexp =  m_mtx_str_element_shift(nexp ,nub_n);               
-                            }
-         var tran = MTX_COL;  
-           MTX_COL=80; 
-           AA=m_new_zero_mtx(1,MTX_COL);                 
-           BB=m_new_zero_mtx(1,MTX_COL);                 
-           CC=m_new_zero_mtx(1,MTX_COL);                 
-           DD=m_new_zero_mtx(1,MTX_COL);                 
-           EE=m_new_zero_mtx(1,MTX_COL);                 
-           FF=m_new_zero_mtx(1,MTX_COL);                 
-           GG=m_new_zero_mtx(1,MTX_COL);                 
-         var pexp_m = m_nub_m_s(pexp);  
-         var pexp_p = m_nub_p(pexp);    
-           AA=m_mtx_point_in_int(AA,pexp_m); 
-           BB=m_mtx_point_in(BB,pexp_p);     
-         var nexp_m = m_nub_m_s(nexp);  
-         var nexp_p = m_nub_p(nexp);    
-           CC=m_mtx_point_in_int(CC,nexp_m); 
-           DD=m_mtx_point_in(DD,nexp_p);     
-           EE=m_mtx_no_point_add(AA,CC);            
-           EE= m_mtx_cell_five_brow_int(EE);     
-           EE= m_mtx_cell_five_int(EE);          
-           FF= m_mtx_point_add(BB,DD);        
-           FF= m_mtx_cell_five_brow(FF);    
-           FF= m_mtx_cell_five(FF);          
-         var data_ff = FF[0][0].toString();  
-         var data_ff_lg=data_ff.length;
-          if( data_ff_lg > 5){
-           FF[0][0]= data_ff.substr(data_ff_lg-5,5); 
-           data_ff_bf=data_ff.substr( 0 ,data_ff_lg-5); 
-           EE[0][0]=  parseInt(EE[0][0]) + parseInt(data_ff_bf);
-                                   }  
-           EE= m_mtx_cell_five_int(EE);   
-           FF= m_mtx_cell_five(FF);       
-         var sutt= m_mtx_cell_five_show_int(EE,FF);  
-         var sutt = m_mtx_trim(sutt) ;   
-        if(x_fst =="-" && y_fst =="-"){ var sutt ="-"+sutt;}  
-          MTX_COL=tran; 
+                     }
+    var tran = MTX_COL;  
+         MTX_COL=80; 
+        AA=m_new_zero_mtx(1,MTX_COL);                 
+        BB=m_new_zero_mtx(1,MTX_COL);                 
+        CC=m_new_zero_mtx(1,MTX_COL);                 
+        DD=m_new_zero_mtx(1,MTX_COL);                 
+        EE=m_new_zero_mtx(1,MTX_COL);                 
+        FF=m_new_zero_mtx(1,MTX_COL);                 
+        GG=m_new_zero_mtx(1,MTX_COL);                 
+    var pexp_m = m_nub_m_s(pexp);  
+    var pexp_p = m_nub_p(pexp);    
+        AA=m_mtx_point_in_int(AA,pexp_m); 
+        BB=m_mtx_point_in(BB,pexp_p);     
+    var nexp_m = m_nub_m_s(nexp);  
+    var nexp_p = m_nub_p(nexp);    
+        CC=m_mtx_point_in_int(CC,nexp_m); 
+        DD=m_mtx_point_in(DD,nexp_p);     
+        EE=m_mtx_no_point_add(AA,CC);            
+        EE= m_mtx_cell_five_brow_int(EE);     
+        EE= m_mtx_cell_five_int(EE);          
+        FF= m_mtx_point_add(BB,DD);        
+        FF= m_mtx_cell_five_brow(FF);    
+        FF= m_mtx_cell_five(FF);          
+    var data_ff = FF[0][0].toString();  
+    var data_ff_lg=data_ff.length;
+       if( data_ff_lg > 5){
+         FF[0][0]= data_ff.substr(data_ff_lg-5,5); 
+        data_ff_bf=data_ff.substr( 0 ,data_ff_lg-5); 
+        EE[0][0]=  parseInt(EE[0][0]) + parseInt(data_ff_bf);
+                               }  
+       EE= m_mtx_cell_five_int(EE);   
+       FF= m_mtx_cell_five(FF);       
+    var sutt= m_mtx_cell_five_show_int(EE,FF);  
+    var sutt = m_mtx_trim(sutt) ;   
+     if(x_fst =="-" && y_fst =="-"){ var sutt ="-"+sutt;}  
+        MTX_COL=tran; 
        return sutt;    
-}
+  }
 
 function m_sub_error_rg(str_1){     
   var str_a=str_1;
@@ -4688,341 +4790,341 @@ function m_sub_error_rg(str_1){
   var n_nb_dg = m_str_spc_count(this_it_t_test,"°");  
   var n_nb_pi = m_str_spc_count(this_it_t_test,"π");   
   var sum_nb = parseInt(n_nb_sin) + parseInt(n_nb_cos) + parseInt(n_nb_tan) + parseInt(n_nb_asin) + parseInt(n_nb_acos) +parseInt(n_nb_atan) + parseInt(n_nb_sinh) + parseInt(n_nb_cosh) + parseInt(n_nb_tanh) + parseInt(n_nb_asinh) + parseInt(n_nb_acosh) +parseInt(n_nb_atanh) + parseInt(n_nb_cap) + parseInt(n_nb_exp) + parseInt(n_nb_ln) +parseInt(n_nb_log)+parseInt(n_nb_dg)+parseInt(n_nb_pi);     
-   if(data_rang_str_up ==2 && data_rang_str_down ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT >16) {    
+     if(data_rang_str_up ==2 && data_rang_str_down ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT >16) {    
        var ans = "0;" + message_1(34); }                 
-    else if(data_rang_str_up_16 ==2 && data_rang_str_down_16 ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT <=16) {    
+     else if(data_rang_str_up_16 ==2 && data_rang_str_down_16 ==1 && str_a !='0' && ng_nb >=1  && sum_nb >=2 && DECI_DGT <=16) {    
        var ans = "0;" + message_1(38); }  
-    else {ans = str_1;}
+     else {ans = str_1;}
     return ans;  
 }
 
-function m_mtx_real_sub(x,y){    
-    var x = x.toString().trim() ;
-    var x=m_mtx_trim(x).toString();  
-    var y = y.toString().trim() ;  
-    var y=m_mtx_trim(y).toString();
-    var x_msg = m_mtx_test_msg(x);
-    var y_msg = m_mtx_test_msg(y);
-       if(x_msg !=-1 ){ return x;}    
-       if(y_msg !=-1 ){ return y;}
-    var  x_st= x;
-    var  y_st= y;
-    var  x_st_fst= x_st.substr(0,1);
-    var  y_st_fst= y_st.substr(0,1);
-      if(x_st_fst=="-"){  var x_st=x_st.substr(1,x_st.length-1);} 
-                   else{  var x_st = x_st;}
-      if(y_st_fst=="-"){  var y_st=y_st.substr(1,y_st.length-1);} 
-                   else{  var y_st = y_st;}
-    var ans_1="";
-      if(y=="0" && y.length==1){ var ans_1=x ; return ans_1 ;}                            
-      if(x=="0" && x.length==1 && y_st_fst=="-") { var ans_1=y_st; return ans_1 ; }      
-      if(x=="0" && x.length==1 && y_st_fst!="-") { var ans_1="-"+y_st ; return ans_1 ; }       
-    var  y_e = m_mtx_str_to_e(y_st);               
-    var  x_e = m_mtx_str_to_e(x_st);           
-    var  y_e = m_mtx_str_to_e_ne(y_e);               
-    var  x_e = m_mtx_str_to_e_ne(x_e);               
-    var  y_e = m_mtx_str_to_e_a(y_e).toString().trim();       
-    var  x_e = m_mtx_str_to_e_a(x_e).toString().trim(); 
-    var nub_x = m_str_power(x_e ,0);  
-    var nub_y = m_str_power(y_e ,0);
-     if(nub_x.length >3 || nub_y.length>3){ 
+function m_mtx_real_sub(x,y){      
+  var x = x.toString().trim() ;  
+  var x=m_mtx_trim(x).toString();  
+  var y = y.toString().trim() ;  
+  var y=m_mtx_trim(y).toString();
+  var x_msg = m_mtx_test_msg(x);
+  var y_msg = m_mtx_test_msg(y);
+    if(x_msg !=-1 ){ return x;}    
+    if(y_msg !=-1 ){ return y;}
+  var x_st= x;
+  var y_st= y;
+  var x_st_fst= x_st.substr(0,1);
+  var y_st_fst= y_st.substr(0,1);
+    if(x_st_fst=="-"){ var x_st=x_st.substr(1,x_st.length-1);} 
+    else{ var x_st = x_st;}
+    if(y_st_fst=="-"){  var y_st=y_st.substr(1,y_st.length-1);} 
+    else{  var y_st = y_st;}
+  var ans_1="";
+    if(y=="0" && y.length==1){ var ans_1=x ; return ans_1 ;}                            
+    if(x=="0" && x.length==1 && y_st_fst=="-") { var ans_1=y_st; return ans_1 ; }      
+    if(x=="0" && x.length==1 && y_st_fst!="-") { var ans_1="-"+y_st ; return ans_1 ; }       
+  var y_e = m_mtx_str_to_e(y_st);               
+  var x_e = m_mtx_str_to_e(x_st);           
+  var y_e = m_mtx_str_to_e_ne(y_e);               
+  var x_e = m_mtx_str_to_e_ne(x_e);               
+  var y_e = m_mtx_str_to_e_a(y_e).toString().trim();       
+  var x_e = m_mtx_str_to_e_a(x_e).toString().trim(); 
+  var nub_x = m_str_power(x_e ,0);  
+  var nub_y = m_str_power(y_e ,0);
+    if(nub_x.length >3 || nub_y.length>3){ 
       var nub_dif_x = m_mtx_int_sub(nub_x,nub_y);  
       var nub_dif_y = m_mtx_int_sub(nub_y,nub_x); 
       var x_comp_1000 = m_mtx_real_str_comp(nub_dif_x,1000);   
       var y_comp_1000 = m_mtx_real_str_comp(nub_dif_y,1000);
-     if(x_comp_1000 !=2){var ans_1=x; return ans_1;}    
-     if(y_comp_1000 !=2){ if(y_st_fst=="-"){ var ans_1= y_st;} 
-                          else{var ans_1="-"+ y_st;} return ans_1;} 
+    if(x_comp_1000 !=2){var ans_1=x; return ans_1;}    
+    if(y_comp_1000 !=2){ if(y_st_fst=="-"){ var ans_1= y_st;} 
+    else{var ans_1="-"+ y_st;} return ans_1;} 
      }
   var tran = MTX_COL;  
-  MTX_COL=80; 
+    MTX_COL=80; 
   var fix_cols =MTX_COL*5-5 ;  
-  var  x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
-  var  y_e_100 = m_fix(y_e,fix_cols).toString().trim();    
-  var  y_e_100 = y_e_100.toString();    
-  var  x_e_100 = x_e_100.toString();
+  var x_e_100 = m_fix(x_e,fix_cols).toString().trim();      
+  var y_e_100 = m_fix(y_e,fix_cols).toString().trim();    
+  var y_e_100 = y_e_100.toString();    
+  var x_e_100 = x_e_100.toString();
   var sutt = " " ;
-   if((y_e_100 == x_e_100 && x_st_fst=="-" && y_st_fst=="-")||(y_e_100 == x_e_100 && x_st_fst!="-" && y_st_fst!="-")) { 
-      var sutt = 0;
-      var sutt = sutt.toString();
+    if((y_e_100 == x_e_100 && x_st_fst=="-" && y_st_fst=="-")||(y_e_100 == x_e_100 && x_st_fst!="-" && y_st_fst!="-")) { 
+       var sutt = 0;
+       var sutt = sutt.toString();
+           return sutt;
+                       };
+  var pexp = x ;      
+  var nexp = y ;     
+  var pexp = m_mtx_str_to_e_ne(pexp);               
+  var nexp = m_mtx_str_to_e_ne(nexp);
+  var pexp = m_mtx_str_to_e_a(pexp).toString().trim();       
+  var nexp = m_mtx_str_to_e_a(nexp).toString().trim();   
+  var data_x_fst = pexp.substr(0,1);
+  var data_y_fst = nexp.substr(0,1);
+  var x_sub =pexp.substr(0,10050);  
+  var y_sub =nexp.substr(0,10050); 
+    if(x_sub==0 && x_sub.length==1 && data_y_fst=="-"){
+      var sutt = nexp.substr(1,nexp.length-1);  
+      var sutt=sutt.toString();
+            return sutt;
+                     };
+    if(x_sub==0 && x_sub.length==1 && data_y_fst!="-"){
+       var sutt = "-"+nexp;      
+       var sutt=sutt.toString();
          return sutt;
-                       };
-    var pexp = x ;      
-    var nexp = y ;      
-    var  pexp = m_mtx_str_to_e_ne(pexp);               
-    var  nexp = m_mtx_str_to_e_ne(nexp);
-    var  pexp = m_mtx_str_to_e_a(pexp).toString().trim();       
-    var  nexp = m_mtx_str_to_e_a(nexp).toString().trim();  
-    var data_x_fst = pexp.substr(0,1);
-    var data_y_fst = nexp.substr(0,1);
-    var x_sub =pexp.substr(0,10050);  
-    var y_sub =nexp.substr(0,10050);  
-       if(x_sub==0 && x_sub.length==1 && data_y_fst=="-"){
-        var sutt = nexp.substr(1,nexp.length-1);  
-        var sutt=sutt.toString();
-             return sutt;
-                       };
-       if(x_sub==0 && x_sub.length==1 && data_y_fst!="-"){
-          var sutt = "-"+nexp;      
-          var sutt=sutt.toString();
-                return sutt;
-                       };
-       if(y_sub==0 && y_sub.length==1){
-            var sutt = x;                    
-            var sutt=sutt.toString();
-              return sutt;
-                       };
-        pexp = pexp.toString();                                   
-        var p_idx_e = pexp.indexOf("e");
-        nexp = nexp.toString();                                
-        var n_idx_e = nexp.indexOf("e");
-         if( n_idx_e == -1 &&  p_idx_e == -1){  
-           var sutt =  m_mtx_real_sub_bf(pexp,nexp);   
-                         }
-         else{ 
-           var sutt = m_mtx_point_add_sub_e(pexp,nexp ,1);}   
-              sutt = sutt.replace(/\.e/g , "e");  
-         if(sutt==-0 && sutt.lngth==2){ var sutt=0;}  
-     MTX_COL= tran ;  
-    var sutt = m_fix_end_9(sutt);  
-       return sutt;     
+                  };
+     if(y_sub==0 && y_sub.length==1){
+        var sutt = x;                    
+         var sutt=sutt.toString();
+            return sutt;
+                     };
+       pexp = pexp.toString();                                   
+   var p_idx_e = pexp.indexOf("e");
+       nexp = nexp.toString();                                
+   var n_idx_e = nexp.indexOf("e");
+     if( n_idx_e == -1 &&  p_idx_e == -1){  
+        var sutt =  m_mtx_real_sub_bf(pexp,nexp);   
+                      }
+     else{ 
+        var sutt = m_mtx_point_add_sub_e(pexp,nexp ,1);}   
+   sutt = sutt.replace(/\.e/g , "e");  
+     if(sutt==-0 && sutt.lngth==2){ var sutt=0;}  
+    MTX_COL= tran ;  
+   var sutt = m_fix_end_9(sutt);  
+      return sutt;
 }
 
 
 function m_mtx_real_sub_bf(x,y){        
-   var pexp = x.toString().trim();
-   var nexp = y.toString().trim();
-   var p_idx_pt = pexp.indexOf(".");   
-   var n_idx_pt = nexp.indexOf(".");  
-   var tran = MTX_COL; 
-   MTX_COL=100; 
-   if(n_idx_pt ==-1 && p_idx_pt ==-1 ){   
-   var sutt =  m_mtx_int_sub(pexp,nexp);  return sutt;  } 
-   var sutt ="";
-   var x_fst = pexp.substr(0,1);     
-   var x_lg = pexp.length;
-   var y_fst = nexp.substr(0,1);
-   var y_lg = nexp.length;
-    if( x_fst !="-" && y_fst=="-"){       
-        nexp = nexp.substr(1,y_lg-1);
-      var sutt = m_mtx_real_add(pexp,nexp);
-           return sutt;
-                    };  
-    if( x_fst =="-" && y_fst != "-"){     
-        pexp = pexp.substr(1,x_lg-1);   
-     var sutt = m_mtx_real_add(pexp,nexp);
-     var sutt ="-"+sutt;      
-          return sutt;
+  var pexp = x.toString().trim();
+  var nexp = y.toString().trim();
+  var p_idx_pt = pexp.indexOf(".");   
+  var n_idx_pt = nexp.indexOf(".");  
+  var tran = MTX_COL; 
+      MTX_COL=100; 
+  if(n_idx_pt ==-1 && p_idx_pt ==-1 ){   
+    var sutt =  m_mtx_int_sub(pexp,nexp);  return sutt;  } 
+    var sutt ="";
+    var x_fst = pexp.substr(0,1);     
+    var x_lg = pexp.length;
+    var y_fst = nexp.substr(0,1);
+    var y_lg = nexp.length;
+     if(x_fst !="-" && y_fst=="-"){       
+       nexp = nexp.substr(1,y_lg-1);
+       var sutt = m_mtx_real_add(pexp,nexp);
+         return sutt;
+                   };  
+     if(x_fst =="-" && y_fst != "-"){     
+       pexp = pexp.substr(1,x_lg-1);   
+       var sutt = m_mtx_real_add(pexp,nexp);
+       var sutt ="-"+sutt;      
+            return sutt;
                       };  
-    if( x_fst =="-" && y_fst == "-"){     
-       var  pexp_ch = pexp.substr(1,x_lg-1);
-       var  nexp_ch = nexp.substr(1,y_lg-1);       
+     if(x_fst =="-" && y_fst == "-"){     
+       var pexp_ch = pexp.substr(1,x_lg-1);
+       var nexp_ch = nexp.substr(1,y_lg-1);       
        var pexp = nexp_ch;
        var nexp = pexp_ch;
-                      };  
-  var data_point =0;      
-  var x_float = parseInt(pexp.substr(0,15));   
-  var y_float = parseInt(nexp.substr(0,15));     
-  var comp_pexp_nexp = m_mtx_real_str_comp(pexp,nexp);      
-    if(comp_pexp_nexp ==3){
-       var x_float = pexp;    
-       var y_float = nexp;    
-                            } 
-    if(comp_pexp_nexp ==2){     
-      var pexp_ch_2 = pexp;
-      var nexp_ch_2 = nexp;
-      var pexp = nexp_ch_2;
-      var nexp = pexp_ch_2;
-       var data_point =1;      
+                    };  
+       var data_point =0;      
+       var x_float = parseInt(pexp.substr(0,15));   
+       var y_float = parseInt(nexp.substr(0,15));     
+       var comp_pexp_nexp = m_mtx_real_str_comp(pexp,nexp);      
+      if(comp_pexp_nexp ==3){
+        var x_float = pexp;    
+        var y_float = nexp;    
+                             } 
+      if(comp_pexp_nexp ==2){     
+        var pexp_ch_2 = pexp;
+        var nexp_ch_2 = nexp;
+        var pexp = nexp_ch_2;
+        var nexp = pexp_ch_2;
+        var data_point =1;      
                  }
-    AA=m_new_zero_mtx(1,MTX_COL);                 
-    BB=m_new_zero_mtx(1,MTX_COL);                 
-    CC=m_new_zero_mtx(1,MTX_COL);                 
-    DD=m_new_zero_mtx(1,MTX_COL);                 
-    EE=m_new_zero_mtx(1,MTX_COL);                 
-    FF=m_new_zero_mtx(1,MTX_COL);                 
-    GG=m_new_zero_mtx(1,MTX_COL);                 
+      AA=m_new_zero_mtx(1,MTX_COL);                 
+      BB=m_new_zero_mtx(1,MTX_COL);                 
+      CC=m_new_zero_mtx(1,MTX_COL);                 
+      DD=m_new_zero_mtx(1,MTX_COL);                 
+      EE=m_new_zero_mtx(1,MTX_COL);                 
+      FF=m_new_zero_mtx(1,MTX_COL);                 
+      GG=m_new_zero_mtx(1,MTX_COL);                 
     var pexp_m = m_nub_m_s(pexp);  
     var pexp_p = m_nub_p(pexp);    
-    AA=m_mtx_point_in_int(AA,pexp_m); 
-    BB=m_mtx_point_in(BB,pexp_p);     
+      AA=m_mtx_point_in_int(AA,pexp_m); 
+      BB=m_mtx_point_in(BB,pexp_p);     
     var nexp_m = m_nub_m_s(nexp);  
     var nexp_p = m_nub_p(nexp);    
-    CC=m_mtx_point_in_int(CC,nexp_m); 
-    DD=m_mtx_point_in(DD,nexp_p);     
-    EE=m_mtx_no_point_sub(AA,CC);            
-    EE= m_mtx_cell_five_brow_int(EE);     
-    EE= m_mtx_cell_five_int(EE);          
-    FF= m_mtx_point_sub(BB,DD);        
-    FF= m_mtx_cell_five_brow(FF);     
-    FF= m_mtx_cell_five(FF);         
-      var nn=0;
-      var nn_nub=1000;              
-      var nn_ref=MTX_COL;
-    if ( nn_ref >1000 && nn_ref<=2000){ var nn_nub = nn_ref ;} 
-    else { var nn_nub = 2010;}        
-       while( nn < nn_nub ){                   
+      CC=m_mtx_point_in_int(CC,nexp_m); 
+      DD=m_mtx_point_in(DD,nexp_p);     
+      EE=m_mtx_no_point_sub(AA,CC);            
+      EE= m_mtx_cell_five_brow_int(EE);     
+      EE= m_mtx_cell_five_int(EE);          
+      FF= m_mtx_point_sub(BB,DD);        
+      FF= m_mtx_cell_five_brow(FF);     
+      FF= m_mtx_cell_five(FF);         
+    var nn=0;
+    var nn_nub=1000;             
+    var nn_ref=MTX_COL;
+      if (nn_ref >1000 && nn_ref<=2000){ var nn_nub = nn_ref ;} 
+      else {var nn_nub = 2010;}        
+      while(nn < nn_nub ){                   
         if(( parseInt(FF[0][0])< 0 ) &&  parseInt(EE[0][0])>0){  
-           if( parseInt(FF[0][0])<=(-1000000) ){
-               FF[0][0]=parseInt(FF[0][0])+100000;
-               EE[0][0]=parseInt(EE[0][0])-1;}
+          if( parseInt(FF[0][0])<=(-1000000) ){
+             FF[0][0]=parseInt(FF[0][0])+100000;
+             EE[0][0]=parseInt(EE[0][0])-1;}
           if( parseInt(FF[0][0]) > (-1000000) ){    
-              FF[0][0]=parseInt(FF[0][0])+99999;
-              EE[0][0]=parseInt(EE[0][0])-1;
-          for(var m=1; m < FF[0].length ;m++){
-            FF[0][m]=99999 - parseInt(FF[0][m]); 
-                                }
-                                   }
-                     }
-          if( parseInt(FF[0][0])> 0){ nn=10000 ;} 
-                          nn=nn+1;
-                               }
-           var data_ff00 = FF[0][0].toString().trim();        
-           var data_ff00_fst = data_ff00.substr(0,1);
-         if((data_ff00_fst =='-' ) &&  parseInt(EE[0][0])>0){  
-              FF[0][0]=parseInt(FF[0][0])+99999;
-              EE[0][0]=parseInt(EE[0][0])-1;
-             for(var m=1; m < FF[0].length ;m++){
-              FF[0][m]=99999 - parseInt(FF[0][m]);  
+             FF[0][0]=parseInt(FF[0][0])+99999;
+             EE[0][0]=parseInt(EE[0][0])-1;
+            for(var m=1; m < FF[0].length ;m++){
+              FF[0][m]=99999 - parseInt(FF[0][m]); 
+                                 }
                                       }
-                                                        }
-         var nn=0;
-           while( nn < nn_nub ){      
-             if( parseInt(FF[0][0]) >= 100000 ){  
-               FF[0][0]=parseInt(FF[0][0])-100000;
-               EE[0][0]=parseInt(EE[0][0])+1;
                        }
-             if( parseInt(FF[0][0]) <100000){ nn=10000 ;} 
+          if( parseInt(FF[0][0])> 0){ nn=10000 ;} 
                      nn=nn+1;
-                               } 
-                 FF= m_mtx_cell_five(FF); 
-            if(  parseInt(FF[0][0])==0){
-                               FF[0][0]="00000"; }  
-            if(  parseInt(EE[0][0])==0){    
-                  EE[0][0]="00000"; }  
-                  EE= m_mtx_cell_five_int(EE);          
-           var sutt= m_mtx_cell_five_show_int(EE,FF); 
-           var sutt = m_mtx_del_point(sutt);
-          if(data_point ==1){ sutt = "-" +sutt;} 
-       MTX_COL= tran ;      
-       return sutt;     
+                               }
+     var data_ff00 = FF[0][0].toString().trim();        
+     var data_ff00_fst = data_ff00.substr(0,1);
+       if((data_ff00_fst =='-' ) &&  parseInt(EE[0][0])>0){  
+          FF[0][0]=parseInt(FF[0][0])+99999;
+          EE[0][0]=parseInt(EE[0][0])-1;
+             for(var m=1; m < FF[0].length ;m++){
+                 FF[0][m]=99999 - parseInt(FF[0][m]);  
+                                      }
+                                       }
+     var nn=0;
+        while( nn < nn_nub ){      
+          if( parseInt(FF[0][0]) >= 100000 ){  
+             FF[0][0]=parseInt(FF[0][0])-100000;
+             EE[0][0]=parseInt(EE[0][0])+1;
+                       }
+          if( parseInt(FF[0][0]) <100000){ nn=10000 ;} 
+                 nn=nn+1;
+                            } 
+                FF= m_mtx_cell_five(FF); 
+          if(  parseInt(FF[0][0])==0){
+                    FF[0][0]="00000"; }  
+          if(  parseInt(EE[0][0])==0){    
+                    EE[0][0]="00000"; }  
+                 EE= m_mtx_cell_five_int(EE);          
+     var sutt= m_mtx_cell_five_show_int(EE,FF); 
+     var sutt = m_mtx_del_point(sutt);
+       if(data_point ==1){ sutt = "-" +sutt;} 
+     MTX_COL= tran ;     
+      return sutt;     
 }
 
-function m_mtx_no_point_sub(A,B){   
+function m_mtx_no_point_sub(A,B){    
   var AA=A;
   var BB=B;
   var CC=m_new_zero_mtx(AA.length,AA[0].length);                 
     for(var n=0;n < CC[0].length ; n++){
       var data_a = parseInt(AA[0][n]);
       var data_b = parseInt(BB[0][n]);
-      CC[0][n]= data_a - data_b;}
-     CC= m_mtx_cell_five_brow_int(CC);     
-     CC= m_mtx_cell_five_int(CC);          
-     if(  parseInt(CC[0][0])==0){    
-           CC[0][0]="00000"; }  
-     return CC;   
+          CC[0][n]= data_a - data_b;}
+          CC= m_mtx_cell_five_brow_int(CC);     
+          CC= m_mtx_cell_five_int(CC);          
+     if(parseInt(CC[0][0])==0){    
+         CC[0][0]="00000"; }  
+    return CC;   
 }
 
 function m_exp(x){     
   var bb=E1S;  
-   var xx=x.toString().trim();
-   var data_msg =  m_str_char(x,"Msg") ;                     
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   var xx = m_str_e_to_str_point(xx );
-   var xx = m_fix(xx,420);              
-   var xx_test_small = m_mtx_str_to_e_a(xx);             
-   var  xx_test_nub_e =m_str_power(xx_test_small,0);             
-   var  xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-400)==2 ){ return  1;}   
-   var p_comp_datalg  =  m_mtx_real_str_comp(xx_test_nub_e,200);        
-      if( p_comp_datalg ==1  ){
-         var ans_1 = message_1(23);
-                return  ans_1  }
-    var xx = m_str_e_to_str(xx);     
-    var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
-    var comp_xx_1 = m_mtx_real_str_comp(xx,1);      
-    var ant_1=1;
-    var xx_lg =xx.length;
-        if(comp_xx_0==3 ){ var ant_1=1;  return ant_1 ;}  
-        if(comp_xx_1==3 ){ var ant_1=bb; return ant_1 ;}  
-    var xx_fst=xx.substr(0,1);
-        if(xx_fst=="-"){ var zz=xx.substr(1,xx.length-1);}
-        else {var zz=xx;}   
-        zz = m_str_e_to_str(zz);      
-    var zz_m = m_nub_m(zz) ;           
-    var zz_p = m_nub_p(zz) ;          
-    var zz_p = zz_p.toString().trim();   
-    var sum_m =1;
-    var sum_p1 =1;
-    var sum_p2 = 1;
-    var sum_m = m_pow(bb,zz_m );   
-    var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);
-       if(comp_zz_p_0 !=3 ){
-     var ref_base   
+  var xx=x.toString().trim();
+  var data_msg =  m_str_char(x,"Msg") ;                     
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var xx = m_str_e_to_str_point(xx );
+  var xx = m_fix(xx,420);              
+  var xx_test_small = m_mtx_str_to_e_a(xx);             
+  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+  var xx_test_st = m_str_power(xx_test_small,1);          
+    if(m_mtx_real_str_comp(xx_test_nub_e,-400)==2 ){ return  1;}   
+  var p_comp_datalg  =  m_mtx_real_str_comp(xx_test_nub_e,200);        
+    if( p_comp_datalg ==1  ){
+      var ans_1 = message_1(23);
+           return  ans_1  }
+   var xx = m_str_e_to_str(xx);     
+   var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
+   var comp_xx_1 = m_mtx_real_str_comp(xx,1);      
+   var ant_1=1;
+   var xx_lg =xx.length;
+     if(comp_xx_0==3 ){ var ant_1=1;  return ant_1 ;}  
+     if(comp_xx_1==3 ){ var ant_1=bb; return ant_1 ;}  
+   var xx_fst=xx.substr(0,1);
+     if(xx_fst=="-"){ var zz=xx.substr(1,xx.length-1);}
+     else {var zz=xx;}   
+       zz = m_str_e_to_str(zz);      
+   var zz_m = m_nub_m(zz) ;           
+   var zz_p = m_nub_p(zz) ;   
+   var zz_p = zz_p.toString().trim();   
+   var sum_m =1;
+   var sum_p1 =1;
+   var sum_p2 = 1;
+   var sum_m = m_pow(bb,zz_m );  
+   var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);
+   if(comp_zz_p_0 !=3 ){
+   var ref_base   
 ="1.00001000005000016666708333416666805555753968501984402557594797428651804085992454162717136014141480852796471045611480856857919442907354251923631180248048494648131806745900520378762946719772349285499644640337167052258539983501015773120223490663625238577673164933322960053875768755912574727607062740430922";
-   var ref_base = m_fix(ref_base,420);    
+   var ref_base = m_fix(ref_base,420);  
    var zz_p_lg = zz_p.length;
-      for(var i=0;i<7;i++){
-      if(zz_p_lg < 7 && zz_p_lg > 0){ 
-       var zz_p=zz_p+"0" ;
-       var zz_p_lg = zz_p.length;} 
-                          }  
-   var zz_p_bf= zz_p.substr(2,5) ;  
-   var zz_p_bf= parseInt(zz_p_bf);     
-   var sum_p1 = m_pow(ref_base,zz_p_bf );     
+     for(var i=0;i<7;i++){
+       if(zz_p_lg < 7 && zz_p_lg > 0){ 
+         var zz_p=zz_p+"0" ;
+         var zz_p_lg = zz_p.length;} 
+                           }  
+      var zz_p_bf= zz_p.substr(2,5) ;  
+      var zz_p_bf= parseInt(zz_p_bf);     
+      var sum_p1 = m_pow(ref_base,zz_p_bf ); 
       if(zz_p_lg > 7){ 
-      var zz_p_af= "0.00000"+zz_p.substr(7,zz_p.length-7) ; 
-      var sum_p2 = m_exp_low(zz_p_af); 
-                       } 
-                               }
-   var ant_p =m_mtx_real_mul(sum_p1 ,sum_p2);
-   var ant_1 =m_mtx_real_mul(sum_m ,ant_p);
-     if(xx_fst=="-") { var ant = m_mtx_real_div(1 ,ant_1 );}
-     else{  var ant = ant_1 ;}
-    return ant;  
-
+        var zz_p_af= "0.00000"+zz_p.substr(7,zz_p.length-7) ; 
+        var sum_p2 = m_exp_low(zz_p_af); 
+                    } 
+                           }
+    var ant_p =m_mtx_real_mul(sum_p1 ,sum_p2);
+    var ant_1 =m_mtx_real_mul(sum_m ,ant_p);
+      if(xx_fst=="-") { var ant = m_mtx_real_div(1 ,ant_1 );}
+      else{  var ant = ant_1 ;}
+    return ant; 
 }
 
-function m_exp_low(x){    
- var zz = x.toString().trim();
+function m_exp_low(x){     
+  var zz = x.toString().trim();
   var flag_a=0;
   var flag_b=0;
   var sum_total="";
   var zz_fst=zz.substr(0,1);
-     if(zz_fst=="-"){
-        var zz = zz.substr(1,zz.length-1);
-        var flag_a=1; }                            
-     else{ zz=zz;}
+    if(zz_fst=="-"){
+      var zz = zz.substr(1,zz.length-1);
+      var flag_a=1; }                            
+    else{ zz=zz;}
   var comp_zz_0 = m_mtx_real_str_comp(zz,0);
   var comp_zz_1 = m_mtx_real_str_comp(zz,1);            
    if(comp_zz_0==3){ var sum_total= 1; return sum_total; }        
-     if(comp_zz_1 !=1){    
-      var zz = m_str_e_to_str(zz);
-      var BB = m_mtx_exp_coefficient_150_table_a();  
-      var AA  = m_str_to_mtx(zz) ;              
-      var SS_T  = m_str_to_mtx(0) ;              
-      var nn=51;
-     for(var i = 1 ; i < nn ; i++){       
-       var BB_i = m_mtx_row_table(BB,i);           
-        if(i==1){
-        var SS= AA;      
-        var XX = m_mtx_point_mul(SS,BB_i);             
-                               }  
-        else{
-        var SS =  m_mtx_point_mul(SS,AA);              
-        var XX = m_mtx_point_mul(SS,BB_i);             
-                            }
-        var SS_T = m_mtx_point_add(SS_T,XX);
+   if(comp_zz_1 !=1){    
+     var zz = m_str_e_to_str(zz);
+     var BB = m_mtx_exp_coefficient_150_table_a();  
+     var AA  = m_str_to_mtx(zz) ;              
+     var SS_T  = m_str_to_mtx(0) ;              
+       var nn=51;      
+   for(var i = 1 ; i < nn ; i++){       
+     var BB_i = m_mtx_row_table(BB,i);           
+     if(i==1){
+       var SS= AA;      
+       var XX = m_mtx_point_mul(SS,BB_i);             
+                            }  
+     else{
+       var SS =  m_mtx_point_mul(SS,AA);              
+       var XX = m_mtx_point_mul(SS,BB_i);             
+                        }
+     var SS_T = m_mtx_point_add(SS_T,XX);
                                   }  
-                                                }  
-        var SS_T = m_mtx_cell_five(SS_T);   
-        var sum_total = m_mtx_cell_five_show(SS_T);   
-        var sum_total = m_mtx_real_add(1 ,sum_total);  
-            if(flag_a ==1){    
-                  var sum_total = m_mtx_real_div(1, sum_total);   
-                             }   
+                            }  
+     var SS_T = m_mtx_cell_five(SS_T);   
+     var sum_total = m_mtx_cell_five_show(SS_T);   
+     var sum_total = m_mtx_real_add(1 ,sum_total);  
+       if(flag_a ==1){    
+          var sum_total = m_mtx_real_div(1, sum_total);   
+                       }   
      return sum_total;  
 }
+
 
 function m_sin_cst1(x){   
   var xx=x.toString().trim();
@@ -5039,55 +5141,55 @@ function m_sin_cst1(x){
     else if(xx=="9"){ var ans_r = SIN09R ;}
     else if(xx=="10"){ var ans_r = SIN10R ;}
     else if(xx=="12"){ var ans_ra = m_mtx_int_mul(SIN06R,COS06R);    
-                       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
-   else if(xx=="14"){ var ans_ra = m_mtx_int_mul(SIN07R,COS07R);
-                       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
-   else if(xx=="16"){ var ans_ra = m_mtx_int_mul(SIN08R,COS08R);  
-                       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
-   else if(xx=="18"){ var ans_ra = m_mtx_int_mul(SIN09R,COS09R);  
-                       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
-   else if(xx=="20"){ var ans_ra = m_mtx_int_mul(SIN10R,COS10R);
-                     var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
-   else { var ans_r = "" ;}
-              return  ans_r; 
+       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+    else if(xx=="14"){ var ans_ra = m_mtx_int_mul(SIN07R,COS07R);
+       var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+    else if(xx=="16"){ var ans_ra = m_mtx_int_mul(SIN08R,COS08R);  
+        var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+    else if(xx=="18"){ var ans_ra = m_mtx_int_mul(SIN09R,COS09R);  
+        var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+    else if(xx=="20"){ var ans_ra = m_mtx_int_mul(SIN10R,COS10R);
+        var ans_r =  m_mtx_real_add(ans_ra,ans_ra);}
+    else { var ans_r = "" ;}
+           return  ans_r; 
                       }    
 
  function m_sin_cst2(x){   
-     var xx=x.toString().trim();
-     var ans_r ="";
-      if(xx=="-1"){ var ans_ra = "-"+SIN01R ;}
-       else if(xx=="-2"){ var ans_ra = "-"+SIN02R ;}
-       else if(xx=="-3"){ var ans_ra = "-"+SIN03R ;}
-       else if(xx=="-4"){ var ans_ra = SIN04R.substr(1,280) ;}
-       else if(xx=="-5"){ var ans_ra = SIN05R.substr(1,280) ;}
-       else if(xx=="-6"){ var ans_ra = SIN06R.substr(1,280) ;}
-       else if(xx=="-7"){ var ans_ra = "-"+SIN07R ;}
-       else if(xx=="-8"){ var ans_ra = "-"+SIN08R ;}
-       else if(xx=="-9"){ var ans_ra = "-"+SIN09R ;}
-       else if(xx=="-10"){ var ans_ra = SIN10R.substr(1,280) ;}
-       else if(xx=="-12"){ var ans_r1 = m_mtx_int_mul(SIN06R,COS06R);  
-                           var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
-                           var ans_ra = ans_r2.substr(1,280);} 
-       else if(xx=="-14"){ var ans_r1 = m_mtx_int_mul(SIN07R,COS07R);
-                           var ans_ra = "-"+m_mtx_read_add(ans_r1,ans_r1);}
-       else if(xx=="-16"){ var ans_r1 = m_mtx_int_mul(SIN08R,COS08R);  
-                            var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
-                           var ans_ra = ans_r2.substr(1,280);} 
-       else if(xx=="-18"){ var ans_r1 = m_mtx_int_mul(SIN09R,COS09R);  
-                           var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
-                           var ans_ra = ans_r2.substr(1,280);}
-       else if(xx=="-20"){ var ans_r1 = m_mtx_int_mul(SIN10R,COS10R);
-                           var ans_ra =  "-"+m_mtx_read_add(ans_r1,ans_r1);} 
-       else { var ans_ra = "" ;}
+   var xx=x.toString().trim();
+   var ans_r ="";
+     if(xx=="-1"){ var ans_ra = "-"+SIN01R ;}
+     else if(xx=="-2"){ var ans_ra = "-"+SIN02R ;}
+     else if(xx=="-3"){ var ans_ra = "-"+SIN03R ;}
+     else if(xx=="-4"){ var ans_ra = SIN04R.substr(1,280) ;}
+     else if(xx=="-5"){ var ans_ra = SIN05R.substr(1,280) ;}
+     else if(xx=="-6"){ var ans_ra = SIN06R.substr(1,280) ;}
+     else if(xx=="-7"){ var ans_ra = "-"+SIN07R ;}
+     else if(xx=="-8"){ var ans_ra = "-"+SIN08R ;}
+     else if(xx=="-9"){ var ans_ra = "-"+SIN09R ;}
+     else if(xx=="-10"){ var ans_ra = SIN10R.substr(1,280) ;}
+     else if(xx=="-12"){ var ans_r1 = m_mtx_int_mul(SIN06R,COS06R);  
+        var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
+        var ans_ra = ans_r2.substr(1,280);} 
+     else if(xx=="-14"){ var ans_r1 = m_mtx_int_mul(SIN07R,COS07R);
+        var ans_ra = "-"+m_mtx_read_add(ans_r1,ans_r1);}
+     else if(xx=="-16"){ var ans_r1 = m_mtx_int_mul(SIN08R,COS08R);  
+        var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
+        var ans_ra = ans_r2.substr(1,280);} 
+     else if(xx=="-18"){ var ans_r1 = m_mtx_int_mul(SIN09R,COS09R);  
+        var ans_r2 =  m_mtx_read_add(ans_r1,ans_r1);
+        var ans_ra = ans_r2.substr(1,280);}
+     else if(xx=="-20"){ var ans_r1 = m_mtx_int_mul(SIN10R,COS10R);
+        var ans_ra =  "-"+m_mtx_read_add(ans_r1,ans_r1);} 
+     else { var ans_ra = "" ;}
         return  ans_ra; 
-        }
+     }
 
 
-function m_sin(x){                      
+  function m_sin(x){                      
     var xx=x.toString().trim();
     var data_msg =0;
     var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
     var xx =m_mtx_trim(xx) ; 
     var xx_af =0;                 
     var xx_af_p =0; 
@@ -5099,26 +5201,26 @@ function m_sin(x){
     var flag_3_4=0; 
     var xx_fst ="" ;
     var xx_p =  m_str_char(xx,".") ;  
-         var xx_fst = xx.substr(0,1);      
-        var ans_r ="";                     
-   if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=20 && xx_p ==0){  
-         var ans_r = m_sin_cst1(xx); 
-         if(ans_r !="" ){ return ans_r;}   
+    var xx_fst = xx.substr(0,1);      
+    var ans_r ="";                     
+      if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=20 && xx_p ==0){  
+        var ans_r = m_sin_cst1(xx); 
+        if(ans_r !="" ){ return ans_r;}    
                 }
-   if(xx_fst =='-' && xx.length<=3 && xx>=-20 && xx<=0 && xx_p ==0){  
+      if(xx_fst =='-' && xx.length<=3 && xx>=-20 && xx<=0 && xx_p ==0){  
         var ans_r = m_sin_cst2(xx);
-        if(ans_r !="" ){ return ans_r;}   
+        if(ans_r !="" ){ return ans_r;}    
           }
-   var idx_e = xx.indexOf("e");
-    if( idx_e >0){
-       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-       var xx_af_p =  m_str_char(xx_af,".") ;   
-       var xx_af_e =  m_str_char(xx_af,"e") ;     
-      if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
-      if(xx_af_p >=2 || xx_af_e>=1){ 
-           var ans_1 = message_1(30);             
+    var idx_e = xx.indexOf("e");
+      if( idx_e >0){
+        var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+        var xx_af_p =  m_str_char(xx_af,".") ;   
+        var xx_af_e =  m_str_char(xx_af,"e") ;     
+          if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
+          if(xx_af_p >=2 || xx_af_e>=1){ 
+            var ans_1 = message_1(30);             
                  return  ans_1;}
-                     }                          
+                      }                          
     var xx = m_mtx_str_to_e_a(xx);           
     var xx_test_small = xx;                      
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -5132,200 +5234,197 @@ function m_sin(x){
       SQRT2 = m_fix(SQRT2S,FIX_COL);    
     var com_zz_pidiv2 =0;
     var zz = m_mtx_real_div(xx,PIMUL2S);  
-     if( DECI_DGT <=16){ var deci_b=240;} 
-     else { var deci_b=420;}            
-     var zz = m_fix(zz,deci_b);    
-     var zz = m_fix_pow(zz,deci_b); 
-     var zz = m_str_e_to_str(zz);   
-     var zz_m = m_nub_m(zz) ;         
-     var zz_p = m_nub_p(zz) ;  
-     var zz_m = m_mtx_trim(zz_m) ;  
-     var zz_p = m_mtx_trim(zz_p) ; 
-     var zz_p_t=m_fix(zz_p,350);      
-     var zz_p_t =m_mtx_trim(zz_p_t) ;
-       if(zz_p_t=='1' || zz_p_t =='0' || zz_p_t =='0.0'){  var ans_1 = 0;  return  ans_1; } 
-       if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }    
-       if( zz_p_t =='0.25'){  var ans_1 = 1;  if(xx_fst =="-"){var ans_1 = -1;}  return  ans_1; }                                 
-       if( zz_p_t =='0.75'){  var ans_1 = -1;  if(xx_fst =="-"){var ans_1 = 1;}  return  ans_1; }
-       if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_3_4=1 ; }       
-       else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_3_4=1 ; }       
-       else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; } 
-       else if( zz_p_t <'0.25'){ var zz_p = zz_p ; var flag_1_2=1 ; }   
-       var dd_t = m_mtx_real_mul(360,zz_p); 
-       var dd_t=m_fix(dd_t,420);  
+      if( DECI_DGT <=16){ var deci_b=240;} 
+      else { var deci_b=420;}            
+    var zz = m_fix(zz,deci_b);    
+    var zz = m_fix_pow(zz,deci_b); 
+    var zz = m_str_e_to_str(zz);   
+    var zz_m = m_nub_m(zz) ;         
+    var zz_p = m_nub_p(zz) ;  
+    var zz_m = m_mtx_trim(zz_m) ;  
+    var zz_p = m_mtx_trim(zz_p) ; 
+    var zz_p_t=m_fix(zz_p,350);      
+    var zz_p_t =m_mtx_trim(zz_p_t) ;
+      if(zz_p_t=='1' || zz_p_t =='0' || zz_p_t =='0.0'){  var ans_1 = 0;  return  ans_1; } 
+      if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }    
+      if( zz_p_t =='0.25'){  var ans_1 = 1;  if(xx_fst =="-"){var ans_1 = -1;}  return  ans_1; }                                 
+      if( zz_p_t =='0.75'){  var ans_1 = -1;  if(xx_fst =="-"){var ans_1 = 1;}  return  ans_1; }
+      if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_3_4=1 ; }       
+      else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_3_4=1 ; }       
+      else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; } 
+      else if( zz_p_t <'0.25'){ var zz_p = zz_p ; var flag_1_2=1 ; }   
+    var dd_t = m_mtx_real_mul(360,zz_p); 
+    var dd_t=m_fix(dd_t,420);  
       if(dd_t.length<=2 && dd_t.length>=1 ){   
-       var ans_b ="";
-       if(dd_t==09 ||dd_t==9 ){ var ans_b = SIN09D ;}
-       else if(dd_t==15){ var ans_b = SIN15D ;}
-       else if(dd_t==18){ var ans_b = SIN18D ;}
-       else if(dd_t==30){ var ans_b = 0.5 ;}
-       else if(dd_t==36){ var ans_b = SIN36D ;}
-       else if(dd_t==45){ var ans_b = SIN45D ;}
-       else if(dd_t==54){ var ans_b = SIN54D ;}
-       else if(dd_t==60){ var ans_b = SIN60D ;}
-       else if(dd_t==72){ var ans_b = SIN72D ;}
-       else if(dd_t==75){ var ans_b = SIN75D ;}
-       else if(dd_t==81){ var ans_b = SIN81D ;}
-       else { var ans_b = "" ;}
-        if(xx_fst !="-" && flag_3_4 ==1){ var ans_b ="-"+ans_b;}
-        else if(xx_fst =="-" && flag_1_2 ==1){ var ans_b ="-"+ans_b;}
-        if(ans_b !=""){ return  ans_b; }
+        var ans_b ="";
+          if(dd_t==09 ||dd_t==9 ){ var ans_b = SIN09D ;}
+          else if(dd_t==15){ var ans_b = SIN15D ;}
+          else if(dd_t==18){ var ans_b = SIN18D ;}
+          else if(dd_t==30){ var ans_b = 0.5 ;}
+          else if(dd_t==36){ var ans_b = SIN36D ;}
+          else if(dd_t==45){ var ans_b = SIN45D ;}
+          else if(dd_t==54){ var ans_b = SIN54D ;}
+          else if(dd_t==60){ var ans_b = SIN60D ;}
+          else if(dd_t==72){ var ans_b = SIN72D ;}
+          else if(dd_t==75){ var ans_b = SIN75D ;}
+          else if(dd_t==81){ var ans_b = SIN81D ;}
+          else { var ans_b = "" ;}
+          if(xx_fst !="-" && flag_3_4 ==1){ var ans_b ="-"+ans_b;}
+          else if(xx_fst =="-" && flag_1_2 ==1){ var ans_b ="-"+ans_b;}
+          if(ans_b !=""){ return  ans_b; }
                          }    
-  var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
+     var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
        if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_2=1 ;}   
        else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }   
-    var data_flag_sin=0;   
-    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000001'); 
-      if(data_com ==1){                          
-       var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);  
-       var data_flag_sin=1;   }                        
-      else{ data_cle_b_s = data_cle_b ;  }  
-    var data_a_s = m_sin_matrix_1(data_cle_b_s);
-     if( DECI_DGT <=16){ var deci_nub=240;} 
-     else { var deci_nub=420;}    
+     var data_flag_sin=0;   
+     var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000001'); 
+       if(data_com ==1){                          
+         var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);  
+         var data_flag_sin=1;   }                        
+       else{ data_cle_b_s = data_cle_b ;  }  
+     var data_a_s = m_sin_matrix_1(data_cle_b_s);
+       if( DECI_DGT <=16){ var deci_nub=240;} 
+       else { var deci_nub=420;}    
      var data_a_s=m_fix(data_a_s,deci_nub); 
-      if(data_flag_sin ==1){                          
-        for(var i=0 ; i<13; i++){   
-        var data_a3 = m_mtx_int_mul(3,data_a_s);    
-        var data_a3=m_fix(data_a3,deci_nub); 
-        var data_b = m_mtx_int_mul(data_a_s,data_a_s);
-        var data_b=m_fix(data_b,deci_nub); 
-        var data_c = m_mtx_int_mul(data_a_s,data_b);
-        var data_c=m_fix(data_c,deci_nub); 
-        var data_c4 = m_mtx_int_mul(4,data_c); 
-        var data_c4=m_fix(data_c4,deci_nub); 
-        var data_d = m_mtx_real_sub(data_a3,data_c4); 
-        var data_d=m_fix(data_d,deci_nub); 
-        var data_a_s = data_d; 
+       if(data_flag_sin ==1){                          
+         for(var i=0 ; i<13; i++){   
+           var data_a3 = m_mtx_int_mul(3,data_a_s);    
+           var data_a3=m_fix(data_a3,deci_nub); 
+           var data_b = m_mtx_int_mul(data_a_s,data_a_s);
+           var data_b=m_fix(data_b,deci_nub); 
+           var data_c = m_mtx_int_mul(data_a_s,data_b);
+           var data_c=m_fix(data_c,deci_nub); 
+           var data_c4 = m_mtx_int_mul(4,data_c); 
+           var data_c4=m_fix(data_c4,deci_nub); 
+           var data_d = m_mtx_real_sub(data_a3,data_c4); 
+           var data_d=m_fix(data_d,deci_nub); 
+           var data_a_s = data_d; 
         }    } 
-
-    var data_a_s=m_fix(data_a_s,deci_nub); 
-    var ans_a = data_a_s; 
-     if(xx_fst !="-" && flag_3_4 ==1){ var ans_a ="-"+ans_a;}
-     else if(xx_fst =="-" && flag_1_2 ==1){ var ans_a ="-"+ans_a;}
-     else { var ans_a = ans_a;}
+     var data_a_s=m_fix(data_a_s,deci_nub); 
+     var ans_a = data_a_s; 
+       if(xx_fst !="-" && flag_3_4 ==1){ var ans_a ="-"+ans_a;}
+       else if(xx_fst =="-" && flag_1_2 ==1){ var ans_a ="-"+ans_a;}
+       else { var ans_a = ans_a;}
     return ans_a ;
 }
 
 
-function m_str_to_mtx(str){    
-     var zz = str.toString().trim();
-     var zz_lg=zz.length;  
-        if(zz.substr(0,1)=="-"){ zz = zz.substr(1,zz_lg-1);
-                                 zz_lg = zz_lg-1;    }
-     var zz_str= zz.toString();
-     var zz = m_str_e_to_str_point(zz );     
-     var zz = m_str_e_to_str(zz ); 
-     var zz_m = m_nub_m(zz) ;           
-     var zz_p = m_nub_p(zz) ;  
-    MTX_COL =400;
-     var DD=m_new_zero_mtx(1,MTX_COL);            
-     var DD=m_mtx_point_in(DD,zz_p);         
-         DD[0][0] = zz_m*100000 + parseInt(DD[0][0]) ;     
+ function m_str_to_mtx(str){    
+   var zz = str.toString().trim();
+   var zz_lg=zz.length;  
+     if(zz.substr(0,1)=="-"){ zz = zz.substr(1,zz_lg-1);
+       zz_lg = zz_lg-1;    }
+   var zz_str= zz.toString();
+   var zz = m_str_e_to_str_point(zz );     
+   var zz = m_str_e_to_str(zz ); 
+   var zz_m = m_nub_m(zz) ;           
+   var zz_p = m_nub_p(zz) ;  
+     MTX_COL =400;
+   var DD=m_new_zero_mtx(1,MTX_COL);            
+   var DD=m_mtx_point_in(DD,zz_p);         
+       DD[0][0] = zz_m*100000 + parseInt(DD[0][0]) ;     
       return DD;
 }
 
 
 function m_mtx_element_shift(A,nub){     
-var nubb = nub;
+  var nubb = nub;
   var AA=A;
   var mtx_lg =AA[0].length;  
   var BB = m_new_zero_mtx(1,mtx_lg);            
   var CC = m_new_zero_mtx(1,mtx_lg);            
-   while(nubb>0){                      
+    while(nubb>0){                      
     for(var i=0;i<(mtx_lg);i++){
-        if(i==0){
-          BB[0][i]=(AA[0][i]).toString()+(AA[0][i+1]).toString().substr(0,1);}
-        if(i >0 && i != (mtx_lg-1)){
-          BB[0][i]=(AA[0][i]).toString().substr(1,4)+(AA[0][i+1]).toString().substr(0,1);} 
-         if(i== (mtx_lg-1)){
-          BB[0][i]=(AA[0][i]).toString().substr(1,4)+"0";}  
+      if(i==0){
+        BB[0][i]=(AA[0][i]).toString()+(AA[0][i+1]).toString().substr(0,1);}
+      if(i >0 && i != (mtx_lg-1)){
+        BB[0][i]=(AA[0][i]).toString().substr(1,4)+(AA[0][i+1]).toString().substr(0,1);} 
+      if(i== (mtx_lg-1)){
+        BB[0][i]=(AA[0][i]).toString().substr(1,4)+"0";}  
                                }  
-               AA = m_mtx_copy_mtx(AA,BB);      
-              var  nubb = nubb-1;
+        AA = m_mtx_copy_mtx(AA,BB);      
+        var nubb = nubb-1;
              }
- while(nubb<0){ 
-  for(var i=0;i<mtx_lg;i++){
-    if(i==0){
-      BB[0][i]="0"+(AA[0][i]).toString().substr(0,4);}    
-    if(i>0 ){
-      BB[0][i]=(AA[0][i-1]).toString().substr(4,1)+(AA[0][i]).toString().substr(0,4);} 
-                        }   
-      AA = m_mtx_copy_mtx(AA,BB);      
-     var  nubb = nubb+1;
+    while(nubb<0){ 
+      for(var i=0;i<mtx_lg;i++){
+        if(i==0){
+          BB[0][i]="0"+(AA[0][i]).toString().substr(0,4);}    
+        if(i>0 ){
+          BB[0][i]=(AA[0][i-1]).toString().substr(4,1)+(AA[0][i]).toString().substr(0,4);} 
+                              }   
+          AA = m_mtx_copy_mtx(AA,BB);      
+            var nubb = nubb+1;
                              }  
-  return BB ;
+    return BB ;
 }
 
-function m_mtx_str_element_shift(x,nub){    
+ function m_mtx_str_element_shift(x,nub){    
    var nubb=nub;
-    var zz_str= x.toString();
-    var data_zo = zz_str.substr(0,1);
-       if(data_zo=="-"){ zz_str = zz_str.substr(1,zz_str.length-1); }   
-    var ans_1="";
-    var pos_pot = zz_str.indexOf(".");   
-      if(  nubb==0 ){return x;} 
-   if(nubb > 0 ) {      
-            var nubc = nubb;
-            while( nubc > 0){ var zz_str=zz_str+"0";   
-                   nubc=nubc-1; }
+   var zz_str= x.toString();
+   var data_zo = zz_str.substr(0,1);
+     if(data_zo=="-"){ zz_str = zz_str.substr(1,zz_str.length-1); }   
+   var ans_1="";
+   var pos_pot = zz_str.indexOf(".");   
+     if(  nubb==0 ){return x;} 
+     if(nubb > 0 ) {      
+       var nubc = nubb;
+       while( nubc > 0){ var zz_str=zz_str+"0";   
+          nubc=nubc-1; }
                    }
-    if(nubb > 0 ) {  
-              var nubd = nubb;
-            while( nubd > 0){
+     if(nubb > 0 ) {  
+       var nubd = nubb;
+       while( nubd > 0){
          var zz_str= zz_str.substr(0,pos_pot)+ zz_str.substr(pos_pot+1,1)+"."+zz_str.substr(pos_pot+2 ,zz_str.length-pos_pot-1);
          var pos_pot = zz_str.indexOf("."); 
-                      nubd=nubd-1;                                           
+             nubd=nubd-1;                                           
                             }
-            ans_1= zz_str ;   
+             ans_1= zz_str ;   
                       }
-   if(nubb < 0 ) {      
-       var  zz_str=zz_str.toString();
-       var nubc = parseInt(nubb); 
-         while( nubc < 0){ 
+      if(nubb < 0 ) {      
+        var zz_str=zz_str.toString();
+        var nubc = parseInt(nubb); 
+        while( nubc < 0){ 
            var zz_str="0"+zz_str;   
-               zz_str=zz_str.toString().trim();
-                     nubc=nubc+1; }
-                    }
-    if(nubb < 0 ) {                               
-       var nubd = m_abs(nubb);
-       var pos_pot = zz_str.indexOf(".");   
-       var zz_str_lg = zz_str.length;  
+              zz_str=zz_str.toString().trim();
+               nubc=nubc+1; }
+                  }
+      if(nubb < 0 ) {                               
+        var nubd = m_abs(nubb);
+        var pos_pot = zz_str.indexOf(".");   
+        var zz_str_lg = zz_str.length;  
         if(pos_pot !=-1){   
-         var zz_str = zz_str.substr(0,pos_pot-nubd)+"."+ zz_str.substr(pos_pot-nubd,nubd)+ zz_str.substr(pos_pot+1,zz_str_lg-pos_pot);
-                               }
+          var zz_str = zz_str.substr(0,pos_pot-nubd)+"."+ zz_str.substr(pos_pot-nubd,nubd)+ zz_str.substr(pos_pot+1,zz_str_lg-pos_pot);
+                            }
         else{
-           var zz_str = zz_str.substr(0,zz_str_lg-nubd )+"."+ zz_str.substr(zz_str_lg-nubd,nubd);}     
-           var pos_pot = zz_str.indexOf("."); 
-            ans_1= zz_str ; 
-                     }
-               nube=m_abs(nub);
+          var zz_str = zz_str.substr(0,zz_str_lg-nubd )+"."+ zz_str.substr(zz_str_lg-nubd,nubd);}     
+        var pos_pot = zz_str.indexOf("."); 
+        ans_1= zz_str ; 
+                      }
+            nube=m_abs(nub);
          while( nube > 0){ 
            var pos_pot_a = ans_1.indexOf("."); 
-            if( pos_pot_a >1 && ans_1.substr(0,1)=="0"){
-                ans_1=ans_1.substr(1,ans_1.length-1);}   
-            if(ans_1.substr(ans_1.length-1,1)=="0"){
-               ans_1=ans_1.substr(0,ans_1.length-1);   
-                                             }
-                  nube=nube-1;
+           if( pos_pot_a >1 && ans_1.substr(0,1)=="0"){
+              ans_1=ans_1.substr(1,ans_1.length-1);}   
+           if(ans_1.substr(ans_1.length-1,1)=="0"){
+             ans_1=ans_1.substr(0,ans_1.length-1);   
+                              }
+              nube=nube-1;
                           }
-         if(data_zo=="-"){var ans_1="-"+ans_1; }
-       return ans_1;
+        if(data_zo=="-"){var ans_1="-"+ans_1; }
+     return ans_1;
  }
 
-
-function m_mtx_str_to_mtx_wait_inv(x){     
+  function m_mtx_str_to_mtx_wait_inv(x){     
     var zz_str= x.toString();
     var data_zo = zz_str.substr(0,1);
        if(data_zo=="-"){ zz_str = zz_str.substr(1,zz_str.length-1); }    
     var zz_m = m_nub_m(zz_str) ;           
     var zz_p = m_nub_p(zz_str) ;           
     var DD=m_new_zero_mtx(1,MTX_COL);                
-       DD=m_mtx_point_in(DD,zz_p);         
-       DD[0][0] = zz_m*100000 + parseInt(DD[0][0]) ;    
+        DD=m_mtx_point_in(DD,zz_p);         
+        DD[0][0] = zz_m*100000 + parseInt(DD[0][0]) ;    
      return DD;
 }
-
 
 
 function m_mtx_any_inv(A ,nub){    
@@ -5334,49 +5433,48 @@ function m_mtx_any_inv(A ,nub){
   var AA =A;
   var data_test = parseInt(AA[0][0]); 
     if(data_test < 100000 || data_test >999999){
-            var ans_1 = message_1(31);
-                    return  ans_1 ;     }
+      var ans_1 = message_1(31);
+        return  ans_1 ;     }
   var PI_a = A ;                               
   var SS = m_new_zero_mtx(1 ,col_nub);            
     for(var i=0;i< (col_nub-1);i++){     
      for( var j=4;j >=0 ;j--){    
        for(var k=9 ;k > 0 ;k--){    
-           X[0][i]=parseInt(X[0][i])+Math.pow(10,j) ;      
-             SS = m_mtx_point_mul(PI_a,X);      
-             SS = m_mtx_cell_five_brow(SS);   
+          X[0][i]=parseInt(X[0][i])+Math.pow(10,j) ;      
+              SS = m_mtx_point_mul(PI_a,X);      
+              SS = m_mtx_cell_five_brow(SS);   
               SS = m_mtx_cell_five(SS);        
-               var data_chk=0;
-               for(var m=1;m<col_nub; m++){     
-                    if(SS[0][m] == "00000"){
-                       var data_chk=1;  }
-                    else{  data_chk=-1;
-                            m=col_nub;       }   
-                                  }  
-              if(parseInt(SS[0][0]) == 100000 && data_chk==1){    
-                  k=-1;
-                  j=-1;
-                  i=col_nub; 
+           var data_chk=0;
+             for(var m=1;m<col_nub; m++){     
+               if(SS[0][m] == "00000"){
+                 var data_chk=1;  }
+               else{ data_chk=-1;
+                      m=col_nub;    }   
+                                 }  
+       if(parseInt(SS[0][0]) == 100000 && data_chk==1){    
+          k=-1;
+          j=-1;
+          i=col_nub; 
                 }
-            if((parseInt(SS[0][0]) > 100000)||(parseInt(SS[0][0]) == 100000 && data_chk==-1)) {    
-                X[0][i]=parseInt(X[0][i]) - Math.pow(10,j) ;      
-                     k = -1; } 
-                               } 
-                               } 
-                        } 
-          X = m_mtx_cell_five_brow(X);   
-          X = m_mtx_cell_five(X);        
-         var sum_tt = m_mtx_cell_five_show(X);   
-             sum_tt =sum_tt.toString(); 
+       if((parseInt(SS[0][0]) > 100000)||(parseInt(SS[0][0]) == 100000 && data_chk==-1)) {    
+         X[0][i]=parseInt(X[0][i]) - Math.pow(10,j) ;      
+           k = -1; } 
+                    } 
+                         } 
+                      } 
+         X = m_mtx_cell_five_brow(X);   
+         X = m_mtx_cell_five(X);        
+   var sum_tt = m_mtx_cell_five_show(X);   
+       sum_tt =sum_tt.toString(); 
      if(nub==1){         
          return  X ;
                }   
-    else{
+     else{
         return  sum_tt;}
-   
 }
 
 
-function m_sin_matrix_1(x){    
+  function m_sin_matrix_1(x){    
     var zz = x.toString().trim();
     var zz_fst=zz.substr(0,1);
     var zz_str= zz.toString();
@@ -5395,52 +5493,50 @@ function m_sin_matrix_1(x){
     var DD=m_mtx_point_in(DD,zz_p);
     var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0); 
     var nn=100;   
-     for(var n=1;n < nn ;n++){      
-       EE = m_mtx_row_table(AA,n);     
+      for(var n=1;n < nn ;n++){      
+        EE = m_mtx_row_table(AA,n);     
         for(var i=0;i<EE[0].length;i++){
-         if(zz_m !=0 && zz_m !="0" ){
+          if(zz_m !=0 && zz_m !="0" ){
             CC[0][i]= m_abs(zz_m) *EE[0][i];          
-                                 }
-         else{ CC=ZZ;}
-                                    }
+                               }
+          else{ CC=ZZ;}
+                              }
          if(comp_zz_p_0 !=3 ){      
-            var BB = m_mtx_point_mul(EE,DD);      
+           var BB = m_mtx_point_mul(EE,DD);      
                        }
          else{ BB=ZZ;}
-           var FF = m_mtx_point_add(BB,CC);       
-               FF = m_mtx_cell_five_brow(FF);   
-               FF = m_mtx_cell_five(FF);      
-         if(n==1){ var ITEM_S = FF ;}                      
-         else { var ITEM_S = m_mtx_point_mul(ITEM_S,FF);}
-              ITEM_S = m_mtx_cell_five_brow(ITEM_S);  
-              ITEM_S = m_mtx_cell_five(ITEM_S);      
-               CC=m_new_zero_mtx(1,AA[0].length);            
-               BB=m_new_zero_mtx(1,AA[0].length);
-               EE=m_new_zero_mtx(1,AA[0].length);  
-          if( (n+1)%2==0 && (n+1)%4 !=0 ){       
-               SUM_T = m_mtx_point_add(SUM_T,ITEM_S);   
-                                  }
-             if( (n+1)%2==0 && (n+1)%4 ==0 ){          
-                      SUM_T = m_mtx_point_sub(SUM_T,ITEM_S);   
+    var FF = m_mtx_point_add(BB,CC);       
+        FF = m_mtx_cell_five_brow(FF);   
+        FF = m_mtx_cell_five(FF);      
+        if(n==1){ var ITEM_S = FF ;}                      
+        else { var ITEM_S = m_mtx_point_mul(ITEM_S,FF);}
+        ITEM_S = m_mtx_cell_five_brow(ITEM_S);  
+        ITEM_S = m_mtx_cell_five(ITEM_S);      
+        CC=m_new_zero_mtx(1,AA[0].length);            
+        BB=m_new_zero_mtx(1,AA[0].length);
+        EE=m_new_zero_mtx(1,AA[0].length);  
+          if((n+1)%2==0 && (n+1)%4 !=0 ){       
+            SUM_T = m_mtx_point_add(SUM_T,ITEM_S);   
+                                }
+          if( (n+1)%2==0 && (n+1)%4 ==0 ){          
+             SUM_T = m_mtx_point_sub(SUM_T,ITEM_S);   
                         }                                       
-                 SUM_T = m_mtx_cell_five_brow(SUM_T);   
-                 SUM_T = m_mtx_cell_five(SUM_T);      
-                 FF=m_new_zero_mtx(1,AA[0].length);          
+        SUM_T = m_mtx_cell_five_brow(SUM_T);   
+        SUM_T = m_mtx_cell_five(SUM_T);      
+        FF=m_new_zero_mtx(1,AA[0].length);          
                                  }
-
-            SUM_T = m_mtx_cell_five_brow(SUM_T);   
-            SUM_T = m_mtx_cell_five(SUM_T);      
-           var sum_tt = m_mtx_cell_five_show(SUM_T);   
-               if(x < 0 && SUM_T[0][0] >=0 ){           
-                        var sum_tt = "-"+ sum_tt ;}     
-                  if(x < 0 && SUM_T[0][0] < 0 ){   
-                         var sum_tt = sum_tt.substr(1,sum_tt.length) ;}   
-       
-               sum_tt =sum_tt.toString();
+        SUM_T = m_mtx_cell_five_brow(SUM_T);   
+        SUM_T = m_mtx_cell_five(SUM_T);      
+      var sum_tt = m_mtx_cell_five_show(SUM_T);   
+        if(x < 0 && SUM_T[0][0] >=0 ){           
+          var sum_tt = "-"+ sum_tt ;}     
+        if(x < 0 && SUM_T[0][0] < 0 ){   
+      var sum_tt = sum_tt.substr(1,sum_tt.length) ;}   
+          sum_tt =sum_tt.toString();
            return sum_tt ;  
   }
 
-function m_cos_matrix_1(x){       
+  function m_cos_matrix_1(x){       
     var zz = x.toString().trim();
     var zz_fst=zz.substr(0,1);
     var zz_str= zz.toString();
@@ -5460,337 +5556,334 @@ function m_cos_matrix_1(x){
     var comp_zz_p_0 = m_mtx_real_str_comp(zz_p,0);  
     var nn =100;  
       for(var n=1;n <=nn ;n++){                 
-         EE = m_mtx_row_table(AA,n);     
-     for(var i=0;i<EE[0].length;i++){
-     if(zz_m !=0 && zz_m !="0" ){
-            CC[0][i]= m_abs(zz_m) *EE[0][i]; }         
-           else{ CC=ZZ;}
-                                       }
-     if(comp_zz_p_0 !=3 ){      
-       var BB = m_mtx_point_mul(EE,DD); }        
-     else{ BB=ZZ;}
-     var FF = m_mtx_point_add(BB,CC);          
-         FF = m_mtx_cell_five_brow(FF);     
-         FF = m_mtx_cell_five(FF);        
-           if(n==1){ var ITEM_S = FF ;}                      
-            else { var ITEM_S = m_mtx_point_mul(ITEM_S,FF);}
-             ITEM_S = m_mtx_cell_five_brow(ITEM_S);     
-             ITEM_S = m_mtx_cell_five(ITEM_S);        
-              CC=m_new_zero_mtx(1,AA[0].length);            
-              BB=m_new_zero_mtx(1,AA[0].length);
-              EE=m_new_zero_mtx(1,AA[0].length);  
-           if( (n)%2==0 && (n)%4 !=0 ){                             
-                SUM_T = m_mtx_point_sub(SUM_T,ITEM_S);   
+        EE = m_mtx_row_table(AA,n);     
+      for(var i=0;i<EE[0].length;i++){
+        if(zz_m !=0 && zz_m !="0" ){
+          CC[0][i]= m_abs(zz_m) *EE[0][i]; }         
+        else{ CC=ZZ;}
+                                  }
+        if(comp_zz_p_0 !=3 ){      
+          var BB = m_mtx_point_mul(EE,DD); }        
+        else{ BB=ZZ;}
+    var FF = m_mtx_point_add(BB,CC);          
+        FF = m_mtx_cell_five_brow(FF);     
+        FF = m_mtx_cell_five(FF);        
+        if(n==1){ var ITEM_S = FF ;}                      
+        else { var ITEM_S = m_mtx_point_mul(ITEM_S,FF);}
+        ITEM_S = m_mtx_cell_five_brow(ITEM_S);     
+        ITEM_S = m_mtx_cell_five(ITEM_S);        
+        CC=m_new_zero_mtx(1,AA[0].length);            
+        BB=m_new_zero_mtx(1,AA[0].length);
+        EE=m_new_zero_mtx(1,AA[0].length);  
+        if((n)%2==0 && (n)%4 !=0 ){                             
+          SUM_T = m_mtx_point_sub(SUM_T,ITEM_S);   
                                 }
-           if( (n)%2==0 && (n)%4 ==0 ){           
-                      SUM_T = m_mtx_point_add(SUM_T,ITEM_S);     
+        if((n)%2==0 && (n)%4 ==0 ){           
+          SUM_T = m_mtx_point_add(SUM_T,ITEM_S);     
                         }                                       
-                SUM_T = m_mtx_cell_five_brow(SUM_T);    
-                SUM_T = m_mtx_cell_five(SUM_T);        
-                FF=m_new_zero_mtx(1,AA[0].length);          
+          SUM_T = m_mtx_cell_five_brow(SUM_T);    
+          SUM_T = m_mtx_cell_five(SUM_T);        
+          FF=m_new_zero_mtx(1,AA[0].length);          
                                  }
-         SUM_T = m_mtx_cell_five_brow(SUM_T);     
-         SUM_T = m_mtx_cell_five(SUM_T);        
-           var sum_tt = m_mtx_cell_five_show(SUM_T); 
-           if(x < 0 && SUM_T[0][0] >=0 ){           
-              var sum_tt = "-"+ sum_tt ;}      
-           if(x < 0 && SUM_T[0][0] < 0 ){   
-            var sum_tt = sum_tt.substr(1,sum_tt.length) ;}   
-            sum_tt =sum_tt.toString();
-            sum_tt = m_mtx_real_add(1,sum_tt);  
+          SUM_T = m_mtx_cell_five_brow(SUM_T);     
+          SUM_T = m_mtx_cell_five(SUM_T);        
+       var sum_tt = m_mtx_cell_five_show(SUM_T); 
+         if(x < 0 && SUM_T[0][0] >=0 ){           
+            var sum_tt = "-"+ sum_tt ;}      
+         if(x < 0 && SUM_T[0][0] < 0 ){   
+           var sum_tt = sum_tt.substr(1,sum_tt.length) ;}   
+           sum_tt =sum_tt.toString();
+           sum_tt = m_mtx_real_add(1,sum_tt);  
             return sum_tt ;  
    } 
 
-
-
 function m_cos_cst(x){    
- var xx=x.toString().trim();
- var ans_r ="";
- if(xx=="0" || xx=="-0"){ var ans_r = COS00R ;}
- else if(xx=="1" || xx=="-1" ){ var ans_r = COS01R ;}
- else if(xx=="2" || xx=="-2" ){ var ans_r = COS02R ;}  
- else if(xx=="3" || xx=="-3" ){ var ans_r = COS03R ;}  
- else if(xx=="4" || xx=="-4" ){ var ans_r = COS04R ;}        
- else if(xx=="5" || xx=="-5" ){ var ans_r = COS05R ;}  
- else if(xx=="6" || xx=="-6" ){ var ans_r = COS06R ;}  
- else if(xx=="7" || xx=="-7" ){ var ans_r = COS07R ;}
- else if(xx=="8" || xx=="-8" ){ var ans_r = COS08R ;}     
- else if(xx=="9" || xx=="-9" ){ var ans_r = COS09R ;}     
- else if(xx=="10"|| xx=="-10" ){ var ans_r = COS10R ;}     
- else { var ans_r = "" ;}
+  var xx=x.toString().trim();
+  var ans_r ="";
+    if(xx=="0" || xx=="-0"){ var ans_r = COS00R ;}
+    else if(xx=="1" || xx=="-1" ){ var ans_r = COS01R ;}
+    else if(xx=="2" || xx=="-2" ){ var ans_r = COS02R ;}  
+    else if(xx=="3" || xx=="-3" ){ var ans_r = COS03R ;}  
+    else if(xx=="4" || xx=="-4" ){ var ans_r = COS04R ;}        
+    else if(xx=="5" || xx=="-5" ){ var ans_r = COS05R ;}  
+    else if(xx=="6" || xx=="-6" ){ var ans_r = COS06R ;}  
+    else if(xx=="7" || xx=="-7" ){ var ans_r = COS07R ;}
+    else if(xx=="8" || xx=="-8" ){ var ans_r = COS08R ;}     
+    else if(xx=="9" || xx=="-9" ){ var ans_r = COS09R ;}     
+    else if(xx=="10"|| xx=="-10" ){ var ans_r = COS10R ;}     
+    else { var ans_r = "" ;}
          return  ans_r; 
      }
-  
-function m_cos(x){            
- var xx=x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
-   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;
- var xx_af =0;               
- var xx_af_p =0; 
- var xx_af_e =0; 
- var ans_1 = "";
- var ans_a = "";
- var ans_a_s = "";
- var flag_2_3=0; 
- var flag_1_4=0; 
- var xx_fst ="" ;
- var xx_p =  m_str_char(xx,".") ;  
- var xx_fst = xx.substr(0,1);      
- var ans_r ="";                                     
-if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
-  var ans_r = m_cos_cst(xx); 
-  if(ans_r !="" ){ return ans_r;}   
-  }
-if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
-  var ans_r = m_cos_cst(xx);
-  if(ans_r !="" ){ return ans_r;}   
-  }
+                  
 
-    var idx_e = xx.indexOf("e");
-     if( idx_e >0){
-          var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-          var xx_af_p =  m_str_char(xx_af,".") ;   
-          var xx_af_e =  m_str_char(xx_af,"e") ;     
-             if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
-             if(xx_af_p >=2 || xx_af_e>=1){ var ans_1 = message_1(30); return  ans_1;}  }
-    var xx = m_mtx_str_to_e_a(xx);            
-    var xx_test_small = xx;              
-    var xx_test_nub_e =m_str_power(xx_test_small,0);             
-    var xx_test_st = m_str_power(xx_test_small,1);          
-    if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){      
-        var ans_a=1 ; return  ans_a;}                     
-    if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16); return  ans_1 ; }  
-    var xx_fst = xx.substr(0,1);
-    if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
-    var com_zz_pidiv2 =0;
-    FIX_COL=420;
-    PIDIV2= m_fix(PIDIV2S,FIX_COL);  
-    PIMUL2 = m_fix(PIMUL2S,FIX_COL);  
-    SQRT2 = m_fix(SQRT2S,FIX_COL);    
-    var zz = m_mtx_real_div(xx,PIMUL2S); 
-    if( DECI_DGT <=16){ var deci_b=240;} 
-     else { var deci_b=420;}           
-    var zz = m_fix(zz,deci_b);       
-    var zz = m_fix_pow(zz,deci_b);    
-    var zz = m_str_e_to_str(zz);   
-    var zz_m = m_nub_m(zz) ;         
-    var zz_p = m_nub_p(zz)  ;                 
-    var zz_m = m_mtx_trim(zz_m) ;  
-    var zz_p = m_mtx_trim(zz_p) ; 
-    var zz_p_t=m_fix(zz_p,420);             
-    var zz_p_t =m_mtx_trim(zz_p_t) ; 
-    if(zz_p_t=="1" || zz_p_t =="0" || zz_p_t =="0.0"){  var ans_1 = 1;  return  ans_1; }   
-    if( zz_p_t =='0.5'){  var ans_1 = -1;  if(xx_fst =="-"){var ans_1 = 1;} return  ans_1; }   
-    if( zz_p_t =='0.25'||zz_p_t =='0.75'){  var ans_1 = 0;  return  ans_1; }                   
-    if( zz_p_t >='0.75'&& zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_1_4=1;  }   
-    else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_2_3=1 ; }   
-    else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
-    else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
-    var dd_t = m_mtx_real_mul(360,zz_p); 
-    var dd_t=m_fix(dd_t,420);  
-    if(dd_t.length<=2 && dd_t.length>=1){   
-     var ans_b ="";
-    if(dd_t==09||dd_t==9){ var ans_b = SIN81D ;}
-      else if(dd_t==15){ var ans_b = SIN75D ;}
-      else if(dd_t==18){ var ans_b = SIN72D ;}
-      else if(dd_t==30){ var ans_b = SIN60D ;}
-      else if(dd_t==36){ var ans_b = SIN54D ;}
-      else if(dd_t==45){ var ans_b = SIN45D ;}
-      else if(dd_t==54){ var ans_b = SIN36D ;}
-      else if(dd_t==60){ var ans_b = 0.5 ;}
-      else if(dd_t==72){ var ans_b = SIN18D ;}
-      else if(dd_t==75){ var ans_b = SIN15D ;}
-      else if(dd_t==81){ var ans_b = SIN09D ;}
-      else { var ans_b = "" ;}
-     if( flag_2_3 ==1){ var ans_b ="-"+ans_b;}         
+function m_cos(x){            
+  var xx=x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+  var xx =m_mtx_trim(xx) ;
+  var xx_af =0;               
+  var xx_af_p =0; 
+  var xx_af_e =0; 
+  var ans_1 = "";
+  var ans_a = "";
+  var ans_a_s = "";
+  var flag_2_3=0; 
+  var flag_1_4=0; 
+  var xx_fst ="" ;
+  var xx_p =  m_str_char(xx,".") ;  
+  var xx_fst = xx.substr(0,1);      
+  var ans_r ="";                                    
+    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
+      var ans_r = m_cos_cst(xx); 
+    if(ans_r !="" ){ return ans_r;}    
+      }
+    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
+      var ans_r = m_cos_cst(xx);
+    if(ans_r !="" ){ return ans_r;}    
+     }
+   var idx_e = xx.indexOf("e");
+     if(idx_e >0){
+       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+       var xx_af_p =  m_str_char(xx_af,".") ;   
+       var xx_af_e =  m_str_char(xx_af,"e") ;     
+       if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
+       if(xx_af_p >=2 || xx_af_e>=1){ var ans_1 = message_1(30); return  ans_1;}  }
+   var xx = m_mtx_str_to_e_a(xx);            
+   var xx_test_small = xx;              
+   var xx_test_nub_e =m_str_power(xx_test_small,0);             
+   var xx_test_st = m_str_power(xx_test_small,1);          
+     if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){      
+       var ans_a=1 ; return  ans_a;}                     
+     if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16); return  ans_1 ; }  
+   var xx_fst = xx.substr(0,1);
+     if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
+   var com_zz_pidiv2 =0;
+     FIX_COL=420;
+     PIDIV2= m_fix(PIDIV2S,FIX_COL);  
+     PIMUL2 = m_fix(PIMUL2S,FIX_COL);  
+     SQRT2 = m_fix(SQRT2S,FIX_COL);    
+   var zz = m_mtx_real_div(xx,PIMUL2S); 
+     if( DECI_DGT <=16){ var deci_b=240;} 
+     else { var deci_b=420;}            
+   var zz = m_fix(zz,deci_b);       
+   var zz = m_fix_pow(zz,deci_b);   
+   var zz = m_str_e_to_str(zz);   
+   var zz_m = m_nub_m(zz) ;         
+   var zz_p = m_nub_p(zz)  ;                 
+   var zz_m = m_mtx_trim(zz_m) ;  
+   var zz_p = m_mtx_trim(zz_p) ; 
+   var zz_p_t=m_fix(zz_p,420);           
+   var zz_p_t =m_mtx_trim(zz_p_t) ; 
+     if(zz_p_t=="1" || zz_p_t =="0" || zz_p_t =="0.0"){  var ans_1 = 1;  return  ans_1; }   
+     if( zz_p_t =='0.5'){  var ans_1 = -1;  if(xx_fst =="-"){var ans_1 = 1;} return  ans_1; }   
+     if( zz_p_t =='0.25'||zz_p_t =='0.75'){  var ans_1 = 0;  return  ans_1; }                   
+     if( zz_p_t >='0.75'&& zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_1_4=1;  }   
+     else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_2_3=1 ; }   
+     else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
+     else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
+   var dd_t = m_mtx_real_mul(360,zz_p); 
+   var dd_t=m_fix(dd_t,420);  
+     if(dd_t.length<=2 && dd_t.length>=1){   
+       var ans_b ="";
+     if(dd_t==09||dd_t==9){ var ans_b = SIN81D ;}
+     else if(dd_t==15){ var ans_b = SIN75D ;}
+     else if(dd_t==18){ var ans_b = SIN72D ;}
+     else if(dd_t==30){ var ans_b = SIN60D ;}
+     else if(dd_t==36){ var ans_b = SIN54D ;}
+     else if(dd_t==45){ var ans_b = SIN45D ;}
+     else if(dd_t==54){ var ans_b = SIN36D ;}
+     else if(dd_t==60){ var ans_b = 0.5 ;}
+     else if(dd_t==72){ var ans_b = SIN18D ;}
+     else if(dd_t==75){ var ans_b = SIN15D ;}
+     else if(dd_t==81){ var ans_b = SIN09D ;}
+     else { var ans_b = "" ;}
+     if(flag_2_3 ==1){ var ans_b ="-"+ans_b;}         
      else if( flag_1_4 ==1){ var ans_b = +ans_b;}   
      if(ans_b !=""){ return  ans_b; }
-                       }    
-    var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S);      
+                         }    
+   var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S);    
      if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_4=1 ;}   
-      else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }         
+     else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }        
    var data_flag_cos=0;   
    var data_com = m_mtx_real_str_comp(data_cle_b,'0.0000001');  
-    if(data_com ==1){                          
-     var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);   
-     var data_flag_cos=1; }                          
-    else{ data_cle_b_s = data_cle_b ;  }  
+     if(data_com ==1){                          
+       var data_cle_b_s = m_mtx_real_div(data_cle_b,1594323);   
+       var data_flag_cos=1; }                          
+     else{ data_cle_b_s = data_cle_b ;  }  
    var data_a_s = m_cos_matrix_1(data_cle_b_s); 
-    if( DECI_DGT <=16){ var deci_nub=240;} 
-    else { var deci_nub=420;}   
+     if( DECI_DGT <=16){ var deci_nub=240;} 
+     else { var deci_nub=420;}   
    var data_a_s=m_fix(data_a_s,deci_nub); 
-    if(data_flag_cos ==1){                          
-     for(var i=0 ; i<13; i++){                            
-      var data_a3 = m_mtx_real_mul(3,data_a_s);   
-      var data_a3=m_fix(data_a3,deci_nub); 
-      var data_b = m_mtx_real_mul(data_a_s,data_a_s);
-      var data_b=m_fix(data_b,deci_nub); 
-      var data_c = m_mtx_real_mul(data_a_s,data_b);
-      var data_c=m_fix(data_c,deci_nub);   
-      var data_c4 = m_mtx_real_mul(4,data_c);
-      var data_c4=m_fix(data_c4,deci_nub);     
-      var data_d = m_mtx_real_sub(data_c4,data_a3); 
-      var data_d=m_fix(data_d,deci_nub);      
-      var data_a_s = data_d;  }   }  
+     if(data_flag_cos ==1){                          
+       for(var i=0 ; i<13; i++){                            
+         var data_a3 = m_mtx_real_mul(3,data_a_s);   
+         var data_a3=m_fix(data_a3,deci_nub); 
+         var data_b = m_mtx_real_mul(data_a_s,data_a_s);
+         var data_b=m_fix(data_b,deci_nub); 
+         var data_c = m_mtx_real_mul(data_a_s,data_b);
+         var data_c=m_fix(data_c,deci_nub);   
+         var data_c4 = m_mtx_real_mul(4,data_c);
+         var data_c4=m_fix(data_c4,deci_nub);       
+         var data_d = m_mtx_real_sub(data_c4,data_a3); 
+         var data_d=m_fix(data_d,deci_nub);       
+         var data_a_s = data_d;  }   }  
    var data_a_s=m_fix(data_a_s,deci_nub); 
    var ans_a = data_a_s;  
-   if( flag_2_3 ==1){ var ans_a ="-"+ans_a;}  
-   if( flag_1_4 ==1){ var ans_a = ans_a;} 
-   return ans_a ;
+     if( flag_2_3 ==1){ var ans_a ="-"+ans_a;}  
+     if( flag_1_4 ==1){ var ans_a = ans_a;} 
+      return ans_a ;
   }
 
 function m_tan_cst(x){   
- var xx=x.toString().trim();
- var ans_r ="";
- if(xx=="0" ){ var ans_r = 0 ;}
- else if(xx=="1"){ var ans_r = m_mtx_real_div(SIN01R,COS01R);}
- else if(xx=="-1"){ var ans_r = "-"+m_mtx_real_div(SIN01R,COS01R);}
- else if(xx=="2"){ var ans_r = m_mtx_real_div(SIN02R,COS02R);}
- else if(xx=="-2"){ var ans_r1 = m_mtx_real_div(SIN02R,COS02R);
-                    var ans_r = ans_r1.substr(1,280);} 
- else if(xx=="3"){ var ans_r = m_mtx_real_div(SIN03R,COS03R);}
- else if(xx=="-3"){ var ans_r1 = m_mtx_real_div(SIN03R,COS03R);
-                    var ans_r = ans_r1.substr(1,280);} 
- else if(xx=="4"){ var ans_r = m_mtx_real_div(SIN04R,COS04R);}
- else if(xx=="-4"){ var ans_r ="-"+ m_mtx_real_div(SIN04R,COS04R);}
- else if(xx=="5"){ var ans_r = m_mtx_real_div(SIN05R,COS05R);}
- else if(xx=="-5"){ var ans_r1 = m_mtx_real_div(SIN05R,COS05R);
-                    var ans_r = ans_r1.substr(1,280);}  
- else if(xx=="6"){ var ans_r = m_mtx_real_div(SIN06R,COS06R);}
- else if(xx=="-6"){ var ans_r1 = m_mtx_real_div(SIN06R,COS06R);
-                    var ans_r = ans_r1.substr(1,280);}
- else if(xx=="7"){ var ans_r = m_mtx_real_div(SIN07R,COS07R);}
- else if(xx=="-7"){ var ans_r ="-"+ m_mtx_real_div(SIN07R,COS07R);}
- else if(xx=="8"){ var ans_r = m_mtx_real_div(SIN08R,COS08R);}
- else if(xx=="-8"){ var ans_r1 = m_mtx_real_div(SIN08R,COS08R);
-                    var ans_r = ans_r1.substr(1,280);}  
- else if(xx=="9"){ var ans_r = m_mtx_real_div(SIN09R,COS09R);}
- else if(xx=="-9"){ var ans_r1 = m_mtx_real_div(SIN09R,COS09R);
-                    var ans_r = ans_r1.substr(1,280);} 
- else if(xx=="10"){ var ans_r = m_mtx_real_div(SIN10R,COS010R);}
- else if(xx=="-10"){ var ans_r1 = m_mtx_real_div(SIN10R,COS10R);
-                     var ans_r =  ans_r1.substr(1,280);} 
- else { var ans_r = "" ;}
+  var xx=x.toString().trim();
+  var ans_r ="";
+    if(xx=="0" ){ var ans_r = 0 ;}
+    else if(xx=="1"){ var ans_r = m_mtx_real_div(SIN01R,COS01R);}
+    else if(xx=="-1"){ var ans_r = "-"+m_mtx_real_div(SIN01R,COS01R);}
+    else if(xx=="2"){ var ans_r = m_mtx_real_div(SIN02R,COS02R);}
+    else if(xx=="-2"){ var ans_r1 = m_mtx_real_div(SIN02R,COS02R);
+                       var ans_r = ans_r1.substr(1,280);} 
+    else if(xx=="3"){ var ans_r = m_mtx_real_div(SIN03R,COS03R);}
+    else if(xx=="-3"){ var ans_r1 = m_mtx_real_div(SIN03R,COS03R);
+                       var ans_r = ans_r1.substr(1,280);} 
+    else if(xx=="4"){ var ans_r = m_mtx_real_div(SIN04R,COS04R);}
+    else if(xx=="-4"){ var ans_r ="-"+ m_mtx_real_div(SIN04R,COS04R);}
+    else if(xx=="5"){ var ans_r = m_mtx_real_div(SIN05R,COS05R);}
+    else if(xx=="-5"){ var ans_r1 = m_mtx_real_div(SIN05R,COS05R);
+                       var ans_r = ans_r1.substr(1,280);}  
+    else if(xx=="6"){ var ans_r = m_mtx_real_div(SIN06R,COS06R);}
+    else if(xx=="-6"){ var ans_r1 = m_mtx_real_div(SIN06R,COS06R);
+                       var ans_r = ans_r1.substr(1,280);}
+    else if(xx=="7"){ var ans_r = m_mtx_real_div(SIN07R,COS07R);}
+    else if(xx=="-7"){ var ans_r ="-"+ m_mtx_real_div(SIN07R,COS07R);}
+    else if(xx=="8"){ var ans_r = m_mtx_real_div(SIN08R,COS08R);}
+    else if(xx=="-8"){ var ans_r1 = m_mtx_real_div(SIN08R,COS08R);
+                       var ans_r = ans_r1.substr(1,280);}  
+    else if(xx=="9"){ var ans_r = m_mtx_real_div(SIN09R,COS09R);}
+    else if(xx=="-9"){ var ans_r1 = m_mtx_real_div(SIN09R,COS09R);
+                       var ans_r = ans_r1.substr(1,280);} 
+    else if(xx=="10"){ var ans_r = m_mtx_real_div(SIN10R,COS010R);}
+    else if(xx=="-10"){ var ans_r1 = m_mtx_real_div(SIN10R,COS10R);
+                        var ans_r =  ans_r1.substr(1,280);} 
+    else { var ans_r = "" ;}
      return  ans_r;
 }
 
 function m_tan(x){                        
- var xx=x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
-   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
- var xx =m_mtx_trim(xx) ;  
- var xx_af =0;
- var xx_af_p =0; 
- var xx_af_e =0; 
- var ans_1 = "";
- var ans_a = "";
- var ans_a_s = "";
- var flag_2_4=0; 
- var flag_1_3=0; 
- var xx_fst ="" ;
- var xx_p =  m_str_char(xx,".") ;  
- var xx_fst = xx.substr(0,1);      
- var ans_r ="";                    
-if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
-  var ans_r = m_tan_cst(xx); 
-  if(ans_r !="" ){ return ans_r;}   
-  }
-if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
-  var ans_r = m_tan_cst(xx);
-  if(ans_r !="" ){ return ans_r;}   
-  }
+  var xx=x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var xx =m_mtx_trim(xx) ;  
+  var xx_af =0;
+  var xx_af_p =0; 
+  var xx_af_e =0; 
+  var ans_1 = "";
+  var ans_a = "";
+  var ans_a_s = "";
+  var flag_2_4=0; 
+  var flag_1_3=0; 
+  var xx_fst ="" ;
+  var xx_p =  m_str_char(xx,".") ;  
+  var xx_fst = xx.substr(0,1);      
+  var ans_r ="";                    
+    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
+      var ans_r = m_tan_cst(xx); 
+    if(ans_r !="" ){ return ans_r;}    
+       }
+    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
+      var ans_r = m_tan_cst(xx);
+    if(ans_r !="" ){ return ans_r;}    
+      }
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
       var xx_af_p =  m_str_char(xx_af,".") ;   
       var xx_af_e =  m_str_char(xx_af,"e") ;     
-       if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
-       if(xx_af_p >=2 || xx_af_e>=1){ 
-      var ans_1 = message_1(30);             
-             return  ans_1;}
-                     }                          
+      if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
+      if(xx_af_p >=2 || xx_af_e>=1){ 
+        var ans_1 = message_1(30);             
+               return  ans_1;}
+                       }                          
   var xx = m_mtx_str_to_e_a(xx);           
   var data_cle =0;    
   var xx_test_small = xx;             
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1); 
-   if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){    
+    if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){    
       var ans_a=xx ; return  ans_a;}
-   if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   
-                     return  ans_1 ; }    
+    if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   
+                    return  ans_1 ; }    
   var xx_fst = xx.substr(0,1);
-      if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
-   var com_zz_pidiv2 =0;
-   var zz = m_mtx_real_div(xx,PIMUL2S);   
-   if( DECI_DGT <=16){ var deci_b=420;} 
-   else { var deci_b=420;}         
-   var zz = m_fix(zz,deci_b);  
-   var zz = m_fix_pow(zz,deci_b); 
-   var zz = m_str_e_to_str(zz);   
-   var zz_m = m_nub_m(zz) ;         
-   var zz_p = m_nub_p(zz) ;  
-   var zz_m = m_mtx_trim(zz_m) ;  
-   var zz_p = m_mtx_trim(zz_p) ; 
-   var flag_2_4=0 ;    
-   var flag_1_3=0 ;
-   var zz_p_t=m_fix(zz_p,420);    
-   var zz_p_t =m_mtx_trim(zz_p_t)
-   if(zz_p_t=='1' || zz_p_t =='0' || zz_p_t =='0.0'){  var ans_1 = 0;  return  ans_1; }  
-   if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }    
-   if( zz_p_t =='0.25'|| zz_p_t =='0.75'){  var ans_1 = message_1(11);  return ans_1 ; } 
-   if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1 ,zz_p_t); var zz_p = m_mtx_real_sub(1 ,zz_p); var flag_2_4=1 ; }   
-   else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t ,0.5); var zz_p = m_mtx_real_sub(zz_p ,0.5); var flag_1_3=1 ; }  
-   else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; }  
-   else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
-   var dd_t = m_mtx_real_mul(360,zz_p); 
-   var dd_t=m_fix(dd_t,420);               
-   if(dd_t.length<=2 && dd_t.length>=1){   
+    if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
+  var com_zz_pidiv2 =0;
+  var zz = m_mtx_real_div(xx,PIMUL2S);   
+    if( DECI_DGT <=16){ var deci_b=420;} 
+    else { var deci_b=420;}         
+  var zz = m_fix(zz,deci_b);  
+  var zz = m_fix_pow(zz,deci_b); 
+  var zz = m_str_e_to_str(zz);   
+  var zz_m = m_nub_m(zz) ;         
+  var zz_p = m_nub_p(zz) ;  
+  var zz_m = m_mtx_trim(zz_m) ;  
+  var zz_p = m_mtx_trim(zz_p) ; 
+  var flag_2_4=0 ;    
+  var flag_1_3=0 ;
+  var zz_p_t=m_fix(zz_p,420);    
+  var zz_p_t =m_mtx_trim(zz_p_t)
+    if(zz_p_t=='1' || zz_p_t =='0' || zz_p_t =='0.0'){  var ans_1 = 0;  return  ans_1; }  
+    if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }    
+    if( zz_p_t =='0.25'|| zz_p_t =='0.75'){  var ans_1 = message_1(11);  return ans_1 ; } 
+    if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1 ,zz_p_t); var zz_p = m_mtx_real_sub(1 ,zz_p); var flag_2_4=1 ; }   
+    else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t ,0.5); var zz_p = m_mtx_real_sub(zz_p ,0.5); var flag_1_3=1 ; }  
+    else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; }  
+    else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
+  var dd_t = m_mtx_real_mul(360,zz_p); 
+  var dd_t=m_fix(dd_t,420);                
+    if(dd_t.length<=2 && dd_t.length>=1){   
       var ans_b ="";
-   if(dd_t==09||dd_t==9){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
-   else if(dd_t==15){ var ans_b = m_mtx_real_div(SIN09D,SIN75D) ;}
-   else if(dd_t==18){ var ans_b = m_mtx_real_div(SIN18D,SIN72D) ;}
-   else if(dd_t==30){ var ans_b = m_mtx_real_div(SIN30D,SIN60D) ;}
-   else if(dd_t==36){ var ans_b = m_mtx_real_div(SIN36D,SIN54D) ;}
-   else if(dd_t==45){ var ans_b = 1 ;}
-   else if(dd_t==54){ var ans_b = m_mtx_real_div(SIN54D,SIN36D) ;}
-   else if(dd_t==60){ var ans_b = m_mtx_real_div(SIN60D,SIN30D) ;}
-   else if(dd_t==72){ var ans_b = m_mtx_real_div(SIN72D,SIN18D) ;}
-   else if(dd_t==75){ var ans_b = m_mtx_real_div(SIN75D,SIN15D) ;}
-   else if(dd_t==81){ var ans_b = m_mtx_real_div(SIN81D,SIN09D) ;}
-   else { var ans_b = "" ;}
-   if(xx_fst =="-" && flag_1_3 ==1){ var ans_b ="-"+ans_b;}
-   else if(xx_fst !="-" && flag_2_4 ==1){ var ans_b ="-"+ans_b;}
-     if(ans_b !=""){ return  ans_b; }
-                 }     
-    var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S); 
-    if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_3=1 ;}  
-    else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }  
+      if(dd_t==09||dd_t==9){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
+      else if(dd_t==15){ var ans_b = m_mtx_real_div(SIN09D,SIN75D) ;}
+      else if(dd_t==18){ var ans_b = m_mtx_real_div(SIN18D,SIN72D) ;}
+      else if(dd_t==30){ var ans_b = m_mtx_real_div(SIN30D,SIN60D) ;}
+      else if(dd_t==36){ var ans_b = m_mtx_real_div(SIN36D,SIN54D) ;}
+      else if(dd_t==45){ var ans_b = 1 ;}
+      else if(dd_t==54){ var ans_b = m_mtx_real_div(SIN54D,SIN36D) ;}
+      else if(dd_t==60){ var ans_b = m_mtx_real_div(SIN60D,SIN30D) ;}
+      else if(dd_t==72){ var ans_b = m_mtx_real_div(SIN72D,SIN18D) ;}
+      else if(dd_t==75){ var ans_b = m_mtx_real_div(SIN75D,SIN15D) ;}
+      else if(dd_t==81){ var ans_b = m_mtx_real_div(SIN81D,SIN09D) ;}
+      else { var ans_b = "" ;}
+      if(xx_fst =="-" && flag_1_3 ==1){ var ans_b ="-"+ans_b;}
+      else if(xx_fst !="-" && flag_2_4 ==1){ var ans_b ="-"+ans_b;}
+      if(ans_b !=""){ return  ans_b; }
+                         }     
+    var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S);  
+      if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_3=1 ;}  
+      else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }  
     var data_sin = m_sin(data_cle_b); 
     var data_cos = m_cos(data_cle_b);   
     var ans_a = m_mtx_real_div(data_sin,data_cos);             
-    if(xx_fst =="-" && flag_1_3 ==1){ var ans_a ="-"+ans_a;}
-    if(xx_fst !="-" && flag_2_4 ==1){ var ans_a ="-"+ans_a;}
-  return ans_a ;    
+      if(xx_fst =="-" && flag_1_3 ==1){ var ans_a ="-"+ans_a;}
+      if(xx_fst !="-" && flag_2_4 ==1){ var ans_a ="-"+ans_a;}
+     return ans_a ;    
    }
-
 
 function m_sinh(x){
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
   var xx =m_mtx_trim(xx) ; 
   var xx = m_str_e_to_str_point(xx );
   var xx_test_small = m_mtx_str_to_e_a(xx);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
     if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){  
-   var ans_a=xx ; return  ans_a;} 
- if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
-    var ans_a= message_1(24) ; return  ans_a;}      
+  var ans_a=xx ; return  ans_a;} 
+    if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
+      var ans_a= message_1(24) ; return  ans_a;}      
   var xx_str =xx;
   var xx_fst =xx_str.substr(0,1);
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
@@ -5800,40 +5893,40 @@ function m_sinh(x){
   var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);           
      if(comp_xx_1 !=1){        
        var xx_abs = m_str_e_to_str(xx_abs); 
-      var BB = m_mtx_exp_coefficient_150_table_a();
-      var AA  = m_str_to_mtx(xx_abs) ;              
-      var AA2 = m_mtx_point_mul(AA,AA);
-      var SS_T  = m_str_to_mtx(0) ; 
-      var nn=51;
-  for(var i = 1 ; i < nn ; i++){       
-       var BB_i = m_mtx_row_table(BB,i);               
-           if(i==1){
-             var SS= AA;      
-             var XX = m_mtx_point_mul(SS,BB_i);             
-             var SS_T = m_mtx_point_add(SS_T,XX);
-                                  }  
-             var data_test = i%2;
-           if(data_test==1 && i!=1){
-             var SS =  m_mtx_point_mul(SS,AA2);              
-             var XX = m_mtx_point_mul(SS,BB_i);             
-             var SS_T = m_mtx_point_add(SS_T,XX);
-                                                   }  
-                                               }  
-             var SS_T = m_mtx_cell_five(SS_T);   
-             var sum_total = m_mtx_cell_five_show(SS_T);   
-           if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
-                return sum_total;     
+       var BB = m_mtx_exp_coefficient_150_table_a();
+       var AA  = m_str_to_mtx(xx_abs) ;              
+       var AA2 = m_mtx_point_mul(AA,AA);
+       var SS_T  = m_str_to_mtx(0) ; 
+       var nn=51;
+       for(var i = 1 ; i < nn ; i++){       
+         var BB_i = m_mtx_row_table(BB,i);               
+         if(i==1){
+           var SS= AA;      
+           var XX = m_mtx_point_mul(SS,BB_i);             
+           var SS_T = m_mtx_point_add(SS_T,XX);
+                              }  
+           var data_test = i%2;
+         if(data_test==1 && i!=1){
+           var SS =  m_mtx_point_mul(SS,AA2);              
+           var XX = m_mtx_point_mul(SS,BB_i);             
+           var SS_T = m_mtx_point_add(SS_T,XX);
+                                      }  
+                                    }  
+           var SS_T = m_mtx_cell_five(SS_T);   
+           var sum_total = m_mtx_cell_five_show(SS_T);   
+         if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
+               return sum_total;     
                  }          
   var pexp = m_exp(xx_abs);
   var nexp = m_exp("-"+xx_abs);
   var sutt ="";
   var sum_total ="";
-  var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ; 
+  var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ;  
     if(data_test_a ==1){ var sutt= pexp ;}    
-    else{  var nexp = m_mtx_real_div(1,pexp);   
+    else{ var nexp = m_mtx_real_div(1,pexp);   
   var sutt = m_mtx_real_sub(pexp,nexp);}
   var sutt_1= m_mtx_real_div(sutt,2);
-          sum_total = sutt_1;
+      sum_total = sutt_1;
     if(xx_fst=="-"){  sum_total = "-"+sum_total;} 
   var sum_total = sum_total.toString().trim();
      return sum_total;
@@ -5841,63 +5934,63 @@ function m_sinh(x){
 
 
 function m_cosh(x){       
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
- if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;
- var xx = m_str_e_to_str_point(xx );
- var xx_test_small = m_mtx_str_to_e_a(xx);            
- var xx_test_nub_e =m_str_power(xx_test_small,0);             
- var xx_test_st = m_str_power(xx_test_small,1);          
- if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){ 
- var ans_a=1 ; return  ans_a;} 
- if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
- var ans_a= message_1(25) ; return  ans_a;}
- var xx_str =xx;
- var xx_fst =xx_str.substr(0,1);
- var sutt ="";
- var sutt_1="";
- var sum_total ="";
- if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
-  else { var xx_abs = xx_str;}
-   xx_str = m_str_e_to_str(xx_str);      
- if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;} 
- var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);     
- if(comp_xx_1 !=1){        
- var xx_abs = m_str_e_to_str(xx_abs);          
- var BB = m_mtx_exp_coefficient_150_table_a();
- var AA  = m_str_to_mtx(xx_abs) ;              
- var AA2 = m_mtx_point_mul(AA,AA);
- var SS_T  = m_str_to_mtx(0) ;                 
- var nn=51; 
-    for(var i = 0 ; i < nn ; i++){       
-     var BB_i = m_mtx_row_table(BB,i);               
-     if(i==0){
-      var SS= m_str_to_mtx(1) ;                 
-      var XX = m_mtx_point_mul(SS,BB_i);             
-      var SS_T = m_mtx_point_add(SS_T,XX);
-                    }  
-      var data_test = i%2;
-      if(data_test==0 && i!=0){
-        var SS =  m_mtx_point_mul(SS,AA2);              
-        var XX = m_mtx_point_mul(SS,BB_i);             
-        var SS_T = m_mtx_point_add(SS_T,XX);
-                             }  
-                          }  
-       var SS_T = m_mtx_cell_five(SS_T);   
-       var  sum_total = m_mtx_cell_five_show(SS_T);   
-             return sum_total;     
+  var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+  var xx =m_mtx_trim(xx) ;
+  var xx = m_str_e_to_str_point(xx );
+  var xx_test_small = m_mtx_str_to_e_a(xx);            
+  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+  var xx_test_st = m_str_power(xx_test_small,1);          
+    if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){ 
+       var ans_a=1 ; return  ans_a;} 
+    if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
+       var ans_a= message_1(25) ; return  ans_a;}
+  var xx_str =xx;
+  var xx_fst =xx_str.substr(0,1);
+  var sutt ="";
+  var sutt_1="";
+  var sum_total ="";
+    if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
+    else { var xx_abs = xx_str;}
+      xx_str = m_str_e_to_str(xx_str);      
+    if( m_mtx_real_str_comp(xx_abs,0)==3){ var sum_total = 1; return sum_total;} 
+  var comp_xx_1 = m_mtx_real_str_comp(xx_abs,1);     
+    if(comp_xx_1 !=1){        
+      var xx_abs = m_str_e_to_str(xx_abs);          
+      var BB = m_mtx_exp_coefficient_150_table_a();
+      var AA  = m_str_to_mtx(xx_abs) ;              
+      var AA2 = m_mtx_point_mul(AA,AA);
+      var SS_T  = m_str_to_mtx(0) ;                 
+      var nn=51; 
+        for(var i = 0 ; i < nn ; i++){       
+           var BB_i = m_mtx_row_table(BB,i);               
+           if(i==0){
+             var SS= m_str_to_mtx(1) ;                 
+             var XX = m_mtx_point_mul(SS,BB_i);             
+             var SS_T = m_mtx_point_add(SS_T,XX);
+                                }  
+             var data_test = i%2;
+           if(data_test==0 && i!=0){
+             var SS =  m_mtx_point_mul(SS,AA2);              
+             var XX = m_mtx_point_mul(SS,BB_i);             
+             var SS_T = m_mtx_point_add(SS_T,XX);
+                                            }  
+                                            }  
+             var SS_T = m_mtx_cell_five(SS_T);   
+             var sum_total = m_mtx_cell_five_show(SS_T);   
+                 return sum_total;     
                  }  
      var pexp = m_exp(xx_abs);
-     var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ; 
-     if(data_test_a ==1){ var sutt= pexp ;}    
-     else {  var nexp = m_mtx_real_div(1,pexp);    
+     var data_test_a = m_mtx_real_str_comp(xx_abs,10000) ;  
+       if(data_test_a ==1){ var sutt= pexp ;}    
+       else {  var nexp = m_mtx_real_div(1,pexp);    
      var sutt = m_mtx_real_add(pexp,nexp);}
      var sutt_1= m_mtx_real_div(sutt,2);    
-         sum_total = sutt_1;
+        sum_total = sutt_1;
      var sum_total = sum_total.toString().trim();
-     return sum_total;
+      return sum_total;
 }
 
 
@@ -5906,252 +5999,271 @@ function m_tanh(x){
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;
   var xx = m_str_e_to_str_point(xx ); 
   var xx_test_small = m_mtx_str_to_e_a(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){    
-     var ans_a=xx ; return  ans_a;} 
+    if(m_mtx_real_str_comp(xx_test_nub_e,-200)==2 ){    
+  var ans_a=xx ; return  ans_a;} 
   var xx_str =xx;
   var xx_fst =xx_str.substr(0,1);
     if(m_mtx_real_str_comp(xx_test_nub_e,3)==1 && xx_fst !="-"){   
-          var ans_a=1 ; return  ans_a;}
-     if(m_mtx_real_str_comp(xx_test_nub_e,3)==1 && xx_fst =="-"){ 
-          var ans_a=-1 ; return  ans_a;}
+       var ans_a=1 ; return  ans_a;}
+    if(m_mtx_real_str_comp(xx_test_nub_e,3)==1 && xx_fst =="-"){ 
+       var ans_a=-1 ; return  ans_a;}
     if(xx_fst=="-"){ var xx_abs = xx_str.substr(1,xx_str.length-1);}
     else { var xx_abs = xx_str;}
-     xx_str = m_str_e_to_str(xx_str);      
-       if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }  
+      xx_str = m_str_e_to_str(xx_str);      
+    if(m_mtx_real_str_comp(xx_abs,0)==3 ){ var sum_total = 0; return sum_total; }  
   var yy=0;    
   var zz=0;
       sum_t="";
   var yy=m_sinh(xx_abs); 
   var zz=m_cosh(xx_abs); 
   var sum_t= m_mtx_real_div(yy,zz);   
-     if(xx_fst=="-"){ var sum_t="-"+sum_t; }
-   var sum_t = sum_t.toString().trim();
+    if(xx_fst=="-"){ var sum_t="-"+sum_t; }
+  var sum_t = sum_t.toString().trim();
 return sum_t;
 }
 
-function m_ext_in_funct(x){   
+function m_ext_in_funct(x){  
   var xx_st = x;
-       xx_st = xx_st.replace(/\(Q\(/g , "\(0\-\(");    
-       xx_st = m_hat_bf_aft_many(xx_st ,'^','PPP');           
-       xx_st = xx_st.replace(/PPP/g ,'m_pow');             
-       xx_st = m_hat_bf_aft_many(xx_st ,'*','MMM');              
-       xx_st = xx_st.replace(/MMM/g, 'm_mtx_real_mul');    
-       xx_st = m_hat_bf_aft_many(xx_st ,'-','SSS');            
-       xx_st = xx_st.replace(/SSS/g ,'m_mtx_real_sub');  
-       xx_st = m_hat_bf_aft_many(xx_st ,'+','AAA');                                 
-       xx_st = xx_st.replace(/AAA/g , "m_mtx_real_add");   
-       xx_st = xx_st.replace(/e\+/g , "xxx");   
-       xx_st = xx_st.replace(/e\-/g , "yyy");   
-       xx_st = xx_st.replace(/\(/g , "\('");   
-       xx_st = xx_st.replace(/\)/g , "'\)");   
-       xx_st = xx_st.replace(/\+/g , "'\+'");   
-       xx_st = xx_st.replace(/\-/g , "'\-'");      
-       xx_st = xx_st.replace(/\*/g , "'\*'");   
-       xx_st = xx_st.replace(/\//g , "'\/'");   
-       xx_st = xx_st.replace(/\^/g , "'\^'");    
-       xx_st = xx_st.replace(/\,/g , "'\,'");     
-       xx_st = xx_st.replace(/''/g , "'");                     
-       xx_st = xx_st.replace(/\'\(/g , "\(");  
-       xx_st = xx_st.replace(/\)\'/g , "\)");  
-       xx_st = xx_st.replace(/\(\'m/g , "\(m"); 
-       xx_st = xx_st.replace(/\'m/g , "\m");    
-       xx_st = xx_st.replace(/xxx/g , "e\+");    
-       xx_st = xx_st.replace(/yyy/g , "e\-");    
-       xx_st = xx_st.replace(/Q\'3\.14/g , "\Q3\.14");     
-   var pos_m  = xx_st.indexOf("m");    
-   var xx_st = xx_st.toString();   
-  return xx_st ;
+      xx_st = xx_st.replace(/\(Q\(/g , "\(0\-\(");    
+      xx_st = m_hat_bf_aft_many(xx_st ,'^','PPP');           
+      xx_st = xx_st.replace(/PPP/g ,'m_pow');   
+      xx_st = m_hat_bf_aft_many(xx_st ,'/','DDD');            
+      xx_st = xx_st.replace(/DDD/g, 'm_mtx_real_div');    
+      xx_st = m_hat_bf_aft_many(xx_st ,'*','MMM');              
+      xx_st = xx_st.replace(/MMM/g, 'm_mtx_real_mul');    
+      xx_st = m_hat_bf_aft_many(xx_st ,'-','SSS');            
+      xx_st = xx_st.replace(/SSS/g ,'m_mtx_real_sub');  
+      xx_st = m_hat_bf_aft_many(xx_st ,'+','AAA');                                 
+      xx_st = xx_st.replace(/AAA/g , "m_mtx_real_add");  
+      xx_st = xx_st.replace(/e\+/g , "xxx");   
+      xx_st = xx_st.replace(/e\-/g , "yyy");   
+      xx_st = xx_st.replace(/\(/g , "\(\'");   
+      xx_st = xx_st.replace(/\)/g , "\'\)");   
+      xx_st = xx_st.replace(/\+/g , "\'\+\'");   
+      xx_st = xx_st.replace(/\-/g , "\'\-\'");      
+      xx_st = xx_st.replace(/\*/g , "\'\*\'");   
+      xx_st = xx_st.replace(/\//g , "\'\/\'");   
+      xx_st = xx_st.replace(/\^/g , "\'\^\'");    
+      xx_st = xx_st.replace(/\,/g , "\'\,\'");     
+      xx_st = xx_st.replace(/\'\'/g , "\'");                     
+      xx_st = xx_st.replace(/\'\(/g , "\(");  
+      xx_st = xx_st.replace(/\)\'/g , "\)");  
+      xx_st = xx_st.replace(/\(\'m/g , "\(m"); 
+      xx_st = xx_st.replace(/\'m/g , "\m");    
+      xx_st = xx_st.replace(/xxx/g , "e\+");    
+      xx_st = xx_st.replace(/yyy/g , "e\-");    
+      xx_st = xx_st.replace(/Q\'3\.14/g , "\Q3\.14");     
+  var pos_m  = xx_st.indexOf("m");    
+  var xx_st = xx_st.toString();   
+    return xx_st ;
+}
 
+function m_ext_in_funct_1(x){   
+  var xx_st = x ;
+  var xx_st = xx_st.replace(/m_exp\(/g , "m_exp\(\'");  
+  var xx_st = xx_st.replace(/m_ln\(/g , "m_ln\(\'");   
+  var xx_st = xx_st.replace(/m_sin\(/g , "m_sin\(\'");  
+  var xx_st = xx_st.replace(/m_asin\(/g , "m_asin\(\'");    
+  var xx_st = xx_st.replace(/m_sinh\(/g , "m_sinh\(\'");  
+  var xx_st = xx_st.replace(/m_asinh\(/g , "m_asinh\(\'");  
+  var xx_st = xx_st.replace(/m_cos\(/g , "m_cos\(\'");  
+  var xx_st = xx_st.replace(/m_acos\(/g , "m_acos\(\'");    
+  var xx_st = xx_st.replace(/m_cosh\(/g , "m_cosh\(\'");  
+  var xx_st = xx_st.replace(/m_acosh\(/g , "m_acosh\(\'");  
+  var xx_st = xx_st.replace(/m_tan\(/g , "m_tan\(\'");   
+  var xx_st = xx_st.replace(/m_atan\(/g , "m_atan\(\'");   
+  var xx_st = xx_st.replace(/m_tanh\(/g , "m_tanh\(\'");    
+  var xx_st = xx_st.replace(/m_atanh\(/g , "m_atanh\(\'");  
+  var xx_st = xx_st.replace(/\)/g , "\'\)");  
+    return xx_st ;
 }
 
 function m_ext_in_funct_2(x){   
-     var xx_st = x ;
-     var xx_st = xx_st.replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");  
-     var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
-     var xx_st = xx_st.replace(/m_sin\(\(m_acos/g , "m_sin_acos\(\(");   
-     var xx_st = xx_st.replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
-     var xx_st = xx_st.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
-     var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
-     var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\("); 
-     var xx_st = xx_st.replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\(");  
-     var xx_st = xx_st.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\(");  
-     var xx_st = xx_st.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
-     var xx_st = xx_st.replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
-     var xx_st = xx_st.replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\("); 
-     var xx_st = xx_st.replace(/m_acos\(\(m_sin/g , "m_acos_sin\(\(");   
-     var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");    
-     var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\("); 
-     var xx_st = xx_st.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\(");  
-     var xx_st = xx_st.replace(/m_tan\(\(m_asin/g , "m_tan_asin\(\(");   
-     var xx_st = xx_st.replace(/m_tan\(\(m_acos/g , "m_tan_acos\(\(");   
-     var xx_st = xx_st.replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");   
-     var xx_st = xx_st.replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\(");   
-     var xx_st = xx_st.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
-     var xx_st = xx_st.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
- return xx_st ;
+  var xx_st = x ;
+  var xx_st = xx_st.replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");  
+  var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+  var xx_st = xx_st.replace(/m_sin\(\(m_acos/g , "m_sin_acos\(\(");   
+  var xx_st = xx_st.replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
+  var xx_st = xx_st.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
+  var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+  var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\("); 
+  var xx_st = xx_st.replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\(");  
+  var xx_st = xx_st.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\(");  
+  var xx_st = xx_st.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
+  var xx_st = xx_st.replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
+  var xx_st = xx_st.replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\("); 
+  var xx_st = xx_st.replace(/m_acos\(\(m_sin/g , "m_acos_sin\(\(");    
+  var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");    
+  var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");  
+  var xx_st = xx_st.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\(");  
+  var xx_st = xx_st.replace(/m_tan\(\(m_asin/g , "m_tan_asin\(\(");   
+  var xx_st = xx_st.replace(/m_tan\(\(m_acos/g , "m_tan_acos\(\(");   
+  var xx_st = xx_st.replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");   
+  var xx_st = xx_st.replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\(");   
+  var xx_st = xx_st.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
+  var xx_st = xx_st.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
+    return xx_st ;
 }
 
 function m_mtx_e_str(x,nub){   
-   var xx_st=x.toString();
-   var pos_pot  = xx_st.indexOf(".");    
-   var pos_e  = xx_st.indexOf("e");    
-   var pos_pls  = xx_st.indexOf("+");   
-   var st_lg = xx_st.length;
-   var nub_e=0; 
-        if(  pos_e != -1){
-        if(pos_pls ==-1){
-               var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
-                             }
-         else{var nub_e =  xx_st.substr(pos_e+2,xx_st.length - pos_e-1);} 
-               var nub_e=nub_e.toString().trim();
-                xx_st = xx_st.substr(0,pos_e);       
-                       }
-            var nub_e =m_mtx_trim(nub_e) ;          
-            var xx_st =m_mtx_trim(xx_st) ;          
-        if(nub==0){
-               var nub_e=nub_e.toString().trim();
-                return nub_e;}
-        else{
-               var xx_st=xx_st.toString().trim();
-               var xx_st=m_mtx_del_point(xx_st);    
-              return xx_st;}          
+  var xx_st=x.toString();
+  var pos_pot  = xx_st.indexOf(".");    
+  var pos_e  = xx_st.indexOf("e");    
+  var pos_pls  = xx_st.indexOf("+");   
+  var st_lg = xx_st.length;
+  var nub_e=0; 
+    if(  pos_e != -1){
+    if(pos_pls ==-1){
+      var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
+                    }
+    else{var nub_e =  xx_st.substr(pos_e+2,xx_st.length - pos_e-1);} 
+      var nub_e=nub_e.toString().trim();
+      xx_st = xx_st.substr(0,pos_e);       
+                    }
+  var nub_e =m_mtx_trim(nub_e) ;          
+  var xx_st =m_mtx_trim(xx_st) ;          
+    if(nub==0){
+      var nub_e=nub_e.toString().trim();
+        return nub_e;}
+    else{
+      var xx_st=xx_st.toString().trim();
+      var xx_st=m_mtx_del_point(xx_st);    
+          return xx_st;}          
    }
 
 
 function m_mtx_point_add_sub_e(a,b,nub){    
-   var aa=a.toString().trim();
-   var bb=b.toString().trim();
-   var nubb=nub;
-   var deci_dgt_inpt=16;
-   var deci_dgt_nub =0;
-   var aa_e = m_mtx_e_str(aa ,0);   
-   var ans_a ="";                  
-   var nub_point_a = m_str_char(aa_e,".") ;  
-      if(nub_point_a ==1){
-       var aa = m_str_e_to_str_point(aa );     
-       var aa_e = m_mtx_e_str(aa ,0); }  
-      else if(nub_point_a > 1){ 
+  var aa=a.toString().trim();
+  var bb=b.toString().trim();
+  var nubb=nub;
+  var deci_dgt_inpt=16;
+  var deci_dgt_nub =0;
+  var aa_e = m_mtx_e_str(aa ,0);   
+  var ans_a ="";                  
+  var nub_point_a = m_str_char(aa_e,".") ;  
+    if(nub_point_a ==1){
+      var aa = m_str_e_to_str_point(aa );     
+      var aa_e = m_mtx_e_str(aa ,0); }  
+    else if(nub_point_a > 1){ 
       var ans_a = message_1(30);
-         return  ans_a  ;} 
-   var aa_str = m_mtx_e_str(aa ,1);   
-   var bb_e = m_mtx_e_str(bb ,0); 
-   var ans_b ="";                             
-   var nub_point_b = m_str_char(bb_e,".") ;  
-     if(nub_point_b ==1){
-       var bb = m_str_e_to_str_point(bb );      
-       var bb_e = m_mtx_e_str(bb ,0);}   
-     else if(nub_point_b > 1){ 
-       var ans_b = message_1(30);
-               return  ans_b  ;   }  
-   var bb_str = m_mtx_e_str(bb ,1);   
-   var sum_st ="";
-   var e_nub =0;
-   var dd_e =  m_mtx_int_sub(aa_e,bb_e); 
-   var b_fst=bb.substr(0,1);
-       if(dd_e >0  ){               
-                   bb_str =bb_str.toString().trim();
-               var chk_point =0;  
-               var chk_fst=bb_str.substr(0,1);
-                    if(chk_fst=="-"){ var bb_str=bb_str.substr(1,bb_str.length-1);  
-                       var chk_point =1;}
-        var bb_str = m_mtx_str_element_shift(bb_str,-dd_e);     
-                    if(chk_point==1){ var bb_str="-"+bb_str;}   
-          var e_nub = aa_e;           
-                                                    }   
-
-      if(dd_e < 0  ){            
-            var dd_e_s = dd_e.toString().trim();
-             var dd_e_fst = dd_e_s.substr(0,1);
-             if(dd_e_fst=="-"){ var dd_e = dd_e_s.substr(1,dd_e_s.length-1);}
-                else{var dd_e = dd_e_s;}
-
-                    aa_str =aa_str.toString().trim();
-               var chk_point =0;  
-               var chk_fst=aa_str.substr(0,1);
-                    if(chk_fst=="-"){ var aa_str=aa_str.substr(1,aa_str.length-1);  
-                       var chk_point =1;}
-                var aa_str = m_mtx_str_element_shift(aa_str,-dd_e);     
-                    if(chk_point==1){ var aa_str="-"+aa_str;}   
-             var e_nub = bb_e;            
-                                }
-        if(dd_e == 0 ){        
-                   var e_nub = aa_e; }
-                if(aa_str==0. && aa_str.length==2){var aa_str=0;}  
-      if(nubb==0){     
+        return  ans_a  ;} 
+  var aa_str = m_mtx_e_str(aa ,1);   
+  var bb_e = m_mtx_e_str(bb ,0); 
+  var ans_b ="";                             
+  var nub_point_b = m_str_char(bb_e,".") ;  
+    if(nub_point_b ==1){
+      var bb = m_str_e_to_str_point(bb );      
+      var bb_e = m_mtx_e_str(bb ,0);}   
+    else if(nub_point_b > 1){ 
+     var ans_b = message_1(30);
+           return  ans_b  ;   }  
+  var bb_str = m_mtx_e_str(bb ,1);   
+  var sum_st ="";
+  var e_nub =0;
+  var dd_e =  m_mtx_int_sub(aa_e,bb_e); 
+  var b_fst=bb.substr(0,1);
+    if(dd_e >0  ){               
+      bb_str =bb_str.toString().trim();
+      var chk_point =0;  
+      var chk_fst=bb_str.substr(0,1);
+      if(chk_fst=="-"){ var bb_str=bb_str.substr(1,bb_str.length-1);  
+        var chk_point =1;}
+  var bb_str = m_mtx_str_element_shift(bb_str,-dd_e);     
+    if(chk_point==1){ var bb_str="-"+bb_str;}   
+      var e_nub = aa_e;           
+                          }   
+    if(dd_e < 0  ){            
+      var dd_e_s = dd_e.toString().trim();
+      var dd_e_fst = dd_e_s.substr(0,1);
+      if(dd_e_fst=="-"){ var dd_e = dd_e_s.substr(1,dd_e_s.length-1);}
+      else{var dd_e = dd_e_s;}
+    aa_str =aa_str.toString().trim();
+    var chk_point =0;  
+    var chk_fst=aa_str.substr(0,1);
+      if(chk_fst=="-"){ var aa_str=aa_str.substr(1,aa_str.length-1);  
+        var chk_point =1;}
+    var aa_str = m_mtx_str_element_shift(aa_str,-dd_e);     
+       if(chk_point==1){ var aa_str="-"+aa_str;}   
+       var e_nub = bb_e;            
+                              }
+     if(dd_e == 0 ){        
+       var e_nub = aa_e; }
+     if(aa_str==0. && aa_str.length==2){var aa_str=0;}  
+     if(nubb==0){     
        var sum_st = m_mtx_real_add_bf(aa_str,bb_str);      
                  }
-       else {           
-       var sum_st = m_mtx_real_sub_bf(aa_str,bb_str);      
+      else {           
+      var sum_st = m_mtx_real_sub_bf(aa_str,bb_str);      
             }
-         var sum_st =sum_st.toString().trim();
-         var fst_n=sum_st.substr(0,1); 
-            if(fst_n=="-"){ sum_st=sum_st.substr(1,sum_st.length-1);
-                            var data_point=1;              }   
-            else{ var data_point=0;}
-         var point_n=sum_st.indexOf(".");
-         var zero_n=sum_st.substr(0,1);
-         var sec_n=sum_st.substr(2,1);
-         var lg=sum_st.length; 
-          if(point_n == 1 && zero_n==0 && sec_n==0){ var n = 1;}
-          else{ var n = 0;}
-           while(n > 0){                                
-               sum_st = "0."+sum_st.substr(3,lg-3);
-                   var point_n=sum_st.indexOf(".");
-                   var zero_n=sum_st.substr(0,1);
-                   var sec_n=sum_st.substr(2,1);
-                   var lg=sum_st.length; 
-                  if(point_n == 1 && zero_n==0 && sec_n==0){ var n = 1;}
-                  else{ var n = 0;}
-                  var e_nub = m_mtx_int_sub(e_nub,1);
+      var sum_st =sum_st.toString().trim();
+      var fst_n=sum_st.substr(0,1); 
+        if(fst_n=="-"){ sum_st=sum_st.substr(1,sum_st.length-1);
+          var data_point=1;    }   
+        else{ var data_point=0;}
+      var point_n=sum_st.indexOf(".");
+      var zero_n=sum_st.substr(0,1);
+      var sec_n=sum_st.substr(2,1);
+      var lg=sum_st.length; 
+        if(point_n == 1 && zero_n==0 && sec_n==0){ var n = 1;}
+        else{ var n = 0;}
+          while(n > 0){                                
+            sum_st = "0."+sum_st.substr(3,lg-3);
+            var point_n=sum_st.indexOf(".");
+            var zero_n=sum_st.substr(0,1);
+            var sec_n=sum_st.substr(2,1);
+            var lg=sum_st.length; 
+              if(point_n == 1 && zero_n==0 && sec_n==0){ var n = 1;}
+              else{ var n = 0;}
+            var e_nub = m_mtx_int_sub(e_nub,1);
                         }  
-                  var point_n=sum_st.indexOf(".");    
-                  var zero_n=sum_st.substr(0,1);
-                  var sec_n=sum_st.substr(2,1);
-                    if(point_n == 1 && zero_n==0 && sec_n!=0){
-                           sum_st=sum_st.substr(2,1)+"."+ sum_st.substr(3,sum_st.length-3);
-                         var e_nub = m_mtx_int_sub(e_nub,1);     
-                                             }
-              var sum_st_m_bf = m_nub_m_s(sum_st).toString();    
-              var sum_st_m_bf = m_mtx_trim(sum_st_m_bf) ;   
-              var sum_st_m_bf_lg = sum_st_m_bf.length;           
-              var sum_st_p_bf = m_nub_p(sum_st).toString();         
-              var sum_st_p_bf_lg = sum_st_p_bf.length;           
+            var point_n=sum_st.indexOf(".");    
+            var zero_n=sum_st.substr(0,1);
+            var sec_n=sum_st.substr(2,1);
+              if(point_n == 1 && zero_n==0 && sec_n!=0){
+                sum_st=sum_st.substr(2,1)+"."+ sum_st.substr(3,sum_st.length-3);
+                var e_nub = m_mtx_int_sub(e_nub,1);     
+                                  }
+            var sum_st_m_bf = m_nub_m_s(sum_st).toString();    
+            var sum_st_m_bf = m_mtx_trim(sum_st_m_bf) ;   
+            var sum_st_m_bf_lg = sum_st_m_bf.length;           
+            var sum_st_p_bf = m_nub_p(sum_st).toString();         
+            var sum_st_p_bf_lg = sum_st_p_bf.length;           
               if(sum_st_m_bf_lg>1){
                  sum_st = sum_st.substr(0,1)+"."+sum_st.substr(1,sum_st_m_bf_lg-1)+sum_st.substr(sum_st_m_bf_lg+1,sum_st_p_bf_lg);
-                          var e_nub = m_mtx_int_add(e_nub,sum_st_m_bf_lg); 
-                          var e_nub = m_mtx_int_sub(e_nub,1);      
-                                   }
-                   var sum_st = m_mtx_trim(sum_st) ;   
-             if(e_nub > 0 && sum_st !=0){
-                  sum_st = sum_st+"e+"+ e_nub;}   
-             if(e_nub == 0 || sum_st ==0){
-                  sum_st = sum_st;}
-             if(e_nub < 0 && sum_st !=0 ){
-                  sum_st = sum_st+"e"+ e_nub;}
-             if(data_point==1){ sum_st = "-"+sum_st;}  
+                 var e_nub = m_mtx_int_add(e_nub,sum_st_m_bf_lg); 
+                 var e_nub = m_mtx_int_sub(e_nub,1);      
+                                  }
+     var sum_st = m_mtx_trim(sum_st) ;   
+       if(e_nub > 0 && sum_st !=0){
+         sum_st = sum_st+"e+"+ e_nub;}   
+       if(e_nub == 0 || sum_st ==0){
+         sum_st = sum_st;}
+       if(e_nub < 0 && sum_st !=0 ){
+         sum_st = sum_st+"e"+ e_nub;}
+       if(data_point==1){ sum_st = "-"+sum_st;}  
      return sum_st;
 }
 
 
 
 function m_str_char(str,char){   
-   var str_a = str.toString().trim();
-   var char_a = char.toString().trim();
-   var str_lg = str_a.length;
-   var char_lg = char_a.length;
-   var count_a=0;
-      if(str_lg < char_lg){ count_a=0 ; return count_a;}
-         for(var i=0;i< (str_lg-char_lg+1) ;i++){
-            var str_part = str_a.substr(i,char_lg);
-                if(str_part ==char_a){ var count_a=count_a+1;}
-                                                }
-        return  count_a;
+  var str_a = str.toString().trim();
+  var char_a = char.toString().trim();
+  var str_lg = str_a.length;
+  var char_lg = char_a.length;
+  var count_a=0;
+    if(str_lg < char_lg){ count_a=0 ; return count_a;}
+      for(var i=0;i< (str_lg-char_lg+1) ;i++){
+         var str_part = str_a.substr(i,char_lg);
+         if(str_part ==char_a){ var count_a=count_a+1;}
+                        }
+      return  count_a;
 }
 
 function m_mtx_dele_zero(x){  
@@ -6174,12 +6286,13 @@ function m_mtx_dele_zero(x){
            var xx_st = m_mtx_trim(xx_st) ;   
    return xx_st;
 }
+
 function m_ln_bf(x){    
   var ans_t = 0 ;
   var ans_t1 = 0 ;
   var xx=x;
-  FIX_COL=420;  
-  if (xx <= 99  && xx >= 1 && xx.length<=2){   
+   FIX_COL=420;  
+   if (xx <= 99  && xx >= 1 && xx.length<=2){   
        LN2=m_fix(LN2S,FIX_COL);     
        LN3=m_fix(LN3S,FIX_COL);
        LN5=m_fix(LN5S,FIX_COL);
@@ -6306,54 +6419,52 @@ function m_ln_bf(x){
       else if (xx == 98 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN7 ,LN7) ;  ans_t = m_mtx_real_add(ans_t1 ,LN2) ; } 
       else if (xx == 99 &&  xx.length==2) {var ans_t1 = m_mtx_real_add(LN3 ,LN3) ;  ans_t = m_mtx_real_add(ans_t1 ,LN11) ; } 
       else {var ans_t =x; }
-    
-  
-      }
+     }
      return ans_t;
    }
 
 function m_ln(x){             
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(xx,"Msg") ;  
+  var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(xx,"Msg") ;  
     if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
- var xx = m_str_e_to_str_point(xx );  
- var ans_0=0;                  
-  if (xx <= 99  && xx.length<=2 && xx !=0){  
-     var ans_0 = m_ln_bf(x);
-     return ans_0;
+  var xx = m_str_e_to_str_point(xx );  
+  var ans_0=0;                  
+    if (xx <= 99  && xx.length<=2 && xx !=0){  
+      var ans_0 = m_ln_bf(x);
+    return ans_0;
    } 
- var xx_e = m_mtx_str_to_e(xx);
- var xx_e = m_mtx_str_to_e_a(xx_e);
- var nub_x = m_str_power(xx_e ,0); 
- var xx_e_st = m_str_power(xx_e ,1); 
- var xx_e_st_fst=xx_e_st.substr(0,1);  
- var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);    
-   if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
-   if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
-   if( xx_e_st.length ==1){    
- var ans_t = m_ln_bf(xx_e_st); 
- var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
- var ans_0= m_mtx_real_add(ans_t , ans_1) ;
+  var xx_e = m_mtx_str_to_e(xx);
+  var xx_e = m_mtx_str_to_e_a(xx_e);
+  var nub_x = m_str_power(xx_e ,0); 
+  var xx_e_st = m_str_power(xx_e ,1); 
+  var xx_e_st_fst=xx_e_st.substr(0,1);  
+  var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);    
+  if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
+  if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
+  if( xx_e_st.length ==1){    
+    var ans_t = m_ln_bf(xx_e_st); 
+    var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
+    var ans_0= m_mtx_real_add(ans_t , ans_1) ;
     return ans_0;}
- if( xx_e_st.length ==3){   
+  if( xx_e_st.length ==3){   
     var xx_t= xx_e_st;
     var xx_t = xx_t.replace(/\./g , "");    
     var ans_t = m_ln_bf(xx_t); 
     var nub_x = m_mtx_real_sub(nub_x , 1) ;     
     var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
     var ans_0= m_mtx_real_add(ans_t , ans_1) ;
-          return ans_0; }
-  var sum_tt_1 = m_mtx_real_mul(nub_x , LN10S) ;  
-  if (xx_e_st == 1  && nub_x !=0) {  var ans_t = sum_tt_1 ; return ans_t;}
-  var nub_ln10=0;
-  var xx_st=xx_e_st;
-  var sum_tt = 0 ;
-  var data_com = 0;
-  var data_com_pow=0 ;
-  var xx_st =m_fix(xx_st,30);
-  var j_nub = 53;
- for(var j=0;j<j_nub;j++){ 
+        return ans_0; }
+ var sum_tt_1 = m_mtx_real_mul(nub_x , LN10S) ;  
+   if (xx_e_st == 1  && nub_x !=0) {  var ans_t = sum_tt_1 ; return ans_t;}
+ var nub_ln10=0;
+ var xx_st=xx_e_st;
+ var sum_tt = 0 ;
+ var data_com = 0;
+ var data_com_pow=0 ;
+ var xx_st =m_fix(xx_st,30);
+ var j_nub = 53;
+   for(var j=0;j<j_nub;j++){ 
     if(j==0){var data_com = "7.9432823473" ;var data_com_pow=0.9;} 
     else if(j==1){var data_com = "6.3095734449" ;var data_com_pow=0.8;}   
     else if(j==2){var data_com = "5.0118723363" ;var data_com_pow=0.7;}  
@@ -6407,127 +6518,158 @@ function m_ln(x){
     else if(j==50){var data_com = "1.0000069078" ;var data_com_pow=0.000003;}    
     else if(j==51){var data_com = "1.0000046052" ;var data_com_pow=0.000002;} 
     else if(j==52){var data_com = "1.0000023026" ;var data_com_pow=0.000001;}    
-     var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);  
-    if(data_xx_st_comp_data_com != 2){
+ var data_xx_st_comp_data_com = m_mtx_real_str_comp(xx_st,data_com);  
+   if(data_xx_st_comp_data_com != 2){
      var xx_st =m_fix(xx_st,30); 
      var xx_st=m_mtx_real_div(xx_st,data_com); 
      var nub_ln10 = m_mtx_real_add(nub_ln10 , data_com_pow) ; }
-            }
-   var sum_tt = m_mtx_real_mul(nub_ln10 , LN10S) ;
-   var nub_ln10_base = nub_ln10 * 1000000;  
-   var nub_ln10_base = m_fix(nub_ln10_base,1);
- var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430834442564827540307568003828150817523046324283509605714244376734907329486197608327203657860883173591522916250724509339974142024168010661599687279855605205109416594146941978472695783341088017897255575"; 
-     var data_xx_i = m_pow(ref_base,-nub_ln10_base);  
-     var xx_st_1 = m_mtx_real_mul(xx_e_st , data_xx_i) ;
-     var xx_st_1 = m_str_e_to_str(xx_st_1); 
-     var sum_tt_s = m_ln_matrix(xx_st_1); 
-     var total = m_mtx_real_add(sum_tt , sum_tt_s) ;
-     var total_s = m_mtx_real_add(sum_tt_1 , total) ;
-   return  total_s ;
+          }
+ var sum_tt = m_mtx_real_mul(nub_ln10 , LN10S) ;
+ var nub_ln10_base = nub_ln10 * 1000000;  
+ var nub_ln10_base = m_fix(nub_ln10_base,1);
+ var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430834442564827540307568003828150817523046324283509605714244376734907329486197608327203657860883173591522916250724509339974142024168010661599687279855605205109416594146941978472695783341088017897255575";
+ var data_xx_i = m_pow(ref_base,-nub_ln10_base);  
+ var xx_st_1 = m_mtx_real_mul(xx_e_st , data_xx_i) ;
+ var xx_st_1 = m_str_e_to_str(xx_st_1); 
+ var sum_tt_s = m_ln_matrix(xx_st_1); 
+ var total = m_mtx_real_add(sum_tt , sum_tt_s) ;
+ var total_s = m_mtx_real_add(sum_tt_1 , total) ;
+  return  total_s ;
 }
 
 function m_ln_matrix(x){          
- var zz = x.toString().trim();
- var zz = "0."+ zz.substr(2,zz.length-2); 
- var BB = m_mtx_unit_inv_lg_100_table();  
- var nub_fix =100;                           
- var AA  = m_str_to_mtx(zz) ;   
-   for(var i = 1 ; i <nub_fix ; i++){              
-     var BB_i = m_mtx_row_table(BB,i);               
-    if(i ==1){                         
-      var SS = AA;     
-      var XX = AA; 
-              }
-    else{
-      var XX  =  m_mtx_point_mul(XX,AA);              
-      var XXI = m_mtx_point_mul(XX,BB_i);    
-      var test_nb = i%2;
-    if(test_nb ==0){
-      var SS =  m_mtx_point_sub(SS,XXI);}
-    else{var SS =  m_mtx_point_add(SS,XXI);}
-                     } } 
-  var SS = m_mtx_cell_five(SS);     
-  var sum_total = m_mtx_cell_five_show(SS);
-          return  sum_total ;   
+  var zz = x.toString().trim();
+  var zz = "0."+ zz.substr(2,zz.length-2); 
+  var BB = m_mtx_unit_inv_lg_100_table();  
+  var nub_fix =100;                           
+  var AA  = m_str_to_mtx(zz) ;   
+    for(var i = 1 ; i <nub_fix ; i++){              
+      var BB_i = m_mtx_row_table(BB,i);               
+       if(i ==1){                         
+        var SS = AA;     
+        var XX = AA; 
+                }
+       else{
+        var XX  =  m_mtx_point_mul(XX,AA);              
+        var XXI = m_mtx_point_mul(XX,BB_i);    
+        var test_nb = i%2;
+         if(test_nb ==0){
+            var SS =  m_mtx_point_sub(SS,XXI);}
+          else{var SS =  m_mtx_point_add(SS,XXI);}
+                    } } 
+   var SS = m_mtx_cell_five(SS);     
+   var sum_total = m_mtx_cell_five_show(SS);
+           return  sum_total ;   
    }
 
-
-
-function m_lrn(x){           
- var zz = x.toString().trim();
- var nub_fix =2;
- var aa  = zz ;  
- for(var i = 1 ; i <nub_fix ; i++){              
-   if(i ==1){                         
-    var ss = aa;     
-    var xx = aa; 
+function m_lrn_1(x){           
+  var zz = x.toString().trim();
+  var nub_fix =4;
+  var aa  = m_mtx_real_sub(zz,1);   
+    for(var i = 1 ; i <nub_fix ; i++){              
+      if(i ==1){                         
+        var ss = aa;     
+        var xx = aa; 
               }
-   else{
-    var xx  =  m_mtx_real_mul(xx,aa);              
-    var xxi = m_mtx_real_div(xx,i);    
-    var test_nb = i%2;
-   if(test_nb ==0){
-     var ss =  m_mtx_real_sub(ss,xxi);}
-   else{var ss =  m_mtx_real_add(ss,xxi);}
-                    } } 
+      else{
+        var xx  =  m_mtx_real_mul(xx,aa);              
+        var xxi = m_mtx_real_div(xx,i);    
+        var test_nb = i%2;
+      if(test_nb ==0){
+        var ss =  m_mtx_real_sub(ss,xxi);}
+      else{var ss =  m_mtx_real_add(ss,xxi);}
+                   } } 
   var sum_total = ss;
-       return  sum_total ;   
-
+    return sum_total ; 
 }
 
+
+function m_lrn(x){            
+  var zz = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(zz,"Msg") ;  
+    if(data_msg >=1){ var ans_a = zz ; return  ans_a ;} 
+  var nub_fix =2;
+  var aa  = zz;         
+    for(var i = 1 ; i <nub_fix ; i++){              
+      if(i ==1){                         
+      var ss = aa;     
+      var xx = aa; 
+             }
+      else{
+        var xx  =  m_mtx_real_mul(xx,aa);              
+        var xxi = m_mtx_real_div(xx,i);    
+        var test_nb = i%2;
+      if(test_nb ==0){
+        var ss =  m_mtx_real_sub(ss,xxi);}
+      else{var ss =  m_mtx_real_add(ss,xxi);}
+                } } 
+ var sum_total = ss;
+       return sum_total ;   
+}
 
  
 function m_lrog(x){            
- var zz = x.toString().trim();
- var zz_ln= m_lrn(zz);
- var ans =m_mtx_real_div(zz_ln ,LN10S);
-  return  ans ;  
-}
-
-function m_asrin(x){                      
-    var xx = x.toString().trim();     
-    var data_msg =0;
-    var ans_a="";
-    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   if((m_mtx_real_str_comp(xx,1)==1 )|| (m_mtx_real_str_comp(xx,-1)!=2  )){  
-      var ans_a= message_1(2);  return ans_a;}
-   else{ ans_a = m_asin(xx);}
-return  ans_a ;  
-}
-
-function m_acros(x){   
- var xx = x.toString().trim(); 
- var data_msg =0;       
- var ans_a="";
- var data_msg =  m_str_char(x,"Msg") ;  
-  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-  if((m_mtx_real_str_comp(xx,1)==1 )|| (m_mtx_real_str_comp(xx,-1)==2  )){  
-      var ans_a= message_1(2);  return ans_a;} 
- var xx_fst = xx.substr(0,1);
-  if(xx_fst =="-"){ var xx=xx.substr(1,xx.length-1) ;} 
- var data_a = m_mtx_real_mul(2 ,xx);
- var data_b = m_pow(data_a ,0.5); 
- var ans=data_b ;
-  if(xx_fst !="-"){ var ans=m_mtx_real_sub(PIS,data_b)}
-  else {var ans=data_b;}
-  return  ans ;  
-}
-
-function m_acrosh(x){  
- var xx = x.toString().trim();   
- var xx_fst = xx.substr(0,1);
- if(xx_fst =="-"){ 
-   var ans_1= message_1(3);  return ans_1 ;} 
- var data_a = m_mtx_real_mul(2 ,xx);
- var data_b = m_pow(data_a ,0.5); 
- var ans=data_b ;
+  var zz = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(zz,"Msg") ;  
+  if(data_msg >=1){ var ans_a = zz ; return  ans_a ;}
+  var zz_ln= m_lrn(zz);
+  var ans =m_mtx_real_div(zz_ln ,LN10S);
    return  ans ;  
 }
 
-function m_atranh(x){   
- var xx = x.toString().trim();   
- var xx_fst = xx.substr(0,1);
+function m_asrin(x){               
+  var xx = x.toString().trim();     
+  var data_msg =0;
+  var ans_a="";
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+    if((m_mtx_real_str_comp(xx,1)==1 )|| (m_mtx_real_str_comp(xx,-1) ==2  )){  
+       var ans_a= message_1(1);  return ans_a;}
+    else{ ans_a = m_asin(xx);}
+return  ans_a ;
+}
+
+function m_acros(x){           
+  var xx = x.toString().trim();            
+  var data_msg =0;
+  var ans_a="";
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+    if((m_mtx_real_str_comp(xx,1)==1 )|| (m_mtx_real_str_comp(xx,-1)==2  )){  
+      var ans_a= message_1(2);  return ans_a;}
+      var xx_fst = xx.substr(0,1);
+    if(xx_fst =="-"){ var xx=xx.substr(1,xx.length-1) ;} 
+  var data_a = m_mtx_real_mul(2 ,xx);
+  var data_b = m_pow(data_a ,0.5); 
+  var ans=data_b ;
+    if(xx_fst !="-"){ var ans=m_mtx_real_sub(PIS,data_b)}
+    else {var ans=data_b;}
+   return  ans ;  
+}
+
+
+function m_acrosh(x){            
+  var xx = x.toString().trim();    
+  var data_msg =0;
+  var data_msg =  m_str_char(xx,"Msg") ;  
+  if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
+  var xx_fst = xx.substr(0,1);
+  if(xx_fst =="-"){ 
+    var ans_1= message_1(3);  return ans_1 ;} 
+  var data_a = m_mtx_real_mul(2 ,xx);
+  var data_b = m_pow(data_a ,0.5); 
+  var ans=data_b ;
+   return  ans ;  
+}
+
+function m_atranh(x){            
+  var xx = x.toString().trim();  
+  var data_msg =0;
+  var data_msg =  m_str_char(xx,"Msg") ;  
+  if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
+  var xx_fst = xx.substr(0,1);
   if(xx_fst =="-"){ var xx=xx.substr(1,xx.length-1);}
   var data_a = m_mtx_real_div(2,xx);
   var data_b = m_ln(data_a);
@@ -6537,58 +6679,60 @@ function m_atranh(x){
    return  ans 
 }
 
-function m_str_part_1en_sa_sin(s){        
-     var ss=s.toString().trim();   
-     var ss = ss.replace(/asinh/g,"ASINH");
-     var asin_nb=m_str_all_char_nb(ss,"asin");   
-     var en_nb=m_str_all_char_nb(ss,"e-");
-    if(asin_nb==0 || (en_nb==0)){
-      var ss = ss.replace(/ASINH/g,"asinh");  
-        return ss ;}
-    for(var i=0; i<asin_nb ;i++){        
-         var ss_asin_er1  = ss.indexOf("asin(1+(");                           
-       if(ss_asin_er1 !=-1){ var ss = m_str_part_1en(ss,"asin(1+(") ;}
-        var ss_asin_er2  = ss.indexOf("asin(-1-(");                             
-       if(ss_asin_er2 !=-1){ var ss = m_str_part_1en(ss,"asin(-1-(") ;}
-       if((ss_asin_er1 ==-1)&&(ss_asin_er2 ==-1)){                    
-           var ss = ss.replace(/ASINH/g,"asinh");  
-             return ss;  }                              
-                   }  
-          var ss = ss.replace(/ASINH/g,"asinh"); 
-         return ss;
+function m_str_part_1en_sa_sin(s){   
+  var ss=s.toString().trim();  
+  var ss = ss.replace(/asinh/g,"ASINH");
+  var asin_nb=m_str_all_char_nb(ss,"asin");  
+  var en_nb=m_str_all_char_nb(ss,"e-");
+  if(asin_nb==0 || (en_nb==0)){
+    var ss = ss.replace(/ASINH/g,"asinh"); 
+   return ss ;}
+   for(var i=0; i<asin_nb ;i++){        
+    var ss_asin_er1  = ss.indexOf("asin(1+(");                           
+     if(ss_asin_er1 !=-1){ var ss = m_str_part_1en(ss,"asin(1+(") ;}
+       var ss_asin_er2  = ss.indexOf("asin(-1-(");                             
+     if(ss_asin_er2 !=-1){ var ss = m_str_part_1en(ss,"asin(-1-(") ;}
+      if((ss_asin_er1 ==-1)&&(ss_asin_er2 ==-1)){                    
+          var ss = ss.replace(/ASINH/g,"asinh");  
+            return ss;  }                               
+                  }  
+  var ss = ss.replace(/ASINH/g,"asinh"); 
+      return ss;
 }
 
+
 function m_str_part_1en_sa(s){   
-  var ss=s.toString().trim(); 
+  var ss=s.toString().trim();  
   var ss = ss.replace(/acosh/g,"ACOSH");
-  var acos_nb=m_str_all_char_nb(ss,"acos"); 
+  var acos_nb=m_str_all_char_nb(ss,"acos");  
   var en_nb=m_str_all_char_nb(ss,"e-");
   if(acos_nb==0 || (en_nb==0)){
     var ss = ss.replace(/ACOSH/g,"acosh"); 
-   return ss ;}
-  for(var i=0; i<acos_nb ;i++){       
-   var ss_acos_p1  = ss.indexOf("acos(1-(");                
-     if(ss_acos_p1 !=-1){ var ss = m_str_part_1en(ss,"acos(1-(") ;}
-   var ss_acos_p2  = ss.indexOf("acos(1+(-(");                
-     if(ss_acos_p2 !=-1){ var ss = m_str_part_1en(ss,"acos(1+(-(") ;}
-   var ss_acos_p3  = ss.indexOf("acos(1-");                 
-     if(ss_acos_p3 !=-1){ var ss = m_str_part_1en(ss,"acos(1-") ;}
-   var ss_acos_n1  = ss.indexOf("acos(-1+(");                
-     if(ss_acos_n1 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+(") ;}
-   var ss_acos_n2  = ss.indexOf("acos(-1+");                 
-     if(ss_acos_n2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+") ;}
-   var ss_acos_n3  = ss.indexOf("acos(-1-(-(");                 
-        if(ss_acos_n3 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(-(") ;} 
-     var ss_acos_er1  = ss.indexOf("acos(1+(");                             
-         if(ss_acos_er1 !=-1){ var ss = m_str_part_1en(ss,"acos(1+(") ;}
-      var ss_acos_er2  = ss.indexOf("acos(-1-(");                             
-         if(ss_acos_er2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(") ;}
-      if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)&&(ss_acos_n3 ==-1)&&(ss_acos_er1 ==-1)&&(ss_acos_er2 ==-1)){   
-     var ss = ss.replace(/ACOSH/g,"acosh"); 
-                  return ss;  }
-                 }
-     var ss = ss.replace(/ACOSH/g,"acosh"); 
-        return ss;
+    return ss ;}
+  for(var i=0; i<acos_nb ;i++){        
+    var ss_acos_p1  = ss.indexOf("acos(1-(");                
+      if(ss_acos_p1 !=-1){ var ss = m_str_part_1en(ss,"acos(1-(") ;}
+  var ss_acos_p2  = ss.indexOf("acos(1+(-(");                
+    if(ss_acos_p2 !=-1){ var ss = m_str_part_1en(ss,"acos(1+(-(") ;}
+  var ss_acos_p3  = ss.indexOf("acos(1-");                 
+    if(ss_acos_p3 !=-1){ var ss = m_str_part_1en(ss,"acos(1-") ;}
+  var ss_acos_n1  = ss.indexOf("acos(-1+(");                
+    if(ss_acos_n1 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+(") ;}
+  var ss_acos_n2  = ss.indexOf("acos(-1+");                 
+    if(ss_acos_n2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1+") ;}
+  var ss_acos_n3  = ss.indexOf("acos(-1-(-(");                 
+    if(ss_acos_n3 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(-(") ;} 
+  var ss_acos_er1  = ss.indexOf("acos(1+(");                             
+    if(ss_acos_er1 !=-1){ var ss = m_str_part_1en(ss,"acos(1+(") ;}
+  var ss_acos_er2  = ss.indexOf("acos(-1-(");                             
+    if(ss_acos_er2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(") ;}
+      if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)&&(ss_acos_n3 ==-1)&&(ss_acos_er1 ==-1)&&(ss_acos_er2 ==-1)){          
+         var ss = ss.replace(/ACOSH/g,"acosh"); 
+             return ss;                           
+                  }  
+                    }
+   var ss = ss.replace(/ACOSH/g,"acosh"); 
+      return ss;
 }
 
 
@@ -6599,93 +6743,108 @@ function m_str_part_1en_sah(s){
   var en_nb=m_str_all_char_nb(ss,"e-");
   if((acosh_nb==0 && atanh_nb==0)|| (en_nb==0)){ return ss ;}
   var max_nb=acosh_nb+atanh_nb;
-   for(var i=0; i<max_nb ;i++){        
+    for(var i=0; i<max_nb ;i++){        
   var ss_acosh_p1  = ss.indexOf("acosh(1+(");                
-    if(ss_acosh_p1 !=-1){ var ss = m_str_part_1en(ss,"acosh(1+(") ;}
-  var ss_acosh_p2  = ss.indexOf("acosh(1+");                 
-    if(ss_acosh_p2 !=-1){ var ss = m_str_part_1en(ss,"acosh(1+") ;}
-  var ss_atanh_n1  = ss.indexOf("atanh(1-(");                  
-    if(ss_atanh_n1 !=-1){ var ss = m_str_part_1en(ss,"atanh(1-(") ;}
-  var ss_atanh_n2  = ss.indexOf("atanh(1-");                  
-    if(ss_atanh_n2 !=-1){ var ss = m_str_part_1en(ss,"atanh(1-") ;}
-  var ss_atanh_p1  = ss.indexOf("atanh(-1+(");                             
-   if(ss_atanh_p1 !=-1){ var ss = m_str_part_1en(ss,"atanh(-1+(") ;}
-  var ss_atanh_p2  = ss.indexOf("atanh(-1+");                             
-    if(ss_atanh_p2 !=-1){ var ss = m_str_part_1en(ss,"atanh(-1+") ;}
-    if((ss_acosh_p1 ==-1)&&(ss_acosh_p2 ==-1)&&(ss_atanh_n1 ==-1)&&(ss_atanh_n2 ==-1)&&(ss_atanh_p1 ==-1)&&(ss_atanh_p2 ==-1)){
-       return ss; }  
-                      }
-     return ss;
+     if(ss_acosh_p1 !=-1){ var ss = m_str_part_1en(ss,"acosh(1+(") ;}
+   var ss_acosh_p2  = ss.indexOf("acosh(1+");                 
+     if(ss_acosh_p2 !=-1){ var ss = m_str_part_1en(ss,"acosh(1+") ;}
+    var ss_atanh_n1  = ss.indexOf("atanh(1-(");                   
+     if(ss_atanh_n1 !=-1){ var ss = m_str_part_1en(ss,"atanh(1-(") ;}
+   var ss_atanh_n2  = ss.indexOf("atanh(1-");                  
+     if(ss_atanh_n2 !=-1){ var ss = m_str_part_1en(ss,"atanh(1-") ;}
+   var ss_atanh_p1  = ss.indexOf("atanh(-1+(");                             
+     if(ss_atanh_p1 !=-1){ var ss = m_str_part_1en(ss,"atanh(-1+(") ;}
+   var ss_atanh_p2  = ss.indexOf("atanh(-1+");                              
+     if(ss_atanh_p2 !=-1){ var ss = m_str_part_1en(ss,"atanh(-1+") ;}
+     if((ss_acosh_p1 ==-1)&&(ss_acosh_p2 ==-1)&&(ss_atanh_n1 ==-1)&&(ss_atanh_n2 ==-1)&&(ss_atanh_p1 ==-1)&&(ss_atanh_p2 ==-1)){
+                        return ss;   
+                var  i= max_nb+1 ;}  
+                       }
+       return ss;
 }
 
+function m_str_part_1en_s_1(s){   
+  var ss=s.toString().trim();  
+  var s_sect = m_funct_content(ss,"ln(");
+  var ln_nb=m_str_all_char_nb(ss,"ln(");
+  if(ln_nb==0){ return ss;}  
+  var s_sect_unit =  m_indexOf_2_all(s_sect,"+","-",0);
+  var ss_sp =  m_split_4(s_sect_unit);
+  var ss_sum = m_split_add_sub_sum(ss_sp,"0");  
+    return ss_sum;
+}
 
 function m_str_part_1en_s(s){   
   var ss=s.toString().trim();  
   var ln_nb=m_str_all_char_nb(ss,"ln");  
   var log_nb=m_str_all_char_nb(ss,"log");
+  var ss = ss.replace(/EN/g , "e\-");  
+  var ss = ss.replace(/EP/g , "e\+");
   var en_nb=m_str_all_char_nb(ss,"e-");
   if((ln_nb==0 && log_nb==0)||(en_nb==0)){ return ss ;}
   var max_nb=ln_nb + log_nb;
   for(var i=0; i<max_nb ;i++){        
-   var ss_ln_n1  = ss.indexOf("ln(1-(");                   
-     if(ss_ln_n1 !=-1){ var ss = m_str_part_1en(ss,"ln(1-(") ;}
-   var ss_ln_n2  = ss.indexOf("ln(1-");                  
-     if(ss_ln_n2 !=-1){ var ss = m_str_part_1en(ss,"ln(1-") ;}
-   var ss_ln_p1  = ss.indexOf("ln(1+(");               
-     if(ss_ln_p1 !=-1){ var ss = m_str_part_1en(ss,"ln(1+(") ;}
-   var ss_ln_p2  = ss.indexOf("ln(1+");                
-     if(ss_ln_p2 !=-1){ var ss = m_str_part_1en(ss,"ln(1+") ;}
-   var ss_log_n1  = ss.indexOf("log(1-(");                   
-     if(ss_log_n1 !=-1){ var ss = m_str_part_1en(ss,"log(1-(") ;}
-   var ss_log_n2  = ss.indexOf("log(1-");                  
-     if(ss_log_n2 !=-1){ var ss = m_str_part_1en(ss,"log(1-") ;}
-   var ss_log_p1  = ss.indexOf("log(1+(");                
-     if(ss_log_p1 !=-1){ var ss = m_str_part_1en(ss,"log(1+(") ;}
-   var ss_log_p2  = ss.indexOf("log(1+");                 
-     if(ss_log_p2 !=-1){ var ss = m_str_part_1en(ss,"log(1+") ;}
-     if((ss_ln_n1 ==-1)&&(ss_ln_n2 ==-1)&&(ss_ln_p1 ==-1)&&(ss_ln_p2 ==-1)&&(ss_log_n1 ==-1)&&(ss_log_n2 ==-1)&&(ss_log_p1 ==-1)&&(ss_log_p2 ==-1)){
-       return ss;}  
+    var ss_ln_n1  = ss.indexOf("ln(1-(");                   
+      if(ss_ln_n1 !=-1){ var ss = m_str_part_1en(ss,"ln(1-(") ;}
+    var ss_ln_n2  = ss.indexOf("ln(1-");                  
+      if(ss_ln_n2 !=-1){ var ss = m_str_part_1en(ss,"ln(1-") ;}
+    var ss_ln_p1  = ss.indexOf("ln(1+(");                
+      if(ss_ln_p1 !=-1){ var ss = m_str_part_1en(ss,"ln(1+(") ;}
+    var ss_ln_p2  = ss.indexOf("ln(1+");                 
+      if(ss_ln_p2 !=-1){ var ss = m_str_part_1en(ss,"ln(1+") ;}
+    var ss_log_n1  = ss.indexOf("log(1-(");                   
+      if(ss_log_n1 !=-1){ var ss = m_str_part_1en(ss,"log(1-(") ;}
+    var ss_log_n2  = ss.indexOf("log(1-");                  
+      if(ss_log_n2 !=-1){ var ss = m_str_part_1en(ss,"log(1-") ;}
+    var ss_log_p1  = ss.indexOf("log(1+(");                
+      if(ss_log_p1 !=-1){ var ss = m_str_part_1en(ss,"log(1+(") ;}
+    var ss_log_p2  = ss.indexOf("log(1+");                 
+      if(ss_log_p2 !=-1){ var ss = m_str_part_1en(ss,"log(1+") ;}
+      if((ss_ln_n1 ==-1)&&(ss_ln_n2 ==-1)&&(ss_ln_p1 ==-1)&&(ss_ln_p2 ==-1)&&(ss_log_n1 ==-1)&&(ss_log_n2 ==-1)&&(ss_log_p1 ==-1)&&(ss_log_p2 ==-1)){
+        return ss;    
+               }  
                        }
        return ss;
 }
 
 function m_str_part_1en(s,f){  
-   var ss=s.toString().trim();  
-   var ff=f; 
-   var ss_e  = ss.indexOf("e-");  
-   if(ss_e==-1){return ss;}
-   var ss_p  = ss.indexOf(ff);   
+  var ss=s.toString().trim();  
+  var ff=f;  
+  var ss_e  = ss.indexOf("e-");  
+    if(ss_e==-1){return ss;}
+  var ans_a="";
+  var ss_p  = ss.indexOf(ff);   
   var fflg = ff.length;
-   var slg= m_mtx_real_add(ss_p,fflg); 
-   var ss_bf = ss.substr(0,slg);  
-   var ss_af = ss.substr(slg ,ss.length -slg );  
-   var ss_af_p = ss_af.indexOf(')');   
-   var ss_af_bf = ss_af.substr(0,ss_af_p ); 
-   var ss_af_bf_sft=ss_af_bf.substr(0,1); 
-   var ss_af_bf_e = ss_af_bf.indexOf("e-");
+  var slg= m_mtx_real_add(ss_p,fflg); 
+  var ss_bf = ss.substr(0,slg);  
+  var ss_af = ss.substr(slg ,ss.length -slg );  
+  var ss_af_p = ss_af.indexOf(')');   
+  var ss_af_bf = ss_af.substr(0,ss_af_p );  
+  var ss_af_bf_sft=ss_af_bf.substr(0,1);  
+  var ss_af_bf_e = ss_af_bf.indexOf("e-");
     if(ss_af_bf_e==-1){return ss ;}  
-   var ss_af_bf = ss_af_bf.replace(/e\-/g , "EN");    
-   var ss_af_bf_add = ss_af_bf.indexOf("+");
-   if(ss_af_bf_add!=-1){return ss ;}  
-   var ss_af_bf = ss_af_bf.replace(/EN/g , "e-");    
-   var ss_af_bf_sub = ss_af_bf.indexOf("-");    
-  if(ss_af_bf_sub!=ss_af_bf_e + 1){return ss ;}  
-   var ss_af_bf_star = ss_af_bf.indexOf("*");
-   if(ss_af_bf_star!=-1){return ss ;}   
-    var ss_af_bf_div = ss_af_bf.indexOf("/");
+  var ss_af_bf = ss_af_bf.replace(/e\-/g , "EN");   
+  var ss_af_bf_add = ss_af_bf.indexOf("+");
+    if(ss_af_bf_add!=-1){return ss ;}  
+  var ss_af_bf = ss_af_bf.replace(/EN/g , "e\-");    
+  var ss_af_bf_sub = ss_af_bf.indexOf("-");    
+    if(ss_af_bf_sub!=ss_af_bf_e + 1){return ss ;}  
+  var ss_af_bf_star = ss_af_bf.indexOf("*");
+    if(ss_af_bf_star!=-1){return ss ;}   
+  var ss_af_bf_div = ss_af_bf.indexOf("/");
     if(ss_af_bf_div!=-1){return ss ;}  
-    var fis_1 = ss_af_bf.substr(0,1);  
-   if(fis_1 =='-'){ var ss_af_bf_z = ss_af_bf.substr(1,ss_af_bf.length-1); } 
-      else { var ss_af_bf_z = ss_af_bf ;}  
-   var ss_af_bf_z = m_mtx_str_to_e_a(ss_af_bf_z);   
-   var xx_test_nub_e =m_str_power(ss_af_bf_z,0);     
-   var ff_5fist=ff.substr(0,5);
-     if(ff_5fist=="acos("){
-     var data_comp = m_mtx_real_str_comp(xx_test_nub_e,-220); 
-     if(data_comp==1){return ss ;}}  
-     if(ff_5fist!="acos("){
+  var fis_1 = ss_af_bf.substr(0,1);  
+    if(fis_1 =='-'){ var ss_af_bf_z = ss_af_bf.substr(1,ss_af_bf.length-1); } 
+    else { var ss_af_bf_z = ss_af_bf ;}  
+  var ss_af_bf_z = m_mtx_str_to_e_a(ss_af_bf_z);    
+  var xx_test_nub_e =m_str_power(ss_af_bf_z,0);      
+  var ff_5fist=ff.substr(0,5);
+    if(ff_5fist=="acos("){
+      var data_comp = m_mtx_real_str_comp(xx_test_nub_e,-220); 
+        if(data_comp==1){return ss ;}}   
+    if(ff_5fist!="acos("){
        var data_comp = m_mtx_real_str_comp(xx_test_nub_e,-351); 
-      if(data_comp==1){return ss ;}}       
+        if(data_comp==1){return ss ;}}  
    var ss_af_af = ss_af.substr(ss_af_p,ss_af.length -ss_af_p );  
      if(ff=='ln(1-(' ){ var ss_bf = ss_bf.replace(/ln\(1\-\(/g,"m_lrn\(\-\(");} 
      else if(ff=='ln(1-' ){ var ss_bf = ss_bf.replace(/ln\(1\-/g,"m_lrn\(\-"); }
@@ -6702,40 +6861,43 @@ function m_str_part_1en(s,f){
      else if(ff=='acos(1-' ){ var ss_bf = ss_bf.replace(/acos\(1\-/g,"m_acros\(\-"); }
      else if(ff=='acos(-1+(' ){ var ss_bf = ss_bf.replace(/acos\(\-1\+\(/g,"m_acros\(\(");} 
      else if(ff=='acos(-1+' ){ var ss_bf = ss_bf.replace(/acos\(\-1\+/g,"m_acros\("); }
-     else if(ff=='acos(-1-(-(' ){var ss_bf = ss_bf.replace(/acos\(\-1\-\(\-\(/g,"m_acros\(\(\(");}     
+     else if(ff=='acos(-1-(-(' ){var ss_bf = ss_bf.replace(/acos\(\-1\-\(\-\(/g,"m_acros\(\(\(");}
      else if(ff=='acos(1+(' ){ var ss_bf = ss_bf.replace(/acos\(1\+\(/g,"m_acros\(\("); 
-                if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;} } 
+          if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;}      
+                  }
      else if(ff=='acos(-1-(' ){var ss_bf = ss_bf.replace(/acos\(\-1\-\(/g,"m_acros\(\(");  
-               if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;} }       
-     else if(ff=='asin(1+(' ){ var ss_bf = ss_bf.replace(/asin\(\1\+\(/g,"m_asrin\(\("); 
-                if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;} }        
+          if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;}        
+                   } 
+     else if(ff=='asin(1+(' ){ var ss_bf = ss_bf.replace(/asin\(\1\+\(/g,"m_asrin\(\(");  
+          if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;}         
+                                  }
      else if(ff=='asin(-1-(' ){var ss_bf = ss_bf.replace(/asin\(\-1\-\(/g,"m_asrin\(\(");  
-              if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;} } 
+          if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;}          
+                           }
      else if(ff=='atanh(1-(' ){ var ss_bf = ss_bf.replace(/atanh\(1\-\(/g,"m_atranh\(\-\(");} 
      else if(ff=='atanh(1-' ){ var ss_bf = ss_bf.replace(/atanh\(1\-/g,"m_atranh\(\-"); }
      else if(ff=='atanh(-1+(' ){ var ss_bf = ss_bf.replace(/atanh\(\-1\+\(/g,"m_atranh\(\(");} 
      else if(ff=='atanh(-1+' ){ var ss_bf = ss_bf.replace(/atanh\(\-1\+/g,"m_atranh\("); }
-    var str_new="("+ss_bf+ss_af_bf+")"+ss_af_af;
-      return str_new;
+    var str_new="("+ss_bf+ss_af_bf+")"+ss_af_af;   
+    return str_new;
  } 
-
 
 function m_str_all_char_nb(strs,char_a){    
   var ss=strs.toString().trim();  
   var char_a=char_a.toString().trim();  
   var nb_idx = ss.indexOf(char_a); 
-   if( nb_idx ==-1){ return 0 ;}  
+  if( nb_idx ==-1){ return 0 ;}  
   var nub_a=0;  
-   for(var i=0;i<120 ;i++){
-    var nb_idx = ss.indexOf(char_a);
-    var char_lg=char_a.length;
-    var tlg=m_mtx_int_add(char_lg,nb_idx);
-  if( nb_idx ==-1){ var i=200; } 
+    for(var i=0;i<120 ;i++){
+      var nb_idx = ss.indexOf(char_a);
+      var char_lg=char_a.length;
+      var tlg=m_mtx_int_add(char_lg,nb_idx);
+  if( nb_idx ==-1){ var i=200; }
   if( nb_idx !=-1){
-    var nub_a=nub_a+1;
-    var ss_af = ss.substr(tlg ,ss.length -tlg );  
-    var ss=ss_af; }
-                            }
+     var nub_a=nub_a+1;
+     var ss_af = ss.substr(tlg ,ss.length -tlg );  
+     var ss=ss_af; }
+                   }
  return nub_a;
 }
 
@@ -6748,371 +6910,117 @@ function m_str_char_nb(strs,char_a){
  return nub_a;
 }
 
-
-function m_str_part_del_pi_chg_s(strs){
-  var ss=strs.toString().trim();  
-  var sin_nb=m_str_char_nb(ss,'sin(');    
-  var cos_nb=m_str_char_nb(ss,'cos(');    
-  var tan_nb=m_str_char_nb(ss,'tan(');    
-  var pi_nb = m_str_all_char_nb(ss,"π");
-  var dge_nb = m_str_all_char_nb(ss,"*°");
-  var en_nb=m_str_all_char_nb(ss,"e-");    
-  var dd_nb=m_str_all_char_nb(ss,"))"); 
-  var s3_nb = sin_nb + cos_nb + tan_nb;
-  var p2_nb = pi_nb + dge_nb ;
-  if( s3_nb !=0 && p2_nb !=0 && en_nb !=0 && dd_nb != 0){
-      for(var i=0 ; i < sin_nb ;i++){
-        var sin_idx =ss.indexOf("sin(");
-         if(sin_idx !=-1){  
-          ss_0 = ss.substr(0,sin_idx);
-          ss_ls = ss.substr(sin_idx , ss.length - sin_idx);
-          var sdn_idx = ss_ls.indexOf("-(");
-          var sdp_idx = ss_ls.indexOf("+(");
-          if(sdn_idx ==-1 && sdp_idx==-1) { return ss; }
-          else if(sdn_idx ==-1 && sdp_idx!=-1){ var sd_idx = sdp_idx ;}
-          else if(sdn_idx !=-1 && sdp_idx==-1){ var sd_idx = sdn_idx ;}
-          else if( sdn_idx > sdp_idx ){ var sd_idx = sdp_idx ;}
-          else { var sd_idx = sdn_idx ;} 
-        var sin_idx =ss_ls.indexOf("sin(");   
-          if(sd_idx !=-1){
-             var sin_bf = ss_ls.substr( sin_idx ,sd_idx-sin_idx+2);
-             var ss_ls_new = m_str_part_del_pi_chg(ss_ls,sin_bf,'))')
-                                } 
-             var ss = ss_0 + ss_ls_new ;
-                               }
-                                      }  
-    
-       for(var i=0 ; i < cos_nb ;i++){
-          var cos_idx =ss.indexOf("cos(");
-       if(cos_idx !=-1){  
-                ss_0 = ss.substr(0,cos_idx);
-                ss_ls = ss.substr(cos_idx , ss.length - cos_idx);
-                var sdn_idx = ss_ls.indexOf("-(");
-                var sdp_idx = ss_ls.indexOf("+(");
-                if(sdn_idx ==-1 && sdp_idx==-1) { return ss; }
-                else if(sdn_idx ==-1 && sdp_idx!=-1){ var sd_idx = sdp_idx ;}
-                else if(sdn_idx !=-1 && sdp_idx==-1){ var sd_idx = sdn_idx ;}
-                else if( sdn_idx > sdp_idx ){ var sd_idx = sdp_idx ;}
-                else { var sd_idx = sdn_idx ;} 
-                   var cos_idx =ss_ls.indexOf("cos(");   
-                if(sd_idx !=-1){
-                    var cos_bf = ss_ls.substr( cos_idx ,sd_idx-cos_idx+2);
-                    var ss_ls_new = m_str_part_del_pi_chg(ss_ls,cos_bf,'))')
-                                } 
-                    var ss = ss_0 + ss_ls_new ;
-                               }
-                                      }  
-      for(var i=0 ; i < tan_nb ;i++){
-            var tan_idx =ss.indexOf("tan(");
-             if(tan_idx !=-1){  
-               ss_0 = ss.substr(0,tan_idx);
-                ss_ls = ss.substr(tan_idx , ss.length - tan_idx);
-                var sdn_idx = ss_ls.indexOf("-(");
-                var sdp_idx = ss_ls.indexOf("+(");
-                if(sdn_idx ==-1 && sdp_idx==-1) { return ss; }
-                else if(sdn_idx ==-1 && sdp_idx!=-1){ var sd_idx = sdp_idx ;}
-                else if(sdn_idx !=-1 && sdp_idx==-1){ var sd_idx = sdn_idx ;}
-                else if( sdn_idx > sdp_idx ){ var sd_idx = sdp_idx ;}
-                else { var sd_idx = sdn_idx ;} 
-            var tan_idx =ss_ls.indexOf("tan(");   
-             if(sd_idx !=-1){
-               var tan_bf = ss_ls.substr( tan_idx ,sd_idx-tan_idx+2);
-               var ss_ls_new = m_str_part_del_pi_chg(ss_ls,tan_bf,'))')
-                                } 
-                    var ss = ss_0 + ss_ls_new ;
-                               }
-                                     }  
-   
-    }
-   m_str_angle_decode(ss);
-    var ss = ss.replace(/SIN/g,"sin"); 
-    var ss = ss.replace(/COS/g,"cos"); 
-    var ss = ss.replace(/TAN/g,"tan"); 
-   return ss;
- }
-
-
-function m_str_part_del_pi_chg(strs,bf,af){     
-var ss=strs.toString().trim();  
-var bf=bf.toString().trim();  
-var af=af.toString().trim();  
-m_str_angle_encode(ss);
-var bf_nb=m_str_char_nb(ss,bf);    
-var af_nb=m_str_char_nb(ss,af);            
-var bf_idx  = ss.indexOf(bf);  
-var af_idx  = ss.indexOf(af);         
-var en_idx  = ss.indexOf("e-");         
-if(bf_nb!=0 && af_nb !=0 && bf_idx < af_idx && en_idx !=-1){
- var ss_0_str = ss.substr(0, bf_idx); 
-var ss_fst_str = bf ;
-var ss_fst_str = ss_fst_str.replace(/sin/g,"SIN");   
-var ss_fst_str = ss_fst_str.replace(/cos/g,"COS");  
-var ss_fst_str = ss_fst_str.replace(/tan/g,"TAN");
-var ss_af_str = ss.substr(bf.length, ss.length-bf.length);  
-var en_nb=m_str_all_char_nb(ss_af_str,"e-");    
-var dd_nb=m_str_all_char_nb(ss_af_str,"))"); 
-   if(en_nb==0 || dd_nb==0){ var ss = ss_0_str + ss_fst_str +ss_af_str ; return ss;}
- var ss_sec_str = "" ;
- var ss_sec_str = ss.substr(bf.length, af_idx-bf_idx-bf.length);
- var ss_sec_str = ss_sec_str.replace(/e\-/g,"EN");   
- var ss_sec_str_add = m_str_all_char_nb(ss_sec_str,"+"); 
- var ss_sec_str_sub = m_str_all_char_nb(ss_sec_str,"-"); 
- var ss_sec_str_mul = m_str_all_char_nb(ss_sec_str,"*"); 
- var ss_sec_str_div = m_str_all_char_nb(ss_sec_str,"/"); 
- var ss_sec_str_c = m_str_all_char_nb(ss_sec_str,"(");
- var ss_sec_str_d = m_str_all_char_nb(ss_sec_str,")");
- var ss_sec_str_sum =ss_sec_str_add+ss_sec_str_sub+ss_sec_str_mul+ss_sec_str_div+ss_sec_str_c+ ss_sec_str_d ;
- var ss_sec_str = ss_sec_str.replace(/EN/g,"e\-");     
-  if(ss_sec_str_sum!=0){
-     var ss=ss_0_str + ss_fst_str +ss_af_str ; return ss;}
-  var ss_end_str = ss.substr(af_idx, ss.length-af_idx);
-  if(m_mtx_real_str_comp(ss_sec_str,1e-110)==1 ){  return ss; }
-  var ss_fst_str_nw ="";
-  var bf_fst=bf.substr(0,4);
-  var bf_lst=bf.substr(bf.length-2,2);
-  var bf_md =bf.substr(4,bf.length-6);
-  if(bf_fst=="sin(" && bf_lst=="-("){
-  if(bf_md =='0*π' || bf_md =='2*π'||bf_md =='-0*π'|| bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='360*°'|| bf_md =='-0*°'|| bf_md =='-360*°'){
-      var ss_fst_str_nw = "(-(" ;  }
-  if(bf_md =='π' || bf_md =='1*π'||bf_md =='-π' || bf_md =='-1*π'|| bf_md =='180*°'|| bf_md =='-180*°'){
-       var ss_fst_str_nw = "((" ;  }
-  if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'||bf_md =='-270*°'){ 
-       var ss_fst_str_nw = "((" ; var ss_sec_str=1;}
-   if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π'|| bf_md =='270*°'||bf_md =='-90*°' ){ 
-        var ss_fst_str_nw = "((" ; var ss_sec_str=-1;}
-                                }
-   if(bf_fst=="sin(" && bf_lst=="+("){
-     if(bf_md =='0*π' || bf_md =='2*π'||bf_md =='-0*π'|| bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='-0*°'|| bf_md =='360*°'|| bf_md =='-360*°'){
-        var ss_fst_str_nw = "((" ;  }
-     if(bf_md =='π' || bf_md =='1*π'||bf_md =='-π' || bf_md =='-1*π'|| bf_md =='180*°'|| bf_md =='-180*°'){
-        var ss_fst_str_nw = "(-(" ;  }
-     if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'|| bf_md =='-270*°'){ 
-         var ss_fst_str_nw = "((" ; var ss_sec_str=1;}
-     if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π' || bf_md =='270*°'|| bf_md =='-90*°'){ 
-         var ss_fst_str_nw = "((" ; var ss_sec_str=-1;}
-                                   }
-   if(bf_fst=="cos(" && bf_lst=="-("){
-     if(bf_md =='0*π'|| bf_md =='2*π'||bf_md =='-0*π'||  bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='360*°'|| bf_md =='-0*°'|| bf_md =='-360*°'){
-        var ss_fst_str_nw = "((" ; var ss_sec_str=1; }
-      if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'||bf_md =='-270*°'){ 
-         var ss_fst_str_nw = "((" ; }
-     if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π'|| bf_md =='270*°'||bf_md =='-90*°' ){ 
-         var ss_fst_str_nw = "(-(" ; }
-     if(bf_md =='π'|| bf_md =='1*π'|| bf_md =='-π'|| bf_md =='-1*π'||  bf_md =='180*°'|| bf_md =='-180*°'){
-        var ss_fst_str_nw = "((" ; var ss_sec_str=-1; }
-                                   }
-   if(bf_fst=="cos(" && bf_lst=="+("){
-      if(bf_md =='0*π' || bf_md =='2*π'||bf_md =='-0*π'|| bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='-0*°'|| bf_md =='360*°'|| bf_md =='-360*°'){
-         var ss_fst_str_nw = "((" ; var ss_sec_str=1; }
-      if(bf_md =='π' || bf_md =='1*π'||bf_md =='-π' || bf_md =='-1*π'|| bf_md =='180*°'|| bf_md =='-180*°'){
-        var ss_fst_str_nw = "((" ;var ss_sec_str=-1;  }
-      if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'|| bf_md =='-270*°'){ 
-         var ss_fst_str_nw = "(-(" ;}
-      if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π' || bf_md =='270*°'|| bf_md =='-90*°'){ 
-         var ss_fst_str_nw = "((" ; }
-                                   }  
-    if(bf_fst=="tan(" && bf_lst=="-("){
-      if(bf_md =='0*π' || bf_md =='2*π'||bf_md =='-0*π'|| bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='360*°'|| bf_md =='-0*°'|| bf_md =='-360*°'){
-         var ss_fst_str_nw = "(-(" ;  }
-      if(bf_md =='π' || bf_md =='1*π'||bf_md =='-π' || bf_md =='-1*π'|| bf_md =='180*°'|| bf_md =='-180*°'){
-         var ss_fst_str_nw = "(-(" ;  }
-      if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'||bf_md =='-270*°'){ 
-          var ss_fst_str_nw = "(-1/(" ; }
-      if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π'|| bf_md =='270*°'||bf_md =='-90*°' ){ 
-          var ss_fst_str_nw = "(1/(" ; }
-                                   }
-    if(bf_fst=="tan(" && bf_lst=="+("){
-      if(bf_md =='0*π' || bf_md =='2*π'||bf_md =='-0*π'|| bf_md =='-2*π'|| bf_md =='0*°'|| bf_md =='-0*°'|| bf_md =='360*°'|| bf_md =='-360*°'){
-        var ss_fst_str_nw = "((" ;  }
-      if(bf_md =='π' || bf_md =='1*π'||bf_md =='-π' || bf_md =='-1*π'|| bf_md =='180*°'|| bf_md =='-180*°'){
-        var ss_fst_str_nw = "((" ;  }
-      if(bf_md =='π/2'|| bf_md =='1/2*π' || bf_md =='0.5*π'||bf_md =='-3*π/2'|| bf_md =='-0.75*π'|| bf_md =='90*°'|| bf_md =='-270*°'){ 
-         var ss_fst_str_nw = "1/((" ; }
-      if(bf_md =='3*π/2'|| bf_md =='0.75*π'||bf_md =='-π/2'|| bf_md =='-1/2*π' || bf_md =='-0.5*π' || bf_md =='270*°'|| bf_md =='-90*°'){ 
-         var ss_fst_str_nw = "(-1/(" ; }
-                                   }
-  }  
-    if( ss_fst_str_nw !=""){                                    
-       var ss = ss_0_str + ss_fst_str_nw+ ss_sec_str+ss_end_str;}   
-     else{var ss =ss;}
-    if(af_idx < bf_idx){ var ss=ss_0+ss ;}
- return ss;          
-}
-
-
-function m_str_part_del_pi_s(strs){
-   var ss=strs.toString().trim();  
-   var sin_nb=m_str_char_nb(ss,'sin(');    
-   var cos_nb=m_str_char_nb(ss,'cos(');
-   var tan_nb=m_str_char_nb(ss,'tan(');
-   var pi_nb=m_str_all_char_nb(ss,'π)');
-   var deg_nb=m_str_all_char_nb(ss,'°)'); 
-   var char_nb=m_mtx_int_add(sin_nb,cos_nb);
-   var char_nba=m_mtx_int_add(char_nb,tan_nb);
-   var char_nbb=m_mtx_int_add(pi_nb,deg_nb);
-    if(char_nba ==0 || char_nbb==0){ return ss; } 
-   var ss = ss.replace(/e\+/g,"EP");   
-   var ss = ss.replace(/e\-/g,"EN");   
-    if(pi_nb> 0 && sin_nb >0){
-    var ss=m_str_angle_decode(ss);   
-    var ss = ss.replace(/asin/g,"ASIN");   
-   for(var i=0; i<sin_nb;i++){
-    var ss = m_str_part_del_pi(ss,'sin(','π)');
-                              }
-                           } 
-  if(deg_nb> 0 && sin_nb >0){
-   var ss=m_str_angle_decode(ss);    
-   var ss = ss.replace(/asin/g,"ASIN");    
-  for(var j=0; j<sin_nb;j++){
-   var ss = m_str_part_del_pi(ss,'sin(','°)');
-                           }
-                             }
-  if(pi_nb> 0 && cos_nb >0){
-   var ss=m_str_angle_decode(ss);    
-   var ss = ss.replace(/acos/g,"ACOS");   
-  for(var k=0; k<cos_nb;k++){
-    var ss = m_str_part_del_pi(ss,'cos(','π)');
-                               }
-                           } 
- 
-  if(deg_nb> 0 && cos_nb >0){
-   var ss=m_str_angle_decode(ss);    
-    var ss = ss.replace(/acos/g,"ACOS");    
-    for(var l=0; l<cos_nb;l++){
-    var ss = m_str_part_del_pi(ss,'cos(','°)');
-                              }
-                             }
- if(pi_nb> 0 && tan_nb >0){
-    var ss=m_str_angle_decode(ss);    
-    var ss = ss.replace(/atan/g,"ATAN");    
-     for(var m=0; m<tan_nb;m++){
-      var ss = m_str_part_del_pi(ss,'tan(','π)');
-                               }
-                           } 
- if(deg_nb> 0 && tan_nb >0){
-   var ss=m_str_angle_decode(ss);    
-   var ss = ss.replace(/atan/g,"ATAN");    
-  for(var n=0; n<tan_nb;n++){
-    var ss = m_str_part_del_pi(ss,'tan(','°)');
-                              }
-                             }
-   var ss = ss.replace(/EP/g,"e\+");    
-   var ss = ss.replace(/EN/g,"e\-");   
-   var ss=m_str_angle_decode(ss);   
- return ss;
-}
-
 function m_str_angle_encode(strs){   
-    var ss=strs.toString().trim();  
-    var ss = ss.replace(/asinh/g,"ASINH");  
-    var ss = ss.replace(/sinh/g,"SINH");  
-    var ss = ss.replace(/asin/g,"ASIN");  
-    var ss = ss.replace(/acosh/g,"ACOSH");  
-    var ss = ss.replace(/cosh/g,"COSH");  
-    var ss = ss.replace(/acos/g,"ACOS");  
-    var ss = ss.replace(/atanh/g,"ATANH");  
-    var ss = ss.replace(/tanh/g,"TANH");  
-    var ss = ss.replace(/atan/g,"ATAN");  
-   return ss;
+  var ss=strs.toString().trim();  
+  var ss = ss.replace(/asinh/g,"ASINH");  
+  var ss = ss.replace(/sinh/g,"SINH");  
+  var ss = ss.replace(/asin/g,"ASIN");  
+  var ss = ss.replace(/acosh/g,"ACOSH");  
+  var ss = ss.replace(/cosh/g,"COSH");  
+  var ss = ss.replace(/acos/g,"ACOS");  
+  var ss = ss.replace(/atanh/g,"ATANH");  
+  var ss = ss.replace(/tanh/g,"TANH");  
+  var ss = ss.replace(/atan/g,"ATAN");  
+    return ss;
 }
 
 function m_str_angle_decode(strs){   
-    var ss=strs.toString().trim();  
-    var ss = ss.replace(/ASINH/g,"asinh"); 
-    var ss = ss.replace(/SINH/g,"sinh");  
-    var ss = ss.replace(/ASIN/g,"asin"); 
-    var ss = ss.replace(/ACOSH/g,"acosh");  
-    var ss = ss.replace(/COSH/g,"cosh");  
-    var ss = ss.replace(/ACOS/g,"acos");  
-    var ss = ss.replace(/ATANH/g,"atanh");  
-    var ss = ss.replace(/TANH/g,"tanh");  
-    var ss = ss.replace(/ATAN/g,"atan");  
-    var ss = ss.replace(/SIN/g,"sin");   
-    var ss = ss.replace(/COS/g,"cos");   
-    var ss = ss.replace(/TAN/g,"tan");    
-  return ss;
+  var ss=strs.toString().trim();  
+  var ss = ss.replace(/ASINH/g,"asinh"); 
+  var ss = ss.replace(/SINH/g,"sinh");  
+  var ss = ss.replace(/ASIN/g,"asin"); 
+  var ss = ss.replace(/ACOSH/g,"acosh");  
+  var ss = ss.replace(/COSH/g,"cosh");  
+  var ss = ss.replace(/ACOS/g,"acos");  
+  var ss = ss.replace(/ATANH/g,"atanh");  
+  var ss = ss.replace(/TANH/g,"tanh");  
+  var ss = ss.replace(/ATAN/g,"atan");  
+  var ss = ss.replace(/SIN/g,"sin");   
+  var ss = ss.replace(/COS/g,"cos");   
+  var ss = ss.replace(/TAN/g,"tan");    
+   return ss;
 }
 
 function m_str_part_del_pi(str,f,ed){  
-   var ss=str.toString().trim();  
-   var ff=f;  
-   var ed=ed;    
-   var ss_pin  = ss.indexOf(ed);  
+  var ss=str.toString().trim();  
+  var ff=f;  
+  var ed=ed;    
+  var ss_pin  = ss.indexOf(ed);  
   if(ss_pin==-1) {return ss;}   
-   var ss_p  = ss.indexOf(ff);   
-   var fflg = ff.length;         
-   var slg= m_mtx_real_add(ss_p,fflg); 
-   var ss_bf = ss.substr(0,slg);  
+  var ss_p  = ss.indexOf(ff);   
+  var fflg = ff.length;         
+  var slg= m_mtx_real_add(ss_p,fflg); 
+  var ss_bf = ss.substr(0,slg);  
   if(ff=="sin("){var ss_bf = ss_bf.replace(/sin/g,"SIN"); }  
   else if(ff=="cos("){ var ss_bf = ss_bf.replace(/cos/g,"COS");}   
   else if(ff=="tan("){var ss_bf = ss_bf.replace(/tan/g,"TAN");}   
-   var ss_af = ss.substr(slg ,ss.length -slg );  
-   var ss_af_p = ss_af.indexOf(ed);   
-      if(ss_af_p==-1){
-        var ss=ss_bf+ss_af;
-         return ss ;}   
-   var ss_af_bf = ss_af.substr(0,ss_af_p );  
-var  ss_af_bf_lst = ss_af_bf.substr(ss_af_bf.length-1,1 );
+  var ss_af = ss.substr(slg ,ss.length -slg );  
+  var ss_af_p = ss_af.indexOf(ed);   
+  if(ss_af_p==-1){
+     var ss=ss_bf+ss_af;
+       return ss ;}  
+  var ss_af_bf = ss_af.substr(0,ss_af_p );  
+  var ss_af_bf_lst = ss_af_bf.substr(ss_af_bf.length-1,1 );
   if(ss_af_bf_lst=="*"){var ss_af_bf = ss_af_bf.substr(0,ss_af_bf.length-1 );}   
   else{var ss_af_bf = ss_af_bf;}
-   var  ss_af_bf_lst_a = ss_af_bf.substr(ss_af_bf.length-1,1 ); 
-   var  ss_af_bf_fst = ss_af_bf.substr(0,1 );
+  var ss_af_bf_lst_a = ss_af_bf.substr(ss_af_bf.length-1,1 ); 
+  var ss_af_bf_fst = ss_af_bf.substr(0,1 );
   if(ss_af_bf_fst=="-"){var ss_af_bf = ss_af_bf.substr(1,ss_af_bf.length-1 );}   
   else{var ss_af_bf = ss_af_bf;}
-   var  ss_af_bf_lst_b = ss_af_bf.substr(ss_af_bf.length-1,1 ); 
-   var  ss_af_bf_fst_b = ss_af_bf.substr(0,1 );
+  var ss_af_bf_lst_b = ss_af_bf.substr(ss_af_bf.length-1,1 ); 
+  var ss_af_bf_fst_b = ss_af_bf.substr(0,1 );
   if((ss_af_bf_fst_b=="(")&&(ss_af_bf_lst_a==")")) {var ss_af_bf = ss_af_bf.substr(1,ss_af_bf.length-2 );}   
   else{var ss_af_bf = ss_af_bf;}
-   var ss_af_bf_add = ss_af_bf.indexOf("+");
-      if(ss_af_bf_add!=-1){
-         var ss=ss_bf+ss_af;
+  var ss_af_bf_add = ss_af_bf.indexOf("+");
+  if(ss_af_bf_add!=-1){
+     var ss=ss_bf+ss_af;
+       return ss ;}  
+  var ss_af_bf_sub = ss_af_bf.indexOf("-");
+    if(ss_af_bf_sub!=-1){
+       var ss=ss_bf+ss_af;
+      return ss ;}  
+  var ss_af_bf_star = ss_af_bf.indexOf("*");
+    if(ss_af_bf_star!=-1){
+      var ss=ss_bf+ss_af;
+       return ss ;}  
+  var ss_af_bf_div = ss_af_bf.indexOf("/");
+    if(ss_af_bf_div!=-1){
+      var ss=ss_bf+ss_af;
+        return ss ;}   
+   var ss_af_bf_hat = ss_af_bf.indexOf("^");
+     if(ss_af_bf_hat!=-1){
+        var ss=ss_bf+ss_af;
          return ss ;}  
-    var ss_af_bf_sub = ss_af_bf.indexOf("-");
-       if(ss_af_bf_sub!=-1){
-          var ss=ss_bf+ss_af;
-          return ss ;}  
-    var ss_af_bf_star = ss_af_bf.indexOf("*");
-       if(ss_af_bf_star!=-1){
-           var ss=ss_bf+ss_af;
-         return ss ;}  
-    var ss_af_bf_div = ss_af_bf.indexOf("/");
-        if(ss_af_bf_div!=-1){
-           var ss=ss_bf+ss_af;
-         return ss ;}  
-     var ss_af_bf_hat = ss_af_bf.indexOf("^");
-        if(ss_af_bf_hat!=-1){
-           var ss=ss_bf+ss_af;
-          return ss ;}  
-     var ss_af_bf_lp = ss_af_bf.indexOf("(");
-        if(ss_af_bf_lp!=-1){
-            var ss=ss_bf+ss_af;  
-         return ss ;}      
-     var ss_af_bf_rp = ss_af_bf.indexOf(")");
-         if(ss_af_bf_rp!=-1){
-             var ss=ss_bf+ss_af;
+   var ss_af_bf_lp = ss_af_bf.indexOf("(");
+     if(ss_af_bf_lp!=-1){
+       var ss=ss_bf+ss_af;  
          return ss ;}     
-     var ss_af_bf_dot = ss_af_bf.indexOf(".");
-     var test_ed_pi = ed.indexOf("π");
-     var test_ed_close = ed.indexOf("°");
-    if(test_ed_pi !=-1){ var factor=2;}
-    else if( test_ed_close !=-1){ var factor=360;}  
-    else { var factor=1;}
-   var  ss_af_bf_e = ss_af_bf.indexOf("E");
-    if(ss_af_bf_e !=-1){ 
+   var ss_af_bf_rp = ss_af_bf.indexOf(")");
+     if(ss_af_bf_rp!=-1){
+       var ss=ss_bf+ss_af;
+         return ss ;}      
+   var ss_af_bf_dot = ss_af_bf.indexOf(".");
+   var test_ed_pi = ed.indexOf("π");
+   var test_ed_close = ed.indexOf("°");
+   if(test_ed_pi !=-1){ var factor=2;}
+   else if( test_ed_close !=-1){ var factor=360;}  
+   else { var factor=1;}
+   var ss_af_bf_e = ss_af_bf.indexOf("E");
+   if(ss_af_bf_e !=-1){ 
       var ss_af_bf = ss_af_bf.replace(/EP/g,"e\+");   
       var ss_af_bf = ss_af_bf.replace(/EN/g,"e\-");}   
     if( factor ==1){ var midchang =ss_af_bf;}
     else if( ss_af_bf < factor){ var midchang =ss_af_bf;}
     else if( ss_af_bf == factor){ var midchang =0;}          
     else{ var midchang = m_reamainder(factor ,ss_af_bf);}  
-      var ss_af_af = ss_af.substr(ss_af_p,ss_af.length -ss_af_p );  
+   var ss_af_af = ss_af.substr(ss_af_p,ss_af.length -ss_af_p );  
    if(ff=='sin('){ var ss_af_bf = midchang ;} 
    else if(ff=='cos('){ var ss_af_bf = midchang ;} 
    else if(ff=='tan('){ var ss_af_bf = midchang ;} 
    if((ss_af_bf_fst_b=="(")&&(ss_af_bf_lst_a==")")){var ss_af_bf ="("+ss_af_bf+")";}   
    if(ss_af_bf_fst=="-"){var ss_af_bf ="-"+ss_af_bf;}    
    if(ss_af_bf_lst=="*"){var ss_af_bf =ss_af_bf+"*";}  
-    var str_new=ss_bf+ss_af_bf+ss_af_af;
+   var str_new=ss_bf+ss_af_bf+ss_af_af;
         return str_new;
  }
 
@@ -7121,7 +7029,7 @@ function m_reamainder( x,s){
   var ss=s.toString().trim();
   var comp_ss_xx = m_mtx_real_str_comp(ss,xx); 
    if(comp_ss_xx ==2){ var ans_a = ss ; return ans_a;}  
-   else if(comp_ss_xx ==3){ var ans_a = 0 ; return ans_a;}   
+   else if(comp_ss_xx ==3){ var ans_a = 0 ; return ans_a;}  
    else if(comp_ss_xx ==1){ 
   var ans_1= m_mtx_real_div(ss,xx);  
   var ans_1= m_fix(ans_1,300);
@@ -7143,185 +7051,182 @@ function m_reamainder( x,s){
     return ans_a;
 }
 
+
+
 function m_s_e(x,nub){       
   var xx=x.toString().trim();
-    var xx_st= m_mtx_str_to_e(xx); 
-    var xx_st= m_mtx_str_to_e_a(xx);             
-    var pos_pot  = xx_st.indexOf(".");    
-    var pos_e  = xx_st.indexOf("e");       
-    var pos_fst  = xx_st.substr(0,1);   
-    var pos_sec  = xx_st.substr(1,1);   
-    var sum_tt =0;
-    var nub_e=0;
-        if(  pos_e != -1){      
-          var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
-          var nub_e_fst  = nub_e.substr(0,1);
-            if(nub_e_fst=="+"){ var nub_e = nub_e.substr(1,nub_e.length-1);}
-            else{  var nub_e = nub_e ;}
-               xx_st = xx_st.substr(0,pos_e);       
-                       }
-    var e_nub_point=0;      
-    var e_point=0;  
-    var st_point=0;  
-    var st_e_point=0;  
-    var e_nub_point= m_str_char(nub_e,".") ;  
-    var e_point= m_str_char(nub_e,"e") ;       
-    var st_nub_point= m_str_char(xx_st,".") ;  
-    var st_e_point= m_str_char(xx_st,"e") ;    
-    var ans_1 ="";
-        if( e_nub_point >=2 || e_point >=2 ||st_nub_point>=2 || st_e_point>=2 ){
-             var ans_1 = message_1(30);
-                           return  ans_1  }
-        if(nub==0){ var sum_tt=xx_st;}
-        else {var sum_tt = nub_e;} 
+  var xx_st= m_mtx_str_to_e(xx); 
+  var xx_st= m_mtx_str_to_e_a(xx);             
+  var pos_pot  = xx_st.indexOf(".");    
+  var pos_e  = xx_st.indexOf("e");       
+  var pos_fst  = xx_st.substr(0,1);   
+  var pos_sec  = xx_st.substr(1,1);   
+  var sum_tt =0;
+  var nub_e=0;
+    if(pos_e != -1){      
+      var nub_e =  xx_st.substr(pos_e+1,xx_st.length - pos_e); 
+      var nub_e_fst  = nub_e.substr(0,1);
+      if(nub_e_fst=="+"){ var nub_e = nub_e.substr(1,nub_e.length-1);}
+      else{  var nub_e = nub_e ;}
+         xx_st = xx_st.substr(0,pos_e);       
+                   }
+  var e_nub_point=0;      
+  var e_point=0;  
+  var st_point=0;  
+  var st_e_point=0;  
+  var e_nub_point= m_str_char(nub_e,".") ;  
+  var e_point= m_str_char(nub_e,"e") ;       
+  var st_nub_point= m_str_char(xx_st,".") ;  
+  var st_e_point= m_str_char(xx_st,"e") ;    
+  var ans_1 ="";
+    if( e_nub_point >=2 || e_point >=2 ||st_nub_point>=2 || st_e_point>=2 ){
+      var ans_1 = message_1(30);
+          return  ans_1  }
+    if(nub==0){ var sum_tt=xx_st;}
+    else {var sum_tt = nub_e;} 
  return sum_tt ;
-
 }
 
 function m_s_e_ln(x,nub){       
- var xx = x.toString().trim();
- var xx =m_mtx_trim(xx) ;         
- var nub_a=nub;
- var nub_e=0;
- var sum_tt=0;
- var ans_a="";
+  var xx = x.toString().trim();
+  var xx =m_mtx_trim(xx) ;         
+  var nub_a=nub;
+  var nub_e=0;
+  var sum_tt=0;
+  var ans_a="";
     if(pos_fst =="0" && pos_sec  !="."){    
-                 var flag=1;
-                  while(flag >0){
-                    xx=xx.substr(1,xx.length-1);   
-                     var pos_fst  = xx.substr(0,1);      
-                     var pos_sec  = xx.substr(1,0); 
-                            if(pos_fst =="0" && pos_sec  !="."){
-                                var flag=1;}
-                            else{ var flag=0;}
+      var flag=1;
+      while(flag >0){
+        xx=xx.substr(1,xx.length-1);   
+        var pos_fst  = xx.substr(0,1);      
+        var pos_sec  = xx.substr(1,0); 
+        if(pos_fst =="0" && pos_sec  !="."){
+          var flag=1;}
+        else{ var flag=0;}
                                 }  
                       }
- 
-      var xx_fst=xx.substr(0,1);
-      var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);       
-      var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
-    if ( data_comp_xx_1 == 3){ var sum_tt = 0 ; return sum_tt; }   
-    if ( data_comp_xx_0 ==3 ){ var sum_tt = message_1(13); return sum_tt; }
-    if ( xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
-    var pos_e0  = xx.indexOf("e");    
-    if(  pos_e0 == -1){ 
-     var  xx= m_mtx_str_to_e(xx); }
-      var pos_e  = xx.indexOf("e");    
-      var pos_fst  = xx.substr(0,1);   
-      var pos_sec  = xx.substr(1,1); 
-   if(  pos_e != -1){ 
-      var nub_e =  xx.substr(pos_e+1,xx.length - pos_e); 
-      var nub_e =  m_mtx_trim(nub_e) ;         
-      var    xx = xx.substr(0,pos_e);       
-                     }
-      var data_point_nb = 1; 
-      var data_point_nb = m_str_char(xx,".");              
-      if( data_point_nb ==0){  var     xx = xx+".0" ;} 
-      var point_bfa = 0;                                    
-      var point_afa = 0;
-      var point_bfa = m_str_char(xx,".");         
-      var point_afa = m_str_char(nub_e,".") ;  
-           if((point_bfa >=2 )||(point_afa >=2 )) {   
-              var ans_1 = message_1(30);
-                           return  ans_1  ;
-                                         } 
+   var xx_fst=xx.substr(0,1);
+   var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);       
+   var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
+     if(data_comp_xx_1 == 3){ var sum_tt = 0 ; return sum_tt; }   
+     if(data_comp_xx_0 ==3 ){ var sum_tt = message_1(13); return sum_tt; }
+     if(xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
+   var pos_e0  = xx.indexOf("e");    
+     if(pos_e0 == -1){ 
+       var xx= m_mtx_str_to_e(xx); }
+       var pos_e  = xx.indexOf("e");    
+       var pos_fst  = xx.substr(0,1);   
+       var pos_sec  = xx.substr(1,1); 
+     if(pos_e != -1){ 
+       var nub_e =  xx.substr(pos_e+1,xx.length - pos_e); 
+       var nub_e =  m_mtx_trim(nub_e) ;         
+       var  xx = xx.substr(0,pos_e);       
+                 }
+   var data_point_nb = 1; 
+   var data_point_nb = m_str_char(xx,".");              
+     if( data_point_nb ==0){  var     xx = xx+".0" ;} 
+   var point_bfa = 0;                                    
+   var point_afa = 0;
+   var point_bfa = m_str_char(xx,".");         
+   var point_afa = m_str_char(nub_e,".") ;  
+     if((point_bfa >=2 )||(point_afa >=2 )) {   
+       var ans_1 = message_1(30);
+          return  ans_1  ;
+                          } 
       
-           if(point_afa ==1){                
-             var nub_ee =  nub_e.toString() ;  
-             var pos_nub_e  = nub_ee.indexOf("."); 
-             var nub_e = nub_ee.substr(0,pos_nub_e); 
-             var nub_e_af =nub_ee.substr(pos_nub_e+1,nub_ee.length-pos_nub_e-1);   
-             var nub_e_af_fst = nub_ee.toString().substr(0,1);
-                  if( nub_e_af_fst =="-"){
-                     var nub_e_af ="-0."+nub_e_af.toString();}     
-                   else{  var nub_e_af ="0."+ nub_e_af.toString(); } 
-             var nub_e_af_val = m_pow(10,nub_e_af);
-             var xx = m_mtx_real_mul(xx,nub_e_af_val);      
+     if(point_afa ==1){                
+       var nub_ee =  nub_e.toString() ;  
+       var pos_nub_e  = nub_ee.indexOf("."); 
+       var nub_e = nub_ee.substr(0,pos_nub_e); 
+       var nub_e_af =nub_ee.substr(pos_nub_e+1,nub_ee.length-pos_nub_e-1);   
+       var nub_e_af_fst = nub_ee.toString().substr(0,1);
+         if(nub_e_af_fst =="-"){
+           var nub_e_af ="-0."+nub_e_af.toString();}     
+         else{var nub_e_af ="0."+ nub_e_af.toString(); } 
+           var nub_e_af_val = m_pow(10,nub_e_af);
+           var xx = m_mtx_real_mul(xx,nub_e_af_val);      
                }     
-      var pos_pot  = xx.indexOf(".");   
-      var xx_m_bf ="";
-      var xx_p_bf ="";
-       if( pos_pot  !=-1){
-        var xx_m_bf = xx.substr(0,pos_pot);        
-        var xx_m_bf_lg = xx_m_bf.length;           
-        var xx_p_bf = xx.substr(pos_pot+1,xx.length-pos_pot);   
-        var xx_p_bf_lg = xx_p_bf.length;                     
+   var pos_pot  = xx.indexOf(".");   
+   var xx_m_bf ="";
+   var xx_p_bf ="";
+     if( pos_pot  !=-1){
+       var xx_m_bf = xx.substr(0,pos_pot);        
+       var xx_m_bf_lg = xx_m_bf.length;           
+       var xx_p_bf = xx.substr(pos_pot+1,xx.length-pos_pot);   
+       var xx_p_bf_lg = xx_p_bf.length;                     
                    }
-      if(xx_m_bf !=0 && xx_m_bf !="" ){              
+     if(xx_m_bf !=0 && xx_m_bf !="" ){              
        xx = "0"+"."+xx_m_bf.substr(0,xx_m_bf_lg)+xx.substr(xx_m_bf_lg+1,xx.length-xx_m_bf_lg-1);    
        var nub_e= m_mtx_real_add(nub_e , xx_m_bf_lg); } 
-        if(st_fst =="0" && st_sec =="." && st_tri =="0" && parseFloat(xx_p_bf) >0 ){      
-          var flag_a=1;
-               while(flag_a > 0){
-                xx = "0."+ xx.substr(3,xx.length-3);   
-                var nub_e=m_mtx_real_sub(nub_e,1);    
-                  var st_fst = xx.substr(0,1);       
-                  var st_sec = xx.substr(1,1);       
-                  var st_tri = xx.substr(2,1);         
-                       if(st_fst ==0 && st_sec =="." && st_tri ==0 ){
-                            var flag_a=1;}
-                         else{ var flag_a=0;}
-                               }  
+     if(st_fst =="0" && st_sec =="." && st_tri =="0" && parseFloat(xx_p_bf) >0 ){      
+        var flag_a=1;
+        while(flag_a > 0){
+          xx = "0."+ xx.substr(3,xx.length-3);   
+          var nub_e=m_mtx_real_sub(nub_e,1);    
+          var st_fst = xx.substr(0,1);       
+          var st_sec = xx.substr(1,1);       
+          var st_tri = xx.substr(2,1);         
+            if(st_fst ==0 && st_sec =="." && st_tri ==0 ){
+               var flag_a=1;}
+            else{ var flag_a=0;}
+                          }  
                 }
-      if(nub_a==0){
-          return xx ;}        
-      if (nub_a==1){
-         var nub_e = m_fix_pow_lst(nub_e);    
-          return nub_e ;}   
-      if ((nub_a==2)&&(nub_e <0 )){
-           var ans_a= xx.toString() +"e"+ nub_e.toString();
-           return ans_a ;} 
-       if ((nub_a==2)&&(nub_e >0 )){
-           var ans_a= xx.toString() +"e+"+ nub_e.toString();
-           return ans_a ;}
-       if ((nub_a==2)&&(nub_e ==0 )){
-           var ans_a= xx.toString() ;
-           return ans_a ;}   
-     var ans_a= "no";                                 
-           return ans_a ;
-  
+     if(nub_a==0){
+        return xx ;}        
+     if(nub_a==1){
+       var nub_e = m_fix_pow_lst(nub_e);    
+        return nub_e ;}   
+     if((nub_a==2)&&(nub_e <0 )){
+       var ans_a= xx.toString() +"e"+ nub_e.toString();
+         return ans_a ;} 
+     if((nub_a==2)&&(nub_e >0 )){
+       var ans_a= xx.toString() +"e+"+ nub_e.toString();
+        return ans_a ;}
+     if((nub_a==2)&&(nub_e ==0 )){
+       var ans_a= xx.toString() ;
+          return ans_a ;}   
+   var ans_a= "no";                                 
+       return ans_a ;
   }
 
-function m_log(x){                   
+ function m_log(x){                   
    var xx=x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
    var  nub_e_str =0;
    var  xx_str ="";
    var  nub_e_str =  m_s_e(xx ,1);         
    var  xx_str =  m_s_e(xx ,0);         
    var  xx = xx_str;  
-    var xx = m_str_e_to_str(xx);      
-    var xx_fst=xx.substr(0,1);
-    var xxabs = xx;
-    var ans_t = 0;
-    var  data_xxabs_comp_0 = m_mtx_real_str_comp(xxabs,0);    
-      if ( data_xxabs_comp_0 == 3){ var ans_t = message_1(14) ;  return ans_t;} 
-      if (xx_fst == "-") {  var ans_t = message_1(9); return ans_t;} 
-      if (xxabs == 1 && xxabs.length==1 && nub_e_str==0) {  var ans_t = 0 ; return ans_t;}
-     var xxabs = m_mtx_str_to_e(xxabs);     
-     var  nub_e = 0;
-     var  xxabs_s =  m_s_e(xxabs ,0);       
-     var  nub_e =  m_s_e(xxabs ,1);
-     var  nub_e =  m_mtx_real_add(nub_e, nub_e_str); 
+   var xx = m_str_e_to_str(xx);      
+   var xx_fst=xx.substr(0,1);
+   var xxabs = xx;
+   var ans_t = 0;
+   var data_xxabs_comp_0 = m_mtx_real_str_comp(xxabs,0);    
+     if ( data_xxabs_comp_0 == 3){ var ans_t = message_1(14) ;  return ans_t;} 
+     if (xx_fst == "-") {  var ans_t = message_1(9); return ans_t;} 
+     if (xxabs == 1 && xxabs.length==1 && nub_e_str==0) {  var ans_t = 0 ; return ans_t;}
+   var xxabs = m_mtx_str_to_e(xxabs);     
+   var  nub_e = 0;
+   var  xxabs_s =  m_s_e(xxabs ,0);       
+   var  nub_e =  m_s_e(xxabs ,1);
+   var  nub_e =  m_mtx_real_add(nub_e, nub_e_str); 
      if ( xxabs_s == 1 ) {  var ans_t = nub_e ; return ans_t;}
-     var data_y = m_ln(xxabs_s);   
-     var data_x = LN10S; 
-    var deci_nub=351;  
-     var data_x=m_fix(data_x,deci_nub);   
-     var data_y=m_fix(data_y,deci_nub);   
-     var ans_t =  m_mtx_real_div(data_y,data_x);
-     var ans_t=m_fix(ans_t,deci_nub);   
-     var ans_t =  m_mtx_real_add(ans_t,nub_e);
-      var ans_t=m_fix(ans_t,deci_nub);   
-     var ans_t = ans_t.toString().trim();
+   var data_y = m_ln(xxabs_s);   
+   var data_x = LN10S; 
+   var deci_nub=351;  
+   var data_x=m_fix(data_x,deci_nub);   
+   var data_y=m_fix(data_y,deci_nub);   
+   var ans_t =  m_mtx_real_div(data_y,data_x);
+   var ans_t=m_fix(ans_t,deci_nub);   
+   var ans_t =  m_mtx_real_add(ans_t,nub_e);
+   var ans_t=m_fix(ans_t,deci_nub);   
+   var ans_t = ans_t.toString().trim();
   return ans_t;
 }
 
-
-
-function m_pow_ia(base,p){    
+ function m_pow_ia(base,p){    
    var bb=base;
       bb = m_str_e_to_str(bb);      
    var pp= p;
@@ -7330,16 +7235,15 @@ function m_pow_ia(base,p){
     if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}     
     var ans_1=""; 
     var data_a = 1;
-          for(var i=0; i<pp ;i++){
-                      var data_a = m_mtx_real_mul(data_a ,bb); 
-                                           }
+      for(var i=0; i<pp ;i++){
+        var data_a = m_mtx_real_mul(data_a ,bb); 
+                   }
     var ans_1= data_a ;   
     if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
  return ans_1;
 }
 
-
-function m_pow_ib(base,p){     
+  function m_pow_ib(base,p){     
     var base =m_mtx_trim(base) ;           
     var pp= p.toString().trim();
     var bb=base.toString().trim();  
@@ -7353,327 +7257,325 @@ function m_pow_ib(base,p){
     var row_nub_t = m_mtx_real_mul(pp_lg,3.5) ; 
     var row_nub_t = m_nub_m(row_nub_t) ;       
     var row_nub_t =parseInt(row_nub_t)+2;
-   var AA = m_pow_ib_bf(row_nub_t);  
-   var data_a = 1;
+    var AA = m_pow_ib_bf(row_nub_t);  
+    var data_a = 1;
     var data_p_b=0;   
     var data_p_a=0;   
     var data_pp = pp;
     var tra = FIX_COL; 
       FIX_COL= 420; 
-        for(var i=0; i< data_pp ;i++){
-          var data_a = m_mtx_real_mul(data_a ,data_a);    
-          if(i==0){ var data_a = bb ;}
-            data_a = m_mtx_str_to_e_a(data_a);         
+    for(var i=0; i< data_pp ;i++){
+       var data_a = m_mtx_real_mul(data_a ,data_a);    
+       if(i==0){ var data_a = bb ;}
+           data_a = m_mtx_str_to_e_a(data_a);         
            data_a = m_fix(data_a ,FIX_COL);            
-            AA[i][1] = data_a ;                        
-              var data_p_a= AA[i][0];                    
-           var data_p_b= AA[i+1][0];                   
-            var data_cp =  m_mtx_real_str_comp(data_p_b,pp);      
-             if(data_cp ==1 ){     
-               var data_pp = -1 ;
+         AA[i][1] = data_a ;                        
+       var data_p_a= AA[i][0];                    
+       var data_p_b= AA[i+1][0];                   
+       var data_cp =  m_mtx_real_str_comp(data_p_b,pp);      
+         if(data_cp ==1 ){     
+           var data_pp = -1 ;
+                          }   
+                        }   
+    var pp_r = m_mtx_real_sub(pp ,data_p_a);
+    var pp_r_lg = pp_r.length;              
+    var idx_e = pp_r.indexOf("e");
+    var idx_point = pp_r.indexOf(".");
+      if(idx_e !=0){ pp_r_lg_a = m_mtx_int_sub(idx_e,idx_point);}
+      else{ pp_r_lg_a = m_mtx_int_sub(pp_r_lg,idx_point);}
+    var pp_r_rf =0;
+      if(pp_r_lg >=250){ var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,10); }           
+      else{var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,1); }
+    var pp_r =m_fix(pp_r,pp_r_rf); 
+    var pp_r = m_str_e_to_str(pp_r);      
+    var data_b=1;
+    var aa_lga = AA.length;
+    var aa_lg = m_mtx_int_sub(aa_lga,1) ;  
+    var aa_lg = m_str_e_to_str(aa_lg); 
+    var pp_r = m_str_e_to_str(pp_r); 
+      while( pp_r >0 ){
+        for(var i= aa_lg ;i >= 0 ;i--){
+          var data_aa_0 = AA[i][0];           
+          var data_cp_0 =  m_mtx_real_str_comp(pp_r,data_aa_0);     
+          var data_aa_1 = AA[i][1];
+          var data_cp_1 =  m_mtx_real_str_comp(data_aa_1,0);      
+          if( data_cp_0!=2  && data_cp_1!=3){    
+            var data_b= m_mtx_real_mul(data_b,AA[i][1]) ;
+            var pp_r = m_mtx_int_sub(pp_r,AA[i][0]);
+            if( pp_r == 0){ var i=-1 ;} 
+                                    } 
+                             }     
                            }   
-                                 }   
-               var pp_r = m_mtx_real_sub(pp ,data_p_a);
-               var pp_r_lg = pp_r.length;              
-               var idx_e = pp_r.indexOf("e");
-               var idx_point = pp_r.indexOf(".");
-             if(idx_e !=0){ pp_r_lg_a = m_mtx_int_sub(idx_e,idx_point);}
-             else{ pp_r_lg_a = m_mtx_int_sub(pp_r_lg,idx_point);}
-                  var pp_r_rf =0;
-             if(pp_r_lg >=250){ var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,10); }           
-             else{var pp_r_rf = m_mtx_int_sub(pp_r_lg_a,1); }
-            var pp_r =m_fix(pp_r,pp_r_rf); 
-            var pp_r = m_str_e_to_str(pp_r);      
-            var data_b=1;
-            var aa_lga = AA.length;
-            var aa_lg = m_mtx_int_sub(aa_lga,1) ;  
-            var aa_lg = m_str_e_to_str(aa_lg); 
-            var pp_r = m_str_e_to_str(pp_r); 
-              while( pp_r >0 ){
-               for(var i= aa_lg ;i >= 0 ;i--){
-                 var data_aa_0 = AA[i][0];           
-                 var data_cp_0 =  m_mtx_real_str_comp(pp_r,data_aa_0);     
-                 var data_aa_1 = AA[i][1];
-                 var data_cp_1 =  m_mtx_real_str_comp(data_aa_1,0);      
-                     if( data_cp_0!=2  && data_cp_1!=3){    
-                        var data_b= m_mtx_real_mul(data_b,AA[i][1]) ;
-                         var pp_r = m_mtx_int_sub(pp_r,AA[i][0]);
-                                  if( pp_r == 0){ var i=-1 ;} 
-                                                      } 
-                                                  }     
-                                      }   
-     var ans_1= m_mtx_real_mul(data_a ,data_b );
-     var ans_1 = ans_1.toString();  
-  if(pp_fst=="-") { 
-        var ans_1 =m_fix(ans_1,FIX_COL);
-        var ans_1 = m_mtx_real_div(1 ,ans_1 );}
-
-       FIX_COL=tra; 
- return ans_1;
+    var ans_1= m_mtx_real_mul(data_a ,data_b );
+    var ans_1 = ans_1.toString();  
+     if(pp_fst=="-") { 
+       var ans_1 =m_fix(ans_1,FIX_COL);
+       var ans_1 = m_mtx_real_div(1 ,ans_1 );}
+     FIX_COL=tra; 
+    return ans_1;
 }
 
-function m_pow_ib_bf(n){        
-var nn=n;
-   A = m_new_zero_mtx(nn,2);      
-         A[0][1] = 0;  
-         A[1][1] = 1;  
-   for(var i=0;i<nn ;i++){
-    if(i==0){ var data_a = 1;
-              A[i][0] = data_a;  }
-    else{
-     var data_a = m_mtx_real_add(data_a,data_a );   
+function m_pow_ib_bf(n){         
+  var nn=n;
+      A = m_new_zero_mtx(nn,2);      
+      A[0][1] = 0;  
+      A[1][1] = 1;  
+    for(var i=0;i<nn ;i++){
+      if(i==0){ var data_a = 1;
+        A[i][0] = data_a;  }
+      else{
+        var data_a = m_mtx_real_add(data_a,data_a );   
         data_a = m_str_e_to_str(data_a);      
         A[i][0] = data_a;
         A[i][1] = 0;
         }
-                           }  
+               }  
    return A;
 
 }
 
 
-function m_pow_ic(base,p){    
-    var bb=base;
-        bb = m_str_e_to_str(bb).trim();      
+ function m_pow_ic(base,p){    
+   var bb=base;
+       bb = m_str_e_to_str(bb).trim();      
+   var pp= p;
+       pp = m_str_e_to_str(pp).trim();
+   var pp_lg = pp.length;
+   var pp_lst = pp.substr((pp_lg-1),1);  
+   var pp_fst = pp.substr(0,1); 
+     if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}     
+   var ans_1 =1;
+   var data_ln_a =0;
+   var data_ln_b =0;
+   var ppp = m_nub_p(pp) ;       
+   var ppp_lg = ppp.length;
+   var data_ln_a = m_ln(bb);
+   var data_ln_b = m_mtx_real_mul(ppp ,data_ln_a); 
+   var data_ln_b = m_str_e_to_str(data_ln_b).trim();      
+   var ans_1 =  m_exp(data_ln_b);  
+     if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
+return ans_1;
+}
+
+
+ function m_pow_ie(base,p){   
+   var bb=base;
+       bb = m_str_e_to_str(bb).trim();      
+   var bb_fst = bb.substr(0,1); 
+     if(bb_fst=="-"){ var bb = bb.substr(1,(bb.length-1));}   
    var pp= p;
        pp = m_str_e_to_str(pp).trim();      
    var pp_lg = pp.length;
    var pp_lst = pp.substr((pp_lg-1),1);  
    var pp_fst = pp.substr(0,1); 
-     if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}     
-      var ans_1 =1;
-      var data_ln_a =0;
-      var data_ln_b =0;
-      var ppp = m_nub_p(pp) ;       
-      var ppp_lg = ppp.length;
-      var data_ln_a = m_ln(bb);   
-      var data_ln_b = m_mtx_real_mul(ppp ,data_ln_a);      
-      var data_ln_b = m_str_e_to_str(data_ln_b).trim();      
-      var ans_1 =  m_exp(data_ln_b);          
-    if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
-return ans_1;
-}
-
-
-function m_pow_ie(base,p){   
-    var bb=base;
-        bb = m_str_e_to_str(bb).trim();      
-    var bb_fst = bb.substr(0,1); 
-     if(bb_fst=="-"){ var bb = bb.substr(1,(bb.length-1));}   
-      var pp= p;
-          pp = m_str_e_to_str(pp).trim();      
-      var pp_lg = pp.length;
-      var pp_lst = pp.substr((pp_lg-1),1);  
-      var pp_fst = pp.substr(0,1); 
      if(pp_fst=="-"){ var pp = pp.substr(1,(pp.length-1));}   
-       var ans_1 =1;
-       var data_ln_a =0;
-       var data_ln_b =0;
-       var data_a = 1;
-       var data_b = 1;
-       var pp_r = 0 ;
-       var ppi = m_nub_m(pp) ;       
-           ppi = m_str_e_to_str(ppi).trim();      
-       var ppi_lg = ppi.length;  
-       var ppp = m_nub_p(pp) ;       
-       var ppi_lg = ppi.length;
-       var ppp_lg = ppp.length;
-             if( ppi==0 && ppp==0 && ppp_lg <=1){ var data_a=1;}
-             if( ppi==1 && ppp==0 && ppp_lg <=1){ var data_a=bb;}  
-             if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0  ){    
-               var data_a = m_pow_ia(bb ,ppi) ;    
-                       }
-          if(ppi_lg >= 3  ){
-               var data_b = m_pow_ib(bb ,ppi) ;     
-                       } 
-      var data_ln_a = m_ln(bb);
-      var data_ln_b = m_mtx_real_mul(ppp ,data_ln_a); 
-      var data_ln_b = m_str_e_to_str(data_ln_b).trim(); 
-      var ans_1 =  m_exp(data_ln_b); 
-        if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0 ){   
-          var ans_t = m_mtx_real_mul(data_a ,ans_1);
-                      }
-         else if(ppi_lg >= 3  ){
-          var ans_t = m_mtx_real_mul(data_b ,ans_1);            
+   var ans_1 =1;
+   var data_ln_a =0;
+   var data_ln_b =0;
+   var data_a = 1;
+   var data_b = 1;
+   var pp_r = 0 ;
+   var ppi = m_nub_m(pp) ;       
+       ppi = m_str_e_to_str(ppi).trim();      
+   var ppi_lg = ppi.length;  
+   var ppp = m_nub_p(pp) ;       
+   var ppi_lg = ppi.length;
+   var ppp_lg = ppp.length;
+     if( ppi==0 && ppp==0 && ppp_lg <=1){ var data_a=1;}
+     if( ppi==1 && ppp==0 && ppp_lg <=1){ var data_a=bb;}  
+     if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0  ){    
+       var data_a = m_pow_ia(bb ,ppi) ;    
+              }
+     if(ppi_lg >= 3  ){
+       var data_b = m_pow_ib(bb ,ppi) ;     
+                     } 
+    var data_ln_a = m_ln(bb);
+    var data_ln_b = m_mtx_real_mul(ppp ,data_ln_a); 
+    var data_ln_b = m_str_e_to_str(data_ln_b).trim(); 
+    var ans_1 =  m_exp(data_ln_b); 
+      if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0 ){   
+         var ans_t = m_mtx_real_mul(data_a ,ans_1);
+                          }
+      else if(ppi_lg >= 3  ){
+         var ans_t = m_mtx_real_mul(data_b ,ans_1);            
                  }
-         else { var ans_t = ans_1 ;}  
-       var ans_t = m_fix_pow(ans_t,10);  
-    if(pp_fst=="-") { var ans_t = m_mtx_real_div(1 ,ans_t );}
-    if(bb_fst=="-" && ppp==0 && (pp_lst==1 ||pp_lst==3 || pp_lst==5 ||pp_lst==7 ||pp_lst==9 )) {
-          ans_t ="-"+ans_t ;}  
-return ans_t;
+      else { var ans_t = ans_1 ;}  
+    var ans_t = m_fix_pow(ans_t,10);  
+      if(pp_fst=="-") { var ans_t = m_mtx_real_div(1 ,ans_t );}
+      if(bb_fst=="-" && ppp==0 && (pp_lst==1 ||pp_lst==3 || pp_lst==5 ||pp_lst==7 ||pp_lst==9 )) {
+             ans_t ="-"+ans_t ;}  
+    return ans_t;
 }
 
-function m_pow(base,p){    
-    var base= base.toString().trim();
-    var base =m_mtx_trim(base) ;         
-    var  p= p.toString().trim();
-    var base_msg = m_mtx_test_msg(base);     
+
+ function m_pow(base,p){    
+   var base= base.toString().trim();
+   var base =m_mtx_trim(base) ;         
+   var  p= p.toString().trim();
+   var base_msg = m_mtx_test_msg(base);     
+   var p_msg = m_mtx_test_msg(p);
+     if(base_msg !=-1 ){ return base;}     
+     if(p_msg !=-1 ){ return p;} 
+   var datalg = "1e+201";                
+   var datalg_n = "-1e+201";
+   var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
+   var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
+     if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
+        var ans_1 = message_1(36);
+                 return  ans_1  } 
+   var nub_point_p=0;  
+   var nub_point_p= m_str_char(p,".") ;  
+   var ans_1 ="";
+     if(nub_point_p >2){
+       var ans_1 = message_1(30);
+           return  ans_1  }
+      else{ p=p;}
+    var p =m_mtx_trim(p) ;         
+    var base_msg = m_mtx_test_msg(base);
     var p_msg = m_mtx_test_msg(p);
-        if(base_msg !=-1 ){ return base;}     
-        if(p_msg !=-1 ){ return p;} 
-     var datalg = "1e+201";                
-     var datalg_n = "-1e+201";
-     var p_comp_datalg  =  m_mtx_real_str_comp(p,datalg);      
-     var p_comp_datalg_n  =  m_mtx_real_str_comp(p,datalg_n);           
-         if( p_comp_datalg ==1 || p_comp_datalg_n ==2 ){
-           var ans_1 = message_1(36);
-                           return  ans_1  } 
-      var nub_point_p=0;  
-      var nub_point_p= m_str_char(p,".") ;  
-      var ans_1 ="";
-          if( nub_point_p >2){
-              var ans_1 = message_1(30);
-                           return  ans_1  }
-         else{ p=p;}
-      var p =m_mtx_trim(p) ;         
-      var base_msg = m_mtx_test_msg(base);
-      var p_msg = m_mtx_test_msg(p);
-        if(base_msg !=-1 ){ return base;}     
-        if(p_msg !=-1 ){ return p;}
-   var bb=base;
-   var pp=p;
-   var ans_1="";
-   var ans_part =1; 
-     var bb = m_mtx_str_to_e_a(bb);           
-     var bb_nub_e =m_str_power(bb,0);             
-     var bb_st = m_str_power(bb,1);
-     var base_limt_low = "1e-1";  
-     var base_limt_up = "1e+1";  
-     var bb_comp_base_limt_low  =  m_mtx_real_str_comp(bb_nub_e ,-1); 
-     var bb_comp_base_limt_up  =  m_mtx_real_str_comp(bb_nub_e ,1); 
+      if(base_msg !=-1 ){ return base;}     
+      if(p_msg !=-1 ){ return p;}
+    var bb=base;
+    var pp=p;
+    var ans_1="";
+    var ans_part =1;  
+    var bb = m_mtx_str_to_e_a(bb);           
+    var bb_nub_e =m_str_power(bb,0);             
+    var bb_st = m_str_power(bb,1);
+    var base_limt_low = "1e-1";  
+    var base_limt_up = "1e+1";  
+    var bb_comp_base_limt_low  =  m_mtx_real_str_comp(bb_nub_e ,-1); 
+    var bb_comp_base_limt_up  =  m_mtx_real_str_comp(bb_nub_e ,1); 
       if((bb_comp_base_limt_low ==2)||(bb_comp_base_limt_up ==1)){
-       var data_a= m_mtx_real_mul(bb_nub_e,pp);  
-      var data_b="1e"+data_a; 
-      var ans_part = data_b ;   
-      var bb=bb_st ; 
-                         }
-     bb = m_str_e_to_str(bb);      
-     pp = m_str_e_to_str(pp);      
-   var ppi = m_nub_m(pp) ;      
+        var data_a= m_mtx_real_mul(bb_nub_e,pp);  
+        var data_b="1e"+data_a; 
+        var ans_part = data_b ;   
+        var bb=bb_st ; 
+                                      }
+        bb = m_str_e_to_str(bb);      
+        pp = m_str_e_to_str(pp);      
+    var ppi = m_nub_m(pp) ;      
         data_pp_ppi = m_mtx_real_str_comp(pp,ppi);      
       if(data_pp_ppi !=3){
          var ppp = m_nub_p(pp) ;   
                        }
-       else{ var ppp =0;}
-       var bb = bb.toString().trim();
-       var bb = m_mtx_trim(bb) ;   
-       var bb_lg =bb.length;
-       var data_comp_bb_1   =  m_mtx_real_str_comp(bb,1);      
-       var data_comp_bb_0   =  m_mtx_real_str_comp(bb,0); 
-       var data_comp_pp_0   =  m_mtx_real_str_comp(pp,0);
-       var data_comp_ppp_0   =  m_mtx_real_str_comp(ppp,0);
-       var data_comp_ppi_0   =  m_mtx_real_str_comp(ppi,0);
-   if(data_comp_bb_1==3 ){ var ans_1=1;  return ans_1; }            
-   if(bb!=0 && data_comp_pp_0 == 3) {var  ans_1=1; return ans_1;  }
-   if(data_comp_bb_0==3 && data_comp_pp_0==1) { var ans_1=0; return ans_1;  }
-   if(data_comp_bb_0==3 && data_comp_pp_0==2) { var ans_1=message_1(28); return ans_1; }
-   if(data_comp_bb_0==3 && data_comp_pp_0 ==3) { var ans_1=message_1(28); return ans_1; }
-   if(bb < 0 && ppp !=0 && data_comp_ppp_0 !=3) { var ans_1=message_1(6) ; return ans_1; }
-      var pa_fst = pp.substr(0,1);
-    if(( data_comp_ppp_0 == 3 && pp.length <3  && pa_fst !="-" )||( data_comp_ppp_0 == 3 && pp.length < 4  && pa_fst =="-")){          
-              var ans_1 = m_pow_ia(bb,pp);
-            }
-          if(( data_comp_ppp_0 == 3 && pp.length >=3 && pa_fst !="-")||( data_comp_ppp_0 == 3 && pp.length >= 4  && pa_fst =="-" )){          
-            var ans_1 = m_pow_ib(bb,pp);
-                  }
-          if( data_comp_ppp_0 != 3 && data_comp_ppi_0 ==3){   
-                var ans_1 = m_pow_ic(bb,pp);
+      else{ var ppp =0;}
+    var bb = bb.toString().trim();
+    var bb = m_mtx_trim(bb) ;   
+    var bb_lg =bb.length;
+    var data_comp_bb_1   =  m_mtx_real_str_comp(bb,1);      
+    var data_comp_bb_0   =  m_mtx_real_str_comp(bb,0); 
+    var data_comp_pp_0   =  m_mtx_real_str_comp(pp,0);
+    var data_comp_ppp_0   =  m_mtx_real_str_comp(ppp,0);
+    var data_comp_ppi_0   =  m_mtx_real_str_comp(ppi,0);
+      if(data_comp_bb_1==3 ){ var ans_1=1;  return ans_1; }            
+      if(bb!=0 && data_comp_pp_0 == 3) {var  ans_1=1; return ans_1;  }
+      if(data_comp_bb_0==3 && data_comp_pp_0==1) { var ans_1=0; return ans_1;  }
+      if(data_comp_bb_0==3 && data_comp_pp_0==2) { var ans_1=message_1(28); return ans_1; }
+      if(data_comp_bb_0==3 && data_comp_pp_0 ==3) { var ans_1=message_1(28); return ans_1; }
+      if(bb < 0 && ppp !=0 && data_comp_ppp_0 !=3) { var ans_1=message_1(6) ; return ans_1; }
+    var pa_fst = pp.substr(0,1);
+      if(( data_comp_ppp_0 == 3 && pp.length <3  && pa_fst !="-" )||( data_comp_ppp_0 == 3 && pp.length < 4  && pa_fst =="-")){ 
+        var ans_1 = m_pow_ia(bb,pp);
+          }
+      if(( data_comp_ppp_0 == 3 && pp.length >=3 && pa_fst !="-")||( data_comp_ppp_0 == 3 && pp.length >= 4  && pa_fst =="-" )){  
+        var ans_1 = m_pow_ib(bb,pp);
+              }
+      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 ==3){   
+         var ans_1 = m_pow_ic(bb,pp);
            }
-          if( data_comp_ppp_0 != 3 && data_comp_ppi_0 !=3){   
-             var ans_1 = m_pow_ie(bb,pp);
+      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 !=3){ 
+        var ans_1 = m_pow_ie(bb,pp);
              }
-         var ans_1 =m_mtx_real_mul(ans_part,ans_1); 
-         var ans_1 = ans_1.toString().trim();
+    var ans_1 =m_mtx_real_mul(ans_part,ans_1); 
+    var ans_1 = ans_1.toString().trim();
             return ans_1;
-     
 }
 
 
 
-function m_asin(x){                                           
+function m_asin(x){                                          
   var zz = x.toString().trim();
   var data_msg =0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var zz = m_str_e_to_str_point(zz ); 
   var zz = m_fix(zz,420) ;  
   var xx_test_small = m_mtx_str_to_e_a(zz);               
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-100)==2 ){  
-          var ans_a=x ; return  ans_a;} 
-  if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
-       var ans_a= message_1(1);  return ans_a;}
-   var flag_a=0;
-   var flag_b=0;
-   var sum_total="";
-   var zz_fst=zz.substr(0,1);
-   if(zz_fst=="-"){
+    if(m_mtx_real_str_comp(xx_test_nub_e,-100)==2 ){  
+      var ans_a=x ; return  ans_a;} 
+    if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
+      var ans_a= message_1(1);  return ans_a;}
+  var flag_a=0;
+  var flag_b=0;
+  var sum_total="";
+  var zz_fst=zz.substr(0,1);
+    if(zz_fst=="-"){
       var zz = zz.substr(1,zz.length-1);
       var flag_a=1; }                            
-   else{ zz=zz;}
-   var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
-      var data_comp_zz_0   =  m_mtx_real_str_comp(zz,0); 
-      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
-      if(data_comp_zz_0 ==3 ){ ans_1 = 0 ; return ans_1 ;}                    
-      if(data_comp_zz_1 ==3   ){ ans_1 = PIDIV2S ;        
-                  if(zz_fst=="-"){ ans_1 = "-"+ans_1;} 
-                                   return ans_1   ;}
-     var zz = m_str_e_to_str(zz);       
-    var zz =m_fix(zz,420);                      
-    var data_a=m_mtx_real_mul(zz,zz);     
+    else{ zz=zz;}
+  var data_comp_zz_1 = m_mtx_real_str_comp(zz,1);       
+  var data_comp_zz_0   =  m_mtx_real_str_comp(zz,0); 
+    if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+    if(data_comp_zz_0 ==3 ){ ans_1 = 0 ; return ans_1 ;}                    
+    if(data_comp_zz_1 ==3   ){ ans_1 = PIDIV2S ;        
+      if(zz_fst=="-"){ ans_1 = "-"+ans_1;} 
+                  return ans_1   ;}
+  var zz = m_str_e_to_str(zz);       
+  var zz =m_fix(zz,420);                     
+  var data_a=m_mtx_real_mul(zz,zz);   
     if( DECI_DGT <=16){ var deci_nub=320;} 
-     else { var deci_nub=420;}  
-     var data_b=m_mtx_real_sub('1',data_a);  
-     var data_b =m_fix(data_b,deci_nub);   
-     var data_c=m_pow(data_b,0.5);
-     var data_c =m_fix(data_c,deci_nub);   
-     var data_d=m_mtx_real_add(1,data_c);
-     var data_d =m_fix(data_d,deci_nub);  
-     var data_e=m_mtx_real_div(zz,data_d);
-     var data_e =m_fix(data_e,deci_nub);   
-     var data_sum = m_atan(data_e); 
-     var data_sum =m_fix(data_sum,deci_nub);     
-     var data_sum_t = m_mtx_real_add(data_sum,data_sum);     
-       if(flag_a ==1){    
-         var data_sum_t = "-"+ data_sum_t;     
-                           }
-    return data_sum_t ; 
-
+    else { var deci_nub=420;}  
+  var data_b=m_mtx_real_sub('1',data_a);  
+  var data_b =m_fix(data_b,deci_nub);   
+  var data_c=m_pow(data_b,0.5);
+  var data_c =m_fix(data_c,deci_nub);   
+  var data_d=m_mtx_real_add(1,data_c);
+  var data_d =m_fix(data_d,deci_nub);  
+  var data_e=m_mtx_real_div(zz,data_d);
+  var data_e =m_fix(data_e,deci_nub);   
+  var data_sum = m_atan(data_e); 
+  var data_sum =m_fix(data_sum,deci_nub);   
+  var data_sum_t = m_mtx_real_add(data_sum,data_sum);     
+    if(flag_a ==1){    
+      var data_sum_t = "-"+ data_sum_t;     
+                      }
+      return data_sum_t ; 
 }
 
 
-function m_acos(x){                           
+ function m_acos(x){                           
    var xx = x.toString().trim();
    var data_msg =0;
-  var ans_a="";
+   var ans_a="";
    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-  var xx = m_str_e_to_str_point(xx );
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+   var xx = m_str_e_to_str_point(xx );
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);  
      if(m_mtx_real_str_comp(xx_test_nub_e,-201)==2 ){     
        var ans_a=PIDIV2S ; return  ans_a;}                
-  if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
+     if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
       var ans_a= message_1(2);  return ans_a;}
    var xx =m_mtx_trim(xx) ;         
    var xx_fst = xx.substr(0,1);
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
      else { var xx=xx;}     
-       xx = m_str_e_to_str(xx);      
+      xx = m_str_e_to_str(xx);      
    var ans_1=0;
-   var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
-   var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);      
-   var data_comp_x_1    =  m_mtx_real_str_comp(x,1); 
-   var data_comp_x_n1   =  m_mtx_real_str_comp(x,-1);
-     if( data_comp_xx_1==1){  var ans_1= message_1(2);  return ans_1; }   
-     if( data_comp_xx_0==3 ){ ans_1 = PIDIV2S ; return ans_1 ;}                      
-     if( data_comp_xx_1== 3 && data_comp_x_1 == 3 ){ ans_1 = 0 ; return ans_1   ;}  
-     if( data_comp_xx_1== 3 && data_comp_x_n1==3  ){ ans_1 = PI ;  return ans_1  ;}  
+   var data_comp_xx_0 = m_mtx_real_str_comp(xx,0); 
+   var data_comp_xx_1 = m_mtx_real_str_comp(xx,1);      
+   var data_comp_x_1  = m_mtx_real_str_comp(x,1); 
+   var data_comp_x_n1 = m_mtx_real_str_comp(x,-1);
+     if( data_comp_xx_1==1){ var ans_1= message_1(2);  return ans_1; }   
+     if( data_comp_xx_0==3 ){ ans_1 = PIDIV2S ; return ans_1 ;}                    
+     if( data_comp_xx_1== 3 && data_comp_x_1 == 3 ){ ans_1 = 0 ; return ans_1 ;}  
+     if( data_comp_xx_1== 3 && data_comp_x_n1==3 ){ ans_1 = PI ;  return ans_1 ;}  
    var ans_0=0;
-   if(xx_fst=="-"){ var xx="-"+xx ;}   
+     if(xx_fst=="-"){ var xx="-"+xx ;}   
      if( DECI_DGT <=16){ var deci_nub=320;} 
      else { var deci_nub=420;}               
     var data_a=m_mtx_real_mul(xx,xx);     
@@ -7688,194 +7590,177 @@ function m_acos(x){
     var data_e =m_fix(data_e,deci_nub);      
     var ans_0 = m_atan(data_e); 
     var ans_0 =m_fix(ans_0,deci_nub);      
-    var ans_1=m_mtx_real_add(ans_0 ,ans_0);    
-      
-    return ans_1 ; 
+    var ans_1=m_mtx_real_add(ans_0 ,ans_0);   
+     return ans_1 ; 
 }
 
-
 function m_atan(x){                   
-   var xx = x.toString().trim();
-   var data_msg = 0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
-   var xx =m_mtx_trim(xx) ; 
+  var xx = x.toString().trim();
+  var data_msg = 0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var xx =m_mtx_trim(xx) ; 
   var xx = m_str_e_to_str_point(xx ); 
   var xx = m_mtx_str_to_e_a(xx);
-   var xx_test_small = m_mtx_str_to_e_a(xx);             
-   var xx_test_nub_e =m_str_power(xx_test_small,0);             
-   var xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-201)==2 ){   
-          var ans_a=xx ; return  ans_a;} 
-   var xx_fst = xx.substr(0,1);
-   if(m_mtx_real_str_comp(xx_test_nub_e,100)==1 && xx_fst!="-"){       
-          var ans_a= PIDIV2S ; return  ans_a;}                            
-     if(m_mtx_real_str_comp(xx_test_nub_e,100)==1 && xx_fst=="-"){ 
-          var ans_a= "-"+PIDIV2S ; return  ans_a;}        
-   if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-    else { var xx=xx;} 
+  var xx_test_small = m_mtx_str_to_e_a(xx);             
+  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+  var xx_test_st = m_str_power(xx_test_small,1);          
+  if(m_mtx_real_str_comp(xx_test_nub_e,-201)==2 ){   
+    var ans_a=xx ; return  ans_a;} 
+  var xx_fst = xx.substr(0,1);
+  if(m_mtx_real_str_comp(xx_test_nub_e,100)==1 && xx_fst!="-"){       
+     var ans_a= PIDIV2S ; return  ans_a;}                           
+  if(m_mtx_real_str_comp(xx_test_nub_e,100)==1 && xx_fst=="-"){ 
+     var ans_a= "-"+PIDIV2S ; return  ans_a;}         
+  if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+   else { var xx=xx;} 
    var comp_xx_e = m_mtx_real_str_comp(xx,'1e+100');      
    var comp_xx_e_s = m_mtx_real_str_comp(xx,'1e-200'); 
    var xx = m_str_e_to_str(xx); 
-  var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
+   var comp_xx_0 = m_mtx_real_str_comp(xx,0);      
    var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
    if(comp_xx_0==3){ var ans_1= 0; return ans_1; }         
    if(comp_xx_1==3){ var ans_1= PIDIV4S;  
      if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
-                return ans_1; }                     
+             return ans_1; }                     
      if(comp_xx_e ==1){ var ans_1= PIDIV2S;
-        if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
-                return ans_1; }  
-        if(comp_xx_e_s ==2){ var ans_1= xx;        
-           if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
-               return ans_1; } 
-    var xx=m_fix(xx,420);    
-    var inv_flag =0 ;   
-     var comp_xx_01 = m_mtx_real_str_comp(xx,1);   
-     if( comp_xx_01 == 1 ){
+       if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
+          return ans_1; }  
+     if(comp_xx_e_s ==2){ var ans_1= xx;        
+       if(xx_fst=="-"){ var ans_1 = "-"+ans_1;} 
+           return ans_1; } 
+   var xx=m_fix(xx,420);    
+   var inv_flag =0 ;   
+   var comp_xx_01 = m_mtx_real_str_comp(xx,1);   
+   if( comp_xx_01 == 1 ){
      var xx = m_mtx_real_div(1,xx);                       
      var inv_flag =1 ;                 
       }
-     var sum_ref = 0 ; 
-
-var ATAN05="0.46364760900080611621425623146121440202853705428612026381093308872019786416574170530060028398488789255652985225119083751350581818162501115547153056994410562071933626616488010153250275598792580551685388916747823728653879391801251719948401395583818511509502163330649387215460973207855555720860146322756524267305218045746400869745058389736389648900264868778537801282363312171645781468369009933405288824862445623881190901589497679971970114967760016450062530168121256093353041349396630129319242748402931611";    
-   var ATAN05=m_fix(ATAN05,FIX_COL);  
- var comp_xx_05 = m_mtx_real_str_comp(xx,0.5);                       
-       if(comp_xx_05 ==3){                
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN05); var xx=0;}   
-       if(comp_xx_05 ==1){   
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN05);   
-         var data_a = m_mtx_real_sub(xx,0.5);    
-         var data_b = m_mtx_real_div(xx,2);     
-         var data_c = m_mtx_real_add(1,data_b);   
-         var xx=  m_mtx_real_div(data_a,data_c); } 
-
+   var sum_ref = 0 ; 
+  var ATAN05="0.46364760900080611621425623146121440202853705428612026381093308872019786416574170530060028398488789255652985225119083751350581818162501115547153056994410562071933626616488010153250275598792580551685388916747823728653879391801251719948401395583818511509502163330649387215460973207855555720860146322756524267305218045746400869745058389736389648900264868778537801282363312171645781468369009933405288824862445623881190901589497679971970114967760016450062530168121256093353041349396630129319242748402931611";    
+  var ATAN05=m_fix(ATAN05,FIX_COL);  
+  var comp_xx_05 = m_mtx_real_str_comp(xx,0.5);                       
+  if(comp_xx_05 ==3){               
+  var sum_ref = m_mtx_real_add(sum_ref, ATAN05); var xx=0;}   
+  if(comp_xx_05 ==1){  
+     var sum_ref = m_mtx_real_add(sum_ref, ATAN05);   
+     var data_a = m_mtx_real_sub(xx,0.5);    
+     var data_b = m_mtx_real_div(xx,2);     
+     var data_c = m_mtx_real_add(1,data_b);   
+     var xx=  m_mtx_real_div(data_a,data_c);} 
 var ATAN025= "0.2449786631268641541720824812112758109141440983811840671273759146673551195876420965745341576687019913638348044900371183742954854209950599769589869606142037352012770873875816557215867159826385506320522087873067501434156233634826395636978085215910732458352381350762999555689011258302662623302599157532810276062335602753610752021785741384685151606926402813351408497944100602379884639426115265526020613960377954442380726047419439178861197772881869907301075059015074224985843941420596860341425179534732229";   
-    var ATAN025=m_fix(ATAN025,420); 
-      var comp_xx_025 = m_mtx_real_str_comp(xx,0.25);
-       if(comp_xx_025 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN025);         
-                    var xx=0;}                 
-       if(comp_xx_025 ==1){  
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN025);
-         var data_a = m_mtx_real_sub(xx,0.25); 
-         var data_b = m_mtx_real_div(xx,4); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
-     if( DECI_DGT > 16){ 
+  var ATAN025=m_fix(ATAN025,420); 
+  var comp_xx_025 = m_mtx_real_str_comp(xx,0.25);
+  if(comp_xx_025 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN025);         
+     var xx=0;}                 
+  if(comp_xx_025 ==1){  
+     var sum_ref = m_mtx_real_add(sum_ref, ATAN025);
+     var data_a = m_mtx_real_sub(xx,0.25); 
+     var data_b = m_mtx_real_div(xx,4); 
+     var data_c = m_mtx_real_add(1,data_b); 
+     var xx=  m_mtx_real_div(data_a,data_c); }
+  if( DECI_DGT > 16){ 
  var ATAN0125= "0.12435499454676143503135484916387102557317019176980408991511411911572226742756675862371059431335333032637905130343837904381116308396839504671224378687171138859102401250904002718788102654925876989000973265906011694932561477352380174653752050574821602248006715464219160658033901853095048722664103400886537294276104206350186542951036116270692506417425223333167462444233213706990722070987032160299950740233148341122460977942283880892809684956735021327700419456469863361463358905814630769677317241397953588";   
-     var ATAN0125=m_fix(ATAN0125,420); 
-     var comp_xx_0125 = m_mtx_real_str_comp(xx,0.125);                       
-     if(comp_xx_0125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0125);  
-                          var xx=0;} 
-     if(comp_xx_0125 ==1){  
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN0125);
-         var data_a = m_mtx_real_sub(xx,0.125); 
-         var data_b = m_mtx_real_div(xx,8); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
-
+    var ATAN0125=m_fix(ATAN0125,420); 
+    var comp_xx_0125 = m_mtx_real_str_comp(xx,0.125);                       
+    if(comp_xx_0125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0125);  
+       var xx=0;} 
+    if(comp_xx_0125 ==1){  
+       var sum_ref = m_mtx_real_add(sum_ref, ATAN0125);
+       var data_a = m_mtx_real_sub(xx,0.125); 
+       var data_b = m_mtx_real_div(xx,8); 
+       var data_c = m_mtx_real_add(1,data_b); 
+       var xx=  m_mtx_real_div(data_a,data_c); }
 var ATAN00625=
 "0.06241880999595734847397911298550511360627388779749919460752781689869026721680345781396936172340611606164582642436956535402027683203445637073513324665932735205942294213070022641609329327604292108100586400928953010289820372883356522890896705132176920381641458615932279452226864404048949804368016652239930813973974847717896935680945482563131426673885925744976906467720068602506521703474956210226871692456515163545705008401934335609663809909689616200068487330330221331000057989202573676212117522852543242";  
-     var ATAN00625=m_fix(ATAN00625,420); 
-     var comp_xx_00625 = m_mtx_real_str_comp(xx,0.0625);                       
-        if(comp_xx_00625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00625);  
-                          var xx=0;}
-        if(comp_xx_00625 ==1){  
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN00625);
-         var data_a = m_mtx_real_sub(xx,0.0625); 
-         var data_b = m_mtx_real_div(xx,16); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
-
-var ATAN003125=    
+   var ATAN00625=m_fix(ATAN00625,420); 
+   var comp_xx_00625 = m_mtx_real_str_comp(xx,0.0625);                       
+   if(comp_xx_00625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00625);  
+      var xx=0;}
+   if(comp_xx_00625 ==1){  
+     var sum_ref = m_mtx_real_add(sum_ref, ATAN00625);
+     var data_a = m_mtx_real_sub(xx,0.0625); 
+     var data_b = m_mtx_real_div(xx,16); 
+     var data_c = m_mtx_real_add(1,data_b); 
+     var xx=  m_mtx_real_div(data_a,data_c); }
+ var ATAN003125=    
 "0.03123983343026827625371174489249097703249566372540004025531558625579642101943244717896297220075854500601141107647794733431560074278425159984884114970704621980281740118371157127162075412096575491837354388843301430976517237326708811190144997643726266684576376464311844490704217654584073903270233049377841040191737004819387938521894261433199883764773118681787671002937751295741545698700573449610597346187406003835768793346901288777783725512334132245263762627901687184024974592008042591644168336064084938";  
-
-     var ATAN003125=m_fix(ATAN003125,420); 
-     var comp_xx_003125 = m_mtx_real_str_comp(xx,0.03125);                       
-       if(comp_xx_003125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN003125);  
-                                var xx=0;}
-       if(comp_xx_003125 ==1){  
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN003125);
-         var data_a = m_mtx_real_sub(xx,0.03125); 
-         var data_b = m_mtx_real_div(xx,32); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
-
+   var ATAN003125=m_fix(ATAN003125,420); 
+   var comp_xx_003125 = m_mtx_real_str_comp(xx,0.03125);                       
+   if(comp_xx_003125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN003125);  
+          var xx=0;}
+   if(comp_xx_003125 ==1){  
+      var sum_ref = m_mtx_real_add(sum_ref, ATAN003125);
+      var data_a = m_mtx_real_sub(xx,0.03125); 
+      var data_b = m_mtx_real_div(xx,32); 
+      var data_c = m_mtx_real_add(1,data_b); 
+      var xx=  m_mtx_real_div(data_a,data_c); }
 var ATAN0015625=    
 "0.01562372862047683080280152125657031891111413980090541788141050739666477417640177912326444505513603460166170240257394210400208236381646661415010752710224612289497038722959923795561936987812119366678800470489196142064888954917615637890939265835172002852364270217945820855538105701228571278859817366860600668549538563444409567280894292087525363413062566023117263366345503783830794896265568755906187173895655561609757141416654270486078881128740422908677930758251240697608602866748799061084361092021831611";  
-
-     var ATAN0015625=m_fix(ATAN0015625,420); 
-     var comp_xx_0015625 = m_mtx_real_str_comp(xx,0.015625);                       
-       if(comp_xx_0015625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0015625);  
-                                       var xx=0;}
-       if(comp_xx_0015625 ==1){ 
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN0015625);
-         var data_a = m_mtx_real_sub(xx,0.015625); 
-         var data_b = m_mtx_real_div(xx,64); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
+   var ATAN0015625=m_fix(ATAN0015625,420); 
+   var comp_xx_0015625 = m_mtx_real_str_comp(xx,0.015625);                       
+   if(comp_xx_0015625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0015625);  
+         var xx=0;}
+   if(comp_xx_0015625 ==1){ 
+      var sum_ref = m_mtx_real_add(sum_ref, ATAN0015625);
+      var data_a = m_mtx_real_sub(xx,0.015625); 
+      var data_b = m_mtx_real_div(xx,64); 
+      var data_c = m_mtx_real_add(1,data_b); 
+      var xx=  m_mtx_real_div(data_a,data_c); }
    if( DECI_DGT > 50){ 
- 
-var ATAN00078125="0.00781234106010111129646339184219928162122281172501472355745390224838987204533523137930264204013581201516597412499471821348553302353878092180560926844402769223609048129950759908514659506357037982796854621058316149983252239761135382160304008718116505749512456340612407081598444109949379452801588288052721053514808849644778858613280028195885519436206131112400808888605981505978976245314307601411060939434448660527465739787022372190408076010528085050473196551503970604775031735998509862827776550691650295";  
-
+ var ATAN00078125="0.00781234106010111129646339184219928162122281172501472355745390224838987204533523137930264204013581201516597412499471821348553302353878092180560926844402769223609048129950759908514659506357037982796854621058316149983252239761135382160304008718116505749512456340612407081598444109949379452801588288052721053514808849644778858613280028195885519436206131112400808888605981505978976245314307601411060939434448660527465739787022372190408076010528085050473196551503970604775031735998509862827776550691650295";  
     var ATAN00078125=m_fix(ATAN00078125,420); 
     var comp_xx_00078125 = m_mtx_real_str_comp(xx,0.0078125);
-       if(comp_xx_00078125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00078125);  
-                                         var xx=0;}                 
-       if(comp_xx_00078125 ==1){  
+      if(comp_xx_00078125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00078125);  
+           var xx=0;}                 
+      if(comp_xx_00078125 ==1){  
          var sum_ref = m_mtx_real_add(sum_ref, ATAN00078125);
          var data_a = m_mtx_real_sub(xx,0.0078125); 
          var data_b = m_mtx_real_div(xx,128); 
          var data_c = m_mtx_real_add(1,data_b); 
          var xx=  m_mtx_real_div(data_a,data_c); }
-  
-  
-var ATAN000390625= "0.00390623013196697182762866531142438714035749011520285621521309514901134416395438020849570902245610003216537092105621743197739851169094193763433748357178045652815821069538880673548467226805287847028493548043934144577530709541405499465179424023469505939281452728188082297824958005181075759661688815370309526761998253263567106963915477950474603070807775979562033993258987025314473758595098229462719595608783458666782507916406467793491371948964829000555432014800996215124787623965988075043057526256493126";
-
-
-    var ATAN000390625=m_fix(ATAN000390625,420); 
-    var comp_xx_000390625 = m_mtx_real_str_comp(xx,0.00390625);  
-       if(comp_xx_000390625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN000390625);  
-                                      var xx=0;}              
-       if(comp_xx_000390625 ==1){  
-         var sum_ref = m_mtx_real_add(sum_ref, ATAN000390625);
-         var data_a = m_mtx_real_sub(xx,0.00390625); 
-         var data_b = m_mtx_real_div(xx,256); 
-         var data_c = m_mtx_real_add(1,data_b); 
-         var xx=  m_mtx_real_div(data_a,data_c); }
- 
+  var ATAN000390625= "0.00390623013196697182762866531142438714035749011520285621521309514901134416395438020849570902245610003216537092105621743197739851169094193763433748357178045652815821069538880673548467226805287847028493548043934144577530709541405499465179424023469505939281452728188082297824958005181075759661688815370309526761998253263567106963915477950474603070807775979562033993258987025314473758595098229462719595608783458666782507916406467793491371948964829000555432014800996215124787623965988075043057526256493126";
+   var ATAN000390625=m_fix(ATAN000390625,420); 
+   var comp_xx_000390625 = m_mtx_real_str_comp(xx,0.00390625);  
+   if(comp_xx_000390625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN000390625);  
+        var xx=0;}              
+   if(comp_xx_000390625 ==1){  
+      var sum_ref = m_mtx_real_add(sum_ref, ATAN000390625);
+      var data_a = m_mtx_real_sub(xx,0.00390625); 
+      var data_b = m_mtx_real_div(xx,256); 
+      var data_c = m_mtx_real_add(1,data_b); 
+      var xx=  m_mtx_real_div(data_a,data_c); }
 var ATAN0001953125= "0.00195312251647881868512148262507671393161074677723351033905753396043108530313709797291591649670908583185874038382886814154571853990623041741008586008558418180554351461813286228938261948029610639939417726706738951705431210865010982992756459534154078665034104794028469563423062388328742618642562229121381235832730733806214591563455691701401913914792021129479901148911067511949444786758423565253396648732960353740974042052574374607651200910258535685963219848113901023033636861368920074964216097631354091"; 
-
-    var ATAN0001953125=m_fix(ATAN0001953125,420);   
-     var comp_xx_0001953125 = m_mtx_real_str_comp(xx,0.001953125);                     
-       if(comp_xx_0001953125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0001953125);  
-                                  var xx=0;}  
-       if(comp_xx_0001953125 ==1){  
-       var sum_ref = m_mtx_real_add(sum_ref, ATAN0001953125);
-       var data_a = m_mtx_real_sub(xx,0.001953125); 
-       var data_b = m_mtx_real_div(xx,512);      
-       var data_c = m_mtx_real_add(1,data_b); 
-       var xx=  m_mtx_real_div(data_a,data_c); }
+   var ATAN0001953125=m_fix(ATAN0001953125,420);    
+   var comp_xx_0001953125 = m_mtx_real_str_comp(xx,0.001953125);                     
+   if(comp_xx_0001953125 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN0001953125);  
+      var xx=0;}  
+   if(comp_xx_0001953125 ==1){  
+      var sum_ref = m_mtx_real_add(sum_ref, ATAN0001953125);
+      var data_a = m_mtx_real_sub(xx,0.001953125); 
+      var data_b = m_mtx_real_div(xx,512);      
+      var data_c = m_mtx_real_add(1,data_b); 
+      var xx=  m_mtx_real_div(data_a,data_c); }
    if( DECI_DGT > 150){   
 var ATAN00009765625= "0.00097656218955931943040343019971729085163419701581008759004900725226763752035508454423581560302772747151329615923475615560028030019450898599859643846480343517498211853084646751392792362942417529030419460985728010663319644662176337731300628076961207172493394559869667997215661553994740459731535987767223509399292264620367322976404149930727532052575456316462723899978491492715671145964248235626187909226783287537914651213266523795626123014158641861940343642129985327247488578705684756220948172012233997";  
-     var ATAN00009765625=m_fix(ATAN00009765625,420); 
-     var comp_xx_00009765625 = m_mtx_real_str_comp(xx,0.0009765625);                       
-        if(comp_xx_00009765625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00009765625);  
-                                   var xx=0;} 
-       if(comp_xx_00009765625 ==1){  
+   var ATAN00009765625=m_fix(ATAN00009765625,420); 
+   var comp_xx_00009765625 = m_mtx_real_str_comp(xx,0.0009765625);                       
+     if(comp_xx_00009765625 ==3){var sum_ref = m_mtx_real_add(sum_ref, ATAN00009765625);  
+        var xx=0;} 
+     if(comp_xx_00009765625 ==1){  
        var sum_ref = m_mtx_real_add(sum_ref, ATAN00009765625);
        var data_a = m_mtx_real_sub(xx,0.0009765625); 
        var data_b = m_mtx_real_div(xx,1024);      
        var data_c = m_mtx_real_add(1,data_b); 
        var xx=  m_mtx_real_div(data_a,data_c); }
-    }}}
-      var BB = m_mtx_unit_inv_lg_100_table(); 
-     if(xx !=0){ 
-      var AA  = m_str_to_mtx(xx) ;      
-      var XX = AA;  
-      var nn=101  ; 
-      var AA2 = m_mtx_point_mul(AA,AA) ;
-        for(var i = 1 ; i < nn ; i=i+2){       
+        }}}
+   var BB = m_mtx_unit_inv_lg_100_table(); 
+   if(xx !=0){ 
+     var AA  = m_str_to_mtx(xx) ;      
+     var XX = AA;  
+     var nn=101  ; 
+     var AA2 = m_mtx_point_mul(AA,AA) ;
+       for(var i = 1 ; i < nn ; i=i+2){       
          var BB_i = m_mtx_row_table(BB,i);          
            if(i ==1){
             var SS = AA;     
@@ -7883,245 +7768,244 @@ var ATAN00009765625= "0.00097656218955931943040343019971729085163419701581008759
             else{
              var XX  = m_mtx_point_mul(XX,AA2);             
              var XXI = m_mtx_point_mul(XX,BB_i);
-                                       }
+                       }
              var data_rem = i % 4;
                 if(data_rem ==1 &&  i != 1){
                    var SS =  m_mtx_point_add(SS,XXI); }
                 if(data_rem ==3 &&  i != 1){
                    var SS =  m_mtx_point_sub(SS,XXI); }
                                                     }     
-               var  SS = m_mtx_cell_five(SS);   
-             var  sum_total = m_mtx_cell_five_show(SS); 
-             var  sum_total_t = m_mtx_real_add(sum_total,sum_ref); 
-      }
-         else{  var  sum_total_t = sum_ref; }
-               if(inv_flag =="1"){    
-                  var sum_total_t = m_mtx_real_sub(PIDIV2S ,sum_total_t);}   
-               if(xx_fst=="-"){    
-                  var sum_total_t = "-"+ sum_total_t;}
-      return sum_total_t; 
- }
-
-
-function m_asinh(x){                          
-   var xx = x.toString().trim();
-   var data_msg = 0;
-    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
-   var xx =m_mtx_trim(xx) ; 
-  var xx = m_str_e_to_str_point(xx );
-   var xx_test_small = m_mtx_str_to_e_a(xx);             
-   var xx_test_nub_e =m_str_power(xx_test_small,0);             
-   var xx_test_st = m_str_power(xx_test_small,1);          
-      if(m_mtx_real_str_comp(xx_test_nub_e,-201)==2 ){ 
-   var ans_a=xx ; return  ans_a;}
-   var xx_fst = xx.substr(0,1);
-    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-    else { var xx=xx;}
-  var comp_xx_60 = m_mtx_real_str_comp(xx,'1e+60');      
-       if(comp_xx_60==1){
-        var data_t = m_mtx_real_add(xx,xx);    
-        var ans_1 =m_ln(data_t);
-       if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}
-           return  ans_1;}
-      var xx = m_str_e_to_str(xx); 
-   var ans_1=0;
-   var data_2x = m_mtx_real_mul(xx,xx);
-   var data_2x_1 = m_mtx_real_add(data_2x,1); 
-   var data_pow = m_pow(data_2x_1,0.5);    
-   var data_pow = m_str_e_to_str(data_pow);  
-   var data_t = m_mtx_real_add(xx,data_pow);
-        ans_1 =m_ln(data_t);
-     if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}                    
-      var ans_1 = ans_1.toString().trim();
-return ans_1;
-
+           var SS = m_mtx_cell_five(SS);   
+           var sum_total = m_mtx_cell_five_show(SS); 
+           var sum_total_t = m_mtx_real_add(sum_total,sum_ref); 
+          }
+         else{ var  sum_total_t = sum_ref; }
+      if(inv_flag =="1"){    
+         var sum_total_t = m_mtx_real_sub(PIDIV2S ,sum_total_t);}   
+      if(xx_fst=="-"){    
+         var sum_total_t = "-"+ sum_total_t;}
+     return sum_total_t;
 }
 
 
-function m_acosh(x){                 
+function m_asinh(x){                           
+  var xx = x.toString().trim();
+  var data_msg = 0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+  var xx =m_mtx_trim(xx) ; 
+  var xx = m_str_e_to_str_point(xx );
+  var xx_test_small = m_mtx_str_to_e_a(xx);             
+  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+  var xx_test_st = m_str_power(xx_test_small,1);          
+  if(m_mtx_real_str_comp(xx_test_nub_e,-201)==2 ){ 
+  var ans_a=xx ; return  ans_a;}
+  var xx_fst = xx.substr(0,1);
+  if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+  else { var xx=xx;}
+  var comp_xx_60 = m_mtx_real_str_comp(xx,'1e+60');      
+    if(comp_xx_60==1){
+      var data_t = m_mtx_real_add(xx,xx);    
+      var ans_1 =m_ln(data_t);
+      if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}
+          return  ans_1;}
+  var xx = m_str_e_to_str(xx); 
+  var ans_1=0;
+  var data_2x = m_mtx_real_mul(xx,xx);
+  var data_2x_1 = m_mtx_real_add(data_2x,1); 
+  var data_pow = m_pow(data_2x_1,0.5);    
+  var data_pow = m_str_e_to_str(data_pow);  
+  var data_t = m_mtx_real_add(xx,data_pow);
+      ans_1 =m_ln(data_t);
+  if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}                    
+  var ans_1 = ans_1.toString().trim();
+return ans_1;
+}
+
+
+function m_acosh(x){                  
   var xx = x.toString().trim();
   var data_msg =0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;  
-   var xx = m_str_e_to_str_point(xx );
+  var xx = m_str_e_to_str_point(xx );
   var xx_fst = xx.substr(0,1);
-    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-     else { var xx=xx;}  
+  if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+  else { var xx=xx;}  
   var ans_1=0;
-     if( m_mtx_real_str_comp(x,1)==2 || xx_fst=="-" ){ var ans_1= message_1(3);  return ans_1 ;}      
-     if( m_mtx_real_str_comp(x,1)==3 ){ var ans_1 = 0  ; return ans_1 ;} 
-   var comp_xx_1 = m_mtx_real_str_comp(xx,'1e+1000');       
-     if(comp_xx_1==1){
-         var data_t = m_mtx_real_add(xx,xx);  
-         var ans_1 =m_ln(data_t);
-                return ans_1;   } 
-    var xx = m_str_e_to_str(xx);
-    var data_2x = m_mtx_real_mul(xx,xx);                    
-    var data_2x_1 = m_mtx_real_sub(data_2x,1);                    
-    var data_pow = m_pow(data_2x_1,0.5);                    
-    var data_t = m_mtx_real_add(xx,data_pow);
-         ans_1 =m_ln(data_t);
-   var ans_1 = ans_1.toString().trim();
-return ans_1;
+  if( m_mtx_real_str_comp(x,1)==2 || xx_fst=="-" ){ var ans_1= message_1(3);  return ans_1 ;}      
+  if( m_mtx_real_str_comp(x,1)==3 ){ var ans_1 = 0  ; return ans_1 ;} 
+  var comp_xx_1 = m_mtx_real_str_comp(xx,'1e+1000');      
+  if(comp_xx_1==1){
+     var data_t = m_mtx_real_add(xx,xx);  
+     var ans_1 =m_ln(data_t);
+          return ans_1;   } 
+  var xx = m_str_e_to_str(xx);
+  var data_2x = m_mtx_real_mul(xx,xx);                    
+  var data_2x_1 = m_mtx_real_sub(data_2x,1);                    
+  var data_pow = m_pow(data_2x_1,0.5);                    
+  var data_t = m_mtx_real_add(xx,data_pow);
+       ans_1 =m_ln(data_t);
+  var ans_1 = ans_1.toString().trim();
+ return ans_1;
 }
 
 
-function m_atanh(x){        
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
- if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;   
- var xx = m_str_e_to_str_point(xx ); 
- var xx_test_small = m_mtx_str_to_e_a(xx);              
- var xx_test_nub_e =m_str_power(xx_test_small,0);             
- var xx_test_st = m_str_power(xx_test_small,1);  
- var e_test = m_mtx_real_str_comp(xx_test_nub_e,-200); 
- if(e_test==2 ){ var ans_a=xx ; return  ans_a;} 
+function m_atanh(x){ 
+  var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+  var xx =m_mtx_trim(xx) ;   
+  var xx = m_str_e_to_str_point(xx ); 
+  var xx_test_small = m_mtx_str_to_e_a(xx);              
+  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+  var xx_test_st = m_str_power(xx_test_small,1);  
+  var e_test = m_mtx_real_str_comp(xx_test_nub_e,-200); 
+  if(e_test==2 ){ var ans_a=xx ; return  ans_a;} 
   var xx_fst = xx.substr(0,1);
-   if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-   else { var xx=xx;}    
-    xx = m_str_e_to_str(xx);      
+  if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+  else { var xx=xx;}    
+     xx = m_str_e_to_str(xx);      
   var ans_1=0;
   var comp_xx_0 = m_mtx_real_str_comp(xx,0);
   var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
   var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);    
-  if( comp_xx_n1 == 2 || comp_xx_1 ==1 ){ var ans_1= message_1(4);  return ans_1 ;}    
-  if( comp_xx_n1 == 3 || comp_xx_1 ==3 ){ var ans_1= message_1(4);  return ans_1 ;}    
-  if( comp_xx_0 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
-   var comp_xx_1 = m_mtx_real_str_comp(xx,1); 
-   var data_test = m_mtx_real_sub('1','1e-195');  
-   var data_test_up = m_mtx_real_sub('1','1e-200');
-   var comp_xx_data_test = m_mtx_real_str_comp(xx,data_test); 
-   var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up);  
-     if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
-            var ans_1= message_1(15);  return ans_1 ; }
-   if((comp_xx_data_test_up !=1)&& (comp_xx_data_test !=2)){ 
-    var data_a = m_fix(LN2S,250);   
-    var xx =  xx.toString();    
-    var data_b = m_mtx_real_sub('1',xx); 
-    var data_c = m_ln(data_b);  
-    var data_d = m_mtx_real_sub(data_a,data_c); 
-    var ans_1 = m_mtx_real_div(data_d,2);  }   
-    if(comp_xx_data_test ==2){
-    var data_a = m_mtx_real_add(1,xx); 
-    var data_b = m_mtx_real_sub(1,xx); 
-   var data_c = m_mtx_real_div(data_a,data_b);
-   var data_d = m_ln(data_c);   
-    var ans_1 = m_mtx_real_div(data_d,2);}     
-     if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}                    
-    var ans_1 = ans_1.toString().trim();
-return ans_1;
+  if(comp_xx_n1 == 2 || comp_xx_1 ==1 ){ var ans_1= message_1(4);  return ans_1 ;}    
+  if(comp_xx_n1 == 3 || comp_xx_1 ==3 ){ var ans_1= message_1(4);  return ans_1 ;}    
+  if(comp_xx_0 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
+  var comp_xx_1 = m_mtx_real_str_comp(xx,1); 
+  var data_test = m_mtx_real_sub('1','1e-195');  
+  var data_test_up = m_mtx_real_sub('1','1e-200');
+  var comp_xx_data_test = m_mtx_real_str_comp(xx,data_test); 
+  var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up);  
+  if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
+     var ans_1= message_1(15);  return ans_1 ; }
+  if((comp_xx_data_test_up !=1)&& (comp_xx_data_test !=2)){ 
+     var data_a = m_fix(LN2S,250); 
+     var xx =  xx.toString();    
+     var data_b = m_mtx_real_sub('1',xx); 
+     var data_c = m_ln(data_b);  
+     var data_d = m_mtx_real_sub(data_a,data_c); 
+     var ans_1 = m_mtx_real_div(data_d,2);  }   
+  if(comp_xx_data_test ==2){
+     var data_a = m_mtx_real_add(1,xx); 
+     var data_b = m_mtx_real_sub(1,xx); 
+     var data_c = m_mtx_real_div(data_a,data_b);
+     var data_d = m_ln(data_c);   
+     var ans_1 = m_mtx_real_div(data_d,2);}     
+  if(xx_fst=="-"){ var ans_1 = "-"+ans_1;}                    
+     var ans_1 = ans_1.toString().trim();
+  return ans_1;
 }
 
-
-function m_artanhs(x){  
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
-    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;   
- var comp_xx_0 = m_mtx_real_str_comp(xx,0);       
- var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);
- var comp_xx_n2 = m_mtx_real_str_comp(xx,-2); 
+function m_artanhs(x){    
+  var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+  var xx =m_mtx_trim(xx) ;   
+  var comp_xx_0 = m_mtx_real_str_comp(xx,0);        
+  var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);
+  var comp_xx_n2 = m_mtx_real_str_comp(xx,-2); 
   if( comp_xx_n1 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
   if( comp_xx_0 ==1 || comp_xx_n2 == 2  ){ var ans_1= message_1(4);  return ans_1 ;}    
-var xx = m_str_e_to_str_point(xx ); 
-var xx = m_mtx_str_to_e_a(xx);  
-var xx_nub_e =m_str_power(xx,0);           
-var xx_st = m_str_power(xx,1);         
-var xx_nub_e_fst = xx_nub_e.substr(0,1);
+  var xx = m_str_e_to_str_point(xx ); 
+  var xx = m_mtx_str_to_e_a(xx);  
+  var xx_nub_e =m_str_power(xx,0);           
+  var xx_st = m_str_power(xx,1);        
+  var xx_nub_e_fst = xx_nub_e.substr(0,1);
   if(xx_nub_e_fst=="-"){ var xx_nub_e=xx_nub_e.substr(1,xx_nub_e.length-1);}   
   else { var xx_nub_e=xx_nub_e;}  
-var xx_st_fst = xx_st.substr(0,1);
- if( xx_st_fst=="-" ){var xx_st=xx_st.substr(1,xx_st.length-1);}   
- else { var xx_st=xx_st;}  
-var e_test = m_mtx_real_str_comp(xx_nub_e,250);    
-   if(e_test ==1){
-    var data_a = m_mtx_real_mul(xx_nub_e,LN10S);   
-    var data_b = m_ln(xx_st);   
-    var data_c = m_mtx_real_sub(data_a,data_b) 
-    var data_d = m_mtx_real_add(LN2S,data_c);  
-    var ans_1 = m_mtx_real_div(data_d,2); 
-                  }
-    else{                
-    var data_a = m_mtx_real_mul(xx_nub_e,LN10S);   
-    var data_b = m_ln(xx_st);   
-    var data_c = m_mtx_real_sub(data_a,data_b) 
-    var data_ts = xx;
-    var data_d = m_mtx_real_add(data_ts,2); 
-    var data_e = m_ln(data_d);   
-    var data_f = m_mtx_real_add(data_e,data_c);  
-    var ans_1 = m_mtx_real_mul(data_f,0.5);   
-                  }                                    
-   var ans_1 = ans_1.toString().trim();
-     if( comp_xx_n1  == 1){ var ans_1 = ans_1;}  
-     else{  var ans_1 ="-"+ans_1;}  
+  var xx_st_fst = xx_st.substr(0,1);
+  if( xx_st_fst=="-" ){var xx_st=xx_st.substr(1,xx_st.length-1);}   
+  else { var xx_st=xx_st;}  
+  var e_test = m_mtx_real_str_comp(xx_nub_e,250);     
+  if(e_test ==1){
+  var data_a = m_mtx_real_mul(xx_nub_e,LN10S);  
+  var data_b = m_ln(xx_st);   
+  var data_c = m_mtx_real_sub(data_a,data_b) 
+  var data_d = m_mtx_real_add(LN2S,data_c);  
+  var ans_1 = m_mtx_real_div(data_d,2); 
+              }
+  else{                 
+  var data_a = m_mtx_real_mul(xx_nub_e,LN10S);  
+  var data_b = m_ln(xx_st);   
+  var data_c = m_mtx_real_sub(data_a,data_b) 
+  var data_ts = xx;
+  var data_d = m_mtx_real_add(data_ts,2);
+  var data_e = m_ln(data_d);   
+  var data_f = m_mtx_real_add(data_e,data_c);  
+  var ans_1 = m_mtx_real_mul(data_f,0.5); 
+              }                                    
+  var ans_1 = ans_1.toString().trim();
+  if( comp_xx_n1  == 1){ var ans_1 = ans_1;}  
+  else{  var ans_1 ="-"+ans_1;}  
 return ans_1;
 }
 
-function m_artanha(x){   
- var xx = x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
- if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;   
- var comp_xx_1 = m_mtx_real_str_comp(xx,1);              
- var comp_xx_0 = m_mtx_real_str_comp(xx,0);
- var comp_xx_2 = m_mtx_real_str_comp(xx,2); 
- if( comp_xx_1 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
- if( comp_xx_0 ==2 || comp_xx_2 == 1  ){ var ans_1= message_1(4);  return ans_1 ;}    
- var xx = m_str_e_to_str_point(xx ); 
- var xx = m_mtx_str_to_e_a(xx);  
- var xx_nub_e =m_str_power(xx,0);            
- var xx_st = m_str_power(xx,1);        
- var xx_nub_e_fst = xx_nub_e.substr(0,1);
-   if(xx_nub_e_fst=="-"){ var xx_nub_e=xx_nub_e.substr(1,xx_nub_e.length-1);}   
-    else { var xx_nub_e=xx_nub_e;}  
-var xx_st_fst = xx_st.substr(0,1);
- if( xx_st_fst=="-" ){var xx_st=xx_st.substr(1,xx_st.length-1);}   
-       else { var xx_st=xx_st;}  
-var e_test = m_mtx_real_str_comp(xx_nub_e,250); 
-   if(e_test ==1){
-    var data_a = m_mtx_real_mul(xx_nub_e,LN10); 
-    var data_b = m_ln(xx_st);   
-    var data_c = m_mtx_real_sub(data_a,data_b) 
-    var data_d = m_mtx_real_add(LN2,data_c);  
-    var ans_1 = m_mtx_real_mul(data_d,0.5); 
-                  }
-   else{                 
-    var data_a = m_mtx_real_mul(xx_nub_e,LN10);  
-    var data_b = m_ln(xx_st);   
-    var data_c = m_mtx_real_sub(data_a,data_b) 
-    var data_ts = xx;
-    var data_d = m_mtx_real_add(2,data_ts); 
-    var data_e = m_ln(data_d);   
-    var data_f = m_mtx_real_add(data_e,data_c);  
-    var ans_1 = m_mtx_real_mul(data_f,0.5); 
-                  }                                    
+function m_artanha(x){    
+  var xx = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+  if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+  var xx =m_mtx_trim(xx) ;   
+  var comp_xx_1 = m_mtx_real_str_comp(xx,1);               
+  var comp_xx_0 = m_mtx_real_str_comp(xx,0);
+  var comp_xx_2 = m_mtx_real_str_comp(xx,2); 
+  if( comp_xx_1 == 3 ){ var ans_1 = 0  ; return ans_1 ;}  
+  if( comp_xx_0 ==2 || comp_xx_2 == 1  ){ var ans_1= message_1(4);  return ans_1 ;}    
+  var xx = m_str_e_to_str_point(xx ); 
+  var xx = m_mtx_str_to_e_a(xx);  
+  var xx_nub_e =m_str_power(xx,0);             
+  var xx_st = m_str_power(xx,1);        
+  var xx_nub_e_fst = xx_nub_e.substr(0,1);
+  if(xx_nub_e_fst=="-"){ var xx_nub_e=xx_nub_e.substr(1,xx_nub_e.length-1);}   
+  else { var xx_nub_e=xx_nub_e;}  
+  var xx_st_fst = xx_st.substr(0,1);
+  if( xx_st_fst=="-" ){var xx_st=xx_st.substr(1,xx_st.length-1);}   
+  else { var xx_st=xx_st;}  
+  var e_test = m_mtx_real_str_comp(xx_nub_e,250);  
+  if(e_test ==1){
+  var data_a = m_mtx_real_mul(xx_nub_e,LN10);  
+  var data_b = m_ln(xx_st);   
+  var data_c = m_mtx_real_sub(data_a,data_b) 
+  var data_d = m_mtx_real_add(LN2,data_c);  
+  var ans_1 = m_mtx_real_mul(data_d,0.5); 
+             }
+  else{                 
+  var data_a = m_mtx_real_mul(xx_nub_e,LN10);  
+  var data_b = m_ln(xx_st);   
+  var data_c = m_mtx_real_sub(data_a,data_b) 
+  var data_ts = xx;
+  var data_d = m_mtx_real_add(2,data_ts); 
+  var data_e = m_ln(data_d);   
+  var data_f = m_mtx_real_add(data_e,data_c);  
+  var ans_1 = m_mtx_real_mul(data_f,0.5); 
+             }                                    
   var ans_1 = ans_1.toString().trim();
   if( comp_xx_1 == 2){ var ans_1 = "-"+ans_1;}  
   else{  var ans_1 =ans_1;}  
-return ans_1;
+    return ans_1;
 }
 
 function m_mtx_row_table(A,row){    
- var AA=A;
- var n=row;
- var BB=m_new_zero_mtx(1,AA[0].length);               
-   for(var i=0;i<AA[0].length;i++){ 
-     BB[0][i]=AA[n][i];}
+  var AA=A;
+  var n=row;
+  var BB=m_new_zero_mtx(1,AA[0].length);               
+  for(var i=0;i<AA[0].length;i++){ 
+    BB[0][i]=AA[n][i];}
    return BB ; 
 }
 
+
 function m_mtx_point_in_int(A,x){      
-   var AA=A;
-   var xx=m_abs(x);
-   var data_row = AA.length;     
-   var data_col=AA[0].length;  
-       xx="00000"+xx.toString();    
+  var AA=A;
+  var xx=m_abs(x);
+  var data_row = AA.length;     
+  var data_col=AA[0].length;  
+      xx="00000"+xx.toString();    
    var xx_lg=xx.length;
     for(var m=0;m<data_row ;m++){        
          for(var n=0;n<data_col;n++){
@@ -8135,51 +8019,50 @@ function m_mtx_point_in_int(A,x){
 }
 
 
-function m_mtx_point_in(A,x){      
+ function m_mtx_point_in(A,x){      
    var AA=A;
-     var xx = m_str_e_to_str(x);  
-     var xx_st = xx.toString().trim();
-     var data_chk= xx_st.substr(0,1);
-     var data_chk_lg= xx_st.length;
-        if(data_chk=="-"){
-          var xx = xx_st.substr(1,data_chk_lg-1);}
-        else{ var xx=xx_st;}
-     var data_row = AA.length;     
-     var data_col=AA[0].length;  
-        xx=xx.toString()+"00000";    
-     var xx_lg=xx.length;
-       for(var m=0;m<data_row ;m++){        
-         for(var n=0;n<data_col;n++){
-           AA[m][n]= xx.substr(2+((m+n)*5),5);    
-              if(AA[m][n]==""){ AA[m][n]=0;}       
-                                 }
-                                         }
+   var xx = m_str_e_to_str(x);  
+   var xx_st = xx.toString().trim();
+   var data_chk= xx_st.substr(0,1);
+   var data_chk_lg= xx_st.length;
+     if(data_chk=="-"){
+       var xx = xx_st.substr(1,data_chk_lg-1);}
+      else{ var xx=xx_st;}
+   var data_row = AA.length;     
+   var data_col=AA[0].length;  
+       xx=xx.toString()+"00000";    
+   var xx_lg=xx.length;
+     for(var m=0;m<data_row ;m++){        
+       for(var n=0;n<data_col;n++){
+         AA[m][n]= xx.substr(2+((m+n)*5),5);    
+         if(AA[m][n]==""){ AA[m][n]=0;}       
+                         }
+                     }
    return AA;
 }
 
 
-function m_mtx_point_mul_all(A,B){      
- var AA=A;
-  var BB=B;
-  var data_chk_a = AA[0][0].toString().trim();
-  var data_chk_b = BB[0][0].toString().trim();
-  var data_chk_a_fst = data_chk_a.substr(0,1);
-  var data_chk_b_fst = data_chk_b.substr(0,1);
-      if(data_chk_a_fst =="-" ){ 
-                     var data_chk_a = data_chk_a.substr(1,data_chk_a.length-1);}
-        else{ var data_chk_a = data_chk_a;}
-                     AA[0][0]= data_chk_a; 
-       if(data_chk_b_fst =="-" ){
-                     var data_chk_b = data_chk_b.substr(1,data_chk_b.length-1);}
-        else{ var data_chk_b = data_chk_b;}
-                      BB[0][0]= data_chk_b;   
-   var CC = m_new_zero_mtx(1,MTX_COL);     
-       CC = m_mtx_point_mul(A,B);      
-       CC = m_mtx_cell_five(CC);
-           if(( data_chk_a_fst=="-" && data_chk_b_fst !="-")||( data_chk_a_fst !="-" && data_chk_b_st=="-")){
-                            var data_c00= CC[0][0];
-                              CC[0][0]= "-"+data_c00 ;} 
-
+ function m_mtx_point_mul_all(A,B){      
+   var AA=A;
+   var BB=B;
+   var data_chk_a = AA[0][0].toString().trim();
+   var data_chk_b = BB[0][0].toString().trim();
+   var data_chk_a_fst = data_chk_a.substr(0,1);
+   var data_chk_b_fst = data_chk_b.substr(0,1);
+     if(data_chk_a_fst =="-" ){ 
+       var data_chk_a = data_chk_a.substr(1,data_chk_a.length-1);}
+      else{ var data_chk_a = data_chk_a;}
+        AA[0][0]= data_chk_a; 
+      if(data_chk_b_fst =="-" ){
+        var data_chk_b = data_chk_b.substr(1,data_chk_b.length-1);}
+      else{var data_chk_b = data_chk_b;}
+        BB[0][0]= data_chk_b;   
+    var CC = m_new_zero_mtx(1,MTX_COL);     
+        CC = m_mtx_point_mul(A,B);      
+        CC = m_mtx_cell_five(CC);
+          if(( data_chk_a_fst=="-" && data_chk_b_fst !="-")||( data_chk_a_fst !="-" && data_chk_b_st=="-")){
+            var data_c00= CC[0][0];
+            CC[0][0]= "-"+data_c00 ;} 
    return CC;  
 }
 
@@ -8194,341 +8077,333 @@ function m_mtx_point_mul(A,B){
   var data_chk_b = BB[0][0].toString().trim();
   var data_chk_a_fst = data_chk_a.substr(0,1);
   var data_chk_b_fst = data_chk_b.substr(0,1);
-     if(data_chk_a_fst =="-" ){ 
-                     var data_chk_a = data_chk_a.substr(1,data_chk_a.length-1);}
-        else{ var data_chk_a = data_chk_a;}
-                     AA[0][0]= data_chk_a; 
-       if(data_chk_b_fst =="-" ){
-                     var data_chk_b = data_chk_b.substr(1,data_chk_b.length-1);}
-        else{ var data_chk_b = data_chk_b;}
-                     BB[0][0]= data_chk_b;   
-         var data_col_max =0;
-           if(data_col_a >= data_col_b){ var data_col_max = data_col_a ;}    
-           if(data_col_a < data_col_b){ var data_col_max = data_col_b ;}
+    if(data_chk_a_fst =="-" ){ 
+      var data_chk_a = data_chk_a.substr(1,data_chk_a.length-1);}
+    else{ var data_chk_a = data_chk_a;}
+       AA[0][0]= data_chk_a; 
+    if(data_chk_b_fst =="-" ){
+      var data_chk_b = data_chk_b.substr(1,data_chk_b.length-1);}
+    else{ var data_chk_b = data_chk_b;}
+       BB[0][0]= data_chk_b;   
+       var data_col_max =0;
+    if(data_col_a >= data_col_b){ var data_col_max = data_col_a ;}    
+    if(data_col_a < data_col_b){ var data_col_max = data_col_b ;}
   var CC = m_new_zero_mtx(1,data_col_max); 
-      for(var i=0;i<data_col_b ;i++){          
-          var data_a=  parseInt(BB[0][i]);
+    for(var i=0;i<data_col_b ;i++){          
+        var data_a=  parseInt(BB[0][i]);
         for(var n=0;n<(data_col_a-1-i) ;n++){    
-               if(data_a >=0 || data_a<0 ){      
-                CC[0][(n+i)+1]= data_a *parseInt(AA[0][n]) + parseInt(CC[0][(n+i)+1]);   
-                                          } 
-                                            }   
-                                       }         
-   
-           CC[0][0]=0;
-   CC = m_mtx_cell_five(CC); 
-  return CC;
+          if(data_a >=0 || data_a<0 ){      
+            CC[0][(n+i)+1]= data_a *parseInt(AA[0][n]) + parseInt(CC[0][(n+i)+1]);   
+                           } 
+                       }   
+                 }         
+    CC[0][0]=0;
+    CC = m_mtx_cell_five(CC); 
+     return CC;
 }
 
-
-function m_str_e_to_str(x){             
-  var xx_st=x.toString().trim();             
-  var xx_fst = xx_st.substr(0,1);
-  var xx_lg = xx_st.length;
-   if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
-                    xx_lg=xx_lg-1;}
- var pos_pot  = xx_st.indexOf(".");    
- var pos_e  = xx_st.indexOf("e");  
-  if(pos_e == -1){ return x ;}                      
- var  nub_x_0 = m_str_power(xx_st,0);         
- var  xx_st_0 = m_str_power(xx_st,1);          
- var nub_pot = nub_x_0.indexOf(".");   
- var flag_e=0;
-  if( nub_pot !=-1){                              
-    var xx_st = mtx_str_e(xx_st);        
-    var flag_e = 1;
-              }
-  if( nub_pot ==-1 || flag_e == 1 ){                             
-     var  nub_x = m_str_power(xx_st,0);          
-          xx_st = m_str_power(xx_st,1);          
-     var xx_lg = xx_st.length;             
-     var pos_pot  = xx_st.indexOf(".");    
-     var xx_chk = xx_lg-pos_pot-1;
-   if(xx_chk >= nub_x && pos_pot !=-1){                    
-      xx_st = m_mtx_str_element_shift(xx_st,nub_x);     
-      nub_x =0;
-                  }
-   if(xx_chk < nub_x && pos_pot !=-1){                    
+ function m_str_e_to_str(x){             
+   var xx_st=x.toString().trim();             
+   var xx_fst = xx_st.substr(0,1);
+   var xx_lg = xx_st.length;
+     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
+        xx_lg=xx_lg-1;}
+   var pos_pot  = xx_st.indexOf(".");    
+   var pos_e  = xx_st.indexOf("e");  
+     if(pos_e == -1){ return x ;}                      
+   var nub_x_0 = m_str_power(xx_st,0);         
+   var xx_st_0 = m_str_power(xx_st,1);          
+   var nub_pot = nub_x_0.indexOf(".");   
+   var flag_e=0;
+     if(nub_pot !=-1){                              
+       var xx_st = mtx_str_e(xx_st);        
+       var flag_e = 1;
+                     }
+     if(nub_pot ==-1 || flag_e == 1 ){                             
+       var  nub_x = m_str_power(xx_st,0);          
+            xx_st = m_str_power(xx_st,1);          
+       var xx_lg = xx_st.length;             
+       var pos_pot  = xx_st.indexOf(".");    
+       var xx_chk = xx_lg-pos_pot-1;
+     if(xx_chk >= nub_x && pos_pot !=-1){                    
+        xx_st = m_mtx_str_element_shift(xx_st,nub_x);     
+        nub_x =0;
+                       }
+     if(xx_chk < nub_x && pos_pot !=-1){                    
        var data_z=0;
        var data_z=nub_x - xx_chk;
-        while( data_z >0){
+       while( data_z >0){
          xx_st =  xx_st+"0";
-        data_z = data_z -1 ;
-                         }
-      xx_st = m_mtx_str_element_shift(xx_st,nub_x);     
+         data_z = data_z -1 ;
+                          }
+       xx_st = m_mtx_str_element_shift(xx_st,nub_x);     
        nub_x =0;
-                       }
+                           }
     var nub_x_comp_0 = m_mtx_real_str_comp(nub_x,0);   
-       if( nub_x_comp_0==2  && pos_pot !=-1 ){                             
+      if(nub_x_comp_0==2  && pos_pot !=-1 ){                             
          xx_st = m_mtx_str_element_shift(xx_st,nub_x);     
          nub_x =0;
-                    }
-       if( nub_x_comp_0==2  && pos_pot == -1 ){                      
-           xx_st =xx_st+"." ;    
-           xx_st = m_mtx_str_element_shift(xx_st,nub_x);         
-           nub_x =0;
-                        } 
+                      }
+      if( nub_x_comp_0==2  && pos_pot == -1 ){                      
+         xx_st =xx_st+"." ;    
+         xx_st = m_mtx_str_element_shift(xx_st,nub_x);         
+         nub_x =0;
+                         } 
        if( nub_x_comp_0==1 && pos_pot ==-1){                    
-           while( nub_x_comp_0==1){
-              xx_st =  xx_st+"0";
-              nub_x = m_mtx_real_sub(nub_x,1) ;
-          var nub_x_comp_0 = m_mtx_real_str_comp(nub_x,0);   
-                               }
-             nub_x_comp_0==3;
-                              }
+         while( nub_x_comp_0==1){
+           xx_st =  xx_st+"0";
+           nub_x = m_mtx_real_sub(nub_x,1) ;
+           var nub_x_comp_0 = m_mtx_real_str_comp(nub_x,0);   
+                         }
+         nub_x_comp_0==3;
+                            }
           }   
+      if(xx_fst=="-"){ xx_st="-"+xx_st;}    
+      else{ xx_st=xx_st;}
+  var xx_st = m_mtx_trim(xx_st) ;   
+    return xx_st ;
+}
+
+ function m_mtx_str_to_e(x){           
+   var xx_st=x.toString().trim();             
+   var xx_fst = xx_st.substr(0,1);
+   var xx_lg = xx_st.length;
+     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);   
+         xx_lg=xx_lg-1;}
+   var pos_e  = xx_st.indexOf("e");    
+   var pos_point  = xx_st.indexOf("."); 
+   var data_msg = xx_st.indexOf("Msg"); 
+     if(data_msg !=-1){ return xx_st ;}  
+   var data_fst = xx_st.substr(0,1);     
+   var data_chk = 1;
+   var nub_x =0;
+     if(pos_e != -1  ){ return x ;}   
+     if(pos_e == -1 && pos_point ==-1 && xx_lg>=2 ){             
+        xx_st= xx_st.substr(0,1) +"."+xx_st.substr(1,xx_lg-1)+"e+"+ (xx_lg-1);
      if(xx_fst=="-"){ xx_st="-"+xx_st;}    
      else{ xx_st=xx_st;}
-    var xx_st = m_mtx_trim(xx_st) ;   
-    return xx_st ;
-}
-
-function m_mtx_str_to_e(x){             
- var xx_st=x.toString().trim();             
-  var xx_fst = xx_st.substr(0,1);
-  var xx_lg = xx_st.length;
-     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);   
-                          xx_lg=xx_lg-1;}
-       var pos_e  = xx_st.indexOf("e");    
-       var pos_point  = xx_st.indexOf("."); 
-        var data_msg = xx_st.indexOf("Msg"); 
-        if(data_msg !=-1){ return xx_st ;}  
-       var data_fst = xx_st.substr(0,1);     
-       var data_chk = 1;
-       var nub_x =0;
-    if(pos_e != -1  ){ return x ;}   
-    if(pos_e == -1 && pos_point ==-1 && xx_lg>=2 ){             
-            xx_st= xx_st.substr(0,1) +"."+xx_st.substr(1,xx_lg-1)+"e+"+ (xx_lg-1);
-                   if(xx_fst=="-"){ xx_st="-"+xx_st;}    
-                    else{ xx_st=xx_st;}
-                      return xx_st ;}      
-    if(pos_e == -1 && pos_point !=-1 && data_fst !=0 && pos_point >1 && xx_lg >3){       
-                     xx_st= xx_st.substr(0,1) +"."+xx_st.substr(1,pos_point-1) + xx_st.substr(pos_point+1,xx_lg-pos_point-1)+"e+"+(pos_point-1);
-                     if(xx_fst=="-"){ xx_st="-"+xx_st;}    
-                       else{ xx_st=xx_st;}
-                      return xx_st ;}  
+          return xx_st ;}      
+     if(pos_e == -1 && pos_point !=-1 && data_fst !=0 && pos_point >1 && xx_lg >3){       
+       xx_st= xx_st.substr(0,1) +"."+xx_st.substr(1,pos_point-1) + xx_st.substr(pos_point+1,xx_lg-pos_point-1)+"e+"+(pos_point-1);
+     if(xx_fst=="-"){ xx_st="-"+xx_st;}    
+     else{ xx_st=xx_st;}
+        return xx_st ;}  
      if(pos_e == -1 && pos_point !=-1 && data_fst ==0 ){       
-           var xx_lg = xx_st.length;             
-           var pos_pot  = xx_st.indexOf(".");    
-            for(var i=0 ;i<xx_lg-1 ;i++){
-                var data_chk = xx_st.substr(i+2,1);           
-                    if( data_chk ==0){ var nub_x = nub_x+1;}
-                    else{ i= xx_lg;}                          
-                                          }
-           if( nub_x >=1){                    
-             xx_st = m_mtx_str_element_shift(xx_st,nub_x+1);    
-                             }
-           }
-        if(xx_fst=="-"){ xx_st="-"+xx_st;}    
-         else{ xx_st=xx_st;}  
-         var xx_st = m_mtx_trim(xx_st) ;   
-          if( nub_x >=1){
-            xx_st = xx_st+"e-"+(nub_x+1); }           
-           nub_x =0;
+       var xx_lg = xx_st.length;             
+       var pos_pot  = xx_st.indexOf(".");    
+       for(var i=0 ;i<xx_lg-1 ;i++){
+         var data_chk = xx_st.substr(i+2,1);           
+         if( data_chk ==0){ var nub_x = nub_x+1;}
+         else{ i= xx_lg;}                          
+                               }
+         if( nub_x >=1){                    
+           xx_st = m_mtx_str_element_shift(xx_st,nub_x+1);    
+                        }
+          }
+     if(xx_fst=="-"){ xx_st="-"+xx_st;}    
+     else{ xx_st=xx_st;}  
+     var xx_st = m_mtx_trim(xx_st) ;   
+       if( nub_x >=1){
+         xx_st = xx_st+"e-"+(nub_x+1); }           
+         nub_x =0;
     return xx_st ;
 }
 
 
-function m_mtx_str_to_e_a(x){           
-var xx_st=x.toString().trim();             
-  var xx_fst = xx_st.substr(0,1);
-  var xx_lg = xx_st.length;
-    if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
-                          xx_lg=xx_lg-1;}
-      var pos_e  = xx_st.indexOf("e");  
-      var data_msg = xx_st.indexOf("Msg"); 
-         if(data_msg !=-1){ return xx_st ;}  
-       var data_fst = xx_st.substr(0,1);     
-       var data_chk = 1;
-       var nub_x =0;
-      if(pos_e  !=-1){
-        nub_x = m_str_power(xx_st,0);          
+ function m_mtx_str_to_e_a(x){             
+   var xx_st=x.toString().trim();             
+   var xx_fst = xx_st.substr(0,1);
+   var xx_lg = xx_st.length;
+     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
+          xx_lg=xx_lg-1;}
+   var pos_e  = xx_st.indexOf("e");  
+   var data_msg = xx_st.indexOf("Msg"); 
+     if(data_msg !=-1){ return xx_st ;}  
+   var data_fst = xx_st.substr(0,1);     
+   var data_chk = 1;
+   var nub_x =0;
+     if(pos_e  !=-1){
+       nub_x = m_str_power(xx_st,0);          
                      }
-     var xx_st = m_str_power(xx_st,1);
-     var xx_st_lg = xx_st.length;  
-      if( xx_st_lg >1 ){   
-       var  xx_st1 = m_mtx_str_to_e(xx_st);  
-       var  nub_x1 = m_str_power(xx_st1,0);     
-       var  nub_x = m_mtx_int_add(nub_x,nub_x1);
-       var xx_st = m_str_power(xx_st1,1); 
+   var xx_st = m_str_power(xx_st,1);
+   var xx_st_lg = xx_st.length;  
+     if( xx_st_lg >1 ){   
+   var xx_st1 = m_mtx_str_to_e(xx_st);  
+   var nub_x1 = m_str_power(xx_st1,0);     
+   var nub_x = m_mtx_int_add(nub_x,nub_x1);
+   var xx_st = m_str_power(xx_st1,1); 
       } 
-     var nub_m= m_nub_m(xx_st);      
-     var nub_p= m_nub_p(xx_st);      
-     var nub_m_lg = nub_m.toString().length;
-     var nub_p_lg = nub_p.toString().length;
-     var xx_lg = xx_st.length;             
-     var pos_pot  = xx_st.indexOf(".");    
-     var data_fst = xx_st.substr(0,1);
-         if( nub_m_lg >1 &&  pos_pot  !=-1 &&  data_fst !=0){                    
-              xx_st = m_mtx_str_element_shift(xx_st, (-nub_m_lg+1));               
-          var nub_x = m_mtx_int_sub(nub_x,1);                
-          var nub_x = m_mtx_int_add(nub_x,nub_m_lg);
+   var nub_m= m_nub_m(xx_st);      
+   var nub_p= m_nub_p(xx_st);      
+   var nub_m_lg = nub_m.toString().length;
+   var nub_p_lg = nub_p.toString().length;
+   var xx_lg = xx_st.length;             
+   var pos_pot  = xx_st.indexOf(".");    
+   var data_fst = xx_st.substr(0,1);
+     if(nub_m_lg >1 &&  pos_pot  !=-1 &&  data_fst !=0){                    
+        xx_st = m_mtx_str_element_shift(xx_st, (-nub_m_lg+1));               
+        var nub_x = m_mtx_int_sub(nub_x,1);                
+        var nub_x = m_mtx_int_add(nub_x,nub_m_lg);
                             }
-          var data_fst = xx_st.substr(0,1);  
-            if( nub_m_lg ==1 &&  pos_pot  !=-1 &&  data_fst ==0){                
-                   xx_st = m_mtx_str_element_shift(xx_st, 1);                     
-           var nub_x = m_mtx_int_sub(nub_x,1);
+        var data_fst = xx_st.substr(0,1);  
+        if( nub_m_lg ==1 &&  pos_pot  !=-1 &&  data_fst ==0){                
+          xx_st = m_mtx_str_element_shift(xx_st, 1);                     
+        var nub_x = m_mtx_int_sub(nub_x,1);
                              } 
-            var nn=1;
-                 var data_fst = xx_st.substr(0,1);  
-           if( nub_m ==0 &&  pos_pot  !=-1 &&  data_fst ==0){               
-              while( nn >0){
-               xx_st = m_mtx_str_element_shift(xx_st, 1);            
-                  var nub_x = m_mtx_int_sub(nub_x,1);
-                           var nub_m= m_nub_m(xx_st);      
-                              if(nub_m !=0){ var nn=-1 ;} 
-                               }
-             
-                                                       }
- 
-       if(xx_fst=="-"){ xx_st="-"+xx_st;}    
-         else{ xx_st=xx_st;}  
-         var xx_st = m_mtx_trim(xx_st) ;   
-           nub_x = m_str_e_to_str(nub_x);             
-          if( nub_x < 0){
-            xx_st = xx_st+"e"+(nub_x); }           
-           if( nub_x == 0){
-            xx_st = xx_st; }                       
-           if( nub_x > 0){
-            xx_st = xx_st+"e+"+(nub_x); }          
-           nub_x =0;
-          var xx_st=  m_fix_pow_lst(xx_st);    
+   var nn=1;
+   var data_fst = xx_st.substr(0,1);  
+     if( nub_m ==0 &&  pos_pot  !=-1 &&  data_fst ==0){               
+       while( nn >0){
+         xx_st = m_mtx_str_element_shift(xx_st, 1);            
+         var nub_x = m_mtx_int_sub(nub_x,1);
+         var nub_m= m_nub_m(xx_st);      
+         if(nub_m !=0){ var nn=-1 ;} 
+                             }
+                                 }
+     if(xx_fst=="-"){ xx_st="-"+xx_st;}    
+     else{ xx_st=xx_st;}  
+   var xx_st = m_mtx_trim(xx_st) ;   
+       nub_x = m_str_e_to_str(nub_x);             
+     if( nub_x < 0){
+       xx_st = xx_st+"e"+(nub_x); }           
+       if( nub_x == 0){
+         xx_st = xx_st; }                       
+     if( nub_x > 0){
+        xx_st = xx_st+"e+"+(nub_x); }          
+        nub_x =0;
+        var xx_st=  m_fix_pow_lst(xx_st);    
   return xx_st ;
-
 }
 
-function m_mtx_str_to_e_ne(x){             
- var xx_st=x.toString().trim();             
-  var xx_fst = xx_st.substr(0,1);
-  var xx_lg = xx_st.length;
-      if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
-                          xx_lg=xx_lg-1;}
-       var xx_st_new = xx_st;
-       var xx_st = m_mtx_trim(xx_st) ;   
-       var pos_e  = xx_st.indexOf("e");  
-       var pos_pot  = xx_st.indexOf(".");    
-       var data_fst = xx_st.substr(0,1);     
-       var xx_lg = xx_st.length;             
+ function m_mtx_str_to_e_ne(x){             
+   var xx_st=x.toString().trim();             
+   var xx_fst = xx_st.substr(0,1);
+   var xx_lg = xx_st.length;
+     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
+        xx_lg=xx_lg-1;}
+   var xx_st_new = xx_st;
+   var xx_st = m_mtx_trim(xx_st) ;   
+   var pos_e  = xx_st.indexOf("e");  
+   var pos_pot  = xx_st.indexOf(".");    
+   var data_fst = xx_st.substr(0,1);     
+   var xx_lg = xx_st.length;             
      if(pos_e == -1 && pos_pot ==-1 && xx_lg >1 ){       
-            for(var i=0; i< xx_st.length;i++){
-                 if(data_fst ==0 && xx_lg >1){           
-                       xx_st = xx_st.substr(1,xx_lg-1);
-                       var data_fst = xx_st.substr(0,1);       
-                       var xx_lg = xx_st.length;             
+       for(var i=0; i< xx_st.length;i++){
+         if(data_fst ==0 && xx_lg >1){           
+           xx_st = xx_st.substr(1,xx_lg-1);
+           var data_fst = xx_st.substr(0,1);       
+            var xx_lg = xx_st.length;             
                                  }
                                                 }     
-             var xx_lg = xx_st.length;             
-               if(xx_lg >1){
-                 var xx_st_new = xx_st.substr(0,1)+"."+ xx_st.substr(1,xx_lg-1)+"e+"+(xx_lg-1);
-                           }
+   var xx_lg = xx_st.length;             
+     if(xx_lg >1){
+       var xx_st_new = xx_st.substr(0,1)+"."+ xx_st.substr(1,xx_lg-1)+"e+"+(xx_lg-1);
+                        }
                                                  }
-        if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
-         else{ xx_st_new=xx_st_new;}  
+     if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
+     else{ xx_st_new=xx_st_new;}  
     return xx_st_new ;
 }
 
-function m_mtx_str_to_e_nez(x,n){             
-  var xx_st=x.toString().trim();             
-  var xx_fst = xx_st.substr(0,1);
-  var xx_lg = xx_st.length;
-      if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
-                          xx_lg=xx_lg-1;}
-       var xx_st_new = xx_st;
-       var xx_st = m_mtx_trim(xx_st) ;   
-       var pos_e  = xx_st.indexOf("e");  
-       var pos_pot  = xx_st.indexOf(".");    
-       var data_fst = xx_st.substr(0,1);     
-       var xx_lg = xx_st.length;             
-      if(pos_e == -1 && pos_pot ==-1 && xx_lg >=1 ){       
-            var xx_st_new = "0."+ xx_st.substr(0,xx_lg);
-                                                  }     
-        if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
-         else{ xx_st_new=xx_st_new;}  
-   if(n==0){
+ function m_mtx_str_to_e_nez(x,n){             
+   var xx_st=x.toString().trim();             
+   var xx_fst = xx_st.substr(0,1);
+   var xx_lg = xx_st.length;
+     if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
+        xx_lg=xx_lg-1;}
+   var xx_st_new = xx_st;
+   var xx_st = m_mtx_trim(xx_st) ;   
+   var pos_e  = xx_st.indexOf("e");  
+   var pos_pot  = xx_st.indexOf(".");    
+   var data_fst = xx_st.substr(0,1);     
+   var xx_lg = xx_st.length;             
+     if(pos_e == -1 && pos_pot ==-1 && xx_lg >=1 ){       
+       var xx_st_new = "0."+ xx_st.substr(0,xx_lg);
+                                   }     
+     if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
+     else{ xx_st_new=xx_st_new;}  
+     if(n==0){
        return xx_st_new ;}
-    else { return xx_lg ;}
+     else { return xx_lg ;}
 }
 
 
-function m_mtx_str_to_e_small(x){               
+function m_mtx_str_to_e_small(x){                
   var xx_st=x.toString().trim();             
   var xx_fst = xx_st.substr(0,1);
   var xx_lg = xx_st.length;
-      if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
-                          xx_lg=xx_lg-1;}
-       var xx_st_new = xx_st;
-       var xx_st = m_mtx_trim(xx_st) ;   
-       var pos_e  = xx_st.indexOf("e");  
-       var pos_pot  = xx_st.indexOf(".");    
-       var data_fst = xx_st.substr(0,2);     
-       var xx_lg = xx_st.length;             
-       var data_zero = 1;
-       var data_nub = 0;
-   if(pos_e == -1 && pos_pot !=-1 && xx_lg >=1 && data_fst=="0."){       
-                 for(var i=0;i<xx_lg ;i++){    
-                       var data_zero = xx_st.substr(2+i,1);
-                            if(data_zero==0){ var data_nub=data_nub+1; } 
-                            else {var i =xx_lg ;}  
-                                          } 
-                              if(data_nub >=1) { xx_st_new = xx_st.substr(data_nub+2,1) + "." + xx_st.substr(data_nub+3,xx_lg-data_nub-3)+"e-"+ (data_nub+1);
-                                                }   
- 
-                                                                        }
-        if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
-         else{ xx_st_new=xx_st_new;}  
+    if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
+       xx_lg=xx_lg-1;}
+  var xx_st_new = xx_st;
+  var xx_st = m_mtx_trim(xx_st) ;   
+  var pos_e = xx_st.indexOf("e");  
+  var pos_pot = xx_st.indexOf(".");    
+  var data_fst = xx_st.substr(0,2);     
+  var xx_lg = xx_st.length;             
+  var data_zero = 1;
+  var data_nub = 0;
+    if(pos_e == -1 && pos_pot !=-1 && xx_lg >=1 && data_fst=="0."){       
+      for(var i=0;i<xx_lg ;i++){    
+        var data_zero = xx_st.substr(2+i,1);
+        if(data_zero==0){ var data_nub=data_nub+1; } 
+        else {var i =xx_lg ;}  
+                          } 
+        if(data_nub >=1) { xx_st_new = xx_st.substr(data_nub+2,1) + "." + xx_st.substr(data_nub+3,xx_lg-data_nub-3)+"e-"+ (data_nub+1);
+                                              }   
+                                             }
+     if(xx_fst=="-"){ xx_st_new="-"+xx_st_new;}    
+     else{ xx_st_new=xx_st_new;}  
       return xx_st_new ;
 }
 
-function m_str_1_point( x ,nub){          
-   var xx_st=x.toString().trim();             
+function m_str_1_point( x ,nub){            
+  var xx_st=x.toString().trim();             
   var data_x_fst=xx_st.substr(0,1);
   var data_x_lg=xx_st.length;
   var data_x_pot  =xx_st.indexOf(".");    
   var data_x_e  =xx_st.indexOf("e");
   var data_chk=0;
-       if(data_x_pot==-1 && data_x_e==-1 && data_x_fst !="-"){            
-           xx_st=xx_st.substr(0,1)+"."+xx_st.substr(1,data_x_lg-1);
-                 if(data_x_fst =="-"){
-                    xx_st=xx_st.substr(0,2)+"."+xx_st.substr(2,data_x_lg-2);}
-                var data_chk = data_chk+ data_x_lg-1 ; 
+    if(data_x_pot==-1 && data_x_e==-1 && data_x_fst !="-"){            
+      xx_st=xx_st.substr(0,1)+"."+xx_st.substr(1,data_x_lg-1);
+      if(data_x_fst =="-"){
+         xx_st=xx_st.substr(0,2)+"."+xx_st.substr(2,data_x_lg-2);}
+         var data_chk = data_chk+ data_x_lg-1 ; 
          }
-     if(data_x_fst=="-"){ xx_st=xx_st.substr(1,data_x_lg-1);    
-                          data_x_lg=data_x_lg-1;} 
-          var xx_st= xx_st.toString().trim();
-          var xx_st =m_mtx_trim(xx_st).toString() ;      
-          var pos_pot_a  = xx_st.indexOf(".");    
-          var  data_x_fst_a =xx_st.substr(0,1);
-          var nub_lg = 0;                                 
-          var nub_tol = 0;
-          var nub_lg = xx_st.length ;                      
-            if( nub_lg <=400){ var nub_tol = 400 ;}
-           else { var nub_tol = nub_lg ;}
-         for(var i=0;i<= nub_tol ;i++){                                             
-           if( pos_pot_a ==1 && data_x_fst_a == "0"){    
-               xx_st = m_mtx_str_element_shift(xx_st,1);     
-                   var data_chk = data_chk-1; 
-                   var pos_pot_a  = xx_st.indexOf(".");   
-                   var data_x_fst_a =xx_st.substr(0,1);   
-                                                   }  
-                                            }           
-            var pos_pot_a  = xx_st.indexOf(".");   
-            var data_x_fst_a =xx_st.substr(0,1);   
-          for(var j=0;j< nub_tol ;j++){               
-           if( pos_pot_a >1 && data_x_fst_a != "0"){    
-               xx_st = m_mtx_str_element_shift(xx_st,-1);     
-                   var data_chk = data_chk+1;  
-                   var pos_pot_a  = xx_st.indexOf(".");   
-                   var data_x_fst_a =xx_st.substr(0,1);   
-                                                     }  
+    if(data_x_fst=="-"){ xx_st=xx_st.substr(1,data_x_lg-1);    
+        data_x_lg=data_x_lg-1;} 
+    var xx_st= xx_st.toString().trim();
+    var xx_st =m_mtx_trim(xx_st).toString() ;      
+    var pos_pot_a  = xx_st.indexOf(".");    
+    var  data_x_fst_a =xx_st.substr(0,1);
+    var nub_lg = 0;                                 
+    var nub_tol = 0;
+    var nub_lg = xx_st.length ;                      
+      if( nub_lg <=400){ var nub_tol = 400 ;}
+      else { var nub_tol = nub_lg ;}
+    for(var i=0;i<= nub_tol ;i++){                                             
+      if( pos_pot_a ==1 && data_x_fst_a == "0"){    
+          xx_st = m_mtx_str_element_shift(xx_st,1);     
+          var data_chk = data_chk-1; 
+           var pos_pot_a  = xx_st.indexOf(".");   
+           var data_x_fst_a =xx_st.substr(0,1);   
+                            }  
+                     }           
+    var pos_pot_a  = xx_st.indexOf(".");   
+    var data_x_fst_a =xx_st.substr(0,1);   
+    for(var j=0;j< nub_tol ;j++){               
+      if( pos_pot_a >1 && data_x_fst_a != "0"){    
+          xx_st = m_mtx_str_element_shift(xx_st,-1);     
+          var data_chk = data_chk+1;  
+          var pos_pot_a  = xx_st.indexOf(".");   
+          var data_x_fst_a =xx_st.substr(0,1);   
+                              }  
                                             }  
     var data_chk = m_mtx_trim(data_chk).toString() ;   
     var xx_st = m_mtx_trim(xx_st).toString() ; 
-      if(data_x_fst=="-"){ xx_st="-"+xx_st; }   
-      if(nub == 1){ return data_chk ;}  
-      if(nub == 0){ return xx_st ;}
+    if(data_x_fst=="-"){ xx_st="-"+xx_st; }   
+    if(nub == 1){ return data_chk ;}  
+    if(nub == 0){ return xx_st ;}
  }
-
-
 
 
 function m_mtx_int_mul(x,y){   
@@ -8539,31 +8414,31 @@ function m_mtx_int_mul(x,y){
   var x_msg = m_mtx_test_msg(x);
   var y_msg = m_mtx_test_msg(y);
   var ans_1=""; 
-     if(x_msg !=-1 ){ return x;}     
-     if(y_msg !=-1 ){ return y;}
-   var data_x_comp_0 = m_mtx_real_str_comp(x,0);     
-   var data_y_comp_0 = m_mtx_real_str_comp(y,0);    
-    if(data_x_comp_0 ==3 ||  data_y_comp_0 ==3){ var ans_1=0; return ans_1;}       
-   var data_x_comp_1 = m_mtx_real_str_comp(x,1);    
-    if(data_x_comp_1 ==3 ){ var ans_1=y; return ans_1;}       
-   var data_y_comp_1 = m_mtx_real_str_comp(y,1);    
-    if(data_y_comp_1 ==3 ){ var ans_1=x; return ans_1;}
-   y = m_mtx_str_to_e(y);       
-   x = m_mtx_str_to_e(x);         
-   y = m_mtx_str_to_e_a(y);       
-   x = m_mtx_str_to_e_a(x);   
+  if(x_msg !=-1 ){ return x;}     
+  if(y_msg !=-1 ){ return y;}
+  var data_x_comp_0 = m_mtx_real_str_comp(x,0);     
+  var data_y_comp_0 = m_mtx_real_str_comp(y,0);    
+  if(data_x_comp_0 ==3 ||  data_y_comp_0 ==3){ var ans_1=0; return ans_1;}       
+  var data_x_comp_1 = m_mtx_real_str_comp(x,1);    
+  if(data_x_comp_1 ==3 ){ var ans_1=y; return ans_1;}       
+  var data_y_comp_1 = m_mtx_real_str_comp(y,1);    
+  if(data_y_comp_1 ==3 ){ var ans_1=x; return ans_1;}
+      y = m_mtx_str_to_e(y);       
+      x = m_mtx_str_to_e(x);         
+      y = m_mtx_str_to_e_a(y);       
+      x = m_mtx_str_to_e_a(x);   
   var xx = x.toString().trim();    
   var yy = y.toString().trim();    
   var xx_fst = xx.substr(0,1);
   var yy_fst = yy.substr(0,1);
   var xx_lg = xx.length;      
   var yy_lg = yy.length;  
-   if(xx_fst =="-" ){ var xx = xx.substr(1,xx_lg-1);
-                      var xx_lg = xx_lg-1 ;  }
-   else{ var xx = xx;}
-   if(yy_fst =="-" ){ var yy = yy.substr(1,yy_lg-1);
-                        var yy_lg = yy_lg-1 ;   }
-    else{ var yy = yy;}   
+  if(xx_fst =="-" ){ var xx = xx.substr(1,xx_lg-1);
+      var xx_lg = xx_lg-1 ;  }
+  else{ var xx = xx;}
+  if(yy_fst =="-" ){ var yy = yy.substr(1,yy_lg-1);
+       var yy_lg = yy_lg-1 ;   }
+  else{ var yy = yy;}   
   var y_e=0;
   var x_e=0;
   var xy_e =0; 
@@ -8574,47 +8449,47 @@ function m_mtx_int_mul(x,y){
   var idx_e = xx.indexOf("e");
   var idy_e = yy.indexOf("e");
   if(idx_e !=-1){
-      var x_power =m_str_power(xx,0); 
-      var x_str =m_str_power(xx,1);
-      var xx=x_str;   
-      var xx_lg =xx.length;          }
+    var x_power =m_str_power(xx,0); 
+    var x_str =m_str_power(xx,1);
+    var xx=x_str;   
+    var xx_lg =xx.length;          }
   if(idy_e !=-1){                             
-      var y_power =m_str_power(yy,0); 
-      var y_str =m_str_power(yy,1);
-      var yy=y_str;
-      var yy_lg =yy.length;    
-                    }
- var xy_power = m_mtx_int_add(x_power,y_power);  
- var idx_power =0;
- var idy_power =0;
- var idxy_power =0;
- var idx_point = xx.indexOf(".");
- var idy_point = yy.indexOf(".");
+    var y_power =m_str_power(yy,0); 
+    var y_str =m_str_power(yy,1);
+    var yy=y_str;
+    var yy_lg =yy.length;    
+                 }
+  var xy_power = m_mtx_int_add(x_power,y_power);  
+  var idx_power =0;
+  var idy_power =0;
+  var idxy_power =0;
+  var idx_point = xx.indexOf(".");
+  var idy_point = yy.indexOf(".");
   if(idx_point !=-1){var xx = xx.replace(/\./g,""); 
-                     var xx_lg =xx.length ;          
+      var xx_lg =xx.length ;           
       var idx_power = xx.length- idx_point ;}
   if(idy_point !=-1){var yy = yy.replace(/\./g,""); 
-                     var yy_lg = yy.length;
+      var yy_lg = yy.length;
       var idy_power = yy.length- idy_point ;}
- var idxy_power = m_mtx_int_add(idx_power,idy_power);   
- var x_e=0; 
- var y_e=0;
- var xy_e=0;
- var xy_et=0;
- var xx = xx.toString().trim();  
- var yy = yy.toString().trim();
- if(yy.length >=250 ){var yy=yy.substr(0,250) ;  
+  var idxy_power = m_mtx_int_add(idx_power,idy_power);   
+  var x_e=0; 
+  var y_e=0;
+  var xy_e=0;
+  var xy_et=0;
+  var xx = xx.toString().trim();       
+  var yy = yy.toString().trim();
+  if(yy.length >=250 ){var yy=yy.substr(0,250) ;  
        var y_e = yy_lg-250 ;      
        var yy_lg =yy.length;}
   if(xx.length >=250){var xx=xx.substr(0,250) ;  
-        var x_e = xx_lg-250 ;      
-        var xx_lg =xx.length };
+      var x_e = xx_lg-250 ;      
+      var xx_lg =xx.length };
   var xy_e = m_mtx_int_add(x_e,y_e);
   var xy_et = m_mtx_int_add(xy_e,xy_power);
   var xy_ett = m_mtx_int_sub(xy_et,idxy_power);
   if(xx_lg < yy_lg){var zz = xx ;    
-                    var xx = yy ;     
-                    var yy = zz; }
+     var xx = yy ;     
+     var yy = zz; }
   var AA= m_new_zero_mtx(10,2); 
   var BB= m_new_zero_mtx(1,2); 
   var TT= m_new_zero_mtx(1,1); 
@@ -8641,129 +8516,126 @@ function m_mtx_int_mul(x,y){
   var yy_lg_t = yy.length;
   var y_n =  yy_lg_t-1;
     TT[0][0] =0;
-      for(var i=0;i<yy.length ;i++){
-          var nub_y = yy.substr(i,1);
-      if(nub_y !=0 ){ TT[0][0] = AA[nub_y][1];}
-         if(y_n >0 && nub_y !=0 ){
-             for(var j = y_n ;j >0 ;j--){
-                 TT[0][0] = TT[0][0]+"0"; }}
+  for(var i=0;i<yy.length ;i++){
+     var nub_y = yy.substr(i,1);
+     if(nub_y !=0 ){ TT[0][0] = AA[nub_y][1];}
+        if(y_n >0 && nub_y !=0 ){
+           for(var j = y_n ;j >0 ;j--){
+               TT[0][0] = TT[0][0]+"0"; }}
    var y_n = y_n-1;
       if(nub_y !=0 ){
          BB[0][1] = m_mtx_int_add(BB[0][1] , TT[0][0] ) ;}
              }
-    var sum_a = BB[0][1];
-     if((xx_fst =="-" && yy_fst !="-")||(xx_fst !="-" && yy_fst =="-")){ var sum_b = "-"+sum_a;} 
-         else{ var sum_b = sum_a;}
-      var sum_b = sum_b.toString().trim();  
-      if(xy_ett > 0){
-       var sum_c = sum_b+"e+"+xy_ett ; }         
-      else if(xy_ett < 0){
-       var sum_c = sum_b+"e"+xy_ett ; }       
-      else{ var sum_c = sum_b;}
- return  sum_c;  
+   var sum_a = BB[0][1];
+   if((xx_fst =="-" && yy_fst !="-")||(xx_fst !="-" && yy_fst =="-")){ var sum_b = "-"+sum_a;} 
+   else{ var sum_b = sum_a;}
+   var sum_b = sum_b.toString().trim();  
+   if(xy_ett > 0){
+     var sum_c = sum_b+"e+"+xy_ett ; }         
+   else if(xy_ett < 0){
+     var sum_c = sum_b+"e"+xy_ett ; }       
+   else{ var sum_c = sum_b;}
+    return  sum_c;  
 }
 
 function m_mtx_real_mul(y,x){     
-     var  x= x.toString().trim();
-     var  x= m_mtx_trim(x);
-     var  y= y.toString().trim();
-     var  y= m_mtx_trim(y);
-     var x_msg = m_mtx_test_msg(x);
-     var y_msg = m_mtx_test_msg(y);
-     var ans_1=""; 
-        if(x_msg !=-1 ){ return x;}     
-        if(y_msg !=-1 ){ return y;}
-     var data_x_comp_0 = m_mtx_real_str_comp(x,0);     
-     var data_y_comp_0 = m_mtx_real_str_comp(y,0);    
-      if(data_x_comp_0 ==3 ||  data_y_comp_0 ==3){ var ans_1=0; return ans_1;}       
-     var data_x_comp_1 = m_mtx_real_str_comp(x,1);    
-      if(data_x_comp_1 ==3 ){ var ans_1=y; return ans_1;}       
-     var data_y_comp_1 = m_mtx_real_str_comp(y,1);    
-     if(data_y_comp_1 ==3 ){ var ans_1=x; return ans_1;}
-   y = m_mtx_str_to_e(y);       
-   x = m_mtx_str_to_e(x);         
-   y = m_mtx_str_to_e_a(y);       
-   x = m_mtx_str_to_e_a(x);       
-        var yy=y.toString();
-        var yy_st =yy.toString();
-        var pos_pot  = yy_st.indexOf(".");    
-        var pos_e  = yy_st.indexOf("e");     
-        var st_lg = yy_st.length;
-        var nub_e_y=0;  
-         if(  pos_e != -1){ 
-           nub_e_y =m_str_power(yy_st,0);          
-           yy_st = m_str_power(yy_st,1);          
-                           }
-   var data_y_fst=yy_st.substr(0,1);
-   var data_y_lg=yy_st.length;
-     if(data_y_fst=="-"){ yy_st=yy_st.substr(1,data_y_lg-1);    
-                          data_y_lg=data_y_lg-1;} 
-        var xx=x.toString();
-        var xx_st =xx.toString();
-        var pos_pot_x  = xx_st.indexOf(".");    
-        var pos_e_x  = xx_st.indexOf("e");     
-        var st_lg_x = xx_st.length;
-        var nub_e_x=0;   
-         if(  pos_e_x != -1){ 
-           nub_e_x =m_str_power(xx_st,0);          
-           xx_st = m_str_power(xx_st,1);          
-                           }
-       var data_x_fst=xx_st.substr(0,1);   
-       var xx_chk = m_str_1_point( xx_st ,1);       
-       var xx_st  = m_str_1_point( xx_st ,0);       
-       var yy_chk = m_str_1_point( yy_st ,1);              
-       var yy_st  = m_str_1_point( yy_st ,0);             
-       var data_chk = m_mtx_real_add(xx_chk,yy_chk) ;   
-   var AA = m_str_to_mtx(yy_st) ; 
-   var BB = m_str_to_mtx(xx_st) ; 
-   var CC = m_mtx_point_mul(AA,BB) ;  
-       CC = m_mtx_cell_five(CC);      
-      var sum_tt = m_mtx_cell_five_show(CC);   
-      var sum_tt = m_mtx_trim(sum_tt) ;   
-      var pos_pot_b  = sum_tt.indexOf(".");    
-               if(pos_pot_b > 1){                        
-                  sum_tt = m_mtx_str_element_shift(sum_tt,1-pos_pot_b);   
-                          var data_chk = m_mtx_int_add(data_chk,pos_pot_b);
-                          var data_chk = m_mtx_int_sub(data_chk,1);
-                                }
-                 var sum_tt = m_mtx_trim(sum_tt) ;   
-       if( data_y_fst =="-" && data_x_fst !="-"){ var sum_tt = "-"+sum_tt;} 
-       if( data_y_fst !="-" && data_x_fst =="-"){ var sum_tt = "-"+sum_tt;} 
-           var nub_e_y = m_mtx_trim(nub_e_y) ;   
-           var nub_e_x = m_mtx_trim(nub_e_x) ;   
-           var data_chk = m_mtx_trim(data_chk) ;   
-           var nub_e_t1 =0;
-           var nub_e_t =0;
-           var nub_e_y_point =0;   
-           var nub_e_x_point =0; 
-           var nub_e_y_point =  m_str_char(nub_e_y.toString(),".");   
-           var nub_e_x_point =  m_str_char(nub_e_x.toString(),".");   
-            if( nub_e_y_point ==0 &&  nub_e_x_point ==0){ 
-              var nub_e_t1 = m_mtx_int_add(nub_e_y,nub_e_x) ;}           
-            else{
-              var nub_e_t1 = m_mtx_real_add(nub_e_y,nub_e_x) ;}           
-           var nub_e_t1 = m_fix(nub_e_t1,2000);                          
-
-           if( nub_e_y_point ==0 &&  nub_e_x_point ==0){      
-              var nub_e_t = m_mtx_int_add(nub_e_t1,data_chk);}    
-           else{
-            var nub_e_t = m_mtx_real_add(nub_e_t1,data_chk);}      
-           var nub_e_t = m_fix(nub_e_t,2000);                          
-           var nub_e_t = m_str_e_to_str(nub_e_t); 
-         var sum_ttt = 0 ;  
-          var  data_nub_e_t_comp_0 = m_mtx_real_str_comp(nub_e_t,0);    
-          if(data_nub_e_t_comp_0==1 ){ sum_ttt = sum_tt+"e+"+nub_e_t;}   
-          if(data_nub_e_t_comp_0==2 ){ sum_ttt = sum_tt+"e"+nub_e_t;}   
-          if(data_nub_e_t_comp_0==3 ){ sum_ttt = sum_tt;}
-          if(sum_tt == 0 || sum_tt == "0"){ var sum_ttt = 0 ;} 
-          if( nub_e_y_point ==0 &&  nub_e_x_point ==0){
-          if( nub_e_t <=10 && nub_e_t >= 0){                            
-               sum_ttt = m_str_e_to_str(sum_ttt) ;            
-                                }}
+  var  x= x.toString().trim();
+  var  x= m_mtx_trim(x);
+  var  y= y.toString().trim();
+  var  y= m_mtx_trim(y);
+  var x_msg = m_mtx_test_msg(x);
+  var y_msg = m_mtx_test_msg(y);
+  var ans_1=""; 
+  if(x_msg !=-1 ){ return x;}     
+  if(y_msg !=-1 ){ return y;}
+  var data_x_comp_0 = m_mtx_real_str_comp(x,0);     
+  var data_y_comp_0 = m_mtx_real_str_comp(y,0);    
+  if(data_x_comp_0 ==3 ||  data_y_comp_0 ==3){ var ans_1=0; return ans_1;}       
+  var data_x_comp_1 = m_mtx_real_str_comp(x,1);    
+  if(data_x_comp_1 ==3 ){ var ans_1=y; return ans_1;}       
+  var data_y_comp_1 = m_mtx_real_str_comp(y,1);    
+  if(data_y_comp_1 ==3 ){ var ans_1=x; return ans_1;}
+     y = m_mtx_str_to_e(y);       
+     x = m_mtx_str_to_e(x);         
+     y = m_mtx_str_to_e_a(y);       
+     x = m_mtx_str_to_e_a(x);       
+  var yy=y.toString();
+  var yy_st =yy.toString();
+  var pos_pot  = yy_st.indexOf(".");    
+  var pos_e  = yy_st.indexOf("e");     
+  var st_lg = yy_st.length;
+  var nub_e_y=0;  
+  if( pos_e != -1){ 
+     nub_e_y =m_str_power(yy_st,0);          
+     yy_st = m_str_power(yy_st,1);          
+                   }
+  var data_y_fst=yy_st.substr(0,1);
+  var data_y_lg=yy_st.length;
+  if(data_y_fst=="-"){ yy_st=yy_st.substr(1,data_y_lg-1);    
+      data_y_lg=data_y_lg-1;} 
+  var xx=x.toString();
+  var xx_st =xx.toString();
+  var pos_pot_x  = xx_st.indexOf(".");    
+  var pos_e_x  = xx_st.indexOf("e");     
+  var st_lg_x = xx_st.length;
+  var nub_e_x=0;   
+  if( pos_e_x != -1){ 
+     nub_e_x =m_str_power(xx_st,0);          
+     xx_st = m_str_power(xx_st,1);          
+                     }
+  var data_x_fst=xx_st.substr(0,1);   
+  var xx_chk = m_str_1_point( xx_st ,1);       
+  var xx_st  = m_str_1_point( xx_st ,0);       
+  var yy_chk = m_str_1_point( yy_st ,1);              
+  var yy_st  = m_str_1_point( yy_st ,0);             
+  var data_chk = m_mtx_real_add(xx_chk,yy_chk) ;   
+  var AA = m_str_to_mtx(yy_st) ; 
+  var BB = m_str_to_mtx(xx_st) ; 
+  var CC = m_mtx_point_mul(AA,BB) ;  
+      CC = m_mtx_cell_five(CC);      
+  var sum_tt = m_mtx_cell_five_show(CC);   
+  var sum_tt = m_mtx_trim(sum_tt) ;   
+  var pos_pot_b  = sum_tt.indexOf(".");    
+    if(pos_pot_b > 1){                        
+      sum_tt = m_mtx_str_element_shift(sum_tt,1-pos_pot_b);   
+      var data_chk = m_mtx_int_add(data_chk,pos_pot_b);
+      var data_chk = m_mtx_int_sub(data_chk,1);
+                      }
+  var sum_tt = m_mtx_trim(sum_tt) ;   
+  if( data_y_fst =="-" && data_x_fst !="-"){ var sum_tt = "-"+sum_tt;} 
+  if( data_y_fst !="-" && data_x_fst =="-"){ var sum_tt = "-"+sum_tt;} 
+  var nub_e_y = m_mtx_trim(nub_e_y) ;   
+  var nub_e_x = m_mtx_trim(nub_e_x) ;   
+  var data_chk = m_mtx_trim(data_chk) ;   
+  var nub_e_t1 =0;
+  var nub_e_t =0;
+  var nub_e_y_point =0;   
+  var nub_e_x_point =0; 
+  var nub_e_y_point =  m_str_char(nub_e_y.toString(),".");   
+  var nub_e_x_point =  m_str_char(nub_e_x.toString(),".");   
+  if( nub_e_y_point ==0 &&  nub_e_x_point ==0){ 
+     var nub_e_t1 = m_mtx_int_add(nub_e_y,nub_e_x) ;}           
+  else{
+     var nub_e_t1 = m_mtx_real_add(nub_e_y,nub_e_x) ;}           
+     var nub_e_t1 = m_fix(nub_e_t1,2000);                          
+  if( nub_e_y_point ==0 &&  nub_e_x_point ==0){      
+      var nub_e_t = m_mtx_int_add(nub_e_t1,data_chk);}    
+  else{
+      var nub_e_t = m_mtx_real_add(nub_e_t1,data_chk);}      
+      var nub_e_t = m_fix(nub_e_t,2000);                          
+      var nub_e_t = m_str_e_to_str(nub_e_t); 
+      var sum_ttt = 0 ;  
+      var data_nub_e_t_comp_0 = m_mtx_real_str_comp(nub_e_t,0);    
+        if(data_nub_e_t_comp_0==1 ){ sum_ttt = sum_tt+"e+"+nub_e_t;}   
+        if(data_nub_e_t_comp_0==2 ){ sum_ttt = sum_tt+"e"+nub_e_t;}   
+        if(data_nub_e_t_comp_0==3 ){ sum_ttt = sum_tt;}
+        if(sum_tt == 0 || sum_tt == "0"){ var sum_ttt = 0 ;} 
+        if(nub_e_y_point ==0 &&  nub_e_x_point ==0){
+        if(nub_e_t <=10 && nub_e_t >= 0){                            
+           sum_ttt = m_str_e_to_str(sum_ttt) ;            
+                          }}
    return sum_ttt;
  }
-
- 
 
 function m_str_e_to_str_point(str){    
   var yy_st=str;
@@ -8774,43 +8646,43 @@ function m_str_e_to_str_point(str){
   var pos_pot  = yy_st_af.indexOf(".");                  
    if(  pos_e == -1 || pos_pot  ==-1 ){   
            return str; }
-   var nub_e_y=0; 
-   var nub_e_y =m_str_power(yy_st,0);          
-   var yy_st = m_str_power(yy_st,1);  
+  var nub_e_y=0; 
+  var nub_e_y =m_str_power(yy_st,0);          
+  var yy_st = m_str_power(yy_st,1);  
   var data_tran = MTX_COL; 
       LN10=m_fix(LN10,FIX_COL);
-   var yy_st_a1 = m_mtx_real_mul(LN10,nub_e_y);  
-   var yy_st_a1 = m_fix(yy_st_a1,2000);            
-   var yy_st_a = m_exp(yy_st_a1);                   
-    var yy_st_b= m_mtx_real_mul(yy_st,yy_st_a);
+  var yy_st_a1 = m_mtx_real_mul(LN10,nub_e_y);  
+  var yy_st_a1 = m_fix(yy_st_a1,2000);            
+  var yy_st_a = m_exp(yy_st_a1);                   
+  var yy_st_b= m_mtx_real_mul(yy_st,yy_st_a);
  return yy_st_b;   
 }
 
 function m_mtx_real_div(y,x){    
-   var xx=x.toString().trim();
+  var xx=x.toString().trim();
   var xx=m_mtx_trim(xx).toString(); 
-   var yy=y.toString().trim();
+  var yy=y.toString().trim();
   var yy=m_mtx_trim(yy).toString();
-   var ans_1 ="";
-   var sum_tt ="";
-   var flag_ng=0;
-   var x_msg = m_mtx_test_msg(x);
-   var y_msg = m_mtx_test_msg(y);
-     if(x_msg !=-1 ){ return x;}       
-     if(y_msg !=-1 ){ return y;}
+  var ans_1 ="";
+  var sum_tt ="";
+  var flag_ng=0;
+  var x_msg = m_mtx_test_msg(x);
+  var y_msg = m_mtx_test_msg(y);
+    if(x_msg !=-1 ){ return x;}       
+    if(y_msg !=-1 ){ return y;}
   var data_comp_xx_0 = m_mtx_real_str_comp(xx,0);       
-     if(data_comp_xx_0==3){
-        return message_1(29); ;}  
-   var data_comp_yy_0 = m_mtx_real_str_comp(yy,0);       
-     if(data_comp_yy_0==3){ return 0;}   
-   var data_comp_xx_1 = m_mtx_real_str_comp(xx,1);       
-     if(data_comp_xx_1==3){
+    if(data_comp_xx_0==3){
+      return message_1(29); ;}  
+  var data_comp_yy_0 = m_mtx_real_str_comp(yy,0);       
+    if(data_comp_yy_0==3){ return 0;}   
+  var data_comp_xx_1 = m_mtx_real_str_comp(xx,1);       
+    if(data_comp_xx_1==3){
         var ans_1 = yy;                         
        return ans_1 ;}   
   var data_comp_xx_yy = m_mtx_real_str_comp(xx,yy);      
-       if(data_comp_xx_yy==3){
-                  var ans_1 = 1;                         
-                        return ans_1 ;}
+    if(data_comp_xx_yy==3){
+       var ans_1 = 1;                         
+       return ans_1 ;}
    var yy = m_mtx_str_to_e(yy);       
    var xx = m_mtx_str_to_e(xx);        
    var yy = m_mtx_str_to_e_a(yy);       
@@ -8918,12 +8790,12 @@ function m_mtx_reciprocal_div(B,A){
  }
 
 
-function m_mtx_divisor_10(A){      
+ function m_mtx_divisor_10(A){      
    var AA = m_mtx_cell_five(A);
    var NN = m_new_zero_mtx(10,AA[0].length);    
    var SS = m_new_zero_mtx(1,AA[0].length);    
    var i=0;
-    for(var i=1; i< 10 ;i++){        
+     for(var i=1; i< 10 ;i++){        
        SS = m_mtx_add(SS,AA);  
        NN = m_mtx_a_copy_to_n_b(SS,0,NN,i);  } 
   return NN;
@@ -8949,8 +8821,22 @@ function m_mtx_a_copy_to_n_b(A,nub_a,B,nub_b){
                                  }
 return NN;
  }
- 
-function m_mtx_shift_left_1(A){               
+
+
+
+ function m_mtx_a_row_copy_to_b_row(A,row_a,B,row_b){        
+   var AA = A;
+   var BB = B;
+   var data_row = AA.length;   
+   var data_col=AA[0].length;
+     for(var i= 0  ; i < data_col ;i++){ 
+        BB[row_b][i]=AA[row_a][i];
+                                 }
+return BB;
+ }
+
+
+ function m_mtx_shift_left_1(A){               
    var AA = m_mtx_cell_five(A);            
    var NN = m_new_zero_mtx(1,AA[0].length);   
      for(var i= 0  ; i < AA[0].length ;i++){ 
@@ -8992,7 +8878,7 @@ function m_mtx_compare_nub(A,B,nub_b){
     return ans_1;
 }
 
-function m_mtx_compare(A,B){          
+function m_mtx_compare(A,B){           
   var AA =A;
   var AA = m_mtx_cell_five(AA); 
   var BB =B;
@@ -9001,116 +8887,117 @@ function m_mtx_compare(A,B){
   var data_a = 0;     
   var data_b = 0;
   var data_c = AA[0].length - 1;
-   for(var i= 0  ; i < AA[0].length ;i++){ 
-    var data_a = parseInt(AA[0][i]);     
-    var data_b = parseInt(BB[0][i]);
-   if(data_a > data_b ){ var ans_1 = 1 ; return ans_1 ;}
-   if(data_a < data_b ){ var ans_1 = 2 ; return ans_1 ;}
-   if( (i== data_c) && ( data_a == data_b )){ var ans_1 = 3 ; return ans_1 ;}
+    for(var i= 0  ; i < AA[0].length ;i++){ 
+      var data_a = parseInt(AA[0][i]);     
+      var data_b = parseInt(BB[0][i]);
+    if(data_a > data_b ){ var ans_1 = 1 ; return ans_1 ;}
+    if(data_a < data_b ){ var ans_1 = 2 ; return ans_1 ;}
+    if((i== data_c) && ( data_a == data_b )){ var ans_1 = 3 ; return ans_1 ;}
        }
     return ans_1;
 }
 
 
-function m_mtx_borrow(A){    
+ function m_mtx_borrow(A){    
    var DD =A;
-    for(var i= DD[0].length-1 ; i>0 ;i--){       
-     var data_s =parseInt(DD[0][i]);
-    if( data_s < 0){ 
-      while(data_s < 0){                
-        DD[0][i] =100000 + parseInt(DD[0][i]) ;  
-        DD[0][i-1] = parseInt(DD[0][i-1]) -1; 
-       var data_s =parseInt(DD[0][i]);}}}
+     for(var i= DD[0].length-1 ; i>0 ;i--){       
+       var data_s =parseInt(DD[0][i]);
+       if( data_s < 0){ 
+         while(data_s < 0){                
+           DD[0][i] =100000 + parseInt(DD[0][i]) ;  
+           DD[0][i-1] = parseInt(DD[0][i-1]) -1; 
+           var data_s =parseInt(DD[0][i]);}}}
   return DD;
 }
 
 
-function m_mtx_sub_nub_b(A,B,nub_b){      
- var AA =A;
- var BB =B;
- var nub =nub_b;
- var CC=m_new_zero_mtx(1,AA[0].length);  
-  for(var i=0;i<AA[0].length ;i++){     
-    var data_a=AA[0][i];
-    var data_b=BB[nub][i];
-    CC[0][i]=parseInt(data_a) - parseInt(data_b);}
-    CC = m_mtx_borrow(CC);  
-    CC = m_mtx_cell_five(CC); 
+ function m_mtx_sub_nub_b(A,B,nub_b){      
+   var AA =A;
+   var BB =B;
+   var nub =nub_b;
+   var CC=m_new_zero_mtx(1,AA[0].length);  
+     for(var i=0;i<AA[0].length ;i++){     
+       var data_a=AA[0][i];
+       var data_b=BB[nub][i];
+      CC[0][i]=parseInt(data_a) - parseInt(data_b);}
+      CC = m_mtx_borrow(CC);  
+      CC = m_mtx_cell_five(CC); 
 return CC;
 }
 
-function m_mtx_sub(A,B){      
- var AA =A;
- var BB =B;
- var CC=m_new_zero_mtx(1,AA[0].length);  
-  for(var i=0;i<AA[0].length ;i++){     
-    var data_a=AA[0][i];
-    var data_b=BB[0][i];
-     CC[0][i]=parseInt(data_a) - parseInt(data_b);}
-     CC = m_mtx_borrow(CC);  
-    CC = m_mtx_cell_five(CC);  
+ function m_mtx_sub(A,B){      
+   var AA =A;
+   var BB =B;
+   var CC=m_new_zero_mtx(1,AA[0].length);  
+    for(var i=0;i<AA[0].length ;i++){     
+      var data_a=AA[0][i];
+      var data_b=BB[0][i];
+      CC[0][i]=parseInt(data_a) - parseInt(data_b);}
+      CC = m_mtx_borrow(CC);  
+      CC = m_mtx_cell_five(CC);  
 return CC;
 }
 
-function m_mtx_carry(A){                 
+function m_mtx_carry(A){                  
   var SS =A;
-   for(var i= SS[0].length-1 ; i>1 ;i--){         
-    var data_s = SS[0][i].toString();
-    var data_s_lng = data_s.length ;
-   if( data_s_lng >5){  SS[0][i] = data_s.substr(data_s_lng-5,5);  
-    var data_s_b = data_s.substr(0,data_s_lng-5); 
-    SS[0][i-1] = parseInt(SS[0][i-1]) + parseInt(data_s_b); } } 
+    for(var i= SS[0].length-1 ; i>1 ;i--){         
+      var data_s = SS[0][i].toString();
+      var data_s_lng = data_s.length ;
+      if( data_s_lng >5){  SS[0][i] = data_s.substr(data_s_lng-5,5);  
+        var data_s_b = data_s.substr(0,data_s_lng-5); 
+        SS[0][i-1] = parseInt(SS[0][i-1]) + parseInt(data_s_b); } } 
    return SS;
 }
 
-function m_mtx_add(A,B){               
- var AA =A;
- var BB =B;
- var CC=m_new_zero_mtx(1,AA[0].length);  
-  for(var i=0;i<AA[0].length ;i++){     
-    var data_a=AA[0][i];
-    var data_b=BB[0][i];
-    CC[0][i]=parseInt(data_a) + parseInt(data_b);  }
-    CC = m_mtx_carry(CC);   
-    CC = m_mtx_cell_five(CC);       
+ function m_mtx_add(A,B){               
+   var AA =A;
+   var BB =B;
+   var CC=m_new_zero_mtx(1,AA[0].length);  
+     for(var i=0;i<AA[0].length ;i++){     
+       var data_a=AA[0][i];
+       var data_b=BB[0][i];
+      CC[0][i]=parseInt(data_a) + parseInt(data_b);  }
+      CC = m_mtx_carry(CC);   
+      CC = m_mtx_cell_five(CC);       
 return CC;
 }
 
-function m_mtx_cell_five(A){     
-     var AA=A;
-     var data_row = AA.length;   
-     var data_col=AA[0].length;  
-        if(A==0){ return A;}
-     var count_a = 1 ;
-       while( count_a >= 1 ){
-   for(var i=0 ;i< 3 ;i++){      
-    for(var k=1; k< data_col ;k++){         
-                var data_b = parseInt( AA[0][k]);
-                var data_b_str = data_b.toString();
-                       if(data_b_str.length >= 6 ){       
-                          var data_c= data_b_str.substr(0,data_b_str.length-5);
-                           AA[0][k-1] = m_mtx_int_add(AA[0][k-1],data_c);  
-                           AA[0][k]=   data_b_str.substr(data_b_str.length-5,5 );  
-                                              } 
-                                  } 
-                         } 
-              for(var n=1 ;n< data_col; n++){                
-                    var data_n = (AA[0][n]).toString();
-                    var data_lg = data_n.length;
-                       if(data_lg >=6){ var count_a = 1;                       
-                                                  n = data_col ; }     
-                       else{ var count_a =0;}                
 
-                                             }   
+
+  function m_mtx_cell_five(A){     
+    var AA=A;
+    var data_row = AA.length;   
+    var data_col=AA[0].length;  
+      if(A==0){ return A;}
+    var count_a = 1 ;
+      while( count_a >= 1 ){
+        for(var i=0 ;i< 3 ;i++){      
+          for(var k=1; k< data_col ;k++){         
+            var data_b = parseInt( AA[0][k]);
+            var data_b_str = data_b.toString();
+            if(data_b_str.length >= 6 ){       
+              var data_c= data_b_str.substr(0,data_b_str.length-5);
+                  AA[0][k-1] = m_mtx_int_add(AA[0][k-1],data_c);  
+                  AA[0][k]=   data_b_str.substr(data_b_str.length-5,5 );  
+                                      } 
+                             } 
+                      } 
+         for(var n=1 ;n< data_col; n++){                
+           var data_n = (AA[0][n]).toString();
+           var data_lg = data_n.length;
+           if(data_lg >=6){ var count_a = 1;                       
+                 n = data_col ; }     
+           else{ var count_a =0;}                
+                               }   
                }  
-           for(var m = 1 ;m< data_col; m++){                
-                    var data_m = (AA[0][m]).toString();
-                    var data_lg_m = data_m.length;
-                       while(data_lg_m < 5){
-                             AA[0][m]="0"+AA[0][m];
-                               data_lg_m=data_lg_m+1;
-                                             }
-                                              }   
+         for(var m = 1 ;m< data_col; m++){                
+           var data_m = (AA[0][m]).toString();
+           var data_lg_m = data_m.length;
+           while(data_lg_m < 5){
+              AA[0][m]="0"+AA[0][m];
+             data_lg_m=data_lg_m+1;
+                         }
+            0     }   
   return AA;
  }
 
@@ -9122,71 +9009,70 @@ function m_mtx_cell_five_int(A){
   while( count_a >= 1 ){
    for(var i=0 ;i< 3 ;i++){      
     for(var k=0; k< data_col-1 ;k++){         
-        var data_b = parseInt( AA[0][k]);
-        var data_b_str = data_b.toString();
-      if(data_b_str.length >= 6 && data_b > 0 ){       
-        var data_c= data_b_str.substr(0,data_b_str.length-5);
-           AA[0][k+1]= parseInt(AA[0][k+1]) + parseInt(data_c);  
-           AA[0][k]=   data_b_str.substr(data_b_str.length-5,5 );  
+      var data_b = parseInt( AA[0][k]);
+      var data_b_str = data_b.toString();
+     if(data_b_str.length >= 6 && data_b > 0 ){       
+      var data_c= data_b_str.substr(0,data_b_str.length-5);
+        AA[0][k+1]= parseInt(AA[0][k+1]) + parseInt(data_c);  
+        AA[0][k]=   data_b_str.substr(data_b_str.length-5,5 );  
                                               } 
                                   } 
                       } 
-      for(var n=0 ;n< data_col-1; n++){                
-         var data_b_n = parseInt( AA[0][n]);
-         var data_n = (AA[0][n]).toString();
-         var data_lg = data_n.length;
-       if(data_lg >=6 &&  data_b_n >0){ var count_a = 1;                       
-                                       n = data_col ; }     
-       else{ var count_a =0;}                 
-                                             }   
+   for(var n=0 ;n< data_col-1; n++){                
+     var data_b_n = parseInt( AA[0][n]);
+     var data_n = (AA[0][n]).toString();
+     var data_lg = data_n.length;
+    if(data_lg >=6 &&  data_b_n >0){ var count_a = 1;                       
+             n = data_col ; }     
+    else{ var count_a =0;}                 
+                      }   
                }  
-      for(var m = 0 ;m< data_col-1; m++){               
-          var data_b_m = parseInt( AA[0][m]); 
-          var data_m = (AA[0][m]).toString();
-          var data_lg_m = data_m.length;
-          var data_fst = data_m.substr(0,1);
-           while(data_lg_m < 5 &&  data_b_m >=0 ){       
-                 AA[0][m]="0"+AA[0][m];
-                 data_lg_m=data_lg_m+1;
-                                                            }
-
-          while(data_lg_m < 6 &&  data_fst =="-" ){      
-                 AA[0][m]="-0"+data_m.substr(1,data_lg-1);
-                 data_lg_m=data_lg_m+1;
-                                           }
-                                             }   
+   for(var m = 0 ;m< data_col-1; m++){               
+     var data_b_m = parseInt( AA[0][m]); 
+     var data_m = (AA[0][m]).toString();
+     var data_lg_m = data_m.length;
+     var data_fst = data_m.substr(0,1);
+     while(data_lg_m < 5 &&  data_b_m >=0 ){       
+       AA[0][m]="0"+AA[0][m];
+       data_lg_m=data_lg_m+1;
+                               }
+    while(data_lg_m < 6 &&  data_fst =="-" ){      
+       AA[0][m]="-0"+data_m.substr(1,data_lg-1);
+       data_lg_m=data_lg_m+1;
+                           }
+                          }   
   return AA;
  }
 
 function m_mtx_cell_five_brow(A){      
   var AA=A;
   var data_row = AA.length;   
-     var data_col=AA[0].length;  
-      for(var i=0;i<data_row ;i++){
-       for(var j= data_col-1;j > 0 ;j--){   
-         var data_a = parseInt(AA[i][j]);
-            while(data_a < 0){
-              AA[i][j]=100000+parseInt(AA[i][j]) ;  
-              AA[i][j-1]=parseInt(AA[i][j-1])-1 ;
-                data_a = parseInt(AA[i][j]); 
-                           }
-                                         }
-                                    }
+  var data_col=AA[0].length;  
+    for(var i=0;i<data_row ;i++){
+      for(var j= data_col-1;j > 0 ;j--){   
+        var data_a = parseInt(AA[i][j]);
+        while(data_a < 0){
+          AA[i][j]=100000+parseInt(AA[i][j]) ;  
+          AA[i][j-1]=parseInt(AA[i][j-1])-1 ;
+          data_a = parseInt(AA[i][j]); 
+                        }
+                       }
+                     }
      return AA ;
 }
 
-function m_mtx_value_col_max(A){        
+ function m_mtx_value_col_max(A){        
    var AA=A;
-  var data_row = AA.length;   
-  var data_col=AA[0].length;  
-  var col_nub = -1;
-  var data_a = 0;    
-   for(var i= 0 ; i < data_col ;i++){ 
+   var data_row = AA.length;   
+   var data_col=AA[0].length;  
+   var col_nub = -1;
+   var data_a = 0;    
+     for(var i= 0 ; i < data_col ;i++){ 
        var data_a = parseInt(AA[0][i]);
-      if( data_a !=0){
-        var col_nub =i;
-                     }
-                          }
+       if( data_a !=0){
+       var col_nub =i;
+                  }
+                    }
      return col_nub ;
 }
 
@@ -9195,20 +9081,20 @@ function m_mtx_cell_five_brow_int(A){
   var data_row = AA.length;   
   var data_col=AA[0].length;  
   var data_nub =  m_mtx_value_col_max(AA);        
-     for(var j= 0 ; j < data_nub ;j++){       
-         var data_a = parseInt(AA[0][j]);
-       if(  data_a < 0){
-       while(data_a < 0){
+    for(var j= 0 ; j < data_nub ;j++){       
+       var data_a = parseInt(AA[0][j]);
+       if( data_a < 0){
+         while(data_a < 0){
          AA[0][j]=100000 + parseInt(AA[0][j]) ;  
          AA[0][j+1]=parseInt(AA[0][j+1]) - 1 ;
-             data_a = parseInt(AA[0][j]);   
-                            } 
-                                      } 
-                                        } 
+           data_a = parseInt(AA[0][j]);   
+                         } 
+                              } 
+                                    } 
     return AA ;
 }
 
-function m_mtx_cell_five_show_int(A,B){      
+  function m_mtx_cell_five_show_int(A,B){      
     var AA=A;
     var data_row = AA.length;   
     var data_col=AA[0].length;  
@@ -9216,7 +9102,7 @@ function m_mtx_cell_five_show_int(A,B){
     var data_str_b = "";
     var data_str = "";
     var data_cunt = data_col-1;
-       for(var i=0;i< data_cunt ;i++){  
+    for(var i=0;i< data_cunt ;i++){  
         var data_a = AA[0][i];
         var data_a1= data_a.toString();
         var data_str_a =  data_a1 + data_str_a; 
@@ -9232,47 +9118,47 @@ function m_mtx_cell_five_show_int(A,B){
      return data_str;
 }
 
-function m_mtx_cell_five_show(A){      
-     var AA=A;
-     var data_row = AA.length;   
-     var data_col=AA[0].length;  
-     var data_str = "";
+  function m_mtx_cell_five_show(A){      
+    var AA=A;
+    var data_row = AA.length;   
+    var data_col=AA[0].length;  
+    var data_str = "";
       if(AA[0][0].toString() == "-0"){  AA[0][0]="-00000";}  
-         for(var i=(data_row-1) ;i >=0  ;i--){       
-         for(var j=(data_col-1);j >=0 ;j--){  
-             var data_a= AA[i][j];
-             var data_b= data_a.toString();
-           while( data_b.length < 5  &&  AA[i][j] >= 0){   
-                  data_b="0"+data_b;                      
+      for(var i=(data_row-1) ;i >=0  ;i--){       
+        for(var j=(data_col-1);j >=0 ;j--){  
+           var data_a= AA[i][j];
+           var data_b= data_a.toString();
+           while(data_b.length < 5  &&  AA[i][j] >= 0){   
+              data_b="0"+data_b;                      
                     }
-           while( data_b.length < 6  &&  AA[i][j] < 0){    
-                  data_b=data_b.substr(0,1)+"0"+data_b.substr(1,data_b.length-1);    
+           while(data_b.length < 6  &&  AA[i][j] < 0){    
+             data_b=data_b.substr(0,1)+"0"+data_b.substr(1,data_b.length-1);    
                       }
-             var data_str=  data_b +data_str ;
-                                      }  
-                                        } 
-             var data_result = AA[0][0].toString();
-             var data_result_lg = data_result.length;
-                if(data_result_lg <= 5 && AA[0][0] >=0){
-                       data_str ="0."+data_str ;  
-                                           }
-              else if(data_result_lg <= 6 && AA[0][0] < 0){       
-                      data_str ="-0."+data_str.substr(1,data_str.length) ;  
-                                           }
-              else if(data_result_lg > 5 && AA[0][0] < 0) {data_str = data_str.substr(0,data_result.length-5)+"."+data_str.substr(data_result.length-5,data_str.length);}  
-              else{data_str = data_str.substr(0,data_result.length-5)+"."+data_str.substr(data_result.length-5,data_str.length);}  
-             while(data_str.substr(data_str.length-1,1)=="0"){
-                var data_str = data_str.substr(0,data_str.length-1);}  
-                var data_t_fst = data_str.substr(0,1);
-                var data_t_sec = data_str.substr(1,1);
-             if(data_t_fst=="." ){  var data_str="0"+data_str ; }    
-             if(data_t_fst=="-" && data_t_sec=="."){  var data_str="-0."+ data_str.substr(2,(data_str.length-2)) ; }     
-        var data_str = m_mtx_trim(data_str) ;    
+           var data_str=  data_b +data_str ;
+                                   }  
+                                       } 
+    var data_result = AA[0][0].toString();
+    var data_result_lg = data_result.length;
+      if(data_result_lg <= 5 && AA[0][0] >=0){
+         data_str ="0."+data_str ;  
+                                     }
+      else if(data_result_lg <= 6 && AA[0][0] < 0){       
+         data_str ="-0."+data_str.substr(1,data_str.length) ;  
+                                   }
+      else if(data_result_lg > 5 && AA[0][0] < 0) {data_str = data_str.substr(0,data_result.length-5)+"."+data_str.substr(data_result.length-5,data_str.length);}  
+      else{data_str = data_str.substr(0,data_result.length-5)+"."+data_str.substr(data_result.length-5,data_str.length);}  
+        while(data_str.substr(data_str.length-1,1)=="0"){
+          var data_str = data_str.substr(0,data_str.length-1);}  
+          var data_t_fst = data_str.substr(0,1);
+          var data_t_sec = data_str.substr(1,1);
+          if(data_t_fst=="." ){  var data_str="0"+data_str ; }    
+          if(data_t_fst=="-" && data_t_sec=="."){  var data_str="-0."+ data_str.substr(2,(data_str.length-2)) ; }     
+   var data_str = m_mtx_trim(data_str) ;    
      return data_str;
 }
 
-function m_mtx_insert_blank(A,row_nub){      
-     var AA = A;
+ function m_mtx_insert_blank(A,row_nub){      
+   var AA = A;
    var nub = row_nub;
    var data_row = AA.length;   
    var data_col = AA[0].length;  
@@ -9286,54 +9172,50 @@ function m_mtx_insert_blank(A,row_nub){
          BB[data_shift][j]= AA[i][j];
                                           }
                                      }
-  
-         return BB;
+           return BB;
 }
 
-function m_mtx_insert_blank_col(A,col_nub){      
-     var AA = A;
-     var nub = col_nub;
-     var data_row = AA.length;   
-     var data_col = AA[0].length;  
-     var BB= m_new_zero_mtx(data_row,data_col+1);             
+ function m_mtx_insert_blank_col(A,col_nub){      
+   var AA = A;
+   var nub = col_nub;
+   var data_row = AA.length;   
+   var data_col = AA[0].length;  
+   var BB= m_new_zero_mtx(data_row,data_col+1);             
      for(var i = 0 ; i < data_row; i++){       
-          var data_nub=0;
-          var data_shift=0; 
-        for(var j = 0 ; j < data_col; j++){ 
-          if(j >= nub){ var data_nub = 1;}
-            var data_shift =  j + data_nub;
-            BB[i][data_shift]= AA[i][j];
-                                        }
-                                      }
-     
-         return BB;
+       var data_nub=0;
+       var data_shift=0; 
+     for(var j = 0 ; j < data_col; j++){ 
+       if(j >= nub){ var data_nub = 1;}
+       var data_shift =  j + data_nub;
+       BB[i][data_shift]= AA[i][j];
+                             }
+                      }
+       return BB;
 }
 
-function m_mtx_update_col_index(A,col_nub){      
-     var AA = A;
+  function m_mtx_update_col_index(A,col_nub){      
+    var AA = A;
     var nub = parseInt(col_nub);
     var data_row = AA.length;   
     var data_col = AA[0].length;  
-     for(var i = 0 ; i < data_row; i++){       
-       for(var j = 0 ; j < data_col; j++){ 
+      for(var i = 0 ; i < data_row; i++){       
+        for(var j = 0 ; j < data_col; j++){ 
           if(j == nub){  
              AA[i][j]= i;
                        }                  
                                            }
-
-                                      }
-   
+                                 }
          return AA;
 }
 
-function m_mtx_delete_one(A,row_nub){      
-var AA = A;
-    var nub = row_nub;
-    var data_row = AA.length;   
-    var data_col = AA[0].length;  
-    var BB= m_new_zero_mtx(data_row-1,data_col);             
-    var data_nub=0;
-    var data_shift=0; 
+ function m_mtx_delete_one(A,row_nub){      
+   var AA = A;
+   var nub = row_nub;
+   var data_row = AA.length;   
+   var data_col = AA[0].length;  
+   var BB= m_new_zero_mtx(data_row-1,data_col);             
+   var data_nub=0;
+   var data_shift=0; 
      for(var i = 0 ; i < data_row-1; i++){
        for(var j = 0 ; j < data_col; j++){ 
          if(i >= nub){ var data_nub = 1;}
@@ -9341,65 +9223,113 @@ var AA = A;
             BB[i][j]= AA[data_shift][j];
                                           }
                                      }
-        return BB;
+       return BB;
 }
 
-function m_mtx_sort_col_nub( X ,col_nub ,property){      
-    var AA = X;
-     var nub = col_nub;
-     var ad = property;
-     var data_row = AA.length;   
-     var data_col = AA[0].length;  
-     var BB= m_new_zero_mtx(1,data_col);             
-  for(var k=0; k< data_row+1 ; k++){      
-       for(var i=0; i< data_row ; i++){      
-           var data_i_up = AA[i][nub];
-             if( i < (data_row -1)){    
-                var data_i_down = AA[i+1][nub];
-                                } 
-      if(i< data_row-1){       
-          var data_comp_a  =  m_mtx_real_str_comp(data_i_up ,data_i_down);      
-            if(ad=="A"){             
-            if( data_comp_a  == 2 ){        
-                for(var j=0;j <data_col;j++){
-                    BB[0][j]=AA[i][j] ;            
-                    AA[i][j] = AA[i+1][j];          
-                    AA[i+1][j]= BB[0][j];
-                                                }  
-                                                       }      
-                 
-                         }   
-            if(ad !="A"){           
-            if(  data_comp_a  == 1 ){     
-              for(var j=0;j <data_col;j++){
-                    BB[0][j]=AA[i][j] ;            
-                    AA[i][j] = AA[i+1][j];          
-                    AA[i+1][j]= BB[0][j];
-                                             }  
-                                                       }      
-                  
-                         }   
-                         }  
-            if( i == (data_row-1) ){              
-               var data_i_upup = AA[i-1][nub];    
-               var data_comp_b  =  m_mtx_real_str_comp(data_i_upup ,data_i_up);      
-               if((data_comp_b ==2  && ad=="A")||       
-                  (data_comp_b ==1  && ad != "A")){         
-                    for(var j=0;j <data_col;j++){
-                       BB[0][j]=AA[i-1][j] ;    
-                       AA[i-1][j] = AA[i][j];  
-                       AA[i][j]= BB[0][j];
-                                                } 
+  
+ function m_mtx_delete_empty_row(A,col_nub){      
+   var AA = A;
+   if(AA==""){ return AA;}
+   var col_nub = col_nub;
+   var data_a="";
+   var data_row = AA.length;   
+   var data_col = AA[0].length; 
+   for(var i = data_row-1 ; i >-1; i--){      
+      var data_a = AA[i][col_nub];
+    if(data_a ==""){ var BB= m_mtx_delete_one(AA, i);
+           var AA =BB;  }
+                               }
+        return AA;
+}
 
-                                       }   
+ function m_mtx_cells_add(A,row_1,col_1,row_2,col_2){   
+   var AA = A;
+       AA[row_1][col_1]=m_mtx_real_add(AA[row_1][col_1],AA[row_2][col_2]);
+   var AA = m_mtx_delete_one(AA,row_2);
+       return AA;
+}
 
-                                            }  
+function m_mtx_cells_sub(A,row_1,col_1,row_2,col_2){   
+  var AA = A;
+      AA[row_1][col_1]=m_mtx_real_sub(AA[row_1][col_1],AA[row_2][col_2]);
+  var AA = m_mtx_delete_one(AA,row_2);
+        return AA;
+}
 
-                                      }   
 
-                                        }    
+function m_mtx_cells_mul(A,row_1,col_1,row_2,col_2){   
+  var AA = A;
+      AA[row_1][col_1]=m_mtx_real_mul(AA[row_1][col_1],AA[row_2][col_2]);
+  var AA = m_mtx_delete_one(AA,row_2);
+       return AA;
+}
  
-   return AA;
+ function m_mtx_cells_div(A,row_1,col_1,row_2,col_2){   
+   var AA = A;
+   var data_a=-1;
+   var data_a =  m_mtx_real_div(AA[row_1][col_1],AA[row_2][col_2]);
+       AA[row_1][col_1] = data_a;
+   var AA = m_mtx_delete_one(AA,row_2);
+      return AA;
+  }
+
+function m_mtx_cells_comp(A,row_1,col_1,row_2,col_2){    
+  var AA = A;
+  var data_a=-1;
+  var data_a=m_mtx_real_str_comp(AA[row_1][col_1],AA[row_2][col_2]);
+     return data_a;
+}
+
+
+ function m_mtx_sort_col_nub( X ,col_nub ,property){      
+   var AA = X;
+   var nub = col_nub;
+   var ad = property;
+   var data_row = AA.length;   
+   var data_col = AA[0].length;  
+   var BB= m_new_zero_mtx(1,data_col);             
+     for(var k=0; k< data_row+1 ; k++){      
+       for(var i=0; i< data_row ; i++){      
+         var data_i_up = AA[i][nub];
+         if( i < (data_row -1)){    
+           var data_i_down = AA[i+1][nub];
+                                } 
+         if(i< data_row-1){       
+           var data_comp_a  =  m_mtx_real_str_comp(data_i_up ,data_i_down);      
+         if(ad=="A"){             
+         if(data_comp_a  == 2 ){        
+           for(var j=0;j <data_col;j++){
+             BB[0][j]=AA[i][j] ;            
+             AA[i][j] = AA[i+1][j];          
+             AA[i+1][j]= BB[0][j];
+                              }  
+                          }      
+                       }   
+        if(ad !="A"){           
+        if(data_comp_a  == 1 ){     
+          for(var j=0;j <data_col;j++){
+            BB[0][j]=AA[i][j] ;            
+            AA[i][j] = AA[i+1][j];          
+            AA[i+1][j]= BB[0][j];
+                        }  
+                      }      
+                     }   
+                   }  
+        if(i == (data_row-1) ){              
+          var data_i_upup = AA[i-1][nub];    
+          var data_comp_b  =  m_mtx_real_str_comp(data_i_upup ,data_i_up);      
+          if((data_comp_b ==2  && ad=="A")||       
+            (data_comp_b ==1  && ad != "A")){         
+               for(var j=0;j <data_col;j++){
+               BB[0][j]=AA[i-1][j] ;    
+               AA[i-1][j] = AA[i][j];  
+               AA[i][j]= BB[0][j];
+                             } 
+                          }   
+                         }  
+                      }   
+                  }    
+     return AA;
     }
   
 function m_exp_ln(x){              
@@ -9407,20 +9337,21 @@ function m_exp_ln(x){
   var data_msg =0;
   var data_msg =  m_str_char(xx,"Msg") ;  
     if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}   
-  var xx = m_str_e_to_str_point(xx );      
+  var xx = m_str_e_to_str_point(xx);      
   var xx_e = m_mtx_str_to_e(xx);             
   var xx_e = m_mtx_str_to_e_a(xx_e); 
   var nub_x = m_str_power(xx_e ,0);     
   var xx_e_st = m_str_power(xx_e ,1);  
   var xx_e_st_fst=xx_e_st.substr(0,1);  
-  var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);     
-    if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
-    if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
+  var data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);     
+    if(data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
+    if(xx_e_st_fst == "-") { var ans_t = message_1(5); return ans_t;} 
    return xx ; }
-function m_ln_exp(x){    
+
+ function m_ln_exp(x){    
    var xx=x.toString().trim();
-   var data_msg =  m_str_char(x,"Msg") ;                     
-    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var data_msg =  m_str_char(x,"Msg") ; 
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                  
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_fix(xx,FIX_COL);  
    var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -9430,13 +9361,14 @@ function m_ln_exp(x){
      if( p_comp_datalg ==1  ){
    var ans_1 = message_1(23);return  ans_1  }     
    var xx = m_str_e_to_str(xx);     
-   return xx ;
+    return xx ;
         }
-function m_sin_asin(x){             
+
+ function m_sin_asin(x){             
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9445,17 +9377,17 @@ function m_sin_asin(x){
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
    var ans_a= message_1(1);  return ans_a;} 
    var zz_fst=zz.substr(0,1);
-   if(zz_fst=="-"){
-      var zz = zz.substr(1,zz.length-1);}
-  var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
-      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
-   return x ;}
+     if(zz_fst=="-"){
+       var zz = zz.substr(1,zz.length-1);}
+   var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
+     if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+    return x ;}
   
-function m_sin_acos(x){              
+ function m_sin_acos(x){              
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9464,23 +9396,22 @@ function m_sin_acos(x){
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
    var ans_a= message_1(1);  return ans_a;}  
    var zz_fst=zz.substr(0,1);
-   if(zz_fst=="-"){
-   var zz = zz.substr(1,zz.length-1);}
+     if(zz_fst=="-"){
+       var zz = zz.substr(1,zz.length-1);}
    var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
-    if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }  
+     if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }  
    var data_a = m_mtx_real_mul(zz,zz);    
    var data_b = m_mtx_real_sub(1,data_a); 
    var data_c = m_pow(data_b,0.5);         
-     return data_c;}
+      return data_c;}
 
-
-function m_sin_atan(x){                
+ function m_sin_atan(x){                
    var xx = x.toString().trim();
        PIDIV2=m_fix(PIDIV2,FIX_COL);  
        PIDIV4=m_fix(PIDIV4,FIX_COL);  
    var data_msg = 0;
    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ; 
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
@@ -9488,15 +9419,14 @@ function m_sin_atan(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
    var xx_fst = xx.substr(0,1);
-    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-    else { var xx=xx;} 
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+     else { var xx=xx;} 
    var data_a = m_mtx_real_mul(xx,xx);     
    var data_b = m_mtx_real_add(1,data_a);  
    var data_c = m_pow(data_b,0.5);         
    var data_d = m_mtx_real_div(xx,data_c);
-   if(xx_fst =="-"){ var data_d ="-"+data_d;}
+     if(xx_fst =="-"){ var data_d ="-"+data_d;}
    return data_d;}  
-
 
  function m_asin_sin(x){ 
    var xx=x.toString().trim();
@@ -9515,41 +9445,41 @@ function m_sin_atan(x){
    var xx_fst ="" ;
    var idx_e = xx.indexOf("e");
      if( idx_e >0){
-     var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-     var xx_af_p =  m_str_char(xx_af,".") ;   
-     var xx_af_e =  m_str_char(xx_af,"e") ;     
-        if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
-        if(xx_af_p >=2 || xx_af_e>=1){ 
-     var ans_1 = message_1(30);  return  ans_1;}  }                          
-    var xx = m_mtx_str_to_e_a(xx);            
-    var xx_test_small = xx;                      
-    var xx_test_nub_e =m_str_power(xx_test_small,0);             
+       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+       var xx_af_p =  m_str_char(xx_af,".") ;   
+       var xx_af_e =  m_str_char(xx_af,"e") ;     
+         if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
+         if(xx_af_p >=2 || xx_af_e>=1){ 
+           var ans_1 = message_1(30);  return  ans_1;}  }                          
+   var xx = m_mtx_str_to_e_a(xx);            
+   var xx_test_small = xx;                      
+   var xx_test_nub_e =m_str_power(xx_test_small,0);             
      if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; }
    var xx_fst = xx.substr(0,1);                                          
-      if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
-    PIDIV2= m_fix(PIDIV2,FIX_COL); 
-    PIMUL2 = m_fix(PIMUL2,FIX_COL); 
-    SQRT2 = m_fix(SQRT2,FIX_COL);
+     if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
+      PIDIV2= m_fix(PIDIV2,FIX_COL); 
+      PIMUL2 = m_fix(PIMUL2,FIX_COL); 
+      SQRT2 = m_fix(SQRT2,FIX_COL);
    var com_zz_pidiv2 =0;
-    var zz = m_mtx_real_div(xx,PIMUL2); 
-    var zz = m_str_e_to_str(zz);   
-    var zz_m = m_nub_m(zz) ;        
-    var zz_p = m_nub_p(zz) ;  
-    var zz_m = m_mtx_trim(zz_m) ;  
-    var zz_p = m_mtx_trim(zz_p) ;
-    var zz_p_t=m_fix(zz_p,200);       
-    var zz_p_t =m_mtx_trim(zz_p_t) ; 
-    if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_3_4=1 ; }  
-    else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_3_4=1 ; }  
-    else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; } 
-    else if( zz_p_t <'0.25'){ var zz_p = zz_p ;var flag_1_2=1 ; }  
-     var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
+   var zz = m_mtx_real_div(xx,PIMUL2); 
+   var zz = m_str_e_to_str(zz);   
+   var zz_m = m_nub_m(zz) ;        
+   var zz_p = m_nub_p(zz) ;  
+   var zz_m = m_mtx_trim(zz_m) ;  
+   var zz_p = m_mtx_trim(zz_p) ;
+   var zz_p_t=m_fix(zz_p,200);       
+   var zz_p_t =m_mtx_trim(zz_p_t) ; 
+     if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_3_4=1 ; }  
+     else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_3_4=1 ; }  
+     else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; } 
+     else if( zz_p_t <'0.25'){ var zz_p = zz_p ;var flag_1_2=1 ; }  
+   var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
      if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_2=1 ;}   
-      else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
-    if(xx_fst !="-" && flag_3_4 ==1){ var data_cle_b ="-"+data_cle_b;}
-    else if(xx_fst =="-" && flag_1_2 ==1){ var data_cle_b ="-"+data_cle_b;} 
-    else { var data_cle_b = data_cle_b;}
-     return data_cle_b ; }
+     else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
+     if(xx_fst !="-" && flag_3_4 ==1){ var data_cle_b ="-"+data_cle_b;}
+     else if(xx_fst =="-" && flag_1_2 ==1){ var data_cle_b ="-"+data_cle_b;} 
+     else { var data_cle_b = data_cle_b;}
+       return data_cle_b ; }
 
 function m_asin_cos(x){     
   var xx=x.toString().trim();
@@ -9567,10 +9497,10 @@ function m_asin_cos(x){
   var flag_1_4=0; 
   var xx_fst ="" ;
   var idx_e = xx.indexOf("e");
-    if( idx_e >0){
+    if(idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-      var xx_af_p =  m_str_char(xx_af,".") ;   
-      var xx_af_e =  m_str_char(xx_af,"e") ;     
+      var xx_af_p = m_str_char(xx_af,".") ;   
+      var xx_af_e = m_str_char(xx_af,"e") ;     
     if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
     if(xx_af_p >=2 || xx_af_e>=1){ 
       var ans_1 = message_1(30);  return  ans_1;}  }                          
@@ -9581,7 +9511,7 @@ function m_asin_cos(x){
     if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; } 
   var xx_fst = xx.substr(0,1);
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }   
-       PIDIV2= m_fix(PIDIV2,FIX_COL); 
+      PIDIV2= m_fix(PIDIV2,FIX_COL); 
       PIMUL2 = m_fix(PIMUL2,FIX_COL); 
   var com_zz_pidiv2 =0;
   var zz = m_mtx_real_div(xx,PIMUL2);  
@@ -9592,17 +9522,17 @@ function m_asin_cos(x){
   var zz_p = m_mtx_trim(zz_p) ; 
   var zz_p_t=m_fix(zz_p,200);            
   var zz_p_t =m_mtx_trim(zz_p_t) ;   
-   if( zz_p_t >='0.75'&& zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_1_4=1;  }   
-   else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_2_3=1 ; }   
-   else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
-   else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
- var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);      
-   if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_4=1 ;}   
-   else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }        
- var ans_a = m_mtx_real_sub(PIDIV2,data_cle_b);
-   if( flag_2_3 ==1){ var ans_a ="-"+ans_a;} 
-   if( flag_1_4 ==1){ var ans_a = ans_a;} 
-     return ans_a ; }
+    if( zz_p_t >='0.75'&& zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_1_4=1;  }   
+    else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_2_3=1 ; }   
+    else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
+    else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
+  var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);      
+    if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_4=1 ;}   
+    else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }        
+  var ans_a = m_mtx_real_sub(PIDIV2,data_cle_b);
+    if( flag_2_3 ==1){ var ans_a ="-"+ans_a;} 
+    if( flag_1_4 ==1){ var ans_a = ans_a;} 
+       return ans_a ; }
   
  function m_cos_asin(x){               
    var zz = x.toString().trim();
@@ -9617,12 +9547,12 @@ function m_asin_cos(x){
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
    var ans_a= message_1(1);  return ans_a;}  
    var zz_fst=zz.substr(0,1);
-    if(zz_fst=="-"){
+     if(zz_fst=="-"){
    var zz = zz.substr(1,zz.length-1);}
    var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
-      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
+     if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
    var x_fst=x.substr(0,1);
-        if(x_fst=="-"){
+     if(x_fst=="-"){
    var x = x.substr(1,x.length-1);}  
    var data_a = m_mtx_real_mul(x,x);     
    var data_b = m_mtx_real_sub(1,data_a); 
@@ -9635,22 +9565,22 @@ function m_cos_atan(x){
        PIDIV4=m_fix(PIDIV4,FIX_COL);  
    var data_msg = 0;
    var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
-   var xx =m_mtx_trim(xx) ; 
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var xx = m_mtx_trim(xx) ; 
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
    var xx_fst = xx.substr(0,1);
-    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-    else { var xx=xx;} 
-
-      var data_a = m_mtx_real_mul(xx,xx);     
-      var data_b = m_mtx_real_add(1,data_a); 
-      var data_c = m_pow(data_b,0.5);         
-      var data_d = m_mtx_real_div(1,data_c);
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+     else { var xx=xx;} 
+   var data_a = m_mtx_real_mul(xx,xx);     
+   var data_b = m_mtx_real_add(1,data_a); 
+   var data_c = m_pow(data_b,0.5);         
+   var data_d = m_mtx_real_div(1,data_c);
   return data_d;} 
+
  function m_cos_acos(x){  var xx = x.toString().trim();
    var data_msg =0;
    var ans_a="";  
@@ -9660,7 +9590,7 @@ function m_cos_atan(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
-      var ans_a= message_1(2);  return ans_a;}      
+       var ans_a= message_1(2);  return ans_a;}      
    var xx =m_mtx_trim(xx) ;
    var xx = m_str_e_to_str_point(xx );      
        xx = m_str_e_to_str(xx);  
@@ -9689,7 +9619,7 @@ function m_acos_cos(x){
   var ans_1 = "";
   var ans_a = "";
   var ans_a_s = "";
-   var xx_fst ="" ;
+  var xx_fst ="" ;
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -9698,53 +9628,53 @@ function m_acos_cos(x){
     if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
     if(xx_af_p >=2 || xx_af_e>=1){ 
       var ans_1 = message_1(30);  return  ans_1;}  }                          
-  var xx = m_mtx_str_to_e_a(xx);            
-  var xx_test_small = m_mtx_str_to_e_a(xx);             
-  var xx_test_nub_e =m_str_power(xx_test_small,0);             
-  var xx_test_st = m_str_power(xx_test_small,1);          
-    if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; }  
-  var xx_fst = xx.substr(0,1);
-      if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }   
-      PIDIV2= m_fix(PIDIV2,FIX_COL); 
-      PIMUL2 = m_fix(PIMUL2,FIX_COL);
+   var xx = m_mtx_str_to_e_a(xx);            
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
+   var xx_test_nub_e =m_str_power(xx_test_small,0);             
+   var xx_test_st = m_str_power(xx_test_small,1);          
+     if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; }  
+   var xx_fst = xx.substr(0,1);
+     if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }   
+     PIDIV2= m_fix(PIDIV2,FIX_COL); 
+     PIMUL2 = m_fix(PIMUL2,FIX_COL);
    var com_zz_pidiv2 =0;
    var zz = m_mtx_real_div(xx,PIMUL2);  
    var zz = m_str_e_to_str(zz);   
    var zz_m = m_nub_m(zz) ;         
    var zz_p = m_nub_p(zz) ;  
-    var zz_m = m_mtx_trim(zz_m) ;  
-    var zz_p = m_mtx_trim(zz_p) ; 
-    var zz_p_t=m_fix(zz_p,200);            
-    var zz_p_t =m_mtx_trim(zz_p_t) ;
-      if( zz_p_t >'0.5' &&  zz_p_t <= '1'){  var zz_p = m_mtx_real_sub(1,zz_p);  }   
-      else{ var zz_p =zz_p;}
+   var zz_m = m_mtx_trim(zz_m) ;  
+   var zz_p = m_mtx_trim(zz_p) ; 
+   var zz_p_t=m_fix(zz_p,200);            
+   var zz_p_t =m_mtx_trim(zz_p_t) ;
+     if( zz_p_t >'0.5' &&  zz_p_t <= '1'){  var zz_p = m_mtx_real_sub(1,zz_p);  }   
+     else{ var zz_p =zz_p;}
      var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p);     
      var ans_t= data_cle_b;
    return ans_t ; }
 
 function m_acos_sin(x){            
   var xx=x.toString().trim();
-   var data_msg =0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}       
-   var xx =m_mtx_trim(xx) ;
-   var xx_af =0;
-   var xx_af_p =0; 
-   var xx_af_e =0;
-   var ans_1 = "";
-   var ans_a = "";
-   var ans_a_s = "";
-   var flag_1_2=0; 
-   var flag_3_4=0; 
-   var xx_fst ="" ;  
-   var idx_e = xx.indexOf("e");
-     if( idx_e >0){
-     var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-     var xx_af_p =  m_str_char(xx_af,".") ;   
-     var xx_af_e =  m_str_char(xx_af,"e") ;     
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
+    if(data_msg >=1){ var ans_a = x ; return  ans_a ;}       
+  var xx =m_mtx_trim(xx) ;
+  var xx_af =0;
+  var xx_af_p =0; 
+  var xx_af_e =0;
+  var ans_1 = "";
+  var ans_a = "";
+  var ans_a_s = "";
+  var flag_1_2=0; 
+  var flag_3_4=0; 
+  var xx_fst ="" ;  
+  var idx_e = xx.indexOf("e");
+    if( idx_e >0){
+      var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+      var xx_af_p =  m_str_char(xx_af,".") ;   
+      var xx_af_e =  m_str_char(xx_af,"e") ;     
         if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
         if(xx_af_p >=2 || xx_af_e>=1){ 
-     var ans_1 = message_1(30);  return  ans_1;}  }                          
+          var ans_1 = message_1(30);  return  ans_1;}  }                          
   var xx = m_mtx_str_to_e_a(xx);            
   var xx_test_small = xx;                      
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -9765,28 +9695,28 @@ function m_acos_sin(x){
   var zz_p_t =m_mtx_trim(zz_p_t) ; 
     if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1,zz_p_t); var zz_p = m_mtx_real_sub(1,zz_p); var flag_3_4=1 ; }  
     else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t,0.5); var zz_p = m_mtx_real_sub(zz_p,0.5); var flag_3_4=1 ; } 
-  else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; }  
+    else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; }  
     else if( zz_p_t <'0.25'){ var zz_p = zz_p ;var flag_1_2=1 ; }  
   var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);      
-   if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_2=1 ;}   
-   else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
+    if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_2=1 ;}   
+    else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
   var ans_t ="";
-   if(flag_1_2==1 && xx_fst !="-"){
-     var ans_t = m_mtx_real_sub(PIDIV2,data_cle_b);}
-   if(flag_1_2==1 && xx_fst !="-"){
-     var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}  
-   if(flag_3_4==1 && xx_fst !="-"){
-     var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}  
-   if(flag_3_4==1 && xx_fst =="-"){
-     var ans_t = m_mtx_real_sub(PIDIV2,data_cle_b);}
-   else {var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}
-   return ans_t ; }    
+    if(flag_1_2==1 && xx_fst !="-"){
+      var ans_t = m_mtx_real_sub(PIDIV2,data_cle_b);}
+    if(flag_1_2==1 && xx_fst !="-"){
+      var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}  
+    if(flag_3_4==1 && xx_fst !="-"){
+      var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}  
+    if(flag_3_4==1 && xx_fst =="-"){
+      var ans_t = m_mtx_real_sub(PIDIV2,data_cle_b);}
+    else {var ans_t = m_mtx_real_add(PIDIV2,data_cle_b);}
+     return ans_t ; }    
    
-function m_tan_asin(x){                
+ function m_tan_asin(x){                
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9795,13 +9725,13 @@ function m_tan_asin(x){
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
    var ans_a= message_1(1);  return ans_a;}  
    var zz_fst=zz.substr(0,1);
-   if(zz_fst=="-"){
-   var zz = zz.substr(1,zz.length-1);}
-   var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
-      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }  
+     if(zz_fst=="-"){
+       var zz = zz.substr(1,zz.length-1);}
+       var data_comp_zz_1   =  m_mtx_real_str_comp(zz,1);       
+     if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }  
    var x_fst=x.substr(0,1);
-        if(x_fst=="-"){
-   var x = x.substr(1,x.length-1);}  
+     if(x_fst=="-"){
+       var x = x.substr(1,x.length-1);}  
    var data_a = m_mtx_real_mul(x,x);     
    var data_b = m_mtx_real_sub(1,data_a); 
    var data_c = m_pow(data_b,0.5);        
@@ -9809,8 +9739,8 @@ function m_tan_asin(x){
      if(x_fst=="-"){var data_d ="-"+ data_d ;}
    return data_d;}
 
-  function m_tan_acos(x){   
-  var xx = x.toString().trim();
+ function m_tan_acos(x){   
+   var xx = x.toString().trim();
    var data_msg =0;
    var ans_a="";  
    var data_msg =  m_str_char(x,"Msg") ;  
@@ -9819,7 +9749,7 @@ function m_tan_asin(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
      if((m_mtx_real_str_comp(xx_test_nub_e,0)==1 )&& (m_mtx_real_str_comp(xx_test_st,0)!=3  )){  
-      var ans_a= message_1(2);  return ans_a;}      
+       var ans_a= message_1(2);  return ans_a;}      
    var xx =m_mtx_trim(xx) ;
    var xx = m_str_e_to_str_point(xx );      
        xx = m_str_e_to_str(xx); 
@@ -9827,141 +9757,142 @@ function m_tan_asin(x){
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
      else { var xx=xx;}  
    var ans_1=0;
-   var data_comp_xx_0   =  m_mtx_real_str_comp(xx,0); 
-   var data_comp_xx_1   =  m_mtx_real_str_comp(xx,1);      
-   var data_comp_x_1    =  m_mtx_real_str_comp(x,1); 
-   var data_comp_x_n1   =  m_mtx_real_str_comp(x,-1);
-     if( data_comp_xx_1==1){  var ans_1= message_1(2);  return ans_1; }   
+   var data_comp_xx_0 = m_mtx_real_str_comp(xx,0); 
+   var data_comp_xx_1 = m_mtx_real_str_comp(xx,1);      
+   var data_comp_x_1  = m_mtx_real_str_comp(x,1); 
+   var data_comp_x_n1 = m_mtx_real_str_comp(x,-1);
+     if( data_comp_xx_1==1){ var ans_1= message_1(2);  return ans_1; }   
      if(xx_fst=="-"){ var xx="-"+xx;}  
       else{var xx=xx;}
-
-      var data_a = m_mtx_real_mul(xx,xx);     
-      var data_b = m_mtx_real_sub(1,data_a); 
-      var data_c = m_pow(data_b,0.5);        
-      var data_d = m_mtx_real_div(data_c,xx); 
+   var data_a = m_mtx_real_mul(xx,xx);     
+   var data_b = m_mtx_real_sub(1,data_a); 
+   var data_c = m_pow(data_b,0.5);        
+   var data_d = m_mtx_real_div(data_c,xx); 
    return data_d ; }   
-
 
 function m_tan_atan(x){
    var xx = x.toString().trim();
    var data_msg = 0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var data_msg = m_str_char(x,"Msg") ;  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ; 
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
-   return xx ; }
+     return xx ; }
+
 function m_atan_tan(x){     
- var xx=x.toString().trim();
- var data_msg =0;
- var data_msg =  m_str_char(x,"Msg") ;  
+  var xx=x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(x,"Msg") ;  
     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
- var xx =m_mtx_trim(xx) ;
- var xx_af =0;
- var xx_af_p =0; 
- var xx_af_e =0; 
- var ans_1 = "";
- var ans_a = "";
- var ans_a_s = "";  
- var flag_2_4=0; 
- var flag_1_3=0; 
- var xx_fst ="" ; 
- var idx_e = xx.indexOf("e");
-   if( idx_e >0){
-     var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
-     var xx_af_p =  m_str_char(xx_af,".") ;   
-     var xx_af_e =  m_str_char(xx_af,"e") ;     
-   if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
-   if(xx_af_p >=2 || xx_af_e>=1){ 
-     var ans_1 = message_1(30);  return  ans_1;} }                          
+  var xx =m_mtx_trim(xx) ;
+  var xx_af =0;
+  var xx_af_p =0; 
+  var xx_af_e =0; 
+  var ans_1 = "";
+  var ans_a = "";
+  var ans_a_s = "";  
+  var flag_2_4=0; 
+  var flag_1_3=0; 
+  var xx_fst ="" ; 
+  var idx_e = xx.indexOf("e");
+    if( idx_e >0){
+      var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
+      var xx_af_p =  m_str_char(xx_af,".") ;   
+      var xx_af_e =  m_str_char(xx_af,"e") ;     
+    if(xx_af_p ==1){  var xx = m_str_e_to_str_point(x); }
+    if(xx_af_p >=2 || xx_af_e>=1){ 
+      var ans_1 = message_1(30);  return  ans_1;} }                          
   var xx = m_mtx_str_to_e_a(xx);           
   var data_cle =0;     
   var xx_test_small = xx;             
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
   var xx_test_st = m_str_power(xx_test_small,1);          
-   if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; } 
+    if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16);   return  ans_1 ; } 
   var xx_fst = xx.substr(0,1);
-      if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
+    if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
   var com_zz_pidiv2 =0;
-     var zz = m_mtx_real_div(xx,PIMUL2); 
-     var zz = m_str_e_to_str(zz);   
-     var zz_m = m_nub_m(zz) ;         
-     var zz_p = m_nub_p(zz) ;  
-     var zz_m = m_mtx_trim(zz_m) ;  
-     var zz_p = m_mtx_trim(zz_p) ; 
-     var flag_2_4=0 ;    
-     var flag_1_3=0 ;
-     var zz_p_t=m_fix(zz_p,200);   
-     var zz_p_t =m_mtx_trim(zz_p_t) ; 
-     if( zz_p_t =='0.25'|| zz_p_t =='0.75'){  var ans_1 = message_1(11);  return ans_1 ;  }
-     if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1 ,zz_p_t); var zz_p = m_mtx_real_sub(1 ,zz_p); var flag_2_4=1 ; }    
-     else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t ,0.5); var zz_p = m_mtx_real_sub(zz_p ,0.5); var flag_1_3=1 ; }  
-     else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; } 
-     else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
-      var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);  
-     if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_3=1 ;}   
-      else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
-   if(xx_fst =="-" && flag_1_3 ==1){ var data_cle_b ="-"+data_cle_b;}
-   if(xx_fst !="-" && flag_2_4 ==1){ var data_cle_b ="-"+data_cle_b;}
+  var zz = m_mtx_real_div(xx,PIMUL2); 
+  var zz = m_str_e_to_str(zz);   
+  var zz_m = m_nub_m(zz) ;         
+  var zz_p = m_nub_p(zz) ;  
+  var zz_m = m_mtx_trim(zz_m) ;  
+  var zz_p = m_mtx_trim(zz_p) ; 
+  var flag_2_4=0 ;    
+  var flag_1_3=0 ;
+  var zz_p_t=m_fix(zz_p,200);   
+  var zz_p_t =m_mtx_trim(zz_p_t) ; 
+    if( zz_p_t =='0.25'|| zz_p_t =='0.75'){  var ans_1 = message_1(11);  return ans_1 ;  }
+    if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1 ,zz_p_t); var zz_p = m_mtx_real_sub(1 ,zz_p); var flag_2_4=1 ; }    
+    else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t ,0.5); var zz_p = m_mtx_real_sub(zz_p ,0.5); var flag_1_3=1 ; }  
+    else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; } 
+    else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
+  var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);  
+    if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_3=1 ;}   
+    else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }  
+    if(xx_fst =="-" && flag_1_3 ==1){ var data_cle_b ="-"+data_cle_b;}
+    if(xx_fst !="-" && flag_2_4 ==1){ var data_cle_b ="-"+data_cle_b;}
       return data_cle_b ;  }
-function m_sinh_asinh(x){ 
+
+ function m_sinh_asinh(x){ 
    var xx = x.toString().trim();
    var data_msg = 0;
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                   
-   var xx =m_mtx_trim(xx) ;
+   var xx = m_mtx_trim(xx) ;
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_str_e_to_str(xx);      
-   return xx ;  }
+    return xx ;  }
+
  function m_asinh_sinh(x){ 
-  var xx = x.toString().trim();
-  var data_msg =0;
-  var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                 
-  var xx =m_mtx_trim(xx) ;  
-  var xx = m_str_e_to_str_point(xx );           
-  var xx_test_small = m_mtx_str_to_e_a(xx);             
-  var xx_test_nub_e =m_str_power(xx_test_small,0);             
-    if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
-    var ans_a= message_1(24) ; return  ans_a;}     
-   return xx ;}
- 
-function m_cosh_acosh(x){ 
    var xx = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                       
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                 
+   var xx =m_mtx_trim(xx) ;  
+   var xx = m_str_e_to_str_point(xx );           
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
+   var xx_test_nub_e =m_str_power(xx_test_small,0);             
+     if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
+   var ans_a= message_1(24) ; return  ans_a;}     
+     return xx ;}
+ 
+ function m_cosh_acosh(x){ 
+   var xx = x.toString().trim();
+   var data_msg =0;
+   var data_msg =  m_str_char(x,"Msg") ;  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                       
    var xx =m_mtx_trim(xx) ;    
    var xx = m_str_e_to_str_point(xx );     
    var xx_fst = xx.substr(0,1);
-    if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-     else { var xx=xx;}  
-    if( m_mtx_real_str_comp(xx,1)==2 || xx_fst=="-" ){ var ans_1= message_1(3);  return ans_1 ;}      
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+     else {var xx=xx;}  
+     if( m_mtx_real_str_comp(xx,1)==2 || xx_fst=="-" ){ var ans_1= message_1(3);  return ans_1 ;}      
    return x ;}
       
-function m_acosh_cosh(x){ 
+ function m_acosh_cosh(x){ 
    var xx = x.toString().trim();
    var data_msg =0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
-  var xx =m_mtx_trim(xx) ;
-  var xx = m_str_e_to_str_point(xx );     
-  var xx_test_small = m_mtx_str_to_e_a(xx);             
-  var xx_test_nub_e =m_str_power(xx_test_small,0);             
+   var data_msg = m_str_char(x,"Msg") ;  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var xx =m_mtx_trim(xx) ;
+   var xx = m_str_e_to_str_point(xx );     
+   var xx_test_small = m_mtx_str_to_e_a(xx);             
+   var xx_test_nub_e =m_str_power(xx_test_small,0);             
      if(m_mtx_real_str_comp(xx_test_nub_e,201)==1 ){ 
-          var ans_a= message_1(25) ; return  ans_a;} 
+        var ans_a= message_1(25) ; return  ans_a;} 
    var xx_fst = xx.substr(0,1);
-       if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-        else { var xx=xx;}
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+     else {var xx=xx;}
     return xx ; }
     
-function m_tanh_atanh(x){         
+ function m_tanh_atanh(x){         
    var xx = x.toString().trim();
    var xx_s =xx;
-   var data_msg =0;
+   var data_msg = 0;
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                   
    var xx =m_mtx_trim(xx) ; 
@@ -9970,63 +9901,79 @@ function m_tanh_atanh(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1); 
    var xx_fst = xx.substr(0,1);
-       if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
-        else { var xx=xx;}    
+     if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
+     else { var xx=xx;}    
        xx = m_str_e_to_str(xx);      
-    var comp_xx_0 = m_mtx_real_str_comp(xx,0);
-    var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
-    var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);    
-      if( comp_xx_n1 == 2 || comp_xx_1 ==1 ){ var ans_1= message_1(4);  return ans_1 ;}    
-      if( comp_xx_n1 == 3 || comp_xx_1 ==3 ){ var ans_1= message_1(4);  return ans_1 ;}    
-    var comp_xx_1 = m_mtx_real_str_comp(xx,1); 
-    var data_test_up = m_mtx_real_sub('1','1e-9999');     
-    var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up); 
+   var comp_xx_0 = m_mtx_real_str_comp(xx,0);
+   var comp_xx_1 = m_mtx_real_str_comp(xx,1);    
+   var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);    
+     if( comp_xx_n1 == 2 || comp_xx_1 ==1 ){var ans_1= message_1(4); return ans_1 ;}    
+     if( comp_xx_n1 == 3 || comp_xx_1 ==3 ){var ans_1= message_1(4); return ans_1 ;}    
+   var comp_xx_1 = m_mtx_real_str_comp(xx,1); 
+   var data_test_up = m_mtx_real_sub('1','1e-9999');     
+   var comp_xx_data_test_up = m_mtx_real_str_comp(xx,data_test_up); 
      if((comp_xx_1==2)&& (comp_xx_data_test_up ==1)){                   
-    var ans_1= message_1(15);  return ans_1 ; }
-   return xx_s ;}
-  function m_atanh_tanh(x){                 
+   var ans_1= message_1(15);  return ans_1 ; }
+  return xx_s ;}
+
+ function m_atanh_tanh(x){                 
    var xx = x.toString().trim();
-   var data_msg =0;
-   var data_msg =  m_str_char(x,"Msg") ;  
-       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var data_msg = 0;
+   var data_msg = m_str_char(x,"Msg") ;  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ;
   return xx ; }
  
- function m_replace_eq(x){                     
-    var xx = x.toString().trim();
-    var xx = xx.replace(/\)π/g , "\)\*π");   
-    var xx = xx.replace(/\)\°/g , "\)\*°");  
-    var xx = xx.replace(/0π/g , "0\*π");   
-    var xx = xx.replace(/1π/g , "1\*π");   
-    var xx = xx.replace(/2π/g , "2\*π");   
-    var xx = xx.replace(/3π/g , "3\*π");   
-    var xx = xx.replace(/4π/g , "4\*π");   
-    var xx = xx.replace(/5π/g , "5\*π");   
-    var xx = xx.replace(/6π/g , "6\*π");   
-    var xx = xx.replace(/7π/g , "7\*π");   
-    var xx = xx.replace(/8π/g , "8\*π");   
-    var xx = xx.replace(/9π/g , "9\*π"); 
-    var xx = xx.replace(/0°/g , "0\*°");   
-    var xx = xx.replace(/1°/g , "1\*°");   
-    var xx = xx.replace(/2°/g , "2\*°");   
-    var xx = xx.replace(/3°/g , "3\*°");   
-    var xx = xx.replace(/4°/g , "4\*°");   
-    var xx = xx.replace(/5°/g , "5\*°");   
-    var xx = xx.replace(/6°/g , "6\*°");   
-    var xx = xx.replace(/7°/g , "7\*°");   
-    var xx = xx.replace(/8°/g , "8\*°");   
-    var xx = xx.replace(/9°/g , "9\*°"); 
-    var xx = xx.replace(/\°π/g , "\°\*π");  
-    var xx = xx.replace(/π\°/g , "π*\°");
-    var xx = xx.replace(/" "/g , "''");      
-  return xx ; } 
+ function m_replace_eq(x){                       
+   var xx = x.toString().trim();
+   var xx = xx.replace(/\)\π/g , "\)1\*\π");   
+   var xx = xx.replace(/\)\°/g , "\)1\*\°");  
+   var xx = xx.replace(/0\π/g , "0\*\π");   
+   var xx = xx.replace(/1\π/g , "1\*\π");   
+   var xx = xx.replace(/2\π/g , "2\*\π");   
+   var xx = xx.replace(/3\π/g , "3\*\π");   
+   var xx = xx.replace(/4\π/g , "4\*\π");   
+   var xx = xx.replace(/5\π/g , "5\*\π");   
+   var xx = xx.replace(/6\π/g , "6\*\π");   
+   var xx = xx.replace(/7\π/g , "7\*\π");   
+   var xx = xx.replace(/8\π/g , "8\*\π");   
+   var xx = xx.replace(/9\π/g , "9\*\π"); 
+   var xx = xx.replace(/\(\π/g , "\(1\*\π");  
+   var xx = xx.replace(/\(\°/g , "\(1\*\°");
+   var xx = xx.replace(/0\°/g , "0\*\°");   
+   var xx = xx.replace(/1\°/g , "1\*\°");   
+   var xx = xx.replace(/2\°/g , "2\*\°");   
+   var xx = xx.replace(/3\°/g , "3\*\°");   
+   var xx = xx.replace(/4\°/g , "4\*\°");   
+   var xx = xx.replace(/5\°/g , "5\*\°");   
+   var xx = xx.replace(/6\°/g , "6\*\°");   
+   var xx = xx.replace(/7\°/g , "7\*\°");   
+   var xx = xx.replace(/8\°/g , "8\*\°");   
+   var xx = xx.replace(/9\°/g , "9\*\°"); 
+   var xx = xx.replace(/\°\π/g , "\°\*\π");  
+   var xx = xx.replace(/\π\°/g , "\π\*\°");
+   var xx = xx.replace(/" "/g , "\'\'");      
+     return xx ; } 
 
-   
+function m_fun_item(x){  
+  var sum_b=0;
+  var xx = x.toString().trim();
+  var a_nb=m_str_all_char_nb(xx,"a"); 
+  var e_nb=m_str_all_char_nb(xx,"e");  
+  var l_nb=m_str_all_char_nb(xx,"l");  
+  var s_nb=m_str_all_char_nb(xx,"s");  
+  var h_nb=m_str_all_char_nb(xx,"h");  
+  var r_nb=m_str_all_char_nb(xx,"r");   
+  var m_nb=m_str_all_char_nb(xx,"m");   
+  var sum_b=a_nb + e_nb+ l_nb+ s_nb + h_nb + r_nb + m_nb ;
+   return sum_b ;
+}
+
 function m_sing_item(x){   
  var xx = x.toString().trim();
  var en_nb=m_str_all_char_nb(xx,"e-");
  var ep_nb=m_str_all_char_nb(xx,"e+");
-  if(en_nb==0 && ep_nb==0){  return xx ; }  
+   if(en_nb==0 && ep_nb==0){  return xx ; }  
  var xx = xx.replace(/e\-/g , "EN"); 
  var xx = xx.replace(/e\+/g , "EP");
  var add_nb=m_str_all_char_nb(xx,"+");
@@ -10039,14 +9986,7 @@ function m_sing_item(x){
    var xx = xx.replace(/EN/g , "e\-"); 
    var xx = xx.replace(/EP/g , "e\+");  
    return xx ; }  
- var a_nb=m_str_all_char_nb(xx,"a"); 
- var e_nb=m_str_all_char_nb(xx,"e");  
- var l_nb=m_str_all_char_nb(xx,"l");  
- var s_nb=m_str_all_char_nb(xx,"s");  
- var h_nb=m_str_all_char_nb(xx,"h");  
- var r_nb=m_str_all_char_nb(xx,"r");   
- var m_nb=m_str_all_char_nb(xx,"m");   
- var sum_b=a_nb + e_nb+ l_nb+ s_nb + h_nb + r_nb + m_nb ;
+ var sum_b = m_fun_item(xx); 
    if(sum_b!=0){ 
  var xx = xx.replace(/EN/g , "e\-"); 
  var xx = xx.replace(/EP/g , "e\+");  
@@ -10055,173 +9995,1194 @@ function m_sing_item(x){
  var xx = xx.replace(/EP/g , "e\+");  
  var xx_nub_e =m_str_power(xx,0);             
  var xx_st = m_str_power(xx,1);
-if(xx_nub_e >=100 ||xx_nub_e <= -100 ){
-  xx = 0+"+"+xx ;
-  return xx;}
+   if(xx_nub_e >=100 ||xx_nub_e <= -100 ){
+     xx = 0+"+"+xx ;
+     return xx;}
    return xx;
 }
 
+function m_funct_content_max_min_msg_c_input_over(strs,fuc){ 
+  var ss = strs.toString().trim();
+  var xx = fuc.toString().trim();
+  var ans_nb=-1;
+  var ans_nb=m_item_nuber(ss);
+  if( ans_nb==0 ){ return "";} 
+  var xx_nb=m_str_all_char_nb(ss,xx); 
+  var ep_nb=m_str_all_char_nb(ss,"e+"); 
+  var en_nb=m_str_all_char_nb(ss,"e-"); 
+  var sn_nb=ep_nb+en_nb;
+  var ans="";
+  var data_ref="";
+  var data_max="";
+  var data_min="";
+  var data_ref =  m_funct_content(ss,xx);    
+  var data_ref_h = data_ref
+  var data_ref_l = data_ref
+  var idx_xx =m_backindex(ss,xx) ;            
+  var ss =ss.substr(0,idx_xx);                 
+  for(var i=1;i< (sn_nb+xx_nb);i++){
+    var data_ref_a =  m_funct_content(ss,xx);
+    var ep_nb = m_str_all_char_nb(data_ref_a,"e+"); 
+    var en_nb = m_str_all_char_nb(data_ref_a,"e-"); 
+    var sn_nb = ep_nb + en_nb;
+    if(sn_nb !=0 && data_ref_a !=""){
+      if(m_mtx_real_str_comp(data_ref_a,data_ref_h)!=2 ){var data_max= data_ref_a; data_ref_h= data_max ;}
+      if(m_mtx_real_str_comp(data_ref_a,data_ref_l)!=1 ){var data_min= data_ref_a; data_ref_l= data_min ;}
+                 }
+    var idx_xx =m_backindex(ss,xx) ;            
+    var ss =ss.substr(0,idx_xx);                  
+        }  
+    if(data_max==""){ var data_max =data_ref ;}   
+    if(data_min==""){ var data_min =data_ref ;}    
+  var data_msg="";
+    if(m_mtx_real_str_comp(data_max,1e+200)==1 ){var data_msg= data_max+message_1(39) ; }  
+    if(m_mtx_real_str_comp(data_min,1e-200)==2 ){var data_msg= data_min+message_1(40); }
+      return data_msg;
+}
+
+
+function m_funct_content_max_min_msg(strs,fuc){ 
+  var ss = strs.toString().trim();
+  var xx = fuc.toString().trim();
+  if(xx=="e"){ var ss = ss.replace(/exp/g , "EXP"); } 
+  var xx_nb=m_str_all_char_nb(ss,xx); 
+  var ans="";
+    if( xx_nb==0){ return ans;} 
+  var data_ref="";
+  var data_max="";
+  var data_min="";
+  var data_ref =  m_funct_content(ss,xx);
+  var data_ref_max =data_ref;
+  var data_ref_min =data_ref;
+    if(m_mtx_real_str_comp(data_ref,201)==1 ){var data_msg= data_ref+message_1(39)  ; return data_msg;}  
+    if(m_mtx_real_str_comp(data_ref,-201)==2 ){var data_msg= data_ref+message_1(40); return data_msg; }
+  var idx_xx =m_backindex(ss,xx) ;            
+  var ss =ss.substr(0,idx_xx);                  
+    for(var i=1;i<xx_nb;i++){
+       var data_ref_a =  m_funct_content(ss,xx);
+       if(m_mtx_real_str_comp(data_ref_a,data_ref_max)!=2 ){var data_max= data_ref_a; data_ref_max= data_max ;}
+       if(m_mtx_real_str_comp(data_ref_a,data_ref_min)!=1 ){var data_min= data_ref_a; data_ref_min= data_min ;}
+       var idx_xx =m_backindex(ss,xx) ;            
+       var ss =ss.substr(0,idx_xx);                  
+        }  
+    if(data_max==""){ var data_max =data_ref ;}   
+    if(data_min==""){ var data_min =data_ref ;}    
+  var data_msg="";
+    if(m_mtx_real_str_comp(data_max,201)==1 ){var data_msg= data_max+message_1(39) ; return data_msg; }  
+    if(m_mtx_real_str_comp(data_min,-201)==2 ){var data_msg= data_min+message_1(40); return data_msg; }
+}
+
+function m_funct_content_cal_noc_many(strs,fuc){   
+  var ss = strs.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(ss,"Msg") ;  
+    if(data_msg >=1){ var ans_a = ss ; return  ans_a ;} 
+  var ss= "("+ss+")" ; 
+  var xx = fuc.toString().trim();
+  var c_nb=m_str_all_char_nb(ss,"(");
+  var new_ss ="";
+  var ans_ss ="";
+  var c_nb_1 =parseInt(c_nb+2); 
+    for(var i=0; i<(c_nb_1) ;i++){
+      var new_ss = m_funct_content_cal_noc(ss,xx);
+      var ss=new_ss;
+      var c_nb_1 = m_str_all_char_nb(ss,"(")+2; 
+                         }
+  var new_ss = new_ss.toString().replace(/EN/g , "e\-"); 
+  var new_ss = new_ss.toString().replace(/EP/g , "e\+");
+  var new_ss = m_fix( new_ss,420); 
+      return new_ss;
+}
+
+function m_funct_content_cal_noc(strs,fuc){   
+  var ss = strs.toString().trim();
+  var xx = fuc.toString().trim();  
+  var data_msg =0;
+  var data_msg =  m_str_char(ss,"Msg") ;  
+  if(data_msg >=1){ var ans_a = ss ; return  ans_a ;} 
+  var ss  = ss.replace(/Q/g , "-"); 
+  for(var i=0;i<2;i++){                          
+    var idx_xx =m_backindex(ss,xx) ;
+    var sec_1=ss.substr(0,idx_xx);
+    var sec_2=m_funct_content(ss,xx); 
+    var sec_3 = ss.substr((idx_xx+sec_2.length+2),(ss.length-idx_xx-sec_2.length));  
+    var sec_2  = sec_2.replace(/e\-/g , "EN"); 
+    var sec_2  = sec_2.replace(/e\+/g , "EP"); 
+    var sec_2_add_nb=m_str_all_char_nb(sec_2,"+");
+    var sec_2_sub_nb=m_str_all_char_nb(sec_2,"-");
+    var sec_2_mul_nb=m_str_all_char_nb(sec_2,"*");
+    var sec_2_div_nb=m_str_all_char_nb(sec_2,"/");
+    var sec_2_en_nb=m_str_all_char_nb(sec_2,"EN");
+    var sec_2_ep_nb=m_str_all_char_nb(sec_2,"EP");
+    var sec_2_pow_nb=m_str_all_char_nb(sec_2,",");  
+    var sec_1_lst=sec_1.substr(sec_1.length-1,1); 
+    var sec_2_sum_nb=sec_2_add_nb+sec_2_sub_nb+sec_2_mul_nb+sec_2_div_nb ;
+    var sec_2_sum_np =sec_2_en_nb+sec_2_ep_nb;
+    if(sec_2_sum_nb==0 && sec_2_sum_np ==1 && (sec_1_lst=="+" ||sec_1_lst=="-" ||sec_1_lst=="*"||sec_1_lst=="/")){ var ss=sec_1+sec_2+sec_3; var i=0;}   
+    if(sec_2_sum_nb==0 && sec_2_sum_np ==1 && sec_1_lst !="+" && sec_1_lst !="-" && sec_1_lst !="*" && sec_1_lst !="/"){ ss=sec_1+"(0+"+sec_2+")"+sec_3; var i=0;}   
+    if(sec_2_sum_nb==0 && sec_2_sum_np ==0 && sec_2_pow_nb==0){ var ss=sec_1+"(0+"+sec_2+")"+sec_3; var i=0;}  
+    if(sec_2_sum_nb==0 && sec_2_sum_np ==0 && sec_2_pow_nb!=0){ var ss=sec_1+"("+sec_2+")"+sec_3; var i=3;}  
+   }
+  var idx_xx =m_backindex(sec_1,"m_") ; 
+  var fun_sec1=sec_1.substr(idx_xx,sec_1.length-idx_xx+1); 
+  var sec_2_en_nb=m_str_all_char_nb(sec_2,"EN");
+  var sec_2_ep_nb=m_str_all_char_nb(sec_2,"EP");
+  var sec_2_en1_nb=m_str_all_char_nb(sec_2,"e-");
+  var sec_2_ep1_nb=m_str_all_char_nb(sec_2,"e+");
+  var sec_2_sum_e_nb=sec_2_en_nb+sec_2_ep_nb+sec_2_en1_nb+sec_2_ep1_nb ;
+  var fun_limit="0";
+    if(fun_sec1.length <= 8  && idx_xx > 0 ){ fun_limit = fun_sec1 ;} 
+  var sec_2 =  m_split_4(sec_2);
+  var sec_2 = m_split_add_sub_sum(sec_2,fun_limit);     
+  var data_msg =0;
+  var data_msg =  m_str_char(sec_2,"Msg") ;  
+    if(data_msg >=1){ var ans_a = sec_2 ; return  ans_a ;} 
+  var sec_2  = sec_2.replace(/EN/g , "e\-"); 
+  var sec_2  = sec_2.replace(/EP/g , "e\+"); 
+  var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);
+  var sec_2_fst=sec_2.toString().substr(0,1);
+  var sec_3_fst=sec_3.toString().substr(0,1);
+  var sum_b = m_fun_item(sec_1); 
+  var sec_2  = sec_2.replace(/e\-/g , "EN"); 
+  var sec_2  = sec_2.replace(/e\+/g , "EP"); 
+  var sum_b2 = m_fun_item(sec_2); 
+  var sec_2  = sec_2.replace(/EN/g , "e\-"); 
+  var sec_2  = sec_2.replace(/EP/g , "e\+"); 
+    if(sum_b!=0 && sum_b2 ==0){                               
+      var fun_sec=sec_1.substr(idx_xx,sec_1.length-idx_xx+1);
+      var sec_2=m_fix(sec_2,420);
+      var fun_sec_c_nb=m_str_all_char_nb(fun_sec,"(");
+    if( fun_sec_c_nb==1){var data_t = fun_sec+"('"+sec_2+"'))";}  
+    else{var data_t = fun_sec+"('"+sec_2+"')";} 
+  var data_t  = data_t.replace(/\,/g , "\'\,\'");  
+    if(fun_sec.length <= 8){ var sec_2 = eval(data_t);        
+      var sec_2 = m_fix(sec_2 ,420);  
+      var  sec_1=  sec_1.substr(0,idx_xx); }
+                  } 
+    else if(sum_b2 !=0){var sec_2= eval(sec_2);
+      var sec_1=  sec_1.substr(0,idx_xx); }
+  var sec_2  = sec_2.toString().replace(/\+\+/g , "\+"); 
+  var sec_2  = sec_2.toString().replace(/\+\-/g , "\-");
+  var sec_2  = sec_2.toString().replace(/\+\*/g , "\*");
+  var sec_2  = sec_2.toString().replace(/\+\//g , "\/");
+  var sec_2  = sec_2.toString().replace(/\-\-/g , "\-"); 
+  var sec_2  = sec_2.toString().replace(/\*\*/g , "\*"); 
+  var sec_2  = sec_2.toString().replace(/\/\//g , "\/"); 
+  for(var j=0 ;j<5 ;j++){                   
+    if(sec_1_lst=="(" && sec_3_fst==")"){
+      var sec_1=sec_1.substr(0,sec_1.length-1);
+      var sec_3=sec_3.substr(1,sec_3.length-1);}
+    var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);
+    var sec_3_fst=sec_3.toString().substr(0,1);
+                       }
+  if(sec_1_lst=="-" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+"+"+sec_2.substr(1,sec_2.length-1)+sec_3;}
+  else if(sec_1_lst=="+" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3;}
+  else if(sec_1=="(" && sec_3==")"){ var ss=sec_2;}
+  else if(sec_1=="(" && sec_3=="))" && fun_sec_c_nb==1){ var ss=sec_2;}
+  else { var ss=sec_1+sec_2+sec_3;}
+   return ss;
+ }
+
+function m_funct_content_eval_many(strs){     
+  var ss = strs.toString().trim();
+  var ss= ss.replace(/Q/g , "\-"); 
+  var m_nb=m_str_all_char_nb(ss,"m_");
+  var ss_fst2=ss.substr(0,2);
+    if(ss_fst2=="0+"){var ss = ss.substr(2,ss.length-2);}
+    if(ss_fst2=="0-"){var ss = ss.substr(1,ss.length-1);}
+  if(m_nb==0){ return ss;} 
+  var ans="";
+    for(var i=0; i<m_nb;i++){
+      var ans = m_funct_content_eval(ss);
+      var ss=ans; 
+        }
+  var ans_sum ="";
+  var ans_sum = m_funct_content_cal_noc_many(ans,"(");
+  for(var j=0;j<5;j++){
+    var ans_sum_fst= ans_sum.substr(0,1);
+    var ans_sum_last= ans_sum.substr(ans_sum.length-1,1);
+    if(ans_sum_fst=="(" ){ var ans_sum=ans_sum.substr(1,ans_sum.length-1);} 
+    if(ans_sum_fst=='"' ){ var ans_sum=ans_sum.substr(1,ans_sum.length-1);} 
+    if(ans_sum_last==")"){ var ans_sum=ans_sum.substr(0,ans_sum.length-1);}  
+    if(ans_sum_last=='"'){ var ans_sum=ans_sum.substr(0,ans_sum.length-1);}  
+                    }
+ if(ans_sum.length >=50){
+   var ans_sum = m_mtx_str_to_e_a(ans_sum); 
+   var ans_sum = m_fix( ans_sum,220); }   
+     return ans_sum;
+ }
+
+function m_funct_content_eval(strs){     
+  var ss = strs.toString().trim();
+  var m_nb=m_str_all_char_nb(ss,"m_");
+    if( m_nb==0){ return ss;} 
+  var idx_m =m_backindex(ss,"m_") ;        
+  var data_a = m_funct_content_md(ss,"m_");    
+  var ss_bf = ss.substr(0,idx_m);           
+  var ss_af = ss.substr(idx_m+data_a.length , ss.length - idx_m - data_a.length );
+  var data_a_a=  data_a ;  
+  var data_a_a= data_a_a.replace(/Q/g , "\-");  
+  var data_a_value = eval( data_a_a );
+  var data_a_value = '"'+data_a_value.toString()+'"';   
+  var ss_bf_lst_1= ss_bf.substr(ss_bf.length-1,1);
+  var data_a_value_fst = data_a_value.toString().substr(0,1);
+    if(ss_bf_lst_1=="+" && data_a_value_fst=="-"){  
+  var ss_bf= ss_bf.substr(0,ss_bf.length-1);}
+    if(ss_bf_lst_1=="-" && data_a_value_fst=="-"){ 
+  var ss_bf= ss_bf.substr(0,ss_bf.length-1);
+  var data_a_value= "+"+data_a_value.substr(1,data_a_value.length-1);}
+    if(ss_bf=="(" && ss_af==")"){ var ss=data_a_value.toString();} 
+    else{var ss=ss_bf+data_a_value.toString()+ss_af;}
+    return ss;
+}
+
+function m_funct_content_md(strs,fuc){   
+  var ss = strs.toString().trim();
+  var xx = fuc.toString().trim();
+  var xx_nb=m_str_all_char_nb(ss,xx); 
+    if( xx_nb==0){ return ss;} 
+  var idx_xx =m_backindex(ss,xx) ;
+  var xx_lg =xx.length;
+  var content_a=xx;  
+  var nub_a=0;
+    for(var i=0; i<(ss.length-idx_xx) ;i++){
+      var data_a=ss.substr(idx_xx+xx_lg+i,1);
+      if(data_a=="("){var nub_a=nub_a+1;}
+      if(data_a==")"){var nub_a=nub_a-1;}
+      if(data_a==")" &&  nub_a==0){var content_a=content_a+")" ; var i= ss.length;} 
+      else{ var content_a=content_a+data_a; }
+     }
+  return content_a ;
+}
+
+function m_funct_content(strs,fuc){   
+  var ss = strs.toString().trim();
+  var xx = fuc.toString().trim();
+  var xx_nb=m_str_all_char_nb(ss,xx); 
+    if( xx_nb==0){ return ss;} 
+  var idx_xx =m_backindex(ss,xx) ;
+  var xx_lg =xx.length;
+  var content_a="";  
+  var nub_a=0;
+    for(var i=0; i<(ss.length-idx_xx) ;i++){
+      var data_a=ss.substr(idx_xx+xx_lg+i,1);
+      if(data_a=="("){var nub_a=nub_a+1;}
+      if(data_a==")"){var nub_a=nub_a-1;}
+      if(data_a==")" &&  nub_a==-1){var i= ss.length;} 
+      else{ var content_a=content_a+data_a; }
+      }
+  return content_a ;
+}
+
+function m_lowercase_to_uppercase(strs){     
+  var ss = strs.toString().trim();
+  var nub_s =-1;
+    for(var i=0; i<ss.length ;i++){   
+  var data_a=ss.substr(i,2);        
+    if(data_a=="e+"){ var data_b="EP"; var nub_s = ss.indexOf(data_a); }
+    else if(data_a=="e-"){ var data_b="EN"; var nub_s = ss.indexOf(data_a);}
+    if(nub_s != -1 && nub_s==0){ 
+      var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+2),(ss.length-nub_s-2)) ;
+      var nub_s = -1; }
+    if(nub_s != -1 && nub_s!=0){ 
+      var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+2),(ss.length-nub_s-2)) ;
+      var nub_s = -1; }
+    }
+    for(var i=0; i<ss.length ;i++){
+      var data_a=ss.substr(i,1);    
+      if(data_a=="a"){ var data_b="A"; var nub_s = ss.indexOf(data_a); }
+      else if(data_a=="c"){ var data_b="C"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="e"){ var data_b="E"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="g"){ var data_b="G"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="h"){ var data_b="H"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="i"){ var data_b="I"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="l"){ var data_b="L"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="n"){ var data_b="N"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="o"){ var data_b="O"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="p"){ var data_b="P"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="r"){ var data_b="R"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="s"){ var data_b="S"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="t"){ var data_b="T"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="x"){ var data_b="X"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="y"){ var data_b="Y"; var nub_s = ss.indexOf(data_a);}
+      if(nub_s != -1 && nub_s==0){ 
+        var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+1),(ss.length-nub_s-1)) ;
+        var nub_s = -1; }
+      if(nub_s != -1 && nub_s!=0){ 
+        var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+1),(ss.length-nub_s-1)) ;
+        var nub_s =-1; }
+      }
+    return  ss ;
+  }
+
+function m_uppercase_to_lowercase(strs){     
+  var ss = strs.toString().trim();
+  var nub_s =-1;
+    for(var i=0; i<ss.length ;i++){   
+  var data_a=ss.substr(i,2);        
+    if(data_a=="EP"){ var data_b="e+"; var nub_s = ss.indexOf(data_a); }
+    else if(data_a=="EN"){ var data_b="e-"; var nub_s = ss.indexOf(data_a);}
+    if(nub_s != -1 && nub_s==0){ 
+      var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+2),(ss.length-nub_s-2)) ;
+      var nub_s = -1; }
+    if(nub_s != -1 && nub_s!=0){ 
+      var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+2),(ss.length-nub_s-2)) ;
+      var nub_s = -1; }
+       }
+    for(var i=0; i<ss.length ;i++){
+      var data_a=ss.substr(i,1);    
+      if(data_a=="A"){ var data_b="a"; var nub_s = ss.indexOf(data_a); }
+      else if(data_a=="C"){ var data_b="c"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="E"){ var data_b="e"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="G"){ var data_b="g"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="H"){ var data_b="h"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="I"){ var data_b="i"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="L"){ var data_b="l"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="N"){ var data_b="n"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="O"){ var data_b="o"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="P"){ var data_b="p"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="R"){ var data_b="r"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="S"){ var data_b="s"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="T"){ var data_b="t"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="X"){ var data_b="x"; var nub_s = ss.indexOf(data_a);}
+      else if(data_a=="Y"){ var data_b="y"; var nub_s = ss.indexOf(data_a);}
+      if(nub_s != -1 && nub_s==0){ 
+        var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+1),(ss.length-nub_s-1)) ;
+        var nub_s = -1; }
+      if(nub_s != -1 && nub_s!=0){ 
+        var ss=ss.substr(0,nub_s)+data_b+ ss.substr((nub_s+1),(ss.length-nub_s-1)) ;
+       var nub_s =-1; }
+      }
+   return  ss ;
+}
+
+
+function m_indexOf(strs,chars){       
+  var ss = strs.toString().trim();
+  var ch = chars.toString().trim();
+  var data_a="";
+  var data_b=-1;
+  var nub = ss.length;
+   for(var i=0; i<nub ;i++){
+      var data_a= ss.substr(i,ch.length)
+        if( data_a==ch){ var data_b=i;
+            var i = ss.length ;  }    
+     }
+return  data_b ;
+}
+
+function m_indexOf_2_all(strs,char1,char2,sl){   
+  var ss = strs.toString().trim();
+  var ch1 = char1.toString().trim();   
+  var ch2 = char2.toString().trim();
+  var sl=sl;
+  var ss = ss.replace(/e\-/g , "EN"); 
+  var ss = ss.replace(/e\+/g , "EP");
+  var ss_fst=ss.substr(0,1);
+  if(ss_fst !='-'){ var ss="+"+ss ;}   
+  var add_nb=m_str_all_char_nb(ss,"+");
+  var sub_nb=m_str_all_char_nb(ss,"-");
+  var ss = ss.replace(/\*\π/g , "pi");  
+  var ss = ss.replace(/\*\°/g , "dg");  
+  var ss = ss.replace(/\π/g , "pi");  
+  var ss = ss.replace(/\°/g , "dg");  
+  var ss= m_str_math_replacec(ss); 
+  var ss = ss.replace(/en/g , "EN");  
+  var ss = ss.replace(/ep/g , "EP");  
+  var ss = ss.replace(/pi/g , "\π");  
+  var ss = ss.replace(/dg/g , "\°");  
+  var data_a1="";
+  var data_a2="";
+  var data_b=-1;
+  var nub = parseInt(m_mtx_real_add(add_nb,sub_nb)); 
+  var INDEX_A = m_new_space_mtx(nub,3);
+  var row_nb=0;
+  for(var i=0; i< ss.length ;i++){
+    var data_a1= ss.substr(i,ch1.length);
+    var data_a2= ss.substr(i,ch2.length);
+    if( data_a1==ch1 ||data_a2==ch2 ){ var data_b = data_b+","+i;} 
+    if( data_a1==ch1 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a1; var row_nb=row_nb+1;
+                        }  
+    if( data_a2==ch2 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a2; var row_nb=row_nb+1;
+                     } 
+       }
+    if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}  
+  var ss = ss.replace(/EN/g , "e\-"); 
+  var ss = ss.replace(/EP/g , "e\+");  
+    for(var j=0; j< nub ;j++){
+      if(j==(nub-1)){ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(ss.length-INDEX_A[j][0]));}     
+      else{ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(INDEX_A[j+1][0]-INDEX_A[j][0]));} 
+         }
+  var pi_nb=0;
+  var pi_nb  =m_str_all_char_nb(ss,"π");
+  var pi_count=0;  
+  var deg_nb  =0;  
+  var deg_nb  =m_str_all_char_nb(ss,"°");
+  var deg_count=0;
+  var en_nb  =0;
+  var ep_nb  =0;
+  var en_nb  =m_str_all_char_nb(ss,"EN");
+  var ep_nb  =m_str_all_char_nb(ss,"EP");
+  var en1_nb  =m_str_all_char_nb(ss,"e-");
+  var ep1_nb  =m_str_all_char_nb(ss,"e+");
+  var m_count=0;
+  var m_nb  =0;
+  var m_nb  =m_str_all_char_nb(ss,"m");         
+  var epn_count=0;
+  var otr_count=0; 
+  var INDEX_M = m_new_space_mtx(m_nb,3);    
+  var INDEX_B = m_new_space_mtx(pi_nb,3);  
+  var INDEX_C = m_new_space_mtx(deg_nb,3);  
+  var INDEX_D = m_new_space_mtx(en_nb + ep_nb+en1_nb + ep1_nb ,3);  
+  var INDEX_E = m_new_space_mtx(nub-pi_nb-deg_nb-en_nb-ep_nb,3);  
+  var data_row = INDEX_A.length;   
+  var data_col = INDEX_A[0].length;
+  var data_sum =0;
+  var data_a=0;  
+    for(var i=0;i<(data_row) ;i++){    
+      var data_a = INDEX_A[i][2];
+      var m_nb  =m_str_all_char_nb(data_a,"m");
+      var pi_nb  =m_str_all_char_nb(data_a,"π");
+      var deg_nb  =m_str_all_char_nb(data_a,"°");
+      var en_nb  =m_str_all_char_nb(data_a,"e-");
+      var ep_nb  =m_str_all_char_nb(data_a,"e+");
+      var en1_nb  =m_str_all_char_nb(data_a,"EN");
+      var ep1_nb  =m_str_all_char_nb(data_a,"EP");
+      var epn_nb = ep_nb+en_nb+en1_nb+ep1_nb;
+        if( m_nb >=1){ INDEX_M= m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_M,m_count) ;
+           var m_count= m_count+1;           }
+        else if( pi_nb >=1){ INDEX_B= m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_B,pi_count) ;
+           var pi_count= pi_count+1;           }
+        else if( deg_nb >=1){ INDEX_C=m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_C,deg_count) ;
+          var deg_count=deg_count+1;        } 
+        else if( epn_nb >=1){ INDEX_D = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_D,epn_count) ; 
+           var epn_count=epn_count+ 1;  }
+        else { INDEX_E =m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_E,otr_count) ; 
+            var otr_count= otr_count+1;  }
+                                }  
+   INDEX_M = m_mtx_delete_empty_row(INDEX_M,2);
+   INDEX_B = m_mtx_delete_empty_row(INDEX_B,2);
+   INDEX_C = m_mtx_delete_empty_row(INDEX_C,2);
+   INDEX_D = m_mtx_delete_empty_row(INDEX_D,2);
+   INDEX_E = m_mtx_delete_empty_row(INDEX_E,2);
+   INDEX_M = m_mtx_sort(INDEX_M,2,3) ;
+   INDEX_B = m_mtx_sort(INDEX_B,2,3) ;
+   INDEX_C = m_mtx_sort(INDEX_C,2,3) ;
+   INDEX_D = m_mtx_sort(INDEX_D,2,3) ;
+   INDEX_E = m_mtx_sort(INDEX_E,2,3) ;
+   var data_sum_m =  m_mtx_col_sum(INDEX_M,2); 
+   var data_sum_b =  m_mtx_col_sum(INDEX_B,2);
+   var data_sum_c =  m_mtx_col_sum(INDEX_C,2);
+   var data_sum_d =  m_mtx_col_sum(INDEX_D,2);
+   var data_sum_d =   m_mtx_str_to_e_a(data_sum_d);
+   var data_sum_d=m_fix(data_sum_d,420);
+   var data_sum_e =  m_mtx_col_sum(INDEX_E,2);   
+   var data_sum_e=m_fix(data_sum_e,420);
+   var data_b=data_sum_e+"+"+data_sum_d+"+"+data_sum_b+"+"+data_sum_c+"+"+data_sum_m;      
+   var data_b = data_b.replace(/\+\-/g , "\-");  
+   for(var j=0;j<4;j++){
+     var data_b_fst=data_b.substr(0,1);
+     if(data_b_fst=="+"){ data_b=data_b.substr(1,data_b.length-1);}     
+     var data_b_lst=data_b.substr(data_b.length-1,1);
+     if(data_b_lst=="+"){ data_b=data_b.substr(0,data_b.length-1);}    
+     var data_b = data_b.replace(/\+\+/g , "\+");   
+     var data_b = data_b.replace(/\+\-/g , "\-");  
+                        }
+   if(sl==0){return  data_b ;}
+   if(sl==1){return INDEX_A ;}
+}
+
+
+function m_indexOf_all(strs,chars){       
+  var ss = strs.toString().trim();
+  var ch = chars.toString().trim();
+  var data_a="";
+  var data_b=-1;
+  var nub = ss.length;
+    for(var i=0; i<nub ;i++){
+      var data_a= ss.substr(i,ch.length)
+      if( data_a==ch){ var data_b = data_b+","+ i ; } 
+      }
+  if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}
+    return  data_b ;
+} 
+
+function m_indexOf_mul_div_all_a(strs,char1,char2,sl){    
+  var ss = strs.toString().trim();
+  var ch1 = char1.toString().trim();
+  var ch2 = char2.toString().trim();
+  var data_b1=-1;
+  var data_b2=-1;
+  var data_b3=-1;
+  var data_b1 = m_indexOf_all(ss,ch1);
+  var data_b2 = m_indexOf_all(ss,ch2);
+  var data_b3 = data_b1+data_b2;
+   return  data_b3 ;
+}
+
+function m_index_str_to_mtx(strs,char1,char2,nubs){       
+  var ss = strs.toString().trim();
+  var ch1 = char1.toString().trim();
+  var ch2 = char2.toString().trim(); 
+  var ss="*"+ss;   
+  var ch1_nb=m_str_all_char_nb(ss,ch1);
+  var ch2_nb=m_str_all_char_nb(ss,ch2);
+  var data_a1="";
+  var data_a2="";
+  var data_b=-1;
+  var nub = parseInt(m_mtx_real_add(ch1_nb,ch2_nb)); 
+  var INDEX_A = m_new_space_mtx(nub,3);  
+  var row_nb=0;
+    for(var i=0; i< ss.length ;i++){
+      var data_a1= ss.substr(i,ch1.length);  
+      var data_a2= ss.substr(i,ch2.length);
+      if( data_a1==ch1 ||data_a2==ch2 ){ var data_b = data_b+","+i;} 
+      if( data_a1==ch1 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a1; var row_nb=row_nb+1; }
+      if( data_a2==ch2 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a2; var row_nb=row_nb+1; } 
+        }
+      if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}  
+    for(var j=0; j< nub ;j++){
+      if(j==(nub-1)){ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(ss.length-INDEX_A[j][0]));}     
+      else{ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(INDEX_A[j+1][0]-INDEX_A[j][0]));} 
+                              }   
+  INDEX_A = m_mtx_sort(INDEX_A,2,3) ;  
+    for(var n=0; n< 2 ;n++){   
+      for(var m=0; m< (nub-1) ;m++){   
+        var data_1 = INDEX_A[m][2];
+        var data_1_fst = data_1.substr(0,1);
+        var data_1_1 = data_1.substr(1,data_1.length-1);
+        var data_1_1 = data_1_1.replace(/\(/g , "");    
+        var data_1_1 = data_1_1.replace(/\)/g , "");   
+        var data_2 = INDEX_A[m+1][2];
+        var data_2_fst = data_2.substr(0,1);
+        var data_2_1 = data_2.substr(1,data_2.length-1);
+        var data_2_1 = data_2_1.replace(/\(/g , "");     
+        var data_2_1 = data_2_1.replace(/\)/g , "");
+        if(((data_1_fst =="*" && data_2_fst =="/")||(data_1_fst =="/" && data_2_fst =="*")) && (data_1_1 == data_2_1)){
+          INDEX_A[m][2]="*1"; 
+          INDEX_A[m+1][2]="*1";
+                      }
+        if(((data_1_fst =="*" && data_2_fst =="/")||(data_1_fst =="/" && data_2_fst =="*")) && (data_1_1 == data_2_1*(-1))){
+          INDEX_A[m][2]="*(-1)";  
+          INDEX_A[m+1][2]="*1";
+                      }
+               }  
+          INDEX_A = m_mtx_sort(INDEX_A,2,3) ; 
+                 } 
+          INDEX_A = m_mtx_sort(INDEX_A,2,0) ;  
+    var sum_mul =1;
+    var sum_div =1;
+    var ans_a=0;
+    var data_a="";
+    var data_b="";
+      for(var k=0; k< nub ;k++){
+        var data_a = INDEX_A[k][2];
+        var data_fst = data_a.substr(0,1);
+        var data_b = data_a.substr(1,data_a.length-1);
+        if(data_fst =="*"){ var sum_mul = m_mtx_real_mul(sum_mul,data_b);}
+        if(data_fst =="/"){ var sum_div = m_mtx_real_mul(sum_div,data_b);}
+                   }
+     var ans_a = m_mtx_real_div(sum_mul,sum_div);
+     var ans_a =m_fix(ans_a,420);
+     if(nubs==0){ return  ans_a ;}
+     else{ return  INDEX_A ;}
+ }
+
+
+
+function m_split_add_sub_sum(strs,nubs){     
+  var ss = strs.toString().trim();
+  var s1 = nubs.toString().trim();
+  var ss = ss.replace(/e\-/g , "EN"); 
+  var ss = ss.replace(/e\+/g , "EP");
+  var s_nb =m_str_all_char_nb(ss,"s"); 
+  var e_nb =m_str_all_char_nb(ss,"e"); 
+  var l_nb =m_str_all_char_nb(ss,"l"); 
+  var a_nb =m_str_all_char_nb(ss,"a"); 
+  var h_nb =m_str_all_char_nb(ss,"h"); 
+  var m_nb =m_str_all_char_nb(ss,"m");
+  var r_nb =m_str_all_char_nb(ss,"r");
+  var sum_nb=s_nb+e_nb+l_nb+a_nb+h_nb+m_nb+r_nb;
+    if(sum_nb >=1){return  ss ;}   
+  var add_nb=m_str_all_char_nb(ss,"+");
+  var sub_nb=m_str_all_char_nb(ss,"-");
+  var mul_nb=m_str_all_char_nb(ss,"*");
+  var div_nb=m_str_all_char_nb(ss,"/");
+  var pi_nb=m_str_all_char_nb(ss,"π");
+  var deg_nb=m_str_all_char_nb(ss,"°");
+    if(add_nb ==0 && sub_nb==0 && mul_nb==0 && div_nb==0){return  ss ;}   
+  var ss = ss.replace(/\*\π/g , "\π");   
+  var ss = ss.replace(/\*\°/g , "\°");
+  var data_b="";
+  var nub = parseInt(m_mtx_real_add(add_nb,sub_nb)); 
+  var pi_nb=0;
+  var pi_nb  = m_str_all_char_nb(ss,"π");
+  var pi_count=0;  
+  var deg_nb  =0;  
+  var deg_nb  = m_str_all_char_nb(ss,"°");
+  var deg_count=0;
+  var en_nb  =0;
+  var ep_nb  =0;
+  var en_nb  =m_str_all_char_nb(ss,"EN");
+  var ep_nb  =m_str_all_char_nb(ss,"EP");
+  var epn_count=0;
+  var otr_count=0; 
+  var INDEX_A = m_split(ss,"+","-");      
+  var data_row = INDEX_A.length;   
+  var data_col = INDEX_A[0].length;
+  var INDEX_B = m_new_space_mtx(pi_nb,3);  
+  var INDEX_C = m_new_space_mtx(deg_nb,3);  
+  var INDEX_D = m_new_space_mtx(en_nb + ep_nb+10 ,3);  
+    if((nub+1-pi_nb-deg_nb)<0){ return  ss ;} 
+  var INDEX_E = m_new_space_mtx(nub+20-pi_nb-deg_nb-en_nb-ep_nb,3);  
+  var data_sum =0;
+  var data_a=0; 
+    for(var i=0;i<(data_row) ;i++){    
+      var data_a = INDEX_A[i][2];
+      if(data_a.length >=200){var data_a = m_mtx_str_to_e_a(data_a);}    
+      var pi_nb  =m_str_all_char_nb(data_a,"π");
+      var deg_nb  =m_str_all_char_nb(data_a,"°");
+      var en_nb  =m_str_all_char_nb(data_a,"EN");
+      var en_nb1  =m_str_all_char_nb(data_a,"e-");
+      var ep_nb  =m_str_all_char_nb(data_a,"EP");
+      var ep_nb1  =m_str_all_char_nb(data_a,"e+");
+      if((pi_nb+deg_nb)>1){ return  ss ;} 
+      if( pi_nb >=1){ INDEX_B= m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_B,pi_count) ;
+        var pi_count= pi_count+1;      }
+      else if( deg_nb >=1){ INDEX_C=m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_C,deg_count) ;
+        var deg_count=deg_count+1;        } 
+      else if( en_nb >=1 ||ep_nb>=1 ||en_nb1 >=1 ||ep_nb1 >=1){ INDEX_D = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_D,epn_count) ; 
+        var epn_count=epn_count+ 1;  }
+      else { INDEX_E = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_E,otr_count) ; 
+        var otr_count= otr_count+1;  }
+                                   }  
+    INDEX_B = m_mtx_delete_empty_row(INDEX_B,2);
+    INDEX_C = m_mtx_delete_empty_row(INDEX_C,2);
+    INDEX_D = m_mtx_delete_empty_row(INDEX_D,2);
+    INDEX_E = m_mtx_delete_empty_row(INDEX_E,2);
+    INDEX_B = m_mtx_sort(INDEX_B,2,3) ;
+    INDEX_C = m_mtx_sort(INDEX_C,2,3) ;
+    INDEX_D = m_mtx_sort(INDEX_D,2,3) ;
+    INDEX_E = m_mtx_sort(INDEX_E,2,3) ;
+  var data_sum_b =  m_mtx_col_sum(INDEX_B,2);
+  var data_sum_c =  m_mtx_col_sum(INDEX_C,2);
+  var data_sum_d =  m_mtx_col_sum(INDEX_D,2);
+  var data_sum_e =  m_mtx_col_sum(INDEX_E,2);
+  var data_sum_d = m_mtx_str_to_e_a(data_sum_d);  
+  var data_b="";
+  var xx_test_nub_e =m_str_power(data_sum_d,0);             
+  var xx_test_st = m_str_power(data_sum_d,1); 
+  var e_n_comp=m_mtx_real_str_comp(xx_test_nub_e,-150);
+  var e_p_comp=m_mtx_real_str_comp(xx_test_nub_e,200);
+  var str_comp=m_mtx_real_str_comp(xx_test_st,0);
+  var zz_p_b =0 ; 
+  var zz_p_c =0 ; 
+  var zz_p_d =0 ; 
+  var zz_p_e =0 ; 
+  if(s1=="m_ln" ||s1=="m_log"){
+    var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
+    var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d); 
+    if(s1=="m_ln" && data_sum_bce==1 && e_n_comp ==2  ){ var data_b="m_lrn"+'("'+data_sum_d+'")';return data_b;}
+    else if(s1=="m_log" && data_sum_bce==1 && e_n_comp ==2 ){ var data_b="m_lrog"+'("'+data_sum_d+'")';return data_b;}
+    else{ var data_b=data_sum_bcde ;return data_b;}
+                                 }
+     if(s1=="m_sin" ||s1=="m_cos"||s1=="m_tan"){
+       var zz_p_t1_p = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,1);      
+       if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==1|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d; return data_b;}
+      else if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0.5 || zz_p_t1_p==-0.5)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
+      else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==0.25 || zz_p_t1_p==-0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
+      else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==-0.25 || zz_p_t1_p==0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
+      else if(s1=="m_tan" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==0.5|| zz_p_t1_p==1|| zz_p_t1_p==-0.5|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
+     else{ var data_b_t=m_mtx_real_mul(zz_p_t1_p,PIMUL2S); var data_b=m_mtx_real_add(data_b_t,data_sum_d);return data_b;}
+     }
+    if(s1=="m_asin" ||s1=="m_acos"||s1=="m_acosh"||s1=="m_atanh"){    
+      var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
+    if( data_sum_bce==""){var data_sum_bce=0;}
+    if( data_sum_d==""){var data_sum_d="0";}
+    var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d);
+      if( data_sum_bcde==""){var data_sum_bcde=0;}
+      var data_sum_d_fst=data_sum_d.toString().substr(0,1);
+    if(data_sum_d_fst=="+"){ data_sum_d=data_sum_d.toString().substr(1,data_sum_d.length-1);}    
+    if(s1=="m_asin" && data_sum_bce==0 && e_n_comp ==2  && str_comp==2 ){ var data_b="m_asrin"+'("'+data_sum_d+'")';  return data_b;}    
+    if(s1=="m_asin" && data_sum_bce==0 && e_n_comp ==2 && str_comp==1 ){ var data_b="m_asrin"+'("'+data_sum_d+'")'; return data_b;}
+    if(s1=="m_asin" && data_sum_bce>=1  && e_n_comp ==2 && str_comp==1 ){ var data_b= message_1(1);  return data_b;}    
+    if(s1=="m_asin" && data_sum_bce<=-1 && e_n_comp ==2 && str_comp==2 ){ var data_b= message_1(1);  return data_b;}
+    if(s1=="m_asin" && (data_sum_bcde >1 ||  data_sum_bcde <-1)){ var data_b= message_1(1);  return data_b;}
+    if(s1=="m_acos" && data_sum_bce==1 && e_n_comp ==2 && str_comp==2 ){ var data_b="m_acros"+'("'+data_sum_d+'")';return data_b;}
+    if(s1=="m_acos" && data_sum_bce==-1 && e_n_comp ==2 && str_comp==1 ){ var data_b="m_acros"+'("'+data_sum_d+'")';return data_b;}
+    if(s1=="m_acos" && data_sum_bce>=1 && e_n_comp ==2 && str_comp==1 ){ var ans_a= message_1(2);  return ans_a;}        
+    if(s1=="m_acos" && data_sum_bce<=-1 && e_n_comp ==2 && str_comp==2 ){ var ans_a= message_1(2);  return ans_a;}
+    if(s1=="m_acos" && (data_sum_bcde>1 || data_sum_bcde<-1) ){ var ans_a= message_1(2);  return ans_a;}
+    if(s1=="m_acosh" && data_sum_bce==1 && e_n_comp ==2 && str_comp==1){ var data_b="m_acrosh"+'("'+data_sum_d+'")';return data_b;}  
+    if(s1=="m_acosh" && data_sum_bce<=1 && e_n_comp ==2 && str_comp==2) { var ans_a= message_1(3);  return ans_a;}  
+    if(s1=="m_acosh" && data_sum_bcde<1 ) { var ans_a= message_1(3);  return ans_a;}  
+    if(s1=="m_atanh" && data_sum_bce==1 && e_n_comp ==2 && str_comp==2){ var data_b="m_atranh"+'("'+data_sum_d+'")';return data_b;}  
+    if(s1=="m_atanh" && data_sum_bce<=-1 && e_n_comp ==2 && str_comp!=1 ){ var ans_a= message_1(4);  return ans_a;}  
+    if(s1=="m_atanh" && data_sum_bce==-1 && e_n_comp ==2 && str_comp==1){ var data_b="m_atranh"+'("'+data_sum_d+'")';return data_b;}         
+    if(s1=="m_atanh" && data_sum_bce>=1 && e_n_comp ==2 && str_comp!=2 ){ var ans_a= message_1(4);  return ans_a;}     
+    if(s1=="m_atanh" && (data_sum_bcde>=1 || data_sum_bcde<=-1 )){ var ans_a= message_1(4);  return ans_a;}     
+  var data_b=data_sum_bcde ;
+                                 }
+ var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
+ var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d); 
+   if(data_b ==""){  var data_b = data_sum_bcde;}                             
+ var data_b_fst=data_b.toString().substr(0,1);
+   if(data_b_fst=="+"){ data_b=data_b.toString().substr(1,data_b.length-1);}    
+ var data_b=data_b.toString();
+  return  data_b ;
+}
+
+
+function m_split_4_bce_sum(str1,str2,str3,nubs){      
+  var data_sum_b = str1;
+  var data_sum_c = str2;
+  var data_sum_e = str3;
+  var select_nub=nubs;
+    if(data_sum_b !="" && data_sum_b !=0 ){
+      var data_sum_b = data_sum_b.replace(/\*\π/g , ""); 
+      var data_sum_b = data_sum_b.replace(/\π/g , ""); 
+      var data_sum_b_fst =data_sum_b.substr(0,1);
+    if( data_sum_b_fst =="+"){var data_sum_b = data_sum_b.substr(1,data_sum_b.length-1);} 
+              }
+    if(data_sum_c !="" && data_sum_c !=0 ){    
+      var data_sum_c = data_sum_c.replace(/\*\°/g , ""); 
+      var data_sum_c = data_sum_c.replace(/\°/g , "");  
+      var data_sum_c_fst =data_sum_c.substr(0,1);
+      if( data_sum_c_fst =="+"){var data_sum_c = data_sum_c.substr(1,data_sum_c.length-1);}  
+      var data_sum_c = m_mtx_real_div(data_sum_c,180);   
+             } 
+    if(data_sum_e !="" && data_sum_e !=0 ){    
+      var data_sum_e_fst =data_sum_e.substr(0,1);
+    if( data_sum_e_fst =="+"){var data_sum_e = data_sum_e.substr(1,data_sum_e.length-1);} 
+                    }  
+  var total_1=m_mtx_real_add(data_sum_b,data_sum_c); 
+  var total_2= m_mtx_real_mul(total_1,PIS);  
+  var total_2=m_fix(total_1,300);
+  var total_3=m_mtx_real_add(total_2,data_sum_e);  
+    if(select_nub==0){ var ans=total_3; return  ans ;}
+  var total_2_2= m_mtx_real_mul(total_1,0.5);  
+  var total_5=m_mtx_real_div(data_sum_e,PIMUL2S);   
+  var total_6= m_mtx_real_add(total_2_2,total_5);   
+  var zz_p_t_str = m_str_e_to_str(total_6);   
+  var total_7 = m_nub_p(zz_p_t_str) ;    
+  var total_7 = m_str_e_to_str(total_7);  
+    if(select_nub==1){ var ans=total_7; return  ans ;}
+    if( select_nub!=0 && select_nub!=1){return  ans ;}
+}  
+
+
+
+function m_split_4(strs){     
+  var ss = strs.toString().trim();
+  var INDEX_A = m_split(ss,"+","-");   
+  var data_row = INDEX_A.length;   
+  var data_col = INDEX_A[0].length;
+  var mul_nb=0;
+  var div_nb=0; 
+  var nub=0;
+  var sum_mul =1;
+  var sum_div =1; 
+    for(var i=0;i<(data_row) ;i++){     
+      var data_1 = INDEX_A[i][2];
+      var mul_nb=m_str_all_char_nb(data_1,"*");   
+      var div_nb=m_str_all_char_nb(data_1,"/");   
+      var pi_nb=m_str_all_char_nb(data_1,"*π");   
+      var dgr_nb=m_str_all_char_nb(data_1,"*°");   
+      var nub= parseInt(mul_nb +div_nb-pi_nb-dgr_nb);
+      var nub_1 =parseInt(nub+1);
+      if(nub>=1){
+        var INDEX_B = m_split(data_1,"*","/");   
+        for(var k=0; k< (nub_1) ;k++){     
+          var data_a = INDEX_B[k][2];
+          var m_nb=m_str_all_char_nb(data_a,"m_");   
+      if(m_nb>=1){  var data_a = eval(data_a); } 
+         var data_fst = data_a.substr(0,1);
+         var data_b = data_a.substr(1,data_a.length-1);
+      if(data_fst =="*"){ var sum_mul = m_mtx_real_mul(sum_mul,data_b);} 
+      if(data_fst =="/"){ var sum_div = m_mtx_real_mul(sum_div,data_b);}  
+                 } 
+      var ans_a = m_mtx_real_div(sum_mul,sum_div);   
+      var ans_a =m_fix(ans_a,420);
+      var ans_a_fst = ans_a.toString().substr(0,1);
+      if(ans_a_fst !="-"){ var ans_a ="+"+ans_a.toString();} 
+      INDEX_A[i][2]=ans_a;   
+      var sum_mul =1;  
+       var sum_div =1; 
+       } 
+   }  
+
+  var data_row_1 = INDEX_A.length;   
+  var sss="";
+  var data_2 = 0;
+    for(var j=0;j<data_row_1 ;j++){           
+      var data_2 = INDEX_A[j][2];
+      var sss = ""+sss + data_2;
+            }
+  var sss_fst=sss.substr(0,1);
+    if(sss_fst=="+"){ sss=sss.substr(1,sss.length-1);}    
+    return  sss;
+}
+
+ 
+function m_split(strs,char1,char2){  
+  var ss = strs.toString().trim();
+  var ch1 = char1.toString().trim();   
+  var ch2 = char2.toString().trim();
+  var ss = ss.replace(/e\-/g , "EN"); 
+  var ss = ss.replace(/e\+/g , "EP");
+  var ss_fst=ss.substr(0,1);
+    if(ss_fst !='-' && (ch1=="+" || ch2=="+") && (ch1=="-" || ch2=="-")){ var ss="+"+ss ;}   
+    if( (ch1=="*" || ch2=="*") && (ch1=="/" || ch2=="/")){ var ss="*"+ss ;}    
+  var ch1_nb=m_str_all_char_nb(ss,ch1);
+  var ch2_nb=m_str_all_char_nb(ss,ch2);
+  var data_a1="";
+  var data_a2="";
+  var data_b=-1;
+  var nub = parseInt(m_mtx_real_add(ch1_nb,ch2_nb)); 
+  var INDEX_A = m_new_space_mtx(nub,3);
+  var row_nb=0;
+    for(var i=0; i< ss.length ;i++){
+      var data_a1= ss.substr(i,ch1.length);
+      var data_a2= ss.substr(i,ch2.length);
+        if( data_a1==ch1 ||data_a2==ch2 ){ var data_b = data_b+","+i;} 
+        if( data_a1==ch1 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a1; var row_nb=row_nb+1;
+                        }  
+        if( data_a2==ch2 ){  INDEX_A[row_nb][0] = i ; INDEX_A[row_nb][1]= data_a2; var row_nb=row_nb+1;
+                   } 
+        }
+        if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}  
+   var ss = ss.replace(/EN/g , "e\-"); 
+   var ss = ss.replace(/EP/g , "e\+");  
+     for(var j=0; j< nub ;j++){
+       if(j==(nub-1)){ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(ss.length-INDEX_A[j][0]));}     
+       else{ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(INDEX_A[j+1][0]-INDEX_A[j][0]));} 
+                  }
+       return INDEX_A ;
+}
+
+
+function m_three_sect_simplify(strs){  
+  var ss = strs.toString().trim();
+  var c_nb=m_str_all_char_nb(ss,"(");
+    for(var i=0; i<c_nb ;i++){ 
+  var ss1 = m_bracket_data(ss,1);
+  var ss1lst=ss1.substr(ss1.length-1,1);  
+  var ss2 = m_bracket_data(ss,2);        
+  var ss3 = m_bracket_data(ss,3);
+  var ss2 = ss2.replace(/e\-/g , "EN"); 
+  var ss2 = ss2.replace(/e\+/g , "EP");
+  var ss2fst2 =ss2.substr(1,1);  
+  var add_nb=m_str_all_char_nb(ss2,"+");  
+  var sub_nb=m_str_all_char_nb(ss2,"-"); 
+  var mul_nb=m_str_all_char_nb(ss2,"*");   
+  var div_nb=m_str_all_char_nb(ss2,"/"); 
+  var pow_nb=m_str_all_char_nb(ss2,"^");
+  var sum_nb=add_nb+sub_nb+mul_nb+div_nb+pow_nb;
+    if(sum_nb==0){ var ss2=ss2.substr(1,ss2.length-2)}  
+    if(sum_nb==1 && ss2fst2 =="-" && ss1lst=="+"){
+      var ss1=ss1.substr(0,ss1.length-1);       
+      var ss2=ss2.substr(1,ss2.length-2);
+                                          }      
+    if(sum_nb==1 && ss2fst2 =="-" && ss1lst=="-"){
+      var ss1=ss1.substr(0,ss1.length-1);       
+      var ss2=ss2.substr(2,ss2.length-3);    
+      var ss2="+"+ss2;                       
+      }
+    var ss=ss1+ss2+ss3;
+    } 
+  var ss = ss.replace(/EN/g , "e\-"); 
+  var ss = ss.replace(/EP/g , "e\+");  
+    return  ss ;
+ }
+
+
+function m_bracket_data(strs,nubs){   
+  var ss = strs.toString().trim();
+  var nub = nubs;
+  var binx = m_backindex(ss,"(");
+  var strbef = ss.substr(0,binx); 
+  var straft = ss.substr(binx,ss.length-binx);  
+  var ainx = m_indexOf(straft,")");
+  var data_a = straft.substr(0,ainx+1); 
+  var straftt =straft.substr(ainx+1,straft.length-ainx-1);
+  var ans ="";
+    if(nub=="1"){ var ans = strbef ;}
+    else if(nub=="2"){ var ans = data_a ;}
+    else if(nub=="3"){ var ans = straftt ;}
+    else { var ans =ss;}
+  return  ans ;
+}
+
+function m_backindex(strs,chars){   
+  var ss = strs.toString().trim();
+  var ch = chars.toString().trim();
+  var ans_a=-1;  
+  var lg_ss = ss.length;
+  var nub = lg_ss-1;
+    for(var i=nub; i >-1 ;i--){   
+      var lg_ch=ch.length;
+      var data_a=ss.substr(i,lg_ch);
+      if( data_a==ch){  
+        var ans_a=i; 
+        var i=-1;   }   
+      }
+   return  ans_a ;
+}
+
+function m_bef_zero_delet(strs){  
+  var ss = strs.toString().trim();
+  var lg = ss.length-1;     
+    for(var i=0; i < lg;i++){         
+      var ss_fst = ss.substr(0,2);     
+      if( ss_fst ==00 ||ss_fst ==01 ||ss_fst ==02 ||ss_fst ==03 ||ss_fst ==04 ||ss_fst ==05 ||ss_fst ==06 ||ss_fst ==07 ||ss_fst ==08 ||ss_fst ==09){var ss = ss.substr(1,ss.length-1);}  
+      else{var i = lg;}   
+                     }
+     return  ss ;
+  }
+
+
+function m_item_nuber(strs){       
+  var ss = strs.toString().trim();
+  var ans=-1;
+  var ss = ss.replace(/e\-/g , "EN"); 
+  var ss = ss.replace(/e\+/g , "EP"); 
+  var c_nb=m_str_all_char_nb(ss,"("); 
+  var d_nb=m_str_all_char_nb(ss,")");
+  var ep_nb=m_str_all_char_nb(ss,"EP");   
+  var en_nb=m_str_all_char_nb(ss,"EN");
+  var epn=ep_nb+en_nb;
+  var add_nb=m_str_all_char_nb(ss,"+"); 
+  var sub_nb=m_str_all_char_nb(ss,"-"); 
+  var mul_nb=m_str_all_char_nb(ss,"*"); 
+  var div_nb=m_str_all_char_nb(ss,"/"); 
+  var pow_nb=m_str_all_char_nb(ss,"^");
+  var e_nb=m_str_all_char_nb(ss,"e");   
+  var l_nb=m_str_all_char_nb(ss,"l");   
+  var s_nb=m_str_all_char_nb(ss,"s");   
+  var a_nb=m_str_all_char_nb(ss,"a");   
+  var h_nb=m_str_all_char_nb(ss,"h");   
+  var r_nb=m_str_all_char_nb(ss,"r");    
+  var fun_nb=pow_nb+e_nb+l_nb+s_nb+a_nb+h_nb+r_nb;
+    if(fun_nb==0 || epn==0 || en_nb==0 ){ var ans = 0 ;}  
+   return  ans ;
+}
+
+function m_content_change(strs){   
+  var ss = strs.toString().trim();
+  var ss = ss.replace(/e\-/g , "EN"); 
+  var ss = ss.replace(/e\+/g , "EP"); 
+  var add_nb=m_str_all_char_nb(ss,"+"); if(add_nb>=10){ var add_nb=9;}  
+  var sub_nb=m_str_all_char_nb(ss,"-"); if(sub_nb>=10){ var sub_nb=9;} 
+  var mul_nb=m_str_all_char_nb(ss,"*"); if(mul_nb>=10){ var mul_nb=9;}  
+  var div_nb=m_str_all_char_nb(ss,"/"); if(div_nb>=10){ var div_nb=9;}  
+  var pow_nb=m_str_all_char_nb(ss,"^"); if(pow_nb>=10){ var pow_nb=9;}  
+  var op_nb1 = ""+sub_nb+add_nb;
+  var op_nb1 = m_bef_zero_delet(op_nb1);
+  var op_nb2 = ""+div_nb+mul_nb;
+  var op_nb2 = m_bef_zero_delet(op_nb2);
+  var op_nb3 = ""+pow_nb;
+  var op_nb3 = m_bef_zero_delet(op_nb3);
+  var op_nb = ""+pow_nb+div_nb+mul_nb+sub_nb+add_nb;
+  var op_nb = m_bef_zero_delet(op_nb);
+  var ep_nb=m_str_all_char_nb(ss,"EP"); if(ep_nb>=10){ var ep_nb=9;}  
+  var en_nb=m_str_all_char_nb(ss,"EN"); if(en_nb>=10){ var en_nb=9;}  
+  var epn_nb=""+en_nb+ep_nb;  
+  var epn_nb = m_bef_zero_delet(epn_nb);
+  var c_nb=m_str_all_char_nb(ss,"("); if(c_nb>=10){ var c_nb=9;}  
+  var d_nb=m_str_all_char_nb(ss,")"); if(d_nb>=10){ var d_nb=9;}  
+  var cd_nb=""+d_nb+c_nb;  
+  var cd_nb = m_bef_zero_delet(cd_nb);
+  var e_nb=m_str_all_char_nb(ss,"e");  if(e_nb>=10){ var e_nb=9;}  
+  var l_nb=m_str_all_char_nb(ss,"l");  if(l_nb>=10){ var l_nb=9;}   
+  var s_nb=m_str_all_char_nb(ss,"s");  if(s_nb>=10){ var s_nb=9;}   
+  var a_nb=m_str_all_char_nb(ss,"a");  if(a_nb>=10){ var a_nb=9;}   
+  var tan_nb=m_str_all_char_nb(ss,"tan");  if(tan_nb>=10){ var tan_nb=9;}
+  var asinh_nb=m_str_all_char_nb(ss,"asinh");  if(asinh_nb>=10){ var asinh_nb=9;} 
+  var acosh_nb=m_str_all_char_nb(ss,"acosh");  if(acosh_nb>=10){ var acosh_nb=9;}   
+  var atanh_nb=m_str_all_char_nb(ss,"atanh");  if(atanh_nb>=10){ var atanh_nb=9;}
+  var asin_nb=m_str_all_char_nb(ss,"asin");  if(asin_nb>=10){ var asin_nb=9;}   
+  var acos_nb=m_str_all_char_nb(ss,"acos");  if(acos_nb>=10){ var acos_nb=9;}   
+  var atan_nb=m_str_all_char_nb(ss,"atan");  if(atan_nb>=10){ var atan_nb=9;}   
+  var h_nb=m_str_all_char_nb(ss,"h");  if(h_nb>=10){ var h_nb=9;}   
+  var r_nb=m_str_all_char_nb(ss,"r");  if(r_nb>=10){ var r_nb=9;}  
+  var fuc_nb=""+r_nb+h_nb+a_nb+s_nb+l_nb+e_nb; 
+  var fuc_nb = m_bef_zero_delet(fuc_nb); 
+  var ss = ss.replace(/EN/g , "e\-"); 
+  var ss = ss.replace(/EP/g , "e\+");  
+    if(op_nb<= "99" && op_nb >="1" && cd_nb=="0" && fuc_nb=="0"){var ss=m_indexOf_2_all(ss,"+","-",0);  
+  var ss = m_split_add_sub_sum(ss,0)}    
+    if(op_nb2 <= "99" && op_nb2 > "1" && op_nb <= "9900" && op_nb1 == "0"  && cd_nb=="0" && fuc_nb=="0"){var ss= m_index_str_to_mtx(ss,"*","/",0);  }   
+  var ss =  m_split_4(ss);     
+  var ss = m_split_add_sub_sum(ss,"0");      
+   if((acosh_nb >= "1" ||atanh_nb >= "1") && epn_nb >="1" ){var ss= m_str_part_1en_sah(ss);}           
+   if((asin_nb-asinh_nb) >= "1" && epn_nb >="1" ){var ss= m_str_part_1en_sa_sin(this_it);}  
+   if((acos_nb-acosh_nb) >= "1" && epn_nb >="1" ){var ss= m_str_part_1en_sa(ss); }           
+   if(l_nb >="1" && epn_nb >="1" ){var ss= m_str_part_1en_s(ss);}  
+   if(((s_nb-asinh_nb-acosh_nb- asin_nb-acos_nb) >="1" ||(tan_nb-atanh_nb-atan_nb) >="1" ) && epn_nb >="1" ){var ss= s_s(ss) ;}
+  return ss;
+}
 
  function calculate(item_1){  
-     s_chang_visible_all(); 
-         MTX_COL = m_deci_dgt();
-         DECI_DGT = m_deci_dgt_1(); 
-         FIX_COL = m_add_sub_fix_cols();
-         m_gol_fix(); 
-        var str_part_lg= string_lg_1();             
-        var str_cursor_pos = cursor_position();     
-        if(str_part_lg >str_cursor_pos){  
-                cursor_sec_recal_t( );                
-                                         } 
-          var item_a=calc.input.value; 
-          var it = calc.input.value;
-          var this_s = it.toString().trim();
-          var this_it = m_del4_2f_char(it,';').toString().trim(); 
-          var this_it_s = this_it; 
-          var this_it = mtx_str_inpt_chk_bf(this_it);
-                var nub_Msg = m_str_char(this_it,"Msg") ;      
-                if(nub_Msg !=0){
-                         document.getElementById('input').value+=" "+this_it +";";
-                   newline_1(); 
-                   scroll_cursor();
-                      return;}
-         var this_function = this_it;   
-         var this_it =  m_str_spec_part_af_minus_sum(this_it); 
-         var this_it = m_replace_eq(this_it);  
-         var this_it_copy =  this_it ;                           
-         var this_it_copy = this_it_copy.replace(/asinh/g , "arsinh");    
-         var this_it_copy = this_it_copy.replace(/acosh/g , "arcosh");    
-         var this_it_copy = this_it_copy.replace(/atanh/g , "artanh"); 
-          if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data="="+this_it_copy;}   
-              else{ var function_data ="";} 
-         var this_it = m_sing_item(this_it); 
-         var this_it =  m_str_part_del_pi_s(this_it) ;          
-         var this_it = m_str_part_del_pi_chg_s(this_it) ;  
-         var this_it = m_str_part_1en_s(this_it); 
-         var this_it = m_str_part_1en_sa_sin(this_it);
-         var this_it = m_str_part_1en_sa(this_it);  
-         var this_it = m_str_part_1en_sah(this_it);   
-         var this_it = m_str_sub_ngt_bf(this_it);
-         var this_it = m_str_math_replacec(this_it); 
-         var this_it =  m_oct_nb(this_it);                 
-         var data_chk1 = s_check_str_char(this_it_s,"(" );   
-         var data_chk2 = s_check_str_char(this_it_s,")" );   
-               if((data_chk1 - data_chk2) !=0){
-                       document.getElementById('input').value+=" "+"<- error'('!= ')'->"+";";  
-                       var value_copy=" "+"<- error'('!= ')'->"+";";                           
-                                             BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
-                                             BACK_COUNT = BACK_COUNT+1; 
-
-                   newline_1(); 
-                   scroll_cursor();
-                      return;
+   s_chang_visible_all(); 
+   MTX_COL = m_deci_dgt();
+   DECI_DGT = m_deci_dgt_1(); 
+   FIX_COL = m_add_sub_fix_cols();
+   m_gol_fix(); 
+   var str_part_lg= string_lg_1();             
+   var str_cursor_pos = cursor_position();     
+     if(str_part_lg >str_cursor_pos){  
+       cursor_sec_recal_t( );                
+                                 } 
+   var item_a=calc.input.value; 
+   var it = calc.input.value;
+   var this_s = it.toString().trim();
+   var this_it = m_del4_2f_char(it,';').toString().trim(); 
+   var this_it_s = this_it; 
+   var this_it = mtx_str_inpt_chk_bf(this_it);
+   var nub_Msg = m_str_char(this_it,"Msg") ;      
+     if(nub_Msg !=0){
+       document.getElementById('input').value+=" "+this_it +";";
+       newline_1(); 
+       scroll_cursor();
+            return;}
+    var this_function = this_it;   
+    var this_it =  m_str_spec_part_af_minus_sum(this_it); 
+    var this_it = m_replace_eq(this_it);  
+    var this_it_copy =  this_it ;                            
+    var this_it_copy = this_it_copy.replace(/asinh/g , "arsinh");    
+    var this_it_copy = this_it_copy.replace(/acosh/g , "arcosh");    
+    var this_it_copy = this_it_copy.replace(/atanh/g , "artanh"); 
+      if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data="="+this_it_copy;}   
+      else{ var function_data ="";} 
+    var testdata = m_funct_content(this_it,"ln(");
+    var inputmsg ="";             
+    var inputmsg = m_funct_content_max_min_msg_c_input_over(this_it,"("); 
+      if(inputmsg !=""){
+        document.getElementById('input').value+=" "+"<--Msg:"+inputmsg+";";   
+        var value_copy=" "+"<--Msg:"+inputmsg+";";   
+        BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
+        BACK_COUNT = BACK_COUNT+1;
+        newline_1();
+        scroll_cursor();
+              return;
+                       }
+     var this_it = m_sing_item(this_it);    
+     var this_it = m_str_sub_ngt_bf(this_it);   
+     var this_it = m_str_math_replacec(this_it); 
+     var this_it =  m_oct_nb(this_it);                 
+     var data_chk1 = s_check_str_char(this_it_s,"(" );   
+     var data_chk2 = s_check_str_char(this_it_s,")" );   
+       if((data_chk1 - data_chk2) !=0){
+         document.getElementById('input').value+=" "+"<- error'('!= ')'->"+";";  
+         var value_copy=" "+"<- error'('!= ')'->"+";";                           
+         BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
+         BACK_COUNT = BACK_COUNT+1; 
+         newline_1(); 
+         scroll_cursor();
+             return;
+                      }
+      var data_equal = s_check_str_equal(this_it_s);    
+        if(data_equal > 0){
+          document.getElementById('input').value+=" "+"<- sorry '=' or ' ' no support->"+";";   
+          var value_copy=" "+"<- sorry '=' or ' ' no support->"+";";   
+          BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
+          BACK_COUNT = BACK_COUNT+1;
+          newline_1();
+          scroll_cursor();
+               return;
+                         }
+      var data_equation =  s_check_str_equation(this_it ); 
+        if(data_equation !="" || data_equation ==null){
+          document.getElementById('input').value+=" "+"<- sorry 'equation' no support->"+";";  
+          var value_copy =" "+"<- sorry 'equation' no support->"+";";  
+          BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
+          BACK_COUNT = BACK_COUNT+1;
+          newline_1(); 
+          scroll_cursor(); 
+          return;
                                           }
-              var data_equal = s_check_str_equal(this_it_s);    
-                 if(data_equal > 0){
-                  document.getElementById('input').value+=" "+"<- sorry '=' or ' ' no support->"+";";   
-                    var value_copy=" "+"<- sorry '=' or ' ' no support->"+";";   
-                            BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
-                            BACK_COUNT = BACK_COUNT+1;
-                    newline_1();
-                    scroll_cursor();
-                       return;
-                                          }
-              var data_equation =  s_check_str_equation(this_it ); 
-                 if(data_equation !="" || data_equation ==null){
-                      document.getElementById('input').value+=" "+"<- sorry 'equation' no support->"+";";  
-                      var value_copy =" "+"<- sorry 'equation' no support->"+";";  
-                            BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
-                            BACK_COUNT = BACK_COUNT+1;
-                          newline_1(); 
-                          scroll_cursor(); 
-                         return;
-                                          }
-             this_it = m_str_sub_ngt_bf(this_it); 
-                THIS_DATA = this_it.replace(/Q/g , "-");   
-               this_it = m_ext_in_funct(this_it);  
-               this_it = m_ext_in_funct_2(this_it); 
-               this_it = this_it.replace(/Q/g , "-"); 
-               var this_it_fst=this_it.substr(0,2);      
-                        if(this_it_fst=="-\(" || this_it_fst=="-m"){ var this_it=this_it.substr(1,this_it.length-1);}   
-               var this_it_pi_part = this_it.substr(0,50);    
-               var this_it_pi_lst_part = this_it.substr(this_it.length-5 ,5);    
-               if((this_it.length >=17 && this_it >=10000000000000000)||(this_it_pi_part=="3.141592653589793238462643383279502884197169399375" )||(this_it_pi_part=="0.017453292519943295769236907684886127134428718885")){
-                   this_it="'"+this_it+"'";}    
-              else{
-                 this_it=this_it.toString(); 
-                   }
-           var this_it=  mtx_str_e_chk_to_str(this_it); 
-           var this_data = eval(this_it);  
-           var this_data_error = this_data;     
-                this_data=this_data.toString();    
-            var this_data_fst = this_data.substr(0,1);
-                     if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst=="-" && this_data !=0){         
-                          this_data= this_data.substr(1,this_data.length-1) ;}  
-                       if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst!="-"  && this_data !=0){
-                         this_data= "-"+this_data ;} 
+         THIS_DATA = this_it.replace(/Q/g , "\-");   
+         this_it = m_ext_in_funct(this_it);  
+         this_it = m_ext_in_funct_2(this_it);   
+         this_it = this_it.replace(/Q/g , "\-"); 
+     var this_it_fst=this_it.substr(0,2);      
+       if(this_it_fst=="-\(" || this_it_fst=="-m"){ var this_it=this_it.substr(1,this_it.length-1);}   
+     var this_it_pi_part = this_it.substr(0,50);    
+     var this_it_pi_lst_part = this_it.substr(this_it.length-5 ,5);    
+       if((this_it.length >=17 && this_it >=10000000000000000)||(this_it_pi_part=="3.141592653589793238462643383279502884197169399375" )||(this_it_pi_part=="0.017453292519943295769236907684886127134428718885")){
+         this_it="'"+this_it+"'";}    
+       else{
+          this_it=this_it.toString(); 
+            }
+     var this_it=  mtx_str_e_chk_to_str(this_it); 
+     var this_it = this_it.replace(/\°/g , DEG);  
+     var this_it = this_it.replace(/\π/g , PIS);  
+     var this_data = eval(this_it);   
+     var this_data_error = this_data;     
+         this_data=this_data.toString();    
+     var this_data_fst = this_data.substr(0,1);
+       if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst=="-" && this_data !=0){         
+          this_data= this_data.substr(1,this_data.length-1) ;}  
+       if((this_it_fst=="-\("||  this_it_fst=="-m") && this_data_fst!="-"  && this_data !=0){
+          this_data= "-"+this_data ;} 
              var  this_data = m_str_e_to_str_point(this_data );
              var  this_data = m_mtx_str_to_e_a(this_data);
              var  nub_x = m_str_power(this_data,0);   
                   if(m_abs(nub_x)<11  && m_abs(nub_x)>0 ){
                        this_data = m_str_e_to_str(this_data);             
                                             }
-        var this_data_abs=m_abs(this_data);  
-        var this_data_str = m_mtx_e_str(this_data ,1);  
-         var data_er_rg ="";
-         var data_er_rg = m_sub_error_rg(this_data);  
-    
-      if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
-              if(data_er_rg != this_data.toString()){ 
-               var value_copy=function_data+"="+data_er_rg+";";         
-                document.getElementById('input').value = this_s.toString().trim()+function_data+"="+data_er_rg+";";  
+     var this_data_abs=m_abs(this_data);  
+     var this_data_str = m_mtx_e_str(this_data ,1);  
+     var data_er_rg ="";
+     var data_er_rg = m_sub_error_rg(this_data);  
+       if( parseFloat(this_data_str) >=0 || parseFloat(this_data_str) < 0){   
+         if(data_er_rg != this_data.toString()){ 
+           var value_copy=function_data+"="+data_er_rg+";";          
+           document.getElementById('input').value = this_s.toString().trim()+function_data+"="+data_er_rg+";";   
                                             }
-               else{
-               var deci_dgt= parseInt(document.getElementById('5_0').value); 
-               var value_copy=function_data+'='+m_fix(this_data.toString(),deci_dgt).toString()+';';    
-               document.getElementById('input').value = this_s.toString().trim()+function_data+"="+m_fix(this_data.toString(),deci_dgt).toString()+";" ;    
+         else{
+           var deci_dgt= parseInt(document.getElementById('5_0').value); 
+           var value_copy=function_data+'='+m_fix(this_data.toString(),deci_dgt).toString()+';';    
+           document.getElementById('input').value = this_s.toString().trim()+function_data+"="+m_fix(this_data.toString(),deci_dgt).toString()+";" ;    
                    }
-                                           }
+                                       }
        else {
-          var error_str=this_data_error ;
-           error_str=m_str_spc_inter_2word( error_str,"<","->"); 
-           if(error_str ==""){ var error_str="system error";}
-          document.getElementById('input').value=this_s.toString().trim();  
-          document.getElementById('input').value+=" "+error_str+";";    
-               var value_copy=" "+error_str+";";  
-
+     var error_str=this_data_error ;
+         error_str=m_str_spc_inter_2word( error_str,"<","->"); 
+       if(error_str ==""){ var error_str="system error";}
+         document.getElementById('input').value=this_s.toString().trim();  
+         document.getElementById('input').value+=" "+error_str+";";    
+      var value_copy=" "+error_str+";";  
              }
-
-               BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
-               BACK_COUNT = BACK_COUNT+1;    
-           newline_1();
-           s_chang_sum("=");    
-           scroll_cursor();    
-           click_init() ; 
+      BACK_MTX[0][BACK_COUNT] = value_copy+"_";               
+      BACK_COUNT = BACK_COUNT+1;    
+      newline_1();
+      s_chang_sum("=");    
+      scroll_cursor();    
+      click_init() ; 
          }
- 
 
-     function str_inser(str ,index_it, wd){          
-       var str=str ;              
-       var index_it=index_it;    
-       var wd = wd ;             
-       var str_leg = str.length;
-       var str_new=str.substr(0,index_it) +wd+ str.substr((index_it),str_leg);
-           return str_new  ;
+   function str_inser(str ,index_it, wd){          
+     var str=str ;              
+     var index_it=index_it;    
+     var wd = wd ;             
+     var str_leg = str.length;
+     var str_new=str.substr(0,index_it) +wd+ str.substr((index_it),str_leg);
+          return str_new  ;
        }
   
    function str_wdnb(str,index_it){          
-      var str=str ;              
-      var index_it=index_it;    
-      var str_leg = str.length;
-      var nb =0 ; 
-           for(var i=index_it; i<str_leg;i++){
-               var nb_new = str.substr(index_it,index_it+1) ;
-                    if( (nb_new <=9 && nb_new>=0)||( nb_new =".") ||( nb_new ="π")){
-                             nb=nb+1;                                               }
-                                           }
-           
+     var str=str ;              
+     var index_it=index_it;    
+     var str_leg = str.length;
+     var nb =0 ; 
+       for(var i=index_it; i<str_leg;i++){
+         var nb_new = str.substr(index_it,index_it+1) ;
+         if((nb_new <=9 && nb_new>=0)||( nb_new =".") ||( nb_new ="π")){
+            nb=nb+1;      }
+                                 }
          return nb ;
-       }
+     }
 
 
 
