@@ -7410,7 +7410,8 @@ return ans_1;
 
  function m_pow(base,p){    
    var base= base.toString().trim();
-   var base =m_mtx_trim(base) ;         
+   var base =m_mtx_trim(base) ;   
+   var base_int=base;
    var  p= p.toString().trim();
    var base_msg = m_mtx_test_msg(base);     
    var p_msg = m_mtx_test_msg(p);
@@ -7463,7 +7464,7 @@ return ans_1;
     var bb = bb.toString().trim();
     var bb = m_mtx_trim(bb) ;   
     var bb_lg =bb.length;
-    var data_comp_bb_1   =  m_mtx_real_str_comp(bb,1);      
+    var data_comp_bb_1   =  m_mtx_real_str_comp(base_int,1);      
     var data_comp_bb_0   =  m_mtx_real_str_comp(bb,0); 
     var data_comp_pp_0   =  m_mtx_real_str_comp(pp,0);
     var data_comp_ppp_0   =  m_mtx_real_str_comp(ppp,0);
