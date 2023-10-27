@@ -8573,6 +8573,7 @@ function m_mtx_real_mul(y,x){
              nub_e_y =m_str_power(yy_st,0);      
              yy_st = m_str_power(yy_st,1);  }         
     var data_y_fst=yy_st.substr(0,1);
+    var yy_st =m_fix(yy_st,420);
     var data_y_lg=yy_st.length;
        if(data_y_fst=="-"){ yy_st=yy_st.substr(1,data_y_lg-1);     
                             data_y_lg=data_y_lg-1;} 
@@ -8584,7 +8585,8 @@ function m_mtx_real_mul(y,x){
       if(  pos_e_x != -1){ 
           nub_e_x =m_str_power(xx_st,0);           
            xx_st = m_str_power(xx_st,1); }            
-    var data_x_fst=xx_st.substr(0,1);        
+    var data_x_fst=xx_st.substr(0,1);  
+    var xx_st =m_fix(xx_st,420);  //縮短
     var data_x_lg=xx_st.length;
         if(data_x_fst=="-"){ xx_st=xx_st.substr(1,data_x_lg-1);    
                              data_x_lg=data_x_lg-1;} 
@@ -10172,7 +10174,8 @@ function m_funct_content_cal_noc(strs,fuc){
   var fun_limit="0";
     if(fun_sec1.length <= 8  && idx_xx > 0 ){ fun_limit = fun_sec1 ;} 
   var sec_2 =  m_split_4(sec_2);
-  var sec_2 = m_split_add_sub_sum(sec_2,fun_limit);     
+  var sec_2 = m_split_add_sub_sum(sec_2,fun_limit);
+  var sec_2 = m_fix(sec_2,398);
   var data_msg =0;
   var data_msg =  m_str_char(sec_2,"Msg") ;  
     if(data_msg >=1){ var ans_a = sec_2 ; return  ans_a ;} 
