@@ -33,7 +33,7 @@ var LN89S ="4.488636369732139838317815540669849219404660387132959364106697577287
 var LN97S ="4.57471097850338282211672162170396171380891490265878135597623436876017729177818712534228274503427454992695068064837970662753799135355895969188445273029578412840687860839556310976343588148642308813748063599091829860864826338491545526791275011755833456490759004954331070405689280108596198228987118639202017";
 var E1S="2.71828182845904523536028747135266249775724709369995957496696762772407663035354759457138217852516642742746639193200305992181741359662904357290033429526059563073813232862794349076323382988075319525101901157383418793070215408914993488416750924476146066808226480016847741185374234544243710753907774499206955170";
 var DEGS="0.0174532925199432957692369076848861271344287188854172545609719144017100911460344944368224156963450948221230449250737905924838546922752810123984742189340471173191682450150107695616975535812386053051687886912711720870329635896026424901877043509181733439396980475940192241589469684813789632978181124952292984";
-var π= PIS;
+
 var ln10 = LN10S;
 var ln2 = LN2S ;
 var SIN09DS="0.156434465040230869010105319467166892313899892085660790084641346057758793305623579336695872676848688375140300847680446937398178819070625499302226840832214122991451599282569833595264414776895836512260377580456827300235182216762796982183068184753704096064807513823680089021403524065849605203125283418644";
@@ -140,6 +140,7 @@ var LOGE1="0.4342944819032518276511289189166050822943970058036665661144537831658
 var MTX_COL =400;  
 var FIX_COL =2000;
 var DECI_DGT=200 ; 
+var NUB_COL =420;
 function m_deci_dgt(){         
   var deci_dgt= parseInt(document.getElementById('5_0').value); 
     if( deci_dgt <= 16){      
@@ -147,74 +148,81 @@ function m_deci_dgt(){
     else { var MTX_COL =  80 ;}  
    return  MTX_COL;                           
 }
+
 function m_deci_dgt_1(){           
   var DECI_DGT= parseInt(document.getElementById('5_0').value); 
    return  DECI_DGT;                   
 }
+
 function m_gol_fix(){                  
-  if( DECI_DGT <=16){ var nub_col=100;}   
-  else{var nub_col=300 ;}              
-  PIMUL2 =m_fix(PIMUL2S,nub_col);
-  PIDIV2=m_fix(PIDIV2S,nub_col);
-  PIDIV4=m_fix(PIDIV4S,nub_col);
-  SQRT2=m_fix(SQRT2S,nub_col);
-  LN2 =m_fix( LN2S,nub_col);
-  LN3 =m_fix(LN3S,nub_col);
-  LN5 =m_fix(LN5S,nub_col);
-  LN7 =m_fix(LN7S,nub_col); 
-  LN10 =m_fix(LN10S,nub_col);
-  LN11=m_fix(LN11S,nub_col); 
-  LN13=m_fix(LN13S,nub_col); 
-  LN17=m_fix(LN17S ,nub_col);
-  LN19=m_fix(LN19S ,nub_col);
-  LN23=m_fix(LN23S ,nub_col);
-  LN29 =m_fix(LN29S,nub_col);
-  LN31=m_fix(LN31S ,nub_col);
-  LN37=m_fix(LN37S,nub_col); 
-  LN41 =m_fix(LN41S,nub_col);
-  LN43 =m_fix(LN43S,nub_col);
-  LN47 =m_fix(LN47S,nub_col);
-  LN53=m_fix(LN53S,nub_col);
-  LN59=m_fix(LN59S,nub_col); 
-  LN61=m_fix(LN61S,nub_col);
-  LN67=m_fix(LN67S,nub_col); 
-  LN71 =m_fix(LN71S,nub_col);
-  LN73=m_fix(LN73S,nub_col); 
-  LN79=m_fix(LN79S,nub_col); 
-  LN83=m_fix(LN83S,nub_col); 
-  LN89=m_fix(LN89S,nub_col); 
-  LN97=m_fix(LN97S,nub_col); 
-  E1=m_fix(E1S,nub_col);
-  SIN09D=m_fix(SIN09DS,nub_col);
-  SIN15D=m_fix(SIN15DS,nub_col);
-  SIN18D=m_fix(SIN18DS,nub_col);
-  SIN36D=m_fix(SIN36DS,nub_col);
-  SIN45D=m_fix(SIN45DS,nub_col);
-  SIN54D=m_fix(SIN54DS,nub_col);
-  SIN60D=m_fix(SIN60DS,nub_col);
-  SIN72D=m_fix(SIN72DS,nub_col);
-  SIN75D=m_fix(SIN75DS,nub_col);
-  SIN81D=m_fix(SIN81DS,nub_col);
-  SIN00R=m_fix(SIN00RS,nub_col);
-  SIN01R=m_fix(SIN01RS,nub_col);
-  SIN02R=m_fix(SIN02RS,nub_col);
-  SIN03R=m_fix(SIN03RS,nub_col);
-  SIN04R=m_fix(SIN04RS,nub_col);
-  SIN05R=m_fix(SIN05RS,nub_col);
-  SIN06R=m_fix(SIN06RS,nub_col);
-  SIN07R=m_fix(SIN07RS,nub_col);
-  SIN08R=m_fix(SIN08RS,nub_col);
-  SIN09R=m_fix(SIN09RS,nub_col);
-  SIN10R=m_fix(SIN10RS,nub_col);
-  COS02R=m_fix(COS02RS,nub_col);
-  COS03R=m_fix(COS03RS,nub_col);
-  COS04R=m_fix(COS04RS,nub_col);
-  COS05R=m_fix(COS05RS,nub_col);
-  COS06R=m_fix(COS06RS,nub_col);
-  COS07R=m_fix(COS07RS,nub_col);
-  COS08R=m_fix(COS08RS,nub_col);
-  COS09R=m_fix(COS09RS,nub_col);
-  COS10R=m_fix(COS10RS,nub_col);
+  if( DECI_DGT <=16){ var NUB_COL=32;}                      
+  else if( DECI_DGT >16 && DECI_DGT <=25){ var NUB_COL=50;}  
+  else if( DECI_DGT >25 && DECI_DGT <=50){ var NUB_COL=100;}
+  else if( DECI_DGT >50 && DECI_DGT <=100){ var NUB_COL=200;}
+  else if( DECI_DGT >100 && DECI_DGT <=150){ var NUB_COL=300;}
+  else if( DECI_DGT >150 && DECI_DGT <=200){ var NUB_COL=400;}
+  else{var NUB_COL=420 ;} 
+  PIMUL2 =m_fix(PIMUL2S,NUB_COL);
+  PIDIV2=m_fix(PIDIV2S,NUB_COL);
+  PIDIV4=m_fix(PIDIV4S,NUB_COL);
+  SQRT2=m_fix(SQRT2S,NUB_COL);
+  LN2 =m_fix( LN2S,NUB_COL);
+  LN3 =m_fix(LN3S,NUB_COL);
+  LN5 =m_fix(LN5S,NUB_COL);
+  LN7 =m_fix(LN7S,NUB_COL); 
+  LN10 =m_fix(LN10S,NUB_COL);
+  LN11=m_fix(LN11S,NUB_COL); 
+  LN13=m_fix(LN13S,NUB_COL); 
+  LN17=m_fix(LN17S ,NUB_COL);
+  LN19=m_fix(LN19S ,NUB_COL);
+  LN23=m_fix(LN23S ,NUB_COL);
+  LN29 =m_fix(LN29S,NUB_COL);
+  LN31=m_fix(LN31S ,NUB_COL);
+  LN37=m_fix(LN37S,NUB_COL); 
+  LN41 =m_fix(LN41S,NUB_COL);
+  LN43 =m_fix(LN43S,NUB_COL);
+  LN47 =m_fix(LN47S,NUB_COL);
+  LN53=m_fix(LN53S,NUB_COL);
+  LN59=m_fix(LN59S,NUB_COL); 
+  LN61=m_fix(LN61S,NUB_COL);
+  LN67=m_fix(LN67S,NUB_COL); 
+  LN71 =m_fix(LN71S,NUB_COL);
+  LN73=m_fix(LN73S,NUB_COL); 
+  LN79=m_fix(LN79S,NUB_COL); 
+  LN83=m_fix(LN83S,NUB_COL); 
+  LN89=m_fix(LN89S,NUB_COL); 
+  LN97=m_fix(LN97S,NUB_COL); 
+  E1=m_fix(E1S,NUB_COL);
+  SIN09D=m_fix(SIN09DS,NUB_COL);
+  SIN15D=m_fix(SIN15DS,NUB_COL);
+  SIN18D=m_fix(SIN18DS,NUB_COL);
+  SIN36D=m_fix(SIN36DS,NUB_COL);
+  SIN45D=m_fix(SIN45DS,NUB_COL);
+  SIN54D=m_fix(SIN54DS,NUB_COL);
+  SIN60D=m_fix(SIN60DS,NUB_COL);
+  SIN72D=m_fix(SIN72DS,NUB_COL);
+  SIN75D=m_fix(SIN75DS,NUB_COL);
+  SIN81D=m_fix(SIN81DS,NUB_COL);
+  SIN00R=m_fix(SIN00RS,NUB_COL);
+  SIN01R=m_fix(SIN01RS,NUB_COL);
+  SIN02R=m_fix(SIN02RS,NUB_COL);
+  SIN03R=m_fix(SIN03RS,NUB_COL);
+  SIN04R=m_fix(SIN04RS,NUB_COL);
+  SIN05R=m_fix(SIN05RS,NUB_COL);
+  SIN06R=m_fix(SIN06RS,NUB_COL);
+  SIN07R=m_fix(SIN07RS,NUB_COL);
+  SIN08R=m_fix(SIN08RS,NUB_COL);
+  SIN09R=m_fix(SIN09RS,NUB_COL);
+  SIN10R=m_fix(SIN10RS,NUB_COL);
+  COS02R=m_fix(COS02RS,NUB_COL);
+  COS03R=m_fix(COS03RS,NUB_COL);
+  COS04R=m_fix(COS04RS,NUB_COL);
+  COS05R=m_fix(COS05RS,NUB_COL);
+  COS06R=m_fix(COS06RS,NUB_COL);
+  COS07R=m_fix(COS07RS,NUB_COL);
+  COS08R=m_fix(COS08RS,NUB_COL);
+  COS09R=m_fix(COS09RS,NUB_COL);
+  COS10R=m_fix(COS10RS,NUB_COL);
 return ;
  }
 
@@ -631,18 +639,18 @@ function mtx_str_inpt_chk_bf(x){
     var ans_1=xx; 
     return  ans_1 ; }                         
    var xx =  m_str_sub_ngt_bf(xx);   
-       xx = xx.replace(/e\+/g , "ET");   
-       xx = xx.replace(/eQ/g , "EQ");    
-       xx = xx.replace(/\+/g , "EA");    
-       xx = xx.replace(/\-/g , "ES");    
-       xx = xx.replace(/\//g , "ED");    
-       xx = xx.replace(/\*/g , "EM");    
-       xx = xx.replace(/\^/g , "EP");    
-       xx = xx.replace(/\(/g , "EL");    
-       xx = xx.replace(/\)/g , "ER");  
-       xx = xx.replace(/exp/g , "AXP"); 
-       xx = xx.replace(/e/g , "ET");     
-       xx = xx.replace(/\!/g , "EJ");     
+       xx = xx.toString().replace(/e\+/g , "ET");   
+       xx = xx.toString().replace(/eQ/g , "EQ");    
+       xx = xx.toString().replace(/\+/g , "EA");    
+       xx = xx.toString().replace(/\-/g , "ES");    
+       xx = xx.toString().replace(/\//g , "ED");    
+       xx = xx.toString().replace(/\*/g , "EM");    
+       xx = xx.toString().replace(/\^/g , "EP");    
+       xx = xx.toString().replace(/\(/g , "EL");    
+       xx = xx.toString().replace(/\)/g , "ER");  
+       xx = xx.toString().replace(/exp/g , "AXP"); 
+       xx = xx.toString().replace(/e/g , "ET");     
+       xx = xx.toString().replace(/\!/g , "EJ");     
     xx=xx+"E"; 
      var nub_E= m_str_char(xx,"E") ;  
      var str_bf="";  
@@ -696,17 +704,17 @@ function mtx_str_hat_chk(x){
    if(nub_hat==1 && xx_fst =="-"){
      var ans_1="0"+xx;  return  ans_1 ; }            
   var xx =  m_str_sub_ngt_bf(xx);  
-      xx = xx.replace(/exp/g , "EZ"); 
-      xx = xx.replace(/e\+/g , "EE");   
-      xx = xx.replace(/eQ/g , "EQ");    
-      xx = xx.replace(/\+/g , "EA");    
-      xx = xx.replace(/\-/g , "ES");    
-      xx = xx.replace(/\//g , "ED");    
-      xx = xx.replace(/\*/g , "EM");    
-      xx = xx.replace(/\^/g , "EP");    
-      xx = xx.replace(/\(/g , "EL");    
-      xx = xx.replace(/\)/g , "ER");    
-      xx = xx.replace(/EP/g , "\^");      
+      xx = xx.toString().replace(/exp/g , "EZ"); 
+      xx = xx.toString().replace(/e\+/g , "EE");   
+      xx = xx.toString().replace(/eQ/g , "EQ");    
+      xx = xx.toString().replace(/\+/g , "EA");    
+      xx = xx.toString().replace(/\-/g , "ES");    
+      xx = xx.toString().replace(/\//g , "ED");    
+      xx = xx.toString().replace(/\*/g , "EM");    
+      xx = xx.toString().replace(/\^/g , "EP");    
+      xx = xx.toString().replace(/\(/g , "EL");    
+      xx = xx.toString().replace(/\)/g , "ER");    
+      xx = xx.toString().replace(/EP/g , "\^");      
       xx=xx+"E"; 
    var nub_E= m_str_char(xx,"E") ;  
      for(var i=0; i<nub_E ;i++){
@@ -735,18 +743,18 @@ function mtx_str_hat_chk(x){
       var ans_1 = ans_1+ str_bf+ str_mf;  
       var xx = str_af ;     
                  }
-      var ans_1 = ans_1.replace(/EA/g , "\+");    
-      var ans_1 = ans_1.replace(/ES/g , "\-");    
-      var ans_1 = ans_1.replace(/EM/g , "\*");    
-      var ans_1 = ans_1.replace(/ED/g , "\/");    
-      var ans_1 = ans_1.replace(/EP/g , "\^");    
-      var ans_1 = ans_1.replace(/EE/g , "e\+");   
-      var ans_1 = ans_1.replace(/EQ/g , "eQ");    
-      var ans_1 = ans_1.replace(/EL/g , "\(");    
-      var ans_1 = ans_1.replace(/ER/g , "\)");    
-      var ans_1 = ans_1.replace(/Q/g , "\-");    
-      var ans_1 = ans_1.replace(/E/g , ""); 
-      var ans_1 = ans_1.replace(/EZ/g , "exp");  
+      var ans_1 = ans_1.toString().replace(/EA/g , "\+");    
+      var ans_1 = ans_1.toString().replace(/ES/g , "\-");    
+      var ans_1 = ans_1.toString().replace(/EM/g , "\*");    
+      var ans_1 = ans_1.toString().replace(/ED/g , "\/");    
+      var ans_1 = ans_1.toString().replace(/EP/g , "\^");    
+      var ans_1 = ans_1.toString().replace(/EE/g , "e\+");   
+      var ans_1 = ans_1.toString().replace(/EQ/g , "eQ");    
+      var ans_1 = ans_1.toString().replace(/EL/g , "\(");    
+      var ans_1 = ans_1.toString().replace(/ER/g , "\)");    
+      var ans_1 = ans_1.toString().replace(/Q/g , "\-");    
+      var ans_1 = ans_1.toString().replace(/E/g , ""); 
+      var ans_1 = ans_1.toString().replace(/EZ/g , "exp");  
     return ans_1 ;
  }
 
@@ -1238,9 +1246,9 @@ function m_str_sub_ngt_bf_1_bk_math(str){
   var str_sec = str_1.substr(1,1);
     if(str_fst=="-"){
       var  str_1=str_1.substr(1,str_1.length-1);  }  
-  var str_1 = str_1.replace(/EQ/g , "e\-");         
-  var str_1 = str_1.replace(/EP/g , "e\+");           
-  var str_1 = str_1.replace(/EXP/g , "exp");         
+  var str_1 = str_1.toString().replace(/EQ/g , "e\-");         
+  var str_1 = str_1.toString().replace(/EP/g , "e\+");           
+  var str_1 = str_1.toString().replace(/EXP/g , "exp");         
     if(str_fst=="-"){
       var  str_1 ="-"+str_1 ;}   
   return str_1;
@@ -1254,17 +1262,17 @@ function m_str_sub_ngt_bf_1_math(str){
   var str_sec = str_1.substr(1,1);
     if(str_fst=="-"){
       var  str_1="0"+str_1;  }              
-      str_1 = str_1.replace(/\(\-/g , "\(0\-");     
-      str_1 = str_1.replace(/n\-/g , "nQ");         
-      str_1 = str_1.replace(/s\-/g , "sQ");         
-      str_1 = str_1.replace(/y\-/g , "yQ");        
-      str_1 = str_1.replace(/p\-/g , "pQ");         
-      str_1 = str_1.replace(/\,\-/g , "\,Q");         
-      str_1 = str_1.replace(/\^\-/g , "\^Q");         
-      str_1 = str_1.replace(/e\-/g , "EQ");        
-      str_1 = str_1.replace(/e\+/g , "EP");        
-      str_1 = str_1.replace(/exp/g , "EXP");        
-      str_1 = str_1.replace(/e/g , "EP");         
+      str_1 = str_1.toString().replace(/\(\-/g , "\(0\-");     
+      str_1 = str_1.toString().replace(/n\-/g , "nQ");         
+      str_1 = str_1.toString().replace(/s\-/g , "sQ");         
+      str_1 = str_1.toString().replace(/y\-/g , "yQ");        
+      str_1 = str_1.toString().replace(/p\-/g , "pQ");         
+      str_1 = str_1.toString().replace(/\,\-/g , "\,Q");         
+      str_1 = str_1.toString().replace(/\^\-/g , "\^Q");         
+      str_1 = str_1.toString().replace(/e\-/g , "EQ");        
+      str_1 = str_1.toString().replace(/e\+/g , "EP");        
+      str_1 = str_1.toString().replace(/exp/g , "EXP");        
+      str_1 = str_1.toString().replace(/e/g , "EP");         
     return str_1;
  }
 
@@ -1275,9 +1283,9 @@ function m_str_sub_ngt_bf_1_bk(str){
   var str_sec = str_1.substr(1,1);
     if(str_fst=="-"){
     var  str_1=str_1.substr(1,str_1.length-1);  }  
-  var str_1 = str_1.replace(/EQ/g , "e\-");       
-  var str_1 = str_1.replace(/EP/g , "e\+"); 
-  var str_1 = str_1.replace(/EXP/g , "exp");
+  var str_1 = str_1.toString().replace(/EQ/g , "e\-");       
+  var str_1 = str_1.toString().replace(/EP/g , "e\+"); 
+  var str_1 = str_1.toString().replace(/EXP/g , "exp");
     if(str_fst=="-"){
     var  str_1 ="-"+str_1 ;}
 return str_1;
@@ -1288,16 +1296,16 @@ function m_str_sub_ngt_bf_1(str){
   var str_1_lg = str_1.length;
   var str_fst = str_1.substr(0,1);
   var str_sec = str_1.substr(1,1);
-      str_1 = str_1.replace(/n\-/g , "nQ");      
-      str_1 = str_1.replace(/s\-/g , "sQ");      
-      str_1 = str_1.replace(/y\-/g , "yQ");      
-      str_1 = str_1.replace(/p\-/g , "pQ");      
-      str_1 = str_1.replace(/\,\-/g , "\,Q");      
-      str_1 = str_1.replace(/\^\-/g , "\^Q"); 
-      str_1 = str_1.replace(/e\-/g , "EQ");      
-      str_1 = str_1.replace(/e\+/g , "EP");  
-      str_1 = str_1.replace(/exp/g , "EXP");        
-      str_1 = str_1.replace(/e/g , "EP");    
+      str_1 = str_1.toString().replace(/n\-/g , "nQ");      
+      str_1 = str_1.toString().replace(/s\-/g , "sQ");      
+      str_1 = str_1.toString().replace(/y\-/g , "yQ");      
+      str_1 = str_1.toString().replace(/p\-/g , "pQ");      
+      str_1 = str_1.toString().replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.toString().replace(/\^\-/g , "\^Q"); 
+      str_1 = str_1.toString().replace(/e\-/g , "EQ");      
+      str_1 = str_1.toString().replace(/e\+/g , "EP");  
+      str_1 = str_1.toString().replace(/exp/g , "EXP");        
+      str_1 = str_1.toString().replace(/e/g , "EP");    
     return str_1;
  }
 
@@ -1308,14 +1316,14 @@ function m_str_sub_ngt_bf(str){
   var str_sec = str_1.substr(1,1);
     if(str_fst=="-"){
        var  str_1="0"+str_1;  }              
-      str_1 = str_1.replace(/n\-/g , "nQ");      
-      str_1 = str_1.replace(/s\-/g , "sQ");      
-      str_1 = str_1.replace(/y\-/g , "yQ");      
-      str_1 = str_1.replace(/p\-/g , "pQ");     
-      str_1 = str_1.replace(/\,\-/g , "\,Q");      
-      str_1 = str_1.replace(/\^\-/g , "\^Q");      
-      str_1 = str_1.replace(/e\-/g , "eQ");      
-      str_1 = str_1.replace(/e\+/g , "e");      
+      str_1 = str_1.toString().replace(/n\-/g , "nQ");      
+      str_1 = str_1.toString().replace(/s\-/g , "sQ");      
+      str_1 = str_1.toString().replace(/y\-/g , "yQ");      
+      str_1 = str_1.toString().replace(/p\-/g , "pQ");     
+      str_1 = str_1.toString().replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.toString().replace(/\^\-/g , "\^Q");      
+      str_1 = str_1.toString().replace(/e\-/g , "eQ");      
+      str_1 = str_1.toString().replace(/e\+/g , "e");      
    return str_1;
  }
 
@@ -1324,14 +1332,14 @@ function m_str_sub_ngt_bf_minus(str){
   var str_1_lg = str_1.length;
   var str_fst = str_1.substr(0,1);
   var str_sec = str_1.substr(1,1);
-      str_1 = str_1.replace(/n\-/g , "nQ");      
-      str_1 = str_1.replace(/s\-/g , "sQ");      
-      str_1 = str_1.replace(/h\-/g , "hQ");      
-      str_1 = str_1.replace(/p\-/g , "pQ");      
-      str_1 = str_1.replace(/\,\-/g , "\,Q");      
-      str_1 = str_1.replace(/\^\-/g , "\^Q");      
-      str_1 = str_1.replace(/e\-/g , "eQ");      
-      str_1 = str_1.replace(/e\+/g , "e");      
+      str_1 = str_1.toString().replace(/n\-/g , "nQ");      
+      str_1 = str_1.toString().replace(/s\-/g , "sQ");      
+      str_1 = str_1.toString().replace(/h\-/g , "hQ");      
+      str_1 = str_1.toString().replace(/p\-/g , "pQ");      
+      str_1 = str_1.toString().replace(/\,\-/g , "\,Q");      
+      str_1 = str_1.toString().replace(/\^\-/g , "\^Q");      
+      str_1 = str_1.toString().replace(/e\-/g , "eQ");      
+      str_1 = str_1.toString().replace(/e\+/g , "e");      
     return str_1;
  }
 
@@ -1356,11 +1364,11 @@ function m_str_spec_part_bf(str ,spec){
                       }
                       }
             }
-     if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°") {  
+     if((mark_1 >=0 && mark_1<=9)|| mark_1=="π"|| mark_1=="°" || mark_1=="'" ) {     
        var count_mark = pos-1;   
        for(var i = pos - 2; 0 <= i   ; i=i-1){
          var mark_ref = str_1[i];
-           if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e'){     
+           if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q' || mark_ref=='e' || mark_ref=="'"){   
               var count_mark = i ;
                                      }
            else{  
@@ -1369,7 +1377,7 @@ function m_str_spec_part_bf(str ,spec){
                         }
                          }
    var str_part_b= str_1.substring(count_mark,pos);
-    return str_part_b;
+ return str_part_b;
 }
 
 function m_str_spec_part_bf_mn(str ,spec){            
@@ -1378,8 +1386,8 @@ function m_str_spec_part_bf_mn(str ,spec){
   var str_bf_1_bit ="";    
   var str_bf_2_bit ="";
   var ans_1="";
-  var str_1 = str_1.replace(/eQ/g , "eN");
-  var str_1 = str_1.replace(/e\-/g , "eN"); 
+  var str_1 = str_1.toString().replace(/eQ/g , "eN");
+  var str_1 = str_1.toString().replace(/e\-/g , "eN"); 
       str_1 =  m_str_sub_ngt_bf(str_1) ;     
   var pos = str_1.indexOf(spec_1) ; 
   var mark_1 =str_1[pos - 1];        
@@ -1411,7 +1419,7 @@ function m_str_spec_part_bf_mn(str ,spec){
                  }
                  }
   var str_part_b= str_1.substring(count_mark,pos);
-  var str_part_b = str_part_b.replace(/eN/g , "eQ");    
+  var str_part_b = str_part_b.toString().replace(/eN/g , "eQ");    
     return str_part_b;
 }
 
@@ -1480,28 +1488,28 @@ function m_str_spec_part_af(str ,spec){
      if(mark_1 >=0 && mark_1<=9) {
        for(var i = pos + spec_a_lg;  i < str_a_lg+1  ; i++){   
          var mark_ref = str_1[i];
-         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {      
+         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='.'|| mark_ref=='Q'|| mark_ref=='e' ) {       
                      }
          else{  
            var count_mark = i ;
            var i= str_a_lg;   }      
                           }
                    }
-     if(mark_1 =='.') {                                     
+     if(mark_1 =='.' ) {                                     
        for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){   
            var mark_ref = str_1[i];
-         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {      
+         if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π' || mark_ref=='Q'|| mark_ref=='e') {     
                                         }
          else{  
            var count_mark = i ;
            var i= str_a_lg;        }       
                             }
                          }
-      if(mark_1 =='π'||mark_1 =='°') {  var count_mark = pos+spec_a_lg+1 } ;   
+   if(mark_1 =='π'||mark_1 =='°' ) {  var count_mark = pos+spec_a_lg+1 } ;   
         if(mark_1 =="-") {
           for(var i = pos + spec_a_lg+1;  i < str_a_lg+1  ; i++){        
               var mark_ref = str_1[i];
-              if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {      
+              if((mark_ref <= 9 && mark_ref >= 0 )||mark_ref =='°'  || mark_ref =='π'|| mark_ref=='.' || mark_ref=='Q'|| mark_ref=='e') {       
                           }
               else{  
                 var count_mark = i ;
@@ -1509,7 +1517,7 @@ function m_str_spec_part_af(str ,spec){
                                     }
                                   }
      if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;      
-  var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
+  var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);  
      return str_part_b;
 }
 
@@ -1538,7 +1546,7 @@ function m_str_spec_part_af_mul(str ,spec){
      return str_part_b;  
 }
 
-function m_str_spec_part_af_div(str ,spec){          
+function m_str_spec_part_af_div(str ,spec){       
   var str_1 = str.toString().trim();
   var str_0 =str_1 ;                    
   var str_a_lg = str_1.length;
@@ -1632,9 +1640,9 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
  function m_str_spec_part_bf_inv(str ,spec){      
    var str_1 = str.toString().trim();
    var spec_1= spec;
-   var str_1 = str_1.replace(/exp/g ,"EXP");    
-   var str_1 = str_1.replace(/e\-/g ,"eQ");     
-   var str_1 = str_1.replace(/e\+/g ,"eP"); 
+   var str_1 = str_1.toString().replace(/exp/g ,"EXP");    
+   var str_1 = str_1.toString().replace(/e\-/g ,"eQ");     
+   var str_1 = str_1.toString().replace(/e\+/g ,"eP"); 
    var str_1 =  m_str_sub_ngt_bf_minus(str_1) ;     
    var pos = str_1.lastIndexOf(spec_1) ; 
    var mark_1 =str_1[pos - 1];        
@@ -1666,9 +1674,9 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
                       }
                               }
    var str_part_b= str_1.substring(count_mark,pos);
-   var str_1 = str_1.replace(/EXP/g ,"exp");     
-   var str_1 = str_1.replace(/eQ/g ,"e\-");        
-   var str_1 = str_1.replace(/eP/g ,"e\+"); 
+   var str_1 = str_1.toString().replace(/EXP/g ,"exp");     
+   var str_1 = str_1.toString().replace(/eQ/g ,"e\-");        
+   var str_1 = str_1.toString().replace(/eP/g ,"e\+"); 
     return str_part_b;
 }
 
@@ -1682,9 +1690,9 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
    var mark_1 =str_1[pos +spec_a_lg];        
    var count_a = 1 ;
    var count_mark=2500; 
-   var str_1 = str_1.replace(/exp/g ,"EXP");    
-   var str_1 = str_1.replace(/e\-/g ,"eQ");     
-   var str_1 = str_1.replace(/e\+/g ,"eP");
+   var str_1 = str_1.toString().replace(/exp/g ,"EXP");    
+   var str_1 = str_1.toString().replace(/e\-/g ,"eQ");     
+   var str_1 = str_1.toString().replace(/e\+/g ,"eP");
      if(mark_1 =="("){
        for(var i= (pos + spec_a_lg+1) ; i < str_a_lg  ; i++){
            var mark_ref = str_1[i];
@@ -1730,9 +1738,9 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
                                   }
                                 }
       if(mark_1 =='^') {  var count_mark = pos+spec_a_lg } ;   
-   var str_1 = str_1.replace(/EXP/g ,"exp");               
-   var str_1 = str_1.replace(/eQ/g ,"e\-");                 
-   var str_1 = str_1.replace(/eP/g ,"e\+"); 
+   var str_1 = str_1.toString().replace(/EXP/g ,"exp");               
+   var str_1 = str_1.toString().replace(/eQ/g ,"e\-");                 
+   var str_1 = str_1.toString().replace(/eP/g ,"e\+"); 
    var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);    
      return str_part_b;
 }
@@ -1744,11 +1752,11 @@ function m_str_spec_part_af_db_ft_test(str ,spec){
     var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');  
     var part_bf_lg = part_bf.length;
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
-        str_1 = str_1.replace(part_bf+'!' , "m_n"+part_bf ) ;  }            
+        str_1 = str_1.toString().replace(part_bf+'!' , "m_n"+part_bf ) ;  }            
      if(part_bf_lg > 0 &&  part_bf[0] !='(' ){
-        str_1 = str_1.replace(part_bf+'!' , "(m_n("+part_bf+'))');                 
+        str_1 = str_1.toString().replace(part_bf+'!' , "(m_n("+part_bf+'))');                 
                         }
-          if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "(m_n("+1+'))'); }   
+          if(part_bf_lg == 0){  str_1 = str_1.toString().replace(part_bf+'!' , "(m_n("+1+'))'); }   
      return str_1;
    }
 
@@ -1756,18 +1764,18 @@ function m_fact_minus(str){
     var str_1=str;
     var ans_1="";
     var nub_e=0;                                 
-    var str_1 = str_1.replace(/e\-/g ,"eQ");     
-    var str_1 = str_1.replace(/e\+/g ,"e"); 
+    var str_1 = str_1.toString().replace(/e\-/g ,"eQ");     
+    var str_1 = str_1.toString().replace(/e\+/g ,"e"); 
     var part_bf = m_str_spec_part_bf_mn(str_1 ,'!');   
     var part_bf_lg = part_bf.length;
     var nub_e= m_str_char(part_bf,"e") ;
      if(part_bf_lg > 0 &&  part_bf[0] =='(' ){
-        str_1 = str_1.replace(part_bf+'!' , part_bf +"T" );  }           
+        str_1 = str_1.toString().replace(part_bf+'!' , part_bf +"T" );  }           
     if(part_bf_lg > 0 &&  part_bf[0] !='('&&  nub_e==0 ){
-        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+"T)"); }            
+        str_1 = str_1.toString().replace(part_bf+'!' , "("+part_bf+"T)"); }            
      if(part_bf_lg > 0 &&  part_bf[0] !='(' &&  nub_e > 0) {                     
-        str_1 = str_1.replace(part_bf+'!' , "("+part_bf+")T"); }                      
-     if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+'!' , "("+1+"T)"); }   
+        str_1 = str_1.toString().replace(part_bf+'!' , "("+part_bf+")T"); }                      
+     if(part_bf_lg == 0){  str_1 = str_1.toString().replace(part_bf+'!' , "("+1+"T)"); }   
       return str_1;
    }
 
@@ -1776,9 +1784,9 @@ function m_fact_minus(str){
     var part_bf = m_str_spec_part_bf(str_1 ,"π");  
     var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-    var  str_1 = str_1.replace(part_bf+"π" , part_bf+'*'+PIS ) ; }   
+    var  str_1 = str_1.toString().replace(part_bf+"π" , part_bf+'*'+PIS ) ; }   
    if(part_bf_lg == 0){ 
-    var  str_1 = str_1.replace(part_bf+"π" , part_bf+PIS ) ; }     
+    var  str_1 = str_1.toString().replace(part_bf+"π" , part_bf+PIS ) ; }     
       return str_1;
    }
 
@@ -1788,8 +1796,8 @@ function m_star_rem(str,nub){
     var nubb = nub;
     var pi_index = str_1.indexOf("π");   
        if(pi_index ==-1){ var ans_1 = str_1; return ans_1;}  
-    var str_1 = str_1.replace("*π","π");  
-    var str_1 = str_1.replace("e+","e");  
+    var str_1 = str_1.toString().replace("*π","π");  
+    var str_1 = str_1.toString().replace("e+","e");  
     var part_bf = m_str_spec_part_bf(str_1 ,"π"); 
         var star_str_lg = str_1.length 
         var part_bf_lg = part_bf.length ; 
@@ -1808,7 +1816,7 @@ function m_star_rem(str,nub){
                          return str_1; 
                   }
        var part_af = m_str_spec_part_af(str_1 ,"π");
-       var part_bf = part_bf.replace("Q","-");  
+       var part_bf = part_bf.toString().replace("Q","-");  
        var nub_point= m_str_char(part_bf,".") ;  
            if(nub_point >2){        
               var ans_1 = message_1(30);   
@@ -1844,11 +1852,11 @@ function m_star_rem(str,nub){
 function m_star_deg(str){                                 
   var str_1 = str;
   var part_bf = m_str_spec_part_bf(str_1 ,"°");  
-    part_bf = part_bf.replace("Q","\-");    
+    part_bf = part_bf.toString().replace("Q","\-");    
   var part_bf_lg = part_bf.length;
     if(part_bf_lg > 0 ){
-      var str_1 = str_1.replace(part_bf+"°" , part_bf+'\*'+DEG ) ; }
-    if(part_bf_lg == 0){  str_1 = str_1.replace(part_bf+"°" , part_bf+DEG ) ; }  
+      var str_1 = str_1.toString().replace(part_bf+"°" , part_bf+'\*'+DEG ) ; }
+    if(part_bf_lg == 0){  str_1 = str_1.toString().replace(part_bf+"°" , part_bf+DEG ) ; }  
   return str_1;
    }
 
@@ -1936,28 +1944,28 @@ function m_str_spec_part_af_minus(str ,spec){
          var str_part_lst_fst = str_part_lst.substr(0,1);
          var nn_hat = m_str_spc_count(str_1,"^");        
           if(nn_hat >=1  && mark_1 !="("){
-             var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );    
+             var str_part_fst=  str_part_fst.toString().replace(spec_1 , "(TTT" );    
              var str_1=str_part_fst+"("+str_part_b+"))"+str_part_lst; 
                           }
          else if( nn_hat >=1 && mark_1 =="("){       
-              var str_part_fst=  str_part_fst.replace(spec_1 , "(TTT" );        
+              var str_part_fst=  str_part_fst.toString().replace(spec_1 , "(TTT" );        
               var str_1=str_part_fst+str_part_b+")"+str_part_lst;             
                   }
         else if( str_part_b_fst =="(" && str_part_lst_fst ==")"){
-              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );       
+              var str_part_fst=  str_part_fst.toString().replace(spec_1 , "TTT" );       
               var str_1=str_part_fst+str_part_b+str_part_lst;   }
          else{
-              var str_part_fst=  str_part_fst.replace(spec_1 , "TTT" );    
+              var str_part_fst=  str_part_fst.toString().replace(spec_1 , "TTT" );    
               var str_1=str_part_fst+"("+str_part_b+")"+str_part_lst; 
                 }
                   } 
-            var str_2 = str_1.replace(/Q/g , "-");        
-            var str_3 = str_2.replace(/TTT/g ,spec_1);
-            var str_3 = str_3.replace(/exp/g ,"EXP");
-            var str_3 = str_3.replace(/e\-/g ,"EN");     
-             var str_3 = str_3.replace(/e/g ,"e\+");    
-             var str_3 = str_3.replace(/EN/g ,"e\-"); 
-             var str_3 = str_3.replace(/EXP/g ,"exp");
+            var str_2 = str_1.toString().replace(/Q/g , "-");        
+            var str_3 = str_2.toString().replace(/TTT/g ,spec_1);
+            var str_3 = str_3.toString().replace(/exp/g ,"EXP");
+            var str_3 = str_3.toString().replace(/e\-/g ,"EN");     
+             var str_3 = str_3.toString().replace(/e/g ,"e\+");    
+             var str_3 = str_3.toString().replace(/EN/g ,"e\-"); 
+             var str_3 = str_3.toString().replace(/EXP/g ,"exp");
              var str_1 = str_3 ;    
           return str_3 ;
 }
@@ -1977,7 +1985,7 @@ function m_str_spec_part_af_minus_sum(str){
      var p=0;
      var str_1 = m_fact_many_minus(str_1);
    for(var t=0 ; t < str_1.length ;t ++){ 
-          var str_1 =  str_1.replace(/\(0\-/g ,"\(\Q");}
+          var str_1 =  str_1.toString().replace(/\(0\-/g ,"\(\Q");}
    for(var i=0 ; i < 15 ;i ++){    
       if(i==0){ var spec = "asinh" ;}
       if(i==1){ var spec = "acosh" ;}
@@ -1998,51 +2006,51 @@ function m_str_spec_part_af_minus_sum(str){
      var str_2 =  m_str_spec_part_af_minus(str_1 ,spec);
       var nn_end = m_str_spc_count(str_2,spec);                
       for(var j=0 ; j <  nn_end ;j ++){    
-      if(i==0){ var str_2 = str_2.replace(spec ,"AAA"); }   
-      if(i==1){ var str_2 = str_2.replace(spec ,"BBB"); }   
-      if(i==2){ var str_2 = str_2.replace(spec ,"CCC"); }   
+      if(i==0){ var str_2 = str_2.toString().replace(spec ,"AAA"); }   
+      if(i==1){ var str_2 = str_2.toString().replace(spec ,"BBB"); }   
+      if(i==2){ var str_2 = str_2.toString().replace(spec ,"CCC"); }   
        }  
      for(var k=0 ; k < nn_end ;k ++){    
-      if(i==3){ var str_2 = str_2.replace(spec ,"DDD"); }    
-      if(i==4){ var str_2 = str_2.replace(spec ,"EEE"); }    
-      if(i==5){ var str_2 = str_2.replace(spec ,"FFF"); }    
+      if(i==3){ var str_2 = str_2.toString().replace(spec ,"DDD"); }    
+      if(i==4){ var str_2 = str_2.toString().replace(spec ,"EEE"); }    
+      if(i==5){ var str_2 = str_2.toString().replace(spec ,"FFF"); }    
              } 
      for(var m=0 ; m < nn_end ;m ++){   
-      if(i==6){var str_2 = str_2.replace(spec ,"GGG"); }    
-      if(i==7){var str_2 = str_2.replace(spec,"HHH"); }    
-      if(i==8){var str_2 = str_2.replace(spec ,"III"); }    
+      if(i==6){var str_2 = str_2.toString().replace(spec ,"GGG"); }    
+      if(i==7){var str_2 = str_2.toString().replace(spec,"HHH"); }    
+      if(i==8){var str_2 = str_2.toString().replace(spec ,"III"); }    
      } 
    for(var n=0 ; n < nn_end ;n ++){    
-       if(i==9){var str_2 = str_2.replace(spec ,"JJJ"); }    
-      if(i==10){ var str_2 = str_2.replace(spec,"KKK"); }   
-      if(i==11){ var str_2 = str_2.replace(spec ,"LLL"); }   
+       if(i==9){var str_2 = str_2.toString().replace(spec ,"JJJ"); }    
+      if(i==10){ var str_2 = str_2.toString().replace(spec,"KKK"); }   
+      if(i==11){ var str_2 = str_2.toString().replace(spec ,"LLL"); }   
       } 
     for(var p=0 ; p < nn_end ;p ++){    
-      if(i==12){ var str_2 = str_2.replace(spec ,"MMM"); }     
-      if(i==13){ var str_2 = str_2.replace(spec ,"NNN"); }    
-      if(i==14){ var str_2 = str_2.replace(spec ,"PPP"); }    
+      if(i==12){ var str_2 = str_2.toString().replace(spec ,"MMM"); }     
+      if(i==13){ var str_2 = str_2.toString().replace(spec ,"NNN"); }    
+      if(i==14){ var str_2 = str_2.toString().replace(spec ,"PPP"); }    
       } 
      var str_1 = str_2 ;
                               } 
-      var str_2 =  str_2.replace(/AAA/g ,"asinh");   
-      var str_2 =  str_2.replace(/BBB/g ,"acosh");
-      var str_2 =  str_2.replace(/CCC/g ,"atanh");
-      var str_2 =  str_2.replace(/DDD/g ,"sinh");
-      var str_2 =  str_2.replace(/EEE/g ,"cosh");
-      var str_2 =  str_2.replace(/FFF/g ,"tanh");
-      var str_2 =  str_2.replace(/GGG/g ,"asin");
-      var str_2 =  str_2.replace(/HHH/g ,"acos");
-      var str_2 =  str_2.replace(/III/g ,"atan");
-      var str_2 =  str_2.replace(/JJJ/g ,"sin");
-      var str_2 =  str_2.replace(/KKK/g ,"cos");
-      var str_2 =  str_2.replace(/LLL/g ,"tan");
-      var str_2 =  str_2.replace(/NNN/g ,"ln");
-      var str_2 =  str_2.replace(/PPP/g ,"log");
-      var str_2 =  str_2.replace(/\(Q/g ,"\(\-"); 
+      var str_2 =  str_2.toString().replace(/AAA/g ,"asinh");   
+      var str_2 =  str_2.toString().replace(/BBB/g ,"acosh");
+      var str_2 =  str_2.toString().replace(/CCC/g ,"atanh");
+      var str_2 =  str_2.toString().replace(/DDD/g ,"sinh");
+      var str_2 =  str_2.toString().replace(/EEE/g ,"cosh");
+      var str_2 =  str_2.toString().replace(/FFF/g ,"tanh");
+      var str_2 =  str_2.toString().replace(/GGG/g ,"asin");
+      var str_2 =  str_2.toString().replace(/HHH/g ,"acos");
+      var str_2 =  str_2.toString().replace(/III/g ,"atan");
+      var str_2 =  str_2.toString().replace(/JJJ/g ,"sin");
+      var str_2 =  str_2.toString().replace(/KKK/g ,"cos");
+      var str_2 =  str_2.toString().replace(/LLL/g ,"tan");
+      var str_2 =  str_2.toString().replace(/NNN/g ,"ln");
+      var str_2 =  str_2.toString().replace(/PPP/g ,"log");
+      var str_2 =  str_2.toString().replace(/\(Q/g ,"\(\-"); 
       var str_2 = m_hat_bf_aft_many_inv_minus(str_2 ,'^','');
-      var str_2 = str_2.replace(/T/g , "^");
-      var str_2 = str_2.replace(/Q/g , "-");
-      var str_2 =  str_2.replace(/MMM/g ,"exp");
+      var str_2 = str_2.toString().replace(/T/g , "^");
+      var str_2 = str_2.toString().replace(/Q/g , "-");
+      var str_2 =  str_2.toString().replace(/MMM/g ,"exp");
       var str_2 =  m_str_sub_ngt_bf_1(str_2) ;        
       var str_2 = m_e_bf_aft_many(str_2,"EP","");          
       var str_2 = m_e_bf_aft_many(str_2,"EQ","");          
@@ -2057,9 +2065,9 @@ function m_fun_aft(str,spec1,spec2){
    var part_aft =  m_str_spec_part_af(str_1 ,spec_1);
    var part_aft_lg = part_aft.length;
       if(part_aft_lg > 0 ){
-         str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +part_aft +")");             
+         str_1 = str_1.toString().replace(spec_1+part_aft , "("+spec2 +part_aft +")");             
                         }
-     if(part_aft_lg == 0 && spec2 =="eee" ){  str_1 = str_1.replace(spec_1+part_aft , "("+spec2 +"("+1+')'+")" );  }   
+     if(part_aft_lg == 0 && spec2 =="eee" ){  str_1 = str_1.toString().replace(spec_1+part_aft , "("+spec2 +"("+1+')'+")" );  }   
       if(part_aft_lg == 0 && spec2 !="eee" ){  str_1 = "error,  not data" ; }
    return str_1;
 }
@@ -2075,7 +2083,7 @@ function m_str_spec_part_af_e(str ,spec){
       if( spec_1=="π" || spec_1=="°"){ var ans_1="" ; return ans_1 ;}  
      var nub_ep = m_str_spc_count(str_1,"exp");   
         if(nub_ep !=0){
-           var str_1 = str_1.replace(/exp/g , "EXP");        
+           var str_1 = str_1.toString().replace(/exp/g , "EXP");        
                        }   
      var pos = str_1.indexOf(spec_1) ;  
      var mark_1 =str_1[pos +spec_a_lg];          
@@ -2106,7 +2114,7 @@ function m_str_spec_part_af_e(str ,spec){
                                   }
          var str_part_b= str_1.substring(pos+spec_a_lg ,count_mark);     
             if(nub_ep !=0){
-           var str_1 = str_1.replace(/EXP/g , "exp");      
+           var str_1 = str_1.toString().replace(/EXP/g , "exp");      
                        }  
        return str_part_b;
 }
@@ -2118,7 +2126,7 @@ function m_str_spec_part_bf_e(str ,spec){
      var nub_ep =0;     
          var nub_ep = m_str_spc_count(str_1,"exp");    
        if(nub_ep !=0){
-           var str_1 = str_1.replace(/exp/g , "EXP");         
+           var str_1 = str_1.toString().replace(/exp/g , "EXP");         
                        }   
      var pos = str_1.indexOf(spec_1) ; 
      var mark_1 =str_1[pos - 1];        
@@ -2137,7 +2145,7 @@ function m_str_spec_part_bf_e(str ,spec){
                                   }
          var str_part_b= str_1.substring(count_mark,pos);
            if(nub_ep !=0){
-           var str_1 = str_1.replace(/EXP/g , "exp");         
+           var str_1 = str_1.toString().replace(/EXP/g , "exp");         
                        } 
    return str_part_b;
 }
@@ -2175,8 +2183,8 @@ function m_e_bf_aft(str,spec1,spec2){
              else{ var spec_tt_bf = str_1.substr(spec_tt_idx-1,1);}
             var spec_tt_af = str_1.substr(spec_tt_idx+spec_tt.length,1);           
         if((spec_tt_bf =="(" && spec_tt_af ==")")||(spec_tt_bf =="" && spec_tt_af =="")){   
-             str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; } 
-           else{  str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
+             str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; } 
+           else{  str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
                                                    }        
     if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
      return str_1;
@@ -2195,7 +2203,7 @@ function m_e_bf_aft_many(str,spec1,spec2){
     for(var i=0; i< nub_1 ; i++){
           var  str_1 =  m_e_bf_aft(str_1,spec_1,spec_2);     
                  }
-          var  str_1 =  str_1.replace(/TT/g , spec_1 )  ;  
+          var  str_1 =  str_1.toString().replace(/TT/g , spec_1 )  ;  
   return  str_1;
   
 }
@@ -2231,11 +2239,11 @@ function m_e_bf_aft_math(str,spec1,spec2){
              else{ var spec_tt_bf = str_1.substr(spec_tt_idx-1,1);}             
             var spec_tt_af = str_1.substr(spec_tt_idx+spec_tt.length,1);           
             if(spec_tt_bf =="(" && spec_tt_af ==")"){                                  
-             str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; }   
+             str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; }   
             else if(spec_tt_bf =="" && spec_tt_af ==""){            
-              str_1 = str_1.replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; 
+              str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , spec2 + part_bf_1 +"TT"+part_aft_1 ) ; 
                     str_1 =  str_1+ "+"+"0";                   }                  
-           else{  str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
+           else{  str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , "("+spec2 + part_bf_1 +"TT"+part_aft_1+")" ) ;}  
                                                       }        
        if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
           var nub_point_bf=0;  
@@ -2264,7 +2272,7 @@ function m_e_bf_aft_many_math(str,spec1,spec2){
    for(var i=0; i< nub_1 ; i++){
           var  str_1 =  m_e_bf_aft_math(str_1,spec_1,spec_2);     
                    }
-          var  str_1 =  str_1.replace(/TT/g , spec_1 )  ;  
+          var  str_1 =  str_1.toString().replace(/TT/g , spec_1 )  ;  
    return  str_1;
 
 }
@@ -2339,8 +2347,8 @@ function m_hat_bf_aft(str,spec1,spec2){
     }
     else{part_bf_1= part_bf;}
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
-      str_1 = str_1.replace(part_bf+spec_1+part_aft , "("+spec2+"("+part_bf_1 +','+part_aft_1+")"+")" ) ;
-                                                       }        
+      str_1 = str_1.toString().replace(part_bf+spec_1+part_aft , "("+spec2+"("+part_bf_1 +','+part_aft_1+")"+")" ) ;  
+                                                       }    
       if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
     return str_1;
 }
@@ -2349,9 +2357,9 @@ function m_hat_bf_aft_inv_minus(str,spec1,spec2){
   var str_1=str;                                              
    var spec_1=spec1;
    var spec_2=spec2;
-   var str_1 = str_1.replace(/exp/g ,"EXP");    
-   var str_1 = str_1.replace(/e\-/g ,"eQ");     
-   var str_1 = str_1.replace(/e\+/g ,"eP");       
+   var str_1 = str_1.toString().replace(/exp/g ,"EXP");    
+   var str_1 = str_1.toString().replace(/e\-/g ,"eQ");     
+   var str_1 = str_1.toString().replace(/e\+/g ,"eP");       
    var part_aft ="";
    var part_bf = m_str_spec_part_bf_inv(str_1 ,spec1);   
    var part_bf_lg = part_bf.length;
@@ -2385,9 +2393,9 @@ function m_hat_bf_aft_inv_minus(str,spec1,spec2){
              str_1 = str_part_b.substr( 0,str_part_b.length-part_bf.length) +"("+ part_bf_1 + "T("+ part_aft_1 +"))"+ str_part_a.substr(part_aft.length ,str_part_a.length-part_aft.length );
                                                         } }
        if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
-             var str_1 = str_1.replace(/EXP/g ,"exp");    
-             var str_1 = str_1.replace(/eQ/g ,"e\-");     
-             var str_1 = str_1.replace(/eP/g ,"e\+");      
+             var str_1 = str_1.toString().replace(/EXP/g ,"exp");    
+             var str_1 = str_1.toString().replace(/eQ/g ,"e\-");     
+             var str_1 = str_1.toString().replace(/eP/g ,"e\+");      
      return str_1;
 }
 
@@ -2409,7 +2417,7 @@ function m_hat_bf_aft_inv(str,spec1,spec2){
    var str_part_a= str_1.substring(pos+spec_1.length ,str_1.length);    
    var str_1 = str_part_b+"T"+str_part_a;               
    if((part_bf_lg > 0)  && (part_aft_lg > 0 )){
-        str_1 = str_1.replace(part_bf+"T"+part_aft , "("+part_bf_1 +","+part_aft_1+")" ) ;  }  
+        str_1 = str_1.toString().replace(part_bf+"T"+part_aft , "("+part_bf_1 +","+part_aft_1+")" ) ;  }  
       if(part_aft_lg == 0 || part_bf_lg == 0 ){  str_1 = "error,  not data" ; }
      return str_1;
 }
@@ -2621,7 +2629,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
      }
 
 
-  function m_fact_many(str){                         
+  function m_fact_many(str){                       
     var str_1 = str;
     var nub_1 = m_str_spc_count(str_1,'!');   
       for(var i=0; i< nub_1 ; i++){
@@ -2636,7 +2644,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
      for(var i=0; i< nub_1 ; i++){
        str_1 =  m_fact_minus(str_1);    
              }
-       str_1 = str_1.replace( /T/g, "!") ;  
+       str_1 = str_1.toString().replace( /T/g, "!") ;  
       return  str_1;
   }
 
@@ -2646,7 +2654,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
      for(var i=0; i< nub_1 ; i++){
        str_1 =  m_star(str_1);   
                }
-       str_1 = str_1.replace( /pi/g, "π") ;  
+       str_1 = str_1.toString().replace( /pi/g, "π") ;  
      return  str_1;  
   }
 
@@ -2687,7 +2695,7 @@ function m_str_spc_inter_2word(str,spec_1,spec_2){
      for(var i=0; i< nub_1 ; i++){
        str_1 =  m_star_deg(str_1);   
            }
-       str_1 = str_1.replace( /deg/g, "°") ;  
+       str_1 = str_1.toString().replace( /deg/g, "°") ;  
      return  str_1;
  }
 
@@ -2723,12 +2731,12 @@ function m_hat_bf_aft_many_inv(str,spec1,spec2){
     for(var i = nub_1; i>0 ; i--){
       str_1 =  m_hat_bf_aft_inv(str_1,spec_1,spec_2);     
              }
-      str_1 = str_1.replace( /\,/g, "\^") ;  
-      str_1 = str_1.replace( /T/g, "\^") ;
+      str_1 = str_1.toString().replace( /\,/g, "\^") ;  
+      str_1 = str_1.toString().replace( /T/g, "\^") ;
   return  str_1;
 }
 
-function m_hat_bf_aft_many_inv_minus(str,spec1,spec2){        
+function m_hat_bf_aft_many_inv_minus(str,spec1,spec2){       
   var str_1=str.toString().trim();
   var spec_1=spec1;
   var spec_2=spec2;
@@ -2737,8 +2745,8 @@ function m_hat_bf_aft_many_inv_minus(str,spec1,spec2){
     for(var i = nub_1; i>0 ; i--){
       str_1 =  m_hat_bf_aft_inv_minus(str_1,spec_1,spec_2);    
                  }
-      str_1 = str_1.replace( /\,/g, "\^") ;  
-      str_1 = str_1.replace( /T/g, "\^") ;
+      str_1 = str_1.toString().replace( /\,/g, "\^") ;  
+      str_1 = str_1.toString().replace( /T/g, "\^") ;
    return  str_1;
 }
 
@@ -2753,18 +2761,18 @@ function m_str_b_sec(str,spec){
 function m_str_math_replacec(this_it){         
   var this_it_a = this_it;
       this_it_a = this_it_a.toLowerCase(); 
-      this_it_a = this_it_a.replace(/q/g , "Q");
+      this_it_a = this_it_a.toString().replace(/q/g , "Q");
       this_it_a = m_fun_aft_many(this_it_a ,' ','');
   var this_it_a =  m_str_sub_ngt_bf_1_math(this_it_a) ; 
   var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EPQ",""); 
   var this_it_a =  m_e_bf_aft_many_math(this_it_a,"EQ","");          
   var this_it_a =  m_str_sub_ngt_bf_1_bk_math(this_it_a) ;  
-      this_it_a = this_it_a.replace(/e\-/g , "eQ");      
-      this_it_a = this_it_a.replace(/e\+/g , "e");  
+      this_it_a = this_it_a.toString().replace(/e\-/g , "eQ");      
+      this_it_a = this_it_a.toString().replace(/e\+/g , "e");  
       this_it_a = m_fact_many(this_it_a); 
       this_it_a = m_hat_bf_aft_many_inv(this_it_a ,'^','');   
       this_it_a = m_hat_bf_aft_many(this_it_a ,'^','hhh');
-      this_it_a = this_it_a.replace(/hhh/g , "m_pow"); 
+      this_it_a = this_it_a.toString().replace(/hhh/g , "m_pow"); 
       this_it_a = m_fun_aft_many(this_it_a ,'asinh','azh');       
       this_it_a = m_fun_aft_many(this_it_a ,'asin','azz');   
       this_it_a = m_fun_aft_many(this_it_a ,'sinh','zzh');   
@@ -2780,24 +2788,24 @@ function m_str_math_replacec(this_it){
       this_it_a = m_fun_aft_many(this_it_a ,'exp','eee');  
       this_it_a = m_fun_aft_many(this_it_a ,'ln','nnn'); 
       this_it_a = m_fun_aft_many(this_it_a ,'log','ggg');
-      this_it_a = this_it_a.replace(/azh/g , "m_asinh");         
-      this_it_a = this_it_a.replace(/azz/g , "m_asin");     
-      this_it_a = this_it_a.replace(/zzh/g , "m_sinh");     
-      this_it_a = this_it_a.replace(/zzz/g , "m_sin");                
-      this_it_a = this_it_a.replace(/ayh/g , "m_acosh");     
-      this_it_a = this_it_a.replace(/ayy/g , "m_acos");     
-      this_it_a = this_it_a.replace(/yyh/g , "m_cosh");     
-      this_it_a = this_it_a.replace(/yyy/g , "m_cos");     
-      this_it_a = this_it_a.replace(/axh/g , "m_atanh");      
-      this_it_a = this_it_a.replace(/axx/g , "m_atan");     
-      this_it_a = this_it_a.replace(/xxh/g , "m_tanh");     
-      this_it_a = this_it_a.replace(/xxx/g , "m_tan");
-      this_it_a = this_it_a.replace(/eee/g , "m_exp");   
-      this_it_a = this_it_a.replace(/nnn/g , "m_ln");   
-      this_it_a = this_it_a.replace(/ggg/g , "m_log");  
+      this_it_a = this_it_a.toString().replace(/azh/g , "m_asinh");         
+      this_it_a = this_it_a.toString().replace(/azz/g , "m_asin");     
+      this_it_a = this_it_a.toString().replace(/zzh/g , "m_sinh");     
+      this_it_a = this_it_a.toString().replace(/zzz/g , "m_sin");                
+      this_it_a = this_it_a.toString().replace(/ayh/g , "m_acosh");     
+      this_it_a = this_it_a.toString().replace(/ayy/g , "m_acos");     
+      this_it_a = this_it_a.toString().replace(/yyh/g , "m_cosh");     
+      this_it_a = this_it_a.toString().replace(/yyy/g , "m_cos");     
+      this_it_a = this_it_a.toString().replace(/axh/g , "m_atanh");      
+      this_it_a = this_it_a.toString().replace(/axx/g , "m_atan");     
+      this_it_a = this_it_a.toString().replace(/xxh/g , "m_tanh");     
+      this_it_a = this_it_a.toString().replace(/xxx/g , "m_tan");
+      this_it_a = this_it_a.toString().replace(/eee/g , "m_exp");   
+      this_it_a = this_it_a.toString().replace(/nnn/g , "m_ln");   
+      this_it_a = this_it_a.toString().replace(/ggg/g , "m_log");  
       this_it_a = m_replace_star(this_it_a) ;   
-      this_it_a = this_it_a.replace(/atanh\(1\-/g , "artanhs\(0\-");     
-      this_it_a = this_it_a.replace(/atanh\(0\-1\+/g , "artanha\(");  
+      this_it_a = this_it_a.toString().replace(/atanh\(1\-/g , "artanhs\(0\-");     
+      this_it_a = this_it_a.toString().replace(/atanh\(0\-1\+/g , "artanha\(");  
   return  this_it_a;
 }
   
@@ -2812,7 +2820,9 @@ function m_str_math_replacec(this_it){
        var str_2_0=str_2_0_1;}
      else{
    var str_2_0=str_2_0_2;}
-   var str_2_0_r =  m_str_math_replacec(str_2_0);     
+   var str_2_0_r =  m_str_math_replacec(str_2_0);
+   var str_2_0_r = str_2_0_r.toString().replace(/π/g , "'π'"); 
+   var str_2_0_r = str_2_0_r.toString().replace(/°/g , "'°'"); 
    var str_2_0_r_ans = eval(str_2_0_r);             
      if( str_2_0_r_ans >=0 || str_2_0_r_ans < 0){    
        var new_str = str_a+str_2_0.toString().trim()+"="+str_2_0_r_ans.toString().trim()+";"+str_c ;
@@ -2829,7 +2839,7 @@ function m_str_math_replacec(this_it){
   }
 
 
- function m_oct_nb(str_a) {             
+ function m_oct_nb(str_a) {            
    var stra=str_a;
    var lg=stra.length;
    var test_nub1=1;
@@ -2961,8 +2971,6 @@ function m_str_math_replacec(this_it){
       return ans_1;
      }
 
-
-
  function m_cut_nub_m_s(nub){             
    var nn = nub.toString().trim();               
    var nn_lg = nn.length;      
@@ -2976,7 +2984,6 @@ function m_str_math_replacec(this_it){
      else{ var count_p =  nn_lg ;}    
        return count_p;  
   }
-
 
  function m_cut_nub_m(nub){             
    var nn = m_abs(nub);                
@@ -3160,8 +3167,15 @@ function m_cut_nub_p(nub){
  }
 
 
-function m_fix(nub,pit_n){                  
-  var nn = nub;                           
+function m_fix(nub,pit_n){                
+  var nn = nub;  
+  var pi_nb_nn =m_str_all_char_nb(nn,"π");
+  var deg_nb_nn =m_str_all_char_nb(nn,"°");
+  var nn = nn.toString().replace(/\*π/g , "");    
+  var nn = nn.toString().replace(/π/g , "");        
+  var nn = nn.toString().replace(/\*°/g , "");  
+  var nn = nn.toString().replace(/°/g , "");
+    if(nn =="" && (pi_nb_nn !=0 || deg_nb_nn !=0) ){ var nn =1;} 
   var nn_abs_str = nn.toString().trim(); 
   var nn_abs_str=m_mtx_trim(nn_abs_str).toString() ; 
   var str_lg = nn_abs_str.length;         
@@ -3236,15 +3250,23 @@ function m_fix(nub,pit_n){
                           }
                                         }
         var data_t = m_mtx_trim(data_t) ;   
-            data_t = data_t.replace(/\.\./g,'\.');   
+            data_t = data_t.toString().replace(/\.\./g,'\.');   
         var data_t_fst=data_t.substr(0,1);        
         var data_t_sec=data_t.substr(1,1); 
           if(data_t_fst==0 && data_t_sec =="e"){  var data_t=0 ; } 
           if(data_t_fst=="." ){  var data_t="0"+data_t ; }    
         var data_cp =  m_mtx_real_str_comp(data_t,0);      
           if(data_nn_test=="-" && data_cp !=3){  var data_t="-"+data_t ; }  
-            data_t = m_mtx_trim(data_t);       
-          return data_t ; 
+            data_t = m_mtx_trim(data_t);  
+          if(pi_nb_nn>=1){
+              for(var i=0; i< pi_nb_nn ;i++){   
+                  var data_t =data_t+"π";}
+                      } 
+        if(deg_nb_nn>=1){
+              for(var j=0; j< deg_nb_nn ;j++){   
+                  var data_t =data_t+"°";}
+                      } 
+         return data_t ; 
       }
 
  function m_delay_1(){  
@@ -3610,68 +3632,68 @@ function s_check_nb(str){
 
  function s_check_str_equation(str ){      
    var str_1=str;
-       str_1 = str_1.replace(/m_mtx_real_add/g,''); 
-       str_1 = str_1.replace(/m_mtx_real_sub/g,'');
-       str_1 = str_1.replace(/m_mtx_real_mul/g,'');
-       str_1 = str_1.replace(/m_mtx_real_div/g,'');
-       str_1 = str_1.replace(/m_exp_ln/g,'');     
-       str_1 = str_1.replace(/m_ln_exp/g,''); 
-       str_1 = str_1.replace(/m_sinh_asinh/g,'');    
-       str_1 = str_1.replace(/m_asinh_sinh/g,'');
-       str_1 = str_1.replace(/m_cosh_acosh/g,'');   
-       str_1 = str_1.replace(/m_acosh_cosh/g,'');
-       str_1 = str_1.replace(/m_tanh_atanh/g,'');   
-       str_1 = str_1.replace(/m_atanh_tanh/g,'');
-       str_1 = str_1.replace(/m_sin_asin/g,''); 
-       str_1 = str_1.replace(/m_sin_acos/g,'');  
-       str_1 = str_1.replace(/m_asin_sin/g,'');
-       str_1 = str_1.replace(/m_asin_cos/g,'');  
-       str_1 = str_1.replace(/m_cos_acos/g,'');
-       str_1 = str_1.replace(/m_cos_asin/g,'');   
-       str_1 = str_1.replace(/m_acos_cos/g,'');
-       str_1 = str_1.replace(/m_acos_sin/g,'');  
-       str_1 = str_1.replace(/m_tan_atan/g,'');   
-       str_1 = str_1.replace(/m_atan_tan/g,'');
-       str_1 = str_1.replace(/m_tan_asin/g,'');  
-       str_1 = str_1.replace(/m_tan_acos/g,'');  
-       str_1 = str_1.replace(/m_sin_atan/g,'');  
-       str_1 = str_1.replace(/m_cos_atan/g,'');
-       str_1 = str_1.replace(/m_artanhs\(/g,''); 
-       str_1 = str_1.replace(/m_artanha\(/g,''); 
-       str_1 = str_1.replace(/m_atranh\(/g,'');  
-       str_1 = str_1.replace(/m_asinh\(/g,''); 
-       str_1 = str_1.replace(/m_asrin\(/g,''); 
-       str_1 = str_1.replace(/m_asin\(/g,'');    
-       str_1 = str_1.replace(/m_sinh\(/g,'');    
-      str_1 = str_1.replace(/m_sin\(/g,'');  
-     str_1 = str_1.replace(/m_acrosh\(/g,'');   
-      str_1 = str_1.replace(/m_acosh\(/g,''); 
-      str_1 = str_1.replace(/m_acros\(/g,''); 
-      str_1 = str_1.replace(/m_acos\(/g,'');    
-      str_1 = str_1.replace(/m_cosh\(/g,'');    
-      str_1 = str_1.replace(/m_cos\(/g,'');     
-      str_1 = str_1.replace(/m_atanh\(/g,'');   
-      str_1 = str_1.replace(/m_atan\(/g,'');    
-      str_1 = str_1.replace(/m_tanh\(/g,'');    
-      str_1 = str_1.replace(/m_tan\(/g,'');      
-      str_1 = str_1.replace(/m_n\(/g,'');      
-      str_1 = str_1.replace(/m_exp\(/g,'');    
-      str_1 = str_1.replace(/m_ln\(/g,'');     
-      str_1 = str_1.replace(/m_log\(/g,'');   
-      str_1 = str_1.replace(/m_pow\(/g,'');  
-      str_1 = str_1.replace(/m_lrn\(/g,''); 
-      str_1 = str_1.replace(/m_lrog\(/g,''); 
-      str_1 = str_1.replace(/\(/g,'');   
-      str_1 = str_1.replace(/\)/g,'');   
-      str_1 = str_1.replace(/\,/g,'');   
-      str_1 = str_1.replace(/0|1|2|3|4|5|6|7|8|9/g,'');   
-      str_1 = str_1.replace(/\+|\-|\*|\/|\.|\^/g,'');   
-      str_1 = str_1.replace(/Q/g,'');   
-      str_1 = str_1.replace(/π/g,'');   
-      str_1 = str_1.replace(/°/g,''); 
-      str_1 = str_1.replace(/e/g,'');   
-      str_1 = str_1.replace(/h/g,''); 
-      str_1 = str_1.replace(/m_/g,'');  
+       str_1 = str_1.toString().replace(/m_mtx_real_add/g,''); 
+       str_1 = str_1.toString().replace(/m_mtx_real_sub/g,'');
+       str_1 = str_1.toString().replace(/m_mtx_real_mul/g,'');
+       str_1 = str_1.toString().replace(/m_mtx_real_div/g,'');
+       str_1 = str_1.toString().replace(/m_exp_ln/g,'');     
+       str_1 = str_1.toString().replace(/m_ln_exp/g,''); 
+       str_1 = str_1.toString().replace(/m_sinh_asinh/g,'');    
+       str_1 = str_1.toString().replace(/m_asinh_sinh/g,'');
+       str_1 = str_1.toString().replace(/m_cosh_acosh/g,'');   
+       str_1 = str_1.toString().replace(/m_acosh_cosh/g,'');
+       str_1 = str_1.toString().replace(/m_tanh_atanh/g,'');   
+       str_1 = str_1.toString().replace(/m_atanh_tanh/g,'');
+       str_1 = str_1.toString().replace(/m_sin_asin/g,''); 
+       str_1 = str_1.toString().replace(/m_sin_acos/g,'');  
+       str_1 = str_1.toString().replace(/m_asin_sin/g,'');
+       str_1 = str_1.toString().replace(/m_asin_cos/g,'');  
+       str_1 = str_1.toString().replace(/m_cos_acos/g,'');
+       str_1 = str_1.toString().replace(/m_cos_asin/g,'');   
+       str_1 = str_1.toString().replace(/m_acos_cos/g,'');
+       str_1 = str_1.toString().replace(/m_acos_sin/g,'');  
+       str_1 = str_1.toString().replace(/m_tan_atan/g,'');   
+       str_1 = str_1.toString().replace(/m_atan_tan/g,'');
+       str_1 = str_1.toString().replace(/m_tan_asin/g,'');  
+       str_1 = str_1.toString().replace(/m_tan_acos/g,'');  
+       str_1 = str_1.toString().replace(/m_sin_atan/g,'');  
+       str_1 = str_1.toString().replace(/m_cos_atan/g,'');
+       str_1 = str_1.toString().replace(/m_artanhs\(/g,''); 
+       str_1 = str_1.toString().replace(/m_artanha\(/g,''); 
+       str_1 = str_1.toString().replace(/m_atranh\(/g,'');  
+       str_1 = str_1.toString().replace(/m_asinh\(/g,''); 
+       str_1 = str_1.toString().replace(/m_asrin\(/g,''); 
+       str_1 = str_1.toString().replace(/m_asin\(/g,'');    
+       str_1 = str_1.toString().replace(/m_sinh\(/g,'');    
+       str_1 = str_1.toString().replace(/m_sin\(/g,'');  
+      str_1 = str_1.toString().replace(/m_acrosh\(/g,'');   
+      str_1 = str_1.toString().replace(/m_acosh\(/g,''); 
+      str_1 = str_1.toString().replace(/m_acros\(/g,''); 
+      str_1 = str_1.toString().replace(/m_acos\(/g,'');    
+      str_1 = str_1.toString().replace(/m_cosh\(/g,'');    
+      str_1 = str_1.toString().replace(/m_cos\(/g,'');     
+      str_1 = str_1.toString().replace(/m_atanh\(/g,'');   
+      str_1 = str_1.toString().replace(/m_atan\(/g,'');    
+      str_1 = str_1.toString().replace(/m_tanh\(/g,'');    
+      str_1 = str_1.toString().replace(/m_tan\(/g,'');      
+      str_1 = str_1.toString().replace(/m_n\(/g,'');      
+      str_1 = str_1.toString().replace(/m_exp\(/g,'');    
+      str_1 = str_1.toString().replace(/m_ln\(/g,'');     
+      str_1 = str_1.toString().replace(/m_log\(/g,'');   
+      str_1 = str_1.toString().replace(/m_pow\(/g,'');  
+      str_1 = str_1.toString().replace(/m_lrn\(/g,''); 
+      str_1 = str_1.toString().replace(/m_lrog\(/g,''); 
+      str_1 = str_1.toString().replace(/\(/g,'');   
+      str_1 = str_1.toString().replace(/\)/g,'');   
+      str_1 = str_1.toString().replace(/\,/g,'');   
+      str_1 = str_1.toString().replace(/0|1|2|3|4|5|6|7|8|9/g,'');   
+      str_1 = str_1.toString().replace(/\+|\-|\*|\/|\.|\^/g,'');   
+      str_1 = str_1.toString().replace(/Q/g,'');   
+      str_1 = str_1.toString().replace(/π/g,'');   
+      str_1 = str_1.toString().replace(/°/g,''); 
+      str_1 = str_1.toString().replace(/e/g,'');   
+      str_1 = str_1.toString().replace(/h/g,''); 
+      str_1 = str_1.toString().replace(/m_/g,'');  
       str_1=str_1.toString().trim();  
     return  str_1 ;
 
@@ -3805,30 +3827,30 @@ function m_mtx_sort(A,col,nub){
        if(a_fst=="+"){ data_a = data_a.substr(1,data_a.length-1);}
        if(a_fst=="*" &&( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);} 
        if(a_fst=="/" &&( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);} 
-        var data_a = data_a.replace(/\(/g , ""); 
-        var data_a = data_a.replace(/\)/g , ""); 
+        var data_a = data_a.toString().replace(/\(/g , ""); 
+        var data_a = data_a.toString().replace(/\)/g , ""); 
         var a_fst=data_a.substr(0,1);  
        if(a_fst=="-" && ( nub==3 || nub==4)){ data_a = data_a.substr(1,data_a.length-1);}
         var b_fst=data_b.substr(0,1);
       if(b_fst=="+"){ data_b = data_b.substr(1,data_b.length-1);} 
       if(b_fst=="*" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);} 
       if(b_fst=="/" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);} 
-       var data_b = data_b.replace(/\(/g , ""); 
-       var data_b = data_b.replace(/\)/g , "");  
+       var data_b = data_b.toString().replace(/\(/g , ""); 
+       var data_b = data_b.toString().replace(/\)/g , "");  
        var b_fst=data_b.substr(0,1); 
       if(b_fst=="-" &&( nub==3 || nub==4)){ data_b = data_b.substr(1,data_b.length-1);}
-       var data_a = data_a.replace(/EN/g , "e\-"); 
-       var data_a = data_a.replace(/EP/g , "e\+");
-       var data_a = data_a.replace(/\*\π/g , ""); 
-       var data_a = data_a.replace(/\π/g , "1"); 
-       var data_a = data_a.replace(/\*\°/g , ""); 
-       var data_a = data_a.replace(/\°/g , "1"); 
-       var data_b = data_b.replace(/EN/g , "e\-"); 
-        var data_b = data_b.replace(/EP/g , "e\+");
-        var data_b = data_b.replace(/\*\π/g , ""); 
-        var data_b = data_b.replace(/\π/g , "1"); 
-        var data_b = data_b.replace(/\*\°/g , ""); 
-        var data_b = data_b.replace(/\°/g , "1");
+       var data_a = data_a.toString().replace(/EN/g , "e\-"); 
+       var data_a = data_a.toString().replace(/EP/g , "e\+");
+       var data_a = data_a.toString().replace(/\*\π/g , ""); 
+       var data_a = data_a.toString().replace(/\π/g , "1"); 
+       var data_a = data_a.toString().replace(/\*\°/g , ""); 
+       var data_a = data_a.toString().replace(/\°/g , "1"); 
+       var data_b = data_b.toString().replace(/EN/g , "e\-"); 
+        var data_b = data_b.toString().replace(/EP/g , "e\+");
+        var data_b = data_b.toString().replace(/\*\π/g , ""); 
+        var data_b = data_b.toString().replace(/\π/g , "1"); 
+        var data_b = data_b.toString().replace(/\*\°/g , ""); 
+        var data_b = data_b.toString().replace(/\°/g , "1");
        var data_comp= m_mtx_real_str_comp(data_a,data_b);
       if((data_comp==1||data_comp==3) && ((nub==0)||(nub==4))){    
        for(var j=0;j<data_col ;j++){    
@@ -3886,54 +3908,69 @@ function m_mtx_col_sum(A,col){
   var data_row = AA.length;   
   var data_col = AA[0].length;
   var BUFF = m_new_mtx(1,data_col)
-  var data_sum ='0';
+  var data_sum =0;  
   var data_a=0;  
   var flag_a="";
   for(var i=0;i<(data_row) ;i++){    
     var data_a = AA[i][col];
-    var data_a = data_a.replace(/\"/g , "");  
+    var data_a = data_a.toString().replace(/\"/g , "");  
     var a_fst=data_a.substr(0,1);
     if(a_fst=="+"){ data_a = data_a.substr(1,data_a.length-1);}
     var m_nb  = m_str_all_char_nb(data_a,"m_");
     var pi_nb  = m_str_all_char_nb(data_a,"π");
     var dge_nb = m_str_all_char_nb(data_a,"°");
-    var data_a = data_a.replace(/e\-/g , "EN"); 
-    var data_a = data_a.replace(/e\+/g , "EP");  
+    var data_a = data_a.toString().replace(/e\-/g , "EN"); 
+    var data_a = data_a.toString().replace(/e\+/g , "EP");  
     var en_nb = m_str_all_char_nb(data_a,"EN");  
     var ep_nb = m_str_all_char_nb(data_a,"EP");
     var mul_nb = m_str_all_char_nb(data_a,"*");  
     var div_nb = m_str_all_char_nb(data_a,"/");
-    var data_a = data_a.replace(/EN/g , "e\-"); 
-    var data_a = data_a.replace(/EP/g , "e\+");  
+    var data_a = data_a.toString().replace(/EN/g , "e\-"); 
+    var data_a = data_a.toString().replace(/EP/g , "e\+");  
       if(mul_nb>=1 || div_nb>=1 ){                  
         var data_a = m_ext_in_funct(data_a);  
         var data_a = m_ext_in_funct_2(data_a); 
+        var data_a = data_a.toString().replace(/π/g , "'π'"); 
+        var data_a = data_a.toString().replace(/°/g , "'°'"); 
         var data_a =eval(data_a);
-                     }   
-      if(m_nb>=1){var data_a =eval(data_a);}   
+                     }  
+        var data_a = data_a.toString().replace(/π/g , "'π'"); 
+        var data_a = data_a.toString().replace(/°/g , "'°'"); 
+      if(m_nb>=1){var data_a =eval(data_a);} 
       if(pi_nb>=1){
       if(data_a=='π'){var data_a =1;}
-      else {var data_a = data_a.replace(/\π/g , ""); } 
+      else {var data_a = data_a.toString().replace(/\π/g , ""); } 
         var flag_a = "pi";
                    }
+
       if(dge_nb>=1){
         if(data_a=='°'){var data_a =1;}
-        else{var data_a = data_a.replace(/\°/g , "");}  
+        else{var data_a = data_a.toString().replace(/\°/g , "");}  
         var flag_a="dge";
                    }
+
        if((en_nb+ep_nb)>=1){
-         var data_a = data_a.replace(/\(/g , "");  
-         var data_a = data_a.replace(/\)/g , "");  
+         var data_a = data_a.toString().replace(/\(/g , "");  
+         var data_a = data_a.toString().replace(/\)/g , "");  
                                            }
+      
       var data_sum =data_sum;   
       var data_a_fst=data_a.toString().substr(0,1);
       var data_sum_fst=data_sum.toString().substr(0,1);
-        if(data_a_fst=="-"){ var data_a=data_a.substr(1,data_a.length-1);}          
-        if(data_sum_fst=="-"){ var data_sum=data_sum.substr(1,data_sum.length-1);}  
+        if(data_a_fst=="-"){ var data_a=data_a.substr(1,data_a.length-1);} 
+        if(data_sum_fst=="-"){ var data_sum=data_sum.substr(1,data_sum.length-1);} 
       var data_sum= data_sum.toString().trim();
-      var data_sum=m_mtx_trim(data_sum).toString();  
+      var data_sum=m_mtx_trim(data_sum).toString();   
       var data_a= data_a.toString().trim();
-      var data_a=m_mtx_trim(data_a).toString();
+      var data_a=m_mtx_trim(data_a).toString();  
+      var data_a_fst_1=data_a.toString().substr(0,1);   
+      var data_a_lst_1=data_a.toString().substr(data_a.length-1,1);     
+        if(data_a_fst_1=="'" && data_a_lst_1=="'"){
+          var data_a=data_a.substr(1,data_a.length-2) }
+      if(data_a_fst_1=="'" && data_a_lst_1!="'"){
+          var data_a=data_a.substr(1,data_a.length-1) }  
+       if(data_a_fst_1!="'" && data_a_lst_1=="'"){
+          var data_a=data_a.substr(0,data_a.length-1) }  
         if(data_a_fst!="-" && data_sum_fst!="-" ){
           var data_sum = m_mtx_real_add(data_sum,data_a);} 
         if(data_a_fst=="-" && data_sum_fst=="-" ){
@@ -3944,11 +3981,13 @@ function m_mtx_col_sum(A,col){
         if(data_a_fst=="-" && data_sum_fst !="-" ) {
           var data_sum = m_mtx_real_sub(data_sum,data_a);}
                           }  
-   var data_sum = m_str_e_to_str(data_sum);
-     if(flag_a=="pi"){ var data_sum = data_sum+"*π";}
-     if(flag_a=="dge"){ var data_sum = data_sum+"*°";}
+   var data_sum_nub_e =m_str_power(data_sum,0).toString();     
+   var nub_e_lg = data_sum_nub_e.length;
+   if( nub_e_lg <=4){ var data_sum = m_str_e_to_str(data_sum);}    
+   if(flag_a=="pi"){ var data_sum = data_sum+"π";}   
+   if(flag_a=="dge"){ var data_sum = data_sum+"°";}  
    var sum_fst = data_sum.substr(0,1);
-     if(sum_fst !="-"){var data_sum="+"+data_sum;}   
+   if(sum_fst !="-"){var data_sum="+"+data_sum;} 
   return data_sum ;
 }
 
@@ -4140,20 +4179,20 @@ function m_mtx_point_sub_bf(A,B){
 }
 
 
-function m_mtx_trim(x){      
+function m_mtx_trim(x){                   
   var xx_st = x.toString().trim(); 
   var xx_st = m_delete_bracket(xx_st); 
   var xx_fst12 = xx_st.substr(0,2);
     if( xx_fst12 == '0e' || xx_st =='0.') { var data_t=0 ; return data_t ;}   
   var xx_st_1 = m_mtx_del_plus(xx_st);   
-  var xx_st_2 = m_mtx_add_zero_bf(xx_st_1);   
+  var xx_st_2 = m_mtx_add_zero_bf(xx_st_1);
    for(var i=0 ;i<10 ;i++){    
      var xx_st_3 = m_mtx_del_point(xx_st_2);    
      var xx_st_5 = m_mtx_del_zero_bf(xx_st_3);    
      var xx_st_6 = m_mtx_del_zero(xx_st_5);     
      var  xx_st_2 = xx_st_6;
                    }
-  return xx_st_6;
+   return xx_st_6;
 }
 
 function m_mtx_add_zero_bf(x){     
@@ -4166,7 +4205,7 @@ function m_mtx_add_zero_bf(x){
 }
 
 
-function m_mtx_del_zero_bf(x){     
+function m_mtx_del_zero_bf(x){       
   var xx_st = x.toString().trim();
   var xx_st = xx_st.toString();    
   var fst_st = xx_st.substr(0,1);
@@ -4193,6 +4232,8 @@ function m_mtx_del_zero_bf(x){
 
 function m_mtx_del_zero(x){     
   var xx_st = x.toString().trim();
+  var xx_st = xx_st.toString().replace(/\'/g,'');  
+  var xx_st = xx_st.toString().replace(/\"/g,'');  
   var pos_pot  = xx_st.indexOf(".");    
   var pos_e  = xx_st.indexOf("e");    
   var st_lg = xx_st.length;
@@ -4356,7 +4397,7 @@ function m_mtx_int_str_comp(x,y){
         return ant ;
    }
 
-function m_mtx_real_str_comp(x,y){      
+function m_mtx_real_str_comp(x,y){     
   var x= x.toString().trim();
   var y= y.toString().trim();
   var ant=0;
@@ -4441,19 +4482,19 @@ function m_mtx_int_add(x,y){
        var yst_p_bf_lg = yst_p_bf.length;                                    
        var data_comp_0 = m_mtx_real_str_comp(xst_p_bf_lg,yst_p_bf_lg);      
     if(data_comp_0==3 && xst_p_bf_lg >=1){       
-       var x_st = x_st.replace(/\./g,'');            
-       var y_st = y_st.replace(/\./g,'');            
+       var x_st = x_st.toString().replace(/\./g,'');            
+       var y_st = y_st.toString().replace(/\./g,'');            
        var sf_flag = xst_p_bf_lg; }  
     else if(data_comp_0==1 && xst_p_bf_lg >=1  ){       
-       var x_st = x_st.replace(/\./g,'');                                   
-       var y_st = y_st.replace(/\./g,''); 
+       var x_st = x_st.toString().replace(/\./g,'');                                   
+       var y_st = y_st.toString().replace(/\./g,''); 
        for(var i=0 ;i<(xst_p_bf_lg-yst_p_bf_lg);i++){
           var y_st = y_st+"0" ;                              
           var sf_flag = xst_p_bf_lg;}
                      }
      else if(data_comp_0==2 && yst_p_bf_lg >=1  ){       
-        var x_st = x_st.replace(/\./g,'');                                  
-        var y_st = y_st.replace(/\./g,''); 
+        var x_st = x_st.toString().replace(/\./g,'');                                  
+        var y_st = y_st.toString().replace(/\./g,''); 
           for(var i=0 ;i<(yst_p_bf_lg-xst_p_bf_lg);i++){
             var x_st = x_st+"0" ;                              
             var sf_flag = yst_p_bf_lg;}
@@ -4546,7 +4587,7 @@ function m_mtx_int_add(x,y){
        return data_z; 
 }
 
-function m_mtx_int_sub(x,y){          
+function m_mtx_int_sub(x,y){         
   var  xx= x.toString().trim();
   var  yy= y.toString().trim();
   var xx = m_str_e_to_str(xx);       
@@ -4565,6 +4606,7 @@ function m_mtx_int_sub(x,y){
        return data_z; 
 }
 
+
 function m_mtx_real_add(x,y){       
   var x= x.toString().trim();
   var x=m_mtx_trim(x).toString();  
@@ -4575,7 +4617,7 @@ function m_mtx_real_add(x,y){
     if(x_msg !=-1 ){ return x;}     
     if(y_msg !=-1 ){ return y;}
   var data_x_comp_0 = m_mtx_real_str_comp(x,0);            
-    if(data_x_comp_0 ==3 ){ var ans_1=y; return ans_1;}      
+    if(data_x_comp_0 ==3 ){ var ans_1=y; return ans_1;}   
   var data_y_comp_0 = m_mtx_real_str_comp(y,0);           
     if(data_y_comp_0 ==3 ){ var ans_1=x; return ans_1;}  
   var x_st= x;
@@ -4656,7 +4698,7 @@ function m_mtx_real_add_bf(x,y){
     return sutt;
 }
 
-function m_mtx_del_plus(x){    
+function m_mtx_del_plus(x){       
   var xx = x.toString().trim() ;
   var xx_lg  = xx.length;
   var xx_fst = xx.substr(0,1);
@@ -4763,23 +4805,23 @@ function m_sub_error_rg(str_1){
   var ng_Q = m_str_spc_count(this_it_t_test,"Q");             
     if(ng_Q >0 && ng_pb>0){ var ng_nb = m_mtx_int_add(ng_nb,1);}
   var n_nb_asinh = m_str_spc_count(this_it_t_test,"asinh");       
-  var this_it_t_test = this_it_t_test.replace(/asinh/g , "");    
+  var this_it_t_test = this_it_t_test.toString().replace(/asinh/g , "");    
   var n_nb_acosh = m_str_spc_count(this_it_t_test,"acosh"); 
-  var this_it_t_test = this_it_t_test.replace(/acosh/g , "");    
+  var this_it_t_test = this_it_t_test.toString().replace(/acosh/g , "");    
   var n_nb_atanh = m_str_spc_count(this_it_t_test,"atanh");
-  var this_it_t_test = this_it_t_test.replace(/atanh/g , "");
+  var this_it_t_test = this_it_t_test.toString().replace(/atanh/g , "");
   var n_nb_asin = m_str_spc_count(this_it_t_test,"asin");
-  var this_it_t_test = this_it_t_test.replace(/asin/g , "");    
+  var this_it_t_test = this_it_t_test.toString().replace(/asin/g , "");    
   var n_nb_acos = m_str_spc_count(this_it_t_test,"acos");
-  var this_it_t_test = this_it_t_test.replace(/acos/g , "");    
+  var this_it_t_test = this_it_t_test.toString().replace(/acos/g , "");    
   var n_nb_atan = m_str_spc_count(this_it_t_test,"atan");
-  var this_it_t_test = this_it_t_test.replace(/atan/g , "");    
+  var this_it_t_test = this_it_t_test.toString().replace(/atan/g , "");    
   var n_nb_sinh = m_str_spc_count(this_it_t_test,"sinh");  
-  var this_it_t_test = this_it_t_test.replace(/sinh/g , "");
+  var this_it_t_test = this_it_t_test.toString().replace(/sinh/g , "");
   var n_nb_cosh = m_str_spc_count(this_it_t_test,"cosh");                                               
-  var this_it_t_test = this_it_t_test.replace(/cosh/g , "");
+  var this_it_t_test = this_it_t_test.toString().replace(/cosh/g , "");
   var n_nb_tanh = m_str_spc_count(this_it_t_test,"tanh");                                               
-  var this_it_t_test = this_it_t_test.replace(/tanh/g , "");
+  var this_it_t_test = this_it_t_test.toString().replace(/tanh/g , "");
   var n_nb_sin = m_str_spc_count(this_it_t_test,"sin");        
   var n_nb_cos = m_str_spc_count(this_it_t_test,"cos");                                               
   var n_nb_tan = m_str_spc_count(this_it_t_test,"tan");                                               
@@ -4883,7 +4925,7 @@ function m_mtx_real_sub(x,y){
                       }
      else{ 
         var sutt = m_mtx_point_add_sub_e(pexp,nexp ,1);}   
-   sutt = sutt.replace(/\.e/g , "e");  
+   sutt = sutt.toString().replace(/\.e/g , "e");  
      if(sutt==-0 && sutt.lngth==2){ var sutt=0;}  
     MTX_COL= tran ;  
    var sutt = m_fix_end_9(sutt);  
@@ -5030,6 +5072,7 @@ function m_exp(x){
   var xx=x.toString().trim();
   var data_msg =  m_str_char(x,"Msg") ;                     
     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx );
   var xx = m_fix(xx,420);              
   var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -5185,7 +5228,7 @@ function m_sin_cst1(x){
      }
 
 
-  function m_sin(x){                      
+  function m_sin(x){   
     var xx=x.toString().trim();
     var data_msg =0;
     var data_msg =  m_str_char(x,"Msg") ;  
@@ -5201,16 +5244,29 @@ function m_sin_cst1(x){
     var flag_3_4=0; 
     var xx_fst ="" ;
     var xx_p =  m_str_char(xx,".") ;  
-    var xx_fst = xx.substr(0,1);      
-    var ans_r ="";                     
-      if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=20 && xx_p ==0){  
+    var xx_fst = xx.substr(0,1); 
+    var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+    var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
+    var sum_nb=m_mtx_real_add(pi_nb_xx,deg_nb_xx);
+    if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
+    var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+    var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
+   if(pi_nb_xx >=1){
+     var xx = xx.toString().replace(/\*π/g , "");    
+     var xx = xx.toString().replace(/π/g , ""); }   
+    if(deg_nb_xx >=1){
+     var xx = xx.toString().replace(/\*°/g , "");  
+     var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="" ){ var xx =1;} 
+     var ans_r ="";                     
+      if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=20 && xx_p ==0 &&  pi_nb_xx==0  && deg_nb_xx==0 ){  
         var ans_r = m_sin_cst1(xx); 
         if(ans_r !="" ){ return ans_r;}    
                 }
-      if(xx_fst =='-' && xx.length<=3 && xx>=-20 && xx<=0 && xx_p ==0){  
+      if(xx_fst =='-' && xx.length<=3 && xx>=-20 && xx<=0 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0 ){  
         var ans_r = m_sin_cst2(xx);
-        if(ans_r !="" ){ return ans_r;}    
-          }
+            if(ans_r !="" ){ return ans_r;}
+            }
     var idx_e = xx.indexOf("e");
       if( idx_e >0){
         var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -5225,7 +5281,11 @@ function m_sin_cst1(x){
     var xx_test_small = xx;                      
     var xx_test_nub_e =m_str_power(xx_test_small,0);             
     var xx_test_st = m_str_power(xx_test_small,1);  
-      if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){ return  xx;}  
+      if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){
+         if(pi_nb_xx ==0 && deg_nb_xx==0 ){var ans_1 =xx; return  ans_1;}   
+         if(pi_nb_xx ==1 && deg_nb_xx==0 ){var ans_1 =m_mtx_real_mul(xx,PIS) ;return ans_1;}   
+                  if(pi_nb_xx ==0 && deg_nb_xx==1 ){var ans_1 =m_mtx_real_mul(xx,DEG) ;return ans_1;}   
+             }
       if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 =message_1(16);  return  ans_1 ; } 
     var xx_fst = xx.substr(0,1);
       if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }
@@ -5233,8 +5293,10 @@ function m_sin_cst1(x){
       PIMUL2 = m_fix(PIMUL2S,FIX_COL);  
       SQRT2 = m_fix(SQRT2S,FIX_COL);    
     var com_zz_pidiv2 =0;
-    var zz = m_mtx_real_div(xx,PIMUL2S);  
-      if( DECI_DGT <=16){ var deci_b=240;} 
+    if(pi_nb_xx ==0 && deg_nb_xx==0 ) {var zz = m_mtx_real_div(xx,PIMUL2S); }  
+    if(pi_nb_xx==1 && deg_nb_xx==0 ){var zz =m_mtx_real_div(xx,2) ;}   
+    if(pi_nb_xx ==0 && deg_nb_xx==1 ){var zz =m_mtx_real_div(xx,360) ;}   
+     if( DECI_DGT <=16){ var deci_b=240;} 
       else { var deci_b=420;}            
     var zz = m_fix(zz,deci_b);    
     var zz = m_fix_pow(zz,deci_b); 
@@ -5632,17 +5694,30 @@ function m_cos(x){
   var flag_1_4=0; 
   var xx_fst ="" ;
   var xx_p =  m_str_char(xx,".") ;  
-  var xx_fst = xx.substr(0,1);      
+  var xx_fst = xx.substr(0,1);   
+  var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx,"°");  
+  var sum_nb=m_mtx_real_add(pi_nb_xx,deg_nb_xx);
+     if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
+  var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
+   if(pi_nb_xx >=1){
+     var xx = xx.toString().replace(/\*π/g , "");    
+     var xx = xx.toString().replace(/π/g , ""); }   
+    if(deg_nb_xx >=1){
+     var xx = xx.toString().replace(/\*°/g , "");  
+     var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="" ){ var xx =1;} 
   var ans_r ="";                                    
-    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
+    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0){  
       var ans_r = m_cos_cst(xx); 
     if(ans_r !="" ){ return ans_r;}    
       }
-    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
+    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0){  
       var ans_r = m_cos_cst(xx);
     if(ans_r !="" ){ return ans_r;}    
      }
-   var idx_e = xx.indexOf("e");
+  var idx_e = xx.indexOf("e");
      if(idx_e >0){
        var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
        var xx_af_p =  m_str_char(xx_af,".") ;   
@@ -5654,7 +5729,7 @@ function m_cos(x){
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
      if(m_mtx_real_str_comp(xx_test_nub_e,-150)==2 ){      
-       var ans_a=1 ; return  ans_a;}                     
+       var ans_a=1 ; return  ans_a;}                                      
      if(m_mtx_real_str_comp(xx_test_nub_e,200)==1 ){ var ans_1 = message_1(16); return  ans_1 ; }  
    var xx_fst = xx.substr(0,1);
      if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
@@ -5662,9 +5737,11 @@ function m_cos(x){
      FIX_COL=420;
      PIDIV2= m_fix(PIDIV2S,FIX_COL);  
      PIMUL2 = m_fix(PIMUL2S,FIX_COL);  
-     SQRT2 = m_fix(SQRT2S,FIX_COL);    
-   var zz = m_mtx_real_div(xx,PIMUL2S); 
-     if( DECI_DGT <=16){ var deci_b=240;} 
+     SQRT2 = m_fix(SQRT2S,FIX_COL); 
+    if(pi_nb_xx ==0 && deg_nb_xx==0 ) {var zz = m_mtx_real_div(xx,PIMUL2S); }  
+        if(pi_nb_xx==1 && deg_nb_xx==0 ){var zz =m_mtx_real_div(xx,2) ;}   
+       if(pi_nb_xx ==0 && deg_nb_xx==1 ){var zz =m_mtx_real_div(xx,360) ;}   
+   if( DECI_DGT <=16){ var deci_b=240;} 
      else { var deci_b=420;}            
    var zz = m_fix(zz,deci_b);       
    var zz = m_fix_pow(zz,deci_b);   
@@ -5674,7 +5751,9 @@ function m_cos(x){
    var zz_m = m_mtx_trim(zz_m) ;  
    var zz_p = m_mtx_trim(zz_p) ; 
    var zz_p_t=m_fix(zz_p,420);           
-   var zz_p_t =m_mtx_trim(zz_p_t) ; 
+   var zz_p_t =m_mtx_trim(zz_p_t) ;
+ if( DECI_DGT <=16){ var zz_p_t=m_fix(zz_p_t,20); }  
+ else { var zz_p_t=m_fix(zz_p_t,200); }  
      if(zz_p_t=="1" || zz_p_t =="0" || zz_p_t =="0.0"){  var ans_1 = 1;  return  ans_1; }   
      if( zz_p_t =='0.5'){  var ans_1 = -1;  if(xx_fst =="-"){var ans_1 = 1;} return  ans_1; }   
      if( zz_p_t =='0.25'||zz_p_t =='0.75'){  var ans_1 = 0;  return  ans_1; }                   
@@ -5786,13 +5865,26 @@ function m_tan(x){
   var flag_1_3=0; 
   var xx_fst ="" ;
   var xx_p =  m_str_char(xx,".") ;  
-  var xx_fst = xx.substr(0,1);      
+  var xx_fst = xx.substr(0,1); 
+  var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
+  var sum_nb=m_mtx_real_add(pi_nb_xx,deg_nb_xx);
+    if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
+  var pi_nb_xx =m_str_all_char_nb(xx,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
+     if(pi_nb_xx >=1){
+   var xx = xx.toString().replace(/\*π/g , "");    
+   var xx = xx.toString().replace(/π/g , ""); }   
+    if(deg_nb_xx >=1){
+     var xx = xx.toString().replace(/\*°/g , "");  
+     var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="" ){ var xx =1;} 
   var ans_r ="";                    
-    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0){  
+    if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0){  
       var ans_r = m_tan_cst(xx); 
     if(ans_r !="" ){ return ans_r;}    
        }
-    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0){  
+    if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=10 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0 ){  
       var ans_r = m_tan_cst(xx);
     if(ans_r !="" ){ return ans_r;}    
       }
@@ -5818,8 +5910,10 @@ function m_tan(x){
   var xx_fst = xx.substr(0,1);
     if(xx_fst =="-"){ var xx = xx.substr(1,xx.length-1); }  
   var com_zz_pidiv2 =0;
-  var zz = m_mtx_real_div(xx,PIMUL2S);   
-    if( DECI_DGT <=16){ var deci_b=420;} 
+    if(pi_nb_xx ==0 && deg_nb_xx==0 ) {var zz = m_mtx_real_div(xx,PIMUL2S); }  
+    if(pi_nb_xx==1 && deg_nb_xx==0 ){var zz =m_mtx_real_div(xx,2) ;}   
+    if(pi_nb_xx ==0 && deg_nb_xx==1 ){var zz =m_mtx_real_div(xx,360) ;}   
+    if( DECI_DGT <=16){ var deci_b=20;} 
     else { var deci_b=420;}         
   var zz = m_fix(zz,deci_b);  
   var zz = m_fix_pow(zz,deci_b); 
@@ -5830,17 +5924,20 @@ function m_tan(x){
   var zz_p = m_mtx_trim(zz_p) ; 
   var flag_2_4=0 ;    
   var flag_1_3=0 ;
-  var zz_p_t=m_fix(zz_p,420);    
+ if( DECI_DGT <=16){ var zz_p_t=m_fix(zz_p,20); }  
+else { var zz_p_t=m_fix(zz_p,200); }  
   var zz_p_t =m_mtx_trim(zz_p_t)
     if(zz_p_t=='1' || zz_p_t =='0' || zz_p_t =='0.0'){  var ans_1 = 0;  return  ans_1; }  
-    if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }    
+    if( zz_p_t =='0.5'){  var ans_1 = 0;  return  ans_1; }  
+    if( zz_p_t =='0.125' && xx_fst !="-"){  var ans_1 = 1;  return  ans_1; }    
+    if( zz_p_t =='0.125' && xx_fst =="-"){  var ans_1 = -1;  return  ans_1; }   
     if( zz_p_t =='0.25'|| zz_p_t =='0.75'){  var ans_1 = message_1(11);  return ans_1 ; } 
     if( zz_p_t >='0.75' && zz_p_t <'1'){ var zz_p_t = m_mtx_real_sub(1 ,zz_p_t); var zz_p = m_mtx_real_sub(1 ,zz_p); var flag_2_4=1 ; }   
     else if( zz_p_t >='0.5' && zz_p_t <'0.75'){ var zz_p_t = m_mtx_real_sub(zz_p_t ,0.5); var zz_p = m_mtx_real_sub(zz_p ,0.5); var flag_1_3=1 ; }  
     else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; }  
     else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
   var dd_t = m_mtx_real_mul(360,zz_p); 
-  var dd_t=m_fix(dd_t,420);                
+  var dd_t=m_fix(dd_t,420); 
     if(dd_t.length<=2 && dd_t.length>=1){   
       var ans_b ="";
       if(dd_t==09||dd_t==9){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
@@ -5993,9 +6090,7 @@ function m_cosh(x){
       return sum_total;
 }
 
-
-
-function m_tanh(x){
+function m_tanh(x){                           
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
@@ -6028,37 +6123,73 @@ function m_tanh(x){
 return sum_t;
 }
 
+function m_ext_in_funct_part(x){  
+  var xx_st = x;
+      xx_st = xx_st.toString().replace(/\(Q\(/g , "\(0\-\(");    
+      xx_st = m_hat_bf_aft_many(xx_st ,'^','PPP');           
+      xx_st = xx_st.toString().replace(/PPP/g ,'m_pow');  
+      xx_st = xx_st.toString().replace(/e\+/g , "xxx");   
+      xx_st = xx_st.toString().replace(/e\-/g , "yyy");   
+      xx_st = xx_st.toString().replace(/\(/g , "\(\'");   
+      xx_st = xx_st.toString().replace(/\)/g , "\'\)");   
+      xx_st = xx_st.toString().replace(/\+/g , "\'\+\'");   
+      xx_st = xx_st.toString().replace(/\-/g , "\'\-\'");      
+      xx_st = xx_st.toString().replace(/\*/g , "\'\*\'");   
+      xx_st = xx_st.toString().replace(/\//g , "\'\/\'");   
+      xx_st = xx_st.toString().replace(/\^/g , "\'\^\'");    
+      xx_st = xx_st.toString().replace(/\,/g , "\'\,\'");     
+      xx_st = xx_st.toString().replace(/\'\'/g , "\'");                     
+      xx_st = xx_st.toString().replace(/\'\(/g , "\(");  
+      xx_st = xx_st.toString().replace(/\)\'/g , "\)");  
+      xx_st = xx_st.toString().replace(/\(\'m/g , "\(m"); 
+      xx_st = xx_st.toString().replace(/\'m/g , "\m");    
+      xx_st = xx_st.toString().replace(/xxx/g , "e\+");    
+      xx_st = xx_st.toString().replace(/yyy/g , "e\-");    
+      xx_st = xx_st.toString().replace(/Q\'3\.14/g , "\Q3\.14"); 
+      var xx_st_fst=xx_st.substr(0,1);
+     if(xx_st_fst=="0" ||xx_st_fst=="1"||xx_st_fst=="2"||xx_st_fst=="3" ||xx_st_fst=="4"||xx_st_fst=="5"||xx_st_fst=="6" ||xx_st_fst=="7"||xx_st_fst=="8"||xx_st_fst=="9"||xx_st_fst=="π"||xx_st_fst=="°" ){ xx_st="'"+xx_st ;}  
+  var xx_st_lst=xx_st.substr(xx_st.length-1,1); 
+     if(xx_st_lst=="0" ||xx_st_lst=="1"||xx_st_lst=="2"||xx_st_lst=="3" ||xx_st_lst=="4"||xx_st_lst=="5"||xx_st_lst=="6" ||xx_st_lst=="7"||xx_st_lst=="8"||xx_st_lst=="9" ||xx_st_lst=="π"||xx_st_lst=="°"){ xx_st=xx_st+"'";}   
+  var pos_m  = xx_st.indexOf("m");    
+  var xx_st = xx_st.toString();   
+    return xx_st ;
+}
+
 function m_ext_in_funct(x){  
   var xx_st = x;
-      xx_st = xx_st.replace(/\(Q\(/g , "\(0\-\(");    
+      xx_st = xx_st.toString().replace(/\(Q\(/g , "\(0\-\(");    
       xx_st = m_hat_bf_aft_many(xx_st ,'^','PPP');           
-      xx_st = xx_st.replace(/PPP/g ,'m_pow');   
+      xx_st = xx_st.toString().replace(/PPP/g ,'m_pow');  
       xx_st = m_hat_bf_aft_many(xx_st ,'/','DDD');            
-      xx_st = xx_st.replace(/DDD/g, 'm_mtx_real_div');    
+      xx_st = xx_st.toString().replace(/DDD/g, 'm_mtx_real_div');    
       xx_st = m_hat_bf_aft_many(xx_st ,'*','MMM');              
-      xx_st = xx_st.replace(/MMM/g, 'm_mtx_real_mul');    
+      xx_st = xx_st.toString().replace(/MMM/g, 'm_mtx_real_mul_x');    
       xx_st = m_hat_bf_aft_many(xx_st ,'-','SSS');            
-      xx_st = xx_st.replace(/SSS/g ,'m_mtx_real_sub');  
+      xx_st = xx_st.toString().replace(/SSS/g ,'m_mtx_real_sub');  
       xx_st = m_hat_bf_aft_many(xx_st ,'+','AAA');                                 
-      xx_st = xx_st.replace(/AAA/g , "m_mtx_real_add");  
-      xx_st = xx_st.replace(/e\+/g , "xxx");   
-      xx_st = xx_st.replace(/e\-/g , "yyy");   
-      xx_st = xx_st.replace(/\(/g , "\(\'");   
-      xx_st = xx_st.replace(/\)/g , "\'\)");   
-      xx_st = xx_st.replace(/\+/g , "\'\+\'");   
-      xx_st = xx_st.replace(/\-/g , "\'\-\'");      
-      xx_st = xx_st.replace(/\*/g , "\'\*\'");   
-      xx_st = xx_st.replace(/\//g , "\'\/\'");   
-      xx_st = xx_st.replace(/\^/g , "\'\^\'");    
-      xx_st = xx_st.replace(/\,/g , "\'\,\'");     
-      xx_st = xx_st.replace(/\'\'/g , "\'");                     
-      xx_st = xx_st.replace(/\'\(/g , "\(");  
-      xx_st = xx_st.replace(/\)\'/g , "\)");  
-      xx_st = xx_st.replace(/\(\'m/g , "\(m"); 
-      xx_st = xx_st.replace(/\'m/g , "\m");    
-      xx_st = xx_st.replace(/xxx/g , "e\+");    
-      xx_st = xx_st.replace(/yyy/g , "e\-");    
-      xx_st = xx_st.replace(/Q\'3\.14/g , "\Q3\.14");     
+      xx_st = xx_st.toString().replace(/AAA/g , "m_mtx_real_add");  
+      xx_st = xx_st.toString().replace(/e\+/g , "xxx");   
+      xx_st = xx_st.toString().replace(/e\-/g , "yyy");   
+      xx_st = xx_st.toString().replace(/\(/g , "\(\'");   
+      xx_st = xx_st.toString().replace(/\)/g , "\'\)");   
+      xx_st = xx_st.toString().replace(/\+/g , "\'\+\'");   
+      xx_st = xx_st.toString().replace(/\-/g , "\'\-\'");      
+      xx_st = xx_st.toString().replace(/\*/g , "\'\*\'");   
+      xx_st = xx_st.toString().replace(/\//g , "\'\/\'");   
+      xx_st = xx_st.toString().replace(/\^/g , "\'\^\'");    
+      xx_st = xx_st.toString().replace(/\,/g , "\'\,\'");     
+      xx_st = xx_st.toString().replace(/\'\'/g , "\'");                     
+      xx_st = xx_st.toString().replace(/\'\(/g , "\(");  
+      xx_st = xx_st.toString().replace(/\)\'/g , "\)");  
+      xx_st = xx_st.toString().replace(/\(\'m/g , "\(m"); 
+      xx_st = xx_st.toString().replace(/\'m/g , "\m");    
+      xx_st = xx_st.toString().replace(/xxx/g , "e\+");    
+      xx_st = xx_st.toString().replace(/yyy/g , "e\-");    
+      xx_st = xx_st.toString().replace(/Q\'3\.14/g , "\Q3\.14"); 
+      var xx_st_fst=xx_st.substr(0,1);
+     if(xx_st_fst=="0" ||xx_st_fst=="1"||xx_st_fst=="2"||xx_st_fst=="3" ||xx_st_fst=="4"||xx_st_fst=="5"||xx_st_fst=="6" ||xx_st_fst=="7"||xx_st_fst=="8"||xx_st_fst=="9"||xx_st_fst=="π"||xx_st_fst=="°" ){ xx_st="'"+xx_st ;}  
+  var xx_st_lst=xx_st.substr(xx_st.length-1,1); 
+    if(xx_st_lst=="0" ||xx_st_lst=="1"||xx_st_lst=="2"||xx_st_lst=="3" ||xx_st_lst=="4"||xx_st_lst=="5"||xx_st_lst=="6" ||xx_st_lst=="7"||xx_st_lst=="8"||xx_st_lst=="9" ||xx_st_lst=="π"||xx_st_lst=="°"){ xx_st=xx_st+"'";}   
   var pos_m  = xx_st.indexOf("m");    
   var xx_st = xx_st.toString();   
     return xx_st ;
@@ -6066,48 +6197,48 @@ function m_ext_in_funct(x){
 
 function m_ext_in_funct_1(x){   
   var xx_st = x ;
-  var xx_st = xx_st.replace(/m_exp\(/g , "m_exp\(\'");  
-  var xx_st = xx_st.replace(/m_ln\(/g , "m_ln\(\'");   
-  var xx_st = xx_st.replace(/m_sin\(/g , "m_sin\(\'");  
-  var xx_st = xx_st.replace(/m_asin\(/g , "m_asin\(\'");    
-  var xx_st = xx_st.replace(/m_sinh\(/g , "m_sinh\(\'");  
-  var xx_st = xx_st.replace(/m_asinh\(/g , "m_asinh\(\'");  
-  var xx_st = xx_st.replace(/m_cos\(/g , "m_cos\(\'");  
-  var xx_st = xx_st.replace(/m_acos\(/g , "m_acos\(\'");    
-  var xx_st = xx_st.replace(/m_cosh\(/g , "m_cosh\(\'");  
-  var xx_st = xx_st.replace(/m_acosh\(/g , "m_acosh\(\'");  
-  var xx_st = xx_st.replace(/m_tan\(/g , "m_tan\(\'");   
-  var xx_st = xx_st.replace(/m_atan\(/g , "m_atan\(\'");   
-  var xx_st = xx_st.replace(/m_tanh\(/g , "m_tanh\(\'");    
-  var xx_st = xx_st.replace(/m_atanh\(/g , "m_atanh\(\'");  
-  var xx_st = xx_st.replace(/\)/g , "\'\)");  
+  var xx_st = xx_st.toString().replace(/m_exp\(/g , "m_exp\(\'");  
+  var xx_st = xx_st.toString().replace(/m_ln\(/g , "m_ln\(\'");   
+  var xx_st = xx_st.toString().replace(/m_sin\(/g , "m_sin\(\'");  
+  var xx_st = xx_st.toString().replace(/m_asin\(/g , "m_asin\(\'");    
+  var xx_st = xx_st.toString().replace(/m_sinh\(/g , "m_sinh\(\'");  
+  var xx_st = xx_st.toString().replace(/m_asinh\(/g , "m_asinh\(\'");  
+  var xx_st = xx_st.toString().replace(/m_cos\(/g , "m_cos\(\'");  
+  var xx_st = xx_st.toString().replace(/m_acos\(/g , "m_acos\(\'");    
+  var xx_st = xx_st.toString().replace(/m_cosh\(/g , "m_cosh\(\'");  
+  var xx_st = xx_st.toString().replace(/m_acosh\(/g , "m_acosh\(\'");  
+  var xx_st = xx_st.toString().replace(/m_tan\(/g , "m_tan\(\'");   
+  var xx_st = xx_st.toString().replace(/m_atan\(/g , "m_atan\(\'");   
+  var xx_st = xx_st.toString().replace(/m_tanh\(/g , "m_tanh\(\'");    
+  var xx_st = xx_st.toString().replace(/m_atanh\(/g , "m_atanh\(\'");  
+  var xx_st = xx_st.toString().replace(/\)/g , "\'\)");  
     return xx_st ;
 }
 
 function m_ext_in_funct_2(x){   
   var xx_st = x ;
-  var xx_st = xx_st.replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");  
-  var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
-  var xx_st = xx_st.replace(/m_sin\(\(m_acos/g , "m_sin_acos\(\(");   
-  var xx_st = xx_st.replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
-  var xx_st = xx_st.replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
-  var xx_st = xx_st.replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
-  var xx_st = xx_st.replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\("); 
-  var xx_st = xx_st.replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\(");  
-  var xx_st = xx_st.replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\(");  
-  var xx_st = xx_st.replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
-  var xx_st = xx_st.replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
-  var xx_st = xx_st.replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\("); 
-  var xx_st = xx_st.replace(/m_acos\(\(m_sin/g , "m_acos_sin\(\(");    
-  var xx_st = xx_st.replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");    
-  var xx_st = xx_st.replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");  
-  var xx_st = xx_st.replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\(");  
-  var xx_st = xx_st.replace(/m_tan\(\(m_asin/g , "m_tan_asin\(\(");   
-  var xx_st = xx_st.replace(/m_tan\(\(m_acos/g , "m_tan_acos\(\(");   
-  var xx_st = xx_st.replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");   
-  var xx_st = xx_st.replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\(");   
-  var xx_st = xx_st.replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
-  var xx_st = xx_st.replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
+  var xx_st = xx_st.toString().replace(/m_exp\(\(m_ln/g , "m_exp_ln\(\(");  
+  var xx_st = xx_st.toString().replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+  var xx_st = xx_st.toString().replace(/m_sin\(\(m_acos/g , "m_sin_acos\(\(");   
+  var xx_st = xx_st.toString().replace(/m_sin\(\(m_atan/g , "m_sin_atan\(\(");  
+  var xx_st = xx_st.toString().replace(/m_asin\(\(m_sin/g , "m_asin_sin\(\(");    
+  var xx_st = xx_st.toString().replace(/m_sin\(\(m_asin/g , "m_sin_asin\(\(");  
+  var xx_st = xx_st.toString().replace(/m_asin\(\(m_cos/g , "m_asin_cos\(\("); 
+  var xx_st = xx_st.toString().replace(/m_sinh\(\(m_asinh/g , "m_sinh_asinh\(\(");  
+  var xx_st = xx_st.toString().replace(/m_asinh\(\(m_sinh/g , "m_asinh_sinh\(\(");  
+  var xx_st = xx_st.toString().replace(/m_cos\(\(m_acos/g , "m_cos_acos\(\(");  
+  var xx_st = xx_st.toString().replace(/m_cos\(\(m_asin/g , "m_cos_asin\(\(");    
+  var xx_st = xx_st.toString().replace(/m_cos\(\(m_atan/g , "m_cos_atan\(\("); 
+  var xx_st = xx_st.toString().replace(/m_acos\(\(m_sin/g , "m_acos_sin\(\(");    
+  var xx_st = xx_st.toString().replace(/m_acos\(\(m_cos/g , "m_acos_cos\(\(");    
+  var xx_st = xx_st.toString().replace(/m_cosh\(\(m_acosh/g , "m_cosh_acosh\(\(");  
+  var xx_st = xx_st.toString().replace(/m_acosh\(\(m_cosh/g , "m_acosh_cosh\(\(");  
+  var xx_st = xx_st.toString().replace(/m_tan\(\(m_asin/g , "m_tan_asin\(\(");   
+  var xx_st = xx_st.toString().replace(/m_tan\(\(m_acos/g , "m_tan_acos\(\(");   
+  var xx_st = xx_st.toString().replace(/m_tan\(\(m_atan/g , "m_tan_atan\(\(");   
+  var xx_st = xx_st.toString().replace(/m_atan\(\(m_tan/g , "m_atan_tan\(\(");   
+  var xx_st = xx_st.toString().replace(/m_tanh\(\(m_atanh/g , "m_tanh_atanh\(\(");    
+  var xx_st = xx_st.toString().replace(/m_atanh\(\(m_tanh/g , "m_atanh_tanh\(\(");    
     return xx_st ;
 }
 
@@ -6428,7 +6559,8 @@ function m_ln(x){
   var data_msg =0;
   var data_msg =  m_str_char(xx,"Msg") ;  
     if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}
-  var xx = m_str_e_to_str_point(xx );  
+    var xx=m_mtx_str_pi_deg_to_0(xx);    
+   var xx = m_str_e_to_str_point(xx );  
   var ans_0=0;                  
     if (xx <= 99  && xx.length<=2 && xx !=0){  
       var ans_0 = m_ln_bf(x);
@@ -6440,23 +6572,23 @@ function m_ln(x){
   var xx_e_st = m_str_power(xx_e ,1); 
   var xx_e_st_fst=xx_e_st.substr(0,1);  
   var  data_xx_comp_0 = m_mtx_real_str_comp(xx_e_st,0);    
-  if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}
+  if ( data_xx_comp_0 == 3){ var ans_t = message_1(13) ;  return ans_t;}  
   if (xx_e_st_fst == "-") {  var ans_t = message_1(5); return ans_t;} 
   if( xx_e_st.length ==1){    
     var ans_t = m_ln_bf(xx_e_st); 
-    var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
+     var ans_1 = m_mtx_real_mul(nub_x , LN10S) ; 
     var ans_0= m_mtx_real_add(ans_t , ans_1) ;
     return ans_0;}
   if( xx_e_st.length ==3){   
     var xx_t= xx_e_st;
-    var xx_t = xx_t.replace(/\./g , "");    
+    var xx_t = xx_t.toString().replace(/\./g , "");    
     var ans_t = m_ln_bf(xx_t); 
-    var nub_x = m_mtx_real_sub(nub_x , 1) ;     
-    var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
+    var nub_x = m_mtx_real_sub(nub_x , 1) ;  
+   var ans_1 = m_mtx_real_mul(nub_x , LN10S) ;  
     var ans_0= m_mtx_real_add(ans_t , ans_1) ;
         return ans_0; }
- var sum_tt_1 = m_mtx_real_mul(nub_x , LN10S) ;  
-   if (xx_e_st == 1  && nub_x !=0) {  var ans_t = sum_tt_1 ; return ans_t;}
+ var sum_tt_1 = m_mtx_real_mul(nub_x , LN10S) ; 
+    if (xx_e_st == 1  && nub_x !=0) {  var ans_t = sum_tt_1 ; return ans_t;}
  var nub_ln10=0;
  var xx_st=xx_e_st;
  var sum_tt = 0 ;
@@ -6528,7 +6660,7 @@ function m_ln(x){
  var nub_ln10_base = nub_ln10 * 1000000;  
  var nub_ln10_base = m_fix(nub_ln10_base,1);
  var ref_base = "1.00000230258774394513560298054590000979265047811516637709801718803137379438867535617872382770708456851581781528299306462248848287512593302006538358768364518990914280726036967827448342985608906902377442237120216711653322201361567414926551527783935691847429508165496075663995499749224785486896918174954430834442564827540307568003828150817523046324283509605714244376734907329486197608327203657860883173591522916250724509339974142024168010661599687279855605205109416594146941978472695783341088017897255575";
- var data_xx_i = m_pow(ref_base,-nub_ln10_base);  
+ var data_xx_i = m_pow(ref_base,-nub_ln10_base); 
  var xx_st_1 = m_mtx_real_mul(xx_e_st , data_xx_i) ;
  var xx_st_1 = m_str_e_to_str(xx_st_1); 
  var sum_tt_s = m_ln_matrix(xx_st_1); 
@@ -6681,11 +6813,11 @@ function m_atranh(x){
 
 function m_str_part_1en_sa_sin(s){   
   var ss=s.toString().trim();  
-  var ss = ss.replace(/asinh/g,"ASINH");
+  var ss = ss.toString().replace(/asinh/g,"ASINH");
   var asin_nb=m_str_all_char_nb(ss,"asin");  
   var en_nb=m_str_all_char_nb(ss,"e-");
   if(asin_nb==0 || (en_nb==0)){
-    var ss = ss.replace(/ASINH/g,"asinh"); 
+    var ss = ss.toString().replace(/ASINH/g,"asinh"); 
    return ss ;}
    for(var i=0; i<asin_nb ;i++){        
     var ss_asin_er1  = ss.indexOf("asin(1+(");                           
@@ -6693,21 +6825,21 @@ function m_str_part_1en_sa_sin(s){
        var ss_asin_er2  = ss.indexOf("asin(-1-(");                             
      if(ss_asin_er2 !=-1){ var ss = m_str_part_1en(ss,"asin(-1-(") ;}
       if((ss_asin_er1 ==-1)&&(ss_asin_er2 ==-1)){                    
-          var ss = ss.replace(/ASINH/g,"asinh");  
+          var ss = ss.toString().replace(/ASINH/g,"asinh");  
             return ss;  }                               
                   }  
-  var ss = ss.replace(/ASINH/g,"asinh"); 
+  var ss = ss.toString().replace(/ASINH/g,"asinh"); 
       return ss;
 }
 
 
 function m_str_part_1en_sa(s){   
   var ss=s.toString().trim();  
-  var ss = ss.replace(/acosh/g,"ACOSH");
+  var ss = ss.toString().replace(/acosh/g,"ACOSH");
   var acos_nb=m_str_all_char_nb(ss,"acos");  
   var en_nb=m_str_all_char_nb(ss,"e-");
   if(acos_nb==0 || (en_nb==0)){
-    var ss = ss.replace(/ACOSH/g,"acosh"); 
+    var ss = ss.toString().replace(/ACOSH/g,"acosh"); 
     return ss ;}
   for(var i=0; i<acos_nb ;i++){        
     var ss_acos_p1  = ss.indexOf("acos(1-(");                
@@ -6727,11 +6859,11 @@ function m_str_part_1en_sa(s){
   var ss_acos_er2  = ss.indexOf("acos(-1-(");                             
     if(ss_acos_er2 !=-1){ var ss = m_str_part_1en(ss,"acos(-1-(") ;}
       if((ss_acos_p1 ==-1)&&(ss_acos_p2 ==-1)&&(ss_acos_p3 ==-1)&&(ss_acos_n1 ==-1)&&(ss_acos_n2 ==-1)&&(ss_acos_n3 ==-1)&&(ss_acos_er1 ==-1)&&(ss_acos_er2 ==-1)){          
-         var ss = ss.replace(/ACOSH/g,"acosh"); 
+         var ss = ss.toString().replace(/ACOSH/g,"acosh"); 
              return ss;                           
                   }  
                     }
-   var ss = ss.replace(/ACOSH/g,"acosh"); 
+   var ss = ss.toString().replace(/ACOSH/g,"acosh"); 
       return ss;
 }
 
@@ -6778,8 +6910,8 @@ function m_str_part_1en_s(s){
   var ss=s.toString().trim();  
   var ln_nb=m_str_all_char_nb(ss,"ln");  
   var log_nb=m_str_all_char_nb(ss,"log");
-  var ss = ss.replace(/EN/g , "e\-");  
-  var ss = ss.replace(/EP/g , "e\+");
+  var ss = ss.toString().replace(/EN/g , "e\-");  
+  var ss = ss.toString().replace(/EP/g , "e\+");
   var en_nb=m_str_all_char_nb(ss,"e-");
   if((ln_nb==0 && log_nb==0)||(en_nb==0)){ return ss ;}
   var max_nb=ln_nb + log_nb;
@@ -6823,10 +6955,10 @@ function m_str_part_1en(s,f){
   var ss_af_bf_sft=ss_af_bf.substr(0,1);  
   var ss_af_bf_e = ss_af_bf.indexOf("e-");
     if(ss_af_bf_e==-1){return ss ;}  
-  var ss_af_bf = ss_af_bf.replace(/e\-/g , "EN");   
+  var ss_af_bf = ss_af_bf.toString().replace(/e\-/g , "EN");   
   var ss_af_bf_add = ss_af_bf.indexOf("+");
     if(ss_af_bf_add!=-1){return ss ;}  
-  var ss_af_bf = ss_af_bf.replace(/EN/g , "e\-");    
+  var ss_af_bf = ss_af_bf.toString().replace(/EN/g , "e\-");    
   var ss_af_bf_sub = ss_af_bf.indexOf("-");    
     if(ss_af_bf_sub!=ss_af_bf_e + 1){return ss ;}  
   var ss_af_bf_star = ss_af_bf.indexOf("*");
@@ -6846,38 +6978,38 @@ function m_str_part_1en(s,f){
        var data_comp = m_mtx_real_str_comp(xx_test_nub_e,-351); 
         if(data_comp==1){return ss ;}}  
    var ss_af_af = ss_af.substr(ss_af_p,ss_af.length -ss_af_p );  
-     if(ff=='ln(1-(' ){ var ss_bf = ss_bf.replace(/ln\(1\-\(/g,"m_lrn\(\-\(");} 
-     else if(ff=='ln(1-' ){ var ss_bf = ss_bf.replace(/ln\(1\-/g,"m_lrn\(\-"); }
-     else if(ff=='ln(1+(' ){ var ss_bf = ss_bf.replace(/ln\(1\+\(/g,"m_lrn\(\(");} 
-     else if(ff=='ln(1+' ){ var ss_bf = ss_bf.replace(/ln\(1\+/g,"m_lrn\("); }
-     else if(ff=='log(1-(' ){ var ss_bf = ss_bf.replace(/log\(1\-\(/g,"m_lrog\(\-\(");} 
-     else if(ff=='log(1-' ){ var ss_bf = ss_bf.replace(/log\(1\-/g,"m_lrog\(\-"); }
-     else if(ff=='log(1+(' ){ var ss_bf = ss_bf.replace(/log\(1\+\(/g,"m_lrog\(\(");} 
-     else if(ff=='log(1+' ){ var ss_bf = ss_bf.replace(/log\(1\+/g,"m_lrog\("); }
-     else if(ff=='acosh(1+(' ){ var ss_bf = ss_bf.replace(/acosh\(1\+\(/g,"m_acrosh\(\(");} 
-     else if(ff=='acosh(1+' ){ var ss_bf = ss_bf.replace(/acosh\(1\+/g,"m_acrosh\("); }
-     else if(ff=='acos(1-(' ){ var ss_bf = ss_bf.replace(/acos\(1\-\(/g,"m_acros\(\-\(");} 
-     else if(ff=='acos(1+(-(' ){ var ss_bf = ss_bf.replace(/acos\(1\+\(\-\(/g,"m_acros\(\-\(\(");} 
-     else if(ff=='acos(1-' ){ var ss_bf = ss_bf.replace(/acos\(1\-/g,"m_acros\(\-"); }
-     else if(ff=='acos(-1+(' ){ var ss_bf = ss_bf.replace(/acos\(\-1\+\(/g,"m_acros\(\(");} 
-     else if(ff=='acos(-1+' ){ var ss_bf = ss_bf.replace(/acos\(\-1\+/g,"m_acros\("); }
-     else if(ff=='acos(-1-(-(' ){var ss_bf = ss_bf.replace(/acos\(\-1\-\(\-\(/g,"m_acros\(\(\(");}
-     else if(ff=='acos(1+(' ){ var ss_bf = ss_bf.replace(/acos\(1\+\(/g,"m_acros\(\("); 
+     if(ff=='ln(1-(' ){ var ss_bf = ss_bf.toString().replace(/ln\(1\-\(/g,"m_lrn\(\-\(");} 
+     else if(ff=='ln(1-' ){ var ss_bf = ss_bf.toString().replace(/ln\(1\-/g,"m_lrn\(\-"); }
+     else if(ff=='ln(1+(' ){ var ss_bf = ss_bf.toString().replace(/ln\(1\+\(/g,"m_lrn\(\(");} 
+     else if(ff=='ln(1+' ){ var ss_bf = ss_bf.toString().replace(/ln\(1\+/g,"m_lrn\("); }
+     else if(ff=='log(1-(' ){ var ss_bf = ss_bf.toString().replace(/log\(1\-\(/g,"m_lrog\(\-\(");} 
+     else if(ff=='log(1-' ){ var ss_bf = ss_bf.toString().replace(/log\(1\-/g,"m_lrog\(\-"); }
+     else if(ff=='log(1+(' ){ var ss_bf = ss_bf.toString().replace(/log\(1\+\(/g,"m_lrog\(\(");} 
+     else if(ff=='log(1+' ){ var ss_bf = ss_bf.toString().replace(/log\(1\+/g,"m_lrog\("); }
+     else if(ff=='acosh(1+(' ){ var ss_bf = ss_bf.toString().replace(/acosh\(1\+\(/g,"m_acrosh\(\(");} 
+     else if(ff=='acosh(1+' ){ var ss_bf = ss_bf.toString().replace(/acosh\(1\+/g,"m_acrosh\("); }
+     else if(ff=='acos(1-(' ){ var ss_bf = ss_bf.toString().replace(/acos\(1\-\(/g,"m_acros\(\-\(");} 
+     else if(ff=='acos(1+(-(' ){ var ss_bf = ss_bf.toString().replace(/acos\(1\+\(\-\(/g,"m_acros\(\-\(\(");} 
+     else if(ff=='acos(1-' ){ var ss_bf = ss_bf.toString().replace(/acos\(1\-/g,"m_acros\(\-"); }
+     else if(ff=='acos(-1+(' ){ var ss_bf = ss_bf.toString().replace(/acos\(\-1\+\(/g,"m_acros\(\(");} 
+     else if(ff=='acos(-1+' ){ var ss_bf = ss_bf.toString().replace(/acos\(\-1\+/g,"m_acros\("); }
+     else if(ff=='acos(-1-(-(' ){var ss_bf = ss_bf.toString().replace(/acos\(\-1\-\(\-\(/g,"m_acros\(\(\(");}
+     else if(ff=='acos(1+(' ){ var ss_bf = ss_bf.toString().replace(/acos\(1\+\(/g,"m_acros\(\("); 
           if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;}      
                   }
-     else if(ff=='acos(-1-(' ){var ss_bf = ss_bf.replace(/acos\(\-1\-\(/g,"m_acros\(\(");  
+     else if(ff=='acos(-1-(' ){var ss_bf = ss_bf.toString().replace(/acos\(\-1\-\(/g,"m_acros\(\(");  
           if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;}        
                    } 
-     else if(ff=='asin(1+(' ){ var ss_bf = ss_bf.replace(/asin\(\1\+\(/g,"m_asrin\(\(");  
+     else if(ff=='asin(1+(' ){ var ss_bf = ss_bf.toString().replace(/asin\(\1\+\(/g,"m_asrin\(\(");  
           if(ss_af_bf_sft !="-"){var ss_af_bf=1.0001;}         
                                   }
-     else if(ff=='asin(-1-(' ){var ss_bf = ss_bf.replace(/asin\(\-1\-\(/g,"m_asrin\(\(");  
+     else if(ff=='asin(-1-(' ){var ss_bf = ss_bf.toString().replace(/asin\(\-1\-\(/g,"m_asrin\(\(");  
           if(ss_af_bf_sft !="-"){var ss_af_bf=-1.0001;}          
                            }
-     else if(ff=='atanh(1-(' ){ var ss_bf = ss_bf.replace(/atanh\(1\-\(/g,"m_atranh\(\-\(");} 
-     else if(ff=='atanh(1-' ){ var ss_bf = ss_bf.replace(/atanh\(1\-/g,"m_atranh\(\-"); }
-     else if(ff=='atanh(-1+(' ){ var ss_bf = ss_bf.replace(/atanh\(\-1\+\(/g,"m_atranh\(\(");} 
-     else if(ff=='atanh(-1+' ){ var ss_bf = ss_bf.replace(/atanh\(\-1\+/g,"m_atranh\("); }
+     else if(ff=='atanh(1-(' ){ var ss_bf = ss_bf.toString().replace(/atanh\(1\-\(/g,"m_atranh\(\-\(");} 
+     else if(ff=='atanh(1-' ){ var ss_bf = ss_bf.toString().replace(/atanh\(1\-/g,"m_atranh\(\-"); }
+     else if(ff=='atanh(-1+(' ){ var ss_bf = ss_bf.toString().replace(/atanh\(\-1\+\(/g,"m_atranh\(\(");} 
+     else if(ff=='atanh(-1+' ){ var ss_bf = ss_bf.toString().replace(/atanh\(\-1\+/g,"m_atranh\("); }
     var str_new="("+ss_bf+ss_af_bf+")"+ss_af_af;   
     return str_new;
  } 
@@ -6912,32 +7044,32 @@ function m_str_char_nb(strs,char_a){
 
 function m_str_angle_encode(strs){   
   var ss=strs.toString().trim();  
-  var ss = ss.replace(/asinh/g,"ASINH");  
-  var ss = ss.replace(/sinh/g,"SINH");  
-  var ss = ss.replace(/asin/g,"ASIN");  
-  var ss = ss.replace(/acosh/g,"ACOSH");  
-  var ss = ss.replace(/cosh/g,"COSH");  
-  var ss = ss.replace(/acos/g,"ACOS");  
-  var ss = ss.replace(/atanh/g,"ATANH");  
-  var ss = ss.replace(/tanh/g,"TANH");  
-  var ss = ss.replace(/atan/g,"ATAN");  
+  var ss = ss.toString().replace(/asinh/g,"ASINH");  
+  var ss = ss.toString().replace(/sinh/g,"SINH");  
+  var ss = ss.toString().replace(/asin/g,"ASIN");  
+  var ss = ss.toString().replace(/acosh/g,"ACOSH");  
+  var ss = ss.toString().replace(/cosh/g,"COSH");  
+  var ss = ss.toString().replace(/acos/g,"ACOS");  
+  var ss = ss.toString().replace(/atanh/g,"ATANH");  
+  var ss = ss.toString().replace(/tanh/g,"TANH");  
+  var ss = ss.toString().replace(/atan/g,"ATAN");  
     return ss;
 }
 
 function m_str_angle_decode(strs){   
   var ss=strs.toString().trim();  
-  var ss = ss.replace(/ASINH/g,"asinh"); 
-  var ss = ss.replace(/SINH/g,"sinh");  
-  var ss = ss.replace(/ASIN/g,"asin"); 
-  var ss = ss.replace(/ACOSH/g,"acosh");  
-  var ss = ss.replace(/COSH/g,"cosh");  
-  var ss = ss.replace(/ACOS/g,"acos");  
-  var ss = ss.replace(/ATANH/g,"atanh");  
-  var ss = ss.replace(/TANH/g,"tanh");  
-  var ss = ss.replace(/ATAN/g,"atan");  
-  var ss = ss.replace(/SIN/g,"sin");   
-  var ss = ss.replace(/COS/g,"cos");   
-  var ss = ss.replace(/TAN/g,"tan");    
+  var ss = ss.toString().replace(/ASINH/g,"asinh"); 
+  var ss = ss.toString().replace(/SINH/g,"sinh");  
+  var ss = ss.toString().replace(/ASIN/g,"asin"); 
+  var ss = ss.toString().replace(/ACOSH/g,"acosh");  
+  var ss = ss.toString().replace(/COSH/g,"cosh");  
+  var ss = ss.toString().replace(/ACOS/g,"acos");  
+  var ss = ss.toString().replace(/ATANH/g,"atanh");  
+  var ss = ss.toString().replace(/TANH/g,"tanh");  
+  var ss = ss.toString().replace(/ATAN/g,"atan");  
+  var ss = ss.toString().replace(/SIN/g,"sin");   
+  var ss = ss.toString().replace(/COS/g,"cos");   
+  var ss = ss.toString().replace(/TAN/g,"tan");    
    return ss;
 }
 
@@ -6951,9 +7083,9 @@ function m_str_part_del_pi(str,f,ed){
   var fflg = ff.length;         
   var slg= m_mtx_real_add(ss_p,fflg); 
   var ss_bf = ss.substr(0,slg);  
-  if(ff=="sin("){var ss_bf = ss_bf.replace(/sin/g,"SIN"); }  
-  else if(ff=="cos("){ var ss_bf = ss_bf.replace(/cos/g,"COS");}   
-  else if(ff=="tan("){var ss_bf = ss_bf.replace(/tan/g,"TAN");}   
+  if(ff=="sin("){var ss_bf = ss_bf.toString().replace(/sin/g,"SIN"); }  
+  else if(ff=="cos("){ var ss_bf = ss_bf.toString().replace(/cos/g,"COS");}   
+  else if(ff=="tan("){var ss_bf = ss_bf.toString().replace(/tan/g,"TAN");}   
   var ss_af = ss.substr(slg ,ss.length -slg );  
   var ss_af_p = ss_af.indexOf(ed);   
   if(ss_af_p==-1){
@@ -7007,8 +7139,8 @@ function m_str_part_del_pi(str,f,ed){
    else { var factor=1;}
    var ss_af_bf_e = ss_af_bf.indexOf("E");
    if(ss_af_bf_e !=-1){ 
-      var ss_af_bf = ss_af_bf.replace(/EP/g,"e\+");   
-      var ss_af_bf = ss_af_bf.replace(/EN/g,"e\-");}   
+      var ss_af_bf = ss_af_bf.toString().replace(/EP/g,"e\+");   
+      var ss_af_bf = ss_af_bf.toString().replace(/EN/g,"e\-");}   
     if( factor ==1){ var midchang =ss_af_bf;}
     else if( ss_af_bf < factor){ var midchang =ss_af_bf;}
     else if( ss_af_bf == factor){ var midchang =0;}          
@@ -7113,7 +7245,8 @@ function m_s_e_ln(x,nub){
      if(xx_fst =="-" ) { var sum_tt = message_1(5); return sum_tt; }
    var pos_e0  = xx.indexOf("e");    
      if(pos_e0 == -1){ 
-       var xx= m_mtx_str_to_e(xx); }
+       var xx= m_mtx_str_to_e(xx); 
+       var xx= m_mtx_str_to_e_a(xx); } 
        var pos_e  = xx.indexOf("e");    
        var pos_fst  = xx.substr(0,1);   
        var pos_sec  = xx.substr(1,1); 
@@ -7207,7 +7340,8 @@ function m_s_e_ln(x,nub){
      if ( data_xxabs_comp_0 == 3){ var ans_t = message_1(14) ;  return ans_t;} 
      if (xx_fst == "-") {  var ans_t = message_1(9); return ans_t;} 
      if (xxabs == 1 && xxabs.length==1 && nub_e_str==0) {  var ans_t = 0 ; return ans_t;}
-   var xxabs = m_mtx_str_to_e(xxabs);     
+   var xxabs = m_mtx_str_to_e(xxabs); 
+   var xxabs = m_mtx_str_to_e_a(xxabs);  
    var  nub_e = 0;
    var  xxabs_s =  m_s_e(xxabs ,0);       
    var  nub_e =  m_s_e(xxabs ,1);
@@ -7238,9 +7372,9 @@ function m_s_e_ln(x,nub){
       for(var i=0; i<pp ;i++){
         var data_a = m_mtx_real_mul(data_a ,bb); 
                    }
-    var ans_1= data_a ;   
-    if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
- return ans_1;
+   var ans_1= data_a ;  
+     if(pp_fst=="-") { var ans_1 = m_mtx_real_div(1 ,ans_1 );}
+  return ans_1;
 }
 
   function m_pow_ib(base,p){     
@@ -7254,7 +7388,7 @@ function m_s_e_ln(x,nub){
     var pp_r = 0;  
     var ans_1="";
     var pp_lg = pp.length;
-    var row_nub_t = m_mtx_real_mul(pp_lg,3.5) ; 
+    var row_nub_t = m_mtx_real_mul(pp_lg,3.5) ;
     var row_nub_t = m_nub_m(row_nub_t) ;       
     var row_nub_t =parseInt(row_nub_t)+2;
     var AA = m_pow_ib_bf(row_nub_t);  
@@ -7265,7 +7399,7 @@ function m_s_e_ln(x,nub){
     var tra = FIX_COL; 
       FIX_COL= 420; 
     for(var i=0; i< data_pp ;i++){
-       var data_a = m_mtx_real_mul(data_a ,data_a);    
+      var data_a = m_mtx_real_mul(data_a ,data_a);
        if(i==0){ var data_a = bb ;}
            data_a = m_mtx_str_to_e_a(data_a);         
            data_a = m_fix(data_a ,FIX_COL);            
@@ -7305,8 +7439,9 @@ function m_s_e_ln(x,nub){
             if( pp_r == 0){ var i=-1 ;} 
                                     } 
                              }     
-                           }   
-    var ans_1= m_mtx_real_mul(data_a ,data_b );
+                           } 
+  
+     var ans_1= m_mtx_real_mul(data_a ,data_b );
     var ans_1 = ans_1.toString();  
      if(pp_fst=="-") { 
        var ans_1 =m_fix(ans_1,FIX_COL);
@@ -7383,13 +7518,13 @@ return ans_1;
    var ppp_lg = ppp.length;
      if( ppi==0 && ppp==0 && ppp_lg <=1){ var data_a=1;}
      if( ppi==1 && ppp==0 && ppp_lg <=1){ var data_a=bb;}  
-     if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0  ){    
-       var data_a = m_pow_ia(bb ,ppi) ;    
+     if(ppi_lg < 3 && ppi_lg >=1 && ppi!=0 && ppi !=-0  ){ 
+    var data_a = m_pow_ia(bb ,ppi) ;    
               }
      if(ppi_lg >= 3  ){
        var data_b = m_pow_ib(bb ,ppi) ;     
                      } 
-    var data_ln_a = m_ln(bb);
+     var data_ln_a = m_ln(bb);
     var data_ln_b = m_mtx_real_mul(ppp ,data_ln_a); 
     var data_ln_b = m_str_e_to_str(data_ln_b).trim(); 
     var ans_1 =  m_exp(data_ln_b); 
@@ -7408,10 +7543,10 @@ return ans_1;
 }
 
 
- function m_pow(base,p){    
+ function m_pow(base,p){         
    var base= base.toString().trim();
-   var base =m_mtx_trim(base) ;   
-   var base_int=base;
+   var base =m_mtx_trim(base) ; 
+   var base_int = base;         
    var  p= p.toString().trim();
    var base_msg = m_mtx_test_msg(base);     
    var p_msg = m_mtx_test_msg(p);
@@ -7477,15 +7612,15 @@ return ans_1;
       if(bb < 0 && ppp !=0 && data_comp_ppp_0 !=3) { var ans_1=message_1(6) ; return ans_1; }
     var pa_fst = pp.substr(0,1);
       if(( data_comp_ppp_0 == 3 && pp.length <3  && pa_fst !="-" )||( data_comp_ppp_0 == 3 && pp.length < 4  && pa_fst =="-")){ 
-        var ans_1 = m_pow_ia(bb,pp);
+       var ans_1 = m_pow_ia(bb,pp);
           }
       if(( data_comp_ppp_0 == 3 && pp.length >=3 && pa_fst !="-")||( data_comp_ppp_0 == 3 && pp.length >= 4  && pa_fst =="-" )){  
         var ans_1 = m_pow_ib(bb,pp);
               }
-      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 ==3){   
+      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 ==3){  
          var ans_1 = m_pow_ic(bb,pp);
            }
-      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 !=3){ 
+      if( data_comp_ppp_0 != 3 && data_comp_ppi_0 !=3){  
         var ans_1 = m_pow_ie(bb,pp);
              }
     var ans_1 =m_mtx_real_mul(ans_part,ans_1); 
@@ -7495,11 +7630,12 @@ return ans_1;
 
 
 
-function m_asin(x){                                          
+function m_asin(x){                                         
   var zz = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+  var zz=m_mtx_str_pi_deg_to_0(zz);   
   var zz = m_str_e_to_str_point(zz ); 
   var zz = m_fix(zz,420) ;  
   var xx_test_small = m_mtx_str_to_e_a(zz);               
@@ -7553,6 +7689,7 @@ function m_asin(x){
    var ans_a="";
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7601,6 +7738,7 @@ function m_atan(x){
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ; 
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx ); 
   var xx = m_mtx_str_to_e_a(xx);
   var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -7795,6 +7933,7 @@ function m_asinh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
   var xx =m_mtx_trim(xx) ; 
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx );
   var xx_test_small = m_mtx_str_to_e_a(xx);             
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7830,6 +7969,7 @@ function m_acosh(x){
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
   var xx =m_mtx_trim(xx) ;  
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx );
   var xx_fst = xx.substr(0,1);
   if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -7853,12 +7993,13 @@ function m_acosh(x){
 }
 
 
-function m_atanh(x){ 
+function m_atanh(x){           
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
-  var xx =m_mtx_trim(xx) ;   
+  var xx =m_mtx_trim(xx) ;
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx ); 
   var xx_test_small = m_mtx_str_to_e_a(xx);              
   var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -7901,12 +8042,13 @@ function m_atanh(x){
   return ans_1;
 }
 
-function m_artanhs(x){    
+function m_artanhs(x){        
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
-  var xx =m_mtx_trim(xx) ;   
+  var xx =m_mtx_trim(xx) ;  
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var comp_xx_0 = m_mtx_real_str_comp(xx,0);        
   var comp_xx_n1 = m_mtx_real_str_comp(xx,-1);
   var comp_xx_n2 = m_mtx_real_str_comp(xx,-2); 
@@ -7951,7 +8093,8 @@ function m_artanha(x){
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
   if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
-  var xx =m_mtx_trim(xx) ;   
+  var xx =m_mtx_trim(xx) ;  
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var comp_xx_1 = m_mtx_real_str_comp(xx,1);               
   var comp_xx_0 = m_mtx_real_str_comp(xx,0);
   var comp_xx_2 = m_mtx_real_str_comp(xx,2); 
@@ -8103,7 +8246,7 @@ function m_mtx_point_mul(A,B){
      return CC;
 }
 
- function m_str_e_to_str(x){             
+ function m_str_e_to_str(x){            
    var xx_st=x.toString().trim();             
    var xx_fst = xx_st.substr(0,1);
    var xx_lg = xx_st.length;
@@ -8219,7 +8362,7 @@ function m_mtx_point_mul(A,B){
           xx_lg=xx_lg-1;}
    var pos_e  = xx_st.indexOf("e");  
    var data_msg = xx_st.indexOf("Msg"); 
-     if(data_msg !=-1){ return xx_st ;}  
+     if(data_msg !=-1){ return xx_st ;} 
    var data_fst = xx_st.substr(0,1);     
    var data_chk = 1;
    var nub_x =0;
@@ -8272,7 +8415,7 @@ function m_mtx_point_mul(A,B){
      if( nub_x > 0){
         xx_st = xx_st+"e+"+(nub_x); }          
         nub_x =0;
-        var xx_st=  m_fix_pow_lst(xx_st);    
+        var xx_st=  m_fix_pow_lst(xx_st);  
   return xx_st ;
 }
 
@@ -8329,7 +8472,7 @@ function m_mtx_point_mul(A,B){
 }
 
 
-function m_mtx_str_to_e_small(x){                
+function m_mtx_str_to_e_small(x){               
   var xx_st=x.toString().trim();             
   var xx_fst = xx_st.substr(0,1);
   var xx_lg = xx_st.length;
@@ -8363,16 +8506,14 @@ function m_str_1_point( x ,nub){
   var data_x_lg=xx_st.length;
   var data_x_pot  =xx_st.indexOf(".");    
   var data_x_e  =xx_st.indexOf("e");
-  var data_chk=0;
-    if(data_x_pot==-1 && data_x_e==-1 && data_x_fst !="-"){            
-      xx_st=xx_st.substr(0,1)+"."+xx_st.substr(1,data_x_lg-1);
-      if(data_x_fst =="-"){
-         xx_st=xx_st.substr(0,2)+"."+xx_st.substr(2,data_x_lg-2);}
-         var data_chk = data_chk+ data_x_lg-1 ; 
-         }
-    if(data_x_fst=="-"){ xx_st=xx_st.substr(1,data_x_lg-1);    
+  var data_chk=0;                           
+     if(data_x_fst=="-"){ xx_st=xx_st.substr(1,data_x_lg-1);    
         data_x_lg=data_x_lg-1;} 
-    var xx_st= xx_st.toString().trim();
+     if(data_x_pot==-1 && data_x_e==-1 ){   
+        var  xx_st=xx_st.substr(0,1)+"."+xx_st.substr(1,data_x_lg-1); 
+        var data_chk = data_chk+ data_x_lg-1 ;                       
+         }
+    var xx_st= xx_st.toString().trim();   
     var xx_st =m_mtx_trim(xx_st).toString() ;      
     var pos_pot_a  = xx_st.indexOf(".");    
     var  data_x_fst_a =xx_st.substr(0,1);
@@ -8383,7 +8524,7 @@ function m_str_1_point( x ,nub){
       else { var nub_tol = nub_lg ;}
     for(var i=0;i<= nub_tol ;i++){                                             
       if( pos_pot_a ==1 && data_x_fst_a == "0"){    
-          xx_st = m_mtx_str_element_shift(xx_st,1);     
+          xx_st = m_mtx_str_element_shift(xx_st,1);    
           var data_chk = data_chk-1; 
            var pos_pot_a  = xx_st.indexOf(".");   
            var data_x_fst_a =xx_st.substr(0,1);   
@@ -8393,7 +8534,7 @@ function m_str_1_point( x ,nub){
     var data_x_fst_a =xx_st.substr(0,1);   
     for(var j=0;j< nub_tol ;j++){               
       if( pos_pot_a >1 && data_x_fst_a != "0"){    
-          xx_st = m_mtx_str_element_shift(xx_st,-1);     
+          xx_st = m_mtx_str_element_shift(xx_st,-1);      
           var data_chk = data_chk+1;  
           var pos_pot_a  = xx_st.indexOf(".");   
           var data_x_fst_a =xx_st.substr(0,1);   
@@ -8407,7 +8548,7 @@ function m_str_1_point( x ,nub){
  }
 
 
-function m_mtx_int_mul(x,y){   
+function m_mtx_int_mul(x,y){     
   var  x= x.toString().trim();   
   var  x= m_mtx_trim(x);
   var  y= y.toString().trim();
@@ -8466,10 +8607,10 @@ function m_mtx_int_mul(x,y){
   var idxy_power =0;
   var idx_point = xx.indexOf(".");
   var idy_point = yy.indexOf(".");
-  if(idx_point !=-1){var xx = xx.replace(/\./g,""); 
+  if(idx_point !=-1){var xx = xx.toString().replace(/\./g,""); 
       var xx_lg =xx.length ;           
       var idx_power = xx.length- idx_point ;}
-  if(idy_point !=-1){var yy = yy.replace(/\./g,""); 
+  if(idy_point !=-1){var yy = yy.toString().replace(/\./g,""); 
       var yy_lg = yy.length;
       var idy_power = yy.length- idy_point ;}
   var idxy_power = m_mtx_int_add(idx_power,idy_power);   
@@ -8539,8 +8680,8 @@ function m_mtx_int_mul(x,y){
     return  sum_c;  
 }
 
-function m_mtx_real_mul(y,x){    
- var  x= x.toString().trim();
+function m_mtx_real_mul_old(y,x){     
+  var  x= x.toString().trim();
   var  x= m_mtx_trim(x);
   var  y= y.toString().trim();
   var  y= m_mtx_trim(y);
@@ -8635,74 +8776,8 @@ function m_mtx_real_mul(y,x){
         if(nub_e_t <=10 && nub_e_t >= 0){                            
            sum_ttt = m_str_e_to_str(sum_ttt) ;            
                           }}
-   return sum_ttt;        
-}
-
-function m_mul_bf(n){      
-   var nn=n;
-    A = m_new_zero_mtx(nn,2);      
-    var data_a = 0;  
-      for(var i=0;i<nn ;i++){
-         var data_a = data_a + 1;
-         A[i][0] = data_a;  }
-    return A;
-}
-
-function m_mul_9_item_into(x){         
-     var xx=x;
-     var AA = m_mul_bf(9) ;    
-     var data_a=xx;
-     var data_s=0;
-        for(var i=0;i<9 ;i++){
-           var data_s = m_mtx_real_add(data_s,data_a);
-           AA[i][1] = data_s;}
-  return AA;
-}
-
-function m_mul_9_item_output(y,A){        
-     var yy=y;
-     var AA = A;  
-    var y_pot_idx  = yy.indexOf(".");  
-    var data_y=yy;
-    var data_y = data_y.replace(/\./g,"");   
-    var data_s=0;
-      for(var i=0;i<data_y.length ;i++){
-         var data_y_part = data_y.substr(i,1); 
-         if( data_y_part !=0){      
-             var aa_x= AA[data_y_part-1][1];
-             var aa_x_sf = m_str_point_left_shift(aa_x,i);
-             var data_s = m_mtx_real_add(data_s,aa_x_sf);
-                                        }
-                          }
-   return data_s ;
-}
-
-function m_str_point_left_shift(x,nub_a){    
-     var xx=x;
-    var nub_s=nub_a;
-    var data_a="0.";
-    var data_s=0;
-    var xx_lg=xx.length;
-    var pot_xx  = xx.indexOf(".");
-    var nub_ss = nub_s-pot_xx;
-      if(nub_s==0){ var data_s=xx; return  data_s;}
-     if(nub_s==1){ var xx = xx.replace(/\./g,"");   
-           if(pot_xx ==1){ var data_s=data_a+xx; return  data_s;}
-           if(pot_xx ==2){ var data_s=xx.substr(0,1)+'.'+xx.substr(1,xx.length-1) ; return  data_s;}         
-                }
-    if(nub_s>1 && pot_xx ==1){ 
-         for (var i=1;i<nub_s;i++){ var data_a=data_a+"0";}
-         var xx = xx.replace(/\./g,"");  
-         var data_s=data_a+xx;  
-                   }
-    if(nub_s>1 && pot_xx ==2){ 
-          for (var i=1;i<(nub_s-1);i++){var data_a=data_a+"0";}
-          var xx = xx.replace(/\./g,"");   
-          var data_s=data_a+xx;  
-                   }
-  return  data_s;
-}
-
+   return sum_ttt;
+ }
 
 function m_str_e_to_str_point(str){    
   var yy_st=str;
@@ -8727,12 +8802,245 @@ function m_str_e_to_str_point(str){
 
 
 
+function m_mtx_real_mul(y,x){    
+  var  x= x.toString().trim();
+  var  x= m_mtx_trim(x);
+  var  y= y.toString().trim();
+  var  y= m_mtx_trim(y);
+  var x_msg = m_mtx_test_msg(x);
+  var y_msg = m_mtx_test_msg(y);
+  var ans_1=""; 
+    if(x_msg !=-1 ){ return x;}     
+    if(y_msg !=-1 ){ return y;}
+  var data_x_comp_0 = m_mtx_real_str_comp(x,0);     
+  var data_y_comp_0 = m_mtx_real_str_comp(y,0);    
+    if(data_x_comp_0 ==3 ||  data_y_comp_0 ==3){ var ans_1=0; return ans_1;}       
+  var data_x_comp_1 = m_mtx_real_str_comp(x,1);    
+    if(data_x_comp_1 ==3 ){ var ans_1=y; return ans_1;}       
+  var data_y_comp_1 = m_mtx_real_str_comp(y,1);    
+    if(data_y_comp_1 ==3 ){ var ans_1=x; return ans_1;}
+      y = m_mtx_str_to_e(y);       
+      x = m_mtx_str_to_e(x);         
+      y = m_mtx_str_to_e_a(y);       
+      x = m_mtx_str_to_e_a(x);       
+  var yy=y.toString();
+  var yy_st =yy.toString();
+  var pos_pot  = yy_st.indexOf(".");    
+  var pos_e  = yy_st.indexOf("e");     
+  var st_lg = yy_st.length;
+  var nub_e_y=0;  
+    if( pos_e != -1){ 
+     nub_e_y =m_str_power(yy_st,0);          
+     yy_st = m_str_power(yy_st,1);          
+                   }
+  var data_y_fst=yy_st.substr(0,1);
+  var data_y_lg=yy_st.length;
+    if(data_y_fst=="-"){ yy_st=yy_st.substr(1,data_y_lg-1);    
+      data_y_lg=data_y_lg-1;} 
+  var xx=x.toString();
+  var xx_st =xx.toString();
+  var pos_pot_x  = xx_st.indexOf(".");    
+  var pos_e_x  = xx_st.indexOf("e");     
+  var st_lg_x = xx_st.length;
+  var nub_e_x=0;   
+    if( pos_e_x != -1){ 
+      nub_e_x =m_str_power(xx_st,0);          
+      xx_st = m_str_power(xx_st,1);          
+                     }
+  var data_x_fst=xx_st.substr(0,1);   
+  var xx_chk = m_str_1_point( xx_st ,1);       
+  var xx_st  = m_str_1_point( xx_st ,0);       
+  var yy_chk = m_str_1_point( yy_st ,1);              
+  var yy_st  = m_str_1_point( yy_st ,0);             
+  var data_chk = m_mtx_real_add(xx_chk,yy_chk) ; 
+  var yy_st_lg= yy_st.length;   
+  var xx_st_lg= xx_st.length;   
+    if(yy_st_lg >= 50 || xx_st_lg >=50){  
+  var AA = m_str_to_mtx(yy_st) ; 
+  var BB = m_str_to_mtx(xx_st) ; 
+  var CC = m_mtx_point_mul(AA,BB) ;  
+      CC = m_mtx_cell_five(CC);      
+  var sum_tt = m_mtx_cell_five_show(CC);   
+  var sum_tt = m_mtx_trim(sum_tt) ;
+ 　}
+ else{  
+    var data_x_lg =xx_st.length;
+    var data_y_lg =yy_st.length;
+    if(data_x_lg >= data_y_lg){ var data_aa =xx_st;   var data_bb =yy_st; }    
+    else{ var data_aa =yy_st;  ;  var data_bb =xx_st; } 
+    AA = m_mul_9_item_into(data_aa);   
+    var sum_a = m_mul_9_item_output(data_bb,AA);
+    var sum_tt = m_mtx_trim(sum_a) ;
+ }
+  var pos_pot_b  = sum_tt.indexOf(".");    
+    if(pos_pot_b > 1){                        
+      sum_tt = m_mtx_str_element_shift(sum_tt,1-pos_pot_b);   
+      var data_chk = m_mtx_int_add(data_chk,pos_pot_b);
+      var data_chk = m_mtx_int_sub(data_chk,1);
+                      }
+  var sum_tt = m_mtx_trim(sum_tt) ;   
+    if( data_y_fst =="-" && data_x_fst !="-"){ var sum_tt = "-"+sum_tt;} 
+    if( data_y_fst !="-" && data_x_fst =="-"){ var sum_tt = "-"+sum_tt;} 
+  var nub_e_y = m_mtx_trim(nub_e_y) ;   
+  var nub_e_x = m_mtx_trim(nub_e_x) ;   
+  var data_chk = m_mtx_trim(data_chk) ;   
+  var nub_e_t1 =0;
+  var nub_e_t =0;
+  var nub_e_y_point =0;   
+  var nub_e_x_point =0; 
+  var nub_e_y_point =  m_str_char(nub_e_y.toString(),".");   
+  var nub_e_x_point =  m_str_char(nub_e_x.toString(),".");   
+    if( nub_e_y_point ==0 &&  nub_e_x_point ==0){ 
+     var nub_e_t1 = m_mtx_int_add(nub_e_y,nub_e_x) ;}           
+    else{
+     var nub_e_t1 = m_mtx_real_add(nub_e_y,nub_e_x) ;}           
+     var nub_e_t1 = m_fix(nub_e_t1,2000);                          
+    if( nub_e_y_point ==0 &&  nub_e_x_point ==0){      
+      var nub_e_t = m_mtx_int_add(nub_e_t1,data_chk);}    
+    else{
+      var nub_e_t = m_mtx_real_add(nub_e_t1,data_chk);}      
+      var nub_e_t = m_fix(nub_e_t,2000);                          
+      var nub_e_t = m_str_e_to_str(nub_e_t); 
+      var sum_ttt = 0 ;  
+      var data_nub_e_t_comp_0 = m_mtx_real_str_comp(nub_e_t,0);    
+        if(data_nub_e_t_comp_0==1 ){ sum_ttt = sum_tt+"e+"+nub_e_t;}   
+        if(data_nub_e_t_comp_0==2 ){ sum_ttt = sum_tt+"e"+nub_e_t;}   
+        if(data_nub_e_t_comp_0==3 ){ sum_ttt = sum_tt;}
+        if(sum_tt == 0 || sum_tt == "0"){ var sum_ttt = 0 ;} 
+        if(nub_e_y_point ==0 &&  nub_e_x_point ==0){
+        if(nub_e_t <=10 && nub_e_t >= 0){                            
+           sum_ttt = m_str_e_to_str(sum_ttt) ;            
+                          }}
+   return sum_ttt;
+}
+
+function m_mul_bf(n){        
+  var nn=n;
+    A = m_new_zero_mtx(nn,2);    
+  var data_a = 0;  
+   for(var i=0;i<nn ;i++){
+    var data_a = data_a + 1;
+     A[i][0] = data_a;  
+             } 
+  return A;
+}
+
+
+function m_mul_9_item_into(x){        
+  var xx=x;
+  var xx_fst=xx.substr(0,1);  
+  var xx_lg=xx.length;
+    if(xx_fst=="-"){ var xx= xx.substr(1,xx_lg-1);    
+      xx_lg=xx_lg-1;} 
+  var AA = m_mul_bf(9) ;     
+  var data_a=xx;
+  var data_s=0;
+  for(var i=0;i<9 ;i++){
+    var data_s = m_mtx_real_add(data_s,data_a);
+    var TT = m_str_to_mtx(data_s) ; 
+        AA[i][1] = TT;           
+                }    
+ return AA;
+}
+
+
+function m_mul_9_item_output(y,A){        
+  var yy=y;
+  var yy_fst=yy.substr(0,1);  
+  var yy_lg=yy.length;
+    if(yy_fst=="-"){ var yy= yy.substr(1,yy_lg-1);    
+      yy_lg=yy_lg-1;} 
+  var AA = A;  
+  var data_y=yy;
+  var data_y = data_y.toString().replace(/\./g,"");   
+  var data_s=0;
+  var data_a="0.";
+  var data_b="0.";
+  var SS = m_str_to_mtx(0) ; 
+  var BB = m_str_to_mtx(0) ;           
+  var BBs = m_str_to_mtx(0) ; 
+    for(var i=0;i<data_y.length ;i++){
+      var data_y_part = parseInt(data_y.substr(i,1));  
+      if( data_y_part !=0){
+       var AA_x= AA[data_y_part-1][1];          
+           BB = m_mtx_copy_mtx(BB,AA_x);}
+      if( data_y_part !=0){ var BB = m_mtx_element_shift_left(BB,i); } 
+      if( data_y_part !=0){ var SS = m_mtx_point_add(SS,BB);} 
+                          }
+    SS = m_mtx_cell_five(SS);      
+  var sum_tt = m_mtx_cell_five_show(SS);   
+  var sum_tt = m_mtx_trim(sum_tt) ; 
+ return sum_tt ;
+}
+
+function m_mtx_element_shift_left(A,nub){       
+  var nubb = nub;
+  var AA=A;
+  var mtx_lg =AA[0].length;  
+  var BB = m_new_zero_mtx(1,mtx_lg);  
+  var CC = m_new_zero_mtx(1,mtx_lg);        
+  var ai = Math.floor(nubb/5);  
+  var ar = nubb % 5;    
+   if(ai==0 && ar==0){return A;}
+   while(ar>0 ){                    
+      var data_a_0 = AA[0][0];   
+      var a_0_lg = data_a_0.toString().length;
+      var mtx_lg_ft = mtx_lg-1;   
+       for(var i=0;i<  mtx_lg_ft ;i++){     
+        if(i==0){
+          BB[0][i]=(AA[0][i]).toString().substr(0,a_0_lg-ar);}  
+        if(i==1 ){
+          BB[0][i]=(AA[0][i-1]).toString().substr(a_0_lg-ar,ar)+(AA[0][i]).toString().substr(0,5-ar);} 
+         if(i >= 2 ){
+         BB[0][i]=(AA[0][i-1]).toString().substr(5-ar,ar)+(AA[0][i]).toString().substr(0,5-ar);} 
+                   }  
+         AA = m_mtx_copy_mtx(AA,BB);      
+         var ar = ar-5;   
+                             } 
+    while(ai > 0 ){                    
+      for(var i=0;i<(mtx_lg-ai-1);i++){
+         CC[0][i+ai]=(AA[0][i]).toString();    
+                      }   
+         AA = m_mtx_copy_mtx(AA,CC);      
+        var ai = ai-ai;   
+                             } 
+   return  AA ;
+}
+
+function m_str_point_left_shift(x,nub_a,x_index){    
+  var xx=x;
+  var nub_s=nub_a;
+  var data_a="0.";
+  var data_s=0;
+  var xx_lg=xx.length;
+  var pot_xx  = x_index;
+  var nub_ss = nub_s-pot_xx;
+   if(nub_s==0){ var data_s=xx; return  data_s;}
+   if(nub_s==1){ var xx = xx.toString().replace(/\./g,"");   
+     if(pot_xx ==1){ var data_s=data_a+xx; return  data_s;}
+     if(pot_xx ==2){ var data_s=xx.substr(0,1)+'.'+xx.substr(1,xx.length-1) ; return  data_s;}         
+                }
+   if(nub_s>1){ 
+      for (var i=1;i<(nub_s-pot_xx+1);i++){        
+        var data_a=data_a+"0";
+                           } 
+        var xx = xx.toString().replace(/\./g,"");    
+        var data_s=data_a+xx;  
+                   }
+     return  data_s;
+}
+
+ 
 
 function m_mtx_real_div(y,x){    
   var xx=x.toString().trim();
   var xx=m_mtx_trim(xx).toString(); 
   var yy=y.toString().trim();
   var yy=m_mtx_trim(yy).toString();
+  var x_msg = m_mtx_test_msg(xx);     
+  var y_msg = m_mtx_test_msg(yy);
+    if(x_msg !=-1 ){ return xx;}     
+    if(y_msg !=-1 ){ return yy;}       
   var ans_1 ="";
   var sum_tt ="";
   var flag_ng=0;
@@ -8981,6 +9289,21 @@ function m_mtx_compare(A,B){
 }
 
 
+function m_mtx_add_nub_b(A,B,nub_b){      
+   var AA =A;
+   var BB =B;
+   var nub =nub_b;
+   var CC=m_new_zero_mtx(1,AA[0].length);  
+     for(var i=0;i<AA[0].length ;i++){     
+       var data_a=AA[0][i];
+       var data_b=BB[nub][i];
+      CC[0][i]=parseInt(data_a)+parseInt(data_b);}  
+      CC = m_mtx_borrow(CC);  
+      CC = m_mtx_cell_five(CC); 
+return CC;
+}
+
+
  function m_mtx_sub_nub_b(A,B,nub_b){      
    var AA =A;
    var BB =B;
@@ -8995,7 +9318,7 @@ function m_mtx_compare(A,B){
 return CC;
 }
 
- function m_mtx_sub(A,B){      
+ function m_mtx_sub(A,B){     
    var AA =A;
    var BB =B;
    var CC=m_new_zero_mtx(1,AA[0].length);  
@@ -9067,7 +9390,7 @@ return CC;
               AA[0][m]="0"+AA[0][m];
              data_lg_m=data_lg_m+1;
                          }
-            0     }   
+                }   
   return AA;
  }
 
@@ -9076,7 +9399,7 @@ function m_mtx_cell_five_int(A){
   var data_row = AA.length;        
   var data_col=AA[0].length;       
   var count_a = 1 ;
-  while( count_a >= 1 ){
+   while( count_a >= 1 ){
    for(var i=0 ;i< 3 ;i++){      
     for(var k=0; k< data_col-1 ;k++){         
       var data_b = parseInt( AA[0][k]);
@@ -9146,6 +9469,7 @@ function m_mtx_cell_five_brow(A){
      return col_nub ;
 }
 
+
 function m_mtx_cell_five_brow_int(A){      
   var AA=A;
   var data_row = AA.length;   
@@ -9172,19 +9496,19 @@ function m_mtx_cell_five_brow_int(A){
     var data_str_b = "";
     var data_str = "";
     var data_cunt = data_col-1;
-    for(var i=0;i< data_cunt ;i++){  
+      for(var i=0;i< data_cunt ;i++){  
         var data_a = AA[0][i];
         var data_a1= data_a.toString();
         var data_str_a =  data_a1 + data_str_a; 
         var data_str_a = data_str_a.toString();
                                       } 
       while(data_str_a.substr(0,1)=="0"){ data_str_a = data_str_a.substr(1,data_str_a.length);}  
-        var data_str_b = m_mtx_cell_five_show(B);
-        var data_str_b = data_str_b.toString();  
-          if(data_str_a !="" ){
-             data_str = data_str_a+ data_str_b.substr(1,data_str_b.length-1);  
+    var data_str_b = m_mtx_cell_five_show(B);
+    var data_str_b = data_str_b.toString();  
+      if(data_str_a !="" ){
+        data_str = data_str_a+ data_str_b.substr(1,data_str_b.length-1);  
                              }
-          else{  data_str = "0"+ data_str_b.substr(1,data_str_b.length-1);}                 
+      else{  data_str = "0"+ data_str_b.substr(1,data_str_b.length-1);}                 
      return data_str;
 }
 
@@ -9299,7 +9623,7 @@ function m_mtx_cell_five_brow_int(A){
   
  function m_mtx_delete_empty_row(A,col_nub){      
    var AA = A;
-   if(AA==""){ return AA;}
+     if(AA==""){ return AA;}
    var col_nub = col_nub;
    var data_a="";
    var data_row = AA.length;   
@@ -9406,7 +9730,8 @@ function m_exp_ln(x){
   var xx = x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(xx,"Msg") ;  
-    if(data_msg >=1){ var ans_a = xx ; return  ans_a ;}   
+    if(data_msg >=1){ var ans_a = xx ; return  ans_a ;} 
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var xx = m_str_e_to_str_point(xx);      
   var xx_e = m_mtx_str_to_e(xx);             
   var xx_e = m_mtx_str_to_e_a(xx_e); 
@@ -9421,7 +9746,8 @@ function m_exp_ln(x){
  function m_ln_exp(x){    
    var xx=x.toString().trim();
    var data_msg =  m_str_char(x,"Msg") ; 
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_fix(xx,FIX_COL);  
    var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -9438,7 +9764,8 @@ function m_exp_ln(x){
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+   var zz=m_mtx_str_pi_deg_to_0(zz);   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9453,11 +9780,12 @@ function m_exp_ln(x){
      if(data_comp_zz_1 ==1 ) {  var ans_1= message_1(1);  return ans_1; }     
     return x ;}
   
- function m_sin_acos(x){              
+ function m_sin_acos(x){             
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+   var zz=m_mtx_str_pi_deg_to_0(zz);   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9483,6 +9811,7 @@ function m_exp_ln(x){
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ; 
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
    var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -9513,6 +9842,7 @@ function m_exp_ln(x){
    var flag_1_2=0; 
    var flag_3_4=0; 
    var xx_fst ="" ;
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var idx_e = xx.indexOf("e");
      if( idx_e >0){
        var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -9531,7 +9861,7 @@ function m_exp_ln(x){
       PIMUL2 = m_fix(PIMUL2,FIX_COL); 
       SQRT2 = m_fix(SQRT2,FIX_COL);
    var com_zz_pidiv2 =0;
-   var zz = m_mtx_real_div(xx,PIMUL2); 
+    var zz = m_mtx_real_div(xx,PIMUL2); 
    var zz = m_str_e_to_str(zz);   
    var zz_m = m_nub_m(zz) ;        
    var zz_p = m_nub_p(zz) ;  
@@ -9566,6 +9896,7 @@ function m_asin_cos(x){
   var flag_2_3=0; 
   var flag_1_4=0; 
   var xx_fst ="" ;
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var idx_e = xx.indexOf("e");
     if(idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -9604,11 +9935,12 @@ function m_asin_cos(x){
     if( flag_1_4 ==1){ var ans_a = ans_a;} 
        return ans_a ; }
   
- function m_cos_asin(x){               
+ function m_cos_asin(x){                
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
       if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var zz=m_mtx_str_pi_deg_to_0(zz);   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9637,6 +9969,7 @@ function m_cos_atan(x){
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx = m_mtx_trim(xx) ; 
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
    var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -9651,11 +9984,13 @@ function m_cos_atan(x){
    var data_d = m_mtx_real_div(1,data_c);
   return data_d;} 
 
- function m_cos_acos(x){  var xx = x.toString().trim();
+ function m_cos_acos(x){ 
+   var xx = x.toString().trim();
    var data_msg =0;
    var ans_a="";  
    var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}  
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -9690,6 +10025,7 @@ function m_acos_cos(x){
   var ans_a = "";
   var ans_a_s = "";
   var xx_fst ="" ;
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -9737,7 +10073,8 @@ function m_acos_sin(x){
   var flag_1_2=0; 
   var flag_3_4=0; 
   var xx_fst ="" ;  
-  var idx_e = xx.indexOf("e");
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
+   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
       var xx_af_p =  m_str_char(xx_af,".") ;   
@@ -9786,7 +10123,8 @@ function m_acos_sin(x){
    var zz = x.toString().trim();
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+   var zz=m_mtx_str_pi_deg_to_0(zz);   
    var zz = m_str_e_to_str_point(zz );     
    var zz = m_fix(zz,FIX_COL) ;   
    var xx_test_small = m_mtx_str_to_e_a(zz);              
@@ -9814,7 +10152,8 @@ function m_acos_sin(x){
    var data_msg =0;
    var ans_a="";  
    var data_msg =  m_str_char(x,"Msg") ;  
-     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;} 
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
    var xx_test_st = m_str_power(xx_test_small,1);          
@@ -9846,6 +10185,7 @@ function m_tan_atan(x){
    var data_msg = m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ; 
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_mtx_str_to_e_a(xx);          
    var xx_test_small = m_mtx_str_to_e_a(xx);             
@@ -9853,7 +10193,7 @@ function m_tan_atan(x){
    var xx_test_st = m_str_power(xx_test_small,1);          
      return xx ; }
 
-function m_atan_tan(x){     
+function m_atan_tan(x){      
   var xx=x.toString().trim();
   var data_msg =0;
   var data_msg =  m_str_char(x,"Msg") ;  
@@ -9867,7 +10207,8 @@ function m_atan_tan(x){
   var ans_a_s = "";  
   var flag_2_4=0; 
   var flag_1_3=0; 
-  var xx_fst ="" ; 
+  var xx_fst ="" ;
+  var xx=m_mtx_str_pi_deg_to_0(xx);   
   var idx_e = xx.indexOf("e");
     if( idx_e >0){
       var xx_af = xx.substr(idx_e+1,xx.length-idx_e);   
@@ -9913,6 +10254,7 @@ function m_atan_tan(x){
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                   
    var xx = m_mtx_trim(xx) ;
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx = m_str_e_to_str(xx);      
     return xx ;  }
@@ -9923,6 +10265,7 @@ function m_atan_tan(x){
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                 
    var xx =m_mtx_trim(xx) ;  
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );           
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -9935,7 +10278,8 @@ function m_atan_tan(x){
    var data_msg =0;
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                       
-   var xx =m_mtx_trim(xx) ;    
+   var xx =m_mtx_trim(xx) ; 
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx_fst = xx.substr(0,1);
      if(xx_fst=="-"){ var xx=xx.substr(1,xx.length-1);}   
@@ -9949,6 +10293,7 @@ function m_atan_tan(x){
    var data_msg = m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ;
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx_test_small = m_mtx_str_to_e_a(xx);             
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -9966,6 +10311,7 @@ function m_atan_tan(x){
    var data_msg =  m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}                                   
    var xx =m_mtx_trim(xx) ; 
+      var xx=m_mtx_str_pi_deg_to_0(xx);   
    var xx = m_str_e_to_str_point(xx );     
    var xx_test_small = m_mtx_str_to_e_a(xx);              
    var xx_test_nub_e =m_str_power(xx_test_small,0);             
@@ -9992,37 +10338,38 @@ function m_atan_tan(x){
    var data_msg = m_str_char(x,"Msg") ;  
      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
    var xx =m_mtx_trim(xx) ;
-  return xx ; }
+   var xx=m_mtx_str_pi_deg_to_0(xx);   
+    return xx ; }
  
  function m_replace_eq(x){                       
    var xx = x.toString().trim();
-   var xx = xx.replace(/\)\π/g , "\)1\*\π");   
-   var xx = xx.replace(/\)\°/g , "\)1\*\°");  
-   var xx = xx.replace(/0\π/g , "0\*\π");   
-   var xx = xx.replace(/1\π/g , "1\*\π");   
-   var xx = xx.replace(/2\π/g , "2\*\π");   
-   var xx = xx.replace(/3\π/g , "3\*\π");   
-   var xx = xx.replace(/4\π/g , "4\*\π");   
-   var xx = xx.replace(/5\π/g , "5\*\π");   
-   var xx = xx.replace(/6\π/g , "6\*\π");   
-   var xx = xx.replace(/7\π/g , "7\*\π");   
-   var xx = xx.replace(/8\π/g , "8\*\π");   
-   var xx = xx.replace(/9\π/g , "9\*\π"); 
-   var xx = xx.replace(/\(\π/g , "\(1\*\π");  
-   var xx = xx.replace(/\(\°/g , "\(1\*\°");
-   var xx = xx.replace(/0\°/g , "0\*\°");   
-   var xx = xx.replace(/1\°/g , "1\*\°");   
-   var xx = xx.replace(/2\°/g , "2\*\°");   
-   var xx = xx.replace(/3\°/g , "3\*\°");   
-   var xx = xx.replace(/4\°/g , "4\*\°");   
-   var xx = xx.replace(/5\°/g , "5\*\°");   
-   var xx = xx.replace(/6\°/g , "6\*\°");   
-   var xx = xx.replace(/7\°/g , "7\*\°");   
-   var xx = xx.replace(/8\°/g , "8\*\°");   
-   var xx = xx.replace(/9\°/g , "9\*\°"); 
-   var xx = xx.replace(/\°\π/g , "\°\*\π");  
-   var xx = xx.replace(/\π\°/g , "\π\*\°");
-   var xx = xx.replace(/" "/g , "\'\'");      
+   var xx = xx.toString().replace(/\)\π/g , "\)1\*\π");   
+   var xx = xx.toString().replace(/\)\°/g , "\)1\*\°");  
+   var xx = xx.toString().replace(/0\π/g , "0\*\π");   
+   var xx = xx.toString().replace(/1\π/g , "1\*\π");   
+   var xx = xx.toString().replace(/2\π/g , "2\*\π");   
+   var xx = xx.toString().replace(/3\π/g , "3\*\π");   
+   var xx = xx.toString().replace(/4\π/g , "4\*\π");   
+   var xx = xx.toString().replace(/5\π/g , "5\*\π");   
+   var xx = xx.toString().replace(/6\π/g , "6\*\π");   
+   var xx = xx.toString().replace(/7\π/g , "7\*\π");   
+   var xx = xx.toString().replace(/8\π/g , "8\*\π");   
+   var xx = xx.toString().replace(/9\π/g , "9\*\π"); 
+   var xx = xx.toString().replace(/\(\π/g , "\(1\*\π");  
+   var xx = xx.toString().replace(/\(\°/g , "\(1\*\°");
+   var xx = xx.toString().replace(/0\°/g , "0\*\°");   
+   var xx = xx.toString().replace(/1\°/g , "1\*\°");   
+   var xx = xx.toString().replace(/2\°/g , "2\*\°");   
+   var xx = xx.toString().replace(/3\°/g , "3\*\°");   
+   var xx = xx.toString().replace(/4\°/g , "4\*\°");   
+   var xx = xx.toString().replace(/5\°/g , "5\*\°");   
+   var xx = xx.toString().replace(/6\°/g , "6\*\°");   
+   var xx = xx.toString().replace(/7\°/g , "7\*\°");   
+   var xx = xx.toString().replace(/8\°/g , "8\*\°");   
+   var xx = xx.toString().replace(/9\°/g , "9\*\°"); 
+   var xx = xx.toString().replace(/\°\π/g , "\°\*\π");  
+   var xx = xx.toString().replace(/\π\°/g , "\π\*\°");
+   var xx = xx.toString().replace(/" "/g , "\'\'");      
      return xx ; } 
 
 function m_fun_item(x){  
@@ -10039,13 +10386,13 @@ function m_fun_item(x){
    return sum_b ;
 }
 
-function m_sing_item(x){   
+function m_sing_item(x){           
  var xx = x.toString().trim();
  var en_nb=m_str_all_char_nb(xx,"e-");
  var ep_nb=m_str_all_char_nb(xx,"e+");
    if(en_nb==0 && ep_nb==0){  return xx ; }  
- var xx = xx.replace(/e\-/g , "EN"); 
- var xx = xx.replace(/e\+/g , "EP");
+ var xx = xx.toString().replace(/e\-/g , "EN"); 
+ var xx = xx.toString().replace(/e\+/g , "EP");
  var add_nb=m_str_all_char_nb(xx,"+");
  var sub_nb=m_str_all_char_nb(xx,"-");
  var mul_nb=m_str_all_char_nb(xx,"*");
@@ -10053,16 +10400,16 @@ function m_sing_item(x){
  var pow_nb=m_str_all_char_nb(xx,"^");
  var sum_a=add_nb + sub_nb+ mul_nb+ div_nb +pow_nb;
    if(sum_a!=0){  
-   var xx = xx.replace(/EN/g , "e\-"); 
-   var xx = xx.replace(/EP/g , "e\+");  
+   var xx = xx.toString().replace(/EN/g , "e\-"); 
+   var xx = xx.toString().replace(/EP/g , "e\+");  
    return xx ; }  
  var sum_b = m_fun_item(xx); 
    if(sum_b!=0){ 
- var xx = xx.replace(/EN/g , "e\-"); 
- var xx = xx.replace(/EP/g , "e\+");  
+ var xx = xx.toString().replace(/EN/g , "e\-"); 
+ var xx = xx.toString().replace(/EP/g , "e\+");  
  return xx ; }  
- var xx = xx.replace(/EN/g , "e\-"); 
- var xx = xx.replace(/EP/g , "e\+");  
+ var xx = xx.toString().replace(/EN/g , "e\-"); 
+ var xx = xx.toString().replace(/EP/g , "e\+");  
  var xx_nub_e =m_str_power(xx,0);             
  var xx_st = m_str_power(xx,1);
    if(xx_nub_e >=100 ||xx_nub_e <= -100 ){
@@ -10071,50 +10418,60 @@ function m_sing_item(x){
    return xx;
 }
 
-function m_funct_content_max_min_msg_c_input_over(strs,fuc){ 
+
+function m_funct_content_max_min_msg_c_input_over(strs,fuc,nubs){    
   var ss = strs.toString().trim();
+  var nub_a=nubs;
   var xx = fuc.toString().trim();
   var ans_nb=-1;
-  var ans_nb=m_item_nuber(ss);
-  if( ans_nb==0 ){ return "";} 
+  var ans_nb=m_item_nuber(ss);   
+    if( ans_nb==0 ){ return "";} 
   var xx_nb=m_str_all_char_nb(ss,xx); 
-  var ep_nb=m_str_all_char_nb(ss,"e+"); 
-  var en_nb=m_str_all_char_nb(ss,"e-"); 
-  var sn_nb=ep_nb+en_nb;
+  var ss = ss.toString().replace(/exp/g , "EXP"); 
+  var ss = ss.toString().replace(/e\+/g , "EP"); 
+  var ss = ss.toString().replace(/e\-/g , "EN"); 
+  var ss = ss.toString().replace(/eQ/g , "EN"); 
+  var ss = ss.toString().replace(/e/g , "EP"); 
+  var en_nb=m_str_all_char_nb(ss,"EN");    
+  var ep_nb=m_str_all_char_nb(ss,"EP");    
+  var sn_nb= m_mtx_real_add(en_nb,ep_nb);
+  var ss = ss.toString().replace(/EP/g , "e\+");  
+  var ss = ss.toString().replace(/EN/g , "e\-");  
+  var ss = ss.toString().replace(/EXP/g , "exp");  
   var ans="";
   var data_ref="";
   var data_max="";
   var data_min="";
-  var data_ref =  m_funct_content(ss,xx);    
+  var data_ref =  m_funct_content(ss,xx);  
   var data_ref_h = data_ref
   var data_ref_l = data_ref
   var idx_xx =m_backindex(ss,xx) ;            
   var ss =ss.substr(0,idx_xx);                 
-  for(var i=1;i< (sn_nb+xx_nb);i++){
-    var data_ref_a =  m_funct_content(ss,xx);
-    var ep_nb = m_str_all_char_nb(data_ref_a,"e+"); 
-    var en_nb = m_str_all_char_nb(data_ref_a,"e-"); 
-    var sn_nb = ep_nb + en_nb;
+    for(var i=1;i< (sn_nb+xx_nb);i++){
+     var data_ref_a =  m_funct_content(ss,xx);
+     var ep_nb = m_str_all_char_nb(data_ref_a,"e+"); 
+     var en_nb = m_str_all_char_nb(data_ref_a,"e-"); 
+     var sn_nb = ep_nb + en_nb;
     if(sn_nb !=0 && data_ref_a !=""){
       if(m_mtx_real_str_comp(data_ref_a,data_ref_h)!=2 ){var data_max= data_ref_a; data_ref_h= data_max ;}
       if(m_mtx_real_str_comp(data_ref_a,data_ref_l)!=1 ){var data_min= data_ref_a; data_ref_l= data_min ;}
                  }
-    var idx_xx =m_backindex(ss,xx) ;            
-    var ss =ss.substr(0,idx_xx);                  
+     var idx_xx =m_backindex(ss,xx) ;            
+     var ss =ss.substr(0,idx_xx);                  
         }  
     if(data_max==""){ var data_max =data_ref ;}   
     if(data_min==""){ var data_min =data_ref ;}    
   var data_msg="";
-    if(m_mtx_real_str_comp(data_max,1e+200)==1 ){var data_msg= data_max+message_1(39) ; }  
-    if(m_mtx_real_str_comp(data_min,1e-200)==2 ){var data_msg= data_min+message_1(40); }
+    if((m_mtx_real_str_comp(data_max,1e+200)==1 ) && (nub_a==1 ||nub_a==3)) {var data_msg= data_max+message_1(39) ; }  
+    if((m_mtx_real_str_comp(data_min,1e-200)==2 )&& (nub_a==2 ||nub_a==3)){var data_msg= data_min+message_1(40); }
       return data_msg;
 }
 
 
-function m_funct_content_max_min_msg(strs,fuc){ 
+function m_funct_content_max_min_msg(strs,fuc){   
   var ss = strs.toString().trim();
   var xx = fuc.toString().trim();
-  if(xx=="e"){ var ss = ss.replace(/exp/g , "EXP"); } 
+    if(xx=="e"){ var ss = ss.toString().replace(/exp/g , "EXP"); } 
   var xx_nb=m_str_all_char_nb(ss,xx); 
   var ans="";
     if( xx_nb==0){ return ans;} 
@@ -10147,16 +10504,89 @@ function m_funct_content_cal_noc_many(strs,fuc){
   var data_msg =0;
   var data_msg =  m_str_char(ss,"Msg") ;  
     if(data_msg >=1){ var ans_a = ss ; return  ans_a ;} 
-  var ss= "("+ss+")" ; 
+     for(var i=0;i<3 ;i++){
+  var ss = ss.toString().replace(/\'0\'\+/g , "");         
+  var ss = ss.toString().replace(/\'0\'\-\'0'/g , "\'0\'");   
+  var ss = ss.toString().replace(/\'0\'\-\'\-/g , "\'");   
+  var ss = ss.toString().replace(/\-\(\'\-/g , "\+\(\'");   
+  var ss = ss.toString().replace(/-\'\-/g , "\+\'");       
+  var ss = ss.toString().replace(/\'0\'\-\'/g , "\'\-");     
+    }
+    if(ss==""){ var ss=0; var ans_a = 0;   return  ans_a ;} 
+  var ss = ss.toString().replace(/e\-/g , "EN");     
+  var ss = ss.toString().replace(/e\+/g , "EP");
+  var ss = ss.toString().replace(/\(\'\-/g , "\(\'Q");   
+  var add_nb=m_str_all_char_nb(ss,"+");
+  var sub_nb=m_str_all_char_nb(ss,"-");  
+  var mul_nb=m_str_all_char_nb(ss,"*");
+  var div_nb=m_str_all_char_nb(ss,"/");
+  var pi_nb=m_str_all_char_nb(ss,"π");
+  var zl_nb=m_str_all_char_nb(ss,"°");
+  var ss = ss.toString().replace(/Q/g , "\-");   
+  var ss = ss.toString().replace(/EN/g , "e\-");   
+  var ss = ss.toString().replace(/EP/g , "e\+");
+  var sin_nb=m_str_all_char_nb(ss,"m_sin(");
+  var cos_nb=m_str_all_char_nb(ss,"m_cos(");
+  var tan_nb=m_str_all_char_nb(ss,"m_tan(");
+  var sum_1_nb =sin_nb+cos_nb+tan_nb ; 
+  var sum_nb=add_nb+sub_nb+mul_nb+div_nb;
+  var sum_pz = pi_nb+zl_nb;
+   if((sum_nb ==0 && sum_pz ==0 && sum_1_nb==0 )||(sum_nb ==0 && sum_pz !=0 && sum_1_nb==0 )||(sum_nb ==0 && sum_pz ==0 && sum_1_nb!=0)) {   
+      var ss = ss.toString().replace(/\'0\'\-\'/g , "\'\-");     
+       if(ss==""){ var ss=0;}
+        var ss = ss.toString().replace(/\'/g , "");  
+        var ss = ss.toString().replace(/\°/g , DEG);   
+        var ss = ss.toString().replace(/\π/g , PIS);
+        var ans_a =  eval(ss); 
+      return  ans_a ;}    
+  var ln_nb=m_str_all_char_nb(ss,"ln");
+  var log_nb=m_str_all_char_nb(ss,"log");
+  var asin_nb=m_str_all_char_nb(ss,"m_asin(");
+  var asinh_nb=m_str_all_char_nb(ss,"m_asinh(");
+  var acos_nb=m_str_all_char_nb(ss,"m_acos(");
+  var acosh_nb=m_str_all_char_nb(ss,"m_acosh(");
+  var atanh_nb=m_str_all_char_nb(ss,"m_atanh(");
+  var en_nb=m_str_all_char_nb(ss,"e-");
+  var zl_nb=m_str_all_char_nb(ss,"°");
+  var pi_nb=m_str_all_char_nb(ss,"π");
+  var sin_nb=m_str_all_char_nb(ss,"m_sin(");
+  var cos_nb=m_str_all_char_nb(ss,"m_cos(");
+  var tan_nb=m_str_all_char_nb(ss,"m_tan(");
+  var sum_1_nb =sin_nb+cos_nb+tan_nb ; 
+  var sum_2_nb =zl_nb+pi_nb;
+  var sum_3_nb = ln_nb+log_nb+asin_nb+acos_nb+acosh_nb+atanh_nb; 
+    if(( en_nb !=0 && sum_3_nb!=0)||(sum_2_nb !=0 && sum_1_nb !=0 )){     ;}   
+    else{
+      var ss = ss.toString().replace(/\(\'\-/g , "\(\'Q");   
+      var ss = ss.toString().replace(/\'/g , "");    
+      var ss = ss.toString().replace(/e\-/g , "EN");    
+      var ss = ss.toString().replace(/e\+/g , "EP");
+      var ss = m_hat_bf_aft_many(ss ,'/','DDD');          
+      var ss = ss.toString().replace(/DDD/g, 'm_mtx_real_div_x');  
+      var ss = m_hat_bf_aft_many(ss ,'*','MMM');  
+      var ss = ss.toString().replace(/MMM/g, 'm_mtx_real_mul_x');  
+      var ss = m_hat_bf_aft_many(ss ,'-','SSS');  
+      var ss = ss.toString().replace(/SSS/g ,'m_mtx_real_sub_x'); 
+          ss = m_hat_bf_aft_many(ss ,'+','AAA'); 
+          ss = ss.toString().replace(/AAA/g , "m_mtx_real_add_x"); 
+      var ss = ss.toString().replace(/EN/g , "e\-");   
+      var ss = ss.toString().replace(/EP/g , "e\+"); 
+      var ss = ss.toString().replace(/Q/g , "\-");   
+          ss = ss.toString().replace(/π/g , "'π'"); 
+          ss = ss.toString().replace(/°/g , "'°'"); 
+      var ans_a =  eval(ss);
+       return  ans_a ;}      
+  var ss= "("+ss+")" ;
+  var ss = ss.toString().replace(/\'/g , "");    
   var xx = fuc.toString().trim();
   var c_nb=m_str_all_char_nb(ss,"(");
   var new_ss ="";
   var ans_ss ="";
-  var c_nb_1 =parseInt(c_nb+2); 
+  var c_nb_1 =parseInt(c_nb+2);  
     for(var i=0; i<(c_nb_1) ;i++){
-      var new_ss = m_funct_content_cal_noc(ss,xx);
-      var ss=new_ss;
-      var c_nb_1 = m_str_all_char_nb(ss,"(")+2; 
+     var new_ss = m_funct_content_cal_noc(ss,xx);
+     var ss=new_ss;
+     var c_nb_1 = m_str_all_char_nb(ss,"(");   
                          }
   var new_ss = new_ss.toString().replace(/EN/g , "e\-"); 
   var new_ss = new_ss.toString().replace(/EP/g , "e\+");
@@ -10170,14 +10600,16 @@ function m_funct_content_cal_noc(strs,fuc){
   var data_msg =0;
   var data_msg =  m_str_char(ss,"Msg") ;  
   if(data_msg >=1){ var ans_a = ss ; return  ans_a ;} 
-  var ss  = ss.replace(/Q/g , "-"); 
+  var ss  = ss.toString().replace(/Q/g , "-"); 
   for(var i=0;i<2;i++){                          
     var idx_xx =m_backindex(ss,xx) ;
     var sec_1=ss.substr(0,idx_xx);
     var sec_2=m_funct_content(ss,xx); 
     var sec_3 = ss.substr((idx_xx+sec_2.length+2),(ss.length-idx_xx-sec_2.length));  
-    var sec_2  = sec_2.replace(/e\-/g , "EN"); 
-    var sec_2  = sec_2.replace(/e\+/g , "EP"); 
+    var sec_2  = sec_2.toString().replace(/e\-/g , "EN"); 
+    var sec_2  = sec_2.toString().replace(/\*\-/g , "\*Q"); 
+    var sec_2  = sec_2.toString().replace(/\/\-/g , "\/Q"); 
+    var sec_2  = sec_2.toString().replace(/e\+/g , "EP");
     var sec_2_add_nb=m_str_all_char_nb(sec_2,"+");
     var sec_2_sub_nb=m_str_all_char_nb(sec_2,"-");
     var sec_2_mul_nb=m_str_all_char_nb(sec_2,"*");
@@ -10188,11 +10620,11 @@ function m_funct_content_cal_noc(strs,fuc){
     var sec_1_lst=sec_1.substr(sec_1.length-1,1); 
     var sec_2_sum_nb=sec_2_add_nb+sec_2_sub_nb+sec_2_mul_nb+sec_2_div_nb ;
     var sec_2_sum_np =sec_2_en_nb+sec_2_ep_nb;
-    if(sec_2_sum_nb==0 && sec_2_sum_np ==1 && (sec_1_lst=="+" ||sec_1_lst=="-" ||sec_1_lst=="*"||sec_1_lst=="/")){ var ss=sec_1+sec_2+sec_3; var i=0;}   
+    if(sec_2_sum_nb==0 && sec_2_sum_np ==1 && (sec_1_lst=="+" ||sec_1_lst=="-" ||sec_1_lst=="*"||sec_1_lst=="/")){ var ss=sec_1+sec_2+sec_3; var i=0;}               
     if(sec_2_sum_nb==0 && sec_2_sum_np ==1 && sec_1_lst !="+" && sec_1_lst !="-" && sec_1_lst !="*" && sec_1_lst !="/"){ ss=sec_1+"(0+"+sec_2+")"+sec_3; var i=0;}   
     if(sec_2_sum_nb==0 && sec_2_sum_np ==0 && sec_2_pow_nb==0){ var ss=sec_1+"(0+"+sec_2+")"+sec_3; var i=0;}  
-    if(sec_2_sum_nb==0 && sec_2_sum_np ==0 && sec_2_pow_nb!=0){ var ss=sec_1+"("+sec_2+")"+sec_3; var i=3;}  
-   }
+      if(sec_2_sum_nb==0 && sec_2_sum_np ==0 && sec_2_pow_nb!=0){ var ss=sec_1+"("+sec_2+")"+sec_3; var i=3;}
+      }
   var idx_xx =m_backindex(sec_1,"m_") ; 
   var fun_sec1=sec_1.substr(idx_xx,sec_1.length-idx_xx+1); 
   var sec_2_en_nb=m_str_all_char_nb(sec_2,"EN");
@@ -10200,37 +10632,57 @@ function m_funct_content_cal_noc(strs,fuc){
   var sec_2_en1_nb=m_str_all_char_nb(sec_2,"e-");
   var sec_2_ep1_nb=m_str_all_char_nb(sec_2,"e+");
   var sec_2_sum_e_nb=sec_2_en_nb+sec_2_ep_nb+sec_2_en1_nb+sec_2_ep1_nb ;
-  var fun_limit="0";
-    if(fun_sec1.length <= 8  && idx_xx > 0 ){ fun_limit = fun_sec1 ;} 
+  var fun_limit="";
+    if(fun_sec1.length <= 14 && fun_sec1.length >=3 && idx_xx > 0 ){ fun_limit = fun_sec1 ;}  
   var sec_2 =  m_split_4(sec_2);
-  var sec_2 = m_split_add_sub_sum(sec_2,fun_limit);
-  var sec_2 = m_fix(sec_2,398);
+  var sec_2 = m_split_add_sub_sum(sec_2,fun_limit); 
+  var sec_2 = m_fix(sec_2,398); 
   var data_msg =0;
   var data_msg =  m_str_char(sec_2,"Msg") ;  
     if(data_msg >=1){ var ans_a = sec_2 ; return  ans_a ;} 
-  var sec_2  = sec_2.replace(/EN/g , "e\-"); 
-  var sec_2  = sec_2.replace(/EP/g , "e\+"); 
+  var sec_2  = sec_2.toString().replace(/EN/g , "e\-"); 
+  var sec_2  = sec_2.toString().replace(/EP/g , "e\+"); 
+  var sec_2  = sec_2.toString().replace(/\*Q/g , "\*\-"); 
+  var sec_2  = sec_2.toString().replace(/\/Q/g , "\/\-"); 
   var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);
   var sec_2_fst=sec_2.toString().substr(0,1);
   var sec_3_fst=sec_3.toString().substr(0,1);
   var sum_b = m_fun_item(sec_1); 
-  var sec_2  = sec_2.replace(/e\-/g , "EN"); 
-  var sec_2  = sec_2.replace(/e\+/g , "EP"); 
+  var sec_2  = sec_2.toString().replace(/e\-/g , "EN"); 
+  var sec_2  = sec_2.toString().replace(/e\+/g , "EP"); 
+  var sec_2  = sec_2.toString().replace(/\*\-/g , "\*Q"); 
+  var sec_2  = sec_2.toString().replace(/\/\-/g , "\/Q"); 
   var sum_b2 = m_fun_item(sec_2); 
-  var sec_2  = sec_2.replace(/EN/g , "e\-"); 
-  var sec_2  = sec_2.replace(/EP/g , "e\+"); 
+  var sec_2  = sec_2.toString().replace(/EN/g , "e\-"); 
+  var sec_2  = sec_2.toString().replace(/EP/g , "e\+"); 
+  var sec_2  = sec_2.toString().replace(/\*Q/g , "\*\-"); 
+  var sec_2  = sec_2.toString().replace(/\/Q/g , "\/\-"); 
     if(sum_b!=0 && sum_b2 ==0){                               
       var fun_sec=sec_1.substr(idx_xx,sec_1.length-idx_xx+1);
       var sec_2=m_fix(sec_2,420);
       var fun_sec_c_nb=m_str_all_char_nb(fun_sec,"(");
-    if( fun_sec_c_nb==1){var data_t = fun_sec+"('"+sec_2+"'))";}  
+      var fun_sec_m_nb=m_str_all_char_nb(fun_sec,"_");
+    if( fun_sec_c_nb==1 && fun_sec!="m_pow"){var data_t = fun_sec+"('"+sec_2+"'))"; sec_3=sec_3.toString().substr(1,sec_3.length-1);} 
+    else if(fun_sec_c_nb==2 && fun_sec_m_nb==2){var data_t = fun_sec+"'"+sec_2+"'))";sec_3=sec_3.toString().substr(2,sec_3.length-2);} 
+    else if(fun_sec=="m_pow"){ 
+            var data_t = fun_sec+"("+sec_2+")";}               
     else{var data_t = fun_sec+"('"+sec_2+"')";} 
-  var data_t  = data_t.replace(/\,/g , "\'\,\'");  
-    if(fun_sec.length <= 8){ var sec_2 = eval(data_t);        
-      var sec_2 = m_fix(sec_2 ,420);  
-      var  sec_1=  sec_1.substr(0,idx_xx); }
+    if(fun_sec.length <= 14 && fun_sec.length >=3){   
+        data_t = data_t.toString().replace(/'/g , ""); 
+        data_t = data_t.toString().replace(/"/g , ""); 
+        data_t = data_t.toString().replace(/\(/g , "('"); 
+        data_t = data_t.toString().replace(/\)/g , "')"); 
+     var sec_2 = eval(data_t);                    
+     var data_msg =0;                               
+     var data_msg =  m_str_char(sec_2,"Msg") ;           
+       if(data_msg >=1){ var ans_a = sec_2 ; return  ans_a ;}  
+     var sec_2 = m_fix(sec_2 ,420);  
+     var  sec_1=  sec_1.substr(0,idx_xx); }
                   } 
-    else if(sum_b2 !=0){var sec_2= eval(sec_2);
+    else if(sum_b2 !=0){
+      var sec_2 = sec_2.toString().replace(/π/g , "'π'"); 
+      var sec_2 = sec_2.toString().replace(/°/g , "'°'"); 
+      var sec_2= eval(sec_2);    
       var sec_1=  sec_1.substr(0,idx_xx); }
   var sec_2  = sec_2.toString().replace(/\+\+/g , "\+"); 
   var sec_2  = sec_2.toString().replace(/\+\-/g , "\-");
@@ -10239,24 +10691,33 @@ function m_funct_content_cal_noc(strs,fuc){
   var sec_2  = sec_2.toString().replace(/\-\-/g , "\-"); 
   var sec_2  = sec_2.toString().replace(/\*\*/g , "\*"); 
   var sec_2  = sec_2.toString().replace(/\/\//g , "\/"); 
-  for(var j=0 ;j<5 ;j++){                   
-    if(sec_1_lst=="(" && sec_3_fst==")"){
+  var sec_2  = sec_2.toString().replace(/\)/g , "");      
+  var sec_2  = sec_2.toString().replace(/\(/g , "");       
+  var sec_1_2lst=sec_1.toString().substr(sec_1.length-2,2);  
+  var sec_3_2fst=sec_3.toString().substr(0,2);
+   for(var j=0 ;j<6 ;j++){                            
+    if(sec_1_2lst=="((" && sec_3_2fst=="))"){
       var sec_1=sec_1.substr(0,sec_1.length-1);
-      var sec_3=sec_3.substr(1,sec_3.length-1);}
-    var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);
-    var sec_3_fst=sec_3.toString().substr(0,1);
+      var sec_3=sec_3.substr(1,sec_3.length-1);}              
+      var sec_1_2lst=sec_1.toString().substr(sec_1.length-2,2);
+      var sec_3_2fst=sec_3.toString().substr(0,2);
                        }
-  if(sec_1_lst=="-" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+"+"+sec_2.substr(1,sec_2.length-1)+sec_3;}
-  else if(sec_1_lst=="+" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3;}
-  else if(sec_1=="(" && sec_3==")"){ var ss=sec_2;}
-  else if(sec_1=="(" && sec_3=="))" && fun_sec_c_nb==1){ var ss=sec_2;}
-  else { var ss=sec_1+sec_2+sec_3;}
+  var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);  
+  var sec_2_fst=sec_2.toString().substr(0,1);
+  var sec_3_fst=sec_3.toString().substr(0,1);
+  var sec_1_m=m_str_all_char_nb(sec_1,"m");   
+    if(sec_1_lst=="-" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+"+"+sec_2.substr(1,sec_2.length-1)+sec_3;}    
+    else if(sec_1_lst=="+" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3;}
+    else if(sec_1_lst=="(" && sec_3_fst==")" && sec_1_m==0){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3.substr(1,sec_3.length-1);}  
+    else { var ss=sec_1+sec_2+sec_3;}
+  var ss  = ss.toString().replace(/\+\+/g , "\+");      
+  var ss  = ss.toString().replace(/\-\-/g , "\-");      
    return ss;
  }
 
 function m_funct_content_eval_many(strs){     
   var ss = strs.toString().trim();
-  var ss= ss.replace(/Q/g , "\-"); 
+  var ss= ss.toString().replace(/Q/g , "\-"); 
   var m_nb=m_str_all_char_nb(ss,"m_");
   var ss_fst2=ss.substr(0,2);
     if(ss_fst2=="0+"){var ss = ss.substr(2,ss.length-2);}
@@ -10292,7 +10753,9 @@ function m_funct_content_eval(strs){
   var ss_bf = ss.substr(0,idx_m);           
   var ss_af = ss.substr(idx_m+data_a.length , ss.length - idx_m - data_a.length );
   var data_a_a=  data_a ;  
-  var data_a_a= data_a_a.replace(/Q/g , "\-");  
+  var data_a_a= data_a_a.toString().replace(/Q/g , "\-");  
+  var data_a_a = data_a_a.toString().replace(/π/g , "'π'"); 
+  var data_a_a = data_a_a.toString().replace(/°/g , "'°'"); 
   var data_a_value = eval( data_a_a );
   var data_a_value = '"'+data_a_value.toString()+'"';   
   var ss_bf_lst_1= ss_bf.substr(ss_bf.length-1,1);
@@ -10345,7 +10808,7 @@ function m_funct_content(strs,fuc){
   return content_a ;
 }
 
-function m_lowercase_to_uppercase(strs){     
+function m_lowercase_to_uppercase(strs){   
   var ss = strs.toString().trim();
   var nub_s =-1;
     for(var i=0; i<ss.length ;i++){   
@@ -10447,21 +10910,21 @@ function m_indexOf_2_all(strs,char1,char2,sl){
   var ch1 = char1.toString().trim();   
   var ch2 = char2.toString().trim();
   var sl=sl;
-  var ss = ss.replace(/e\-/g , "EN"); 
-  var ss = ss.replace(/e\+/g , "EP");
+  var ss = ss.toString().replace(/e\-/g , "EN"); 
+  var ss = ss.toString().replace(/e\+/g , "EP");
   var ss_fst=ss.substr(0,1);
   if(ss_fst !='-'){ var ss="+"+ss ;}   
   var add_nb=m_str_all_char_nb(ss,"+");
   var sub_nb=m_str_all_char_nb(ss,"-");
-  var ss = ss.replace(/\*\π/g , "pi");  
-  var ss = ss.replace(/\*\°/g , "dg");  
-  var ss = ss.replace(/\π/g , "pi");  
-  var ss = ss.replace(/\°/g , "dg");  
+  var ss = ss.toString().replace(/\*\π/g , "pi");  
+  var ss = ss.toString().replace(/\*\°/g , "dg");  
+  var ss = ss.toString().replace(/\π/g , "pi");  
+  var ss = ss.toString().replace(/\°/g , "dg");  
   var ss= m_str_math_replacec(ss); 
-  var ss = ss.replace(/en/g , "EN");  
-  var ss = ss.replace(/ep/g , "EP");  
-  var ss = ss.replace(/pi/g , "\π");  
-  var ss = ss.replace(/dg/g , "\°");  
+  var ss = ss.toString().replace(/en/g , "EN");  
+  var ss = ss.toString().replace(/ep/g , "EP");  
+  var ss = ss.toString().replace(/pi/g , "\π");  
+  var ss = ss.toString().replace(/dg/g , "\°");  
   var data_a1="";
   var data_a2="";
   var data_b=-1;
@@ -10478,8 +10941,8 @@ function m_indexOf_2_all(strs,char1,char2,sl){
                      } 
        }
     if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}  
-  var ss = ss.replace(/EN/g , "e\-"); 
-  var ss = ss.replace(/EP/g , "e\+");  
+  var ss = ss.toString().replace(/EN/g , "e\-"); 
+  var ss = ss.toString().replace(/EP/g , "e\+");  
     for(var j=0; j< nub ;j++){
       if(j==(nub-1)){ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(ss.length-INDEX_A[j][0]));}     
       else{ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(INDEX_A[j+1][0]-INDEX_A[j][0]));} 
@@ -10550,14 +11013,14 @@ function m_indexOf_2_all(strs,char1,char2,sl){
    var data_sum_e =  m_mtx_col_sum(INDEX_E,2);   
    var data_sum_e=m_fix(data_sum_e,420);
    var data_b=data_sum_e+"+"+data_sum_d+"+"+data_sum_b+"+"+data_sum_c+"+"+data_sum_m;      
-   var data_b = data_b.replace(/\+\-/g , "\-");  
+   var data_b = data_b.toString().replace(/\+\-/g , "\-");  
    for(var j=0;j<4;j++){
      var data_b_fst=data_b.substr(0,1);
      if(data_b_fst=="+"){ data_b=data_b.substr(1,data_b.length-1);}     
      var data_b_lst=data_b.substr(data_b.length-1,1);
      if(data_b_lst=="+"){ data_b=data_b.substr(0,data_b.length-1);}    
-     var data_b = data_b.replace(/\+\+/g , "\+");   
-     var data_b = data_b.replace(/\+\-/g , "\-");  
+     var data_b = data_b.toString().replace(/\+\+/g , "\+");   
+     var data_b = data_b.toString().replace(/\+\-/g , "\-");  
                         }
    if(sl==0){return  data_b ;}
    if(sl==1){return INDEX_A ;}
@@ -10574,7 +11037,7 @@ function m_indexOf_all(strs,chars){
       var data_a= ss.substr(i,ch.length)
       if( data_a==ch){ var data_b = data_b+","+ i ; } 
       }
-  if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}
+   if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}
     return  data_b ;
 } 
 
@@ -10622,13 +11085,13 @@ function m_index_str_to_mtx(strs,char1,char2,nubs){
         var data_1 = INDEX_A[m][2];
         var data_1_fst = data_1.substr(0,1);
         var data_1_1 = data_1.substr(1,data_1.length-1);
-        var data_1_1 = data_1_1.replace(/\(/g , "");    
-        var data_1_1 = data_1_1.replace(/\)/g , "");   
+        var data_1_1 = data_1_1.toString().replace(/\(/g , "");    
+        var data_1_1 = data_1_1.toString().replace(/\)/g , "");   
         var data_2 = INDEX_A[m+1][2];
         var data_2_fst = data_2.substr(0,1);
         var data_2_1 = data_2.substr(1,data_2.length-1);
-        var data_2_1 = data_2_1.replace(/\(/g , "");     
-        var data_2_1 = data_2_1.replace(/\)/g , "");
+        var data_2_1 = data_2_1.toString().replace(/\(/g , "");     
+        var data_2_1 = data_2_1.toString().replace(/\)/g , "");
         if(((data_1_fst =="*" && data_2_fst =="/")||(data_1_fst =="/" && data_2_fst =="*")) && (data_1_1 == data_2_1)){
           INDEX_A[m][2]="*1"; 
           INDEX_A[m+1][2]="*1";
@@ -10653,19 +11116,17 @@ function m_index_str_to_mtx(strs,char1,char2,nubs){
         if(data_fst =="*"){ var sum_mul = m_mtx_real_mul(sum_mul,data_b);}
         if(data_fst =="/"){ var sum_div = m_mtx_real_mul(sum_div,data_b);}
                    }
-     var ans_a = m_mtx_real_div(sum_mul,sum_div);
+     var ans_a = m_mtx_real_div_x(sum_mul,sum_div);
      var ans_a =m_fix(ans_a,420);
      if(nubs==0){ return  ans_a ;}
      else{ return  INDEX_A ;}
  }
 
-
-
 function m_split_add_sub_sum(strs,nubs){     
   var ss = strs.toString().trim();
   var s1 = nubs.toString().trim();
-  var ss = ss.replace(/e\-/g , "EN"); 
-  var ss = ss.replace(/e\+/g , "EP");
+  var ss = ss.toString().replace(/e\-/g , "EN"); 
+  var ss = ss.toString().replace(/e\+/g , "EP");
   var s_nb =m_str_all_char_nb(ss,"s"); 
   var e_nb =m_str_all_char_nb(ss,"e"); 
   var l_nb =m_str_all_char_nb(ss,"l"); 
@@ -10682,10 +11143,10 @@ function m_split_add_sub_sum(strs,nubs){
   var pi_nb=m_str_all_char_nb(ss,"π");
   var deg_nb=m_str_all_char_nb(ss,"°");
     if(add_nb ==0 && sub_nb==0 && mul_nb==0 && div_nb==0){return  ss ;}   
-  var ss = ss.replace(/\*\π/g , "\π");   
-  var ss = ss.replace(/\*\°/g , "\°");
+  var ss = ss.toString().replace(/\*\π/g , "\π");   
+  var ss = ss.toString().replace(/\*\°/g , "\°");
   var data_b="";
-  var nub = parseInt(m_mtx_real_add(add_nb,sub_nb)); 
+  var nub = parseInt(m_mtx_real_add_x(add_nb,sub_nb)); 
   var pi_nb=0;
   var pi_nb  = m_str_all_char_nb(ss,"π");
   var pi_count=0;  
@@ -10718,31 +11179,33 @@ function m_split_add_sub_sum(strs,nubs){
       var ep_nb  =m_str_all_char_nb(data_a,"EP");
       var ep_nb1  =m_str_all_char_nb(data_a,"e+");
       if((pi_nb+deg_nb)>1){ return  ss ;} 
-      if( pi_nb >=1){ INDEX_B= m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_B,pi_count) ;
+      if( pi_nb >=1){ INDEX_B= m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_B,pi_count) ;    
         var pi_count= pi_count+1;      }
-      else if( deg_nb >=1){ INDEX_C=m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_C,deg_count) ;
+      else if( deg_nb >=1){ INDEX_C=m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_C,deg_count) ;   
         var deg_count=deg_count+1;        } 
-      else if( en_nb >=1 ||ep_nb>=1 ||en_nb1 >=1 ||ep_nb1 >=1){ INDEX_D = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_D,epn_count) ; 
+      else if( en_nb >=1 ||ep_nb>=1 ||en_nb1 >=1 ||ep_nb1 >=1){ INDEX_D = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_D,epn_count) ;   
         var epn_count=epn_count+ 1;  }
-      else { INDEX_E = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_E,otr_count) ; 
+      else { INDEX_E = m_mtx_a_row_copy_to_b_row(INDEX_A,i,INDEX_E,otr_count) ;                                              
         var otr_count= otr_count+1;  }
                                    }  
     INDEX_B = m_mtx_delete_empty_row(INDEX_B,2);
     INDEX_C = m_mtx_delete_empty_row(INDEX_C,2);
     INDEX_D = m_mtx_delete_empty_row(INDEX_D,2);
     INDEX_E = m_mtx_delete_empty_row(INDEX_E,2);
-    INDEX_B = m_mtx_sort(INDEX_B,2,3) ;
-    INDEX_C = m_mtx_sort(INDEX_C,2,3) ;
-    INDEX_D = m_mtx_sort(INDEX_D,2,3) ;
-    INDEX_E = m_mtx_sort(INDEX_E,2,3) ;
+    INDEX_B = m_mtx_sort(INDEX_B,2,3) ;   
+    INDEX_C = m_mtx_sort(INDEX_C,2,3) ;   
+    INDEX_D = m_mtx_sort(INDEX_D,2,3) ;   
+    INDEX_E = m_mtx_sort(INDEX_E,2,3) ; 
   var data_sum_b =  m_mtx_col_sum(INDEX_B,2);
   var data_sum_c =  m_mtx_col_sum(INDEX_C,2);
   var data_sum_d =  m_mtx_col_sum(INDEX_D,2);
   var data_sum_e =  m_mtx_col_sum(INDEX_E,2);
-  var data_sum_d = m_mtx_str_to_e_a(data_sum_d);  
-  var data_b="";
-  var xx_test_nub_e =m_str_power(data_sum_d,0);             
+  var data_sum_d = m_mtx_str_to_e_a(data_sum_d); 
+   var data_b="";
+   if(data_sum_d==""){ var data_sum_d=0;} 
+   var xx_test_nub_e =m_str_power(data_sum_d,0);  
   var xx_test_st = m_str_power(data_sum_d,1); 
+  var xx_test_st_fst = xx_test_st.substr(0,1);  
   var e_n_comp=m_mtx_real_str_comp(xx_test_nub_e,-150);
   var e_p_comp=m_mtx_real_str_comp(xx_test_nub_e,200);
   var str_comp=m_mtx_real_str_comp(xx_test_st,0);
@@ -10751,32 +11214,40 @@ function m_split_add_sub_sum(strs,nubs){
   var zz_p_d =0 ; 
   var zz_p_e =0 ; 
   if(s1=="m_ln" ||s1=="m_log"){
-    var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
+    var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0); 
+     if( data_sum_bce==""){var data_sum_bce=0;}
+    if( data_sum_d==""){var data_sum_d="0";} 
     var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d); 
-    if(s1=="m_ln" && data_sum_bce==1 && e_n_comp ==2  ){ var data_b="m_lrn"+'("'+data_sum_d+'")';return data_b;}
-    else if(s1=="m_log" && data_sum_bce==1 && e_n_comp ==2 ){ var data_b="m_lrog"+'("'+data_sum_d+'")';return data_b;}
+     var data_sum_bcde = data_sum_bcde.toString().replace(/π/g , "'π'"); 
+     var data_sum_bcde = data_sum_bcde.toString().replace(/°/g , "'°'"); 
+    if(s1=="m_ln" && data_sum_bce==1 && e_n_comp ==2  ){ var data_b="m_lrn"+'("'+data_sum_d+'")'  ; return data_b;}   
+    else if(s1=="m_ln" && data_sum_bce==0 && xx_test_st_fst =="-"  ){ var data_b= message_1(5); return data_b;}      
+    else if(s1=="m_ln" && data_sum_bce==0 && xx_test_st ==0  ){ var data_b= message_1(13); return data_b;}      
+    else if(s1=="m_log" && data_sum_bce==1 && e_n_comp ==2 ){ var data_b="m_lrog"+'("'+data_sum_d+'")'; return data_b;} 
+    else if(s1=="m_log" && data_sum_bce==0 && xx_test_st_fst =="-"  ){ var data_b= message_1(9); return data_b;}      
+    else if(s1=="m_log" && data_sum_bce==0 && xx_test_st ==0  ){ var data_b= message_1(14); return data_b;}      
     else{ var data_b=data_sum_bcde ;return data_b;}
                                  }
-     if(s1=="m_sin" ||s1=="m_cos"||s1=="m_tan"){
-       var zz_p_t1_p = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,1);      
-       if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==1|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d; return data_b;}
+ if(s1=="m_sin" ||s1=="m_cos"||s1=="m_tan"){
+       var zz_p_t1_p = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,1);  
+         if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==1|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d; return data_b;}
       else if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0.5 || zz_p_t1_p==-0.5)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
       else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==0.25 || zz_p_t1_p==-0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
       else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==-0.25 || zz_p_t1_p==0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
       else if(s1=="m_tan" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==0.5|| zz_p_t1_p==1|| zz_p_t1_p==-0.5|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
-     else{ var data_b_t=m_mtx_real_mul(zz_p_t1_p,PIMUL2S); var data_b=m_mtx_real_add(data_b_t,data_sum_d);return data_b;}
+     else{ var data_b_t=m_mtx_real_mul(zz_p_t1_p,PIMUL2S); var data_b=m_mtx_real_add_x(data_b_t,data_sum_d);return data_b;}
      }
     if(s1=="m_asin" ||s1=="m_acos"||s1=="m_acosh"||s1=="m_atanh"){    
       var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
-    if( data_sum_bce==""){var data_sum_bce=0;}
-    if( data_sum_d==""){var data_sum_d="0";}
+       if( data_sum_bce==""){var data_sum_bce=0;}
+       if( data_sum_d==""){var data_sum_d="0";}
     var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d);
       if( data_sum_bcde==""){var data_sum_bcde=0;}
-      var data_sum_d_fst=data_sum_d.toString().substr(0,1);
-    if(data_sum_d_fst=="+"){ data_sum_d=data_sum_d.toString().substr(1,data_sum_d.length-1);}    
+    var data_sum_d_fst=data_sum_d.toString().substr(0,1);
+    if(data_sum_d_fst=="+"){ data_sum_d=data_sum_d.toString().substr(1,data_sum_d.length-1);}   
     if(s1=="m_asin" && data_sum_bce==0 && e_n_comp ==2  && str_comp==2 ){ var data_b="m_asrin"+'("'+data_sum_d+'")';  return data_b;}    
     if(s1=="m_asin" && data_sum_bce==0 && e_n_comp ==2 && str_comp==1 ){ var data_b="m_asrin"+'("'+data_sum_d+'")'; return data_b;}
-    if(s1=="m_asin" && data_sum_bce>=1  && e_n_comp ==2 && str_comp==1 ){ var data_b= message_1(1);  return data_b;}    
+    if(s1=="m_asin" && data_sum_bce>=1  && e_n_comp ==2 && str_comp==1 ){ var data_b= message_1(1);  return data_b;}  
     if(s1=="m_asin" && data_sum_bce<=-1 && e_n_comp ==2 && str_comp==2 ){ var data_b= message_1(1);  return data_b;}
     if(s1=="m_asin" && (data_sum_bcde >1 ||  data_sum_bcde <-1)){ var data_b= message_1(1);  return data_b;}
     if(s1=="m_acos" && data_sum_bce==1 && e_n_comp ==2 && str_comp==2 ){ var data_b="m_acros"+'("'+data_sum_d+'")';return data_b;}
@@ -10794,64 +11265,71 @@ function m_split_add_sub_sum(strs,nubs){
     if(s1=="m_atanh" && (data_sum_bcde>=1 || data_sum_bcde<=-1 )){ var ans_a= message_1(4);  return ans_a;}     
   var data_b=data_sum_bcde ;
                                  }
- var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
- var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d); 
+ var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);  
+  if( data_sum_bce==""){var data_sum_bce=0;}
+  if( data_sum_d==""){var data_sum_d="0";}
+  var data_sum_bcde = m_mtx_real_add(data_sum_bce,data_sum_d); 
    if(data_b ==""){  var data_b = data_sum_bcde;}                             
  var data_b_fst=data_b.toString().substr(0,1);
    if(data_b_fst=="+"){ data_b=data_b.toString().substr(1,data_b.length-1);}    
  var data_b=data_b.toString();
+ var  data_b=m_fix(data_b,419);  
   return  data_b ;
 }
 
-
-function m_split_4_bce_sum(str1,str2,str3,nubs){      
+function m_split_4_bce_sum(str1,str2,str3,nubs){       
   var data_sum_b = str1;
   var data_sum_c = str2;
   var data_sum_e = str3;
   var select_nub=nubs;
-    if(data_sum_b !="" && data_sum_b !=0 ){
-      var data_sum_b = data_sum_b.replace(/\*\π/g , ""); 
-      var data_sum_b = data_sum_b.replace(/\π/g , ""); 
+     if(data_sum_b !="" && data_sum_b !='0' ){
+      var data_sum_b = data_sum_b.toString().replace(/\*\π/g , ""); 
+      var data_sum_b = data_sum_b.toString().replace(/\π/g , ""); 
       var data_sum_b_fst =data_sum_b.substr(0,1);
     if( data_sum_b_fst =="+"){var data_sum_b = data_sum_b.substr(1,data_sum_b.length-1);} 
+    if(data_sum_b ==""){ var data_sum_b=1;}      
               }
-    if(data_sum_c !="" && data_sum_c !=0 ){    
-      var data_sum_c = data_sum_c.replace(/\*\°/g , ""); 
-      var data_sum_c = data_sum_c.replace(/\°/g , "");  
+    if(data_sum_c !="" && data_sum_c !='0' ){    
+      var data_sum_c = data_sum_c.toString().replace(/\*\°/g , ""); 
+      var data_sum_c = data_sum_c.toString().replace(/\°/g , ""); 
       var data_sum_c_fst =data_sum_c.substr(0,1);
       if( data_sum_c_fst =="+"){var data_sum_c = data_sum_c.substr(1,data_sum_c.length-1);}  
-      var data_sum_c = m_mtx_real_div(data_sum_c,180);   
-             } 
-    if(data_sum_e !="" && data_sum_e !=0 ){    
+        if(data_sum_c ==""){ var data_sum_c=1;}    
+         } 
+    if(data_sum_e !="" && data_sum_e !='0' ){         
       var data_sum_e_fst =data_sum_e.substr(0,1);
     if( data_sum_e_fst =="+"){var data_sum_e = data_sum_e.substr(1,data_sum_e.length-1);} 
-                    }  
-  var total_1=m_mtx_real_add(data_sum_b,data_sum_c); 
-  var total_2= m_mtx_real_mul(total_1,PIS);  
-  var total_2=m_fix(total_1,300);
-  var total_3=m_mtx_real_add(total_2,data_sum_e);  
-    if(select_nub==0){ var ans=total_3; return  ans ;}
-  var total_2_2= m_mtx_real_mul(total_1,0.5);  
-  var total_5=m_mtx_real_div(data_sum_e,PIMUL2S);   
-  var total_6= m_mtx_real_add(total_2_2,total_5);   
-  var zz_p_t_str = m_str_e_to_str(total_6);   
+                    } 
+ if(data_sum_b ==""){ var data_sum_b =0;}   
+  if(data_sum_c ==""){ var data_sum_c =0;}
+  if(data_sum_e ==""){ var data_sum_e =0;}
+  var total_0=m_mtx_real_mul(data_sum_b,PIS); 
+  var total_1= m_mtx_real_mul(data_sum_c,DEG);  
+  var total_2=m_mtx_real_add(total_0,total_1);  
+  var total_2=m_fix(total_2,300);   
+  var total_3=m_mtx_real_add(total_2,data_sum_e); 
+   if(select_nub==0 || select_nub=='0' ){ var ans=total_3; return  ans ;}  
+  var total_2_0= m_mtx_real_div(data_sum_b,2); 
+  var total_2_1= m_mtx_real_div(data_sum_c,360); 
+  var total_2_2= m_mtx_real_add(total_2_0,total_2_1);   
+  var total_5=m_mtx_real_div(data_sum_e,PIMUL2S); 
+   var total_6= m_mtx_real_add(total_2_2,total_5); 
+   var zz_p_t_str = m_str_e_to_str(total_6);   
   var total_7 = m_nub_p(zz_p_t_str) ;    
   var total_7 = m_str_e_to_str(total_7);  
     if(select_nub==1){ var ans=total_7; return  ans ;}
     if( select_nub!=0 && select_nub!=1){return  ans ;}
 }  
 
-
-
 function m_split_4(strs){     
   var ss = strs.toString().trim();
-  var INDEX_A = m_split(ss,"+","-");   
+  var INDEX_A = m_split(ss,"+","-"); 
   var data_row = INDEX_A.length;   
   var data_col = INDEX_A[0].length;
   var mul_nb=0;
   var div_nb=0; 
   var nub=0;
-  var sum_mul =1;
+  var sum_mul =1;  
   var sum_div =1; 
     for(var i=0;i<(data_row) ;i++){     
       var data_1 = INDEX_A[i][2];
@@ -10859,26 +11337,48 @@ function m_split_4(strs){
       var div_nb=m_str_all_char_nb(data_1,"/");   
       var pi_nb=m_str_all_char_nb(data_1,"*π");   
       var dgr_nb=m_str_all_char_nb(data_1,"*°");   
-      var nub= parseInt(mul_nb +div_nb-pi_nb-dgr_nb);
+      var nub= parseInt(mul_nb +div_nb);
       var nub_1 =parseInt(nub+1);
-      if(nub>=1){
-        var INDEX_B = m_split(data_1,"*","/");   
-        for(var k=0; k< (nub_1) ;k++){     
+     if(nub>=1){
+       var INDEX_B = m_split(data_1,"*","/");   
+         for(var k=0; k< (nub_1) ;k++){      
           var data_a = INDEX_B[k][2];
-          var m_nb=m_str_all_char_nb(data_a,"m_");   
-      if(m_nb>=1){  var data_a = eval(data_a); } 
+          var m_nb=m_str_all_char_nb(data_a,"m_");  
+          var data_a = data_a.toString().replace(/π/g , "'π'"); 
+          var data_a = data_a.toString().replace(/°/g , "'°'"); 
+     if(m_nb>=1){  var data_a = eval(data_a); } 
          var data_fst = data_a.substr(0,1);
          var data_b = data_a.substr(1,data_a.length-1);
-      if(data_fst =="*"){ var sum_mul = m_mtx_real_mul(sum_mul,data_b);} 
-      if(data_fst =="/"){ var sum_div = m_mtx_real_mul(sum_div,data_b);}  
-                 } 
-      var ans_a = m_mtx_real_div(sum_mul,sum_div);   
-      var ans_a =m_fix(ans_a,420);
-      var ans_a_fst = ans_a.toString().substr(0,1);
+         var data_b_lst =  data_b.substr(data_b.length-1,1);  
+         var data_b_fst =  data_b.substr(0,1);  
+     if((data_b_lst =="'" ||data_b_lst =='"')&&(data_b_fst =="'" ||data_b_fst =='"')){
+         var data_b = data_b.substr(1,data_b.length-2);}  
+         var data_b = data_b.toString().replace(/Q/g , "\-");  
+         var data_b_fst=data_b.substr(0,1);
+     if(data_b_fst =="+"){ var data_b=data_b.substr(1,data_b.length -1);} 
+     if(data_fst =="*"){  
+         var sum_mul= sum_mul.toString();
+         var data_b =data_b.toString();
+         var sum_mul = m_mtx_real_mul_x(sum_mul,data_b) ;   
+      if( sum_mul.length >=3){                      
+         var sum_mul_lst =  sum_mul.substr(sum_mul.length-1,1);  
+         var sum_mul_fst =  sum_mul.substr(0,1);  
+         var sum_mul_2fst =  sum_mul.substr(0,2);  
+      if((sum_mul_lst =="'" ||sum_mul_lst =='"')&&(sum_mul_fst =="'" ||sum_mul_fst =='"')){
+         var sum_mul = sum_mul.substr(1,sum_mul.length-2);}  
+      if((sum_mul_lst =="'" ||sum_mul_lst =='"')&&(sum_mul_2fst =="-'" ||sum_mul_2fst =='-"')){
+         var sum_mul = "-"+sum_mul.substr(2,sum_mul.length-3);}  
+                 }           
+                              } 
+      if(data_fst =="/"){ var sum_div = m_mtx_real_mul_x(sum_div,data_b); }    
+                  } 
+    var ans_a = m_mtx_real_div_x(sum_mul,sum_div);   
+    var ans_a =m_fix(ans_a,420);
+    var ans_a_fst = ans_a.toString().substr(0,1);
       if(ans_a_fst !="-"){ var ans_a ="+"+ans_a.toString();} 
       INDEX_A[i][2]=ans_a;   
-      var sum_mul =1;  
-       var sum_div =1; 
+    var sum_mul =1;  
+    var sum_div =1; 
        } 
    }  
 
@@ -10890,7 +11390,9 @@ function m_split_4(strs){
       var sss = ""+sss + data_2;
             }
   var sss_fst=sss.substr(0,1);
-    if(sss_fst=="+"){ sss=sss.substr(1,sss.length-1);}    
+    if(sss_fst=="+"){ sss=sss.substr(1,sss.length-1);} 
+  var sss_3fst=sss.substr(0,3);
+    if(sss_3fst=="'0'"){ sss=sss.substr(3,sss.length-3);} 
     return  sss;
 }
 
@@ -10899,8 +11401,8 @@ function m_split(strs,char1,char2){
   var ss = strs.toString().trim();
   var ch1 = char1.toString().trim();   
   var ch2 = char2.toString().trim();
-  var ss = ss.replace(/e\-/g , "EN"); 
-  var ss = ss.replace(/e\+/g , "EP");
+  var ss = ss.toString().replace(/e\-/g , "EN"); 
+  var ss = ss.toString().replace(/e\+/g , "EP");
   var ss_fst=ss.substr(0,1);
     if(ss_fst !='-' && (ch1=="+" || ch2=="+") && (ch1=="-" || ch2=="-")){ var ss="+"+ss ;}   
     if( (ch1=="*" || ch2=="*") && (ch1=="/" || ch2=="/")){ var ss="*"+ss ;}    
@@ -10922,8 +11424,8 @@ function m_split(strs,char1,char2){
                    } 
         }
         if(data_b.length > 3){ data_b=data_b.substr(3,data_b.length-3);}  
-   var ss = ss.replace(/EN/g , "e\-"); 
-   var ss = ss.replace(/EP/g , "e\+");  
+   var ss = ss.toString().replace(/EN/g , "e\-"); 
+   var ss = ss.toString().replace(/EP/g , "e\+");  
      for(var j=0; j< nub ;j++){
        if(j==(nub-1)){ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(ss.length-INDEX_A[j][0]));}     
        else{ INDEX_A[j][2] = ss.substr( INDEX_A[j][0],(INDEX_A[j+1][0]-INDEX_A[j][0]));} 
@@ -10940,8 +11442,8 @@ function m_three_sect_simplify(strs){
   var ss1lst=ss1.substr(ss1.length-1,1);  
   var ss2 = m_bracket_data(ss,2);        
   var ss3 = m_bracket_data(ss,3);
-  var ss2 = ss2.replace(/e\-/g , "EN"); 
-  var ss2 = ss2.replace(/e\+/g , "EP");
+  var ss2 = ss2.toString().replace(/e\-/g , "EN"); 
+  var ss2 = ss2.toString().replace(/e\+/g , "EP");
   var ss2fst2 =ss2.substr(1,1);  
   var add_nb=m_str_all_char_nb(ss2,"+");  
   var sub_nb=m_str_all_char_nb(ss2,"-"); 
@@ -10961,8 +11463,8 @@ function m_three_sect_simplify(strs){
       }
     var ss=ss1+ss2+ss3;
     } 
-  var ss = ss.replace(/EN/g , "e\-"); 
-  var ss = ss.replace(/EP/g , "e\+");  
+  var ss = ss.toString().replace(/EN/g , "e\-"); 
+  var ss = ss.toString().replace(/EP/g , "e\+");  
     return  ss ;
  }
 
@@ -11015,13 +11517,13 @@ function m_bef_zero_delet(strs){
 function m_item_nuber(strs){       
   var ss = strs.toString().trim();
   var ans=-1;
-  var ss = ss.replace(/e\-/g , "EN"); 
-  var ss = ss.replace(/e\+/g , "EP"); 
+  var ss = ss.toString().replace(/exp/g , "EXP"); 
   var c_nb=m_str_all_char_nb(ss,"("); 
   var d_nb=m_str_all_char_nb(ss,")");
-  var ep_nb=m_str_all_char_nb(ss,"EP");   
   var en_nb=m_str_all_char_nb(ss,"EN");
-  var epn=ep_nb+en_nb;
+  var epn_nb=m_str_all_char_nb(ss,"e");
+  var ss = ss.toString().replace(/EXP/g , "exp"); 
+  var epn=epn_nb;
   var add_nb=m_str_all_char_nb(ss,"+"); 
   var sub_nb=m_str_all_char_nb(ss,"-"); 
   var mul_nb=m_str_all_char_nb(ss,"*"); 
@@ -11034,14 +11536,14 @@ function m_item_nuber(strs){
   var h_nb=m_str_all_char_nb(ss,"h");   
   var r_nb=m_str_all_char_nb(ss,"r");    
   var fun_nb=pow_nb+e_nb+l_nb+s_nb+a_nb+h_nb+r_nb;
-    if(fun_nb==0 || epn==0 || en_nb==0 ){ var ans = 0 ;}  
-   return  ans ;
+    if(fun_nb==0 || epn==0  ){ var ans = 0 ;}    
+    return  ans ;
 }
 
 function m_content_change(strs){   
   var ss = strs.toString().trim();
-  var ss = ss.replace(/e\-/g , "EN"); 
-  var ss = ss.replace(/e\+/g , "EP"); 
+  var ss = ss.toString().replace(/e\-/g , "EN"); 
+  var ss = ss.toString().replace(/e\+/g , "EP"); 
   var add_nb=m_str_all_char_nb(ss,"+"); if(add_nb>=10){ var add_nb=9;}  
   var sub_nb=m_str_all_char_nb(ss,"-"); if(sub_nb>=10){ var sub_nb=9;} 
   var mul_nb=m_str_all_char_nb(ss,"*"); if(mul_nb>=10){ var mul_nb=9;}  
@@ -11078,8 +11580,8 @@ function m_content_change(strs){
   var r_nb=m_str_all_char_nb(ss,"r");  if(r_nb>=10){ var r_nb=9;}  
   var fuc_nb=""+r_nb+h_nb+a_nb+s_nb+l_nb+e_nb; 
   var fuc_nb = m_bef_zero_delet(fuc_nb); 
-  var ss = ss.replace(/EN/g , "e\-"); 
-  var ss = ss.replace(/EP/g , "e\+");  
+  var ss = ss.toString().replace(/EN/g , "e\-"); 
+  var ss = ss.toString().replace(/EP/g , "e\+");  
     if(op_nb<= "99" && op_nb >="1" && cd_nb=="0" && fuc_nb=="0"){var ss=m_indexOf_2_all(ss,"+","-",0);  
   var ss = m_split_add_sub_sum(ss,0)}    
     if(op_nb2 <= "99" && op_nb2 > "1" && op_nb <= "9900" && op_nb1 == "0"  && cd_nb=="0" && fuc_nb=="0"){var ss= m_index_str_to_mtx(ss,"*","/",0);  }   
@@ -11093,7 +11595,451 @@ function m_content_change(strs){
   return ss;
 }
 
- function calculate(item_1){  
+
+ function m_eval(ff){      
+   var ff = ff.toString().trim();
+   var m_bc = m_backindex(ff,"m");
+   var sec_bf = ff.substr(0,m_bc);
+   var sec_af = ff.substr(m_bc,ff.length-m_bc);
+   var af_c_idx = m_indexOf(sec_af,"(");
+   var af_fuc= sec_af.substr(0,af_c_idx);                             
+   var sec_af_af = sec_af.substr(af_c_idx,sec_af.length-af_c_idx);  
+   var sec_af_af = sec_af_af.toString().replace(/\(/g , "");    
+   var sec_af_af = sec_af_af.toString().replace(/\)/g , "");    
+   var sec_af_af = sec_af_af.toString().replace(/\'/g , "");    
+   var sec_af_af = sec_af_af.toString().replace(/\"/g , "");    
+   var cm_nb=m_str_all_char_nb(sec_af_af,",");
+   var ans = 0;
+     if( cm_nb==1 && af_fuc=="m_pow" ){
+       var cm_idx = m_indexOf(sec_af_af,",");
+       var xa=sec_af_af.substr(0,cm_idx); 
+       var xb=sec_af_af.substr(cm_idx,sec_af_af.length-cm_idx);  
+       var ans = m_pow(xa,xb); }
+     else if( cm_nb==0 && af_fuc=="m_exp" ){ var ans = m_exp(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_ln" ){ var ans = m_ln(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_log" ){ var ans = m_log(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sin" ){ var ans = m_sin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cos" ){ var ans = m_cos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tan" ){ var ans = m_tan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asin" ){ var ans = m_asin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acos" ){ var ans = m_acos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_atan" ){ var ans = m_atan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sinh" ){ var ans = m_sinh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cosh" ){ var ans = m_cosh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tanh" ){ var ans = m_tanh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asinh" ){ var ans = m_asinh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acosh" ){ var ans = m_acosh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_atanh" ){ var ans = m_atanh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_n" ){ var ans = m_n(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_exp_ln" ){ var ans = m_exp_ln(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_ln_exp" ){ var ans = m_ln_exp(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sinh_asinh" ){ var ans = m_sinh_asinh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asinh_sinh" ){ var ans = m_asinh_sinh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cosh_acosh" ){ var ans = m_cosh_acosh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acosh_cosh" ){ var ans = m_acosh_cosh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tanh_atanh" ){ var ans = m_tanh_atanh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_atanh_tanh" ){ var ans = m_atanh_tanh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sin_asin" ){ var ans = m_sin_asin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sin_acos" ){ var ans = m_sin_acos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asin_sin" ){ var ans = m_asin_sin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asin_cos" ){ var ans = m_asin_cos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cos_acos" ){ var ans = m_cos_acos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cos_asin" ){ var ans = m_cos_asin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acos_cos" ){ var ans = m_acos_cos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acos_sin" ){ var ans = m_acos_sin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tan_atan" ){ var ans = m_tan_atan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_atan_tan" ){ var ans = m_atan_tan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tan_asin" ){ var ans = m_tan_asin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_tan_acos" ){ var ans = m_tan_acos(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_sin_atan" ){ var ans = m_sin_atan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_cos_atan" ){ var ans = m_cos_atan(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_artanhs" ){ var ans = m_artanhs(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_artanha" ){ var ans = m_artanha(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_atranh" ){ var ans = m_atranh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_asrin" ){ var ans = m_asrin(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acrosh" ){ var ans = m_acrosh(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_acros" ){ var ans = m_acros(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_lrn" ){ var ans = m_lrn(sec_af_af);}
+     else if( cm_nb==0 && af_fuc=="m_lrog" ){ var ans = m_lrog(sec_af_af);}
+     else {var ans = sec_af ;}
+   var ans = sec_bf+ans+"";
+   return ans;
+   }
+
+function m_mtx_str_pi_deg_to_1(x){     
+  var x_st= x.toString().trim();
+  var x_st_fst= x_st.substr(0,1);
+    if(x_st_fst=="-"){  var x_st=x_st.substr(1,x_st.length-1);} 
+    else{  var x_st = x_st;}
+  var pi_nb_x =m_str_all_char_nb(x_st,"π");
+  var deg_nb_x =m_str_all_char_nb(x_st,"°");
+  var sum_nb =0;                                  
+  var sum_nb = m_mtx_real_add(pi_nb_x,deg_nb_x);
+    if(sum_nb <= 1) { return x ;}
+      x_st = x_st.toString().replace(/\*π/g , "");    
+      x_st = x_st.toString().replace(/π/g , "");    
+      x_st = x_st.toString().replace(/\*°/g , "");  
+      x_st = x_st.toString().replace(/°/g , "");
+    if(x_st =="" && (pi_nb_x !=0 || deg_nb_x !=0) ){ var x_st =1;}  
+    if(pi_nb_x >=1 && deg_nb_x==0){ var x_st_pow_p = m_pow(PIS,pi_nb_x-1) ;  var x_st = m_mtx_real_mul(x_st,x_st_pow_p); if(x_st_fst!="-"){ return x_st+"*π" ;} else {return "-"+x_st+"*π" ;}}  
+    else if(deg_nb_x >=1 && pi_nb_x==0){ var x_st_pow_d = m_pow(DEG,deg_nb_x-1) ;  var x_st = m_mtx_real_mul(x_st,x_st_pow_d);if(x_st_fst!="-"){ return x_st+"*°" ;} else {return "-"+x_st+"*°" ;}} 
+    else if(pi_nb_x >=1 && deg_nb_x >=1){ var x_st_pow_pd_1 = m_pow(PIS,pi_nb_x-1) ; var x_st_pow_pd_2 = m_pow(DEG,deg_nb_x) ; 
+       var x_st_pow_pd = m_mtx_real_mul(x_st_pow_pd_1,x_st_pow_pd_2); var x_st = m_mtx_real_mul(x_st,x_st_pow_pd); if(x_st_fst!="-"){ return x_st+"*π" ;} else {return "-"+x_st+"*π" ;} }      
+    else if (pi_nb_x ==0 && deg_nb_x==0){if(x_st_fst!="-"){ return x_st ;} else {return "-"+x_st ;}}
+    else { return x ;}
+   }
+
+
+ function m_mtx_str_pi_deg_to_0(x){     
+   var x_st= x.toString().trim();
+   var x_st_fst= x_st.substr(0,1);
+     if(x_st_fst=="-"){  var x_st=x_st.substr(1,x_st.length-1);} 
+     else{  var x_st = x_st;}
+   var pi_nb_x =m_str_all_char_nb(x_st,"π");
+   var deg_nb_x =m_str_all_char_nb(x_st,"°");
+   var sum_nb =0;                                  
+   var sum_nb = m_mtx_real_add(pi_nb_x,deg_nb_x);
+     if(sum_nb ==0) { return x ;}
+       x_st = x_st.toString().replace(/\*π/g , "");    
+       x_st = x_st.toString().replace(/π/g , "");    
+       x_st = x_st.toString().replace(/\*°/g , "");  
+       x_st = x_st.toString().replace(/°/g , "");
+     if(x_st =="" && (pi_nb_x !=0 || deg_nb_x !=0) ){ var x_st =1;}  
+     if(pi_nb_x >=1 && deg_nb_x==0){ var x_st_pow_p = m_pow(PIS,pi_nb_x) ;  var x_st = m_mtx_real_mul(x_st,x_st_pow_p); if(x_st_fst!="-"){ return x_st;} else {return "-"+x_st ;}}  
+     else if(deg_nb_x >=1 && pi_nb_x==0){ var x_st_pow_d = m_pow(DEG,deg_nb_x) ;  var x_st = m_mtx_real_mul(x_st,x_st_pow_d);if(x_st_fst!="-"){ return x_st ;}   else {return "-"+x_st ;}} 
+     else if(pi_nb_x >=1 && deg_nb_x >=1){ var x_st_pow_pd_1 = m_pow(PIS,pi_nb_x) ; var x_st_pow_pd_2 = m_pow(DEG,deg_nb_x) ; 
+       var x_st_pow_pd = m_mtx_real_mul(x_st_pow_pd_1,x_st_pow_pd_2); var x_st = m_mtx_real_mul(x_st,x_st_pow_pd); if(x_st_fst!="-"){ return x_st ;} else {return "-"+x_st ;} }      
+     else if (pi_nb_x ==0 && deg_nb_x==0){if(x_st_fst!="-"){ return x_st ;} else {return "-"+x_st ;}}
+     else { return x ;}
+   }
+
+function m_pi_deg(x){  
+  var x_st=x.toString().trim();
+  var x_st =m_mtx_trim(x_st) ;
+  var pi_nb_x =m_str_all_char_nb(x_st,"π");
+  var deg_nb_x =m_str_all_char_nb(x_st,"°"); 
+  var sum_a=0;
+  var sum_a = m_mtx_real_add(pi_nb_x,deg_nb_x);
+  return sum_a ;
+
+}
+
+function m_mtx_real_add_x(x,y){     
+    var x_st=x.toString().trim();
+    var ans_a=0;
+    var data_msg =0;
+    var data_msg =  m_str_char(x_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+    var y_st=y.toString().trim();
+    var data_msg =0;
+    var data_msg =  m_str_char(y_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = y ; return  ans_a ;}  
+    var x_st =m_mtx_trim(x_st) ;
+    var y_st =m_mtx_trim(y_st) ;
+    var x_p_d = m_pi_deg(x);
+    var y_p_d = m_pi_deg(y);
+    var sum_a = m_mtx_real_add(x_p_d,y_p_d);  
+     if(sum_a ==0){ var ans_a = m_mtx_real_add(x,y);}
+     else{ var ans_a = m_mtx_real_opt(x,y,1);}
+  return  ans_a ;
+}
+
+function m_mtx_real_sub_x(x,y){     
+    var x_st=x.toString().trim();
+    var ans_a=0;
+    var data_msg =0;
+    var data_msg =  m_str_char(x_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+    var y_st=y.toString().trim();
+    var data_msg =0;
+    var data_msg =  m_str_char(y_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = y ; return  ans_a ;}  
+    var x_st =m_mtx_trim(x_st) ;
+    var y_st =m_mtx_trim(y_st) ; 
+    var x_p_d = m_pi_deg(x);
+    var y_p_d = m_pi_deg(y);
+    var sum_a = m_mtx_real_add(x_p_d,y_p_d);  
+     if(sum_a ==0){ var ans_a = m_mtx_real_sub(x,y);}
+     else{ var ans_a = m_mtx_real_opt(x,y,2);}
+   return  ans_a ;
+}
+
+function m_mtx_real_mul_x(x,y){     
+   var x_st=x.toString().trim();
+   var ans_a=0;
+   var data_msg =0;
+   var data_msg =  m_str_char(x_st,"Msg") ;  
+     if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+   var y_st=y.toString().trim();
+   var data_msg =0;
+   var data_msg =  m_str_char(y_st,"Msg") ;  
+     if(data_msg >=1){ var ans_a = y ; return  ans_a ;}  
+   var x_st =m_mtx_trim(x_st) ;
+   var y_st =m_mtx_trim(y_st) ; 
+   var x_p_d = m_pi_deg(x);
+   var y_p_d = m_pi_deg(y);
+   var sum_a = m_mtx_real_add(x_p_d,y_p_d);  
+     if(sum_a ==0){ var ans_a = m_mtx_real_mul(x,y);}
+     else{ var ans_a = m_mtx_real_opt(x,y,3);}
+   return  ans_a ;
+}
+
+function m_mtx_real_div_x(x,y){     
+    var x_st=x.toString().trim();
+    var ans_a=0;
+    var data_msg =0;
+    var data_msg =  m_str_char(x_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+    var y_st=y.toString().trim();
+    var data_msg =0;
+    var data_msg =  m_str_char(y_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = y ; return  ans_a ;}  
+    var x_st =m_mtx_trim(x_st) ;
+    var y_st =m_mtx_trim(y_st) ;
+    var x_p_d = m_pi_deg(x);
+    var y_p_d = m_pi_deg(y);
+    var sum_a = m_mtx_real_add(x_p_d,y_p_d);  
+     if(sum_a ==0){ var ans_a = m_mtx_real_div(x,y);}
+     else{ var ans_a = m_mtx_real_opt(x,y,4);}
+    return  ans_a ;
+}
+
+
+ function m_mtx_real_opt(x,y,nubs){     
+    var nub_a =nubs;
+    var x_st=x.toString().trim();  
+    var data_msg =0;
+    var data_msg =  m_str_char(x_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = x ; return  ans_a ;}   
+    var y_st=y.toString().trim();  
+    var data_msg =0;
+    var data_msg =  m_str_char(y_st,"Msg") ;  
+      if(data_msg >=1){ var ans_a = y ; return  ans_a ;}  
+    var x_st =m_mtx_trim(x_st) ;
+    var y_st =m_mtx_trim(y_st) ; 
+    var x_st=m_mtx_str_pi_deg_to_1(x);
+    var y_st=m_mtx_str_pi_deg_to_1(y);
+    var pi_nb_x =m_str_all_char_nb(x_st,"π");
+    var deg_nb_x =m_str_all_char_nb(x_st,"°");
+    var pi_nb_y =m_str_all_char_nb(y_st,"π");
+    var deg_nb_y =m_str_all_char_nb(y_st,"°");
+      if(pi_nb_x !=0){
+        x_st = x_st.toString().replace(/\*π/g , "");    
+        x_st = x_st.toString().replace(/π/g , "");    
+                   }
+      if(deg_nb_x !=0){
+        x_st = x_st.toString().replace(/\*°/g , "");  
+        x_st = x_st.toString().replace(/°/g , "");
+                     }
+      if(pi_nb_y !=0){
+       y_st = y_st.toString().replace(/\*π/g , "");    
+       y_st = y_st.toString().replace(/π/g , "");    
+                      }
+      if(deg_nb_y !=0){   
+       y_st = y_st.toString().replace(/\*°/g , "");  
+       y_st = y_st.toString().replace(/°/g , "");
+                        }
+      if(x_st =="" && (pi_nb_x !=0 || deg_nb_x !=0) ){ var x_st =1;} 
+      if(y_st =="" && (pi_nb_y !=0 || deg_nb_y !=0) ){ var y_st =1;} 
+    var ans_1=0;
+     if(nub_a==1){       
+       if( pi_nb_x ==1 &&  pi_nb_y ==1 && deg_nb_x ==0 && deg_nb_y ==0  ){ var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1+"π";}      
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==1){ var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1+"°";}  
+       else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+         var y_st = m_mtx_real_div(y_st,180);  
+         var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1+"π";}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==1 &&  deg_nb_y ==0){       
+         var x_st = m_mtx_real_div(x_st,180);  
+         var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1+"π";}
+       else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==0){      
+        var x_st = m_mtx_real_mul(x_st,PIS);  
+        var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==0 &&  deg_nb_y ==0){      
+        var y_st = m_mtx_real_mul(y_st,PIS);  
+        var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==0){       
+        var x_st = m_mtx_real_mul(x_st,DEG);  
+        var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+        var y_st = m_mtx_real_mul(y_st,DEG);  
+        var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1;}
+       else{ var ans_1=m_mtx_real_add(x_st,y_st);}                                
+         }
+     if(nub_a==2){       
+       if( pi_nb_x ==1 &&  pi_nb_y ==1 && deg_nb_x ==0 && deg_nb_y ==0  ){ var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1+"π";}      
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==1){ var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1+"°";}  
+       else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+         var y_st = m_mtx_real_div(y_st,180);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1+"π";}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==1 &&  deg_nb_y ==0){       
+         var x_st = m_mtx_real_div(x_st,180);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1+"π";}
+       else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==0){       
+         var x_st = m_mtx_real_mul(x_st,PIS);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==0 &&  deg_nb_y ==0){      
+         var y_st = m_mtx_real_mul(y_st,PIS);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==0){       
+         var x_st = m_mtx_real_mul(x_st,DEG);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1;}
+       else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+         var y_st = m_mtx_real_mul(y_st,DEG);  
+         var ans_1=m_mtx_real_sub(x_st,y_st); var ans_1=ans_1;}
+       else{ var ans_1=m_mtx_real_sub(x_st,y_st);}                                
+       }
+    if(nub_a==3){      
+      if( pi_nb_x ==1 &&  pi_nb_y ==1 && deg_nb_x ==0 && deg_nb_y ==0  ){ var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1 = m_mtx_real_mul(ans_1,PIS); var ans_1=ans_1+"π";}     
+      else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==1){ var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1 = m_mtx_real_mul(ans_1,DEG);var ans_1=ans_1+"°";}  
+      else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){                                 
+        var ans_1=m_mtx_real_mul(x_st,y_st);  var ans_1 = m_mtx_real_mul(ans_1,DEG); var ans_1=ans_1+"π";}
+      else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==1 &&  deg_nb_y ==0){                                 
+         var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1 = m_mtx_real_mul(ans_1,DEG); var ans_1=ans_1+"π";}
+      else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==0){      
+         var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1=ans_1+"π";}
+      else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==0 &&  deg_nb_y ==0){      
+         var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1=ans_1+"π";}
+      else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==0){      
+         var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1=ans_1+"°";}
+      else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+         var ans_1=m_mtx_real_mul(x_st,y_st); var ans_1=ans_1+"°";}
+      else{ var ans_1=m_mtx_real_mul(x_st,y_st);}                               
+     }
+   if(nub_a==4){      
+     if( pi_nb_x ==1 &&  pi_nb_y ==1 && deg_nb_x ==0 && deg_nb_y ==0  ){ var ans_1=m_mtx_real_div(x_st,y_st);  var ans_1=ans_1;}     
+     else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==1){ var ans_1=m_mtx_real_div(x_st,y_st); var ans_1=ans_1;}  
+     else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){                                 
+       var y_st=m_mtx_real_mul(y_st,DEG);
+       var ans_1=m_mtx_real_div(x_st,y_st);   var ans_1=ans_1+"π";}
+     else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==1 &&  deg_nb_y ==0){                                 
+        var x_st=m_mtx_real_mul(x_st,DEG);
+        var ans_1=m_mtx_real_div(x_st,y_st);  var ans_1=ans_1+"π";}
+     else if( pi_nb_x ==1 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==0){      
+        var ans_1=m_mtx_real_div(x_st,y_st); var ans_1=ans_1+"π";}
+     else if( pi_nb_x ==0 &&  pi_nb_y ==1 && deg_nb_x==0 &&  deg_nb_y ==0){      
+        var y_st=m_mtx_real_mul(y_st,PIS); 
+        var ans_1=m_mtx_real_div(x_st,y_st); var ans_1=ans_1;}
+     else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==1 &&  deg_nb_y ==0){      
+        var ans_1=m_mtx_real_div(x_st,y_st); var ans_1=ans_1+"°";}
+     else if( pi_nb_x ==0 &&  pi_nb_y ==0 && deg_nb_x==0 &&  deg_nb_y ==1){      
+        var y_st=m_mtx_real_mul(y_st,DEG);  
+        var ans_1=m_mtx_real_div(x_st,y_st); var ans_1=ans_1;}
+     else{ var ans_1=m_mtx_real_div(x_st,y_st);}                                 
+      }
+  return ans_1 ;
+  }
+
+
+function m_1_pi_deg_ts(x){                            
+  var ss = x.toString().trim();
+  var data_msg =0;
+  var data_msg =  m_str_char(ss,"Msg") ;  
+    if(data_msg >=1){ var ans_a = ss ; return  ans_a ;} 
+  var ss = ss.toString().replace(/exp/g , "EXP");
+  var ss = ss.toString().replace(/e\-/g , "EN");     
+  var ss = ss.toString().replace(/eQ/g , "EN");    
+  var ss = ss.toString().replace(/e\+/g , "EP");
+  var ss = ss.toString().replace(/e/g , "EP");    
+  var ss = ss.toString().replace(/\(\'\-/g , "\(\'Q");   
+  var add_nb=m_str_all_char_nb(ss,"+");
+  var sub_nb=m_str_all_char_nb(ss,"-");  
+  var mul_nb=m_str_all_char_nb(ss,"*");
+  var div_nb=m_str_all_char_nb(ss,"/");
+  var pi_nb=m_str_all_char_nb(ss,"π");
+  var zl_nb=m_str_all_char_nb(ss,"°");
+  var en_nb=m_str_all_char_nb(ss,"EN");
+  var ep_nb=m_str_all_char_nb(ss,"EP");
+  var sin_nb=m_str_all_char_nb(ss,"m_sin(");
+  var cos_nb=m_str_all_char_nb(ss,"m_cos(");
+  var tan_nb=m_str_all_char_nb(ss,"m_tan(");
+  var ln_nb=m_str_all_char_nb(ss,"m_ln(");
+  var log_nb=m_str_all_char_nb(ss,"m_log(");
+  var acos_nb=m_str_all_char_nb(ss,"m_acos(");
+  var asin_nb=m_str_all_char_nb(ss,"m_asin(");
+  var acosh_nb=m_str_all_char_nb(ss,"m_acosh(");
+  var atanh_nb=m_str_all_char_nb(ss,"m_atanh(");
+  var sum_1_nb =sin_nb+cos_nb+tan_nb ; 
+  var sum_2_nb =ln_nb+log_nb+acos_nb+asin_nb+acosh_nb+atanh_nb ;
+  var sum_nb=add_nb+sub_nb;
+  var sum_pz = pi_nb+zl_nb;
+  var sum_ep = en_nb +ep_nb;
+  var input_e0 =""; 
+    if(sum_ep >=1 ){
+     var ss = ss.toString().replace(/EN/g , "e\-");     
+     var ss = ss.toString().replace(/EP/g , "e\+");    
+     var ss = ss.toString().replace(/EXP/g , "exp");   
+     var input_e0 = m_funct_content_max_min_msg_c_input_over(ss,"(" ,2); }
+    if((sum_1_nb>=1 && sum_pz>=1) || (input_e0 !="" && sum_nb >=1)){  ;}
+    else{ var ans_a = 0 ; return  ans_a ;}    
+  var ss1=ss;
+  var nubs=0;
+  var xx="";
+  var sec_1="";
+  var sec_2="";
+  var sec_3="";
+   if((sin_nb>=1 ||cos_nb>=1 ||tan_nb>=1 ) && sum_pz >=1 ){      
+      for(var i=0 ; i<3 ; i++){
+        var xx="";
+        var nubs=0;
+        if( i==0){ var xx="m_sin("; var nubs=sin_nb; var ss1=ss;} 
+        if( i==1){ var xx="m_cos("; var nubs=cos_nb; var ss1=ss;}  
+        if( i==2){ var xx="m_tan("; var nubs=tan_nb; var ss1=ss;}  
+         for(var j=0 ; j<nubs ; j++){
+          var idx_xx =m_backindex(ss1,xx) ;
+          var sec_1=ss1.substr(0,idx_xx);              
+          var sec_2=m_funct_content(ss1,xx);          
+          var api_nb=m_str_all_char_nb(sec_2,"π"); 
+          var azl_nb=m_str_all_char_nb(sec_2,"°");
+          if(api_nb >=1 || azl_nb>=1){var ans_a = 1 ; return  ans_a ;}    
+          var sec_3 = ss1.substr((idx_xx+sec_2.length+2),(ss1.length-idx_xx-sec_2.length));  
+        if(idx_xx>=6){
+          var ss1 = sec_1.substr(0,idx_xx-6);}     
+          }   
+     }   
+   }  
+    var ss1=ss;
+    var nubs=0;
+    var xx="";
+    var sec_1="";
+    var sec_2="";
+    var sec_3="";
+      if((ln_nb>=1 ||log_nb>=1 ||acos_nb>=1 ||acosh_nb >=1 ||asin_nb >=1 ||atanh_nb>=1) && sum_ep>=1 && sum_nb >=1){  
+       for(var n=0 ; n<6 ; n++){
+        var xx="";
+        var nubs=0;
+        if( n==0){ var xx="m_ln("; var nubs=ln_nb; var ss1=ss;} 
+        if( n==1){ var xx="m_log("; var nubs=log_nb; var ss1=ss;} 
+        if( n==2){ var xx="m_acos("; var nubs=acos_nb; var ss1=ss;} 
+        if( n==3){ var xx="m_acosh("; var nubs=acosh_nb; var ss1=ss;} 
+        if( n==4){ var xx="m_asin("; var nubs=asin_nb; var ss1=ss;} 
+        if( n==5){ var xx="m_atanh("; var nubs=atanh_nb; var ss1=ss;}  
+          for(var m=0 ; m<nubs ; m++){
+            var idx_xx =m_backindex(ss1,xx) ;
+            var sec_1=ss1.substr(0,idx_xx);              
+            var sec_2=m_funct_content(ss1,xx);          
+            var aadd_nb=m_str_all_char_nb(ss1,"+");
+            var asub_nb=m_str_all_char_nb(ss1,"-");
+            var sec_2 = sec_2.toString().replace(/EN/g , "e\-");   
+            var sec_2 = sec_2.toString().replace(/EP/g , "e\+");
+            var aen_nb=m_str_all_char_nb(ss1,"e-");  
+            var aep_nb=m_str_all_char_nb(ss1,"e+");
+            var sec_2 = "("+xx+sec_2+")";  
+            var input_e =""; 
+          if(aen_nb >=1 || aep_nb >=1){
+            var input_e = m_funct_content_max_min_msg_c_input_over(sec_2,"(",2); }
+          if((aadd_nb >=1 || asub_nb>=1 )　&&　input_e !=""){var ans_a = 1  ; return  ans_a ;}    
+          var sec_3 = ss1.substr((idx_xx+sec_2.length+2),(ss1.length-idx_xx-sec_2.length));  
+          if(idx_xx>=4){
+          var ss1 = sec_1.substr(0,idx_xx-4);}    
+         }   
+      }   
+     }  
+　　var ans_a =　0 ; return  ans_a ;     
+}
+
+
+
+ function calculate(item_1){   
    s_chang_visible_all(); 
    MTX_COL = m_deci_dgt();
    DECI_DGT = m_deci_dgt_1(); 
@@ -11118,31 +12064,19 @@ function m_content_change(strs){
             return;}
     var this_function = this_it;   
     var this_it =  m_str_spec_part_af_minus_sum(this_it); 
-    var this_it = m_replace_eq(this_it);  
-    var this_it_copy =  this_it ;                            
-    var this_it_copy = this_it_copy.replace(/asinh/g , "arsinh");    
-    var this_it_copy = this_it_copy.replace(/acosh/g , "arcosh");    
-    var this_it_copy = this_it_copy.replace(/atanh/g , "artanh"); 
+    var this_it_copy =  this_it ;    
+    var this_it_copy = m_replace_eq(this_it_copy);                      
+    var this_it_copy = this_it_copy.toString().replace(/asinh/g , "arsinh");    
+    var this_it_copy = this_it_copy.toString().replace(/acosh/g , "arcosh");    
+    var this_it_copy = this_it_copy.toString().replace(/atanh/g , "artanh"); 
       if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data="="+this_it_copy;}   
       else{ var function_data ="";} 
-    var testdata = m_funct_content(this_it,"ln(");
-    var inputmsg ="";             
-    var inputmsg = m_funct_content_max_min_msg_c_input_over(this_it,"("); 
-      if(inputmsg !=""){
-        document.getElementById('input').value+=" "+"<--Msg:"+inputmsg+";";   
-        var value_copy=" "+"<--Msg:"+inputmsg+";";   
-        BACK_MTX[0][BACK_COUNT] = value_copy+"_";              
-        BACK_COUNT = BACK_COUNT+1;
-        newline_1();
-        scroll_cursor();
-              return;
-                       }
-     var this_it = m_sing_item(this_it);    
-     var this_it = m_str_sub_ngt_bf(this_it);   
-     var this_it = m_str_math_replacec(this_it); 
-     var this_it =  m_oct_nb(this_it);                 
-     var data_chk1 = s_check_str_char(this_it_s,"(" );   
-     var data_chk2 = s_check_str_char(this_it_s,")" );   
+    var this_it = m_sing_item(this_it);
+    var this_it = m_str_sub_ngt_bf(this_it);   
+    var this_it = m_str_math_replacec(this_it); 
+    var this_it =  m_oct_nb(this_it);                 
+    var data_chk1 = s_check_str_char(this_it_s,"(" );   
+    var data_chk2 = s_check_str_char(this_it_s,")" );   
        if((data_chk1 - data_chk2) !=0){
          document.getElementById('input').value+=" "+"<- error'('!= ')'->"+";";  
          var value_copy=" "+"<- error'('!= ')'->"+";";                           
@@ -11172,23 +12106,30 @@ function m_content_change(strs){
           scroll_cursor(); 
           return;
                                           }
-         THIS_DATA = this_it.replace(/Q/g , "\-");   
-         this_it = m_ext_in_funct(this_it);  
-         this_it = m_ext_in_funct_2(this_it);   
-         this_it = this_it.replace(/Q/g , "\-"); 
-     var this_it_fst=this_it.substr(0,2);      
-       if(this_it_fst=="-\(" || this_it_fst=="-m"){ var this_it=this_it.substr(1,this_it.length-1);}   
-     var this_it_pi_part = this_it.substr(0,50);    
-     var this_it_pi_lst_part = this_it.substr(this_it.length-5 ,5);    
+         THIS_DATA = this_it.toString().replace(/Q/g , "\-"); 
+        var test_pi_1 = m_1_pi_deg_ts(this_it);
+     if(test_pi_1 ==0){ var this_it = m_ext_in_funct(this_it);
+                      this_it = m_ext_in_funct_2(this_it);  }   
+    else{ var  this_it = m_ext_in_funct_part(this_it); }        
+    this_it = this_it.toString().replace(/Q/g , "\-"); 
+    var this_it_fst=this_it.substr(0,2);      
+      if(this_it_fst=="-\(" || this_it_fst=="-m"){ var this_it=this_it.substr(1,this_it.length-1);}   
+    var this_it_pi_part = this_it.substr(0,50);    
+    var this_it_pi_lst_part = this_it.substr(this_it.length-5 ,5);    
        if((this_it.length >=17 && this_it >=10000000000000000)||(this_it_pi_part=="3.141592653589793238462643383279502884197169399375" )||(this_it_pi_part=="0.017453292519943295769236907684886127134428718885")){
          this_it="'"+this_it+"'";}    
        else{
           this_it=this_it.toString(); 
             }
      var this_it=  mtx_str_e_chk_to_str(this_it); 
-     var this_it = this_it.replace(/\°/g , DEG);  
-     var this_it = this_it.replace(/\π/g , PIS);  
-     var this_data = eval(this_it);   
+     if(test_pi_1 ==0){ 
+      var this_it=  mtx_str_e_chk_to_str(this_it); 
+      var this_it = this_it.replace(/\°/g , DEG);           
+      var this_it = this_it.replace(/\π/g , PIS);   
+      var this_data = eval(this_it); }
+     else{
+       var this_data = m_funct_content_cal_noc_many(this_it,"("); }           
+       var this_data = m_mtx_str_pi_deg_to_0(this_data);   
      var this_data_error = this_data;     
          this_data=this_data.toString();    
      var this_data_fst = this_data.substr(0,1);
@@ -11257,9 +12198,5 @@ function m_content_change(strs){
 
 
 
-
-
-
-      
 
 
