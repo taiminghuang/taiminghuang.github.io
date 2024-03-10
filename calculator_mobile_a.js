@@ -4181,6 +4181,9 @@ function m_mtx_point_sub_bf(A,B){
 
 function m_mtx_trim(x){                   
   var xx_st = x.toString().trim(); 
+  var pi_nb_xx =m_str_all_char_nb(xx_st,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx_st,"°"); 
+    if(pi_nb_xx >=1 || deg_nb_xx >=1){return xx_st;}
   var xx_st = m_delete_bracket(xx_st); 
   var xx_fst12 = xx_st.substr(0,2);
     if( xx_fst12 == '0e' || xx_st =='0.') { var data_t=0 ; return data_t ;}   
