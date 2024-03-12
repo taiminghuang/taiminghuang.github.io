@@ -5714,12 +5714,13 @@ function m_cos(x){
      if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
   var pi_nb_xx =m_str_all_char_nb(xx,"π");     
   var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
-   if(pi_nb_xx >=1){
+   if(pi_nb_xx ==1){
      var xx = xx.toString().replace(/\*π/g , "");    
      var xx = xx.toString().replace(/π/g , ""); }   
-    if(deg_nb_xx >=1){
+    if(deg_nb_xx ==1){
      var xx = xx.toString().replace(/\*°/g , "");  
      var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="-" ){ var xx =-1;}
      if(xx =="" ){ var xx =1;} 
   var ans_r ="";                                    
     if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0){  
@@ -5775,7 +5776,9 @@ function m_cos(x){
      else if( zz_p_t >='0.25'&& zz_p_t <'0.5' ){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t); var zz_p = m_mtx_real_sub(0.5,zz_p);var flag_2_3=1 ; } 
      else if( zz_p_t <'0.25'){var zz_p =  zz_p ;var flag_1_4=1 ; }   
    var dd_t = m_mtx_real_mul(360,zz_p); 
-   var dd_t=m_fix(dd_t,420);  
+     if( DECI_DGT <=16){ var deci_nub=200;}  
+         else { var deci_nub=420;}    
+   var dd_t=m_fix(dd_t,deci_nub);   
      if(dd_t.length<=2 && dd_t.length>=1){   
        var ans_b ="";
      if(dd_t==09||dd_t==9){ var ans_b = SIN81D ;}
@@ -5793,7 +5796,9 @@ function m_cos(x){
      if(flag_2_3 ==1){ var ans_b ="-"+ans_b;}         
      else if( flag_1_4 ==1){ var ans_b = +ans_b;}   
      if(ans_b !=""){ return  ans_b; }
-                         }    
+                         }   
+     if(pi_nb_xx==1 && deg_nb_xx==0 ){var xx =m_mtx_real_mul(xx,PIS) ;}   
+     if(pi_nb_xx ==0 && deg_nb_xx==1 ){var xx =m_mtx_real_mul(xx,DEG) ;} 
    var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S);    
      if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_4=1 ;}   
      else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }        
@@ -5885,12 +5890,13 @@ function m_tan(x){
     if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
   var pi_nb_xx =m_str_all_char_nb(xx,"π");     
   var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
-     if(pi_nb_xx >=1){
+     if(pi_nb_xx ==1){
    var xx = xx.toString().replace(/\*π/g , "");    
    var xx = xx.toString().replace(/π/g , ""); }   
-    if(deg_nb_xx >=1){
+    if(deg_nb_xx ==1){
      var xx = xx.toString().replace(/\*°/g , "");  
      var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="-" ){ var xx =-1;}
      if(xx =="" ){ var xx =1;} 
   var ans_r ="";                    
     if(xx_fst =='-' && xx.length<=3 && xx>=-10 && xx<=0 && xx_p ==0 && pi_nb_xx==0 && deg_nb_xx==0){  
@@ -5950,7 +5956,9 @@ else { var zz_p_t=m_fix(zz_p,200); }
     else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5 ,zz_p_t); var zz_p = m_mtx_real_sub(0.5 ,zz_p);  var flag_2_4=1 ; }  
     else if( zz_p_t <'0.25'  ){  var zz_p =zz_p;var flag_1_3=1 ; } 
   var dd_t = m_mtx_real_mul(360,zz_p); 
-  var dd_t=m_fix(dd_t,420); 
+    if( DECI_DGT <=16){ var deci_nub=200;}    
+    else { var deci_nub=420;}    
+   var dd_t=m_fix(dd_t,deci_nub); 
     if(dd_t.length<=2 && dd_t.length>=1){   
       var ans_b ="";
       if(dd_t==09||dd_t==9){ var ans_b = m_mtx_real_div(SIN09D,SIN81D) ;}
@@ -5968,7 +5976,9 @@ else { var zz_p_t=m_fix(zz_p,200); }
       if(xx_fst =="-" && flag_1_3 ==1){ var ans_b ="-"+ans_b;}
       else if(xx_fst !="-" && flag_2_4 ==1){ var ans_b ="-"+ans_b;}
       if(ans_b !=""){ return  ans_b; }
-                         }     
+                         }  
+      if(pi_nb_xx==1 && deg_nb_xx==0 ){var xx =m_mtx_real_mul(xx,PIS) ;}   
+      if(pi_nb_xx ==0 && deg_nb_xx==1 ){var xx =m_mtx_real_mul(xx,DEG) ;}
     var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2S);  
       if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_3=1 ;}  
       else{ var data_cle_b = m_mtx_real_mul(PIMUL2S,zz_p); }  
@@ -10647,6 +10657,9 @@ function m_funct_content_cal_noc(strs,fuc){
   var sec_2_sum_e_nb=sec_2_en_nb+sec_2_ep_nb+sec_2_en1_nb+sec_2_ep1_nb ;
   var fun_limit="";
     if(fun_sec1.length <= 14 && fun_sec1.length >=3 && idx_xx > 0 ){ fun_limit = fun_sec1 ;}  
+    if( fun_limit =='m_sin' || fun_limit =='m_cos' || fun_limit =='m_tan' ){ ; }
+    else{ var sec_2 = sec_2.toString().replace(/\°/g , DEG);   
+          var sec_2 = sec_2.toString().replace(/\π/g , PIS); }
   var sec_2 =  m_split_4(sec_2);
   var sec_2 = m_split_add_sub_sum(sec_2,fun_limit); 
   var sec_2 = m_fix(sec_2,398); 
