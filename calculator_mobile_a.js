@@ -3169,6 +3169,8 @@ function m_cut_nub_p(nub){
 
 function m_fix(nub,pit_n){                
   var nn = nub;  
+  var nn  = nn.toString().replace(/EN/g , "e\-");  
+  var nn  = nn.toString().replace(/EP/g , "e\+");
   var pi_nb_nn =m_str_all_char_nb(nn,"π");
   var deg_nb_nn =m_str_all_char_nb(nn,"°");
   var nn = nn.toString().replace(/\*π/g , "");    
@@ -4189,6 +4191,9 @@ function m_mtx_trim(x){
     if( xx_fst12 == '0e' || xx_st =='0.') { var data_t=0 ; return data_t ;}   
   var xx_st_1 = m_mtx_del_plus(xx_st);   
   var xx_st_2 = m_mtx_add_zero_bf(xx_st_1);
+  var pi_nb_xx =m_str_all_char_nb(xx_st,"π");     
+  var deg_nb_xx =m_str_all_char_nb(xx_st,"°"); 
+    if(pi_nb_xx >=1 || deg_nb_xx >=1){return xx_st;}
    for(var i=0 ;i<10 ;i++){    
      var xx_st_3 = m_mtx_del_point(xx_st_2);    
      var xx_st_5 = m_mtx_del_zero_bf(xx_st_3);    
@@ -5254,12 +5259,13 @@ function m_sin_cst1(x){
     if(sum_nb >=2){ var xx = m_mtx_str_pi_deg_to_1(xx);}    
     var pi_nb_xx =m_str_all_char_nb(xx,"π");     
     var deg_nb_xx =m_str_all_char_nb(xx,"°"); 
-   if(pi_nb_xx >=1){
+   if(pi_nb_xx ==1){
      var xx = xx.toString().replace(/\*π/g , "");    
      var xx = xx.toString().replace(/π/g , ""); }   
-    if(deg_nb_xx >=1){
+    if(deg_nb_xx ==1){
      var xx = xx.toString().replace(/\*°/g , "");  
      var xx = xx.toString().replace(/°/g , "");}
+     if(xx =="-" ){ var xx =-1;}
      if(xx =="" ){ var xx =1;} 
      var ans_r ="";                     
       if(xx_fst !='-' && xx.length<=2 && xx>=0 && xx<=20 && xx_p ==0 &&  pi_nb_xx==0  && deg_nb_xx==0 ){  
@@ -5319,7 +5325,9 @@ function m_sin_cst1(x){
       else if( zz_p_t >='0.25' && zz_p_t <'0.5'){ var zz_p_t = m_mtx_real_sub(0.5,zz_p_t);var zz_p = m_mtx_real_sub(0.5,zz_p); var flag_1_2=1 ; } 
       else if( zz_p_t <'0.25'){ var zz_p = zz_p ; var flag_1_2=1 ; }   
     var dd_t = m_mtx_real_mul(360,zz_p); 
-    var dd_t=m_fix(dd_t,420);  
+      if( DECI_DGT <=16){ var deci_nub=200;} 
+       else { var deci_nub=420;}    
+     var dd_t=m_fix(dd_t,deci_nub);   
       if(dd_t.length<=2 && dd_t.length>=1 ){   
         var ans_b ="";
           if(dd_t==09 ||dd_t==9 ){ var ans_b = SIN09D ;}
@@ -5337,7 +5345,9 @@ function m_sin_cst1(x){
           if(xx_fst !="-" && flag_3_4 ==1){ var ans_b ="-"+ans_b;}
           else if(xx_fst =="-" && flag_1_2 ==1){ var ans_b ="-"+ans_b;}
           if(ans_b !=""){ return  ans_b; }
-                         }    
+                         }  
+         if(pi_nb_xx==1 && deg_nb_xx==0 ){var xx =m_mtx_real_mul(xx,PIS) ;}   
+         if(pi_nb_xx ==0 && deg_nb_xx==1 ){var xx =m_mtx_real_mul(xx,DEG) ;}
      var com_zz_pidiv2 = m_mtx_real_str_comp(xx, PIDIV2);     
        if(com_zz_pidiv2 !=1 ){var data_cle_b = xx; var flag_1_2=1 ;}   
        else{ var data_cle_b = m_mtx_real_mul(PIMUL2,zz_p); }   
