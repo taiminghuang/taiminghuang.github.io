@@ -3178,6 +3178,7 @@ function m_fix(nub,pit_n){
   var nn = nn.toString().replace(/\*°/g , "");  
   var nn = nn.toString().replace(/°/g , "");
     if(nn =="" && (pi_nb_nn !=0 || deg_nb_nn !=0) ){ var nn =1;} 
+    if(nn =="-" && (pi_nb_nn !=0 || deg_nb_nn !=0) ){ var nn =-1;}
   var nn_abs_str = nn.toString().trim(); 
   var nn_abs_str=m_mtx_trim(nn_abs_str).toString() ; 
   var str_lg = nn_abs_str.length;         
@@ -8380,9 +8381,14 @@ function m_mtx_point_mul(A,B){
  function m_mtx_str_to_e_a(x){             
    var xx_st=x.toString().trim();             
    var xx_fst = xx_st.substr(0,1);
+   var xx_lst = xx_st.substr(xx_st.length-1 ,1);
    var xx_lg = xx_st.length;
      if(xx_fst=="-"){ xx_st=xx_st.substr(1,xx_lg-1);    
           xx_lg=xx_lg-1;}
+     if(xx_lst=="π"){ xx_st=xx_st.substr(0,xx_lg-1); 
+          xx_lg=xx_lg-1;}                          
+     if(xx_lst=="°"){ xx_st=xx_st.substr(0,xx_lg-1);    
+          xx_lg=xx_lg-1;} 
    var pos_e  = xx_st.indexOf("e");  
    var data_msg = xx_st.indexOf("Msg"); 
      if(data_msg !=-1){ return xx_st ;} 
@@ -8439,7 +8445,9 @@ function m_mtx_point_mul(A,B){
         xx_st = xx_st+"e+"+(nub_x); }          
         nub_x =0;
         var xx_st=  m_fix_pow_lst(xx_st);  
-  return xx_st ;
+     if(xx_lst=="π"){var xx_st=xx_st+"π" ;}  
+     if(xx_lst=="°"){var xx_st=xx_st+"°" ;}  
+ return xx_st ;
 }
 
  function m_mtx_str_to_e_ne(x){             
@@ -11161,13 +11169,16 @@ function m_split_add_sub_sum(strs,nubs){
   var m_nb =m_str_all_char_nb(ss,"m");
   var r_nb =m_str_all_char_nb(ss,"r");
   var sum_nb=s_nb+e_nb+l_nb+a_nb+h_nb+m_nb+r_nb;
-    if(sum_nb >=1){return  ss ;}   
+    if(sum_nb >=1){return  ss ;} 
+  var ss_fst= ss.substr(0,1);
+    if(ss_fst=="-"){ var ss="Q"+ss.substr(1,ss.length-1) ;}
   var add_nb=m_str_all_char_nb(ss,"+");
   var sub_nb=m_str_all_char_nb(ss,"-");
   var mul_nb=m_str_all_char_nb(ss,"*");
   var div_nb=m_str_all_char_nb(ss,"/");
   var pi_nb=m_str_all_char_nb(ss,"π");
   var deg_nb=m_str_all_char_nb(ss,"°");
+  var ss = ss.toString().replace(/Q/g , "\-");
     if(add_nb ==0 && sub_nb==0 && mul_nb==0 && div_nb==0){return  ss ;}   
   var ss = ss.toString().replace(/\*\π/g , "\π");   
   var ss = ss.toString().replace(/\*\°/g , "\°");
@@ -11181,6 +11192,8 @@ function m_split_add_sub_sum(strs,nubs){
   var deg_count=0;
   var en_nb  =0;
   var ep_nb  =0;
+  var ss = ss.toString().replace(/e\-/g , "EN");  
+  var ss = ss.toString().replace(/e\+/g , "EP");
   var en_nb  =m_str_all_char_nb(ss,"EN");
   var ep_nb  =m_str_all_char_nb(ss,"EP");
   var epn_count=0;
