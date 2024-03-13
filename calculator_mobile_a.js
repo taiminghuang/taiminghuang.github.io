@@ -10670,7 +10670,6 @@ function m_funct_content_cal_noc(strs,fuc){
           var sec_2 = sec_2.toString().replace(/\π/g , PIS); }
   var sec_2 =  m_split_4(sec_2);
   var sec_2 = m_split_add_sub_sum(sec_2,fun_limit); 
-  var sec_2 = m_fix(sec_2,398); 
   var data_msg =0;
   var data_msg =  m_str_char(sec_2,"Msg") ;  
     if(data_msg >=1){ var ans_a = sec_2 ; return  ans_a ;} 
@@ -11880,6 +11879,9 @@ function m_mtx_real_div_x(x,y){
                         }
       if(x_st =="" && (pi_nb_x !=0 || deg_nb_x !=0) ){ var x_st =1;} 
       if(y_st =="" && (pi_nb_y !=0 || deg_nb_y !=0) ){ var y_st =1;} 
+      if(x_st=="-"){ var x_st="-1";}    
+      if(y_st=="-"){ var y_st="-1";} 
+   
     var ans_1=0;
      if(nub_a==1){       
        if( pi_nb_x ==1 &&  pi_nb_y ==1 && deg_nb_x ==0 && deg_nb_y ==0  ){ var ans_1=m_mtx_real_add(x_st,y_st); var ans_1=ans_1+"π";}      
