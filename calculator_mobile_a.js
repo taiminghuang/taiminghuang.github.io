@@ -3941,14 +3941,18 @@ function m_mtx_col_sum(A,col){
         var data_a = data_a.toString().replace(/°/g , "'°'"); 
       if(m_nb>=1){var data_a =eval(data_a);} 
       if(pi_nb>=1){
-      if(data_a=='π'){var data_a =1;}
-      else {var data_a = data_a.toString().replace(/\π/g , ""); } 
+      var data_a = data_a.toString().replace(/\'\π\'/g , "");
+      var data_a = data_a.toString().replace(/π/g , "") 
+      if(data_a==""){var data_a =1;}
+      if(data_a=="-"){var data_a =-1;} 
         var flag_a = "pi";
                    }
 
       if(dge_nb>=1){
-        if(data_a=='°'){var data_a =1;}
-        else{var data_a = data_a.toString().replace(/\°/g , "");}  
+        var data_a = data_a.toString().replace(/\'\°\'/g , "");  
+        var data_a = data_a.toString().replace(/°/g , "");
+        if(data_a==""){var data_a =1;}
+        if(data_a=="-"){var data_a =-1;}  
         var flag_a="dge";
                    }
 
@@ -11267,13 +11271,25 @@ function m_split_add_sub_sum(strs,nubs){
     else{ var data_b=data_sum_bcde ;return data_b;}
                                  }
  if(s1=="m_sin" ||s1=="m_cos"||s1=="m_tan"){
-       var zz_p_t1_p = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,1);  
-         if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==1|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d; return data_b;}
-      else if(s1=="m_sin" && e_n_comp ==2 && (zz_p_t1_p==0.5 || zz_p_t1_p==-0.5)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
-      else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==0.25 || zz_p_t1_p==-0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=m_mtx_real_mul(data_sum_d,-1); return data_b;}
-      else if(s1=="m_cos" && e_n_comp ==2 && (zz_p_t1_p==-0.25 || zz_p_t1_p==0.75)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
-      else if(s1=="m_tan" && e_n_comp ==2 && (zz_p_t1_p==0 || zz_p_t1_p==0.5|| zz_p_t1_p==1|| zz_p_t1_p==-0.5|| zz_p_t1_p==-1)  && data_sum_d.toString() !="" && data_sum_d.toString() !="0"){ var data_b=data_sum_d;return data_b;}
-     else{ var data_b_t=m_mtx_real_mul(zz_p_t1_p,PIMUL2S); var data_b=m_mtx_real_add_x(data_b_t,data_sum_d);return data_b;}
+    var ans_1="";                             
+     if(e_p_comp==1 ){ var  ans_1 =message_1(16);  return  ans_1 ; }     
+    var zz_p_t1_p = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,1);  
+     if(zz_p_t1_p< 0){ var zz_p_t1_p = m_mtx_real_add(1,zz_p_t1_p);}   
+     if(zz_p_t1_p >=0.25 && zz_p_t1_p < 0.5 ){ var zz_p_sin = m_mtx_real_sub(0.5,zz_p_t1_p);}      
+     if(zz_p_t1_p >=0.5 && zz_p_t1_p < 0.75 ){ var zz_p_sin = m_mtx_real_sub(0.5,zz_p_t1_p);}      
+     if(zz_p_t1_p >=0.5 && zz_p_t1_p < 0.75 ){ var zz_p_cos = "-"+m_mtx_real_sub(zz_p_t1_p,0.5);}      
+     if(zz_p_t1_p >=0.75 && zz_p_t1_p < 1 ){ var zz_p_cos = m_mtx_real_sub(1,zz_p_t1_p);}         
+     if(zz_p_t1_p >=0.25 && zz_p_t1_p < 0.5 ){ var zz_p_tan = m_mtx_real_sub(zz_p_t1_p,0.5);}         
+     if(zz_p_t1_p >=0.5 && zz_p_t1_p < 0.75 ) { var zz_p_tan  = m_mtx_real_sub(zz_p_t1_p,0.5);}    
+     if( zz_p_tan =='0.25'|| zz_p_tan=='0.75'){  var  ans_1 = message_1(11);   return ans_1 ; } 
+     if(s1=="m_sin"  && (zz_p_t1_p==0 || zz_p_t1_p==1|| zz_p_t1_p==-1||zz_p_t1_p==0.5 || zz_p_t1_p==-0.5)   && data_sum_d.toString() =="0"){ var data_b="0"; return data_b;} 
+     else if(s1=="m_sin"  && data_sum_d.toString() =="0"){ var data_b_t=m_mtx_real_mul(zz_p_sin,2); var data_b = data_b_t+"π" ;return data_b;} //202
+     else if(s1=="m_cos"  && (zz_p_t1_p==0.25 || zz_p_t1_p==-0.75||zz_p_t1_p==-0.25 || zz_p_t1_p==0.75)   && data_sum_d.toString() =="0"){ var data_b="0.5π" ; return data_b;}   
+     else if(s1=="m_cos"  && data_sum_d.toString() =="0"){ var data_b_t=m_mtx_real_mul(zz_p_cos,2); var data_b = data_b_t+"π" ;return data_b;} 
+     else if(s1=="m_tan"  && (zz_p_t1_p==0 || zz_p_t1_p==0.5|| zz_p_t1_p==1|| zz_p_t1_p==-0.5|| zz_p_t1_p==-1)  && data_sum_d.toString() =="0"){ var data_b="0" ;return data_b;} 
+     else if(s1=="m_tan"  && data_sum_d.toString() =="0"){ var data_b_t=m_mtx_real_mul(zz_p_tan,2); var data_b = data_b_t+"π" ;return data_b;} 
+     else if(  data_sum_d.toString() =="0"){ var data_b_t=m_mtx_real_mul(zz_p_t1_p,2); var data_b = data_b_t+"π" ;return data_b;} 
+      else{ var data_b_t=m_mtx_real_mul(zz_p_t1_p,PIMUL2S); var data_b=m_mtx_real_add_x(data_b_t,data_sum_d);return data_b;}
      }
     if(s1=="m_asin" ||s1=="m_acos"||s1=="m_acosh"||s1=="m_atanh"){    
       var data_sum_bce = m_split_4_bce_sum(data_sum_b,data_sum_c,data_sum_e,0);      
