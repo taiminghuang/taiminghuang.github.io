@@ -3964,8 +3964,8 @@ function m_mtx_col_sum(A,col){
       var data_sum =data_sum;   
       var data_a_fst=data_a.toString().substr(0,1);
       var data_sum_fst=data_sum.toString().substr(0,1);
-        if(data_a_fst=="-"){ var data_a=data_a.substr(1,data_a.length-1);} 
-        if(data_sum_fst=="-"){ var data_sum=data_sum.substr(1,data_sum.length-1);} 
+        if(data_a_fst=="-"){ var data_a=data_a.toString().substr(1,data_a.toString().length-1);} 
+        if(data_sum_fst=="-"){ var data_sum=data_sum.toString().substr(1,data_sum.toString().length-1);} 
       var data_sum= data_sum.toString().trim();
       var data_sum=m_mtx_trim(data_sum).toString();   
       var data_a= data_a.toString().trim();
@@ -11173,15 +11173,12 @@ function m_split_add_sub_sum(strs,nubs){
   var r_nb =m_str_all_char_nb(ss,"r");
   var sum_nb=s_nb+e_nb+l_nb+a_nb+h_nb+m_nb+r_nb;
     if(sum_nb >=1){return  ss ;} 
-  var ss_fst= ss.substr(0,1);
-    if(ss_fst=="-"){ var ss="Q"+ss.substr(1,ss.length-1) ;}
-  var add_nb=m_str_all_char_nb(ss,"+");
+   var add_nb=m_str_all_char_nb(ss,"+");
   var sub_nb=m_str_all_char_nb(ss,"-");
   var mul_nb=m_str_all_char_nb(ss,"*");
   var div_nb=m_str_all_char_nb(ss,"/");
   var pi_nb=m_str_all_char_nb(ss,"π");
   var deg_nb=m_str_all_char_nb(ss,"°");
-  var ss = ss.toString().replace(/Q/g , "\-");
     if(add_nb ==0 && sub_nb==0 && mul_nb==0 && div_nb==0){return  ss ;}   
   var ss = ss.toString().replace(/\*\π/g , "\π");   
   var ss = ss.toString().replace(/\*\°/g , "\°");
@@ -11279,10 +11276,10 @@ function m_split_add_sub_sum(strs,nubs){
                                              var zz_p_cos = zz_p_t1_p;     
                                              var zz_p_tan = zz_p_t1_p; }    
      if(zz_p_t1_p >=0.25 && zz_p_t1_p < 0.5 ){ var zz_p_sin = m_mtx_real_sub(0.5,zz_p_t1_p);       
-                                               var zz_p_cos = "-"+m_mtx_real_sub(0.5,zz_p_t1_p);  
+                                               var zz_p_cos = zz_p_t1_p;  
                                                var zz_p_tan = "-"+m_mtx_real_sub(0.5,zz_p_t1_p); } 
       if(zz_p_t1_p >=0.5 && zz_p_t1_p < 0.75 ){ var zz_p_sin = "-"+m_mtx_real_sub(zz_p_t1_p,0.5);      
-                                                var zz_p_cos = "-"+m_mtx_real_sub(zz_p_t1_p,0.5);  
+                                                var zz_p_cos = m_mtx_real_sub(1,zz_p_t1_p);    
                                                 var zz_p_tan = m_mtx_real_sub(zz_p_t1_p,0.5); } 
       if(zz_p_t1_p >=0.75 && zz_p_t1_p <= 1 ){ var zz_p_sin = "-"+m_mtx_real_sub(1,zz_p_t1_p);       
                                                var zz_p_cos = m_mtx_real_sub(1,zz_p_t1_p);  
