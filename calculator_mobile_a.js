@@ -10742,15 +10742,40 @@ function m_funct_content_cal_noc(strs,fuc){
   var sec_1_lst=sec_1.toString().substr(sec_1.length-1,1);  
   var sec_2_fst=sec_2.toString().substr(0,1);
   var sec_3_fst=sec_3.toString().substr(0,1);
-  var sec_1_m=m_str_all_char_nb(sec_1,"m");   
+  var sec_1_m=m_str_all_char_nb(sec_1,"m_");
+  var sec_2_m=m_str_all_char_nb(sec_2,"m_"); 
     if(sec_1_lst=="-" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+"+"+sec_2.substr(1,sec_2.length-1)+sec_3;}    
     else if(sec_1_lst=="+" && sec_2_fst=="-"){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3;}
-    else if(sec_1_lst=="(" && sec_3_fst==")" && sec_1_m==0){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3.substr(1,sec_3.length-1);}  
+    else if(sec_1_lst=="(" && sec_3_fst==")" && (sec_1_m==0 ||sec_2_m==0 )){ var ss=sec_1.substr(0,sec_1.length-1)+sec_2+sec_3.substr(1,sec_3.length-1);}  
     else { var ss=sec_1+sec_2+sec_3;}
   var ss  = ss.toString().replace(/\+\+/g , "\+");      
-  var ss  = ss.toString().replace(/\-\-/g , "\-");      
+  var ss  = ss.toString().replace(/\-\-/g , "\-");   
+  var ss = m_smp_op_eval(ss);
    return ss;
  }
+
+function m_smp_op_eval(strs){  //20240325
+ var ss = strs.toString().trim();
+ var ss  = ss.toString().replace(/e\+/g , "EP"); 
+ var ss  = ss.toString().replace(/e\-/g , "EN"); 
+ var ss_m=m_str_all_char_nb(ss,"m_");   
+ var ss_add=m_str_all_char_nb(ss,"+");   
+ var ss_1fst=ss.toString().substr(0,1);   
+ var ss_2fst=ss.toString().substr(0,2);  
+   if(ss_1fst=="-"){var ss_n=ss.toString().substr(1,ss.length-1);}  
+   else if(ss_2fst=="(-" ){var ss_n=ss.toString().substr(2,ss.length-2);}  
+   else{var ss_n = ss;}
+ var ss_sub=m_str_all_char_nb(ss_n,"-");   
+ var ss_mul=m_str_all_char_nb(ss,"*");   
+ var ss_div=m_str_all_char_nb(ss,"/");   
+ var ss  = ss.toString().replace(/EP/g , "e\+"); 
+ var ss  = ss.toString().replace(/EN/g , "e\-"); 
+ var ss_op =0;                                      
+ var ss_op = ss_add+ss_sub+ss_mul+ss_div; 
+   if(ss_op !=0 && ss_m==0){ var ss = m_ext_in_funct(ss);
+                   ss = eval(ss);  } 
+   return ss;
+}
 
 function m_funct_content_eval_many(strs){     
   var ss = strs.toString().trim();
