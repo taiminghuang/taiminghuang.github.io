@@ -10669,9 +10669,6 @@ function m_funct_content_cal_noc(strs,fuc){
   var sec_2_sum_e_nb=sec_2_en_nb+sec_2_ep_nb+sec_2_en1_nb+sec_2_ep1_nb ;
   var fun_limit="";
     if(fun_sec1.length <= 14 && fun_sec1.length >=3 && idx_xx > 0 ){ fun_limit = fun_sec1 ;}  
-    if( fun_limit =='m_sin' || fun_limit =='m_cos' || fun_limit =='m_tan' ){ ; }
-    else{ var sec_2 = sec_2.toString().replace(/\°/g , DEG);   
-          var sec_2 = sec_2.toString().replace(/\π/g , PIS); }
   var sec_2 =  m_split_4(sec_2);
   var sec_2 = m_split_add_sub_sum(sec_2,fun_limit); 
   var data_msg =0;
@@ -10705,10 +10702,6 @@ function m_funct_content_cal_noc(strs,fuc){
             var data_t = fun_sec+"("+sec_2+")";}               
     else{var data_t = fun_sec+"('"+sec_2+"')";} 
     if(fun_sec.length <= 14 && fun_sec.length >=3){   
-        data_t = data_t.toString().replace(/'/g , ""); 
-        data_t = data_t.toString().replace(/"/g , ""); 
-        data_t = data_t.toString().replace(/\(/g , "('"); 
-        data_t = data_t.toString().replace(/\)/g , "')"); 
      var sec_2 = eval(data_t);                    
      var data_msg =0;                               
      var data_msg =  m_str_char(sec_2,"Msg") ;           
@@ -12062,7 +12055,7 @@ function m_1_pi_deg_ts(x){
   var sec_1="";
   var sec_2="";
   var sec_3="";
-   if((sin_nb>=1 ||cos_nb>=1 ||tan_nb>=1 ) && sum_pz >=1 ){      
+   if((sin_nb>=1 ||cos_nb>=1 ||tan_nb>=1 ) && sum_pz >=1 && sum_ep==0){      
       for(var i=0 ; i<3 ; i++){
         var xx="";
         var nubs=0;
@@ -12141,6 +12134,8 @@ function m_1_pi_deg_ts(x){
    var this_it = m_del4_2f_char(it,';').toString().trim(); 
    var this_it_s = this_it; 
    var this_it = mtx_str_inpt_chk_bf(this_it);
+   var this_it = m_sing_item(this_it); 
+   var this_it = m_replace_eq(this_it); 
    var nub_Msg = m_str_char(this_it,"Msg") ;      
      if(nub_Msg !=0){
        document.getElementById('input').value+=" "+this_it +";";
@@ -12156,7 +12151,6 @@ function m_1_pi_deg_ts(x){
     var this_it_copy = this_it_copy.toString().replace(/atanh/g , "artanh"); 
       if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data="="+this_it_copy;}   
       else{ var function_data ="";} 
-    var this_it = m_sing_item(this_it);
     var this_it = m_str_sub_ngt_bf(this_it);   
     var this_it = m_str_math_replacec(this_it); 
     var this_it =  m_oct_nb(this_it);                 
