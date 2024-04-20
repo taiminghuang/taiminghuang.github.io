@@ -12134,9 +12134,7 @@ function m_1_pi_deg_ts(x){
    var this_it = m_del4_2f_char(it,';').toString().trim(); 
    var this_it_s = this_it; 
    var this_it = mtx_str_inpt_chk_bf(this_it);
-   var this_it = m_sing_item(this_it); 
-   var this_it = m_replace_eq(this_it); 
-   var nub_Msg = m_str_char(this_it,"Msg") ;      
+    var nub_Msg = m_str_char(this_it,"Msg") ;      
      if(nub_Msg !=0){
        document.getElementById('input').value+=" "+this_it +";";
        newline_1(); 
@@ -12151,6 +12149,7 @@ function m_1_pi_deg_ts(x){
     var this_it_copy = this_it_copy.toString().replace(/atanh/g , "artanh"); 
       if(this_function!=this_it_copy && this_it_copy !="" && this_it_copy !=0){ var function_data="="+this_it_copy;}   
       else{ var function_data ="";} 
+    var this_it = m_sing_item(this_it);
     var this_it = m_str_sub_ngt_bf(this_it);   
     var this_it = m_str_math_replacec(this_it); 
     var this_it =  m_oct_nb(this_it);                 
